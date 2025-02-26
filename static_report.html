@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report an Incident</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS for neutral styling and improved card design -->
+  <style>
+    /* Remove blue focus outlines and use a subtle gray border */
+    .form-control:focus, .form-select:focus, .btn:focus {
+      box-shadow: none;
+      border-color: #ced4da;
+    }
+    /* Update offcanvas links */
+    .offcanvas .nav-link {
+      color: #212529;
+    }
+    .offcanvas .nav-link:hover {
+      color: #0d6efd;
+    }
+    /* Improved card styling */
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      background-color: #ffffff;
+    }
+    body {
+      background-color: #f1f1f1;
+    }
+  </style>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body class="bg-light">
+  <!-- Common Header with Offcanvas Menu (same as static_dashboard.html) -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand d-none d-lg-block" href="static_dashboard.html">Unit500</a>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link active" href="static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Title -->
+  <div class="container mb-4">
+    <h1 class="display-4 text-center">Report an Incident</h1>
+    <p class="text-center text-muted">Please provide details about the security incident you'd like to report.</p>
+  </div>
+
+  <!-- Report Form Card (no header text) -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card p-4">
+          <div class="card-body">
+            <!-- Flash messages (if using Flask) -->
+            
+              
+            
+            <!-- Report Form -->
+            <form id="reportForm">
+              <!-- Report Type Selection -->
+              <div class="mb-3">
+                <label for="report_type" class="form-label">Report Type</label>
+                <select id="report_type" name="report_type" required class="form-select">
+                  <option value="">Select Report Type</option>
+                  <option value="defacement">Defacement</option>
+                  <option value="ransomware">Ransomware</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <!-- Dynamic Fields Container (populated based on report type) -->
+              <div id="dynamicFields" class="mb-3"></div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">
+                  Submit Report
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global datalist with all world countries (if needed by dynamic fields) -->
+  <datalist id="all_countries">
+    <option value="Afghanistan">
+    <option value="Albania">
+    <option value="Algeria">
+    <option value="Andorra">
+    <option value="Angola">
+    <!-- ... rest of countries ... -->
+    <option value="Zimbabwe">
+  </datalist>
+
+  <!-- Footer (if common footer exists, include it) -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-02-26 07:49:16-3.0.2</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+  </div>
+</footer>
+
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom script for dynamic fields and form submission -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const reportTypeSelect = document.getElementById("report_type");
+      const dynamicFields = document.getElementById("dynamicFields");
+      const apiUrl = "https://lri3fp9pe2.execute-api.us-east-1.amazonaws.com/prod/report";
+  
+      // Global mapping for country names to ISO codes
+      let countryMapping = {};
+  
+      // Load country mapping from Rest Countries API
+      fetch("https://restcountries.com/v3.1/all")
+        .then(response => response.json())
+        .then(countries => {
+          countries.forEach(country => {
+            countryMapping[country.name.common] = country.cca2;
+          });
+        })
+        .catch(err => console.error("Error loading country mapping:", err));
+  
+      // Function to get today's date formatted as YYYY-MM-DD
+      function getToday() {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        let mm = today.getMonth() + 1;
+        let dd = today.getDate();
+        if (mm < 10) mm = '0' + mm;
+        if (dd < 10) dd = '0' + dd;
+        return `${yyyy}-${mm}-${dd}`;
+      }
+      const todayDate = getToday();
+  
+      // Functions to return dynamic fields HTML for each report type
+  
+      function defacementFields() {
+        return `
+          <div class="mb-3">
+            <label for="group_name" class="form-label">Group Name (optional)</label>
+            <input type="text" id="group_name" name="group_name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="actor_name" class="form-label">Hacker Name</label>
+            <input type="text" id="actor_name" name="actor_name" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_website" class="form-label">Targeted Website</label>
+            <input type="url" id="targeted_website" name="targeted_website" required placeholder="https://example.org" class="form-control">
+          </div>
+          <div class="form-check mb-3">
+            <input type="checkbox" id="mass_defacement_checkbox" name="mass_defacement" value="yes" class="form-check-input">
+            <label for="mass_defacement_checkbox" class="form-check-label">Mass Defacement</label>
+          </div>
+          <div id="massDefacementFields" class="mb-3 d-none">
+            ${[...Array(10)].map((_, i) => `
+              <div class="mb-2">
+                <label for="targeted_website_mass_${i+1}" class="form-label">Targeted Website #${i+1}</label>
+                <input type="url" id="targeted_website_mass_${i+1}" name="targeted_website_mass_${i+1}" placeholder="https://example.org" class="form-control">
+              </div>
+            `).join('')}
+          </div>
+          <div class="mb-3">
+            <label for="source_attacker_country" class="form-label">Source Attacker Country</label>
+            <input type="text" id="source_attacker_country" name="source_attacker_country" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_date" class="form-label">Attack Date</label>
+            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="reason" class="form-label">Reason</label>
+            <select id="reason" name="reason" required class="form-select">
+              <option value="fun" selected>Just For Fun</option>
+              <option value="politics">Politics</option>
+              <option value="bored">Bored</option>
+              <option value="for_profit">For Profit</option>
+            </select>
+          </div>
+        `;
+      }
+  
+      function ransomwareFields() {
+        return `
+          <div class="mb-3">
+            <label for="group_name" class="form-label">Group Name (optional)</label>
+            <input type="text" id="group_name" name="group_name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="actor_name" class="form-label">Notifier Name</label>
+            <input type="text" id="actor_name" name="actor_name" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_company" class="form-label">Targeted Company</label>
+            <input type="text" id="targeted_company" name="targeted_company" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="victim_website" class="form-label">Victim Website</label>
+            <input type="url" id="victim_website" name="victim_website" required placeholder="https://example.org" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="ransom_image" class="form-label">Ransom Image Proof</label>
+            <input type="url" id="ransom_image" name="ransom_image" required value="http://www.example.org/image.png" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="victim_country" class="form-label">Victim Country</label>
+            <input type="text" id="victim_country" name="victim_country" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_date" class="form-label">Attack Date</label>
+            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attacker_country" class="form-label">Attacker Country (Attack Source)</label>
+            <input type="text" id="attacker_country" name="attacker_country" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="reason" class="form-label">Reason</label>
+            <select id="reason" name="reason" required class="form-select">
+              <option value="for_profit" selected>For Profit</option>
+              <option value="fun">Just For Fun</option>
+              <option value="politics">Politics</option>
+              <option value="bored">Bored</option>
+            </select>
+          </div>
+        `;
+      }
+  
+      function otherFields() {
+        return `
+          <div class="mb-3">
+            <label for="group_name" class="form-label">Group Name (optional)</label>
+            <input type="text" id="group_name" name="group_name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="actor_name" class="form-label">Hacker Name</label>
+            <input type="text" id="actor_name" name="actor_name" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_website" class="form-label">Targeted Website</label>
+            <input type="url" id="targeted_website" name="targeted_website" required placeholder="https://example.org" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_company" class="form-label">Targeted Company</label>
+            <input type="text" id="targeted_company" name="targeted_company" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_type" class="form-label">Attack Type</label>
+            <input type="text" id="attack_type" name="attack_type" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attacked_country" class="form-label">Attacked Country</label>
+            <input type="text" id="attacked_country" name="attacked_country" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation</label>
+            <input type="text" id="attacker_country_affiliation" name="attacker_country_affiliation" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_date" class="form-label">Attack Date</label>
+            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="reason" class="form-label">Reason</label>
+            <select id="reason" name="reason" required class="form-select">
+              <option value="fun" selected>Just For Fun</option>
+              <option value="politics">Politics</option>
+              <option value="bored">Bored</option>
+              <option value="for_profit">For Profit</option>
+            </select>
+          </div>
+        `;
+      }
+  
+      // Update dynamic fields based on the selected report type
+      function updateDynamicFields() {
+        const type = reportTypeSelect.value;
+        if (type === "defacement") {
+          dynamicFields.innerHTML = defacementFields();
+          const checkbox = document.getElementById("mass_defacement_checkbox");
+          if (checkbox) {
+            checkbox.addEventListener("change", function() {
+              const massFields = document.getElementById("massDefacementFields");
+              if (checkbox.checked) {
+                massFields.classList.remove("d-none");
+              } else {
+                massFields.classList.add("d-none");
+              }
+            });
+          }
+        } else if (type === "ransomware") {
+          dynamicFields.innerHTML = ransomwareFields();
+        } else if (type === "other") {
+          dynamicFields.innerHTML = otherFields();
+        } else {
+          dynamicFields.innerHTML = "";
+        }
+      }
+      reportTypeSelect.addEventListener("change", updateDynamicFields);
+  
+      // Before submitting, convert country names to ISO codes (if needed)
+      function convertCountryFields(data) {
+        const countryKeys = ["source_attacker_country", "victim_country", "attacker_country", "attacker_country_affiliation", "attacked_country"];
+        countryKeys.forEach(key => {
+          if (data[key]) {
+            let val = data[key];
+            data[key] = (val === "Unknown") ? "unknown" : (countryMapping[val] ? countryMapping[val].toUpperCase() : val);
+          }
+        });
+      }
+  
+      // Form submission handling
+      document.getElementById('reportForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const submitButton = this.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML = `Submitting...`;
+  
+        const formData = new FormData(this);
+        const data = {};
+        formData.forEach((value, key) => {
+          data[key] = value;
+        });
+        if (!data.group_name || data.group_name.trim() === "") {
+          data.group_name = "indie";
+        }
+        // Ensure protocol for the targeted website if applicable
+        if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
+          data.targeted_website = "http://" + data.targeted_website;
+        }
+        convertCountryFields(data);
+  
+        console.log("Submitting report data:", data);
+  
+        try {
+          if (data.mass_defacement) {
+            let websites = [];
+            if(data.targeted_website && data.targeted_website.trim() !== "") {
+              websites.push(data.targeted_website);
+            }
+            for (let i = 1; i <= 10; i++) {
+              let fieldName = 'targeted_website_mass_' + i;
+              if (data[fieldName] && data[fieldName].trim() !== "") {
+                websites.push(data[fieldName]);
+              }
+            }
+            if (websites.length === 0) {
+              alert("Please provide at least one Targeted Website.");
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalText;
+              return;
+            }
+            const requests = websites.map(site => {
+              let newData = Object.assign({}, data);
+              newData.targeted_website = site;
+              newData.mass = true;
+              delete newData.mass_defacement;
+              for (let i = 1; i <= 10; i++) {
+                delete newData['targeted_website_mass_' + i];
+              }
+              return fetch(apiUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newData)
+              });
+            });
+            const responses = await Promise.all(requests);
+            let errors = [];
+            for (let response of responses) {
+              if (!response.ok) {
+                const result = await response.json();
+                errors.push(result.error);
+              }
+            }
+            if (errors.length > 0) {
+              alert("Error submitting report: " + errors.join(", "));
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalText;
+              return;
+            } else {
+              alert("Report submitted successfully for " + websites.length + " targeted website(s).");
+              this.reset();
+              dynamicFields.innerHTML = "";
+            }
+          } else {
+            const response = await fetch(apiUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            if (response.ok) {
+              alert("Report submitted successfully. Message ID: " + result.messageId);
+              this.reset();
+              dynamicFields.innerHTML = "";
+            } else {
+              alert("Error submitting report: " + result.error);
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalText;
+              return;
+            }
+          }
+        } catch (err) {
+          console.error("Error submitting report:", err);
+          alert("Error submitting report: " + err.message);
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalText;
+          return;
+        }
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+      });
+    });
+  </script>
+</body>
+</html>

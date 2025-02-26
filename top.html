@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 - Top Stats</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <!-- jQuery (required for ticker) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- jQuery Easy Ticker (adjust path as needed) -->
+  <script src="static/js/jquery.easy-ticker.min.js"></script>
+  <!-- ECharts Library -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    /* Ticker styling */
+    #ticker {
+      background: #f8f9fa;
+      border: 1px solid #ddd;
+      padding: 5px 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    #ticker ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    #ticker li {
+      display: inline;
+      margin-right: 20px;
+    }
+    #ticker a {
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header with Offcanvas Menu -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand d-none d-lg-block" href="static_dashboard.html">Unit500</a>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="top.html">Top Stats</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Title -->
+  <div class="container text-center mb-2">
+    <h1>Top Stats</h1>
+  </div>
+
+  <!-- Ticker Section (placed below title and above cards) -->
+  <div id="ticker" class="container">
+    <ul>
+      <li>
+        <strong>Latest 5 Defacements:</strong>
+        
+          <a href="defacement_details/67beb34d6eb548a542fd2eee.html">hoppiness.blogs.bristol.ac.uk</a>, 
+        
+          <a href="defacement_details/67beb23c6eb548a542fd2edd.html">courses.bareket-live.co.il</a>, 
+        
+          <a href="defacement_details/67beb1ad6eb548a542fd2ed8.html">www.encg.ucd.ac.ma</a>, 
+        
+          <a href="defacement_details/67beb0986eb548a542fd2ecd.html">zerocalls.kemenperin.go.id</a>, 
+        
+          <a href="defacement_details/67beb06d6eb548a542fd2eca.html">apiekyam.drishtee.in</a>
+        
+      </li>
+      <li>
+        <strong>Latest 5 Ransom Alerts:</strong>
+        
+          <a href="defacement_details/.html">bcsmidwest.com</a>, 
+        
+          <a href="defacement_details/.html">lbl.london</a>, 
+        
+          <a href="defacement_details/.html">nationallegalservice.co.uk</a>, 
+        
+          <a href="defacement_details/.html">rooksrider.co.uk</a>, 
+        
+          <a href="defacement_details/.html">www.arcandco.com</a>
+        
+      </li>
+    </ul>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $('#ticker').easyTicker({
+        direction: 'up',
+        interval: 3000,
+        height: 'auto'
+      });
+    });
+  </script>
+
+  <!-- Cards Section -->
+  <div class="container mb-4">
+    <div class="row">
+      <!-- Top Ransomware Group Card -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Top Ransomware Group</div>
+          <div class="card-body">
+            
+              <h5 class="card-title">
+                <a href="group_details/lockbit3.html">
+                  lockbit3
+                </a>
+              </h5>
+              <p class="card-text">1993 incidents</p>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Top Defacement Group Card (ignoring "indie") -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Top Defacement Group</div>
+          <div class="card-body">
+            
+              <h5 class="card-title">
+                <a href="group_details/Cyber_Alpha_Wolf.html">
+                  Cyber Alpha Wolf
+                </a>
+              </h5>
+              <p class="card-text">17 incidents</p>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Top Actor Card -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Top Actor</div>
+          <div class="card-body">
+            
+              <h5 class="card-title">
+                <a href="actor_details/XYZ.html">
+                  XYZ
+                </a>
+              </h5>
+              <p class="card-text">17 incidents</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Charts Section -->
+  <div class="container mb-4">
+    <!-- Row for Top 15 Ransomware Groups and Top 15 Defacement Groups -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <h2 class="section-title">Top 15 Ransomware Groups</h2>
+        <div id="chartRansomwareGroups" class="chart-container"></div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="section-title">Top 15 Defacement Groups</h2>
+        <div id="chartDefacementGroups" class="chart-container"></div>
+      </div>
+    </div>
+    <!-- Row for Top Attacked Countries and Top Source Attack Countries -->
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="section-title">Top Attacked Countries</h2>
+        <div id="chartAttackedCountries" class="chart-container"></div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="section-title">Top Source Attack Countries</h2>
+        <div id="chartSourceAttackCountries" class="chart-container"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer Inclusion -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-02-26 07:49:16-3.0.2</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Define JS function to convert country code to emoji flag -->
+  <script>
+    function countryCodeToEmoji(countryCode) {
+      if (!countryCode || countryCode.length !== 2) return countryCode;
+      const OFFSET = 127397;
+      return countryCode.toUpperCase().split('').map(c => 
+        String.fromCodePoint(OFFSET + c.charCodeAt(0))
+      ).join('');
+    }
+  </script>
+  
+  <!-- ECharts Initialization -->
+  <script>
+    // Chart 1: Top 15 Ransomware Groups (from victims collection)
+    var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
+    var dataRansomwareGroups = [
+      
+      {value: 1993, name: "lockbit3" },
+      
+      {value: 1006, name: "lockbit2" },
+      
+      {value: 794, name: "play" },
+      
+      {value: 765, name: "clop" },
+      
+      {value: 764, name: "ransomhub" },
+      
+      {value: 731, name: "alphv" },
+      
+      {value: 647, name: "akira" },
+      
+      {value: 541, name: "bianlian" },
+      
+      {value: 533, name: "blackbasta" },
+      
+      {value: 455, name: "8base" },
+      
+      {value: 412, name: "medusa" },
+      
+      {value: 344, name: "dispossessor" },
+      
+      {value: 340, name: "conti" },
+      
+      {value: 308, name: "pysa" },
+      
+      {value: 297, name: "qilin" }
+      
+    ];
+    var optionRansomwareGroups = {
+      title: { text: 'Top 15 Ransomware Groups', left: 'center' },
+      tooltip: { trigger: 'item' },
+      legend: { orient: 'vertical', left: 'left' },
+      series: [{
+        name: 'Groups',
+        type: 'pie',
+        radius: '50%',
+        data: dataRansomwareGroups,
+        emphasis: {
+          itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0,0,0,0.5)' }
+        }
+      }]
+    };
+    chartRansomwareGroups.setOption(optionRansomwareGroups);
+
+    // Chart 2: Top 15 Defacement Groups (from defacements, excluding "indie")
+    var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
+    var dataDefacementGroups = [];
+    
+      dataDefacementGroups.push({value: 17, name: "Cyber Alpha Wolf"});
+    
+      dataDefacementGroups.push({value: 14, name: "MUSLIM CYBER ARMY"});
+    
+      dataDefacementGroups.push({value: 11, name: "Anonymous Philippines"});
+    
+      dataDefacementGroups.push({value: 9, name: "Turkhacks.com"});
+    
+      dataDefacementGroups.push({value: 6, name: "Team CyberShieldElite"});
+    
+      dataDefacementGroups.push({value: 5, name: "Cowok Tersakiti Team"});
+    
+      dataDefacementGroups.push({value: 5, name: "JKT48"});
+    
+      dataDefacementGroups.push({value: 3, name: "TEAM BD CYBER NINJA"});
+    
+      dataDefacementGroups.push({value: 3, name: "DECODE HACKERS GROUP"});
+    
+      dataDefacementGroups.push({value: 2, name: "Kurdish Haker Team"});
+    
+      dataDefacementGroups.push({value: 2, name: "Cyber Ghost Team"});
+    
+      dataDefacementGroups.push({value: 2, name: "Team_insane_Pakistan"});
+    
+      dataDefacementGroups.push({value: 2, name: "DXPLOIT"});
+    
+      dataDefacementGroups.push({value: 2, name: "ONE Thousand and ONE"});
+    
+      dataDefacementGroups.push({value: 2, name: "Team R70"});
+    
+    var optionDefacementGroups = {
+      title: { text: 'Top 15 Defacement Groups', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDefacementGroups.map(function(item) { return item.name; })
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDefacementGroups.map(function(item) { return item.value; }),
+        type: 'bar'
+      }]
+    };
+    chartDefacementGroups.setOption(optionDefacementGroups);
+
+    // Chart 3: Top Attacked Countries – use emoji flags on xAxis
+    var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
+    var attackedCountries = [
+      
+        {name: "US", value: 497 },
+      
+        {name: "CA", value: 60 },
+      
+        {name: "DE", value: 40 },
+      
+        {name: "SG", value: 38 },
+      
+        {name: "GB", value: 38 }
+      
+    ];
+    var attackedCountryFlags = attackedCountries.map(function(item){
+      return countryCodeToEmoji(item.name);
+    });
+    var optionAttackedCountries = {
+      title: { text: 'Top Attacked Countries', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: attackedCountryFlags
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: attackedCountries.map(function(item){ return item.value; }),
+        type: 'bar'
+      }]
+    };
+    chartAttackedCountries.setOption(optionAttackedCountries);
+
+    // Chart 4: Top Source Attack Countries – use emoji flags on xAxis
+    var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
+    var sourceAttackCountries = [
+      
+        {name: "unknown", value: 108 },
+      
+        {name: "Unknown", value: 52 },
+      
+        {name: "None", value: 26 },
+      
+        {name: "PH", value: 14 },
+      
+        {name: "TR", value: 6 }
+      
+    ];
+    var sourceCountryFlags = sourceAttackCountries.map(function(item){
+      return countryCodeToEmoji(item.name);
+    });
+    var optionSourceAttackCountries = {
+      title: { text: 'Top Source Attack Countries', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: sourceCountryFlags
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: sourceAttackCountries.map(function(item){ return item.value; }),
+        type: 'bar'
+      }]
+    };
+    chartSourceAttackCountries.setOption(optionSourceAttackCountries);
+  </script>
+</body>
+</html>

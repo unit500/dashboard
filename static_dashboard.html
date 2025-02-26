@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Defacements &amp; Ransomware Reports</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <!-- ECharts Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header with Offcanvas Menu -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand d-none d-lg-block" href="static_dashboard.html">Unit500</a>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-Header with Random Quote (no attribution) -->
+  <div class="text-center mb-4">
+    <h1 class="display-4 text-success">Unit500</h1>
+    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
+  </div>
+
+  <div class="container my-4">
+    <!-- Summary Stats Section -->
+    <section class="mb-4">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-header">Victims Today</div>
+            <div class="card-body">
+              <h3 id="victims-today">6</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-header">Victims This Week</div>
+            <div class="card-body">
+              <h3 id="victims-week">127</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-header">Top Countries (Today)</div>
+            <div class="card-body">
+              <ul id="top-countries-today" class="list-unstyled">
+                
+                  <li class="d-inline-block me-2">
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag"
+                         data-bs-toggle="popover" data-bs-trigger="hover"
+                         data-bs-content="IL (1)">
+                  </li>
+                
+                  <li class="d-inline-block me-2">
+                    <img src="https://flagcdn.com/32x24/id.png" alt="ID flag"
+                         data-bs-toggle="popover" data-bs-trigger="hover"
+                         data-bs-content="ID (1)">
+                  </li>
+                
+                  <li class="d-inline-block me-2">
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag"
+                         data-bs-toggle="popover" data-bs-trigger="hover"
+                         data-bs-content="TR (1)">
+                  </li>
+                
+                  <li class="d-inline-block me-2">
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
+                         data-bs-toggle="popover" data-bs-trigger="hover"
+                         data-bs-content="US (1)">
+                  </li>
+                
+                  <li class="d-inline-block me-2">
+                    <img src="https://flagcdn.com/32x24/ma.png" alt="MA flag"
+                         data-bs-toggle="popover" data-bs-trigger="hover"
+                         data-bs-content="MA (1)">
+                  </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Combined Charts Section -->
+    <section class="mb-4">
+      <div class="row">
+        <!-- Left Column: Ransom Groups / Attacked Countries -->
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs" id="ransomTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="groups-tab" data-bs-toggle="tab" data-bs-target="#groups" type="button" role="tab" aria-controls="groups" aria-selected="true">
+                    Top 10 Ransom Groups
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="attacked-tab" data-bs-toggle="tab" data-bs-target="#attacked" type="button" role="tab" aria-controls="attacked" aria-selected="false">
+                    Attacked Countries
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content" id="ransomTabsContent">
+                <div class="tab-pane fade show active" id="groups" role="tabpanel" aria-labelledby="groups-tab">
+                  <div id="chartRansomwareGroups" class="chart-container"></div>
+                </div>
+                <div class="tab-pane fade" id="attacked" role="tabpanel" aria-labelledby="attacked-tab">
+                  <div id="chartAttackedCountries" class="chart-container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column: Defacements Overview -->
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs" id="defacementsTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="defacements-group-tab" data-bs-toggle="tab" data-bs-target="#defacements-group" type="button" role="tab" aria-controls="defacements-group" aria-selected="true">
+                    Top 5 Defacement Groups
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="defacements-reporter-tab" data-bs-toggle="tab" data-bs-target="#defacements-reporter" type="button" role="tab" aria-controls="defacements-reporter" aria-selected="false">
+                    Top Source Attack Countries
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content" id="defacementsTabsContent">
+                <div class="tab-pane fade show active" id="defacements-group" role="tabpanel" aria-labelledby="defacements-group-tab">
+                  <div id="chartDefacementGroups" class="chart-container"></div>
+                </div>
+                <div class="tab-pane fade" id="defacements-reporter" role="tabpanel" aria-labelledby="defacements-reporter-tab">
+                  <div id="chartSourceAttackCountries" class="chart-container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Defaced Websites Section -->
+    <section>
+      <h2 class="section-title">Latest Defaced Websites</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67beb34d6eb548a542fd2eee.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/26/hoppiness_blogs_bristol_ac_uk/screenshot.png" class="card-img-top" alt="Thumbnail for https://hoppiness.blogs.bristol.ac.uk">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67beb34d6eb548a542fd2eee.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">hoppiness.blogs.bristol.ac.uk</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-26</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Yemeni_HaCker.html">Yemeni_HaCker</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_R70.html">Team R70</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67beb23c6eb548a542fd2edd.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/26/courses_bareket-live_co_il/screenshot.png" class="card-img-top" alt="Thumbnail for https://courses.bareket-live.co.il">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67beb23c6eb548a542fd2edd.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">courses.bareket-live.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-26</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/jokeir_07x.html">jokeir 07x</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Dark_07x_Ransomware.html">Dark 07x Ransomware</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> for_profit</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67beb1ad6eb548a542fd2ed8.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/26/encg_ucd_ac_ma/screenshot.png" class="card-img-top" alt="Thumbnail for https://www.encg.ucd.ac.ma">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67beb1ad6eb548a542fd2ed8.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.encg.ucd.ac.ma</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-26</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Alqe3qa3.html">Alqe3qa3</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67beb0986eb548a542fd2ecd.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/26/zerocalls_kemenperin_go_id/screenshot.png" class="card-img-top" alt="Thumbnail for https://zerocalls.kemenperin.go.id/0x.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67beb0986eb548a542fd2ecd.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">zerocalls.kemenperin.go.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-26</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/chinafans.html">chinafans</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67beb06d6eb548a542fd2eca.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/26/apiekyam_drishtee_in/screenshot.png" class="card-img-top" alt="Thumbnail for https://apiekyam.drishtee.in/images/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67beb06d6eb548a542fd2eca.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">apiekyam.drishtee.in</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-26</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/bonz_101.html">?Mr.bonz-101</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67beaf116eb548a542fd2ec3.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/26/gokanke_com_tr/screenshot.png" class="card-img-top" alt="Thumbnail for https://gokanke.com.tr">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67beaf116eb548a542fd2ec3.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">gokanke.com.tr</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-26</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Yunus_Emre.html">Yunus_Emre</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67bdd7946eb548a542fd2ec1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/25/bbt-store_com/screenshot.png" class="card-img-top" alt="Thumbnail for https://bbt-store.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67bdd7946eb548a542fd2ec1.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">bbt-store.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-25</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_R70.html">Team R70</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_R70.html">Team R70</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67bdc33d6eb548a542fd2ebe.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/25/flowerstosaigon_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://flowerstosaigon.com/0x.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67bdc33d6eb548a542fd2ebe.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">flowerstosaigon.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-25</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Cyber00t.html">./Cyber00t</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67bdc3346eb548a542fd2ebc.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/25/alpinaplast_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://www.alpinaplast.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67bdc3346eb548a542fd2ebc.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.alpinaplast.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-25</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/TheZero.html">TheZero</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67bdc2f66eb548a542fd2eb9.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/02/25/alfonsoubate_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://alfonsoubate.com/u.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67bdc2f66eb548a542fd2eb9.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">alfonsoubate.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-02-25</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Clay.html">Mr.Clay</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- Latest Ransomware Victims Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/d07a14304b6abb4dee1850a89d67a8ca.png" class="card-img-top" alt="bcsmidwest.com">
+              <div class="card-body">
+                <h5 class="card-title">bcsmidwest.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 23:23:55.212838</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                  
+                </p>
+                <p class="card-text"><strong>Group:</strong> cicada3301</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    Status: 29d 23h 13m 26s - Size Data: 25 GB
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/524fb5dd8cd313bff96e57cb6b46470b.png" class="card-img-top" alt="lbl.london">
+              <div class="card-body">
+                <h5 class="card-title">lbl.london</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:54:45.595475</p>
+                <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> termite</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    London Belgravia Brokers provide risk insurance and finance advisory solutions to global property de&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/9b3928fb4fec37922d4cee396e7587fb.png" class="card-img-top" alt="nationallegalservice.co.uk">
+              <div class="card-body">
+                <h5 class="card-title">nationallegalservice.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:53:16.467045</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> termite</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    National Legal Service are a leading Criminal, Family and Child Care firm conducting both private an&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/d46732834b074d513c0cb61445238785.png" class="card-img-top" alt="rooksrider.co.uk">
+              <div class="card-body">
+                <h5 class="card-title">rooksrider.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:51:47.082674</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> termite</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    Founded in 1761, Rooks Rider Solicitors is a boutique law firm specializing in corporate law, real e&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/fd516448281ffdcf118850e5a5abc722.png" class="card-img-top" alt="www.arcandco.com">
+              <div class="card-body">
+                <h5 class="card-title">www.arcandco.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:50:18.630465</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag">
+                  
+                  CA
+                </p>
+                <p class="card-text"><strong>Group:</strong> termite</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    Arc &amp;amp; Co. was formed in 2007,  concentrates on financing Property, Marine and Aviation assets. 
+
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/0b6a922ac7dc21ac328b354484243016.png" class="card-img-top" alt="www.genea.com.au">
+              <div class="card-body">
+                <h5 class="card-title">www.genea.com.au</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:48:49.782915</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/au.png" alt="AU flag">
+                  
+                  AU
+                </p>
+                <p class="card-text"><strong>Group:</strong> termite</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    Founded in 1984, Genea is a reproductive and fertility treatment and care facility. The company is h&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/8e9699bd77d3b73c6ca83c44df39304a.png" class="card-img-top" alt="welcompanies.com">
+              <div class="card-body">
+                <h5 class="card-title">welcompanies.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:42:00.883540</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    [AI generated] Wel Companies is a renowned refrigerated freight and logistics company based in De Pe&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/bd31fbcb8f5305eedc232d47d5bbe3c6.png" class="card-img-top" alt="www.convert-solar.com">
+              <div class="card-body">
+                <h5 class="card-title">www.convert-solar.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:39:12.426629</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    United States
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/f15266071ef5deb7335032466c839efd.png" class="card-img-top" alt="www.radcoindustries.com">
+              <div class="card-body">
+                <h5 class="card-title">www.radcoindustries.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:37:42.379467</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    United States
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/9377f829767ec958b8608c00ff501379.png" class="card-img-top" alt="www.fairhavenshipyard.com">
+              <div class="card-body">
+                <h5 class="card-title">www.fairhavenshipyard.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:36:11.428453</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    United States
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer Inclusion -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-02-26 07:49:16-3.0.2</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+  </div>
+</footer>
+
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Utility function to convert 2-letter country codes to emoji flags -->
+  <script>
+    function countryCodeToEmoji(countryCode) {
+      if (!countryCode || countryCode.length !== 2) return countryCode;
+      const OFFSET = 127397;
+      return countryCode.toUpperCase().split('').map(function(c) {
+        return String.fromCodePoint(OFFSET + c.charCodeAt(0));
+      }).join('');
+    }
+  </script>
+  
+  <!-- ECharts Chart Rendering -->
+  <script>
+    // Chart 1: Top Ransomware Groups (from victims) - Pie Chart
+    var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
+    var dataRansomwareGroups = [
+      
+      {value: 1993, name: "lockbit3" },
+      
+      {value: 1006, name: "lockbit2" },
+      
+      {value: 794, name: "play" },
+      
+      {value: 765, name: "clop" },
+      
+      {value: 764, name: "ransomhub" },
+      
+      {value: 731, name: "alphv" },
+      
+      {value: 647, name: "akira" },
+      
+      {value: 541, name: "bianlian" },
+      
+      {value: 533, name: "blackbasta" },
+      
+      {value: 455, name: "8base" },
+      
+      {value: 412, name: "medusa" },
+      
+      {value: 344, name: "dispossessor" },
+      
+      {value: 340, name: "conti" },
+      
+      {value: 308, name: "pysa" },
+      
+      {value: 297, name: "qilin" }
+      
+    ];
+    var optionRansomwareGroups = {
+      title: { text: 'Top Ransomware Groups', left: 'center' },
+      tooltip: { trigger: 'item' },
+      legend: { orient: 'vertical', left: 'left' },
+      series: [{
+        name: 'Groups',
+        type: 'pie',
+        radius: '50%',
+        data: dataRansomwareGroups,
+        emphasis: {
+          itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0,0,0,0.5)' }
+        }
+      }]
+    };
+    chartRansomwareGroups.setOption(optionRansomwareGroups);
+
+    // Chart 2: Top Defacement Groups (from defacements) - Pie Chart
+    var defacementData = [];
+    
+      
+    
+      
+        defacementData.push({ value: 17, name: "Cyber Alpha Wolf" });
+      
+    
+      
+        defacementData.push({ value: 14, name: "MUSLIM CYBER ARMY" });
+      
+    
+      
+        defacementData.push({ value: 11, name: "Anonymous Philippines" });
+      
+    
+      
+        defacementData.push({ value: 9, name: "Turkhacks.com" });
+      
+    
+    var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
+    var optionDefacementGroups = {
+      title: { text: 'Top Defacement Groups', left: 'center' },
+      tooltip: { trigger: 'item' },
+      legend: { orient: 'vertical', left: 'left' },
+      series: [{
+        name: 'Defacement Groups',
+        type: 'pie',
+        radius: '50%',
+        data: defacementData,
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0,0,0,0.5)'
+          }
+        }
+      }]
+    };
+    chartDefacementGroups.setOption(optionDefacementGroups);
+
+    // Chart 3: Top Attacked Countries (from victims.country & defacements.dst_country)
+    var attackedCategories = [];
+    var attackedSeriesData = [];
+    
+      attackedCategories.push("US");
+      attackedSeriesData.push({value: 497, name: "US"});
+    
+      attackedCategories.push("CA");
+      attackedSeriesData.push({value: 60, name: "CA"});
+    
+      attackedCategories.push("DE");
+      attackedSeriesData.push({value: 40, name: "DE"});
+    
+      attackedCategories.push("SG");
+      attackedSeriesData.push({value: 38, name: "SG"});
+    
+      attackedCategories.push("GB");
+      attackedSeriesData.push({value: 38, name: "GB"});
+    
+    var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
+    var optionAttackedCountries = {
+      title: { text: 'Top Attacked Countries', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: attackedCategories,
+        axisLabel: {
+          formatter: function(value) {
+              return countryCodeToEmoji(value);
+          }
+        }
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: attackedSeriesData,
+        type: 'bar'
+      }]
+    };
+    chartAttackedCountries.setOption(optionAttackedCountries);
+
+    // Chart 4: Top Source Attack Countries (from defacements.source_attacker_country)
+    var sourceCategories = [];
+    var sourceSeriesData = [];
+    
+      sourceCategories.push("None");
+      sourceSeriesData.push({value: 26, name: "None"});
+    
+      sourceCategories.push("PH");
+      sourceSeriesData.push({value: 14, name: "PH"});
+    
+      sourceCategories.push("TR");
+      sourceSeriesData.push({value: 6, name: "TR"});
+    
+    var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
+    var optionSourceAttackCountries = {
+      title: { text: 'Top Source Attack Countries', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: sourceCategories,
+        axisLabel: {
+          formatter: function(value) {
+              return countryCodeToEmoji(value);
+          }
+        }
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: sourceSeriesData,
+        type: 'bar'
+      }]
+    };
+    chartSourceAttackCountries.setOption(optionSourceAttackCountries);
+
+    // Resize charts when their tab is shown (fix for hidden container issue)
+    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(function(tabButton) {
+      tabButton.addEventListener('shown.bs.tab', function(event) {
+        var target = event.target.getAttribute('data-bs-target');
+        if (target === '#attacked') {
+          chartAttackedCountries.resize();
+        } else if (target === '#defacements-reporter') {
+          chartSourceAttackCountries.resize();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
