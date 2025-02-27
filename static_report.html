@@ -45,7 +45,7 @@
       color: #666;
       font-size: 0.9rem;
     }
-    /* Style for plus button */
+    /* Plus button style for mass fields */
     .add-field-btn {
       cursor: pointer;
       font-size: 1.2rem;
@@ -123,7 +123,7 @@
 
   <!-- Footer with version and timestamp -->
   <footer>
-    <span id="footerVersion">Version: 3.0.22</span>
+    <span id="footerVersion">Version: 3.0.23</span>
     <span id="footerTimestamp"></span>
   </footer>
 
@@ -137,11 +137,14 @@
   <!-- Custom Script for Dynamic Fields, Country Dropdown, and Form Submission -->
   <script>
     $(document).ready(function() {
+      console.log("static_report.js v3.0.23 loaded.");
       // Define API URL for report submission.
       const apiUrl = "https://lri3fp9pe2.execute-api.us-east-1.amazonaws.com/prod/report";
+      console.log("API URL:", apiUrl);
 
       // Dynamically load country data from RestCountries API.
       function loadCountryData() {
+        console.log("Loading country data...");
         return fetch("https://restcountries.com/v3.1/all")
           .then(response => response.json())
           .then(data => {
@@ -150,6 +153,7 @@
               text: country.name.common
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
+            console.log("Country data loaded. Total countries:", countries.length);
             return countries;
           })
           .catch(error => {
@@ -172,6 +176,7 @@
             return country.text;
           }
         });
+        console.log("Select2 initialized on country-select fields.");
       }
   
       let countryDataGlobal = [];
@@ -191,6 +196,7 @@
         return `${yyyy}-${mm}-${dd}`;
       }
       const todayDate = getToday();
+      console.log("Today's date:", todayDate);
   
       // Dynamic fields functions:
       function defacementFields() {
@@ -211,12 +217,12 @@
             <input type="checkbox" id="mass_defacement_checkbox" name="mass_defacement" value="yes" class="form-check-input">
             <label for="mass_defacement_checkbox" class="form-check-label">Mass Defacement</label>
           </div>
-          <!-- Container for dynamically added mass defacement fields -->
+          <!-- Container for dynamic mass defacement fields -->
           <div id="massDefacementContainer"></div>
           <div class="mb-3">
             <label for="source_attacker_country" class="form-label">Source Attacker Country</label>
-            <select id="source_attacker_country" name="source_attacker_country" required class="form-select country-select">
-              <option></option>
+            <select id="source_attacker_country" name="source_attacker_country" class="form-select country-select">
+              <option value="unknown" selected>Unknown</option>
             </select>
           </div>
           <div class="mb-3">
@@ -235,15 +241,18 @@
         `;
       }
   
-      // New: Initialize dynamic mass defacement fields.
+      // New mass defacement behavior: dynamic addition of fields with a plus icon.
       function initMassDefacement() {
+        console.log("Initializing mass defacement functionality.");
         const container = $("#massDefacementContainer");
-        container.empty(); // Clear any existing fields
+        container.empty();
         let count = 0;
   
-        // Function to add a new mass field if count < 10
         function addMassField() {
-          if (count >= 10) return;
+          if (count >= 10) {
+            console.log("Maximum mass fields reached.");
+            return;
+          }
           count++;
           const fieldId = "targeted_website_mass_" + count;
           const fieldHtml = `
@@ -253,9 +262,10 @@
             </div>
           `;
           container.append(fieldHtml);
+          console.log("Added mass defacement field:", fieldId);
         }
   
-        // When the checkbox is checked, add the first mass field.
+        // Handle the checkbox click.
         $("#mass_defacement_checkbox").off("change").on("change", function() {
           if ($(this).is(":checked")) {
             container.show();
@@ -269,18 +279,16 @@
           }
         });
   
-        // Delegate click event for dynamically added plus buttons.
-        container.on("click", ".add-field-btn", function() {
+        // Delegate plus button click to add more fields.
+        container.off("click", ".add-field-btn").on("click", ".add-field-btn", function() {
           addMassField();
-          $(this).remove(); // Remove the plus button from the previous field
-          // Append a plus button to the new last field if count < 10
+          $(this).remove();
           if (count < 10) {
             $(`#massFieldGroup_${count}`).append(`<span class="input-group-text add-field-btn" data-index="${count}">+</span>`);
           }
         });
       }
   
-      // Other dynamic field functions remain unchanged.
       function ransomwareFields() {
         return `
           <div class="mb-3">
@@ -305,8 +313,8 @@
           </div>
           <div class="mb-3">
             <label for="victim_country" class="form-label">Victim Country</label>
-            <select id="victim_country" name="victim_country" required class="form-select country-select">
-              <option></option>
+            <select id="victim_country" name="victim_country" class="form-select country-select">
+              <option value="unknown" selected>Unknown</option>
             </select>
           </div>
           <div class="mb-3">
@@ -315,8 +323,8 @@
           </div>
           <div class="mb-3">
             <label for="attacker_country" class="form-label">Attacker Country (Attack Source)</label>
-            <select id="attacker_country" name="attacker_country" required class="form-select country-select">
-              <option></option>
+            <select id="attacker_country" name="attacker_country" class="form-select country-select">
+              <option value="unknown" selected>Unknown</option>
             </select>
           </div>
           <div class="mb-3">
@@ -359,13 +367,13 @@
           <div class="mb-3">
             <label for="attacked_country" class="form-label">Attacked Country (optional)</label>
             <select id="attacked_country" name="attacked_country" class="form-select country-select">
-              <option></option>
+              <option value="unknown" selected>Unknown</option>
             </select>
           </div>
           <div class="mb-3">
             <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation (optional, default Unknown)</label>
             <select id="attacker_country_affiliation" name="attacker_country_affiliation" class="form-select country-select">
-              <option></option>
+              <option value="unknown" selected>Unknown</option>
             </select>
           </div>
           <div class="mb-3">
@@ -410,13 +418,13 @@
           <div class="mb-3">
             <label for="attacked_country" class="form-label">Attacked Country</label>
             <select id="attacked_country" name="attacked_country" class="form-select country-select">
-              <option></option>
+              <option value="unknown" selected>Unknown</option>
             </select>
           </div>
           <div class="mb-3">
             <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation</label>
             <select id="attacker_country_affiliation" name="attacker_country_affiliation" class="form-select country-select">
-              <option></option>
+              <option value="unknown" selected>Unknown</option>
             </select>
           </div>
           <div class="mb-3">
@@ -438,9 +446,9 @@
       // Update dynamic fields based on selected report type.
       function updateDynamicFields() {
         const type = $("#report_type").val();
+        console.log("Report type selected:", type);
         if (type === "defacement") {
           $("#dynamicFields").html(defacementFields());
-          // Initialize the dynamic mass defacement functionality.
           initMassDefacement();
         } else if (type === "ransomware") {
           $("#dynamicFields").html(ransomwareFields());
@@ -451,7 +459,7 @@
         } else {
           $("#dynamicFields").html("");
         }
-        // Reinitialize all country-select elements
+        // Reinitialize country-select elements.
         initCountrySelect(countryDataGlobal);
       }
       $("#report_type").on("change", updateDynamicFields);
@@ -463,11 +471,11 @@
       }
       updateFooter();
   
-      // Convert country fields before submitting.
+      // Convert empty country fields to "unknown" (in addition to defaults in select markup).
       function convertCountryFields(data) {
         const countryKeys = ["source_attacker_country", "victim_country", "attacker_country", "attacker_country_affiliation", "attacked_country"];
         countryKeys.forEach(key => {
-          if (data[key] === "") {
+          if (!data[key] || data[key].trim() === "") {
             data[key] = "unknown";
           }
         });
@@ -491,7 +499,6 @@
           data.targeted_website = "http://" + data.targeted_website;
         }
         convertCountryFields(data);
-  
         console.log("Submitting report data:", data);
   
         try {
@@ -500,7 +507,7 @@
             if (data.targeted_website && data.targeted_website.trim() !== "") {
               websites.push(data.targeted_website);
             }
-            // Collect all dynamically added mass fields.
+            // Collect mass defacement fields from the container.
             $("#massDefacementContainer input").each(function() {
               const val = $(this).val();
               if (val && val.trim() !== "") {
