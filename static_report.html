@@ -10,7 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <!-- Flag Icon CSS (optional) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css" rel="stylesheet">
-  <!-- Custom CSS for styling -->
+  <!-- Custom CSS -->
   <style>
     .form-control:focus, .form-select:focus, .btn:focus {
       box-shadow: none;
@@ -31,7 +31,7 @@
     body {
       background-color: #f1f1f1;
     }
-    /* Custom style for Select2 to integrate with Bootstrap */
+    /* Select2 customization */
     .select2-container--default .select2-selection--single {
       height: calc(2.5rem + 2px);
       padding: 0.375rem 0.75rem;
@@ -116,7 +116,7 @@
 
   <!-- Footer with version and timestamp -->
   <footer>
-    <span id="footerVersion">Version: 3.0.21</span>
+    <span id="footerVersion">Version: 3.0.22</span>
     <span id="footerTimestamp"></span>
   </footer>
 
@@ -127,13 +127,13 @@
   <!-- Select2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   
-  <!-- Custom Script for Dynamic Fields, Country Dropdown, and Form Submission -->
+  <!-- Custom Script -->
   <script>
     $(document).ready(function() {
-      // Define the API URL for submitting reports.
+      // Define API URL for report submission.
       const apiUrl = "https://lri3fp9pe2.execute-api.us-east-1.amazonaws.com/prod/report";
 
-      // Dynamically load country data from RestCountries API.
+      // Load country data dynamically from RestCountries API.
       function loadCountryData() {
         return fetch("https://restcountries.com/v3.1/all")
           .then(response => response.json())
@@ -151,7 +151,7 @@
           });
       }
   
-      // Initialize Select2 on elements with class 'country-select'
+      // Initialize Select2 on all elements with class 'country-select'
       function initCountrySelect(countryData) {
         $('.country-select').select2({
           data: countryData,
@@ -173,7 +173,7 @@
         initCountrySelect(countryDataGlobal);
       });
   
-      // Get today's date in YYYY-MM-DD format
+      // Get today's date in YYYY-MM-DD format.
       function getToday() {
         const today = new Date();
         const yyyy = today.getFullYear();
@@ -185,7 +185,7 @@
       }
       const todayDate = getToday();
   
-      // Dynamic field HTML for each report type:
+      // Dynamic field functions:
       function defacementFields() {
         return `
           <div class="mb-3">
@@ -388,7 +388,7 @@
         `;
       }
   
-      // Update dynamic fields when report type changes.
+      // Update dynamic fields based on report type selection.
       function updateDynamicFields() {
         const type = $("#report_type").val();
         if (type === "defacement") {
@@ -402,12 +402,12 @@
         } else {
           $("#dynamicFields").html("");
         }
-        // Reinitialize Select2 on all country-select elements.
+        // Reinitialize country-select elements
         initCountrySelect(countryDataGlobal);
       }
       $("#report_type").on("change", updateDynamicFields);
   
-      // Update footer with version and current timestamp.
+      // Update footer with version and timestamp.
       function updateFooter() {
         const now = new Date();
         $("#footerTimestamp").text(" | Updated: " + now.toLocaleString());
