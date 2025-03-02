@@ -339,6 +339,7 @@
         `;
       }
   
+      // Updated ddosFields function with additional fields for DDoS report type.
       function ddosFields() {
         return `
           <div class="mb-3">
@@ -348,6 +349,31 @@
           <div class="mb-3">
             <label for="actor_name" class="form-label">Hacker Name</label>
             <input type="text" id="actor_name" name="actor_name" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="operation_name" class="form-label">Operation Name</label>
+            <input type="text" id="operation_name" name="operation_name" maxlength="50" placeholder="Enter operation name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="network" class="form-label">Network</label>
+            <select id="network" name="network" class="form-select" multiple>
+              <option value="Rebirth V2">Rebirth V2</option>
+              <option value="Nocturnal">Nocturnal</option>
+              <option value="Lucky Stresser V2">Lucky Stresser V2</option>
+              <option value="Crtz">Crtz</option>
+              <option value="Vortex">Vortex</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="mb-3" id="network-other-container" style="display: none;">
+            <label for="network_other" class="form-label">Specify Other Network</label>
+            <input type="text" id="network_other" name="network_other" placeholder="Enter network name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <div class="form-check">
+              <input type="checkbox" id="religion_related" name="religion_related" value="yes" class="form-check-input">
+              <label for="religion_related" class="form-check-label">Religion Related</label>
+            </div>
           </div>
           <div class="mb-3">
             <label for="targeted_website" class="form-label">Targeted Website</label>
@@ -454,6 +480,7 @@
           $("#dynamicFields").html(ransomwareFields());
         } else if (type === "ddos") {
           $("#dynamicFields").html(ddosFields());
+          initDdosNetworkField();
         } else if (type === "other") {
           $("#dynamicFields").html(otherFields());
         } else {
@@ -463,6 +490,18 @@
         initCountrySelect(countryDataGlobal);
       }
       $("#report_type").on("change", updateDynamicFields);
+  
+      // Initialize DDoS Network field change handler.
+      function initDdosNetworkField() {
+        $("#network").on("change", function() {
+          const selected = $(this).val() || [];
+          if (selected.includes("Other")) {
+            $("#network-other-container").show();
+          } else {
+            $("#network-other-container").hide();
+          }
+        });
+      }
   
       // Update footer with version and current timestamp.
       function updateFooter() {
