@@ -1,4 +1,3 @@
-<!-- Version: 4.0.1 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,7 +98,7 @@
   <!-- Sub-Header with Random Quote (no attribution) -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
+    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
   </div>
 
   <div class="container my-4">
@@ -147,15 +146,15 @@
                   </li>
                 
                   <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/id.png" alt="ID flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="ID (1)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
                     <img src="https://flagcdn.com/32x24/de.png" alt="DE flag"
                          data-bs-toggle="popover" data-bs-trigger="hover"
                          data-bs-content="DE (1)">
+                  </li>
+                
+                  <li class="d-inline-block me-2">
+                    <img src="https://flagcdn.com/32x24/id.png" alt="ID flag"
+                         data-bs-toggle="popover" data-bs-trigger="hover"
+                         data-bs-content="ID (1)">
                   </li>
                 
               </ul>
@@ -165,11 +164,11 @@
       </div>
     </section>
 
-    <!-- Combined Charts Section (3 columns now) -->
+    <!-- Combined Charts Section -->
     <section class="mb-4">
       <div class="row">
-        <!-- Column 1: Top 10 Ransom Groups / Attacked Countries -->
-        <div class="col-md-4">
+        <!-- Left Column: Ransom Groups / Attacked Countries -->
+        <div class="col-md-6">
           <div class="card shadow-sm">
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs" id="ransomTabs" role="tablist">
@@ -197,8 +196,8 @@
             </div>
           </div>
         </div>
-        <!-- Column 2: Top 5 Defacement Groups / Top Source Attack Countries -->
-        <div class="col-md-4">
+        <!-- Right Column: Defacements Overview -->
+        <div class="col-md-6">
           <div class="card shadow-sm">
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs" id="defacementsTabs" role="tablist">
@@ -221,35 +220,6 @@
                 </div>
                 <div class="tab-pane fade" id="defacements-reporter" role="tabpanel" aria-labelledby="defacements-reporter-tab">
                   <div id="chartSourceAttackCountries" class="chart-container"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Column 3: DDoS Trends / DDoS Campaigns -->
-        <div class="col-md-4">
-          <div class="card shadow-sm">
-            <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs" id="ddosTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="ddos-trends-tab" data-bs-toggle="tab" data-bs-target="#ddos-trends" type="button" role="tab" aria-controls="ddos-trends" aria-selected="true">
-                    DDoS Trends
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="ddos-campaigns-tab" data-bs-toggle="tab" data-bs-target="#ddos-campaigns" type="button" role="tab" aria-controls="ddos-campaigns" aria-selected="false">
-                    DDoS Campaigns
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div class="tab-content" id="ddosTabsContent">
-                <div class="tab-pane fade show active" id="ddos-trends" role="tabpanel" aria-labelledby="ddos-trends-tab">
-                  <div id="chartDdosTrends" class="chart-container"></div>
-                </div>
-                <div class="tab-pane fade" id="ddos-campaigns" role="tabpanel" aria-labelledby="ddos-campaigns-tab">
-                  <div id="chartDdosCampaigns" class="chart-container"></div>
                 </div>
               </div>
             </div>
@@ -496,104 +466,6 @@
       </div>
     </section>
 
-    <!-- Latest Verified DDoS Attacks Section -->
-    <section>
-      <h2 class="section-title">Latest Verified DDoS Attacks</h2>
-      <div class="row row-cols-1 row-cols-md-5 g-4">
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="#">
-                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/roomdimensions_es/files/additional_image.jpg" class="card-img-top" alt="Thumbnail for https://www.roomdimensions.es/">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">www.roomdimensions.es</h5>
-                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
-                
-                  <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
-                
-                
-                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
-                
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="#">
-                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/lamoncloa_gob_es/files/additional_image.jpg" class="card-img-top" alt="Thumbnail for https://www.lamoncloa.gob.es/Paginas/index.aspx">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">www.lamoncloa.gob.es</h5>
-                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
-                
-                  <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
-                
-                
-                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
-                
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="#">
-                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/maquinaparacantoromo_es/files/additional_image.jpg" class="card-img-top" alt="Thumbnail for https://www.maquinaparacantoromo.es/">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">www.maquinaparacantoromo.es</h5>
-                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
-                
-                  <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
-                
-                
-                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
-                
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="#">
-                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/contratacioncentralizada_gob_es/files/additional_image.jpg" class="card-img-top" alt="Thumbnail for https://contratacioncentralizada.gob.es/">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">contratacioncentralizada.gob.es</h5>
-                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
-                
-                  <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
-                
-                
-                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
-                
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="#">
-                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/dsn_gob_es/files/additional_image.jpg" class="card-img-top" alt="Thumbnail for https://www.dsn.gob.es/">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">www.dsn.gob.es</h5>
-                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
-                
-                  <p class="card-text"><strong>Actor:</strong> Mr. Hamza</p>
-                
-                
-                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
-                
-              </div>
-            </div>
-          </div>
-        
-      </div>
-    </section>
-
     <!-- Latest Ransomware Victims Section -->
     <section>
       <h2 class="section-title">Latest Ransomware Victims</h2>
@@ -825,8 +697,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-03-02 12:41:01-3.0.2</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-03-02 12:50:28-3.0.2</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
@@ -1019,38 +891,6 @@
     };
     chartSourceAttackCountries.setOption(optionSourceAttackCountries);
 
-    // Chart 5: DDoS Trends (Line Chart)
-    var chartDdosTrends = echarts.init(document.getElementById('chartDdosTrends'));
-    var optionDdosTrends = {
-      title: { text: 'DDoS Trends', left: 'center' },
-      tooltip: { trigger: 'axis' },
-      xAxis: {
-        type: 'category',
-        data: [] // Populate with time data
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        name: 'DDoS Trends',
-        type: 'line',
-        data: [] // Populate with trend data
-      }]
-    };
-    chartDdosTrends.setOption(optionDdosTrends);
-
-    // Chart 6: DDoS Campaigns (Pie Chart)
-    var chartDdosCampaigns = echarts.init(document.getElementById('chartDdosCampaigns'));
-    var optionDdosCampaigns = {
-      title: { text: 'DDoS Campaigns', left: 'center' },
-      tooltip: { trigger: 'item' },
-      series: [{
-        name: 'Campaigns',
-        type: 'pie',
-        radius: '50%',
-        data: [] // Populate with campaign data
-      }]
-    };
-    chartDdosCampaigns.setOption(optionDdosCampaigns);
-
     // Resize charts when their tab is shown (fix for hidden container issue)
     document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(function(tabButton) {
       tabButton.addEventListener('shown.bs.tab', function(event) {
@@ -1059,10 +899,6 @@
           chartAttackedCountries.resize();
         } else if (target === '#defacements-reporter') {
           chartSourceAttackCountries.resize();
-        } else if (target === '#ddos-trends') {
-          chartDdosTrends.resize();
-        } else if (target === '#ddos-campaigns') {
-          chartDdosCampaigns.resize();
         }
       });
     });
@@ -1156,3 +992,4 @@
   </script>
 </body>
 </html>
+
