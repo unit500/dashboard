@@ -138,6 +138,12 @@
   <script>
     $(document).ready(function() {
       console.log("static_report.js v3.0.23 loaded.");
+      // Initialize Bootstrap tooltips
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+      
       // Define API URL for report submission.
       const apiUrl = "https://lri3fp9pe2.execute-api.us-east-1.amazonaws.com/prod/report";
       console.log("API URL:", apiUrl);
@@ -339,7 +345,7 @@
         `;
       }
   
-      // Updated ddosFields function with additional fields for DDoS report type.
+      // Updated ddosFields function with new info icons and field modifications.
       function ddosFields() {
         return `
           <div class="mb-3">
@@ -347,16 +353,22 @@
             <input type="text" id="group_name" name="group_name" class="form-control">
           </div>
           <div class="mb-3">
-            <label for="actor_name" class="form-label">Hacker Name</label>
-            <input type="text" id="actor_name" name="actor_name" required class="form-control">
+            <label for="actor_name" class="form-label">Hacker Name
+              <small class="text-muted">(Leave blank to use Group Name if provided)</small>
+            </label>
+            <input type="text" id="actor_name" name="actor_name" class="form-control" placeholder="Enter hacker name">
           </div>
           <div class="mb-3">
-            <label for="operation_name" class="form-label">Operation Name</label>
+            <label for="operation_name" class="form-label">
+              Operation Name
+              <span data-bs-toggle="tooltip" title="If this is part of coordinated efforts, provide the campaign or operation name." style="cursor: help;">&#9432;</span>
+            </label>
             <input type="text" id="operation_name" name="operation_name" maxlength="50" placeholder="Enter operation name" class="form-control">
           </div>
           <div class="mb-3">
             <label for="network" class="form-label">Network</label>
-            <select id="network" name="network" class="form-select" multiple>
+            <select id="network" name="network" class="form-select">
+              <option value="unknown" selected>Unknown</option>
               <option value="Rebirth V2">Rebirth V2</option>
               <option value="Nocturnal">Nocturnal</option>
               <option value="Lucky Stresser V2">Lucky Stresser V2</option>
@@ -384,14 +396,20 @@
             <input type="text" id="targeted_org" name="targeted_org" class="form-control">
           </div>
           <div class="mb-3">
-            <label for="attack_type" class="form-label">Attack Type</label>
+            <label for="attack_type" class="form-label">
+              Attack Type
+              <span data-bs-toggle="tooltip" title="DoS (Denial of Service) attacks target a single source while DDoS (Distributed Denial of Service) attacks are executed from multiple sources. Default is DDoS." style="cursor: help;">&#9432;</span>
+            </label>
             <select id="attack_type" name="attack_type" required class="form-select">
               <option value="DDoS" selected>DDoS</option>
               <option value="DoS">DoS</option>
             </select>
           </div>
           <div class="mb-3">
-            <label for="attacked_country" class="form-label">Attacked Country (optional)</label>
+            <label for="attacked_country" class="form-label">
+              Attacked Country (optional)
+              <span data-bs-toggle="tooltip" title="*This will be filled automatically based on the physical location of the targeted web site." style="cursor: help;">&#9432;</span>
+            </label>
             <select id="attacked_country" name="attacked_country" class="form-select country-select">
               <option value="unknown" selected>Unknown</option>
             </select>
@@ -403,18 +421,25 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="attack_date" class="form-label">Attack Date</label>
+            <label for="attack_date" class="form-label">
+              Attack Date
+              <span data-bs-toggle="tooltip" title="This is the date of the attack. Verified attacks are only attacks that are reported during the same day they happen." style="cursor: help;">&#9432;</span>
+            </label>
             <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
           </div>
           <div class="mb-3">
-            <label for="check_host" class="form-label">check-host.net (optional)</label>
+            <label for="check_host" class="form-label">
+              check-host.net (optional)
+              <span data-bs-toggle="tooltip" title="This is the last part of the link, e.g. if your link is https://check-host.net/check-report/23774618ka2c then you would put 23774618ka2c as value. You need the Targeted Website to be exactly as it appears in check-host and you will also need the report to have the same UTC date as the current date. Filling these 2 fields will make the DDoS attack verified and will be replicated to the GitHub repository to share some fame and glory." style="cursor: help;">&#9432;</span>
+            </label>
             <input type="text" id="check_host" name="check_host" placeholder="Enter report number e.g. 23774618ka2c" class="form-control">
-            <small class="form-text text-muted">This is the last part of the link, e.g. https://check-host.net/check-report/23774618ka2c</small>
           </div>
           <div class="mb-3">
-            <label for="additional_image" class="form-label">Additional Image Link (optional)</label>
+            <label for="additional_image" class="form-label">
+              Additional Image Link (optional)
+              <span data-bs-toggle="tooltip" title="Provide a URL to an additional screenshot or image. This will be used as a cover graphic in the attack details page." style="cursor: help;">&#9432;</span>
+            </label>
             <input type="url" id="additional_image" name="additional_image" placeholder="Provide a link to the image" class="form-control">
-            <small class="form-text text-muted">Provide a URL to an additional screenshot or image.</small>
           </div>
         `;
       }
@@ -480,7 +505,15 @@
           $("#dynamicFields").html(ransomwareFields());
         } else if (type === "ddos") {
           $("#dynamicFields").html(ddosFields());
-          initDdosNetworkField();
+          // For DDoS, monitor the network field for "Other"
+          $("#network").on("change", function() {
+            const selected = $(this).val() || "";
+            if (selected === "Other") {
+              $("#network-other-container").show();
+            } else {
+              $("#network-other-container").hide();
+            }
+          });
         } else if (type === "other") {
           $("#dynamicFields").html(otherFields());
         } else {
@@ -490,18 +523,6 @@
         initCountrySelect(countryDataGlobal);
       }
       $("#report_type").on("change", updateDynamicFields);
-  
-      // Initialize DDoS Network field change handler.
-      function initDdosNetworkField() {
-        $("#network").on("change", function() {
-          const selected = $(this).val() || [];
-          if (selected.includes("Other")) {
-            $("#network-other-container").show();
-          } else {
-            $("#network-other-container").hide();
-          }
-        });
-      }
   
       // Update footer with version and current timestamp.
       function updateFooter() {
@@ -531,12 +552,26 @@
         const formData = new FormData(this);
         const data = {};
         formData.forEach((value, key) => { data[key] = value; });
+        
+        // Default group_name if empty.
         if (!data.group_name || data.group_name.trim() === "") {
           data.group_name = "indie";
         }
+  
+        // For targeted website, prepend http:// if not present.
         if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
           data.targeted_website = "http://" + data.targeted_website;
         }
+  
+        // If report type is DDoS and Hacker Name is empty while Group Name is provided, use Group Name.
+        if ($("#report_type").val() === "ddos") {
+          if (!data.actor_name || data.actor_name.trim() === "") {
+            if (data.group_name && data.group_name.trim() !== "") {
+              data.actor_name = data.group_name;
+            }
+          }
+        }
+  
         convertCountryFields(data);
         console.log("Submitting report data:", data);
   
