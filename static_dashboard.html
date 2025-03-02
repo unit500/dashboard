@@ -95,10 +95,10 @@
   </div>
 </header>
 
-  <!-- Sub-Header with Random Quote (no attribution) -->
+  <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <div class="container my-4">
@@ -109,7 +109,7 @@
           <div class="card shadow-sm">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">41</h3>
+              <h3 id="victims-today">42</h3>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@
           <div class="card shadow-sm">
             <div class="card-header">Victims This Week</div>
             <div class="card-body">
-              <h3 id="victims-week">532</h3>
+              <h3 id="victims-week">533</h3>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@
                   <li class="d-inline-block me-2">
                     <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
                          data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="US (8)">
+                         data-bs-content="US (9)">
                   </li>
                 
                   <li class="d-inline-block me-2">
@@ -164,7 +164,7 @@
       </div>
     </section>
 
-    <!-- Combined Charts Section (unchanged) -->
+    <!-- Combined Charts Section -->
     <section class="mb-4">
       <div class="row">
         <!-- Left Column: Ransom Groups / Attacked Countries -->
@@ -228,10 +228,33 @@
       </div>
     </section>
 
-    <!-- Latest Defaced Websites Section (Dashboard version: 10 cards) -->
+    <!-- Latest Cards Sections (Dashboard version: 10 cards per section) -->
     <section>
       <h2 class="section-title">Latest Defaced Websites</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67c482c693605a155dabbcf9.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/02/caniractorreon_com_mx/screenshot.png" class="card-img-top" alt="Thumbnail for https://www.caniractorreon.com.mx/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67c482c693605a155dabbcf9.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.caniractorreon.com.mx</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -440,33 +463,9 @@
             </div>
           </div>
         
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/67c3403d463a5edf25c794e5.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/03/01/hospital_melayandecor_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://hospital.melayandecor.com">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/67c3403d463a5edf25c794e5.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">hospital.melayandecor.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/KeyzNet.html">./KeyzNet</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/indie.html">indie</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
 
-    <!-- Latest Verified DDoS Attacks Section (Dashboard version: 10 cards) -->
     <section>
       <h2 class="section-title">Latest Verified DDoS Attacks</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
@@ -648,7 +647,6 @@
       </div>
     </section>
 
-    <!-- Latest Ransomware Victims Section (Dashboard version: 10 cards) -->
     <section>
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
@@ -879,8 +877,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-03-02 16:11:43-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-03-02 16:16:10-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -904,14 +902,262 @@
     }
   </script>
   
-  <!-- ECharts Chart Rendering (unchanged) -->
+  <!-- ECharts Chart Rendering -->
   <script>
-    // ... (existing chart scripts remain unchanged)
+    // Chart 1: Top Ransomware Groups
+    var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
+    var dataRansomwareGroups = [
+      
+      {value: 1994, name: "lockbit3" },
+      
+      {value: 1006, name: "lockbit2" },
+      
+      {value: 1001, name: "clop" },
+      
+      {value: 798, name: "play" },
+      
+      {value: 782, name: "ransomhub" },
+      
+      {value: 731, name: "alphv" },
+      
+      {value: 656, name: "akira" },
+      
+      {value: 541, name: "bianlian" },
+      
+      {value: 533, name: "blackbasta" },
+      
+      {value: 455, name: "8base" },
+      
+      {value: 414, name: "medusa" },
+      
+      {value: 344, name: "dispossessor" },
+      
+      {value: 340, name: "conti" },
+      
+      {value: 316, name: "qilin" },
+      
+      {value: 308, name: "pysa" }
+      
+    ];
+    var optionRansomwareGroups = {
+      title: { text: 'Top Ransomware Groups', left: 'center' },
+      tooltip: { trigger: 'item' },
+      legend: { orient: 'vertical', left: 'left' },
+      series: [{
+        name: 'Groups',
+        type: 'pie',
+        radius: '50%',
+        data: dataRansomwareGroups,
+        emphasis: {
+          itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0,0,0,0.5)' }
+        }
+      }]
+    };
+    chartRansomwareGroups.setOption(optionRansomwareGroups);
+
+    // Chart 2: Top Defacement Groups
+    var defacementData = [];
+    
+      
+    
+      
+        defacementData.push({ value: 22, name: "Cyber Alpha Wolf" });
+      
+    
+      
+        defacementData.push({ value: 14, name: "MUSLIM CYBER ARMY" });
+      
+    
+      
+        defacementData.push({ value: 11, name: "Anonymous Philippines" });
+      
+    
+      
+        defacementData.push({ value: 9, name: "Turkhacks.com" });
+      
+    
+    var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
+    var optionDefacementGroups = {
+      title: { text: 'Top Defacement Groups', left: 'center' },
+      tooltip: { trigger: 'item' },
+      legend: { orient: 'vertical', left: 'left' },
+      series: [{
+        name: 'Defacement Groups',
+        type: 'pie',
+        radius: '50%',
+        data: defacementData,
+        emphasis: {
+          itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0,0,0,0.5)' }
+        }
+      }]
+    };
+    chartDefacementGroups.setOption(optionDefacementGroups);
+
+    // Chart 3: Top Attacked Countries
+    var attackedCategories = [];
+    var attackedSeriesData = [];
+    
+      attackedCategories.push("US");
+      attackedSeriesData.push({value: 619, name: "US"});
+    
+      attackedCategories.push("CA");
+      attackedSeriesData.push({value: 73, name: "CA"});
+    
+      attackedCategories.push("DE");
+      attackedSeriesData.push({value: 47, name: "DE"});
+    
+      attackedCategories.push("SG");
+      attackedSeriesData.push({value: 43, name: "SG"});
+    
+      attackedCategories.push("IN");
+      attackedSeriesData.push({value: 40, name: "IN"});
+    
+    var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
+    var optionAttackedCountries = {
+      title: { text: 'Top Attacked Countries', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: attackedCategories,
+        axisLabel: {
+          formatter: function(value) {
+              return countryCodeToEmoji(value);
+          }
+        }
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: attackedSeriesData,
+        type: 'bar'
+      }]
+    };
+    chartAttackedCountries.setOption(optionAttackedCountries);
+
+    // Chart 4: Top Source Attack Countries
+    var sourceCategories = [];
+    var sourceSeriesData = [];
+    
+      sourceCategories.push("None");
+      sourceSeriesData.push({value: 26, name: "None"});
+    
+      sourceCategories.push("PH");
+      sourceSeriesData.push({value: 14, name: "PH"});
+    
+      sourceCategories.push("bd");
+      sourceSeriesData.push({value: 9, name: "bd"});
+    
+    var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
+    var optionSourceAttackCountries = {
+      title: { text: 'Top Source Attack Countries', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: sourceCategories,
+        axisLabel: {
+          formatter: function(value) {
+              return countryCodeToEmoji(value);
+          }
+        }
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: sourceSeriesData,
+        type: 'bar'
+      }]
+    };
+    chartSourceAttackCountries.setOption(optionSourceAttackCountries);
+
+    // Resize charts when their tab is shown
+    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(function(tabButton) {
+      tabButton.addEventListener('shown.bs.tab', function(event) {
+        var target = event.target.getAttribute('data-bs-target');
+        if (target === '#attacked') {
+          chartAttackedCountries.resize();
+        } else if (target === '#defacements-reporter') {
+          chartSourceAttackCountries.resize();
+        }
+      });
+    });
   </script>
   
-  <!-- Analog Clock Script (unchanged) -->
+  <!-- Analog Clock Script -->
   <script>
-    // ... (existing clock script remains unchanged)
+    function drawClock() {
+      var canvas = document.getElementById("canvasClock");
+      var ctx = canvas.getContext("2d");
+      var radius = canvas.height / 2;
+      ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+      drawFace(ctx, radius);
+      drawNumbers(ctx, radius);
+      drawTime(ctx, radius);
+    }
+
+    function drawFace(ctx, radius) {
+      ctx.beginPath();
+      ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+      ctx.fillStyle = "white";
+      ctx.fill();
+      var grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+      grad.addColorStop(0, "#333");
+      grad.addColorStop(0.5, "white");
+      grad.addColorStop(1, "#333");
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = radius * 0.1;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+      ctx.fillStyle = "#333";
+      ctx.fill();
+    }
+
+    function drawNumbers(ctx, radius) {
+      var ang, num;
+      ctx.font = radius * 0.15 + "px arial";
+      ctx.textBaseline = "middle";
+      ctx.textAlign = "center";
+      for (num = 1; num < 13; num++) {
+        ang = num * Math.PI / 6;
+        ctx.rotate(ang);
+        ctx.translate(0, -radius * 0.85);
+        ctx.rotate(-ang);
+        ctx.fillText(num.toString(), 0, 0);
+        ctx.rotate(ang);
+        ctx.translate(0, radius * 0.85);
+        ctx.rotate(-ang);
+      }
+    }
+
+    function drawTime(ctx, radius) {
+      var now = new Date(), hour = now.getHours(), minute = now.getMinutes(), second = now.getSeconds();
+      hour = hour % 12;
+      hour = (hour * Math.PI / 6) + (minute * Math.PI / (6 * 60)) + (second * Math.PI / (360 * 60));
+      drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+      minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+      drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+      second = (second * Math.PI / 30);
+      drawHand(ctx, second, radius * 0.9, radius * 0.02, "red");
+    }
+
+    function drawHand(ctx, pos, length, width, color) {
+      color = color || "#333";
+      ctx.beginPath();
+      ctx.lineWidth = width;
+      ctx.lineCap = "round";
+      ctx.strokeStyle = color;
+      ctx.moveTo(0, 0);
+      ctx.rotate(pos);
+      ctx.lineTo(0, -length);
+      ctx.stroke();
+      ctx.rotate(-pos);
+    }
+
+    window.onload = function () {
+      var canvas = document.getElementById("canvasClock");
+      var ctx = canvas.getContext("2d");
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      setInterval(drawClock, 1000);
+      drawClock();
+    };
   </script>
 </body>
 </html>
