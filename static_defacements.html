@@ -9,7 +9,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="static/style.css">
   <style>
-    /* Placeholder squares styling */
+    /* Squares styling */
     .square-placeholder {
       background: #f8f9fa;
       border: 1px solid #dee2e6;
@@ -20,6 +20,10 @@
     /* Initially hide all defacement cards; they will be revealed via JS */
     .defacement-card {
       display: none;
+    }
+    .flag {
+      width: 32px;
+      height: 24px;
     }
   </style>
 </head>
@@ -85,31 +89,71 @@
       <p class="lead fst-italic">Details about the latest defacements</p>
     </section>
     
-    <!-- Placeholder Squares Section -->
+    <!-- Squares Section (8 squares: 4 per row) -->
     <section class="mb-4">
       <div class="row">
+        <!-- First Row -->
         <div class="col-md-3">
           <div class="square-placeholder">
-            <h3>Total Defacements</h3>
-            <p>100</p>
+            <h5>Total Defacements</h5>
+            <p>284</p>
           </div>
         </div>
         <div class="col-md-3">
           <div class="square-placeholder">
-            <h3>Unique Actors</h3>
-            <p>50</p>
+            <h5>Last 30 Days</h5>
+            <p>272</p>
           </div>
         </div>
         <div class="col-md-3">
           <div class="square-placeholder">
-            <h3>Top Groups</h3>
-            <p>10</p>
+            <h5>On Hold</h5>
+            <p>72</p>
           </div>
         </div>
         <div class="col-md-3">
           <div class="square-placeholder">
-            <h3>Recent Attacks</h3>
-            <p>75</p>
+            <h5>Special</h5>
+            <p>8</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Second Row -->
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Hacker</h5>
+            <p>XYZ</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Group</h5>
+            <p>Cyber Alpha Wolf</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Attacked Countries</h5>
+            <p>
+              
+                <img src="https://flagcdn.com/32x24/us.png" alt="US flag" class="flag">
+              
+                <img src="https://flagcdn.com/32x24/unknown.png" alt="None flag" class="flag">
+              
+                <img src="https://flagcdn.com/32x24/sg.png" alt="SG flag" class="flag">
+              
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Attacking Countries</h5>
+            <p>
+              
+                <img src="https://flagcdn.com/32x24/unknown.png" alt="None flag" class="flag">
+              
+            </p>
           </div>
         </div>
       </div>
@@ -1515,8 +1559,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-03-02 15:19:54-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-03-02 15:24:24-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
@@ -1537,17 +1581,9 @@
       var currentPage = 1;
       function updateCardsVisibility() {
         cards.forEach(function(card, index) {
-          if (index < currentPage * cardsPerPage) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
         });
-        if (currentPage * cardsPerPage >= cards.length) {
-          document.getElementById("loadMoreButton").style.display = "none";
-        } else {
-          document.getElementById("loadMoreButton").style.display = "block";
-        }
+        document.getElementById("loadMoreButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
       }
       updateCardsVisibility();
       document.getElementById("loadMoreButton").addEventListener("click", function(e) {
