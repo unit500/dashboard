@@ -21,9 +21,22 @@
       object-fit: cover;
       height: 150px;
     }
+    /* Center section titles and add margins */
     .section-title {
       margin-top: 2rem;
       margin-bottom: 1rem;
+      text-align: center;
+    }
+    /* Horizontal divider between sections */
+    hr.section-divider {
+      margin: 2rem 0;
+      border: 0;
+      border-top: 1px solid #dee2e6;
+    }
+    /* Rounded corners and small shadow for all cards */
+    .card {
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
     /* Icon and clock sizing */
     .icon-size {
@@ -98,7 +111,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
+    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
   </div>
 
   <div class="container my-4">
@@ -106,23 +119,23 @@
     <section class="mb-4">
       <div class="row text-center">
         <div class="col-md-4">
-          <div class="card shadow-sm">
+          <div class="card">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">24</h3>
+              <h3 id="victims-today">31</h3>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card shadow-sm">
+          <div class="card">
             <div class="card-header">Victims This Week</div>
             <div class="card-body">
-              <h3 id="victims-week">24</h3>
+              <h3 id="victims-week">31</h3>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card shadow-sm">
+          <div class="card">
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
@@ -136,25 +149,25 @@
                   <li class="d-inline-block me-2">
                     <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
                          data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="US (6)">
+                         data-bs-content="US (7)">
                   </li>
                 
                   <li class="d-inline-block me-2">
                     <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag"
                          data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="RU (4)">
+                         data-bs-content="RU (5)">
                   </li>
                 
                   <li class="d-inline-block me-2">
                     <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag"
                          data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="CA (1)">
+                         data-bs-content="CA (2)">
                   </li>
                 
                   <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag"
+                    <img src="https://flagcdn.com/32x24/id.png" alt="ID flag"
                          data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="GB (1)">
+                         data-bs-content="ID (2)">
                   </li>
                 
               </ul>
@@ -163,13 +176,14 @@
         </div>
       </div>
     </section>
+    <hr class="section-divider">
 
     <!-- Combined Charts Section -->
     <section class="mb-4">
       <div class="row">
         <!-- Left Column: Ransom Groups / Attacked Countries -->
         <div class="col-md-6">
-          <div class="card shadow-sm">
+          <div class="card">
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs" id="ransomTabs" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -198,7 +212,7 @@
         </div>
         <!-- Right Column: Defacements Overview -->
         <div class="col-md-6">
-          <div class="card shadow-sm">
+          <div class="card">
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs" id="defacementsTabs" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -227,10 +241,12 @@
         </div>
       </div>
     </section>
+    <hr class="section-divider">
 
-    <!-- Latest Cards Sections (Dashboard version: 10 cards per section) -->
+    <!-- Latest Defaced Websites Section -->
     <section>
       <h2 class="section-title">Latest Defaced Websites</h2>
+      <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
@@ -258,6 +274,29 @@
         
           <div class="col">
             <div class="card h-100">
+              <a href="defacement_details/67c575a2c2d66b2596b7bc09.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/03/summersidecarrental_ca/screenshot.png" class="card-img-top" alt="Thumbnail for http://summersidecarrental.ca/R013X.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67c575a2c2d66b2596b7bc09.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">summersidecarrental.ca</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/R013X_404.html">MR. R013X 404</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
               <a href="defacement_details/67c57597c2d66b2596b7bc08.html">
                 <img src="https://unit500.python-myth.info/mirror/2025/03/03/posutochno_rent/screenshot.png" class="card-img-top" alt="Thumbnail for http://www.posutochno.rent">
               </a>
@@ -269,6 +308,29 @@
                 <p class="card-text">
                   <strong>Actor:</strong>
                   <a href="actor_details/KeyzNet.html">./KeyzNet</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67c57587c2d66b2596b7bc07.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/03/tintamerahnews_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://tintamerahnews.com/R013X.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67c57587c2d66b2596b7bc07.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">tintamerahnews.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/R013X_404.html">MR. R013X 404</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
@@ -350,35 +412,12 @@
         
           <div class="col">
             <div class="card h-100">
-              <a href="defacement_details/67c56054c2d66b2596b7bbf5.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/03/03/bengaltvs_in/screenshot.png" class="card-img-top" alt="Thumbnail for https://bengaltvs.in/">
+              <a href="defacement_details/67c574dcc2d66b2596b7bc00.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/03/ariane_estate/screenshot.png" class="card-img-top" alt="Thumbnail for http://ariane.estate">
               </a>
               <div class="card-body">
-                <a href="defacement_details/67c56054c2d66b2596b7bbf5.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">bengaltvs.in</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/Lulzsec_Arabs.html">Lulzsec Arabs</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/indie.html">indie</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> politics</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/67c55e72c2d66b2596b7bbca.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/03/03/eventos_bloomexp_net/screenshot.png" class="card-img-top" alt="Thumbnail for http://eventos.bloomexp.net">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/67c55e72c2d66b2596b7bbca.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">eventos.bloomexp.net</h5>
+                <a href="defacement_details/67c574dcc2d66b2596b7bc00.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">ariane.estate</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
                 <p class="card-text">
@@ -396,63 +435,40 @@
         
           <div class="col">
             <div class="card h-100">
-              <a href="defacement_details/67c55de3c2d66b2596b7bbc7.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/03/03/brkweb_in/screenshot.png" class="card-img-top" alt="Thumbnail for http://brkweb.in/Y00T.txt">
+              <a href="defacement_details/67c574d0c2d66b2596b7bbff.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/03/logement-plus_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://logement-plus.com">
               </a>
               <div class="card-body">
-                <a href="defacement_details/67c55de3c2d66b2596b7bbc7.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">brkweb.in</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/Y00T.html">Y00T</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/indie.html">indie</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/67c55da9c2d66b2596b7bbc6.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/03/03/erapor_web_id/screenshot.png" class="card-img-top" alt="Thumbnail for http://erapor.web.id/kelas.php">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/67c55da9c2d66b2596b7bbc6.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">erapor.web.id</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/Babacang07.html">Babacang07</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/indie.html">indie</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/67c55da2c2d66b2596b7bbc5.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/03/03/sp_artesaniadigital_net/screenshot.png" class="card-img-top" alt="Thumbnail for http://sp.artesaniadigital.net">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/67c55da2c2d66b2596b7bbc5.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">sp.artesaniadigital.net</h5>
+                <a href="defacement_details/67c574d0c2d66b2596b7bbff.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">logement-plus.com</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
                   <a href="actor_details/KeyzNet.html">./KeyzNet</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/67c574c4c2d66b2596b7bbfe.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/03/petitcocostyle_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://petitcocostyle.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67c574c4c2d66b2596b7bbfe.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">petitcocostyle.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/R013X_404.html">MR. R013X 404</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
@@ -465,9 +481,12 @@
         
       </div>
     </section>
+    <hr class="section-divider">
 
+    <!-- Latest Verified DDoS Attacks Section -->
     <section>
       <h2 class="section-title">Latest Verified DDoS Attacks</h2>
+      <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
@@ -652,9 +671,12 @@
         
       </div>
     </section>
+    <hr class="section-divider">
 
+    <!-- Latest Ransomware Victims Section -->
     <section>
       <h2 class="section-title">Latest Ransomware Victims</h2>
+      <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
@@ -873,28 +895,6 @@
             </div>
           </div>
         
-          <div class="col">
-            <div class="card h-100">
-              <img src="https://images.ransomware.live/victims/d0ba8d59309f8a68621c366a5228b385.png" class="card-img-top" alt="gruppocogesi.org">
-              <div class="card-body">
-                <h5 class="card-title">gruppocogesi.org</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-03-02 18:37:35.537180</p>
-                <p class="card-text"><strong>Industry:</strong> Not Found</p>
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                  
-                </p>
-                <p class="card-text"><strong>Group:</strong> lockbit3</p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                    CO.GE.S.I. si è specializzata nel supporto tecnico – amministrativo finalizzato alla definizione del&hellip;
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -907,8 +907,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-03-03 09:28:36-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-03-03 10:12:01-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
