@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Document Details - Unit500</title>
+  <title>DDoS Attack Details - Unit500</title>
   <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="../static/style.css">
   <style>
     .details-img {
@@ -22,195 +23,259 @@
   </style>
 </head>
 <body class="bg-light">
+  <!-- Common Header -->
   <header class="mb-4">
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a href="../static_dashboard.html" class="navbar-brand">Unit500</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
       </div>
     </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
   </header>
-  
+
   <div class="container my-4">
+    <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
-    
-    <h1>Document Details</h1>
-    
-    <!-- Thumbnail Section -->
-    <div class="mb-4">
-      
-        <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/omtp_com_ua/files/additional_image.jpg" alt="Additional Image" class="details-img">
-      
+
+    <!-- Three Cards Row -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://omtp.com.ua/ua" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">omtp.com.ua</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-03-04</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/ua.png" alt="UA flag">
+            
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <!-- Details Table: Loop through all fields -->
-    <table class="table table-bordered details-table">
-      <tbody>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
         
-          <tr>
-            <th>_id</th>
-            <td>67c6efc156e7047cddc415d3</td>
-          </tr>
+          <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/omtp_com_ua/files/additional_image.jpg" alt="Screenshot of DDoS Attack" class="details-img">
         
-          <tr>
-            <th>report_type</th>
-            <td>ddos</td>
-          </tr>
-        
-          <tr>
-            <th>group_name</th>
-            <td>NoName057(16)</td>
-          </tr>
-        
-          <tr>
-            <th>actor_name</th>
-            <td>NoName057(16)</td>
-          </tr>
-        
-          <tr>
-            <th>operation_name</th>
-            <td>Hack For Humanity</td>
-          </tr>
-        
-          <tr>
-            <th>network</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>network_other</th>
-            <td></td>
-          </tr>
-        
-          <tr>
-            <th>targeted_website</th>
-            <td>https://omtp.com.ua/ua</td>
-          </tr>
-        
-          <tr>
-            <th>targeted_org</th>
-            <td>Odessa port </td>
-          </tr>
-        
-          <tr>
-            <th>attack_type</th>
-            <td>DDoS</td>
-          </tr>
-        
-          <tr>
-            <th>attacked_country</th>
-            <td>UA</td>
-          </tr>
-        
-          <tr>
-            <th>attacker_country_affiliation</th>
-            <td>ru</td>
-          </tr>
-        
-          <tr>
-            <th>attack_date</th>
-            <td>2025-03-04</td>
-          </tr>
-        
-          <tr>
-            <th>check_host</th>
-            <td>23b450f9k420</td>
-          </tr>
-        
-          <tr>
-            <th>additional_image</th>
-            <td>https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/omtp_com_ua/files/additional_image.jpg</td>
-          </tr>
-        
-          <tr>
-            <th>source_attacker_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>victim_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>attacker_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>sourceIp</th>
-            <td>109.67.186.178</td>
-          </tr>
-        
-          <tr>
-            <th>userAgent</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>referer</th>
-            <td>https://unit500.python-myth.info/</td>
-          </tr>
-        
-          <tr>
-            <th>xForwardedFor</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>origin</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>acceptLanguage</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>xAmznTraceId</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>check_details</th>
-            <td>{&#39;website_verification&#39;: &#39;https://omtp.com.ua/ua&#39;, &#39;check_date&#39;: &#39;2025-03-04&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;br1.node.check-host.net&#39;: [[0, 0.693945169448853, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;ch1.node.check-host.net&#39;: [[0, 0.189278125762939, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;cz1.node.check-host.net&#39;: [[0, 0.147000789642334, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;de1.node.check-host.net&#39;: [[0, 0.145807027816772, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, 502, &#39;185.247.20.67&#39;]], &#39;de4.node.check-host.net&#39;: [[0, 0.135329008102417, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;es1.node.check-host.net&#39;: [[0, 0.498319149017334, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;fi1.node.check-host.net&#39;: [[0, 0.321545839309692, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, 502, &#39;185.247.20.67&#39;]], &#39;fr1.node.check-host.net&#39;: [[0, 0.192437887191772, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;fr2.node.check-host.net&#39;: [[0, 0.208878993988037, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;hk1.node.check-host.net&#39;: [[0, 0.79623007774353, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;hu1.node.check-host.net&#39;: [[0, 0.193447113037109, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;id1.node.check-host.net&#39;: [[0, 24.9999330043793, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;il1.node.check-host.net&#39;: [[0, 0.374737977981567, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;il2.node.check-host.net&#39;: [[0, 25.000538110733, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;in1.node.check-host.net&#39;: [[0, 0.721946954727173, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;in2.node.check-host.net&#39;: [[0, 1.23727798461914, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;in3.node.check-host.net&#39;: [[0, 25.0005309581757, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;ir1.node.check-host.net&#39;: [[0, 25.000433921814, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;ir3.node.check-host.net&#39;: [[0, 25.0003321170807, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;ir5.node.check-host.net&#39;: [[0, 2.17375683784485, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;ir6.node.check-host.net&#39;: [[0, 0.451633930206299, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;it2.node.check-host.net&#39;: [[0, 0.145325183868408, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 0.903999090194702, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;kz1.node.check-host.net&#39;: [[0, 0.533387899398804, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;lt1.node.check-host.net&#39;: [[0, 0.117706060409546, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;md1.node.check-host.net&#39;: [[0, 0.214421033859253, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;nl1.node.check-host.net&#39;: [[0, 0.189592838287354, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;nl2.node.check-host.net&#39;: [[0, 0.16184401512146, &#39;Broken pipe&#39;, None, &#39;185.247.20.67&#39;]], &#39;pl1.node.check-host.net&#39;: [[0, 25.0006141662598, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;pl2.node.check-host.net&#39;: [[0, 25.0000929832458, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;pt1.node.check-host.net&#39;: [[0, 0.350650072097778, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;rs1.node.check-host.net&#39;: [[0, 3.02488899230957, &#39;Connection timed out&#39;, None, None]], &#39;ru1.node.check-host.net&#39;: [[0, 3.06002712249756, &#39;Connection timed out&#39;, None, None]], &#39;ru2.node.check-host.net&#39;: [[0, 3.03627705574036, &#39;Connection timed out&#39;, None, None]], &#39;ru3.node.check-host.net&#39;: [[0, 3.02800798416138, &#39;Connection timed out&#39;, None, None]], &#39;ru4.node.check-host.net&#39;: [[0, 3.06882691383362, &#39;Connection timed out&#39;, None, None]], &#39;se1.node.check-host.net&#39;: [[0, 0.224035978317261, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;tr1.node.check-host.net&#39;: [[0, 0.379068851470947, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;tr2.node.check-host.net&#39;: [[0, 0.754984855651855, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;ua1.node.check-host.net&#39;: [[0, 0.0632021427154541, &#39;Broken pipe&#39;, None, &#39;185.247.20.67&#39;]], &#39;ua2.node.check-host.net&#39;: [[0, 0.0778758525848389, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;ua3.node.check-host.net&#39;: [[0, 0.28017520904541, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;uk1.node.check-host.net&#39;: [[0, 0.233490943908691, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;us1.node.check-host.net&#39;: [[0, 0.586026906967163, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;us2.node.check-host.net&#39;: [[0, 25.0002748966217, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;us3.node.check-host.net&#39;: [[0, 0.582365036010742, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;vn1.node.check-host.net&#39;: [[0, 25.0004699230194, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
-          </tr>
-        
-          <tr>
-            <th>verified</th>
-            <td>True</td>
-          </tr>
-        
-          <tr>
-            <th>processed</th>
-            <td>True</td>
-          </tr>
-        
-          <tr>
-            <th>additional_image_original</th>
-            <td>https://i.ibb.co/0p62vLm1/photo-2025-03-04-14-15-13.jpg</td>
-          </tr>
-        
-          <tr>
-            <th>original_image</th>
-            <td>https://example.com/default.png</td>
-          </tr>
-        
-          <tr>
-            <th>received_at</th>
-            <td>2025-03-04 12:19:13.905000</td>
-          </tr>
-        
-      </tbody>
-    </table>
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+              <tr>
+                <th>_id</th>
+                <td>67c6efc156e7047cddc415d3</td>
+              </tr>
+            
+              <tr>
+                <th>report_type</th>
+                <td>ddos</td>
+              </tr>
+            
+              <tr>
+                <th>group_name</th>
+                <td>NoName057(16)</td>
+              </tr>
+            
+              <tr>
+                <th>actor_name</th>
+                <td>NoName057(16)</td>
+              </tr>
+            
+              <tr>
+                <th>operation_name</th>
+                <td>Hack For Humanity</td>
+              </tr>
+            
+              <tr>
+                <th>network</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>network_other</th>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <th>targeted_website</th>
+                <td>https://omtp.com.ua/ua</td>
+              </tr>
+            
+              <tr>
+                <th>targeted_org</th>
+                <td>Odessa port </td>
+              </tr>
+            
+              <tr>
+                <th>attack_type</th>
+                <td>DDoS</td>
+              </tr>
+            
+              <tr>
+                <th>attacked_country</th>
+                <td>UA</td>
+              </tr>
+            
+              <tr>
+                <th>attacker_country_affiliation</th>
+                <td>ru</td>
+              </tr>
+            
+              <tr>
+                <th>attack_date</th>
+                <td>2025-03-04</td>
+              </tr>
+            
+              <tr>
+                <th>check_host</th>
+                <td>23b450f9k420</td>
+              </tr>
+            
+              <tr>
+                <th>additional_image</th>
+                <td>https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/omtp_com_ua/files/additional_image.jpg</td>
+              </tr>
+            
+              <tr>
+                <th>source_attacker_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>victim_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>attacker_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>sourceIp</th>
+                <td>109.67.186.178</td>
+              </tr>
+            
+              <tr>
+                <th>userAgent</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>referer</th>
+                <td>https://unit500.python-myth.info/</td>
+              </tr>
+            
+              <tr>
+                <th>xForwardedFor</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>origin</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>acceptLanguage</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>xAmznTraceId</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>check_details</th>
+                <td>{&#39;website_verification&#39;: &#39;https://omtp.com.ua/ua&#39;, &#39;check_date&#39;: &#39;2025-03-04&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;br1.node.check-host.net&#39;: [[0, 0.693945169448853, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;ch1.node.check-host.net&#39;: [[0, 0.189278125762939, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;cz1.node.check-host.net&#39;: [[0, 0.147000789642334, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;de1.node.check-host.net&#39;: [[0, 0.145807027816772, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, 502, &#39;185.247.20.67&#39;]], &#39;de4.node.check-host.net&#39;: [[0, 0.135329008102417, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;es1.node.check-host.net&#39;: [[0, 0.498319149017334, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;fi1.node.check-host.net&#39;: [[0, 0.321545839309692, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, 502, &#39;185.247.20.67&#39;]], &#39;fr1.node.check-host.net&#39;: [[0, 0.192437887191772, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;fr2.node.check-host.net&#39;: [[0, 0.208878993988037, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;hk1.node.check-host.net&#39;: [[0, 0.79623007774353, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;hu1.node.check-host.net&#39;: [[0, 0.193447113037109, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;id1.node.check-host.net&#39;: [[0, 24.9999330043793, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;il1.node.check-host.net&#39;: [[0, 0.374737977981567, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;il2.node.check-host.net&#39;: [[0, 25.000538110733, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;in1.node.check-host.net&#39;: [[0, 0.721946954727173, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;in2.node.check-host.net&#39;: [[0, 1.23727798461914, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;in3.node.check-host.net&#39;: [[0, 25.0005309581757, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;ir1.node.check-host.net&#39;: [[0, 25.000433921814, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;ir3.node.check-host.net&#39;: [[0, 25.0003321170807, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;ir5.node.check-host.net&#39;: [[0, 2.17375683784485, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;ir6.node.check-host.net&#39;: [[0, 0.451633930206299, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;it2.node.check-host.net&#39;: [[0, 0.145325183868408, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 0.903999090194702, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;kz1.node.check-host.net&#39;: [[0, 0.533387899398804, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;lt1.node.check-host.net&#39;: [[0, 0.117706060409546, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;md1.node.check-host.net&#39;: [[0, 0.214421033859253, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;nl1.node.check-host.net&#39;: [[0, 0.189592838287354, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;nl2.node.check-host.net&#39;: [[0, 0.16184401512146, &#39;Broken pipe&#39;, None, &#39;185.247.20.67&#39;]], &#39;pl1.node.check-host.net&#39;: [[0, 25.0006141662598, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;pl2.node.check-host.net&#39;: [[0, 25.0000929832458, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;pt1.node.check-host.net&#39;: [[0, 0.350650072097778, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;rs1.node.check-host.net&#39;: [[0, 3.02488899230957, &#39;Connection timed out&#39;, None, None]], &#39;ru1.node.check-host.net&#39;: [[0, 3.06002712249756, &#39;Connection timed out&#39;, None, None]], &#39;ru2.node.check-host.net&#39;: [[0, 3.03627705574036, &#39;Connection timed out&#39;, None, None]], &#39;ru3.node.check-host.net&#39;: [[0, 3.02800798416138, &#39;Connection timed out&#39;, None, None]], &#39;ru4.node.check-host.net&#39;: [[0, 3.06882691383362, &#39;Connection timed out&#39;, None, None]], &#39;se1.node.check-host.net&#39;: [[0, 0.224035978317261, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;tr1.node.check-host.net&#39;: [[0, 0.379068851470947, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;tr2.node.check-host.net&#39;: [[0, 0.754984855651855, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;ua1.node.check-host.net&#39;: [[0, 0.0632021427154541, &#39;Broken pipe&#39;, None, &#39;185.247.20.67&#39;]], &#39;ua2.node.check-host.net&#39;: [[0, 0.0778758525848389, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;ua3.node.check-host.net&#39;: [[0, 0.28017520904541, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;uk1.node.check-host.net&#39;: [[0, 0.233490943908691, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;us1.node.check-host.net&#39;: [[0, 0.586026906967163, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;500&#39;, &#39;185.247.20.67&#39;]], &#39;us2.node.check-host.net&#39;: [[0, 25.0002748966217, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]], &#39;us3.node.check-host.net&#39;: [[0, 0.582365036010742, &#39;server: nginx/1.18.0 (Ubuntu)&#39;, &#39;502&#39;, &#39;185.247.20.67&#39;]], &#39;vn1.node.check-host.net&#39;: [[0, 25.0004699230194, &#39;Connection timed out&#39;, None, &#39;185.247.20.67&#39;]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
+              </tr>
+            
+              <tr>
+                <th>verified</th>
+                <td>True</td>
+              </tr>
+            
+              <tr>
+                <th>processed</th>
+                <td>True</td>
+              </tr>
+            
+              <tr>
+                <th>additional_image_original</th>
+                <td>https://i.ibb.co/0p62vLm1/photo-2025-03-04-14-15-13.jpg</td>
+              </tr>
+            
+              <tr>
+                <th>original_image</th>
+                <td>https://example.com/default.png</td>
+              </tr>
+            
+              <tr>
+                <th>received_at</th>
+                <td>2025-03-04 12:19:13.905000</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
   
+  <!-- Footer -->
   <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-03-05 10:20:33</p>
+    <p class="small text-muted">Last Generated: 2025-03-05 10:25:48</p>
   </footer>
-  
+
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

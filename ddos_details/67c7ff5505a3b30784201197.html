@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Document Details - Unit500</title>
+  <title>DDoS Attack Details - Unit500</title>
   <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="../static/style.css">
   <style>
     .details-img {
@@ -22,195 +23,259 @@
   </style>
 </head>
 <body class="bg-light">
+  <!-- Common Header -->
   <header class="mb-4">
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a href="../static_dashboard.html" class="navbar-brand">Unit500</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
       </div>
     </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
   </header>
-  
+
   <div class="container my-4">
+    <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
-    
-    <h1>Document Details</h1>
-    
-    <!-- Thumbnail Section -->
-    <div class="mb-4">
-      
-        <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/irun_org/files/additional_image.jpg" alt="Additional Image" class="details-img">
-      
+
+    <!-- Three Cards Row -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://www.irun.org/eu/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">www.irun.org</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-03-05</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/es.png" alt="ES flag">
+            
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <!-- Details Table: Loop through all fields -->
-    <table class="table table-bordered details-table">
-      <tbody>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
         
-          <tr>
-            <th>_id</th>
-            <td>67c7ff5505a3b30784201197</td>
-          </tr>
+          <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/irun_org/files/additional_image.jpg" alt="Screenshot of DDoS Attack" class="details-img">
         
-          <tr>
-            <th>report_type</th>
-            <td>ddos</td>
-          </tr>
-        
-          <tr>
-            <th>group_name</th>
-            <td>NoName057(16)</td>
-          </tr>
-        
-          <tr>
-            <th>actor_name</th>
-            <td>NoName057(16)</td>
-          </tr>
-        
-          <tr>
-            <th>operation_name</th>
-            <td>Hack For Humanity</td>
-          </tr>
-        
-          <tr>
-            <th>network</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>network_other</th>
-            <td></td>
-          </tr>
-        
-          <tr>
-            <th>targeted_website</th>
-            <td>https://www.irun.org/eu/</td>
-          </tr>
-        
-          <tr>
-            <th>targeted_org</th>
-            <td>Irungo Udalaren zerbitzu elektronikoen ataria</td>
-          </tr>
-        
-          <tr>
-            <th>attack_type</th>
-            <td>DDoS</td>
-          </tr>
-        
-          <tr>
-            <th>attacked_country</th>
-            <td>ES</td>
-          </tr>
-        
-          <tr>
-            <th>attacker_country_affiliation</th>
-            <td>ru</td>
-          </tr>
-        
-          <tr>
-            <th>attack_date</th>
-            <td>2025-03-05</td>
-          </tr>
-        
-          <tr>
-            <th>check_host</th>
-            <td>23ba3b03k15f</td>
-          </tr>
-        
-          <tr>
-            <th>additional_image</th>
-            <td>https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/irun_org/files/additional_image.jpg</td>
-          </tr>
-        
-          <tr>
-            <th>source_attacker_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>victim_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>attacker_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>sourceIp</th>
-            <td>109.67.186.178</td>
-          </tr>
-        
-          <tr>
-            <th>userAgent</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>referer</th>
-            <td>https://unit500.python-myth.info/</td>
-          </tr>
-        
-          <tr>
-            <th>xForwardedFor</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>origin</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>acceptLanguage</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>xAmznTraceId</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>check_details</th>
-            <td>{&#39;website_verification&#39;: &#39;https://www.irun.org/eu/&#39;, &#39;check_date&#39;: &#39;2025-03-05&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [[0, 24.9999718666077, &#39;Connection timed out&#39;, None, &#39;212.55.0.212&#39;]], &#39;br1.node.check-host.net&#39;: [[0, 0.879855871200562, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ch1.node.check-host.net&#39;: [[0, 0.180244922637939, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;cz1.node.check-host.net&#39;: [[0, 0.214117050170898, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;de1.node.check-host.net&#39;: [[0, 0.198140859603882, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;de4.node.check-host.net&#39;: [[0, 0.164669036865234, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;es1.node.check-host.net&#39;: [[0, 0.112905025482178, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;fi1.node.check-host.net&#39;: [[0, 0.293023109436035, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;fr1.node.check-host.net&#39;: [[0, 0.14128589630127, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;fr2.node.check-host.net&#39;: [[0, 0.115052938461304, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;hk1.node.check-host.net&#39;: [[1, 2.27384996414185, &#39;OK&#39;, &#39;200&#39;, &#39;212.55.0.212&#39;]], &#39;hu1.node.check-host.net&#39;: [[0, 0.25481390953064, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;id1.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;il1.node.check-host.net&#39;: [[0, 0.387380123138428, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;il2.node.check-host.net&#39;: [[0, 0.288956880569458, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;in1.node.check-host.net&#39;: [[0, 0.639625072479248, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;in2.node.check-host.net&#39;: [[0, 0.695383071899414, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;in3.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;ir1.node.check-host.net&#39;: [[0, 0.528324842453003, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ir3.node.check-host.net&#39;: [[0, 1.2284300327301, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ir5.node.check-host.net&#39;: [[0, 0.558695077896118, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ir6.node.check-host.net&#39;: [[0, 0.502427101135254, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;it2.node.check-host.net&#39;: [[0, 0.152914047241211, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 1.09573602676392, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;kz1.node.check-host.net&#39;: [[0, 0.601245880126953, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;lt1.node.check-host.net&#39;: [[0, 0.253520011901855, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;md1.node.check-host.net&#39;: [[0, 0.314481019973755, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;nl1.node.check-host.net&#39;: [[0, 0.156674861907959, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;nl2.node.check-host.net&#39;: [[0, 0.167962074279785, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;pl1.node.check-host.net&#39;: [[0, 0.208173036575317, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;pl2.node.check-host.net&#39;: [[0, 0.263912916183472, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;pt1.node.check-host.net&#39;: [[0, 0.113213062286377, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;rs1.node.check-host.net&#39;: [[0, 0.228809118270874, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ru1.node.check-host.net&#39;: [[0, 0.320142030715942, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ru2.node.check-host.net&#39;: [[0, 0.430215120315552, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ru3.node.check-host.net&#39;: [[0, 0.294823169708252, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ru4.node.check-host.net&#39;: [[0, 0.460588932037354, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;se1.node.check-host.net&#39;: [[0, 0.262428998947144, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;tr1.node.check-host.net&#39;: [[0, 0.32068395614624, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;tr2.node.check-host.net&#39;: [[0, 0.397903919219971, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ua1.node.check-host.net&#39;: [[0, 0.264111995697021, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ua2.node.check-host.net&#39;: [[0, 0.285824060440063, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ua3.node.check-host.net&#39;: [[0, 0.46196985244751, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;uk1.node.check-host.net&#39;: [[0, 0.175674915313721, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;us1.node.check-host.net&#39;: [[0, 3.00151491165161, &#39;Connection timed out&#39;, None, None]], &#39;us2.node.check-host.net&#39;: [[0, 0.580679893493652, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;us3.node.check-host.net&#39;: [[0, 3.68574595451355, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;vn1.node.check-host.net&#39;: [[0, 1.09651803970337, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
-          </tr>
-        
-          <tr>
-            <th>verified</th>
-            <td>True</td>
-          </tr>
-        
-          <tr>
-            <th>processed</th>
-            <td>True</td>
-          </tr>
-        
-          <tr>
-            <th>additional_image_original</th>
-            <td>https://i.ibb.co/k26DbPyF/photo-2025-03-05-09-34-01.jpg</td>
-          </tr>
-        
-          <tr>
-            <th>original_image</th>
-            <td>https://example.com/default.png</td>
-          </tr>
-        
-          <tr>
-            <th>received_at</th>
-            <td>2025-03-05 07:37:57.722000</td>
-          </tr>
-        
-      </tbody>
-    </table>
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+              <tr>
+                <th>_id</th>
+                <td>67c7ff5505a3b30784201197</td>
+              </tr>
+            
+              <tr>
+                <th>report_type</th>
+                <td>ddos</td>
+              </tr>
+            
+              <tr>
+                <th>group_name</th>
+                <td>NoName057(16)</td>
+              </tr>
+            
+              <tr>
+                <th>actor_name</th>
+                <td>NoName057(16)</td>
+              </tr>
+            
+              <tr>
+                <th>operation_name</th>
+                <td>Hack For Humanity</td>
+              </tr>
+            
+              <tr>
+                <th>network</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>network_other</th>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <th>targeted_website</th>
+                <td>https://www.irun.org/eu/</td>
+              </tr>
+            
+              <tr>
+                <th>targeted_org</th>
+                <td>Irungo Udalaren zerbitzu elektronikoen ataria</td>
+              </tr>
+            
+              <tr>
+                <th>attack_type</th>
+                <td>DDoS</td>
+              </tr>
+            
+              <tr>
+                <th>attacked_country</th>
+                <td>ES</td>
+              </tr>
+            
+              <tr>
+                <th>attacker_country_affiliation</th>
+                <td>ru</td>
+              </tr>
+            
+              <tr>
+                <th>attack_date</th>
+                <td>2025-03-05</td>
+              </tr>
+            
+              <tr>
+                <th>check_host</th>
+                <td>23ba3b03k15f</td>
+              </tr>
+            
+              <tr>
+                <th>additional_image</th>
+                <td>https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/irun_org/files/additional_image.jpg</td>
+              </tr>
+            
+              <tr>
+                <th>source_attacker_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>victim_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>attacker_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>sourceIp</th>
+                <td>109.67.186.178</td>
+              </tr>
+            
+              <tr>
+                <th>userAgent</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>referer</th>
+                <td>https://unit500.python-myth.info/</td>
+              </tr>
+            
+              <tr>
+                <th>xForwardedFor</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>origin</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>acceptLanguage</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>xAmznTraceId</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>check_details</th>
+                <td>{&#39;website_verification&#39;: &#39;https://www.irun.org/eu/&#39;, &#39;check_date&#39;: &#39;2025-03-05&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [[0, 24.9999718666077, &#39;Connection timed out&#39;, None, &#39;212.55.0.212&#39;]], &#39;br1.node.check-host.net&#39;: [[0, 0.879855871200562, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ch1.node.check-host.net&#39;: [[0, 0.180244922637939, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;cz1.node.check-host.net&#39;: [[0, 0.214117050170898, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;de1.node.check-host.net&#39;: [[0, 0.198140859603882, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;de4.node.check-host.net&#39;: [[0, 0.164669036865234, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;es1.node.check-host.net&#39;: [[0, 0.112905025482178, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;fi1.node.check-host.net&#39;: [[0, 0.293023109436035, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;fr1.node.check-host.net&#39;: [[0, 0.14128589630127, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;fr2.node.check-host.net&#39;: [[0, 0.115052938461304, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;hk1.node.check-host.net&#39;: [[1, 2.27384996414185, &#39;OK&#39;, &#39;200&#39;, &#39;212.55.0.212&#39;]], &#39;hu1.node.check-host.net&#39;: [[0, 0.25481390953064, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;id1.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;il1.node.check-host.net&#39;: [[0, 0.387380123138428, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;il2.node.check-host.net&#39;: [[0, 0.288956880569458, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;in1.node.check-host.net&#39;: [[0, 0.639625072479248, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;in2.node.check-host.net&#39;: [[0, 0.695383071899414, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;in3.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;ir1.node.check-host.net&#39;: [[0, 0.528324842453003, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ir3.node.check-host.net&#39;: [[0, 1.2284300327301, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ir5.node.check-host.net&#39;: [[0, 0.558695077896118, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ir6.node.check-host.net&#39;: [[0, 0.502427101135254, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;it2.node.check-host.net&#39;: [[0, 0.152914047241211, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 1.09573602676392, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;kz1.node.check-host.net&#39;: [[0, 0.601245880126953, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;lt1.node.check-host.net&#39;: [[0, 0.253520011901855, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;md1.node.check-host.net&#39;: [[0, 0.314481019973755, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;nl1.node.check-host.net&#39;: [[0, 0.156674861907959, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;nl2.node.check-host.net&#39;: [[0, 0.167962074279785, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;pl1.node.check-host.net&#39;: [[0, 0.208173036575317, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;pl2.node.check-host.net&#39;: [[0, 0.263912916183472, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;pt1.node.check-host.net&#39;: [[0, 0.113213062286377, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;rs1.node.check-host.net&#39;: [[0, 0.228809118270874, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ru1.node.check-host.net&#39;: [[0, 0.320142030715942, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ru2.node.check-host.net&#39;: [[0, 0.430215120315552, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ru3.node.check-host.net&#39;: [[0, 0.294823169708252, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ru4.node.check-host.net&#39;: [[0, 0.460588932037354, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;se1.node.check-host.net&#39;: [[0, 0.262428998947144, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;tr1.node.check-host.net&#39;: [[0, 0.32068395614624, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;tr2.node.check-host.net&#39;: [[0, 0.397903919219971, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ua1.node.check-host.net&#39;: [[0, 0.264111995697021, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ua2.node.check-host.net&#39;: [[0, 0.285824060440063, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;ua3.node.check-host.net&#39;: [[0, 0.46196985244751, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;uk1.node.check-host.net&#39;: [[0, 0.175674915313721, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;us1.node.check-host.net&#39;: [[0, 3.00151491165161, &#39;Connection timed out&#39;, None, None]], &#39;us2.node.check-host.net&#39;: [[0, 0.580679893493652, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;us3.node.check-host.net&#39;: [[0, 3.68574595451355, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]], &#39;vn1.node.check-host.net&#39;: [[0, 1.09651803970337, &#39;Connection reset by peer&#39;, None, &#39;212.55.0.212&#39;]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
+              </tr>
+            
+              <tr>
+                <th>verified</th>
+                <td>True</td>
+              </tr>
+            
+              <tr>
+                <th>processed</th>
+                <td>True</td>
+              </tr>
+            
+              <tr>
+                <th>additional_image_original</th>
+                <td>https://i.ibb.co/k26DbPyF/photo-2025-03-05-09-34-01.jpg</td>
+              </tr>
+            
+              <tr>
+                <th>original_image</th>
+                <td>https://example.com/default.png</td>
+              </tr>
+            
+              <tr>
+                <th>received_at</th>
+                <td>2025-03-05 07:37:57.722000</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
   
+  <!-- Footer -->
   <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-03-05 10:20:33</p>
+    <p class="small text-muted">Last Generated: 2025-03-05 10:25:48</p>
   </footer>
-  
+
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

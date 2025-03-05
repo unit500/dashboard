@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Document Details - Unit500</title>
+  <title>DDoS Attack Details - Unit500</title>
   <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="../static/style.css">
   <style>
     .details-img {
@@ -22,195 +23,259 @@
   </style>
 </head>
 <body class="bg-light">
+  <!-- Common Header -->
   <header class="mb-4">
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a href="../static_dashboard.html" class="navbar-brand">Unit500</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
       </div>
     </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
   </header>
-  
+
   <div class="container my-4">
+    <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
-    
-    <h1>Document Details</h1>
-    
-    <!-- Thumbnail Section -->
-    <div class="mb-4">
-      
-        <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/citizen_omr_gov_ua/files/additional_image.jpg" alt="Additional Image" class="details-img">
-      
+
+    <!-- Three Cards Row -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://citizen.omr.gov.ua/discussion/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">citizen.omr.gov.ua</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-03-04</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/ua.png" alt="UA flag">
+            
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <!-- Details Table: Loop through all fields -->
-    <table class="table table-bordered details-table">
-      <tbody>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
         
-          <tr>
-            <th>_id</th>
-            <td>67c6f05156e7047cddc415d4</td>
-          </tr>
+          <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/citizen_omr_gov_ua/files/additional_image.jpg" alt="Screenshot of DDoS Attack" class="details-img">
         
-          <tr>
-            <th>report_type</th>
-            <td>ddos</td>
-          </tr>
-        
-          <tr>
-            <th>group_name</th>
-            <td>NoName057(16)</td>
-          </tr>
-        
-          <tr>
-            <th>actor_name</th>
-            <td>NoName057(16)</td>
-          </tr>
-        
-          <tr>
-            <th>operation_name</th>
-            <td>Hack For Humanity</td>
-          </tr>
-        
-          <tr>
-            <th>network</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>network_other</th>
-            <td></td>
-          </tr>
-        
-          <tr>
-            <th>targeted_website</th>
-            <td>https://citizen.omr.gov.ua/discussion/</td>
-          </tr>
-        
-          <tr>
-            <th>targeted_org</th>
-            <td></td>
-          </tr>
-        
-          <tr>
-            <th>attack_type</th>
-            <td>DDoS</td>
-          </tr>
-        
-          <tr>
-            <th>attacked_country</th>
-            <td>UA</td>
-          </tr>
-        
-          <tr>
-            <th>attacker_country_affiliation</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>attack_date</th>
-            <td>2025-03-04</td>
-          </tr>
-        
-          <tr>
-            <th>check_host</th>
-            <td>23b45354ke17</td>
-          </tr>
-        
-          <tr>
-            <th>additional_image</th>
-            <td>https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/citizen_omr_gov_ua/files/additional_image.jpg</td>
-          </tr>
-        
-          <tr>
-            <th>source_attacker_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>victim_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>attacker_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>sourceIp</th>
-            <td>109.67.186.178</td>
-          </tr>
-        
-          <tr>
-            <th>userAgent</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>referer</th>
-            <td>https://unit500.python-myth.info/</td>
-          </tr>
-        
-          <tr>
-            <th>xForwardedFor</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>origin</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>acceptLanguage</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>xAmznTraceId</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>check_details</th>
-            <td>{&#39;website_verification&#39;: &#39;https://citizen.omr.gov.ua/discussion/&#39;, &#39;check_date&#39;: &#39;2025-03-04&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [[0, 0.292831897735596, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;br1.node.check-host.net&#39;: [[0, 20.6623890399933, &#39;ssl3_get_record: decryption failed or bad record mac&#39;, None, &#39;185.168.128.116&#39;]], &#39;ch1.node.check-host.net&#39;: [[0, 0.142415046691895, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;cz1.node.check-host.net&#39;: [[0, 0.134911060333252, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;de1.node.check-host.net&#39;: [[0, 0.106160879135132, &#39;Service Unavailable&#39;, 503, &#39;185.168.128.116&#39;]], &#39;de4.node.check-host.net&#39;: [[0, 0.135201930999756, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;es1.node.check-host.net&#39;: [[0, 0.215373992919922, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;fi1.node.check-host.net&#39;: [[0, 0.161068916320801, &#39;Service Unavailable&#39;, 503, &#39;185.168.128.116&#39;]], &#39;fr1.node.check-host.net&#39;: [[0, 0.12935996055603, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;fr2.node.check-host.net&#39;: [[0, 0.17231822013855, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;hk1.node.check-host.net&#39;: [[0, 0.770017862319946, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;hu1.node.check-host.net&#39;: [[0, 10.1499850749969, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;id1.node.check-host.net&#39;: [[0, 0.95923900604248, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;il1.node.check-host.net&#39;: [[0, 0.307899951934814, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;il2.node.check-host.net&#39;: [[0, 0.320374011993408, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;in1.node.check-host.net&#39;: [[0, 0.447710037231445, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;in2.node.check-host.net&#39;: [[0, 0.535152912139893, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;in3.node.check-host.net&#39;: [[0, 0.472598075866699, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ir1.node.check-host.net&#39;: [[0, 0.36694598197937, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ir3.node.check-host.net&#39;: [[0, 0.689033031463623, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ir5.node.check-host.net&#39;: [[0, 0.741879940032959, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ir6.node.check-host.net&#39;: [[0, 0.32548189163208, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;it2.node.check-host.net&#39;: [[0, 0.138956069946289, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 0.822117805480957, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;kz1.node.check-host.net&#39;: [[0, 0.493558883666992, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;lt1.node.check-host.net&#39;: [[0, 0.103269100189209, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;md1.node.check-host.net&#39;: [[0, 0.177786111831665, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;nl1.node.check-host.net&#39;: [[0, 0.139603853225708, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;nl2.node.check-host.net&#39;: [[0, 0.139684200286865, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;pl1.node.check-host.net&#39;: [[0, 0.12941312789917, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;pl2.node.check-host.net&#39;: [[0, 0.135376930236816, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;pt1.node.check-host.net&#39;: [[0, 0.216304063796997, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;rs1.node.check-host.net&#39;: [[0, 0.134523153305054, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ru1.node.check-host.net&#39;: [[0, 3.0015709400177, &#39;Connection timed out&#39;, None, None]], &#39;ru2.node.check-host.net&#39;: [[0, 3.00086879730225, &#39;Connection timed out&#39;, None, None]], &#39;ru3.node.check-host.net&#39;: [[0, 3.00177812576294, &#39;Connection timed out&#39;, None, None]], &#39;ru4.node.check-host.net&#39;: [[0, 3.0014660358429, &#39;Connection timed out&#39;, None, None]], &#39;se1.node.check-host.net&#39;: [[0, 0.165438175201416, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;tr1.node.check-host.net&#39;: [[0, 0.227701187133789, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;tr2.node.check-host.net&#39;: [[0, 0.225618124008179, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ua1.node.check-host.net&#39;: [[0, 0.0389478206634521, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ua2.node.check-host.net&#39;: [[0, 0.035275936126709, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ua3.node.check-host.net&#39;: [[0, 0.234706878662109, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;uk1.node.check-host.net&#39;: [[0, 0.164660930633545, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;us1.node.check-host.net&#39;: [[0, 0.540657043457031, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;us2.node.check-host.net&#39;: [[0, 0.485321044921875, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;us3.node.check-host.net&#39;: [[0, 0.413403034210205, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;vn1.node.check-host.net&#39;: [[0, 0.742971897125244, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
-          </tr>
-        
-          <tr>
-            <th>verified</th>
-            <td>True</td>
-          </tr>
-        
-          <tr>
-            <th>processed</th>
-            <td>True</td>
-          </tr>
-        
-          <tr>
-            <th>additional_image_original</th>
-            <td>https://i.ibb.co/0p62vLm1/photo-2025-03-04-14-15-13.jpg</td>
-          </tr>
-        
-          <tr>
-            <th>original_image</th>
-            <td>https://example.com/default.png</td>
-          </tr>
-        
-          <tr>
-            <th>received_at</th>
-            <td>2025-03-04 12:21:37.409000</td>
-          </tr>
-        
-      </tbody>
-    </table>
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+              <tr>
+                <th>_id</th>
+                <td>67c6f05156e7047cddc415d4</td>
+              </tr>
+            
+              <tr>
+                <th>report_type</th>
+                <td>ddos</td>
+              </tr>
+            
+              <tr>
+                <th>group_name</th>
+                <td>NoName057(16)</td>
+              </tr>
+            
+              <tr>
+                <th>actor_name</th>
+                <td>NoName057(16)</td>
+              </tr>
+            
+              <tr>
+                <th>operation_name</th>
+                <td>Hack For Humanity</td>
+              </tr>
+            
+              <tr>
+                <th>network</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>network_other</th>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <th>targeted_website</th>
+                <td>https://citizen.omr.gov.ua/discussion/</td>
+              </tr>
+            
+              <tr>
+                <th>targeted_org</th>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <th>attack_type</th>
+                <td>DDoS</td>
+              </tr>
+            
+              <tr>
+                <th>attacked_country</th>
+                <td>UA</td>
+              </tr>
+            
+              <tr>
+                <th>attacker_country_affiliation</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>attack_date</th>
+                <td>2025-03-04</td>
+              </tr>
+            
+              <tr>
+                <th>check_host</th>
+                <td>23b45354ke17</td>
+              </tr>
+            
+              <tr>
+                <th>additional_image</th>
+                <td>https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/citizen_omr_gov_ua/files/additional_image.jpg</td>
+              </tr>
+            
+              <tr>
+                <th>source_attacker_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>victim_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>attacker_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>sourceIp</th>
+                <td>109.67.186.178</td>
+              </tr>
+            
+              <tr>
+                <th>userAgent</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>referer</th>
+                <td>https://unit500.python-myth.info/</td>
+              </tr>
+            
+              <tr>
+                <th>xForwardedFor</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>origin</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>acceptLanguage</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>xAmznTraceId</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>check_details</th>
+                <td>{&#39;website_verification&#39;: &#39;https://citizen.omr.gov.ua/discussion/&#39;, &#39;check_date&#39;: &#39;2025-03-04&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [[0, 0.292831897735596, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;br1.node.check-host.net&#39;: [[0, 20.6623890399933, &#39;ssl3_get_record: decryption failed or bad record mac&#39;, None, &#39;185.168.128.116&#39;]], &#39;ch1.node.check-host.net&#39;: [[0, 0.142415046691895, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;cz1.node.check-host.net&#39;: [[0, 0.134911060333252, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;de1.node.check-host.net&#39;: [[0, 0.106160879135132, &#39;Service Unavailable&#39;, 503, &#39;185.168.128.116&#39;]], &#39;de4.node.check-host.net&#39;: [[0, 0.135201930999756, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;es1.node.check-host.net&#39;: [[0, 0.215373992919922, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;fi1.node.check-host.net&#39;: [[0, 0.161068916320801, &#39;Service Unavailable&#39;, 503, &#39;185.168.128.116&#39;]], &#39;fr1.node.check-host.net&#39;: [[0, 0.12935996055603, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;fr2.node.check-host.net&#39;: [[0, 0.17231822013855, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;hk1.node.check-host.net&#39;: [[0, 0.770017862319946, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;hu1.node.check-host.net&#39;: [[0, 10.1499850749969, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;id1.node.check-host.net&#39;: [[0, 0.95923900604248, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;il1.node.check-host.net&#39;: [[0, 0.307899951934814, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;il2.node.check-host.net&#39;: [[0, 0.320374011993408, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;in1.node.check-host.net&#39;: [[0, 0.447710037231445, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;in2.node.check-host.net&#39;: [[0, 0.535152912139893, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;in3.node.check-host.net&#39;: [[0, 0.472598075866699, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ir1.node.check-host.net&#39;: [[0, 0.36694598197937, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ir3.node.check-host.net&#39;: [[0, 0.689033031463623, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ir5.node.check-host.net&#39;: [[0, 0.741879940032959, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ir6.node.check-host.net&#39;: [[0, 0.32548189163208, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;it2.node.check-host.net&#39;: [[0, 0.138956069946289, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 0.822117805480957, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;kz1.node.check-host.net&#39;: [[0, 0.493558883666992, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;lt1.node.check-host.net&#39;: [[0, 0.103269100189209, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;md1.node.check-host.net&#39;: [[0, 0.177786111831665, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;nl1.node.check-host.net&#39;: [[0, 0.139603853225708, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;nl2.node.check-host.net&#39;: [[0, 0.139684200286865, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;pl1.node.check-host.net&#39;: [[0, 0.12941312789917, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;pl2.node.check-host.net&#39;: [[0, 0.135376930236816, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;pt1.node.check-host.net&#39;: [[0, 0.216304063796997, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;rs1.node.check-host.net&#39;: [[0, 0.134523153305054, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ru1.node.check-host.net&#39;: [[0, 3.0015709400177, &#39;Connection timed out&#39;, None, None]], &#39;ru2.node.check-host.net&#39;: [[0, 3.00086879730225, &#39;Connection timed out&#39;, None, None]], &#39;ru3.node.check-host.net&#39;: [[0, 3.00177812576294, &#39;Connection timed out&#39;, None, None]], &#39;ru4.node.check-host.net&#39;: [[0, 3.0014660358429, &#39;Connection timed out&#39;, None, None]], &#39;se1.node.check-host.net&#39;: [[0, 0.165438175201416, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;tr1.node.check-host.net&#39;: [[0, 0.227701187133789, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;tr2.node.check-host.net&#39;: [[0, 0.225618124008179, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ua1.node.check-host.net&#39;: [[0, 0.0389478206634521, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ua2.node.check-host.net&#39;: [[0, 0.035275936126709, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;ua3.node.check-host.net&#39;: [[0, 0.234706878662109, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;uk1.node.check-host.net&#39;: [[0, 0.164660930633545, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;us1.node.check-host.net&#39;: [[0, 0.540657043457031, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;us2.node.check-host.net&#39;: [[0, 0.485321044921875, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;us3.node.check-host.net&#39;: [[0, 0.413403034210205, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]], &#39;vn1.node.check-host.net&#39;: [[0, 0.742971897125244, &#39;Service Unavailable&#39;, &#39;503&#39;, &#39;185.168.128.116&#39;]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
+              </tr>
+            
+              <tr>
+                <th>verified</th>
+                <td>True</td>
+              </tr>
+            
+              <tr>
+                <th>processed</th>
+                <td>True</td>
+              </tr>
+            
+              <tr>
+                <th>additional_image_original</th>
+                <td>https://i.ibb.co/0p62vLm1/photo-2025-03-04-14-15-13.jpg</td>
+              </tr>
+            
+              <tr>
+                <th>original_image</th>
+                <td>https://example.com/default.png</td>
+              </tr>
+            
+              <tr>
+                <th>received_at</th>
+                <td>2025-03-04 12:21:37.409000</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
   
+  <!-- Footer -->
   <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-03-05 10:20:33</p>
+    <p class="small text-muted">Last Generated: 2025-03-05 10:25:48</p>
   </footer>
-  
+
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

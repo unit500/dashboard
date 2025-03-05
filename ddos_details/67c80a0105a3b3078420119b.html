@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Document Details - Unit500</title>
+  <title>DDoS Attack Details - Unit500</title>
   <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="../static/style.css">
   <style>
     .details-img {
@@ -22,190 +23,254 @@
   </style>
 </head>
 <body class="bg-light">
+  <!-- Common Header -->
   <header class="mb-4">
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a href="../static_dashboard.html" class="navbar-brand">Unit500</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
       </div>
     </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
   </header>
-  
+
   <div class="container my-4">
+    <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
-    
-    <h1>Document Details</h1>
-    
-    <!-- Thumbnail Section -->
-    <div class="mb-4">
-      
-        <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default Image" class="details-img">
-      
+
+    <!-- Three Cards Row -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://www.dipucr.es/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">www.dipucr.es</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-03-05</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/es.png" alt="ES flag">
+            
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <!-- Details Table: Loop through all fields -->
-    <table class="table table-bordered details-table">
-      <tbody>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
         
-          <tr>
-            <th>_id</th>
-            <td>67c80a0105a3b3078420119b</td>
-          </tr>
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
         
-          <tr>
-            <th>report_type</th>
-            <td>ddos</td>
-          </tr>
-        
-          <tr>
-            <th>group_name</th>
-            <td>NoName057(16)</td>
-          </tr>
-        
-          <tr>
-            <th>actor_name</th>
-            <td>NoName057(16)</td>
-          </tr>
-        
-          <tr>
-            <th>operation_name</th>
-            <td>Hack For Humanity</td>
-          </tr>
-        
-          <tr>
-            <th>network</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>network_other</th>
-            <td></td>
-          </tr>
-        
-          <tr>
-            <th>targeted_website</th>
-            <td>https://www.dipucr.es/</td>
-          </tr>
-        
-          <tr>
-            <th>targeted_org</th>
-            <td></td>
-          </tr>
-        
-          <tr>
-            <th>attack_type</th>
-            <td>DDoS</td>
-          </tr>
-        
-          <tr>
-            <th>attacked_country</th>
-            <td>ES</td>
-          </tr>
-        
-          <tr>
-            <th>attacker_country_affiliation</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>attack_date</th>
-            <td>2025-03-05</td>
-          </tr>
-        
-          <tr>
-            <th>check_host</th>
-            <td>23ba461dk38b</td>
-          </tr>
-        
-          <tr>
-            <th>additional_image</th>
-            <td></td>
-          </tr>
-        
-          <tr>
-            <th>source_attacker_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>victim_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>attacker_country</th>
-            <td>unknown</td>
-          </tr>
-        
-          <tr>
-            <th>sourceIp</th>
-            <td>109.67.186.178</td>
-          </tr>
-        
-          <tr>
-            <th>userAgent</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>referer</th>
-            <td>https://unit500.python-myth.info/</td>
-          </tr>
-        
-          <tr>
-            <th>xForwardedFor</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>origin</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>acceptLanguage</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>xAmznTraceId</th>
-            <td>None</td>
-          </tr>
-        
-          <tr>
-            <th>check_details</th>
-            <td>{&#39;website_verification&#39;: &#39;https://www.dipucr.es/&#39;, &#39;check_date&#39;: &#39;2025-03-05&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [[0, 3.05042290687561, &#39;Connection timed out&#39;, None, None]], &#39;br1.node.check-host.net&#39;: [[0, 3.19816589355469, &#39;Connection timed out&#39;, None, None]], &#39;ch1.node.check-host.net&#39;: [[0, 3.03389692306519, &#39;Connection timed out&#39;, None, None]], &#39;cz1.node.check-host.net&#39;: [[0, 3.0368218421936, &#39;Connection timed out&#39;, None, None]], &#39;de1.node.check-host.net&#39;: [[0, 25.0006940364838, &#39;Connection timed out&#39;, None, &#39;185.191.65.149&#39;]], &#39;de4.node.check-host.net&#39;: [[0, 3.00379395484924, &#39;Connection timed out&#39;, None, None]], &#39;es1.node.check-host.net&#39;: [[0, 3.01509213447571, &#39;Connection timed out&#39;, None, None]], &#39;fi1.node.check-host.net&#39;: [[0, 3.06008911132812, &#39;Connection timed out&#39;, None, None]], &#39;fr1.node.check-host.net&#39;: [[0, 3.03831911087036, &#39;Connection timed out&#39;, None, None]], &#39;fr2.node.check-host.net&#39;: [[0, 3.02542901039124, &#39;Connection timed out&#39;, None, None]], &#39;hk1.node.check-host.net&#39;: [[0, 3.28857493400574, &#39;Connection timed out&#39;, None, None]], &#39;hu1.node.check-host.net&#39;: [[0, 3.04689383506775, &#39;Connection timed out&#39;, None, None]], &#39;id1.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;No route to host&#39;}], &#39;il1.node.check-host.net&#39;: [[0, 3.04759097099304, &#39;Connection timed out&#39;, None, None]], &#39;il2.node.check-host.net&#39;: [[0, 3.04869508743286, &#39;Connection timed out&#39;, None, None]], &#39;in1.node.check-host.net&#39;: [[0, 3.36714315414429, &#39;Connection timed out&#39;, None, None]], &#39;in2.node.check-host.net&#39;: [[0, 3.29241418838501, &#39;Connection timed out&#39;, None, None]], &#39;in3.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;ir1.node.check-host.net&#39;: [[0, 3.15127396583557, &#39;Connection timed out&#39;, None, None]], &#39;ir3.node.check-host.net&#39;: [[0, 3.21252489089966, &#39;Connection timed out&#39;, None, None]], &#39;ir5.node.check-host.net&#39;: [[0, 3.17631006240845, &#39;Connection timed out&#39;, None, None]], &#39;ir6.node.check-host.net&#39;: [[0, 3.2561559677124, &#39;Connection timed out&#39;, None, None]], &#39;it2.node.check-host.net&#39;: [[0, 25.0007181167603, &#39;Connection timed out&#39;, None, &#39;185.191.65.149&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 3.25371599197388, &#39;Connection timed out&#39;, None, None]], &#39;kz1.node.check-host.net&#39;: [[0, 3.32781910896301, &#39;Connection timed out&#39;, None, None]], &#39;lt1.node.check-host.net&#39;: [[0, 3.02443885803223, &#39;Connection timed out&#39;, None, None]], &#39;md1.node.check-host.net&#39;: [[0, 3.03712892532349, &#39;Connection timed out&#39;, None, None]], &#39;nl1.node.check-host.net&#39;: [[0, 3.00651097297668, &#39;Connection timed out&#39;, None, None]], &#39;nl2.node.check-host.net&#39;: [[0, 3.00899600982666, &#39;Connection timed out&#39;, None, None]], &#39;pl1.node.check-host.net&#39;: [[0, 3.05234098434448, &#39;Connection timed out&#39;, None, None]], &#39;pl2.node.check-host.net&#39;: [[0, 3.07177710533142, &#39;Connection timed out&#39;, None, None]], &#39;pt1.node.check-host.net&#39;: [[0, 3.18402814865112, &#39;Connection timed out&#39;, None, None]], &#39;rs1.node.check-host.net&#39;: [[0, 3.11738014221191, &#39;Connection timed out&#39;, None, None]], &#39;ru1.node.check-host.net&#39;: [[0, 3.86640000343323, &#39;Connection timed out&#39;, None, None]], &#39;ru2.node.check-host.net&#39;: [[0, 3.16438317298889, &#39;Connection timed out&#39;, None, None]], &#39;ru3.node.check-host.net&#39;: [[0, 3.06867003440857, &#39;Connection timed out&#39;, None, None]], &#39;ru4.node.check-host.net&#39;: [[0, 3.10474514961243, &#39;Connection timed out&#39;, None, None]], &#39;se1.node.check-host.net&#39;: [[0, 3.0678391456604, &#39;Connection timed out&#39;, None, None]], &#39;tr1.node.check-host.net&#39;: [[0, 3.21454501152039, &#39;Connection timed out&#39;, None, None]], &#39;tr2.node.check-host.net&#39;: [[0, 3.17666697502136, &#39;Connection timed out&#39;, None, None]], &#39;ua1.node.check-host.net&#39;: [[0, 3.04605579376221, &#39;Connection timed out&#39;, None, None]], &#39;ua2.node.check-host.net&#39;: [[0, 3.04272890090942, &#39;Connection timed out&#39;, None, None]], &#39;ua3.node.check-host.net&#39;: [[0, 3.07451605796814, &#39;Connection timed out&#39;, None, None]], &#39;uk1.node.check-host.net&#39;: [[0, 3.03933811187744, &#39;Connection timed out&#39;, None, None]], &#39;us1.node.check-host.net&#39;: [[0, 3.14205002784729, &#39;Connection timed out&#39;, None, None]], &#39;us2.node.check-host.net&#39;: [[0, 3.11319613456726, &#39;Connection timed out&#39;, None, None]], &#39;us3.node.check-host.net&#39;: [[0, 3.12298607826233, &#39;Connection timed out&#39;, None, None]], &#39;vn1.node.check-host.net&#39;: [[0, 3.33706307411194, &#39;Connection timed out&#39;, None, None]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
-          </tr>
-        
-          <tr>
-            <th>verified</th>
-            <td>True</td>
-          </tr>
-        
-          <tr>
-            <th>processed</th>
-            <td>True</td>
-          </tr>
-        
-          <tr>
-            <th>original_image</th>
-            <td>https://example.com/default.png</td>
-          </tr>
-        
-          <tr>
-            <th>received_at</th>
-            <td>2025-03-05 08:23:29.064000</td>
-          </tr>
-        
-      </tbody>
-    </table>
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+              <tr>
+                <th>_id</th>
+                <td>67c80a0105a3b3078420119b</td>
+              </tr>
+            
+              <tr>
+                <th>report_type</th>
+                <td>ddos</td>
+              </tr>
+            
+              <tr>
+                <th>group_name</th>
+                <td>NoName057(16)</td>
+              </tr>
+            
+              <tr>
+                <th>actor_name</th>
+                <td>NoName057(16)</td>
+              </tr>
+            
+              <tr>
+                <th>operation_name</th>
+                <td>Hack For Humanity</td>
+              </tr>
+            
+              <tr>
+                <th>network</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>network_other</th>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <th>targeted_website</th>
+                <td>https://www.dipucr.es/</td>
+              </tr>
+            
+              <tr>
+                <th>targeted_org</th>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <th>attack_type</th>
+                <td>DDoS</td>
+              </tr>
+            
+              <tr>
+                <th>attacked_country</th>
+                <td>ES</td>
+              </tr>
+            
+              <tr>
+                <th>attacker_country_affiliation</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>attack_date</th>
+                <td>2025-03-05</td>
+              </tr>
+            
+              <tr>
+                <th>check_host</th>
+                <td>23ba461dk38b</td>
+              </tr>
+            
+              <tr>
+                <th>additional_image</th>
+                <td></td>
+              </tr>
+            
+              <tr>
+                <th>source_attacker_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>victim_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>attacker_country</th>
+                <td>unknown</td>
+              </tr>
+            
+              <tr>
+                <th>sourceIp</th>
+                <td>109.67.186.178</td>
+              </tr>
+            
+              <tr>
+                <th>userAgent</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>referer</th>
+                <td>https://unit500.python-myth.info/</td>
+              </tr>
+            
+              <tr>
+                <th>xForwardedFor</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>origin</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>acceptLanguage</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>xAmznTraceId</th>
+                <td>None</td>
+              </tr>
+            
+              <tr>
+                <th>check_details</th>
+                <td>{&#39;website_verification&#39;: &#39;https://www.dipucr.es/&#39;, &#39;check_date&#39;: &#39;2025-03-05&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [[0, 3.05042290687561, &#39;Connection timed out&#39;, None, None]], &#39;br1.node.check-host.net&#39;: [[0, 3.19816589355469, &#39;Connection timed out&#39;, None, None]], &#39;ch1.node.check-host.net&#39;: [[0, 3.03389692306519, &#39;Connection timed out&#39;, None, None]], &#39;cz1.node.check-host.net&#39;: [[0, 3.0368218421936, &#39;Connection timed out&#39;, None, None]], &#39;de1.node.check-host.net&#39;: [[0, 25.0006940364838, &#39;Connection timed out&#39;, None, &#39;185.191.65.149&#39;]], &#39;de4.node.check-host.net&#39;: [[0, 3.00379395484924, &#39;Connection timed out&#39;, None, None]], &#39;es1.node.check-host.net&#39;: [[0, 3.01509213447571, &#39;Connection timed out&#39;, None, None]], &#39;fi1.node.check-host.net&#39;: [[0, 3.06008911132812, &#39;Connection timed out&#39;, None, None]], &#39;fr1.node.check-host.net&#39;: [[0, 3.03831911087036, &#39;Connection timed out&#39;, None, None]], &#39;fr2.node.check-host.net&#39;: [[0, 3.02542901039124, &#39;Connection timed out&#39;, None, None]], &#39;hk1.node.check-host.net&#39;: [[0, 3.28857493400574, &#39;Connection timed out&#39;, None, None]], &#39;hu1.node.check-host.net&#39;: [[0, 3.04689383506775, &#39;Connection timed out&#39;, None, None]], &#39;id1.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;No route to host&#39;}], &#39;il1.node.check-host.net&#39;: [[0, 3.04759097099304, &#39;Connection timed out&#39;, None, None]], &#39;il2.node.check-host.net&#39;: [[0, 3.04869508743286, &#39;Connection timed out&#39;, None, None]], &#39;in1.node.check-host.net&#39;: [[0, 3.36714315414429, &#39;Connection timed out&#39;, None, None]], &#39;in2.node.check-host.net&#39;: [[0, 3.29241418838501, &#39;Connection timed out&#39;, None, None]], &#39;in3.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;ir1.node.check-host.net&#39;: [[0, 3.15127396583557, &#39;Connection timed out&#39;, None, None]], &#39;ir3.node.check-host.net&#39;: [[0, 3.21252489089966, &#39;Connection timed out&#39;, None, None]], &#39;ir5.node.check-host.net&#39;: [[0, 3.17631006240845, &#39;Connection timed out&#39;, None, None]], &#39;ir6.node.check-host.net&#39;: [[0, 3.2561559677124, &#39;Connection timed out&#39;, None, None]], &#39;it2.node.check-host.net&#39;: [[0, 25.0007181167603, &#39;Connection timed out&#39;, None, &#39;185.191.65.149&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 3.25371599197388, &#39;Connection timed out&#39;, None, None]], &#39;kz1.node.check-host.net&#39;: [[0, 3.32781910896301, &#39;Connection timed out&#39;, None, None]], &#39;lt1.node.check-host.net&#39;: [[0, 3.02443885803223, &#39;Connection timed out&#39;, None, None]], &#39;md1.node.check-host.net&#39;: [[0, 3.03712892532349, &#39;Connection timed out&#39;, None, None]], &#39;nl1.node.check-host.net&#39;: [[0, 3.00651097297668, &#39;Connection timed out&#39;, None, None]], &#39;nl2.node.check-host.net&#39;: [[0, 3.00899600982666, &#39;Connection timed out&#39;, None, None]], &#39;pl1.node.check-host.net&#39;: [[0, 3.05234098434448, &#39;Connection timed out&#39;, None, None]], &#39;pl2.node.check-host.net&#39;: [[0, 3.07177710533142, &#39;Connection timed out&#39;, None, None]], &#39;pt1.node.check-host.net&#39;: [[0, 3.18402814865112, &#39;Connection timed out&#39;, None, None]], &#39;rs1.node.check-host.net&#39;: [[0, 3.11738014221191, &#39;Connection timed out&#39;, None, None]], &#39;ru1.node.check-host.net&#39;: [[0, 3.86640000343323, &#39;Connection timed out&#39;, None, None]], &#39;ru2.node.check-host.net&#39;: [[0, 3.16438317298889, &#39;Connection timed out&#39;, None, None]], &#39;ru3.node.check-host.net&#39;: [[0, 3.06867003440857, &#39;Connection timed out&#39;, None, None]], &#39;ru4.node.check-host.net&#39;: [[0, 3.10474514961243, &#39;Connection timed out&#39;, None, None]], &#39;se1.node.check-host.net&#39;: [[0, 3.0678391456604, &#39;Connection timed out&#39;, None, None]], &#39;tr1.node.check-host.net&#39;: [[0, 3.21454501152039, &#39;Connection timed out&#39;, None, None]], &#39;tr2.node.check-host.net&#39;: [[0, 3.17666697502136, &#39;Connection timed out&#39;, None, None]], &#39;ua1.node.check-host.net&#39;: [[0, 3.04605579376221, &#39;Connection timed out&#39;, None, None]], &#39;ua2.node.check-host.net&#39;: [[0, 3.04272890090942, &#39;Connection timed out&#39;, None, None]], &#39;ua3.node.check-host.net&#39;: [[0, 3.07451605796814, &#39;Connection timed out&#39;, None, None]], &#39;uk1.node.check-host.net&#39;: [[0, 3.03933811187744, &#39;Connection timed out&#39;, None, None]], &#39;us1.node.check-host.net&#39;: [[0, 3.14205002784729, &#39;Connection timed out&#39;, None, None]], &#39;us2.node.check-host.net&#39;: [[0, 3.11319613456726, &#39;Connection timed out&#39;, None, None]], &#39;us3.node.check-host.net&#39;: [[0, 3.12298607826233, &#39;Connection timed out&#39;, None, None]], &#39;vn1.node.check-host.net&#39;: [[0, 3.33706307411194, &#39;Connection timed out&#39;, None, None]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
+              </tr>
+            
+              <tr>
+                <th>verified</th>
+                <td>True</td>
+              </tr>
+            
+              <tr>
+                <th>processed</th>
+                <td>True</td>
+              </tr>
+            
+              <tr>
+                <th>original_image</th>
+                <td>https://example.com/default.png</td>
+              </tr>
+            
+              <tr>
+                <th>received_at</th>
+                <td>2025-03-05 08:23:29.064000</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
   
+  <!-- Footer -->
   <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-03-05 10:20:33</p>
+    <p class="small text-muted">Last Generated: 2025-03-05 10:25:48</p>
   </footer>
-  
+
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
