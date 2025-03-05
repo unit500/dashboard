@@ -20,6 +20,13 @@
     .details-table th {
       width: 30%;
     }
+    /* Constrain the map image size */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body class="bg-light">
@@ -56,10 +63,10 @@
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Three Cards Row -->
+    <!-- Top Cards Row (4 squares) -->
     <div class="row mb-4">
       <!-- Card 1: Targeted Website -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Targeted Website</div>
           <div class="card-body">
@@ -72,7 +79,7 @@
         </div>
       </div>
       <!-- Card 2: Attack Date -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Attack Date</div>
           <div class="card-body">
@@ -80,8 +87,8 @@
           </div>
         </div>
       </div>
-      <!-- Card 3: Geographics -->
-      <div class="col-md-4">
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Geographics</div>
           <div class="card-body">
@@ -95,15 +102,14 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Map Image Section -->
-    <div class="row mb-4">
-      <div class="col">
-        <h4>Check Details Map</h4>
-        
-          <img src="maps/67c7145556e7047cddc41622_map.png" alt="World Map of Check Details" class="details-img">
-        
+      <!-- Card 4: Verified -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            <h5 class="card-title">True</h5>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -120,155 +126,194 @@
         <table class="table table-bordered details-table">
           <tbody>
             
-              <tr>
-                <th>_id</th>
-                <td>67c7145556e7047cddc41622</td>
-              </tr>
+              
+                <tr>
+                  <th>_id</th>
+                  <td>67c7145556e7047cddc41622</td>
+                </tr>
+              
             
-              <tr>
-                <th>report_type</th>
-                <td>ddos</td>
-              </tr>
+              
+                <tr>
+                  <th>Report_type</th>
+                  <td>ddos</td>
+                </tr>
+              
             
-              <tr>
-                <th>group_name</th>
-                <td>TwoNet</td>
-              </tr>
+              
+                <tr>
+                  <th>Group_name</th>
+                  <td>TwoNet</td>
+                </tr>
+              
             
-              <tr>
-                <th>actor_name</th>
-                <td>TwoNet</td>
-              </tr>
+              
+                <tr>
+                  <th>Actor_name</th>
+                  <td>TwoNet</td>
+                </tr>
+              
             
-              <tr>
-                <th>operation_name</th>
-                <td>Hack For Humanity</td>
-              </tr>
+              
+                <tr>
+                  <th>Operation_name</th>
+                  <td>Hack For Humanity</td>
+                </tr>
+              
             
-              <tr>
-                <th>network</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Network</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>network_other</th>
-                <td></td>
-              </tr>
+              
+                <tr>
+                  <th>Network_other</th>
+                  <td></td>
+                </tr>
+              
             
-              <tr>
-                <th>targeted_website</th>
-                <td>https://www.imatia.com/</td>
-              </tr>
+              
+                <tr>
+                  <th>Targeted_website</th>
+                  <td>https://www.imatia.com/</td>
+                </tr>
+              
             
-              <tr>
-                <th>targeted_org</th>
-                <td></td>
-              </tr>
+              
+                <tr>
+                  <th>Targeted_org</th>
+                  <td></td>
+                </tr>
+              
             
-              <tr>
-                <th>attack_type</th>
-                <td>DDoS</td>
-              </tr>
+              
+                <tr>
+                  <th>Attack_type</th>
+                  <td>DDoS</td>
+                </tr>
+              
             
-              <tr>
-                <th>attacked_country</th>
-                <td>ES</td>
-              </tr>
+              
+                <tr>
+                  <th>Attacked_country</th>
+                  <td>ES</td>
+                </tr>
+              
             
-              <tr>
-                <th>attacker_country_affiliation</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Attacker_country_affiliation</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>attack_date</th>
-                <td>2025-03-04</td>
-              </tr>
+              
+                <tr>
+                  <th>Attack_date</th>
+                  <td>2025-03-04</td>
+                </tr>
+              
             
-              <tr>
-                <th>check_host</th>
-                <td>23b555b3kb1f</td>
-              </tr>
+              
+                <tr>
+                  <th>Check_host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/23b555b3kb1f" target="_blank">23b555b3kb1f</a>
+                  </td>
+                </tr>
+              
             
-              <tr>
-                <th>additional_image</th>
-                <td></td>
-              </tr>
+              
+                <tr>
+                  <th>Additional_image</th>
+                  <td></td>
+                </tr>
+              
             
-              <tr>
-                <th>source_attacker_country</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Source_attacker_country</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>victim_country</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Victim_country</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>attacker_country</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Attacker_country</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>sourceIp</th>
-                <td>109.67.186.178</td>
-              </tr>
+              
+                <tr>
+                  <th>Sourceip</th>
+                  <td>109.67.186.178</td>
+                </tr>
+              
             
-              <tr>
-                <th>userAgent</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>referer</th>
-                <td>https://unit500.github.io/</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>xForwardedFor</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>origin</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>acceptLanguage</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>xAmznTraceId</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>check_details</th>
-                <td>{&#39;website_verification&#39;: &#39;https://www.imatia.com/&#39;, &#39;check_date&#39;: &#39;2025-03-04&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [[0, 3.04507112503052, &#39;Connection timed out&#39;, None, None]], &#39;br1.node.check-host.net&#39;: [[0, 3.56117701530457, &#39;Connection timed out&#39;, None, None]], &#39;ch1.node.check-host.net&#39;: [[0, 3.07470798492432, &#39;Connection timed out&#39;, None, None]], &#39;cz1.node.check-host.net&#39;: [[0, 3.03710198402405, &#39;Connection timed out&#39;, None, None]], &#39;de1.node.check-host.net&#39;: [[0, 3.06134009361267, &#39;Connection timed out&#39;, None, None]], &#39;de4.node.check-host.net&#39;: [[0, 3.06884217262268, &#39;Connection timed out&#39;, None, None]], &#39;es1.node.check-host.net&#39;: [[0, 3.09241390228271, &#39;Connection timed out&#39;, None, None]], &#39;fi1.node.check-host.net&#39;: [[0, 3.08476901054382, &#39;Connection timed out&#39;, None, None]], &#39;fr1.node.check-host.net&#39;: [[0, 3.24973201751709, &#39;Connection timed out&#39;, None, None]], &#39;fr2.node.check-host.net&#39;: [[0, 3.03304290771484, &#39;Connection timed out&#39;, None, None]], &#39;hk1.node.check-host.net&#39;: [[0, 3.31118297576904, &#39;Connection timed out&#39;, None, None]], &#39;hu1.node.check-host.net&#39;: [[0, 3.15204310417175, &#39;Connection timed out&#39;, None, None]], &#39;id1.node.check-host.net&#39;: [[0, 3.30504202842712, &#39;Connection timed out&#39;, None, None]], &#39;il1.node.check-host.net&#39;: [[0, 3.07215690612793, &#39;Connection timed out&#39;, None, None]], &#39;il2.node.check-host.net&#39;: [[0, 3.24112200737, &#39;Connection timed out&#39;, None, None]], &#39;in1.node.check-host.net&#39;: [[0, 3.65407085418701, &#39;Connection timed out&#39;, None, None]], &#39;in2.node.check-host.net&#39;: [[0, 3.36379790306091, &#39;Connection timed out&#39;, None, None]], &#39;in3.node.check-host.net&#39;: [[0, 3.5238139629364, &#39;Connection timed out&#39;, None, None]], &#39;ir1.node.check-host.net&#39;: [[0, 3.20921087265015, &#39;Connection timed out&#39;, None, None]], &#39;ir3.node.check-host.net&#39;: [[0, 3.17647504806519, &#39;Connection timed out&#39;, None, None]], &#39;ir5.node.check-host.net&#39;: [[0, 3.24005603790283, &#39;Connection timed out&#39;, None, None]], &#39;ir6.node.check-host.net&#39;: [[0, 3.13591599464417, &#39;Connection timed out&#39;, None, None]], &#39;it2.node.check-host.net&#39;: [[0, 3.16078686714172, &#39;Connection timed out&#39;, None, None]], &#39;jp1.node.check-host.net&#39;: [[0, 3.23083782196045, &#39;Connection timed out&#39;, None, None]], &#39;kz1.node.check-host.net&#39;: [[0, 3.18503713607788, &#39;Connection timed out&#39;, None, None]], &#39;lt1.node.check-host.net&#39;: [[0, 3.14661598205566, &#39;Connection timed out&#39;, None, None]], &#39;md1.node.check-host.net&#39;: [[0, 3.07156801223755, &#39;Connection timed out&#39;, None, None]], &#39;nl1.node.check-host.net&#39;: [[0, 3.13313913345337, &#39;Connection timed out&#39;, None, None]], &#39;nl2.node.check-host.net&#39;: [[0, 3.07434797286987, &#39;Connection timed out&#39;, None, None]], &#39;pl1.node.check-host.net&#39;: [[0, 3.12518906593323, &#39;Connection timed out&#39;, None, None]], &#39;pl2.node.check-host.net&#39;: [[0, 3.19858384132385, &#39;Connection timed out&#39;, None, None]], &#39;pt1.node.check-host.net&#39;: [[0, 3.02027893066406, &#39;Connection timed out&#39;, None, None]], &#39;rs1.node.check-host.net&#39;: [[0, 3.06920218467712, &#39;Connection timed out&#39;, None, None]], &#39;ru1.node.check-host.net&#39;: [[0, 3.06890416145325, &#39;Connection timed out&#39;, None, None]], &#39;ru2.node.check-host.net&#39;: [[0, 3.19551706314087, &#39;Connection timed out&#39;, None, None]], &#39;ru3.node.check-host.net&#39;: [[0, 3.13815498352051, &#39;Connection timed out&#39;, None, None]], &#39;ru4.node.check-host.net&#39;: [[0, 3.22071409225464, &#39;Connection timed out&#39;, None, None]], &#39;se1.node.check-host.net&#39;: [[0, 3.12921380996704, &#39;Connection timed out&#39;, None, None]], &#39;tr1.node.check-host.net&#39;: [[0, 3.16961908340454, &#39;Connection timed out&#39;, None, None]], &#39;tr2.node.check-host.net&#39;: [[0, 3.15889191627502, &#39;Connection timed out&#39;, None, None]], &#39;ua1.node.check-host.net&#39;: [[0, 3.11497282981873, &#39;Connection timed out&#39;, None, None]], &#39;ua2.node.check-host.net&#39;: [[0, 3.16252684593201, &#39;Connection timed out&#39;, None, None]], &#39;ua3.node.check-host.net&#39;: [[0, 3.15060901641846, &#39;Connection timed out&#39;, None, None]], &#39;uk1.node.check-host.net&#39;: [[0, 3.04249405860901, &#39;Connection timed out&#39;, None, None]], &#39;us1.node.check-host.net&#39;: [[0, 3.33250093460083, &#39;Connection timed out&#39;, None, None]], &#39;us2.node.check-host.net&#39;: [[0, 3.14168381690979, &#39;Connection timed out&#39;, None, None]], &#39;us3.node.check-host.net&#39;: [[0, 3.16566181182861, &#39;Connection timed out&#39;, None, None]], &#39;vn1.node.check-host.net&#39;: [[0, 3.32356786727905, &#39;Connection timed out&#39;, None, None]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
-              </tr>
+              
+                <tr>
+                  <th>Check Details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/67c7145556e7047cddc41622_map.png" alt="World Map of Check Details">
+                    
+                  </td>
+                </tr>
+              
             
-              <tr>
-                <th>verified</th>
-                <td>True</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>processed</th>
-                <td>True</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>original_image</th>
-                <td>https://example.com/default.png</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>received_at</th>
-                <td>2025-03-04 14:55:17.405000</td>
-              </tr>
+              
+                <tr>
+                  <th>Received_at</th>
+                  <td>2025-03-04 14:55:17.405000</td>
+                </tr>
+              
             
           </tbody>
         </table>
@@ -278,7 +323,7 @@
   
   <!-- Footer -->
   <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-03-05 14:53:53</p>
+    <p class="small text-muted">Last Generated: 2025-03-05 15:11:25</p>
   </footer>
 
   <!-- Bootstrap JS Bundle -->

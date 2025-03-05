@@ -20,6 +20,13 @@
     .details-table th {
       width: 30%;
     }
+    /* Constrain the map image size */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body class="bg-light">
@@ -56,10 +63,10 @@
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Three Cards Row -->
+    <!-- Top Cards Row (4 squares) -->
     <div class="row mb-4">
       <!-- Card 1: Targeted Website -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Targeted Website</div>
           <div class="card-body">
@@ -72,7 +79,7 @@
         </div>
       </div>
       <!-- Card 2: Attack Date -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Attack Date</div>
           <div class="card-body">
@@ -80,8 +87,8 @@
           </div>
         </div>
       </div>
-      <!-- Card 3: Geographics -->
-      <div class="col-md-4">
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Geographics</div>
           <div class="card-body">
@@ -95,15 +102,14 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Map Image Section -->
-    <div class="row mb-4">
-      <div class="col">
-        <h4>Check Details Map</h4>
-        
-          <img src="maps/67c8584bc29c6bd41b6297ab_map.png" alt="World Map of Check Details" class="details-img">
-        
+      <!-- Card 4: Verified -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            <h5 class="card-title">True</h5>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -120,160 +126,198 @@
         <table class="table table-bordered details-table">
           <tbody>
             
-              <tr>
-                <th>_id</th>
-                <td>67c8584bc29c6bd41b6297ab</td>
-              </tr>
+              
+                <tr>
+                  <th>_id</th>
+                  <td>67c8584bc29c6bd41b6297ab</td>
+                </tr>
+              
             
-              <tr>
-                <th>report_type</th>
-                <td>ddos</td>
-              </tr>
+              
+                <tr>
+                  <th>Report_type</th>
+                  <td>ddos</td>
+                </tr>
+              
             
-              <tr>
-                <th>group_name</th>
-                <td>Dark Storm Team</td>
-              </tr>
+              
+                <tr>
+                  <th>Group_name</th>
+                  <td>Dark Storm Team</td>
+                </tr>
+              
             
-              <tr>
-                <th>actor_name</th>
-                <td>Dark Storm Team</td>
-              </tr>
+              
+                <tr>
+                  <th>Actor_name</th>
+                  <td>Dark Storm Team</td>
+                </tr>
+              
             
-              <tr>
-                <th>operation_name</th>
-                <td></td>
-              </tr>
+              
+                <tr>
+                  <th>Operation_name</th>
+                  <td></td>
+                </tr>
+              
             
-              <tr>
-                <th>network</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Network</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>network_other</th>
-                <td></td>
-              </tr>
+              
+                <tr>
+                  <th>Network_other</th>
+                  <td></td>
+                </tr>
+              
             
-              <tr>
-                <th>targeted_website</th>
-                <td>https://gfkairport.com/</td>
-              </tr>
+              
+                <tr>
+                  <th>Targeted_website</th>
+                  <td>https://gfkairport.com/</td>
+                </tr>
+              
             
-              <tr>
-                <th>targeted_org</th>
-                <td></td>
-              </tr>
+              
+                <tr>
+                  <th>Targeted_org</th>
+                  <td></td>
+                </tr>
+              
             
-              <tr>
-                <th>attack_type</th>
-                <td>DDoS</td>
-              </tr>
+              
+                <tr>
+                  <th>Attack_type</th>
+                  <td>DDoS</td>
+                </tr>
+              
             
-              <tr>
-                <th>attacked_country</th>
-                <td>US</td>
-              </tr>
+              
+                <tr>
+                  <th>Attacked_country</th>
+                  <td>US</td>
+                </tr>
+              
             
-              <tr>
-                <th>attacker_country_affiliation</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Attacker_country_affiliation</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>attack_date</th>
-                <td>2025-03-05</td>
-              </tr>
+              
+                <tr>
+                  <th>Attack_date</th>
+                  <td>2025-03-05</td>
+                </tr>
+              
             
-              <tr>
-                <th>check_host</th>
-                <td>23b847efkaf9</td>
-              </tr>
+              
+                <tr>
+                  <th>Check_host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/23b847efkaf9" target="_blank">23b847efkaf9</a>
+                  </td>
+                </tr>
+              
             
-              <tr>
-                <th>additional_image</th>
-                <td></td>
-              </tr>
+              
+                <tr>
+                  <th>Additional_image</th>
+                  <td></td>
+                </tr>
+              
             
-              <tr>
-                <th>source_attacker_country</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Source_attacker_country</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>victim_country</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Victim_country</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>attacker_country</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Attacker_country</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>sourceIp</th>
-                <td>109.67.186.178</td>
-              </tr>
+              
+                <tr>
+                  <th>Sourceip</th>
+                  <td>109.67.186.178</td>
+                </tr>
+              
             
-              <tr>
-                <th>userAgent</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>referer</th>
-                <td>https://unit500.python-myth.info/</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>xForwardedFor</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>origin</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>acceptLanguage</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>xAmznTraceId</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>check_details</th>
-                <td>{&#39;website_verification&#39;: &#39;https://gfkairport.com/&#39;, &#39;check_date&#39;: &#39;2025-03-04&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [[0, 25.000100851059, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;br1.node.check-host.net&#39;: [[0, 25.000725030899, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ch1.node.check-host.net&#39;: [[0, 25.0009818077087, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;cz1.node.check-host.net&#39;: [[0, 25.0012409687042, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;de1.node.check-host.net&#39;: [[0, 25.0004029273987, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;de4.node.check-host.net&#39;: [[0, 24.9998700618744, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;es1.node.check-host.net&#39;: [[0, 25.0001509189606, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;fi1.node.check-host.net&#39;: [[0, 25.0003499984741, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;fr1.node.check-host.net&#39;: [[0, 25.0007700920105, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;fr2.node.check-host.net&#39;: [[0, 25.0001120567322, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;hk1.node.check-host.net&#39;: [[0, 25.0005660057068, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;hu1.node.check-host.net&#39;: [[0, 24.9999601840973, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;id1.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;il1.node.check-host.net&#39;: [[0, 25.0002429485321, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;il2.node.check-host.net&#39;: [[0, 25.0006830692291, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;in1.node.check-host.net&#39;: [[0, 24.9999430179596, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;in2.node.check-host.net&#39;: [[0, 25.0002160072327, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;in3.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;ir1.node.check-host.net&#39;: [[0, 25.0000960826874, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ir3.node.check-host.net&#39;: [[0, 24.9995579719543, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ir5.node.check-host.net&#39;: [[0, 24.998085975647, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ir6.node.check-host.net&#39;: [[0, 25.0002250671387, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;it2.node.check-host.net&#39;: [[0, 25.0011141300201, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 25.0002229213715, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;kz1.node.check-host.net&#39;: [[0, 24.9999659061432, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;lt1.node.check-host.net&#39;: [[0, 25.0006802082062, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;md1.node.check-host.net&#39;: [[0, 25.0008351802826, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;nl1.node.check-host.net&#39;: [[0, 25.0009360313416, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;nl2.node.check-host.net&#39;: [[0, 25.0007259845734, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;pl1.node.check-host.net&#39;: [[0, 25.0007331371307, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;pl2.node.check-host.net&#39;: [[0, 25.0005359649658, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;pt1.node.check-host.net&#39;: [[0, 25.0006558895111, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;rs1.node.check-host.net&#39;: [[0, 25.001363992691, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ru1.node.check-host.net&#39;: [[0, 25.0008211135864, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ru2.node.check-host.net&#39;: [[0, 25.0001931190491, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ru3.node.check-host.net&#39;: [[0, 25.0006279945374, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ru4.node.check-host.net&#39;: [[0, 25.0001990795135, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;se1.node.check-host.net&#39;: [[0, 25.0005941390991, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;tr1.node.check-host.net&#39;: [[0, 25.0000820159912, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;tr2.node.check-host.net&#39;: [[0, 25.0002238750458, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ua1.node.check-host.net&#39;: [[0, 25.0003521442413, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ua2.node.check-host.net&#39;: [[0, 25.0010159015656, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;ua3.node.check-host.net&#39;: [[0, 24.998382806778, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;uk1.node.check-host.net&#39;: [[0, 25.0004849433899, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;us1.node.check-host.net&#39;: [[0, 25.0002009868622, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;us2.node.check-host.net&#39;: [[0, 25.0003139972687, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;us3.node.check-host.net&#39;: [[0, 25.0003931522369, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]], &#39;vn1.node.check-host.net&#39;: [[0, 25.0003402233124, &#39;Connection timed out&#39;, None, &#39;167.172.130.98&#39;]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
-              </tr>
+              
+                <tr>
+                  <th>Check Details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/67c8584bc29c6bd41b6297ab_map.png" alt="World Map of Check Details">
+                    
+                  </td>
+                </tr>
+              
             
-              <tr>
-                <th>verified</th>
-                <td>True</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>processed</th>
-                <td>True</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>additional_image_original</th>
-                <td>https://i.ibb.co/C3fQ1YYX/photo-2025-03-05-15-56-00.jpg</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>original_image</th>
-                <td>https://example.com/default.png</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>received_at</th>
-                <td>2025-03-05 13:57:31.747000</td>
-              </tr>
+              
+                <tr>
+                  <th>Received_at</th>
+                  <td>2025-03-05 13:57:31.747000</td>
+                </tr>
+              
             
           </tbody>
         </table>
@@ -283,7 +327,7 @@
   
   <!-- Footer -->
   <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-03-05 14:53:52</p>
+    <p class="small text-muted">Last Generated: 2025-03-05 15:11:25</p>
   </footer>
 
   <!-- Bootstrap JS Bundle -->

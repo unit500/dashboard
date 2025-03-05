@@ -20,6 +20,13 @@
     .details-table th {
       width: 30%;
     }
+    /* Constrain the map image size */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body class="bg-light">
@@ -56,10 +63,10 @@
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Three Cards Row -->
+    <!-- Top Cards Row (4 squares) -->
     <div class="row mb-4">
       <!-- Card 1: Targeted Website -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Targeted Website</div>
           <div class="card-body">
@@ -72,7 +79,7 @@
         </div>
       </div>
       <!-- Card 2: Attack Date -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Attack Date</div>
           <div class="card-body">
@@ -80,13 +87,13 @@
           </div>
         </div>
       </div>
-      <!-- Card 3: Geographics -->
-      <div class="col-md-4">
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Geographics</div>
           <div class="card-body">
             
-              <span class="text-muted">Source Unknown</span>
+              <img src="https://flagcdn.com/32x24/ru.png" alt="ru flag">
             
             &rarr;
             
@@ -95,15 +102,14 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Map Image Section -->
-    <div class="row mb-4">
-      <div class="col">
-        <h4>Check Details Map</h4>
-        
-          <img src="maps/67c7ffa005a3b30784201199_map.png" alt="World Map of Check Details" class="details-img">
-        
+      <!-- Card 4: Verified -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            <h5 class="card-title">True</h5>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -120,160 +126,198 @@
         <table class="table table-bordered details-table">
           <tbody>
             
-              <tr>
-                <th>_id</th>
-                <td>67c7ffa005a3b30784201199</td>
-              </tr>
+              
+                <tr>
+                  <th>_id</th>
+                  <td>67c7ffa005a3b30784201199</td>
+                </tr>
+              
             
-              <tr>
-                <th>report_type</th>
-                <td>ddos</td>
-              </tr>
+              
+                <tr>
+                  <th>Report_type</th>
+                  <td>ddos</td>
+                </tr>
+              
             
-              <tr>
-                <th>group_name</th>
-                <td>NoName057(16)</td>
-              </tr>
+              
+                <tr>
+                  <th>Group_name</th>
+                  <td>NoName057(16)</td>
+                </tr>
+              
             
-              <tr>
-                <th>actor_name</th>
-                <td>NoName057(16)</td>
-              </tr>
+              
+                <tr>
+                  <th>Actor_name</th>
+                  <td>NoName057(16)</td>
+                </tr>
+              
             
-              <tr>
-                <th>operation_name</th>
-                <td>Hack For Humanity</td>
-              </tr>
+              
+                <tr>
+                  <th>Operation_name</th>
+                  <td>Hack For Humanity</td>
+                </tr>
+              
             
-              <tr>
-                <th>network</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Network</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>network_other</th>
-                <td></td>
-              </tr>
+              
+                <tr>
+                  <th>Network_other</th>
+                  <td></td>
+                </tr>
+              
             
-              <tr>
-                <th>targeted_website</th>
-                <td>https://www.zaragoza.es/</td>
-              </tr>
+              
+                <tr>
+                  <th>Targeted_website</th>
+                  <td>https://www.zaragoza.es/</td>
+                </tr>
+              
             
-              <tr>
-                <th>targeted_org</th>
-                <td></td>
-              </tr>
+              
+                <tr>
+                  <th>Targeted_org</th>
+                  <td></td>
+                </tr>
+              
             
-              <tr>
-                <th>attack_type</th>
-                <td>DDoS</td>
-              </tr>
+              
+                <tr>
+                  <th>Attack_type</th>
+                  <td>DDoS</td>
+                </tr>
+              
             
-              <tr>
-                <th>attacked_country</th>
-                <td>ES</td>
-              </tr>
+              
+                <tr>
+                  <th>Attacked_country</th>
+                  <td>ES</td>
+                </tr>
+              
             
-              <tr>
-                <th>attacker_country_affiliation</th>
-                <td>ru</td>
-              </tr>
+              
+                <tr>
+                  <th>Attacker_country_affiliation</th>
+                  <td>ru</td>
+                </tr>
+              
             
-              <tr>
-                <th>attack_date</th>
-                <td>2025-03-05</td>
-              </tr>
+              
+                <tr>
+                  <th>Attack_date</th>
+                  <td>2025-03-05</td>
+                </tr>
+              
             
-              <tr>
-                <th>check_host</th>
-                <td>23ba3ed1kc86</td>
-              </tr>
+              
+                <tr>
+                  <th>Check_host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/23ba3ed1kc86" target="_blank">23ba3ed1kc86</a>
+                  </td>
+                </tr>
+              
             
-              <tr>
-                <th>additional_image</th>
-                <td>https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/zaragoza_es/files/additional_image.jpg</td>
-              </tr>
+              
+                <tr>
+                  <th>Additional_image</th>
+                  <td>https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/zaragoza_es/files/additional_image.jpg</td>
+                </tr>
+              
             
-              <tr>
-                <th>source_attacker_country</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Source_attacker_country</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>victim_country</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Victim_country</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>attacker_country</th>
-                <td>unknown</td>
-              </tr>
+              
+                <tr>
+                  <th>Attacker_country</th>
+                  <td>unknown</td>
+                </tr>
+              
             
-              <tr>
-                <th>sourceIp</th>
-                <td>109.67.186.178</td>
-              </tr>
+              
+                <tr>
+                  <th>Sourceip</th>
+                  <td>109.67.186.178</td>
+                </tr>
+              
             
-              <tr>
-                <th>userAgent</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>referer</th>
-                <td>https://unit500.python-myth.info/</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>xForwardedFor</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>origin</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>acceptLanguage</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>xAmznTraceId</th>
-                <td>None</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>check_details</th>
-                <td>{&#39;website_verification&#39;: &#39;https://www.zaragoza.es/&#39;, &#39;check_date&#39;: &#39;2025-03-05&#39;, &#39;check_results&#39;: {&#39;bg1.node.check-host.net&#39;: [[0, 0.351521015167236, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;br1.node.check-host.net&#39;: [[0, 1.08258295059204, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;ch1.node.check-host.net&#39;: [[0, 0.177168846130371, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;cz1.node.check-host.net&#39;: [[0, 0.254091024398804, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;de1.node.check-host.net&#39;: [[1, 0.21669602394104, &#39;Moved Permanently&#39;, 301, &#39;194.224.70.75&#39;]], &#39;de4.node.check-host.net&#39;: [[1, 0.155207872390747, &#39;Moved Permanently&#39;, &#39;301&#39;, &#39;194.224.70.75&#39;]], &#39;es1.node.check-host.net&#39;: [[0, 0.106303930282593, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;fi1.node.check-host.net&#39;: [[0, 0.356925964355469, &#39;Internal Server Error&#39;, 500, &#39;194.224.70.75&#39;]], &#39;fr1.node.check-host.net&#39;: [[0, 0.172616004943848, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;fr2.node.check-host.net&#39;: [[0, 0.176828861236572, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;hk1.node.check-host.net&#39;: [[0, 2.37636995315552, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;hu1.node.check-host.net&#39;: [[0, 0.304229974746704, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;id1.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;il1.node.check-host.net&#39;: [[0, 0.435999155044556, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;il2.node.check-host.net&#39;: [[0, 0.350854873657227, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;in1.node.check-host.net&#39;: [[0, 3.00166201591492, &#39;Connection timed out&#39;, None, None]], &#39;in2.node.check-host.net&#39;: [[0, 0.902889966964722, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;in3.node.check-host.net&#39;: [None, {&#39;message&#39;: &#39;Connect timeout&#39;}], &#39;ir1.node.check-host.net&#39;: [[0, 0.619284868240356, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;ir3.node.check-host.net&#39;: [[0, 4.33129000663757, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;ir5.node.check-host.net&#39;: [[0, 0.668030977249146, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;ir6.node.check-host.net&#39;: [[0, 0.60149097442627, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;it2.node.check-host.net&#39;: [[0, 0.178750038146973, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;jp1.node.check-host.net&#39;: [[0, 1.46858787536621, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;kz1.node.check-host.net&#39;: [[0, 0.831246852874756, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;lt1.node.check-host.net&#39;: [[0, 0.378481864929199, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;md1.node.check-host.net&#39;: [[0, 0.394235134124756, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;nl1.node.check-host.net&#39;: [[0, 0.227176904678345, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;nl2.node.check-host.net&#39;: [[0, 0.26582407951355, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;pl1.node.check-host.net&#39;: [[0, 0.298967123031616, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;pl2.node.check-host.net&#39;: [[0, 0.345290899276733, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;pt1.node.check-host.net&#39;: [[0, 0.329934120178223, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;rs1.node.check-host.net&#39;: [[0, 0.333317041397095, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;ru1.node.check-host.net&#39;: [[0, 3.00124406814575, &#39;Connection timed out&#39;, None, None]], &#39;ru2.node.check-host.net&#39;: [[0, 3.00099086761475, &#39;Connection timed out&#39;, None, None]], &#39;ru3.node.check-host.net&#39;: [[0, 3.00135111808777, &#39;Connection timed out&#39;, None, None]], &#39;ru4.node.check-host.net&#39;: [[0, 3.00173807144165, &#39;Connection timed out&#39;, None, None]], &#39;se1.node.check-host.net&#39;: [[0, 0.334234952926636, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;tr1.node.check-host.net&#39;: [[0, 0.599164009094238, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;tr2.node.check-host.net&#39;: [[0, 0.532932043075562, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;ua1.node.check-host.net&#39;: [[0, 0.356206178665161, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;ua2.node.check-host.net&#39;: [[0, 0.314600944519043, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;ua3.node.check-host.net&#39;: [[0, 0.480257987976074, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;uk1.node.check-host.net&#39;: [[0, 0.223274946212769, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;us1.node.check-host.net&#39;: [[0, 0.849641084671021, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;us2.node.check-host.net&#39;: [[0, 0.861591100692749, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;us3.node.check-host.net&#39;: [[0, 0.629256963729858, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]], &#39;vn1.node.check-host.net&#39;: [[0, 16.3474280834198, &#39;Internal Server Error&#39;, &#39;500&#39;, &#39;194.224.70.75&#39;]]}, &#39;check_report_image&#39;: &#39;&#39;}</td>
-              </tr>
+              
+                <tr>
+                  <th>Check Details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/67c7ffa005a3b30784201199_map.png" alt="World Map of Check Details">
+                    
+                  </td>
+                </tr>
+              
             
-              <tr>
-                <th>verified</th>
-                <td>True</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>processed</th>
-                <td>True</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>additional_image_original</th>
-                <td>https://i.ibb.co/k26DbPyF/photo-2025-03-05-09-34-01.jpg</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>original_image</th>
-                <td>https://example.com/default.png</td>
-              </tr>
+              
+                
+              
             
-              <tr>
-                <th>received_at</th>
-                <td>2025-03-05 07:39:12.220000</td>
-              </tr>
+              
+                <tr>
+                  <th>Received_at</th>
+                  <td>2025-03-05 07:39:12.220000</td>
+                </tr>
+              
             
           </tbody>
         </table>
@@ -283,7 +327,7 @@
   
   <!-- Footer -->
   <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-03-05 14:53:52</p>
+    <p class="small text-muted">Last Generated: 2025-03-05 15:11:25</p>
   </footer>
 
   <!-- Bootstrap JS Bundle -->
