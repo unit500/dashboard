@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Details - Unit500</title>
+  <title>Actor Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -14,6 +14,10 @@
     .chart-container {
       width: 100%;
       height: 400px;
+    }
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
     }
     .section-title {
       margin-top: 2rem;
@@ -29,7 +33,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+        <span class="navbar-text mx-auto h5 mb-0">Actor Details</span>
       </div>
     </nav>
     <!-- Offcanvas Menu -->
@@ -55,14 +59,14 @@
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Group Info Cards -->
+    <!-- Actor Info Cards -->
     <div class="row mb-4">
-      <!-- Card 1: Group Name -->
+      <!-- Card 1: Actor Name -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Group Name</div>
+          <div class="card-header">Actor Name</div>
           <div class="card-body">
-            <h5 class="card-title">Cyber Error System</h5>
+            <h5 class="card-title">./HanjsXploit</h5>
           </div>
         </div>
       </div>
@@ -71,7 +75,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Total Activities</div>
           <div class="card-body">
-            <h5 class="card-title">3</h5>
+            <h5 class="card-title">1</h5>
           </div>
         </div>
       </div>
@@ -88,12 +92,12 @@
 
     <!-- Activity Heatmap Chart -->
     <div class="mb-4">
-      <div id="groupActivityChart" class="chart-container"></div>
+      <div id="activityChart" class="chart-container"></div>
     </div>
 
-    <!-- Last 10 Defacements for Group -->
+    <!-- Last 10 Defacements by Actor -->
     <section>
-      <h2 class="section-title">Last 10 Defacements for Cyber Error System</h2>
+      <h2 class="section-title">Last 10 Defacements by ./HanjsXploit</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
@@ -106,39 +110,7 @@
                   <h5 class="card-title">wdr.rimshawear.com</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 2025-03-10</p>
-                <p class="card-text"><strong>Actor:</strong> ./HanjsXploit</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/67c029116736dc0506713a0d.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/02/27/simpeg_gitek_id/screenshot.png" class="card-img-top" alt="Thumbnail for https://simpeg.gitek.id/">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/67c029116736dc0506713a0d.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">simpeg.gitek.id</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-02-27</p>
-                <p class="card-text"><strong>Actor:</strong> FAKESITE</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/67b3408c2b680966bf183a90.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/02/17/smartvisitorpsmza_info/screenshot.png" class="card-img-top" alt="Thumbnail for https://smartvisitorpsmza.info/">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/67b3408c2b680966bf183a90.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">smartvisitorpsmza.info</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-02-17</p>
-                <p class="card-text"><strong>Actor:</strong> FAKESITE</p>
+                <p class="card-text"><strong>Group:</strong> Cyber Error System</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -152,11 +124,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- ECharts Heatmap Script -->
   <script>
-    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var chart = echarts.init(document.getElementById('activityChart'));
     var option = {
       title: {
         top: 30,
-        text: 'Activity Heatmap - Cyber Error System (2025)',
+        text: 'Activity Heatmap - ./HanjsXploit (2025)',
         left: 'center'
       },
       tooltip: {},
@@ -185,7 +157,7 @@
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: [["2025-02-17", 1], ["2025-02-27", 1], ["2025-03-10", 1]]
+        data: [["2025-03-10", 1]]
       }]
     };
     chart.setOption(option);
