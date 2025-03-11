@@ -139,7 +139,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
+    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
   </div>
 
   <div class="container my-4">
@@ -150,7 +150,7 @@
           <div class="card">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">72</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -167,36 +167,6 @@
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="US (19)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/in.png" alt="IN flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="IN (14)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="FR (10)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="CA (4)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/sg.png" alt="SG flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="SG (3)">
-                  </li>
                 
               </ul>
             </div>
@@ -843,8 +813,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-03-10 23:07:30-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-03-11 00:07:30-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -898,9 +868,9 @@
       
       {value: 344, name: "dispossessor" },
       
-      {value: 340, name: "conti" },
-      
       {value: 340, name: "qilin" },
+      
+      {value: 340, name: "conti" },
       
       {value: 308, name: "pysa" }
       
@@ -964,19 +934,19 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("US");
-      attackedSeriesData.push({value: 705, name: "US"});
+      attackedSeriesData.push({value: 717, name: "US"});
     
       attackedCategories.push("CA");
-      attackedSeriesData.push({value: 85, name: "CA"});
+      attackedSeriesData.push({value: 87, name: "CA"});
     
       attackedCategories.push("DE");
       attackedSeriesData.push({value: 70, name: "DE"});
     
       attackedCategories.push("IN");
-      attackedSeriesData.push({value: 54, name: "IN"});
+      attackedSeriesData.push({value: 68, name: "IN"});
     
       attackedCategories.push("SG");
-      attackedSeriesData.push({value: 54, name: "SG"});
+      attackedSeriesData.push({value: 57, name: "SG"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1004,7 +974,7 @@
     var sourceSeriesData = [];
     
       sourceCategories.push("id");
-      sourceSeriesData.push({value: 40, name: "id"});
+      sourceSeriesData.push({value: 41, name: "id"});
     
       sourceCategories.push("None");
       sourceSeriesData.push({value: 26, name: "None"});
