@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Details - Unit500</title>
+  <title>Actor Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -14,6 +14,10 @@
     .chart-container {
       width: 100%;
       height: 400px;
+    }
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
     }
     .section-title {
       margin-top: 2rem;
@@ -29,7 +33,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+        <span class="navbar-text mx-auto h5 mb-0">Actor Details</span>
       </div>
     </nav>
     <!-- Offcanvas Menu -->
@@ -55,12 +59,12 @@
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Group Info Cards -->
+    <!-- Actor Info Cards -->
     <div class="row mb-4">
-      <!-- Card 1: Group Name -->
+      <!-- Card 1: Actor Name -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Group Name</div>
+          <div class="card-header">Actor Name</div>
           <div class="card-body">
             <h5 class="card-title">CyberTeam</h5>
           </div>
@@ -88,12 +92,12 @@
 
     <!-- Activity Heatmap Chart -->
     <div class="mb-4">
-      <div id="groupActivityChart" class="chart-container"></div>
+      <div id="activityChart" class="chart-container"></div>
     </div>
 
-    <!-- Last 10 Defacements for Group -->
+    <!-- Last 10 Defacements by Actor -->
     <section>
-      <h2 class="section-title">Last 10 Defacements for CyberTeam</h2>
+      <h2 class="section-title">Last 10 Defacements by CyberTeam</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
@@ -106,7 +110,7 @@
                   <h5 class="card-title">www.gistlight.com</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 2025-03-14</p>
-                <p class="card-text"><strong>Actor:</strong> CyberTeam</p>
+                <p class="card-text"><strong>Group:</strong> CyberTeam</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -122,7 +126,7 @@
                   <h5 class="card-title">smsbus.eu</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 2025-03-14</p>
-                <p class="card-text"><strong>Actor:</strong> CyberTeam</p>
+                <p class="card-text"><strong>Group:</strong> CyberTeam</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -130,15 +134,15 @@
         
           <div class="col">
             <div class="card h-100">
-              <a href="../defacement_details/67ca8d18f46fc0beba847415.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/03/07/institutosad_com_br/screenshot.png" class="card-img-top" alt="Thumbnail for http://institutosad.com.br/junin.html">
+              <a href="../defacement_details/67c5dc3bc2d66b2596b7bc22.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/03/wbi4u_net/screenshot.png" class="card-img-top" alt="Thumbnail for http://wbi4u.net/way/ct.txt">
               </a>
               <div class="card-body">
-                <a href="../defacement_details/67ca8d18f46fc0beba847415.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">institutosad.com.br</h5>
+                <a href="../defacement_details/67c5dc3bc2d66b2596b7bc22.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">wbi4u.net</h5>
                 </a>
-                <p class="card-text"><strong>Date:</strong> 2025-03-07</p>
-                <p class="card-text"><strong>Actor:</strong> Junin-CLS</p>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -152,7 +156,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- ECharts Heatmap Script -->
   <script>
-    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var chart = echarts.init(document.getElementById('activityChart'));
     var option = {
       title: {
         top: 30,
@@ -185,7 +189,7 @@
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: [["2025-03-07", 1], ["2025-03-14", 2]]
+        data: [["2025-03-03", 1], ["2025-03-14", 2]]
       }]
     };
     chart.setOption(option);
