@@ -139,7 +139,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
   </div>
 
   <div class="container my-4">
@@ -150,7 +150,7 @@
           <div class="card">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">50</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -167,36 +167,6 @@
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="US (17)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/tw.png" alt="TW flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="TW (6)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="GB (2)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/in.png" alt="IN flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="IN (2)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="CA (2)">
-                  </li>
                 
               </ul>
             </div>
@@ -965,8 +935,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-03-19 23:07:38-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-03-20 00:07:38-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
@@ -1086,19 +1056,19 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("US");
-      attackedSeriesData.push({value: 759, name: "US"});
+      attackedSeriesData.push({value: 741, name: "US"});
     
       attackedCategories.push("IN");
-      attackedSeriesData.push({value: 93, name: "IN"});
+      attackedSeriesData.push({value: 92, name: "IN"});
     
       attackedCategories.push("CA");
-      attackedSeriesData.push({value: 92, name: "CA"});
-    
-      attackedCategories.push("SG");
-      attackedSeriesData.push({value: 77, name: "SG"});
+      attackedSeriesData.push({value: 90, name: "CA"});
     
       attackedCategories.push("DE");
-      attackedSeriesData.push({value: 72, name: "DE"});
+      attackedSeriesData.push({value: 71, name: "DE"});
+    
+      attackedCategories.push("SG");
+      attackedSeriesData.push({value: 70, name: "SG"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1126,7 +1096,7 @@
     var sourceSeriesData = [];
     
       sourceCategories.push("id");
-      sourceSeriesData.push({value: 50, name: "id"});
+      sourceSeriesData.push({value: 51, name: "id"});
     
       sourceCategories.push("None");
       sourceSeriesData.push({value: 26, name: "None"});
