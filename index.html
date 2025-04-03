@@ -157,7 +157,7 @@
           <div class="card">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">80</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -174,36 +174,6 @@
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="US (49)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="CA (6)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="FR (3)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/in.png" alt="IN flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="IN (2)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/fi.png" alt="FI flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="FI (2)">
-                  </li>
                 
               </ul>
             </div>
@@ -972,7 +942,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-04-02 23:07:38-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-04-03 00:07:38-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
@@ -1005,9 +975,9 @@
       
       {value: 2009, name: "lockbit3" },
       
-      {value: 1006, name: "lockbit2" },
-      
       {value: 1006, name: "clop" },
+      
+      {value: 1006, name: "lockbit2" },
       
       {value: 898, name: "ransomhub" },
       
@@ -1093,19 +1063,19 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("US");
-      attackedSeriesData.push({value: 690, name: "US"});
+      attackedSeriesData.push({value: 682, name: "US"});
     
       attackedCategories.push("CA");
-      attackedSeriesData.push({value: 144, name: "CA"});
+      attackedSeriesData.push({value: 147, name: "CA"});
     
       attackedCategories.push("IN");
-      attackedSeriesData.push({value: 101, name: "IN"});
+      attackedSeriesData.push({value: 103, name: "IN"});
     
       attackedCategories.push("DE");
-      attackedSeriesData.push({value: 85, name: "DE"});
+      attackedSeriesData.push({value: 83, name: "DE"});
     
       attackedCategories.push("RU");
-      attackedSeriesData.push({value: 69, name: "RU"});
+      attackedSeriesData.push({value: 63, name: "RU"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1139,7 +1109,7 @@
       sourceSeriesData.push({value: 20, name: "Iran"});
     
       sourceCategories.push("Turkey");
-      sourceSeriesData.push({value: 9, name: "Turkey"});
+      sourceSeriesData.push({value: 10, name: "Turkey"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
