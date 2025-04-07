@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Load reCAPTCHA v3 API -->
+  <!-- Load reCAPTCHA v3 API (replace with your actual site key if needed) -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y"></script>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -97,7 +97,7 @@
                   <option value="other">Other</option>
                 </select>
               </div>
-              <!-- Dynamic Fields Container -->
+              <!-- Dynamic Fields Container (populated based on report type) -->
               <div id="dynamicFields" class="mb-3"></div>
               <!-- Note: reCAPTCHA v3 is invisible; token is generated on submission -->
               <div class="d-grid">
@@ -129,8 +129,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-04-07 13:40:53-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-04-07 13:56:28-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
@@ -146,7 +146,7 @@
     document.addEventListener("DOMContentLoaded", function() {
       console.log("static_report.js v3.0.26 loaded.");
 
-      // Initialize Bootstrap tooltips
+      // Initialize Bootstrap tooltips on all elements with [data-bs-toggle="tooltip"]
       const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
       tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
 
@@ -155,7 +155,7 @@
       const apiUrl = "https://lri3fp9pe2.execute-api.us-east-1.amazonaws.com/prod/report";
       let countryMapping = {};
 
-      // Load country mapping
+      // Load country mapping from RestCountries API
       fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(countries => {
@@ -178,7 +178,7 @@
       const todayDate = getToday();
       console.log("Today's date (UTC):", todayDate);
 
-      // Dynamic fields functions
+      // Dynamic fields functions for each report type
       function defacementFields() {
         return `
           <div class="mb-3">
@@ -317,7 +317,7 @@
         `;
       }
 
-      // Updated DDoS fields – remove Attacked Country and display mass report row in one line.
+      // Updated DDoS fields – remove Attacked Country; mass report row in one row
       function ddosFields() {
         return `
           <div class="mb-3">
@@ -359,7 +359,7 @@
               <label for="religion_related" class="form-check-label">Religion Related</label>
             </div>
           </div>
-          <!-- DDoS Mass Report Fields (one row) -->
+          <!-- DDoS Mass Report Fields in one row -->
           <div id="ddosMassContainer" class="mb-3">
             <label class="form-label">Targeted Website Details</label>
             <div class="row align-items-end mb-2">
@@ -369,7 +369,7 @@
               <div class="col-md-3">
                 <label class="form-label">
                   check-host ID
-                  <span data-bs-toggle="tooltip" title="If you already have a check-host.net ID to prove the DDoS attack effect, add the permanent id as provided by the site." style="cursor: help;">ⓘ</span>
+                  <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, add the permanent ID as provided by the site." style="cursor: help;">ⓘ</span>
                 </label>
                 <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
               </div>
@@ -471,11 +471,7 @@
           const networkOtherContainer = document.getElementById("network-other-container");
           if (networkSelect) {
             networkSelect.addEventListener("change", function() {
-              if (networkSelect.value === "Other") {
-                networkOtherContainer.style.display = "block";
-              } else {
-                networkOtherContainer.style.display = "none";
-              }
+              networkOtherContainer.style.display = (networkSelect.value === "Other") ? "block" : "none";
             });
           }
           const addDdosRowBtn = document.getElementById("addDdosRow");
@@ -490,7 +486,7 @@
               <div class="col-md-3">
                 <label class="form-label">
                   check-host ID
-                  <span data-bs-toggle="tooltip" title="If you already have a check-host.net ID to prove the DDoS attack effect, add the permanent id as provided by the site." style="cursor: help;">ⓘ</span>
+                  <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, add the permanent ID as provided by the site." style="cursor: help;">ⓘ</span>
                 </label>
                 <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
               </div>
