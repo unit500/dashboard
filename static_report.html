@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Load reCAPTCHA v3 API (replace with your actual site key if needed) -->
+  <!-- Load reCAPTCHA v3 API -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y"></script>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -93,15 +93,16 @@
                   <option value="">Select Report Type</option>
                   <option value="defacement">Defacement</option>
                   <option value="ransomware">Ransomware</option>
-                  <option value="ddos">DDoS</option>
                   <option value="other">Other</option>
+                  <!-- Note: DDoS reports are handled separately -->
                 </select>
               </div>
               <!-- Dynamic Fields Container (populated based on report type) -->
               <div id="dynamicFields" class="mb-3"></div>
-              <!-- Note: reCAPTCHA v3 is invisible; token is generated on submission -->
               <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Submit Report</button>
+                <button type="submit" class="btn btn-primary">
+                  Submit Report
+                </button>
               </div>
             </form>
           </div>
@@ -110,14 +111,14 @@
     </div>
   </div>
 
-  <!-- Global datalist for countries -->
+  <!-- Global datalist for countries (if needed) -->
   <datalist id="all_countries">
     <option value="Afghanistan">
     <option value="Albania">
     <option value="Algeria">
     <option value="Andorra">
     <option value="Angola">
-    <!-- ... rest of countries ... -->
+    <!-- ... other countries ... -->
     <option value="Zimbabwe">
   </datalist>
 
@@ -129,8 +130,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-04-07 14:07:26-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-04-07 14:19:11-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
@@ -141,21 +142,23 @@
   <!-- Select2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   
-  <!-- Custom Script -->
+  <!-- Custom Script for Dynamic Fields and Form Submission -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      console.log("static_report.js v3.0.26 loaded.");
-
-      // Initialize Bootstrap tooltips on all elements with [data-bs-toggle="tooltip"]
-      const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-      tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+      console.log("static_report.js v3.0.28 loaded.");
+      
+      // Initialize Bootstrap tooltips
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.forEach(function(tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl);
+      });
 
       const reportTypeSelect = document.getElementById("report_type");
       const dynamicFields = document.getElementById("dynamicFields");
       const apiUrl = "https://lri3fp9pe2.execute-api.us-east-1.amazonaws.com/prod/report";
-      let countryMapping = {};
 
-      // Load country mapping from RestCountries API
+      // Load country mapping (if needed)
+      let countryMapping = {};
       fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(countries => {
@@ -165,20 +168,19 @@
         })
         .catch(err => console.error("Error loading country mapping:", err));
 
-      // Get today's date in YYYY-MM-DD format (using UTC)
+      // Get today's date in YYYY-MM-DD format
       function getToday() {
         const today = new Date();
-        const yyyy = today.getUTCFullYear();
-        let mm = today.getUTCMonth() + 1;
-        let dd = today.getUTCDate();
+        const yyyy = today.getFullYear();
+        let mm = today.getMonth() + 1;
+        let dd = today.getDate();
         if (mm < 10) mm = '0' + mm;
         if (dd < 10) dd = '0' + dd;
         return `${yyyy}-${mm}-${dd}`;
       }
       const todayDate = getToday();
-      console.log("Today's date (UTC):", todayDate);
 
-      // Dynamic fields functions for each report type
+      // Dynamic fields for each report type
       function defacementFields() {
         return `
           <div class="mb-3">
@@ -317,7 +319,7 @@
         `;
       }
 
-      // Updated DDoS fields – remove Attacked Country; mass report row in one row
+      // DDoS fields (no Attacked Country)
       function ddosFields() {
         return `
           <div class="mb-3">
@@ -359,7 +361,7 @@
               <label for="religion_related" class="form-check-label">Religion Related</label>
             </div>
           </div>
-          <!-- DDoS Mass Report Fields in one row -->
+          <!-- DDoS Mass Report Fields: All fields in one row with a remove icon -->
           <div id="ddosMassContainer" class="mb-3">
             <label class="form-label">Targeted Website Details</label>
             <div class="row align-items-end mb-2">
@@ -367,87 +369,21 @@
                 <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
               </div>
               <div class="col-md-3">
-                <label class="form-label">
-                  check-host ID
-                  <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, add the permanent ID as provided by the site." style="cursor: help;">ⓘ</span>
-                </label>
+                <label class="form-label d-block">check-host ID <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, enter the permanent ID." style="cursor: help;">ⓘ</span></label>
                 <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
               </div>
-              <div class="col-md-3">
-                <label class="form-label">check-it</label>
+              <div class="col-md-3 d-flex align-items-center">
+                <label class="form-check-label me-2">check-it</label>
                 <input type="checkbox" class="form-check-input" name="check_it[]" checked>
+                <span class="ms-2 remove-row" style="cursor: pointer; color: red; font-size: 1.2rem;">&minus;</span>
               </div>
             </div>
           </div>
           <button type="button" id="addDdosRow" class="btn btn-secondary btn-sm mb-3">Mass Report</button>
-          <div class="mb-3">
-            <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation (optional, default Unknown)</label>
-            <input type="text" id="attacker_country_affiliation" name="attacker_country_affiliation" required value="Unknown" list="all_countries" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="attack_date" class="form-label">
-              Attack Date
-              <span data-bs-toggle="tooltip" title="This is the date of the attack. Verified attacks are only reported on the same day they occur." style="cursor: help;">ⓘ</span>
-            </label>
-            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="additional_image" class="form-label">
-              Additional Image Link (optional)
-              <span data-bs-toggle="tooltip" title="Provide a full URL to a media file (e.g., from imgbb.com) that will be visible to everyone." style="cursor: help;">ⓘ</span>
-            </label>
-            <input type="url" id="additional_image" name="additional_image" placeholder="Provide a full image URL" class="form-control">
-          </div>
         `;
       }
 
-      function otherFields() {
-        return `
-          <div class="mb-3">
-            <label for="group_name" class="form-label">Group Name (optional)</label>
-            <input type="text" id="group_name" name="group_name" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="actor_name" class="form-label">Hacker Name</label>
-            <input type="text" id="actor_name" name="actor_name" required class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="targeted_website" class="form-label">Targeted Website</label>
-            <input type="url" id="targeted_website" name="targeted_website" required placeholder="https://example.org" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="targeted_company" class="form-label">Targeted Company</label>
-            <input type="text" id="targeted_company" name="targeted_company" required class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="attack_type" class="form-label">Attack Type</label>
-            <input type="text" id="attack_type" name="attack_type" required class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="attacked_country" class="form-label">Attacked Country</label>
-            <input type="text" id="attacked_country" name="attacked_country" required value="Unknown" list="all_countries" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation</label>
-            <input type="text" id="attacker_country_affiliation" name="attacker_country_affiliation" required value="Unknown" list="all_countries" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="attack_date" class="form-label">Attack Date</label>
-            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="reason" class="form-label">Reason</label>
-            <select id="reason" name="reason" required class="form-select">
-              <option value="fun" selected>Just For Fun</option>
-              <option value="politics">Politics</option>
-              <option value="bored">Bored</option>
-              <option value="for_profit">For Profit</option>
-            </select>
-          </div>
-        `;
-      }
-
-      // Update dynamic fields based on the selected report type
+      // Update dynamic fields based on selected report type
       function updateDynamicFields() {
         const type = reportTypeSelect.value;
         if (type === "defacement") {
@@ -467,37 +403,8 @@
           dynamicFields.innerHTML = ransomwareFields();
         } else if (type === "ddos") {
           dynamicFields.innerHTML = ddosFields();
-          const networkSelect = document.getElementById("network");
-          const networkOtherContainer = document.getElementById("network-other-container");
-          if (networkSelect) {
-            networkSelect.addEventListener("change", function() {
-              networkOtherContainer.style.display = (networkSelect.value === "Other") ? "block" : "none";
-            });
-          }
-          const addDdosRowBtn = document.getElementById("addDdosRow");
-          addDdosRowBtn.addEventListener("click", function() {
-            const container = document.getElementById("ddosMassContainer");
-            const newRow = document.createElement("div");
-            newRow.className = "row align-items-end mb-2";
-            newRow.innerHTML = `
-              <div class="col-md-6">
-                <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
-              </div>
-              <div class="col-md-3">
-                <label class="form-label">
-                  check-host ID
-                  <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, add the permanent ID as provided by the site." style="cursor: help;">ⓘ</span>
-                </label>
-                <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
-              </div>
-              <div class="col-md-3">
-                <label class="form-label">check-it</label>
-                <input type="checkbox" class="form-check-input" name="check_it[]" checked>
-              </div>
-            `;
-            container.appendChild(newRow);
-            Array.from(newRow.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(el => new bootstrap.Tooltip(el));
-          });
+          // Initialize "Mass Report" functionality for DDoS fields
+          initMassDdos();
         } else if (type === "other") {
           dynamicFields.innerHTML = otherFields();
         } else {
@@ -506,21 +413,18 @@
       }
       reportTypeSelect.addEventListener("change", updateDynamicFields);
 
-      // Initialize footer with UTC timestamp
+      // Update footer with UTC timestamp
       function updateFooter() {
         const now = new Date();
-        const utcString = now.toLocaleString('en-US', { timeZone: 'UTC' }) + " (UTC)";
-        const footerTimestamp = document.getElementById("footerTimestamp");
-        if (footerTimestamp) {
-          footerTimestamp.textContent = " | Updated: " + utcString;
-        }
+        const utcString = now.toLocaleString('en-US', { timeZone: 'UTC' });
+        document.getElementById("footerTimestamp").textContent = " | Updated: " + utcString + " (UTC)";
       }
       updateFooter();
 
-      // Convert country names to ISO codes using the mapping
+      // Convert empty country fields to ISO codes if needed
       function convertCountryFields(data) {
-        const keys = ["source_attacker_country", "victim_country", "attacker_country", "attacker_country_affiliation", "attacked_country"];
-        keys.forEach(key => {
+        const countryKeys = ["source_attacker_country", "victim_country", "attacker_country", "attacker_country_affiliation", "attacked_country"];
+        countryKeys.forEach(key => {
           if (data[key]) {
             let val = data[key];
             data[key] = (val === "Unknown") ? "unknown" : (countryMapping[val] ? countryMapping[val].toUpperCase() : val);
@@ -528,7 +432,49 @@
         });
       }
 
-      // Form submission handling with reCAPTCHA v3
+      // Initialize Mass Report functionality for DDoS fields (with remove icon)
+      function initMassDdos() {
+        const container = document.getElementById("ddosMassContainer");
+        let count = 1; // one row is already shown
+        document.getElementById("addDdosRow").addEventListener("click", function() {
+          if (count >= 10) {
+            alert("Maximum number of mass report rows reached.");
+            return;
+          }
+          count++;
+          const row = document.createElement("div");
+          row.className = "row align-items-end mb-2";
+          row.innerHTML = `
+            <div class="col-md-6">
+              <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label d-block">check-host ID <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, enter the permanent ID." style="cursor: help;">ⓘ</span></label>
+              <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
+            </div>
+            <div class="col-md-3 d-flex align-items-center">
+              <label class="form-check-label me-2">check-it</label>
+              <input type="checkbox" class="form-check-input" name="check_it[]" checked>
+              <span class="ms-2 remove-row" style="cursor: pointer; color: red; font-size: 1.2rem;">&minus;</span>
+            </div>
+          `;
+          container.appendChild(row);
+          console.log("Added new DDoS mass report row. Total rows now:", count);
+          // Reinitialize tooltips for new elements
+          var newTooltips = [].slice.call(row.querySelectorAll('[data-bs-toggle="tooltip"]'));
+          newTooltips.forEach(function(el) {
+            new bootstrap.Tooltip(el);
+          });
+          // Add event listener to remove the row when minus icon is clicked
+          row.querySelector('.remove-row').addEventListener("click", function() {
+            row.remove();
+            count--;
+            console.log("Removed a DDoS mass report row. Total rows now:", count);
+          });
+        });
+      }
+
+      // Form submission handling
       document.getElementById('reportForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const submitButton = this.querySelector('button[type="submit"]');
@@ -536,24 +482,26 @@
         const originalText = submitButton.innerHTML;
         submitButton.innerHTML = "Submitting...";
 
-        const formData = new FormData(this);
-        const data = {};
-        formData.forEach((value, key) => {
-          data[key] = value;
-        });
-        if (!data.group_name || data.group_name.trim() === "") {
-          data.group_name = "indie";
-        }
-        if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
-          data.targeted_website = "http://" + data.targeted_website;
-        }
-        convertCountryFields(data);
-        console.log("DEBUG: Submitting report data:", data);
-
         try {
+          // Use reCAPTCHA v3 to get a token
           const token = await grecaptcha.execute('6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y', { action: 'submit' });
           console.log("DEBUG: reCAPTCHA v3 token received:", token);
-          data["recaptcha_token"] = token;
+
+          const formData = new FormData(this);
+          const data = {};
+          formData.forEach((value, key) => { data[key] = value; });
+          data["g-recaptcha-response"] = token;
+
+          // Default group_name if empty
+          if (!data.group_name || data.group_name.trim() === "") {
+            data.group_name = "indie";
+          }
+          // Ensure protocol for targeted website if applicable
+          if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
+            data.targeted_website = "http://" + data.targeted_website;
+          }
+          convertCountryFields(data);
+          console.log("DEBUG: Submitting report data:", data);
 
           if (data.mass_defacement) {
             let websites = [];
@@ -572,7 +520,7 @@
               submitButton.innerHTML = originalText;
               return;
             }
-            const requests = websites.map(async site => {
+            const requests = websites.map(site => {
               let newData = Object.assign({}, data);
               newData.targeted_website = site;
               newData.mass = true;
@@ -623,7 +571,7 @@
             }
           }
         } catch (err) {
-          console.error("DEBUG: Error during submission:", err);
+          console.error("Error submitting report:", err);
           alert("Error submitting report: " + err.message);
           submitButton.disabled = false;
           submitButton.innerHTML = originalText;
