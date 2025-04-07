@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Load reCAPTCHA v3 API (replace YOUR_RECAPTCHA_SITE_KEY with your actual key) -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa"></script>
+  <!-- Load reCAPTCHA v3 API -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y"></script>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -129,8 +129,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-04-07 13:34:46-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-04-07 13:40:53-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
 
@@ -165,7 +165,7 @@
         })
         .catch(err => console.error("Error loading country mapping:", err));
 
-      // Get today's date in YYYY-MM-DD format (UTC)
+      // Get today's date in YYYY-MM-DD format (using UTC)
       function getToday() {
         const today = new Date();
         const yyyy = today.getUTCFullYear();
@@ -317,7 +317,7 @@
         `;
       }
 
-      // Updated DDoS fields – removed Attacked Country; all fields in one row for mass report.
+      // Updated DDoS fields – remove Attacked Country and display mass report row in one line.
       function ddosFields() {
         return `
           <div class="mb-3">
@@ -359,7 +359,7 @@
               <label for="religion_related" class="form-check-label">Religion Related</label>
             </div>
           </div>
-          <!-- DDoS Mass Report Fields in one row -->
+          <!-- DDoS Mass Report Fields (one row) -->
           <div id="ddosMassContainer" class="mb-3">
             <label class="form-label">Targeted Website Details</label>
             <div class="row align-items-end mb-2">
@@ -401,7 +401,53 @@
         `;
       }
 
-      // Update dynamic fields based on report type selection
+      function otherFields() {
+        return `
+          <div class="mb-3">
+            <label for="group_name" class="form-label">Group Name (optional)</label>
+            <input type="text" id="group_name" name="group_name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="actor_name" class="form-label">Hacker Name</label>
+            <input type="text" id="actor_name" name="actor_name" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_website" class="form-label">Targeted Website</label>
+            <input type="url" id="targeted_website" name="targeted_website" required placeholder="https://example.org" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_company" class="form-label">Targeted Company</label>
+            <input type="text" id="targeted_company" name="targeted_company" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_type" class="form-label">Attack Type</label>
+            <input type="text" id="attack_type" name="attack_type" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attacked_country" class="form-label">Attacked Country</label>
+            <input type="text" id="attacked_country" name="attacked_country" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation</label>
+            <input type="text" id="attacker_country_affiliation" name="attacker_country_affiliation" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_date" class="form-label">Attack Date</label>
+            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="reason" class="form-label">Reason</label>
+            <select id="reason" name="reason" required class="form-select">
+              <option value="fun" selected>Just For Fun</option>
+              <option value="politics">Politics</option>
+              <option value="bored">Bored</option>
+              <option value="for_profit">For Profit</option>
+            </select>
+          </div>
+        `;
+      }
+
+      // Update dynamic fields based on the selected report type
       function updateDynamicFields() {
         const type = reportTypeSelect.value;
         if (type === "defacement") {
@@ -432,11 +478,9 @@
               }
             });
           }
-          // Initialize Mass DDoS functionality
           const addDdosRowBtn = document.getElementById("addDdosRow");
           addDdosRowBtn.addEventListener("click", function() {
             const container = document.getElementById("ddosMassContainer");
-            // Append a new row with the same structure as the first row
             const newRow = document.createElement("div");
             newRow.className = "row align-items-end mb-2";
             newRow.innerHTML = `
@@ -456,7 +500,6 @@
               </div>
             `;
             container.appendChild(newRow);
-            // Reinitialize tooltips for the new elements
             Array.from(newRow.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(el => new bootstrap.Tooltip(el));
           });
         } else if (type === "other") {
@@ -489,7 +532,7 @@
         });
       }
 
-      // Form submission handling with reCAPTCHA
+      // Form submission handling with reCAPTCHA v3
       document.getElementById('reportForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const submitButton = this.querySelector('button[type="submit"]');
