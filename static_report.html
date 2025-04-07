@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="text/javascript">
+	<script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "qxbox8417h");
-  </script>
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Report an Incident</title>
@@ -302,123 +302,6 @@
         });
       }
   
-      // Updated ddosFields function with combined fields and mass report functionality.
-      function ddosFields() {
-        return `
-          <div class="mb-3">
-            <label for="group_name" class="form-label">Group Name (optional)</label>
-            <input type="text" id="group_name" name="group_name" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="actor_name" class="form-label">Hacker Name
-              <small class="text-muted">(Leave blank to use Group Name if provided)</small>
-            </label>
-            <input type="text" id="actor_name" name="actor_name" class="form-control" placeholder="Enter hacker name">
-          </div>
-          <div class="mb-3">
-            <label for="operation_name" class="form-label">
-              Operation Name
-              <span data-bs-toggle="tooltip" title="If this is part of coordinated efforts, provide the campaign or operation name." style="cursor: help;">&#9432;</span>
-            </label>
-            <input type="text" id="operation_name" name="operation_name" maxlength="50" placeholder="Enter operation name" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="network" class="form-label">Network</label>
-            <select id="network" name="network" class="form-select">
-              <option value="unknown" selected>Unknown</option>
-              <option value="Rebirth V2">Rebirth V2</option>
-              <option value="Nocturnal">Nocturnal</option>
-              <option value="Lucky Stresser V2">Lucky Stresser V2</option>
-              <option value="Crtz">Crtz</option>
-              <option value="Vortex">Vortex</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="mb-3" id="network-other-container" style="display: none;">
-            <label for="network_other" class="form-label">Specify Other Network</label>
-            <input type="text" id="network_other" name="network_other" placeholder="Enter network name" class="form-control">
-          </div>
-          <div class="mb-3">
-            <div class="form-check">
-              <input type="checkbox" id="religion_related" name="religion_related" value="yes" class="form-check-input">
-              <label for="religion_related" class="form-check-label">Religion Related</label>
-            </div>
-          </div>
-          <!-- DDoS Mass Report Fields -->
-          <div id="ddosMassContainer" class="mb-3">
-            <label class="form-label">Targeted Website Details</label>
-            <div class="row ddos-mass-row mb-2">
-              <div class="col-md-6">
-                <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
-              </div>
-              <div class="col-md-3">
-                <input type="text" class="form-control" name="check_host[]" placeholder="check-host.net (optional)">
-              </div>
-              <div class="col-md-3">
-                <input type="text" class="form-control" name="check_it[]" placeholder="check-it">
-              </div>
-            </div>
-          </div>
-          <button type="button" id="addDdosRow" class="btn btn-secondary btn-sm mb-3">Mass Report</button>
-          <div class="mb-3">
-            <label for="attacked_country" class="form-label">
-              Attacked Country (optional)
-              <span data-bs-toggle="tooltip" title="*This will be filled automatically based on the physical location of the targeted web site." style="cursor: help;">&#9432;</span>
-            </label>
-            <select id="attacked_country" name="attacked_country" class="form-select country-select">
-              <option value="unknown" selected>Unknown</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation (optional, default Unknown)</label>
-            <select id="attacker_country_affiliation" name="attacker_country_affiliation" class="form-select country-select">
-              <option value="unknown" selected>Unknown</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="attack_date" class="form-label">
-              Attack Date
-              <span data-bs-toggle="tooltip" title="This is the date of the attack. Verified attacks are only attacks that are reported during the same day they happen." style="cursor: help;">&#9432;</span>
-            </label>
-            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="additional_image" class="form-label">
-              Additional Image Link (optional)
-              <span data-bs-toggle="tooltip" title="Provide a URL to an additional screenshot or image. This will be used as a cover graphic in the attack details page." style="cursor: help;">&#9432;</span>
-            </label>
-            <input type="url" id="additional_image" name="additional_image" placeholder="Provide a link to the image" class="form-control">
-          </div>
-        `;
-      }
-  
-      // Function to initialize Mass Report functionality for DDoS fields.
-      function initMassDdos() {
-        const container = $("#ddosMassContainer");
-        let count = 1; // one row is already shown
-        $("#addDdosRow").off("click").on("click", function() {
-          if (count >= 10) {
-            alert("Maximum number of mass report rows reached.");
-            return;
-          }
-          count++;
-          const rowHtml = `
-            <div class="row ddos-mass-row mb-2">
-              <div class="col-md-6">
-                <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
-              </div>
-              <div class="col-md-3">
-                <input type="text" class="form-control" name="check_host[]" placeholder="check-host.net (optional)">
-              </div>
-              <div class="col-md-3">
-                <input type="text" class="form-control" name="check_it[]" placeholder="check-it">
-              </div>
-            </div>
-          `;
-          container.append(rowHtml);
-        });
-      }
-  
       function ransomwareFields() {
         return `
           <div class="mb-3">
@@ -465,6 +348,105 @@
               <option value="politics">Politics</option>
               <option value="bored">Bored</option>
             </select>
+          </div>
+        `;
+      }
+  
+      // Updated ddosFields function with new info icons and field modifications.
+      function ddosFields() {
+        return `
+          <div class="mb-3">
+            <label for="group_name" class="form-label">Group Name (optional)</label>
+            <input type="text" id="group_name" name="group_name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="actor_name" class="form-label">Hacker Name
+              <small class="text-muted">(Leave blank to use Group Name if provided)</small>
+            </label>
+            <input type="text" id="actor_name" name="actor_name" class="form-control" placeholder="Enter hacker name">
+          </div>
+          <div class="mb-3">
+            <label for="operation_name" class="form-label">
+              Operation Name
+              <span data-bs-toggle="tooltip" title="If this is part of coordinated efforts, provide the campaign or operation name." style="cursor: help;">&#9432;</span>
+            </label>
+            <input type="text" id="operation_name" name="operation_name" maxlength="50" placeholder="Enter operation name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="network" class="form-label">Network</label>
+            <select id="network" name="network" class="form-select">
+              <option value="unknown" selected>Unknown</option>
+              <option value="Rebirth V2">Rebirth V2</option>
+              <option value="Nocturnal">Nocturnal</option>
+              <option value="Lucky Stresser V2">Lucky Stresser V2</option>
+              <option value="Crtz">Crtz</option>
+              <option value="Vortex">Vortex</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="mb-3" id="network-other-container" style="display: none;">
+            <label for="network_other" class="form-label">Specify Other Network</label>
+            <input type="text" id="network_other" name="network_other" placeholder="Enter network name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <div class="form-check">
+              <input type="checkbox" id="religion_related" name="religion_related" value="yes" class="form-check-input">
+              <label for="religion_related" class="form-check-label">Religion Related</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="targeted_website" class="form-label">Targeted Website</label>
+            <input type="url" id="targeted_website" name="targeted_website" required placeholder="https://example.org" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_org" class="form-label">Targeted Organization Name (optional)</label>
+            <input type="text" id="targeted_org" name="targeted_org" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_type" class="form-label">
+              Attack Type
+              <span data-bs-toggle="tooltip" title="DoS (Denial of Service) attacks target a single source while DDoS (Distributed Denial of Service) attacks are executed from multiple sources. Default is DDoS." style="cursor: help;">&#9432;</span>
+            </label>
+            <select id="attack_type" name="attack_type" required class="form-select">
+              <option value="DDoS" selected>DDoS</option>
+              <option value="DoS">DoS</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="attacked_country" class="form-label">
+              Attacked Country (optional)
+              <span data-bs-toggle="tooltip" title="*This will be filled automatically based on the physical location of the targeted web site." style="cursor: help;">&#9432;</span>
+            </label>
+            <select id="attacked_country" name="attacked_country" class="form-select country-select">
+              <option value="unknown" selected>Unknown</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation (optional, default Unknown)</label>
+            <select id="attacker_country_affiliation" name="attacker_country_affiliation" class="form-select country-select">
+              <option value="unknown" selected>Unknown</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="attack_date" class="form-label">
+              Attack Date
+              <span data-bs-toggle="tooltip" title="This is the date of the attack. Verified attacks are only attacks that are reported during the same day they happen." style="cursor: help;">&#9432;</span>
+            </label>
+            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="check_host" class="form-label">
+              check-host.net (optional)
+              <span data-bs-toggle="tooltip" title="This is the last part of the link, e.g. if your link is https://check-host.net/check-report/23774618ka2c then you would put 23774618ka2c as value. You need the Targeted Website to be exactly as it appears in check-host and you will also need the report to have the same UTC date as the current date. Filling these 2 fields will make the DDoS attack verified and will be replicated to the GitHub repository to share some fame and glory." style="cursor: help;">&#9432;</span>
+            </label>
+            <input type="text" id="check_host" name="check_host" placeholder="Enter report number e.g. 23774618ka2c" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="additional_image" class="form-label">
+              Additional Image Link (optional)
+              <span data-bs-toggle="tooltip" title="Provide a URL to an additional screenshot or image. This will be used as a cover graphic in the attack details page." style="cursor: help;">&#9432;</span>
+            </label>
+            <input type="url" id="additional_image" name="additional_image" placeholder="Provide a link to the image" class="form-control">
           </div>
         `;
       }
@@ -539,7 +521,6 @@
               $("#network-other-container").hide();
             }
           });
-          initMassDdos();
         } else if (type === "other") {
           $("#dynamicFields").html(otherFields());
         } else {
@@ -602,48 +583,7 @@
         console.log("Submitting report data:", data);
   
         try {
-          if ($("#report_type").val() === "ddos") {
-            // Collect values from each DDoS mass row.
-            let targetedWebsites = $("input[name='targeted_website[]']").map(function() { return $(this).val().trim(); }).get();
-            let checkHosts = $("input[name='check_host[]']").map(function() { return $(this).val().trim(); }).get();
-            let checkIts = $("input[name='check_it[]']").map(function() { return $(this).val().trim(); }).get();
-  
-            if (!targetedWebsites[0]) {
-              alert("Please provide at least one Targeted Website.");
-              submitButton.prop("disabled", false).text(originalText);
-              return;
-            }
-  
-            const requests = targetedWebsites.map((site, index) => {
-              let newData = Object.assign({}, data);
-              newData.targeted_website = site;
-              newData.check_host = checkHosts[index] || "";
-              newData.check_it = checkIts[index] || "";
-              newData.mass = true;
-              return fetch(apiUrl, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newData)
-              });
-            });
-            const responses = await Promise.all(requests);
-            let errors = [];
-            for (let response of responses) {
-              if (!response.ok) {
-                const result = await response.json();
-                errors.push(result.error);
-              }
-            }
-            if (errors.length > 0) {
-              alert("Error submitting report: " + errors.join(", "));
-              submitButton.prop("disabled", false).text(originalText);
-              return;
-            } else {
-              alert("Report submitted successfully for " + targetedWebsites.length + " targeted website(s).");
-              this.reset();
-              $("#dynamicFields").html("");
-            }
-          } else if (data.mass_defacement) {
+          if (data.mass_defacement) {
             let websites = [];
             if (data.targeted_website && data.targeted_website.trim() !== "") {
               websites.push(data.targeted_website);
