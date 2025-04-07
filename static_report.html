@@ -82,6 +82,7 @@
       <div class="col-lg-8">
         <div class="card p-4">
           <div class="card-body">
+            <!-- If using Flask's flash messages -->
             
               
             
@@ -93,11 +94,11 @@
                   <option value="">Select Report Type</option>
                   <option value="defacement">Defacement</option>
                   <option value="ransomware">Ransomware</option>
+                  <option value="ddos">DDoS</option>
                   <option value="other">Other</option>
-                  <!-- Note: DDoS reports are handled separately -->
                 </select>
               </div>
-              <!-- Dynamic Fields Container (populated based on report type) -->
+              <!-- Dynamic Fields Container -->
               <div id="dynamicFields" class="mb-3"></div>
               <div class="d-grid">
                 <button type="submit" class="btn btn-primary">
@@ -122,18 +123,16 @@
     <option value="Zimbabwe">
   </datalist>
 
-  <!-- Footer -->
-  <footer class="py-4">
-  <div class="container text-center">
-    <hr class="mb-3">
-    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
-    
-      <p class="mb-1 text-success">All Systems Operational</p>
-    
-    <p class="text-xs text-muted">Build: 2025-04-07 14:19:11-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
-  </div>
-</footer>
+  <!-- Footer (with version & UTC time) -->
+  <footer class="mt-4 text-center text-muted">
+    <span>Version: 3.0.29</span>
+    <span id="footerTimestamp"></span>
+    <br>
+    <p style="font-size: 0.9rem;">
+      © 2025 Unit500. All rights reserved. <br>
+      All Systems Operational
+    </p>
+  </footer>
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -145,8 +144,8 @@
   <!-- Custom Script for Dynamic Fields and Form Submission -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      console.log("static_report.js v3.0.28 loaded.");
-      
+      console.log("static_report.js v3.0.29 loaded.");
+
       // Initialize Bootstrap tooltips
       var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
       tooltipTriggerList.forEach(function(tooltipTriggerEl) {
@@ -157,7 +156,7 @@
       const dynamicFields = document.getElementById("dynamicFields");
       const apiUrl = "https://lri3fp9pe2.execute-api.us-east-1.amazonaws.com/prod/report";
 
-      // Load country mapping (if needed)
+      // For potential country mapping
       let countryMapping = {};
       fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
@@ -171,16 +170,36 @@
       // Get today's date in YYYY-MM-DD format
       function getToday() {
         const today = new Date();
-        const yyyy = today.getFullYear();
-        let mm = today.getMonth() + 1;
-        let dd = today.getDate();
+        const yyyy = today.getUTCFullYear();
+        let mm = today.getUTCMonth() + 1;
+        let dd = today.getUTCDate();
         if (mm < 10) mm = '0' + mm;
         if (dd < 10) dd = '0' + dd;
         return `${yyyy}-${mm}-${dd}`;
       }
       const todayDate = getToday();
 
-      // Dynamic fields for each report type
+      // Update footer with UTC timestamp
+      function updateFooter() {
+        const now = new Date();
+        const utcString = now.toLocaleString('en-US', { timeZone: 'UTC' });
+        document.getElementById("footerTimestamp").textContent = " | Updated: " + utcString + " (UTC)";
+      }
+      updateFooter();
+
+      // Convert country fields if needed
+      function convertCountryFields(data) {
+        const countryKeys = ["source_attacker_country", "victim_country", "attacker_country", "attacker_country_affiliation", "attacked_country"];
+        countryKeys.forEach(key => {
+          if (data[key]) {
+            let val = data[key];
+            data[key] = (val === "Unknown") ? "unknown" : (countryMapping[val] ? countryMapping[val].toUpperCase() : val);
+          }
+        });
+      }
+
+      // --- Dynamic field templates ---
+
       function defacementFields() {
         return `
           <div class="mb-3">
@@ -319,7 +338,7 @@
         `;
       }
 
-      // DDoS fields (no Attacked Country)
+      // DDoS Fields
       function ddosFields() {
         return `
           <div class="mb-3">
@@ -361,7 +380,6 @@
               <label for="religion_related" class="form-check-label">Religion Related</label>
             </div>
           </div>
-          <!-- DDoS Mass Report Fields: All fields in one row with a remove icon -->
           <div id="ddosMassContainer" class="mb-3">
             <label class="form-label">Targeted Website Details</label>
             <div class="row align-items-end mb-2">
@@ -369,7 +387,9 @@
                 <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
               </div>
               <div class="col-md-3">
-                <label class="form-label d-block">check-host ID <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, enter the permanent ID." style="cursor: help;">ⓘ</span></label>
+                <label class="form-label d-block">check-host ID
+                  <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, enter the permanent ID." style="cursor: help;">ⓘ</span>
+                </label>
                 <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
               </div>
               <div class="col-md-3 d-flex align-items-center">
@@ -380,10 +400,25 @@
             </div>
           </div>
           <button type="button" id="addDdosRow" class="btn btn-secondary btn-sm mb-3">Mass Report</button>
+          <div class="mb-3">
+            <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation (optional, default Unknown)</label>
+            <input type="text" id="attacker_country_affiliation" name="attacker_country_affiliation" value="unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_date" class="form-label">Attack Date</label>
+            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="additional_image" class="form-label">
+              Additional Image Link (optional)
+              <span data-bs-toggle="tooltip" title="Provide a full URL pointing to a media file, e.g. an imgbb link. This image will be seen by everyone." style="cursor: help;">ⓘ</span>
+            </label>
+            <input type="url" id="additional_image" name="additional_image" placeholder="Provide a full image URL" class="form-control">
+          </div>
         `;
       }
 
-      // Update dynamic fields based on selected report type
+      // Update dynamic fields on selection
       function updateDynamicFields() {
         const type = reportTypeSelect.value;
         if (type === "defacement") {
@@ -403,8 +438,19 @@
           dynamicFields.innerHTML = ransomwareFields();
         } else if (type === "ddos") {
           dynamicFields.innerHTML = ddosFields();
-          // Initialize "Mass Report" functionality for DDoS fields
           initMassDdos();
+          // For "Other" network
+          const networkSelect = document.getElementById("network");
+          if (networkSelect) {
+            networkSelect.addEventListener("change", function() {
+              const container = document.getElementById("network-other-container");
+              if (networkSelect.value === "Other") {
+                container.style.display = "block";
+              } else {
+                container.style.display = "none";
+              }
+            });
+          }
         } else if (type === "other") {
           dynamicFields.innerHTML = otherFields();
         } else {
@@ -413,29 +459,10 @@
       }
       reportTypeSelect.addEventListener("change", updateDynamicFields);
 
-      // Update footer with UTC timestamp
-      function updateFooter() {
-        const now = new Date();
-        const utcString = now.toLocaleString('en-US', { timeZone: 'UTC' });
-        document.getElementById("footerTimestamp").textContent = " | Updated: " + utcString + " (UTC)";
-      }
-      updateFooter();
-
-      // Convert empty country fields to ISO codes if needed
-      function convertCountryFields(data) {
-        const countryKeys = ["source_attacker_country", "victim_country", "attacker_country", "attacker_country_affiliation", "attacked_country"];
-        countryKeys.forEach(key => {
-          if (data[key]) {
-            let val = data[key];
-            data[key] = (val === "Unknown") ? "unknown" : (countryMapping[val] ? countryMapping[val].toUpperCase() : val);
-          }
-        });
-      }
-
-      // Initialize Mass Report functionality for DDoS fields (with remove icon)
+      // Initialize DDoS mass row functionality
       function initMassDdos() {
         const container = document.getElementById("ddosMassContainer");
-        let count = 1; // one row is already shown
+        let count = 1; // One row is already present
         document.getElementById("addDdosRow").addEventListener("click", function() {
           if (count >= 10) {
             alert("Maximum number of mass report rows reached.");
@@ -449,7 +476,9 @@
               <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
             </div>
             <div class="col-md-3">
-              <label class="form-label d-block">check-host ID <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, enter the permanent ID." style="cursor: help;">ⓘ</span></label>
+              <label class="form-label d-block">check-host ID
+                <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, enter the permanent ID." style="cursor: help;">ⓘ</span>
+              </label>
               <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
             </div>
             <div class="col-md-3 d-flex align-items-center">
@@ -460,30 +489,39 @@
           `;
           container.appendChild(row);
           console.log("Added new DDoS mass report row. Total rows now:", count);
-          // Reinitialize tooltips for new elements
+          // Reinit tooltips
           var newTooltips = [].slice.call(row.querySelectorAll('[data-bs-toggle="tooltip"]'));
           newTooltips.forEach(function(el) {
             new bootstrap.Tooltip(el);
           });
-          // Add event listener to remove the row when minus icon is clicked
-          row.querySelector('.remove-row').addEventListener("click", function() {
+          // Add remove row
+          row.querySelector(".remove-row").addEventListener("click", function() {
             row.remove();
             count--;
             console.log("Removed a DDoS mass report row. Total rows now:", count);
           });
         });
+        // Also add remove row event to the first row's minus icon
+        const firstMinus = container.querySelector(".remove-row");
+        if (firstMinus) {
+          firstMinus.addEventListener("click", function() {
+            container.querySelector(".row.align-items-end").remove();
+            count--;
+            console.log("Removed the default DDoS mass row. Total rows now:", count);
+          });
+        }
       }
 
-      // Form submission handling
-      document.getElementById('reportForm').addEventListener('submit', async function(e) {
+      // Form submission
+      document.getElementById("reportForm").addEventListener("submit", async function(e) {
         e.preventDefault();
         const submitButton = this.querySelector('button[type="submit"]');
         submitButton.disabled = true;
-        const originalText = submitButton.innerHTML;
-        submitButton.innerHTML = "Submitting...";
+        const originalText = submitButton.textContent;
+        submitButton.textContent = "Submitting...";
 
         try {
-          // Use reCAPTCHA v3 to get a token
+          // reCAPTCHA v3 token
           const token = await grecaptcha.execute('6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y', { action: 'submit' });
           console.log("DEBUG: reCAPTCHA v3 token received:", token);
 
@@ -496,20 +534,21 @@
           if (!data.group_name || data.group_name.trim() === "") {
             data.group_name = "indie";
           }
-          // Ensure protocol for targeted website if applicable
+          // Ensure protocol for targeted website
           if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
             data.targeted_website = "http://" + data.targeted_website;
           }
           convertCountryFields(data);
           console.log("DEBUG: Submitting report data:", data);
 
+          // Mass Defacement logic
           if (data.mass_defacement) {
             let websites = [];
             if (data.targeted_website && data.targeted_website.trim() !== "") {
               websites.push(data.targeted_website);
             }
             for (let i = 1; i <= 10; i++) {
-              let fieldName = 'targeted_website_mass_' + i;
+              let fieldName = "targeted_website_mass_" + i;
               if (data[fieldName] && data[fieldName].trim() !== "") {
                 websites.push(data[fieldName]);
               }
@@ -517,7 +556,7 @@
             if (websites.length === 0) {
               alert("Please provide at least one Targeted Website.");
               submitButton.disabled = false;
-              submitButton.innerHTML = originalText;
+              submitButton.textContent = originalText;
               return;
             }
             const requests = websites.map(site => {
@@ -526,7 +565,7 @@
               newData.mass = true;
               delete newData.mass_defacement;
               for (let i = 1; i <= 10; i++) {
-                delete newData['targeted_website_mass_' + i];
+                delete newData["targeted_website_mass_" + i];
               }
               return fetch(apiUrl, {
                 method: "POST",
@@ -545,7 +584,7 @@
             if (errors.length > 0) {
               alert("Error submitting report: " + errors.join(", "));
               submitButton.disabled = false;
-              submitButton.innerHTML = originalText;
+              submitButton.textContent = originalText;
               return;
             } else {
               alert("Report submitted successfully for " + websites.length + " targeted website(s).");
@@ -553,6 +592,7 @@
               dynamicFields.innerHTML = "";
             }
           } else {
+            // Single submission
             const response = await fetch(apiUrl, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -566,7 +606,7 @@
             } else {
               alert("Error submitting report: " + result.error);
               submitButton.disabled = false;
-              submitButton.innerHTML = originalText;
+              submitButton.textContent = originalText;
               return;
             }
           }
@@ -574,11 +614,11 @@
           console.error("Error submitting report:", err);
           alert("Error submitting report: " + err.message);
           submitButton.disabled = false;
-          submitButton.innerHTML = originalText;
+          submitButton.textContent = originalText;
           return;
         }
         submitButton.disabled = false;
-        submitButton.innerHTML = originalText;
+        submitButton.textContent = originalText;
       });
     });
   </script>
