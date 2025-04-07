@@ -120,7 +120,7 @@
               </div>
               <!-- Dynamic Fields Container -->
               <div id="dynamicFields" class="mb-3"></div>
-              <!-- Note: reCAPTCHA v3 is invisible; token will be retrieved on form submission -->
+              <!-- Note: reCAPTCHA v3 is invisible; token is generated on submission -->
               <div class="d-grid">
                 <button type="submit" class="btn btn-primary">Submit Report</button>
               </div>
@@ -589,9 +589,11 @@
         const originalText = submitButton.text();
         submitButton.text("Submitting...");
   
-        // Use reCAPTCHA v3 to get a token, then submit the form.
+        // Use reCAPTCHA v3 to get a token
         grecaptcha.ready(function() {
           grecaptcha.execute('6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y', {action: 'submit'}).then(function(token) {
+            console.log("DEBUG: reCAPTCHA v3 token received:", token);
+  
             const formData = new FormData(document.getElementById("reportForm"));
             const data = {};
             formData.forEach((value, key) => { data[key] = value; });
@@ -622,7 +624,7 @@
             }
   
             convertCountryFields(data);
-            console.log("Submitting report data:", data);
+            console.log("DEBUG: Final payload to be submitted:", data);
   
             // Submission logic for different report types.
             if ($("#report_type").val() === "ddos") {
@@ -631,7 +633,7 @@
               let checkHosts = $("input[name='check_host[]']").map(function() { return $(this).val().trim(); }).get();
               let checkIts = $("input[name='check_it[]']").map(function() { return $(this).prop("checked") ? "true" : "false"; }).get();
   
-              console.log("DDoS submission: Found", targetedWebsites.length, "row(s).");
+              console.log("DEBUG: DDoS submission - Found", targetedWebsites.length, "row(s).");
   
               if (!targetedWebsites[0]) {
                 alert("Please provide at least one Targeted Website.");
@@ -645,29 +647,29 @@
                 newData.check_host = checkHosts[index] || "";
                 newData.check_it = checkIts[index] || "false";
                 newData.mass = true;
-                console.log(`Sending DDoS report ${index+1}/${targetedWebsites.length}:`, newData);
+                console.log(`DEBUG: Sending DDoS report ${index+1}/${targetedWebsites.length}:`, newData);
                 return fetch(apiUrl, {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(newData)
                 }).then(response => {
-                  console.log(`Received response for report ${index+1}:`, response);
+                  console.log(`DEBUG: Received response for report ${index+1}:`, response);
                   return response;
                 });
               });
   
               Promise.all(requests).then(async responses => {
-                console.log("All responses received:", responses);
+                console.log("DEBUG: All responses received:", responses);
                 let errors = [];
                 for (let i = 0; i < responses.length; i++) {
                   let response = responses[i];
                   if (!response.ok) {
                     const result = await response.json();
-                    console.error(`Error in response ${i+1}:`, result);
+                    console.error(`DEBUG: Error in response ${i+1}:`, result);
                     errors.push(result.error);
                   } else {
                     let result = await response.json();
-                    console.log(`Success response ${i+1}:`, result);
+                    console.log(`DEBUG: Success response ${i+1}:`, result);
                   }
                 }
   
