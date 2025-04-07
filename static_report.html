@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Load reCAPTCHA v3 API -->
+  <!-- Load reCAPTCHA v3 API (replace with your actual site key if needed) -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y"></script>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -34,32 +34,11 @@
     .card {
       border: none;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       background-color: #ffffff;
     }
     body {
       background-color: #f1f1f1;
-    }
-    /* Custom style for Select2 to integrate with Bootstrap */
-    .select2-container--default .select2-selection--single {
-      height: calc(2.5rem + 2px);
-      padding: 0.375rem 0.75rem;
-      border: 1px solid #ced4da;
-      border-radius: 0.375rem;
-    }
-    /* Footer styling */
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      color: #666;
-      font-size: 0.9rem;
-    }
-    /* Plus button style for mass fields */
-    .add-field-btn {
-      cursor: pointer;
-      font-size: 1.2rem;
-      color: #0d6efd;
-      margin-left: 0.5rem;
     }
   </style>
   <link rel="stylesheet" href="static/style.css">
@@ -118,7 +97,7 @@
                   <option value="other">Other</option>
                 </select>
               </div>
-              <!-- Dynamic Fields Container -->
+              <!-- Dynamic Fields Container (populated based on report type) -->
               <div id="dynamicFields" class="mb-3"></div>
               <!-- Note: reCAPTCHA v3 is invisible; token is generated on submission -->
               <div class="d-grid">
@@ -131,93 +110,75 @@
     </div>
   </div>
 
-  <!-- Footer with version and timestamp -->
-  <footer>
-    <span id="footerVersion">Version: 3.0.25</span>
-    <span id="footerTimestamp"></span>
-  </footer>
+  <!-- Global datalist for countries -->
+  <datalist id="all_countries">
+    <option value="Afghanistan">
+    <option value="Albania">
+    <option value="Algeria">
+    <option value="Andorra">
+    <option value="Angola">
+    <!-- ... rest of countries ... -->
+    <option value="Zimbabwe">
+  </datalist>
 
-  <!-- jQuery (required for Select2) -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-04-07 14:07:26-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+  </div>
+</footer>
+
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery (required for Select2) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- Select2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   
-  <!-- Custom Script for Dynamic Fields, Country Dropdown, and Form Submission -->
+  <!-- Custom Script -->
   <script>
-    $(document).ready(function() {
-      console.log("static_report.js v3.0.25 loaded.");
-      
-      // Initialize Bootstrap tooltips with zero delay. <!-- CHANGED -->
-      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-      tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-        new bootstrap.Tooltip(tooltipTriggerEl, {
-          delay: { show: 0, hide: 0 }
-        });
-      });
-      
-      // Define API URL for report submission.
-      const apiUrl = "https://lri3fp9pe2.execute-api.us-east-1.amazonaws.com/prod/report";
-      console.log("API URL:", apiUrl);
+    document.addEventListener("DOMContentLoaded", function() {
+      console.log("static_report.js v3.0.26 loaded.");
 
-      // Dynamically load country data from RestCountries API.
-      function loadCountryData() {
-        console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
-          .then(response => response.json())
-          .then(data => {
-            const countries = data.map(country => ({
-              id: country.cca2.toLowerCase(),
-              text: country.name.common
-            }));
-            countries.sort((a, b) => a.text.localeCompare(b.text));
-            console.log("Country data loaded. Total countries:", countries.length);
-            return countries;
-          })
-          .catch(error => {
-            console.error("Error loading country data:", error);
-            return []; // fallback to empty array
+      // Initialize Bootstrap tooltips on all elements with [data-bs-toggle="tooltip"]
+      const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+
+      const reportTypeSelect = document.getElementById("report_type");
+      const dynamicFields = document.getElementById("dynamicFields");
+      const apiUrl = "https://lri3fp9pe2.execute-api.us-east-1.amazonaws.com/prod/report";
+      let countryMapping = {};
+
+      // Load country mapping from RestCountries API
+      fetch("https://restcountries.com/v3.1/all")
+        .then(response => response.json())
+        .then(countries => {
+          countries.forEach(country => {
+            countryMapping[country.name.common] = country.cca2;
           });
-      }
-  
-      // Initialize Select2 on elements with class 'country-select'
-      function initCountrySelect(countryData) {
-        $('.country-select').select2({
-          data: countryData,
-          placeholder: "Select a country",
-          allowClear: true,
-          templateResult: function(country) {
-            if (!country.id) return country.text;
-            return $('<span><img src="https://flagcdn.com/16x12/' + country.id + '.png" class="me-1" /> ' + country.text + '</span>');
-          },
-          templateSelection: function(country) {
-            return country.text;
-          }
-        });
-        console.log("Select2 initialized on country-select fields.");
-      }
-  
-      let countryDataGlobal = [];
-      loadCountryData().then(data => {
-        countryDataGlobal = data;
-        initCountrySelect(countryDataGlobal);
-      });
-  
-      // Get today's date in YYYY-MM-DD format.
+        })
+        .catch(err => console.error("Error loading country mapping:", err));
+
+      // Get today's date in YYYY-MM-DD format (using UTC)
       function getToday() {
         const today = new Date();
-        const yyyy = today.getUTCFullYear();        // <-- CHANGED to use UTC
-        let mm = today.getUTCMonth() + 1;           // <-- CHANGED to use UTC
-        let dd = today.getUTCDate();                // <-- CHANGED to use UTC
+        const yyyy = today.getUTCFullYear();
+        let mm = today.getUTCMonth() + 1;
+        let dd = today.getUTCDate();
         if (mm < 10) mm = '0' + mm;
         if (dd < 10) dd = '0' + dd;
         return `${yyyy}-${mm}-${dd}`;
       }
       const todayDate = getToday();
       console.log("Today's date (UTC):", todayDate);
-  
-      // Dynamic fields functions:
+
+      // Dynamic fields functions for each report type
       function defacementFields() {
         return `
           <div class="mb-3">
@@ -236,13 +197,17 @@
             <input type="checkbox" id="mass_defacement_checkbox" name="mass_defacement" value="yes" class="form-check-input">
             <label for="mass_defacement_checkbox" class="form-check-label">Mass Defacement</label>
           </div>
-          <!-- Container for dynamic mass defacement fields -->
-          <div id="massDefacementContainer"></div>
+          <div id="massDefacementFields" class="mb-3 d-none">
+            ${[...Array(10)].map((_, i) => `
+              <div class="mb-2">
+                <label for="targeted_website_mass_${i+1}" class="form-label">Targeted Website #${i+1}</label>
+                <input type="url" id="targeted_website_mass_${i+1}" name="targeted_website_mass_${i+1}" placeholder="https://example.org" class="form-control">
+              </div>
+            `).join('')}
+          </div>
           <div class="mb-3">
             <label for="source_attacker_country" class="form-label">Source Attacker Country</label>
-            <select id="source_attacker_country" name="source_attacker_country" class="form-select country-select">
-              <option value="unknown" selected>Unknown</option>
-            </select>
+            <input type="text" id="source_attacker_country" name="source_attacker_country" required value="Unknown" list="all_countries" class="form-control">
           </div>
           <div class="mb-3">
             <label for="attack_date" class="form-label">Attack Date</label>
@@ -259,57 +224,100 @@
           </div>
         `;
       }
-  
-      // New mass defacement behavior: dynamic addition of fields with a plus icon.
-      function initMassDefacement() {
-        console.log("Initializing mass defacement functionality.");
-        const container = $("#massDefacementContainer");
-        container.empty();
-        let count = 0;
-  
-        function addMassField() {
-          if (count >= 10) {
-            console.log("Maximum mass fields reached.");
-            return;
-          }
-          count++;
-          const fieldId = "targeted_website_mass_" + count;
-          const fieldHtml = `
-            <div class="input-group mb-2" id="massFieldGroup_${count}">
-              <input type="url" class="form-control" id="${fieldId}" name="${fieldId}" placeholder="Targeted Website #${count + 1}">
-              ${count < 10 ? `<span class="input-group-text add-field-btn" data-index="${count}">+</span>` : ""}
-            </div>
-          `;
-          container.append(fieldHtml);
-          console.log("Added mass defacement field:", fieldId);
-        }
-  
-        // Handle the checkbox click.
-        $("#mass_defacement_checkbox").off("change").on("change", function() {
-          if ($(this).is(":checked")) {
-            container.show();
-            container.empty();
-            count = 0;
-            addMassField();
-          } else {
-            container.hide();
-            container.empty();
-            count = 0;
-          }
-        });
-  
-        // Delegate plus button click to add more fields.
-        container.off("click", ".add-field-btn").on("click", ".add-field-btn", function() {
-          addMassField();
-          $(this).remove();
-          if (count < 10) {
-            $(`#massFieldGroup_${count}`).append(`<span class="input-group-text add-field-btn" data-index="${count}">+</span>`);
-          }
-        });
+
+      function ransomwareFields() {
+        return `
+          <div class="mb-3">
+            <label for="group_name" class="form-label">Group Name (optional)</label>
+            <input type="text" id="group_name" name="group_name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="actor_name" class="form-label">Notifier Name</label>
+            <input type="text" id="actor_name" name="actor_name" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_company" class="form-label">Targeted Company</label>
+            <input type="text" id="targeted_company" name="targeted_company" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="victim_website" class="form-label">Victim Website</label>
+            <input type="url" id="victim_website" name="victim_website" required placeholder="https://example.org" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="ransom_image" class="form-label">Ransom Image Proof</label>
+            <input type="url" id="ransom_image" name="ransom_image" required value="http://www.example.org/image.png" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="victim_country" class="form-label">Victim Country</label>
+            <input type="text" id="victim_country" name="victim_country" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_date" class="form-label">Attack Date</label>
+            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attacker_country" class="form-label">Attacker Country (Attack Source)</label>
+            <input type="text" id="attacker_country" name="attacker_country" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="reason" class="form-label">Reason</label>
+            <select id="reason" name="reason" required class="form-select">
+              <option value="for_profit" selected>For Profit</option>
+              <option value="fun">Just For Fun</option>
+              <option value="politics">Politics</option>
+              <option value="bored">Bored</option>
+            </select>
+          </div>
+        `;
       }
-  
-      // Updated ddosFields function with combined fields and mass report functionality.
-      // "Attacked Country" field has been REMOVED. <!-- CHANGED -->
+
+      function otherFields() {
+        return `
+          <div class="mb-3">
+            <label for="group_name" class="form-label">Group Name (optional)</label>
+            <input type="text" id="group_name" name="group_name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="actor_name" class="form-label">Hacker Name</label>
+            <input type="text" id="actor_name" name="actor_name" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_website" class="form-label">Targeted Website</label>
+            <input type="url" id="targeted_website" name="targeted_website" required placeholder="https://example.org" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="targeted_company" class="form-label">Targeted Company</label>
+            <input type="text" id="targeted_company" name="targeted_company" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_type" class="form-label">Attack Type</label>
+            <input type="text" id="attack_type" name="attack_type" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attacked_country" class="form-label">Attacked Country</label>
+            <input type="text" id="attacked_country" name="attacked_country" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation</label>
+            <input type="text" id="attacker_country_affiliation" name="attacker_country_affiliation" required value="Unknown" list="all_countries" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="attack_date" class="form-label">Attack Date</label>
+            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="reason" class="form-label">Reason</label>
+            <select id="reason" name="reason" required class="form-select">
+              <option value="fun" selected>Just For Fun</option>
+              <option value="politics">Politics</option>
+              <option value="bored">Bored</option>
+              <option value="for_profit">For Profit</option>
+            </select>
+          </div>
+        `;
+      }
+
+      // Updated DDoS fields – remove Attacked Country; mass report row in one row
       function ddosFields() {
         return `
           <div class="mb-3">
@@ -351,18 +359,17 @@
               <label for="religion_related" class="form-check-label">Religion Related</label>
             </div>
           </div>
-          <!-- DDoS Mass Report Fields -->
+          <!-- DDoS Mass Report Fields in one row -->
           <div id="ddosMassContainer" class="mb-3">
             <label class="form-label">Targeted Website Details</label>
-            <div class="row ddos-mass-row mb-2">
+            <div class="row align-items-end mb-2">
               <div class="col-md-6">
                 <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
               </div>
-              <!-- CHANGED: short label "check-host ID ⓘ" instead of "check-host.net (optional) ⓘ" -->
               <div class="col-md-3">
                 <label class="form-label">
-                  check-host ID ⓘ
-                  <span data-bs-toggle="tooltip" title="If you already have a check-host.net ID for DDoS proof, add the permanent ID here." style="cursor: help;"></span>
+                  check-host ID
+                  <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, add the permanent ID as provided by the site." style="cursor: help;">ⓘ</span>
                 </label>
                 <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
               </div>
@@ -375,116 +382,25 @@
           <button type="button" id="addDdosRow" class="btn btn-secondary btn-sm mb-3">Mass Report</button>
           <div class="mb-3">
             <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation (optional, default Unknown)</label>
-            <select id="attacker_country_affiliation" name="attacker_country_affiliation" class="form-select country-select">
-              <option value="unknown" selected>Unknown</option>
-            </select>
+            <input type="text" id="attacker_country_affiliation" name="attacker_country_affiliation" required value="Unknown" list="all_countries" class="form-control">
           </div>
           <div class="mb-3">
             <label for="attack_date" class="form-label">
               Attack Date
-              <span data-bs-toggle="tooltip" title="This is the date of the attack. Verified attacks are only attacks that are reported during the same day they happen." style="cursor: help;">ⓘ</span>
+              <span data-bs-toggle="tooltip" title="This is the date of the attack. Verified attacks are only reported on the same day they occur." style="cursor: help;">ⓘ</span>
             </label>
             <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
           </div>
           <div class="mb-3">
             <label for="additional_image" class="form-label">
               Additional Image Link (optional)
-              <span data-bs-toggle="tooltip" title="Provide a link to a media file (e.g. imgbb) that will be visible to everyone." style="cursor: help;">ⓘ</span>
+              <span data-bs-toggle="tooltip" title="Provide a full URL to a media file (e.g., from imgbb.com) that will be visible to everyone." style="cursor: help;">ⓘ</span>
             </label>
             <input type="url" id="additional_image" name="additional_image" placeholder="Provide a full image URL" class="form-control">
           </div>
         `;
       }
-  
-      // Function to initialize Mass Report functionality for DDoS fields.
-      function initMassDdos() {
-        const container = $("#ddosMassContainer");
-        let count = 1; // one row is already shown
-        $("#addDdosRow").off("click").on("click", function() {
-          if (count >= 10) {
-            alert("Maximum number of mass report rows reached.");
-            return;
-          }
-          count++;
-          const rowHtml = `
-            <div class="row ddos-mass-row mb-2">
-              <div class="col-md-6">
-                <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
-              </div>
-              <div class="col-md-3">
-                <label class="form-label">
-                  check-host ID ⓘ
-                  <span data-bs-toggle="tooltip" title="If you already have a check-host.net ID for DDoS proof, add the permanent ID here." style="cursor: help;"></span>
-                </label>
-                <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
-              </div>
-              <div class="col-md-3">
-                <label class="form-label">check-it</label>
-                <input type="checkbox" class="form-check-input" name="check_it[]" checked>
-              </div>
-            </div>
-          `;
-          container.append(rowHtml);
-          console.log("Added new DDoS mass report row. Total rows now:", count);
-          // Re-init tooltips for the new row
-          tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-            new bootstrap.Tooltip(tooltipTriggerEl, {
-              delay: { show: 0, hide: 0 }
-            });
-          });
-        });
-      }
-  
-      function ransomwareFields() {
-        return `
-          <div class="mb-3">
-            <label for="group_name" class="form-label">Group Name (optional)</label>
-            <input type="text" id="group_name" name="group_name" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="actor_name" class="form-label">Notifier Name</label>
-            <input type="text" id="actor_name" name="actor_name" required class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="targeted_company" class="form-label">Targeted Company</label>
-            <input type="text" id="targeted_company" name="targeted_company" required class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="victim_website" class="form-label">Victim Website</label>
-            <input type="url" id="victim_website" name="victim_website" required placeholder="https://example.org" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="ransom_image" class="form-label">Ransom Image Proof</label>
-            <input type="url" id="ransom_image" name="ransom_image" required value="http://www.example.org/image.png" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="victim_country" class="form-label">Victim Country</label>
-            <select id="victim_country" name="victim_country" class="form-select country-select">
-              <option value="unknown" selected>Unknown</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="attack_date" class="form-label">Attack Date</label>
-            <input type="date" id="attack_date" name="attack_date" required value="${todayDate}" max="${todayDate}" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="attacker_country" class="form-label">Attacker Country (Attack Source)</label>
-            <select id="attacker_country" name="attacker_country" class="form-select country-select">
-              <option value="unknown" selected>Unknown</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="reason" class="form-label">Reason</label>
-            <select id="reason" name="reason" required class="form-select">
-              <option value="for_profit" selected>For Profit</option>
-              <option value="fun">Just For Fun</option>
-              <option value="politics">Politics</option>
-              <option value="bored">Bored</option>
-            </select>
-          </div>
-        `;
-      }
-  
+
       function otherFields() {
         return `
           <div class="mb-3">
@@ -509,15 +425,11 @@
           </div>
           <div class="mb-3">
             <label for="attacked_country" class="form-label">Attacked Country</label>
-            <select id="attacked_country" name="attacked_country" class="form-select country-select">
-              <option value="unknown" selected>Unknown</option>
-            </select>
+            <input type="text" id="attacked_country" name="attacked_country" required value="Unknown" list="all_countries" class="form-control">
           </div>
           <div class="mb-3">
             <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation</label>
-            <select id="attacker_country_affiliation" name="attacker_country_affiliation" class="form-select country-select">
-              <option value="unknown" selected>Unknown</option>
-            </select>
+            <input type="text" id="attacker_country_affiliation" name="attacker_country_affiliation" required value="Unknown" list="all_countries" class="form-control">
           </div>
           <div class="mb-3">
             <label for="attack_date" class="form-label">Attack Date</label>
@@ -534,233 +446,191 @@
           </div>
         `;
       }
-  
-      // Update dynamic fields based on selected report type.
+
+      // Update dynamic fields based on the selected report type
       function updateDynamicFields() {
-        const type = $("#report_type").val();
-        console.log("Report type selected:", type);
+        const type = reportTypeSelect.value;
         if (type === "defacement") {
-          $("#dynamicFields").html(defacementFields());
-          initMassDefacement();
+          dynamicFields.innerHTML = defacementFields();
+          const checkbox = document.getElementById("mass_defacement_checkbox");
+          if (checkbox) {
+            checkbox.addEventListener("change", function() {
+              const massFields = document.getElementById("massDefacementFields");
+              if (checkbox.checked) {
+                massFields.classList.remove("d-none");
+              } else {
+                massFields.classList.add("d-none");
+              }
+            });
+          }
         } else if (type === "ransomware") {
-          $("#dynamicFields").html(ransomwareFields());
+          dynamicFields.innerHTML = ransomwareFields();
         } else if (type === "ddos") {
-          $("#dynamicFields").html(ddosFields());
-          // For DDoS, monitor the network field for "Other"
-          $("#network").on("change", function() {
-            const selected = $(this).val() || "";
-            if (selected === "Other") {
-              $("#network-other-container").show();
-            } else {
-              $("#network-other-container").hide();
-            }
+          dynamicFields.innerHTML = ddosFields();
+          const networkSelect = document.getElementById("network");
+          const networkOtherContainer = document.getElementById("network-other-container");
+          if (networkSelect) {
+            networkSelect.addEventListener("change", function() {
+              networkOtherContainer.style.display = (networkSelect.value === "Other") ? "block" : "none";
+            });
+          }
+          const addDdosRowBtn = document.getElementById("addDdosRow");
+          addDdosRowBtn.addEventListener("click", function() {
+            const container = document.getElementById("ddosMassContainer");
+            const newRow = document.createElement("div");
+            newRow.className = "row align-items-end mb-2";
+            newRow.innerHTML = `
+              <div class="col-md-6">
+                <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">
+                  check-host ID
+                  <span data-bs-toggle="tooltip" title="If you have a check-host.net ID to prove the DDoS effect, add the permanent ID as provided by the site." style="cursor: help;">ⓘ</span>
+                </label>
+                <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">check-it</label>
+                <input type="checkbox" class="form-check-input" name="check_it[]" checked>
+              </div>
+            `;
+            container.appendChild(newRow);
+            Array.from(newRow.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(el => new bootstrap.Tooltip(el));
           });
-          initMassDdos();
         } else if (type === "other") {
-          $("#dynamicFields").html(otherFields());
+          dynamicFields.innerHTML = otherFields();
         } else {
-          $("#dynamicFields").html("");
+          dynamicFields.innerHTML = "";
         }
-        // Reinitialize country-select elements.
-        initCountrySelect(countryDataGlobal);
       }
-      $("#report_type").on("change", updateDynamicFields);
-  
-      // Update footer with version and current timestamp in UTC. <!-- CHANGED -->
+      reportTypeSelect.addEventListener("change", updateDynamicFields);
+
+      // Initialize footer with UTC timestamp
       function updateFooter() {
-        let now = new Date();
-        // Format in en-US style but forced to UTC
-        let utcString = now.toLocaleString('en-US', { timeZone: 'UTC' });
-        $("#footerTimestamp").text(" | Updated: " + utcString + " (UTC)");
+        const now = new Date();
+        const utcString = now.toLocaleString('en-US', { timeZone: 'UTC' }) + " (UTC)";
+        const footerTimestamp = document.getElementById("footerTimestamp");
+        if (footerTimestamp) {
+          footerTimestamp.textContent = " | Updated: " + utcString;
+        }
       }
       updateFooter();
-  
-      // Convert empty country fields to "unknown" (in addition to defaults in select markup).
+
+      // Convert country names to ISO codes using the mapping
       function convertCountryFields(data) {
-        const countryKeys = ["source_attacker_country", "victim_country", "attacker_country", "attacker_country_affiliation", "attacked_country"];
-        countryKeys.forEach(key => {
-          if (!data[key] || data[key].trim() === "") {
-            data[key] = "unknown";
+        const keys = ["source_attacker_country", "victim_country", "attacker_country", "attacker_country_affiliation", "attacked_country"];
+        keys.forEach(key => {
+          if (data[key]) {
+            let val = data[key];
+            data[key] = (val === "Unknown") ? "unknown" : (countryMapping[val] ? countryMapping[val].toUpperCase() : val);
           }
         });
       }
-  
-      // Form submission handling.
-      $("#reportForm").on("submit", function(e) {
+
+      // Form submission handling with reCAPTCHA v3
+      document.getElementById('reportForm').addEventListener('submit', async function(e) {
         e.preventDefault();
-        const submitButton = $(this).find('button[type="submit"]');
-        submitButton.prop("disabled", true);
-        const originalText = submitButton.text();
-        submitButton.text("Submitting...");
-  
-        // Use reCAPTCHA v3 to get a token
-        grecaptcha.ready(function() {
-          grecaptcha.execute('6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y', {action: 'submit'}).then(function(token) {
-            console.log("DEBUG: reCAPTCHA v3 token received:", token);
-  
-            const formData = new FormData(document.getElementById("reportForm"));
-            const data = {};
-            formData.forEach((value, key) => { data[key] = value; });
-            // Add the reCAPTCHA token to the payload.
-            data["g-recaptcha-response"] = token;
-  
-            // Default group_name if empty.
-            if (!data.group_name || data.group_name.trim() === "") {
-              data.group_name = "indie";
+        const submitButton = this.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML = "Submitting...";
+
+        const formData = new FormData(this);
+        const data = {};
+        formData.forEach((value, key) => {
+          data[key] = value;
+        });
+        if (!data.group_name || data.group_name.trim() === "") {
+          data.group_name = "indie";
+        }
+        if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
+          data.targeted_website = "http://" + data.targeted_website;
+        }
+        convertCountryFields(data);
+        console.log("DEBUG: Submitting report data:", data);
+
+        try {
+          const token = await grecaptcha.execute('6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y', { action: 'submit' });
+          console.log("DEBUG: reCAPTCHA v3 token received:", token);
+          data["recaptcha_token"] = token;
+
+          if (data.mass_defacement) {
+            let websites = [];
+            if (data.targeted_website && data.targeted_website.trim() !== "") {
+              websites.push(data.targeted_website);
             }
-  
-            // For targeted website, prepend http:// if not present.
-            if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
-              data.targeted_website = "http://" + data.targeted_website;
+            for (let i = 1; i <= 10; i++) {
+              let fieldName = 'targeted_website_mass_' + i;
+              if (data[fieldName] && data[fieldName].trim() !== "") {
+                websites.push(data[fieldName]);
+              }
             }
-  
-            // If report type is DDoS and Hacker Name is empty while Group Name is provided, use Group Name.
-            if ($("#report_type").val() === "ddos") {
-              if (!data.actor_name || data.actor_name.trim() === "") {
-                if (data.group_name && data.group_name.trim() !== "") {
-                  data.actor_name = data.group_name;
-                }
-              }
-              // Remove the array keys from the base data to avoid duplicates.
-              delete data["targeted_website[]"];
-              delete data["check_host[]"];
-              delete data["check_it[]"];
+            if (websites.length === 0) {
+              alert("Please provide at least one Targeted Website.");
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalText;
+              return;
             }
-  
-            convertCountryFields(data);
-            console.log("DEBUG: Final payload to be submitted:", data);
-  
-            // Submission logic for different report types.
-            if ($("#report_type").val() === "ddos") {
-              // Collect values from each DDoS mass row.
-              let targetedWebsites = $("input[name='targeted_website[]']").map(function() { return $(this).val().trim(); }).get();
-              let checkHosts = $("input[name='check_host[]']").map(function() { return $(this).val().trim(); }).get();
-              let checkIts = $("input[name='check_it[]']").map(function() { return $(this).prop("checked") ? "true" : "false"; }).get();
-  
-              console.log("DEBUG: DDoS submission - Found", targetedWebsites.length, "row(s).");
-  
-              if (!targetedWebsites[0]) {
-                alert("Please provide at least one Targeted Website.");
-                submitButton.prop("disabled", false).text(originalText);
-                return;
+            const requests = websites.map(async site => {
+              let newData = Object.assign({}, data);
+              newData.targeted_website = site;
+              newData.mass = true;
+              delete newData.mass_defacement;
+              for (let i = 1; i <= 10; i++) {
+                delete newData['targeted_website_mass_' + i];
               }
-  
-              const requests = targetedWebsites.map((site, index) => {
-                let newData = Object.assign({}, data);
-                newData.targeted_website = site;
-                newData.check_host = checkHosts[index] || "";
-                newData.check_it = checkIts[index] || "false";
-                newData.mass = true;
-                console.log(`DEBUG: Sending DDoS report ${index+1}/${targetedWebsites.length}:`, newData);
-                return fetch(apiUrl, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(newData)
-                }).then(response => {
-                  console.log(`DEBUG: Received response for report ${index+1}:`, response);
-                  return response;
-                });
-              });
-  
-              Promise.all(requests).then(async responses => {
-                console.log("DEBUG: All responses received:", responses);
-                let errors = [];
-                for (let i = 0; i < responses.length; i++) {
-                  let response = responses[i];
-                  if (!response.ok) {
-                    const result = await response.json();
-                    console.error(`DEBUG: Error in response ${i+1}:`, result);
-                    errors.push(result.error);
-                  } else {
-                    let result = await response.json();
-                    console.log(`DEBUG: Success response ${i+1}:`, result);
-                  }
-                }
-  
-                if (errors.length > 0) {
-                  alert("Error submitting report: " + errors.join(", "));
-                  submitButton.prop("disabled", false).text(originalText);
-                  return;
-                } else {
-                  alert("Report submitted successfully for " + targetedWebsites.length + " targeted website(s).");
-                  document.getElementById("reportForm").reset();
-                  $("#dynamicFields").html("");
-                }
-                submitButton.prop("disabled", false).text(originalText);
-              });
-  
-            } else if (data.mass_defacement) {
-              let websites = [];
-              if (data.targeted_website && data.targeted_website.trim() !== "") {
-                websites.push(data.targeted_website);
-              }
-              // Collect mass defacement fields from the container.
-              $("#massDefacementContainer input").each(function() {
-                const val = $(this).val();
-                if (val && val.trim() !== "") {
-                  websites.push(val.trim());
-                }
-              });
-              if (websites.length === 0) {
-                alert("Please provide at least one Targeted Website.");
-                submitButton.prop("disabled", false).text(originalText);
-                return;
-              }
-              const requests = websites.map(site => {
-                let newData = Object.assign({}, data);
-                newData.targeted_website = site;
-                newData.mass = true;
-                delete newData.mass_defacement;
-                return fetch(apiUrl, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(newData)
-                });
-              });
-              Promise.all(requests).then(async responses => {
-                let errors = [];
-                for (let response of responses) {
-                  if (!response.ok) {
-                    const result = await response.json();
-                    errors.push(result.error);
-                  }
-                }
-                if (errors.length > 0) {
-                  alert("Error submitting report: " + errors.join(", "));
-                  submitButton.prop("disabled", false).text(originalText);
-                  return;
-                } else {
-                  alert("Report submitted successfully for " + websites.length + " targeted website(s).");
-                  document.getElementById("reportForm").reset();
-                  $("#dynamicFields").html("");
-                }
-                submitButton.prop("disabled", false).text(originalText);
-              });
-  
-            } else {
-              fetch(apiUrl, {
+              return fetch(apiUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-              }).then(async response => {
-                const result = await response.json();
-                if (response.ok) {
-                  alert("Report submitted successfully. Message ID: " + result.messageId);
-                  document.getElementById("reportForm").reset();
-                  $("#dynamicFields").html("");
-                } else {
-                  alert("Error submitting report: " + result.error);
-                  submitButton.prop("disabled", false).text(originalText);
-                  return;
-                }
-                submitButton.prop("disabled", false).text(originalText);
+                body: JSON.stringify(newData)
               });
+            });
+            const responses = await Promise.all(requests);
+            let errors = [];
+            for (let response of responses) {
+              if (!response.ok) {
+                const result = await response.json();
+                errors.push(result.error);
+              }
             }
-          }).catch(function(err) {
-            console.error("DEBUG: Error during grecaptcha.execute:", err);
-            submitButton.prop("disabled", false).text(originalText);
-          });
-        });
+            if (errors.length > 0) {
+              alert("Error submitting report: " + errors.join(", "));
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalText;
+              return;
+            } else {
+              alert("Report submitted successfully for " + websites.length + " targeted website(s).");
+              this.reset();
+              dynamicFields.innerHTML = "";
+            }
+          } else {
+            const response = await fetch(apiUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            if (response.ok) {
+              alert("Report submitted successfully. Message ID: " + result.messageId);
+              this.reset();
+              dynamicFields.innerHTML = "";
+            } else {
+              alert("Error submitting report: " + result.error);
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalText;
+              return;
+            }
+          }
+        } catch (err) {
+          console.error("DEBUG: Error during submission:", err);
+          alert("Error submitting report: " + err.message);
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalText;
+          return;
+        }
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
       });
     });
   </script>
