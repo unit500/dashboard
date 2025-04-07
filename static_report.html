@@ -148,10 +148,13 @@
   <script>
     $(document).ready(function() {
       console.log("static_report.js v3.0.25 loaded.");
-      // Initialize Bootstrap tooltips
+      
+      // Initialize Bootstrap tooltips with zero delay. <!-- CHANGED -->
       var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
       tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-        new bootstrap.Tooltip(tooltipTriggerEl);
+        new bootstrap.Tooltip(tooltipTriggerEl, {
+          delay: { show: 0, hide: 0 }
+        });
       });
       
       // Define API URL for report submission.
@@ -204,15 +207,15 @@
       // Get today's date in YYYY-MM-DD format.
       function getToday() {
         const today = new Date();
-        const yyyy = today.getFullYear();
-        let mm = today.getMonth() + 1;
-        let dd = today.getDate();
+        const yyyy = today.getUTCFullYear();        // <-- CHANGED to use UTC
+        let mm = today.getUTCMonth() + 1;           // <-- CHANGED to use UTC
+        let dd = today.getUTCDate();                // <-- CHANGED to use UTC
         if (mm < 10) mm = '0' + mm;
         if (dd < 10) dd = '0' + dd;
         return `${yyyy}-${mm}-${dd}`;
       }
       const todayDate = getToday();
-      console.log("Today's date:", todayDate);
+      console.log("Today's date (UTC):", todayDate);
   
       // Dynamic fields functions:
       function defacementFields() {
@@ -306,6 +309,7 @@
       }
   
       // Updated ddosFields function with combined fields and mass report functionality.
+      // "Attacked Country" field has been REMOVED. <!-- CHANGED -->
       function ddosFields() {
         return `
           <div class="mb-3">
@@ -354,10 +358,11 @@
               <div class="col-md-6">
                 <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
               </div>
+              <!-- CHANGED: short label "check-host ID ⓘ" instead of "check-host.net (optional) ⓘ" -->
               <div class="col-md-3">
                 <label class="form-label">
-                  check-host.net (optional)
-                  <span data-bs-toggle="tooltip" title="if you already have check-host.net ID that you want to use to provide proof of the DDoS attack effect, make sure to add the permanent id as given by the site." style="cursor: help;">ⓘ</span>
+                  check-host ID ⓘ
+                  <span data-bs-toggle="tooltip" title="If you already have a check-host.net ID for DDoS proof, add the permanent ID here." style="cursor: help;"></span>
                 </label>
                 <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
               </div>
@@ -368,15 +373,6 @@
             </div>
           </div>
           <button type="button" id="addDdosRow" class="btn btn-secondary btn-sm mb-3">Mass Report</button>
-          <div class="mb-3">
-            <label for="attacked_country" class="form-label">
-              Attacked Country (optional)
-              <span data-bs-toggle="tooltip" title="*This will be filled automatically based on the physical location of the targeted web site." style="cursor: help;">ⓘ</span>
-            </label>
-            <select id="attacked_country" name="attacked_country" class="form-select country-select">
-              <option value="unknown" selected>Unknown</option>
-            </select>
-          </div>
           <div class="mb-3">
             <label for="attacker_country_affiliation" class="form-label">Attacker Country Affiliation (optional, default Unknown)</label>
             <select id="attacker_country_affiliation" name="attacker_country_affiliation" class="form-select country-select">
@@ -393,7 +389,7 @@
           <div class="mb-3">
             <label for="additional_image" class="form-label">
               Additional Image Link (optional)
-              <span data-bs-toggle="tooltip" title="provide a full url pointing to media file, for example a link on imgbb (https://imgbb.com/) that allows to store files remotely. this image will be seen by everyone." style="cursor: help;">ⓘ</span>
+              <span data-bs-toggle="tooltip" title="Provide a link to a media file (e.g. imgbb) that will be visible to everyone." style="cursor: help;">ⓘ</span>
             </label>
             <input type="url" id="additional_image" name="additional_image" placeholder="Provide a full image URL" class="form-control">
           </div>
@@ -417,8 +413,8 @@
               </div>
               <div class="col-md-3">
                 <label class="form-label">
-                  check-host.net (optional)
-                  <span data-bs-toggle="tooltip" title="if you already have check-host.net ID that you want to use to provide proof of the DDoS attack effect, make sure to add the permanent id as given by the site." style="cursor: help;">ⓘ</span>
+                  check-host ID ⓘ
+                  <span data-bs-toggle="tooltip" title="If you already have a check-host.net ID for DDoS proof, add the permanent ID here." style="cursor: help;"></span>
                 </label>
                 <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
               </div>
@@ -430,6 +426,12 @@
           `;
           container.append(rowHtml);
           console.log("Added new DDoS mass report row. Total rows now:", count);
+          // Re-init tooltips for the new row
+          tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl, {
+              delay: { show: 0, hide: 0 }
+            });
+          });
         });
       }
   
@@ -564,10 +566,12 @@
       }
       $("#report_type").on("change", updateDynamicFields);
   
-      // Update footer with version and current timestamp.
+      // Update footer with version and current timestamp in UTC. <!-- CHANGED -->
       function updateFooter() {
-        const now = new Date();
-        $("#footerTimestamp").text(" | Updated: " + now.toLocaleString());
+        let now = new Date();
+        // Format in en-US style but forced to UTC
+        let utcString = now.toLocaleString('en-US', { timeZone: 'UTC' });
+        $("#footerTimestamp").text(" | Updated: " + utcString + " (UTC)");
       }
       updateFooter();
   
