@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Load reCAPTCHA v3 API -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y"></script>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -118,10 +120,7 @@
               </div>
               <!-- Dynamic Fields Container -->
               <div id="dynamicFields" class="mb-3"></div>
-              <!-- reCAPTCHA widget -->
-              <div class="mb-3">
-                <div class="g-recaptcha" data-sitekey="6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y"></div>
-              </div>
+              <!-- Note: reCAPTCHA v3 is invisible; token will be retrieved on form submission -->
               <div class="d-grid">
                 <button type="submit" class="btn btn-primary">Submit Report</button>
               </div>
@@ -144,8 +143,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Select2 JS -->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <!-- reCAPTCHA API -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   
   <!-- Custom Script for Dynamic Fields, Country Dropdown, and Form Submission -->
   <script>
@@ -324,7 +321,7 @@
           <div class="mb-3">
             <label for="operation_name" class="form-label">
               Operation Name
-              <span data-bs-toggle="tooltip" title="If this is part of coordinated efforts, provide the campaign or operation name." style="cursor: help;">&#9432;</span>
+              <span data-bs-toggle="tooltip" title="If this is part of coordinated efforts, provide the campaign or operation name." style="cursor: help;">ⓘ</span>
             </label>
             <input type="text" id="operation_name" name="operation_name" maxlength="50" placeholder="Enter operation name" class="form-control">
           </div>
@@ -358,15 +355,15 @@
                 <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
               </div>
               <div class="col-md-3">
-                <label for="check_host" class="form-label">
-                  check-host.net (optional) 
+                <label class="form-label">
+                  check-host.net (optional)
                   <span data-bs-toggle="tooltip" title="if you already have check-host.net ID that you want to use to provide proof of the DDoS attack effect, make sure to add the permanent id as given by the site." style="cursor: help;">ⓘ</span>
                 </label>
-                <input type="text" id="check_host" name="check_host[]" placeholder="Enter ID" class="form-control">
+                <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
               </div>
               <div class="col-md-3">
-                <label for="check_it" class="form-label">check-it</label>
-                <input type="checkbox" id="check_it" name="check_it[]" class="form-check-input" checked>
+                <label class="form-label">check-it</label>
+                <input type="checkbox" class="form-check-input" name="check_it[]" checked>
               </div>
             </div>
           </div>
@@ -420,7 +417,7 @@
               </div>
               <div class="col-md-3">
                 <label class="form-label">
-                  check-host.net (optional) 
+                  check-host.net (optional)
                   <span data-bs-toggle="tooltip" title="if you already have check-host.net ID that you want to use to provide proof of the DDoS attack effect, make sure to add the permanent id as given by the site." style="cursor: help;">ⓘ</span>
                 </label>
                 <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
@@ -585,169 +582,176 @@
       }
   
       // Form submission handling.
-      $("#reportForm").on("submit", async function(e) {
+      $("#reportForm").on("submit", function(e) {
         e.preventDefault();
         const submitButton = $(this).find('button[type="submit"]');
         submitButton.prop("disabled", true);
         const originalText = submitButton.text();
         submitButton.text("Submitting...");
   
-        const formData = new FormData(this);
-        const data = {};
-        formData.forEach((value, key) => { data[key] = value; });
-        
-        // Default group_name if empty.
-        if (!data.group_name || data.group_name.trim() === "") {
-          data.group_name = "indie";
-        }
+        // Use reCAPTCHA v3 to get a token, then submit the form.
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y', {action: 'submit'}).then(function(token) {
+            const formData = new FormData(document.getElementById("reportForm"));
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value; });
+            // Add the reCAPTCHA token to the payload.
+            data["g-recaptcha-response"] = token;
   
-        // For targeted website, prepend http:// if not present.
-        if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
-          data.targeted_website = "http://" + data.targeted_website;
-        }
-  
-        // If report type is DDoS and Hacker Name is empty while Group Name is provided, use Group Name.
-        if ($("#report_type").val() === "ddos") {
-          if (!data.actor_name || data.actor_name.trim() === "") {
-            if (data.group_name && data.group_name.trim() !== "") {
-              data.actor_name = data.group_name;
-            }
-          }
-          // Remove the array keys from the base data to avoid duplicates.
-          delete data["targeted_website[]"];
-          delete data["check_host[]"];
-          delete data["check_it[]"];
-        }
-  
-        convertCountryFields(data);
-        console.log("Submitting report data:", data);
-  
-        try {
-          if ($("#report_type").val() === "ddos") {
-            // Collect values from each DDoS mass row.
-            let targetedWebsites = $("input[name='targeted_website[]']").map(function() { return $(this).val().trim(); }).get();
-            let checkHosts = $("input[name='check_host[]']").map(function() { return $(this).val().trim(); }).get();
-            let checkIts = $("input[name='check_it[]']").map(function() { return $(this).prop("checked") ? "true" : "false"; }).get();
-  
-            console.log("DDoS submission: Found", targetedWebsites.length, "row(s).");
-  
-            if (!targetedWebsites[0]) {
-              alert("Please provide at least one Targeted Website.");
-              submitButton.prop("disabled", false).text(originalText);
-              return;
+            // Default group_name if empty.
+            if (!data.group_name || data.group_name.trim() === "") {
+              data.group_name = "indie";
             }
   
-            const requests = targetedWebsites.map((site, index) => {
-              let newData = Object.assign({}, data);
-              newData.targeted_website = site;
-              newData.check_host = checkHosts[index] || "";
-              newData.check_it = checkIts[index] || "false";
-              newData.mass = true;
-              console.log(`Sending DDoS report ${index+1}/${targetedWebsites.length}:`, newData);
-              return fetch(apiUrl, {
+            // For targeted website, prepend http:// if not present.
+            if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
+              data.targeted_website = "http://" + data.targeted_website;
+            }
+  
+            // If report type is DDoS and Hacker Name is empty while Group Name is provided, use Group Name.
+            if ($("#report_type").val() === "ddos") {
+              if (!data.actor_name || data.actor_name.trim() === "") {
+                if (data.group_name && data.group_name.trim() !== "") {
+                  data.actor_name = data.group_name;
+                }
+              }
+              // Remove the array keys from the base data to avoid duplicates.
+              delete data["targeted_website[]"];
+              delete data["check_host[]"];
+              delete data["check_it[]"];
+            }
+  
+            convertCountryFields(data);
+            console.log("Submitting report data:", data);
+  
+            // Submission logic for different report types.
+            if ($("#report_type").val() === "ddos") {
+              // Collect values from each DDoS mass row.
+              let targetedWebsites = $("input[name='targeted_website[]']").map(function() { return $(this).val().trim(); }).get();
+              let checkHosts = $("input[name='check_host[]']").map(function() { return $(this).val().trim(); }).get();
+              let checkIts = $("input[name='check_it[]']").map(function() { return $(this).prop("checked") ? "true" : "false"; }).get();
+  
+              console.log("DDoS submission: Found", targetedWebsites.length, "row(s).");
+  
+              if (!targetedWebsites[0]) {
+                alert("Please provide at least one Targeted Website.");
+                submitButton.prop("disabled", false).text(originalText);
+                return;
+              }
+  
+              const requests = targetedWebsites.map((site, index) => {
+                let newData = Object.assign({}, data);
+                newData.targeted_website = site;
+                newData.check_host = checkHosts[index] || "";
+                newData.check_it = checkIts[index] || "false";
+                newData.mass = true;
+                console.log(`Sending DDoS report ${index+1}/${targetedWebsites.length}:`, newData);
+                return fetch(apiUrl, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(newData)
+                }).then(response => {
+                  console.log(`Received response for report ${index+1}:`, response);
+                  return response;
+                });
+              });
+  
+              Promise.all(requests).then(async responses => {
+                console.log("All responses received:", responses);
+                let errors = [];
+                for (let i = 0; i < responses.length; i++) {
+                  let response = responses[i];
+                  if (!response.ok) {
+                    const result = await response.json();
+                    console.error(`Error in response ${i+1}:`, result);
+                    errors.push(result.error);
+                  } else {
+                    let result = await response.json();
+                    console.log(`Success response ${i+1}:`, result);
+                  }
+                }
+  
+                if (errors.length > 0) {
+                  alert("Error submitting report: " + errors.join(", "));
+                  submitButton.prop("disabled", false).text(originalText);
+                  return;
+                } else {
+                  alert("Report submitted successfully for " + targetedWebsites.length + " targeted website(s).");
+                  document.getElementById("reportForm").reset();
+                  $("#dynamicFields").html("");
+                }
+                submitButton.prop("disabled", false).text(originalText);
+              });
+  
+            } else if (data.mass_defacement) {
+              let websites = [];
+              if (data.targeted_website && data.targeted_website.trim() !== "") {
+                websites.push(data.targeted_website);
+              }
+              // Collect mass defacement fields from the container.
+              $("#massDefacementContainer input").each(function() {
+                const val = $(this).val();
+                if (val && val.trim() !== "") {
+                  websites.push(val.trim());
+                }
+              });
+              if (websites.length === 0) {
+                alert("Please provide at least one Targeted Website.");
+                submitButton.prop("disabled", false).text(originalText);
+                return;
+              }
+              const requests = websites.map(site => {
+                let newData = Object.assign({}, data);
+                newData.targeted_website = site;
+                newData.mass = true;
+                delete newData.mass_defacement;
+                return fetch(apiUrl, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(newData)
+                });
+              });
+              Promise.all(requests).then(async responses => {
+                let errors = [];
+                for (let response of responses) {
+                  if (!response.ok) {
+                    const result = await response.json();
+                    errors.push(result.error);
+                  }
+                }
+                if (errors.length > 0) {
+                  alert("Error submitting report: " + errors.join(", "));
+                  submitButton.prop("disabled", false).text(originalText);
+                  return;
+                } else {
+                  alert("Report submitted successfully for " + websites.length + " targeted website(s).");
+                  document.getElementById("reportForm").reset();
+                  $("#dynamicFields").html("");
+                }
+                submitButton.prop("disabled", false).text(originalText);
+              });
+  
+            } else {
+              fetch(apiUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newData)
-              }).then(response => {
-                console.log(`Received response for report ${index+1}:`, response);
-                return response;
-              });
-            });
-  
-            const responses = await Promise.all(requests);
-            console.log("All responses received:", responses);
-  
-            let errors = [];
-            for (let i = 0; i < responses.length; i++) {
-              let response = responses[i];
-              if (!response.ok) {
+                body: JSON.stringify(data)
+              }).then(async response => {
                 const result = await response.json();
-                console.error(`Error in response ${i+1}:`, result);
-                errors.push(result.error);
-              } else {
-                let result = await response.json();
-                console.log(`Success response ${i+1}:`, result);
-              }
-            }
-  
-            if (errors.length > 0) {
-              alert("Error submitting report: " + errors.join(", "));
-              submitButton.prop("disabled", false).text(originalText);
-              return;
-            } else {
-              alert("Report submitted successfully for " + targetedWebsites.length + " targeted website(s).");
-              this.reset();
-              $("#dynamicFields").html("");
-            }
-          } else if (data.mass_defacement) {
-            let websites = [];
-            if (data.targeted_website && data.targeted_website.trim() !== "") {
-              websites.push(data.targeted_website);
-            }
-            // Collect mass defacement fields from the container.
-            $("#massDefacementContainer input").each(function() {
-              const val = $(this).val();
-              if (val && val.trim() !== "") {
-                websites.push(val.trim());
-              }
-            });
-            if (websites.length === 0) {
-              alert("Please provide at least one Targeted Website.");
-              submitButton.prop("disabled", false).text(originalText);
-              return;
-            }
-            const requests = websites.map(site => {
-              let newData = Object.assign({}, data);
-              newData.targeted_website = site;
-              newData.mass = true;
-              delete newData.mass_defacement;
-              return fetch(apiUrl, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newData)
+                if (response.ok) {
+                  alert("Report submitted successfully. Message ID: " + result.messageId);
+                  document.getElementById("reportForm").reset();
+                  $("#dynamicFields").html("");
+                } else {
+                  alert("Error submitting report: " + result.error);
+                  submitButton.prop("disabled", false).text(originalText);
+                  return;
+                }
+                submitButton.prop("disabled", false).text(originalText);
               });
-            });
-            const responses = await Promise.all(requests);
-            let errors = [];
-            for (let response of responses) {
-              if (!response.ok) {
-                const result = await response.json();
-                errors.push(result.error);
-              }
             }
-            if (errors.length > 0) {
-              alert("Error submitting report: " + errors.join(", "));
-              submitButton.prop("disabled", false).text(originalText);
-              return;
-            } else {
-              alert("Report submitted successfully for " + websites.length + " targeted website(s).");
-              this.reset();
-              $("#dynamicFields").html("");
-            }
-          } else {
-            const response = await fetch(apiUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(data)
-            });
-            const result = await response.json();
-            if (response.ok) {
-              alert("Report submitted successfully. Message ID: " + result.messageId);
-              this.reset();
-              $("#dynamicFields").html("");
-            } else {
-              alert("Error submitting report: " + result.error);
-              submitButton.prop("disabled", false).text(originalText);
-              return;
-            }
-          }
-        } catch (err) {
-          console.error("Error submitting report:", err);
-          alert("Error submitting report: " + err.message);
-          submitButton.prop("disabled", false).text(originalText);
-          return;
-        }
-        submitButton.prop("disabled", false).text(originalText);
+          });
+        });
       });
     });
   </script>
