@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Load reCAPTCHA v3 API -->
+  <!-- Load reCAPTCHA v3 API (replace YOUR_RECAPTCHA_SITE_KEY with your actual key) -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa"></script>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -34,7 +34,7 @@
     .card {
       border: none;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       background-color: #ffffff;
     }
     body {
@@ -129,8 +129,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-04-07 13:22:18-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-04-07 13:34:46-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -317,7 +317,7 @@
         `;
       }
 
-      // Updated DDoS fields – note: removed the Attacked Country field.
+      // Updated DDoS fields – removed Attacked Country; all fields in one row for mass report.
       function ddosFields() {
         return `
           <div class="mb-3">
@@ -401,7 +401,7 @@
         `;
       }
 
-      // Update dynamic fields based on report type
+      // Update dynamic fields based on report type selection
       function updateDynamicFields() {
         const type = reportTypeSelect.value;
         if (type === "defacement") {
@@ -432,7 +432,33 @@
               }
             });
           }
-          initMassDdos();
+          // Initialize Mass DDoS functionality
+          const addDdosRowBtn = document.getElementById("addDdosRow");
+          addDdosRowBtn.addEventListener("click", function() {
+            const container = document.getElementById("ddosMassContainer");
+            // Append a new row with the same structure as the first row
+            const newRow = document.createElement("div");
+            newRow.className = "row align-items-end mb-2";
+            newRow.innerHTML = `
+              <div class="col-md-6">
+                <input type="url" class="form-control" name="targeted_website[]" placeholder="Targeted Website" required>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">
+                  check-host ID
+                  <span data-bs-toggle="tooltip" title="If you already have a check-host.net ID to prove the DDoS attack effect, add the permanent id as provided by the site." style="cursor: help;">ⓘ</span>
+                </label>
+                <input type="text" class="form-control" name="check_host[]" placeholder="Enter ID">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">check-it</label>
+                <input type="checkbox" class="form-check-input" name="check_it[]" checked>
+              </div>
+            `;
+            container.appendChild(newRow);
+            // Reinitialize tooltips for the new elements
+            Array.from(newRow.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(el => new bootstrap.Tooltip(el));
+          });
         } else if (type === "other") {
           dynamicFields.innerHTML = otherFields();
         } else {
@@ -445,11 +471,14 @@
       function updateFooter() {
         const now = new Date();
         const utcString = now.toLocaleString('en-US', { timeZone: 'UTC' }) + " (UTC)";
-        document.getElementById("footerTimestamp").textContent = " | Updated: " + utcString;
+        const footerTimestamp = document.getElementById("footerTimestamp");
+        if (footerTimestamp) {
+          footerTimestamp.textContent = " | Updated: " + utcString;
+        }
       }
       updateFooter();
 
-      // Convert country fields
+      // Convert country names to ISO codes using the mapping
       function convertCountryFields(data) {
         const keys = ["source_attacker_country", "victim_country", "attacker_country", "attacker_country_affiliation", "attacked_country"];
         keys.forEach(key => {
@@ -460,7 +489,7 @@
         });
       }
 
-      // Form submission handling with reCAPTCHA (new token per submission)
+      // Form submission handling with reCAPTCHA
       document.getElementById('reportForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const submitButton = this.querySelector('button[type="submit"]');
@@ -476,7 +505,7 @@
         if (!data.group_name || data.group_name.trim() === "") {
           data.group_name = "indie";
         }
-        if (data.targeted_website && !/^https?:\\/\\//i.test(data.targeted_website)) {
+        if (data.targeted_website && !/^https?:\/\//i.test(data.targeted_website)) {
           data.targeted_website = "http://" + data.targeted_website;
         }
         convertCountryFields(data);
