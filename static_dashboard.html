@@ -146,7 +146,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
+    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
   </div>
 
   <div class="container my-4">
@@ -157,7 +157,7 @@
           <div class="card">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">17</h3>
+              <h3 id="victims-today">18</h3>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@
           <div class="card">
             <div class="card-header">Victims This Week</div>
             <div class="card-body">
-              <h3 id="victims-week">131</h3>
+              <h3 id="victims-week">134</h3>
             </div>
           </div>
         </div>
@@ -188,21 +188,21 @@
                   </li>
                 
                   <li class="d-inline-block me-2">
+                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag"
+                         data-bs-toggle="popover" data-bs-trigger="hover"
+                         data-bs-content="DE (2)">
+                  </li>
+                
+                  <li class="d-inline-block me-2">
                     <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag"
                          data-bs-toggle="popover" data-bs-trigger="hover"
                          data-bs-content="VN (2)">
                   </li>
                 
                   <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/es.png" alt="ES flag"
+                    <img src="https://flagcdn.com/32x24/ch.png" alt="CH flag"
                          data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="ES (1)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/it.png" alt="IT flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="IT (1)">
+                         data-bs-content="CH (1)">
                   </li>
                 
               </ul>
@@ -722,6 +722,30 @@
         
           <div class="col">
             <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/80f2dd458e699d475a091f75bf3c3f7a.png" class="card-img-top" alt="crystal-d.com">
+              <div class="card-body">
+                <h5 class="card-title">crystal-d.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-08 13:12:22.527635</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag">
+                  
+                  DE
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    At Crystal D, we have been manufacturing corporate gifts, recognition awards and crystal promotional&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
               <img src="https://images.ransomware.live/victims/6506a72e99517107decde9b53c978368.png" class="card-img-top" alt="Coop57">
               <div class="card-body">
                 <h5 class="card-title">Coop57</h5>
@@ -838,30 +862,6 @@
             </div>
           </div>
         
-          <div class="col">
-            <div class="card h-100">
-              <img src="https://images.ransomware.live/victims/aa36ff309fbd6f3bfb00c8c66f077a32.png" class="card-img-top" alt="www.cbridgeinc.com">
-              <div class="card-body">
-                <h5 class="card-title">www.cbridgeinc.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-04-07 21:22:28.850896</p>
-                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
-                  
-                  GB
-                </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                    They are a full-service provider and Original Equipment Manufacturer (OEM) for high technology indus&hellip;
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -874,8 +874,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-04-08 13:31:12-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-04-08 14:02:12-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -905,11 +905,11 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 2014, name: "lockbit3" },
-      
-      {value: 1006, name: "clop" },
+      {value: 2015, name: "lockbit3" },
       
       {value: 1006, name: "lockbit2" },
+      
+      {value: 1006, name: "clop" },
       
       {value: 903, name: "play" },
       
@@ -998,7 +998,7 @@
       attackedSeriesData.push({value: 678, name: "US"});
     
       attackedCategories.push("IN");
-      attackedSeriesData.push({value: 199, name: "IN"});
+      attackedSeriesData.push({value: 207, name: "IN"});
     
       attackedCategories.push("CA");
       attackedSeriesData.push({value: 155, name: "CA"});
@@ -1007,7 +1007,7 @@
       attackedSeriesData.push({value: 84, name: "DE"});
     
       attackedCategories.push("TR");
-      attackedSeriesData.push({value: 80, name: "TR"});
+      attackedSeriesData.push({value: 82, name: "TR"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
