@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://biengioibienbentre.vn/noi-dung/huyen-thanh-phu-thuc-hien-de-1816-tai-benh-vien-da-khoa-huyen.html" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">biengioibienbentre.vn</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-08</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>Red Wolf Cyber</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://biengioibienbentre.vn/noi-dung/huyen-thanh-phu-thuc-hien-de-1816-tai-benh-vien-da-khoa-huyen.html</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>24c67433k900</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-08</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA4rOhhRrqy_EbbJqCCNq5D1JQPLDjBGOms_1CqrNo8ASt9T9EnIW8WZBHh0U3zTekiRGiLUCPhWgOqCw6qatsRzUlAOObXUwSgc2s9VoeEIhqcnOeVdP555xKEgemuTSi7r8bscx59FdV8w1W9cuZzEpkNQ0-d79iD2sLMulJ9W2NyOLZShie8GKMfkv2-KyAFnCr-5ZCoytzazOXnrAcgPbWhw1_-JsjnsDm_bUnx4BGkhnsr84sdDHAzM3xt_i0n6h32Cb-Xld3XCaebob9ZW62I32ftFTShjR2otGshNo2agr_L0bdvPUBl67Ba6ZugqZ6GfAyfrJ5z6ntvdDEa3qa8l-0aMqiu0LiBVuW0D7DcrWyeOT2E29zk5Ow0u30xWzDoKJs0EArprJHlA-5uW8ryMTz4YrdTIeAosl_4Bw23b70xRrL9U8LKNOSnbEVR6fwZHLM6_y7PiYmOtgrcqA-I0kyJB_h69ehcVpgEiOuEuXRmzANxme6p7vTa0h8kkGHSjHf91LAmEAc0AtRCYBiHMeYvDy-SiWqmlNDXQ_YPnTQtSPeXRAqQ0IxXGMedgb2O1HPnUvQNCMS7GiRgrhc1Ri-4gigqMB8lTxHKLVtLTbC5nPv-Qm4cJzX8xJM9tCDm6qYckwwSFB0e50asFDTq089S6rkL_2Etzwa9Jo8Sap5ETG0aesqE3Wmw6PQCRlyRpex5S4xOEfL-ieXORtd7ykYDl58cFhwrvSkASXmOg6tEZeITJsWKiH8MkDt40jw11wT-5VYfnJKnHJ06YuPPp0uYPMIdEABLof4YJeX1aHbvjRB6OrHZQzxX8fbKZqBBBLdN6sZnTOvFN0dC60DIEs7-KjjyUdY2RFFUJQvsmUmf2TwESbOxnABQB6gmRtshZ0pntbdjh7OYG1nopYdJLs3DXOPa0n7pR4qfCrloaN8BN85qmwV_JXspQRLvbJSHQkV-qe9fr4gsT53Lt_m_ZhcpvTDzjzdgEJ_sLTvMc1jJxwK-91sPd8BObIrzTIhTM56jS2AnXLPWtFiVfoagBdoiPVsP9mOWYc09B1qe6no56K1qKQ3VBX4Q2gKC3WqwbOGxL940uK9roLFkcd-zuGlyO5kevP_5DYDiaWwz2skQWm3mm5vwBedbIvlrwk8s_AN-YW79iIOtvrZjdsF36BQ1U0JIzaVYmBmSHGLgROgNpbjsIyyCQ9ZiRqcljC85uNw-ooP1h98XYuc2a7hcAtHd8Q3aUWyNnSCgNONsi19RhcUyntov7AoIcFZ72at0p7wZMpVae6XbeKQgDEVBJg1faZ4Y9Btihj0Ta3Z0Is829-uOP-AtXFGLudz4uavCr-CbWw4pUD2hQW4p7MMihHRiUNHllbX4PCDuHHkuL9Ze2JKddkyjqjTbNiXpOE358Qb-IMRJ4jQ6_cz5rep_SD5j1faOY7YoH5Fol4FjA-X1zpRaLvbhN_fyL5PFs_cFWBoif-AJaU7Jyi0fosNkdfJr-Y4H7t4PF6HaRLB1c5fpPcWQC2BHzyTJbNKGq5GCHXPxcy2J6v4U6evAKy16Do8YSD8J93L5hNV2vO_cRVoL7r5vQo5GyA_1XqCtc7b_3tvt8cMrV2izOfa1rUFB7aoQsJkGbaBlj-wO6U8Hwt_mXgp39u3QwMAmkuCAu21GZGKZKlVThgd4zZwx2VRgA6SxGAGJTe2Jy885RXBClnLMS8f_bxYHDqzp8Rrp7JzJ0N0vlwFl-lIeQPLEUwOV3KsRvll9zcXfiW2RHJGTeWrpC7iEFPJT0b8F1Tr9sYLfx4z6axzlmqjji9qEUNOu0ZiX0oDW2sbiYcx7p7CA4mI4B_P2Aogy42CX64ERUIpvhIAIUvceguEi8ERYi7h1WgFO9vVfp5sbaizmaUkshyvg6V78g_l0aQYUPO0DGljndrUNL6IFVmZKeN70TgOx9AsFvfnhGlJlsY9WDo2DGnyE-ik8U9nzHAtzdTWOyGv77AiB1xjDaKbyFwWzZHA-STfVelMK-l2MrL8Z4-oTsb84t9VFS6lND0p8TbGScW3a5</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://biengioibienbentre.vn/noi-dung/huyen-thanh-phu-thuc-hien-de-1816-tai-benh-vien-da-khoa-huyen.html</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/24c67433k900" target="_blank">24c67433k900</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>VN</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/67f5231da67871187f68f5a8_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/08/biengioibienbentre_vn</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-08 13:22:37.899000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-08 13:23:13</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
