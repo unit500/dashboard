@@ -146,7 +146,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <div class="container my-4">
@@ -157,7 +157,7 @@
           <div class="card">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">2</h3>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@
           <div class="card">
             <div class="card-header">Victims This Week</div>
             <div class="card-body">
-              <h3 id="victims-week">251</h3>
+              <h3 id="victims-week">252</h3>
             </div>
           </div>
         </div>
@@ -174,6 +174,12 @@
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
+                
+                  <li class="d-inline-block me-2">
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
+                         data-bs-toggle="popover" data-bs-trigger="hover"
+                         data-bs-content="US (1)">
+                  </li>
                 
               </ul>
             </div>
@@ -692,6 +698,30 @@
         
           <div class="col">
             <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/cdeef1ac4f65ba883940fbd4b43f39ec.png" class="card-img-top" alt="Imagineering Finishing Technologies">
+              <div class="card-body">
+                <h5 class="card-title">Imagineering Finishing Technologies</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-11 01:25:23.864165</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    Imagineering Finishing Technologies (IFT) is the industry KnowledgeSource for metal finishing soluti&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
               <img src="https://images.ransomware.live/victims/8fcd50ada4ba771a5b6389070fa0764b.png" class="card-img-top" alt="weareonit.com">
               <div class="card-body">
                 <h5 class="card-title">weareonit.com</h5>
@@ -900,30 +930,6 @@
             </div>
           </div>
         
-          <div class="col">
-            <div class="card h-100">
-              <img src="https://images.ransomware.live/victims/031bcffccffe978b900a1b0fd742de44.png" class="card-img-top" alt="www.canecreek.com">
-              <div class="card-body">
-                <h5 class="card-title">www.canecreek.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-04-10 21:38:59.893553</p>
-                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
-                  
-                  US
-                </p>
-                <p class="card-text"><strong>Group:</strong> play</p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                    United States
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -936,8 +942,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-04-11 01:07:38-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-04-11 02:02:38-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -969,9 +975,9 @@
       
       {value: 2016, name: "lockbit3" },
       
-      {value: 1006, name: "clop" },
-      
       {value: 1006, name: "lockbit2" },
+      
+      {value: 1006, name: "clop" },
       
       {value: 917, name: "play" },
       
@@ -995,7 +1001,7 @@
       
       {value: 340, name: "conti" },
       
-      {value: 318, name: "incransom" }
+      {value: 319, name: "incransom" }
       
     ];
     var optionRansomwareGroups = {
@@ -1102,8 +1108,8 @@
       sourceCategories.push("ma");
       sourceSeriesData.push({value: 7, name: "ma"});
     
-      sourceCategories.push("Indonesia");
-      sourceSeriesData.push({value: 6, name: "Indonesia"});
+      sourceCategories.push("id");
+      sourceSeriesData.push({value: 6, name: "id"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
