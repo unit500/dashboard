@@ -146,7 +146,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
   </div>
 
   <div class="container my-4">
@@ -157,7 +157,7 @@
           <div class="card">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@
           <div class="card">
             <div class="card-header">Victims This Week</div>
             <div class="card-body">
-              <h3 id="victims-week">287</h3>
+              <h3 id="victims-week">288</h3>
             </div>
           </div>
         </div>
@@ -174,6 +174,12 @@
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
+                
+                  <li class="d-inline-block me-2">
+                    <img src="https://flagcdn.com/32x24/no.png" alt="NO flag"
+                         data-bs-toggle="popover" data-bs-trigger="hover"
+                         data-bs-content="NO (1)">
+                  </li>
                 
               </ul>
             </div>
@@ -694,6 +700,30 @@
         
           <div class="col">
             <div class="card h-100">
+              <img src="https://images.ransomware.live/victims/e951542ded1f6cfd3f17015f781c4fe8.png" class="card-img-top" alt="www.bjorklund.no">
+              <div class="card-body">
+                <h5 class="card-title">www.bjorklund.no</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-12 00:25:07.173603</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/no.png" alt="NO flag">
+                  
+                  NO
+                </p>
+                <p class="card-text"><strong>Group:</strong> termite</p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                    Bjorklund Norge AS was founded in 1992. The Company&amp;amp;#x27;s line of business includes the wholesa&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
               <img src="https://images.ransomware.live/victims/c07ab21b3435198d64f1195e0756c633.png" class="card-img-top" alt="www.c?l???t.??">
               <div class="card-body">
                 <h5 class="card-title">www.c?l???t.??</h5>
@@ -874,30 +904,6 @@
             </div>
           </div>
         
-          <div class="col">
-            <div class="card h-100">
-              <img src="https://images.ransomware.live/victims/c1c02df77f51d0905b1b9f28aeca4b50.png" class="card-img-top" alt="www.codinter.com">
-              <div class="card-body">
-                <h5 class="card-title">www.codinter.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-04-10 21:46:18.283957</p>
-                <p class="card-text"><strong>Industry:</strong> Not Found</p>
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
-                  
-                  CO
-                </p>
-                <p class="card-text"><strong>Group:</strong> play</p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                    United States
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -910,8 +916,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-04-12 00:07:39-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-04-12 01:00:39-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
 
@@ -943,9 +949,9 @@
       
       {value: 2016, name: "lockbit3" },
       
-      {value: 1006, name: "clop" },
-      
       {value: 1006, name: "lockbit2" },
+      
+      {value: 1006, name: "clop" },
       
       {value: 918, name: "play" },
       
@@ -1076,8 +1082,8 @@
       sourceCategories.push("ma");
       sourceSeriesData.push({value: 7, name: "ma"});
     
-      sourceCategories.push("id");
-      sourceSeriesData.push({value: 6, name: "id"});
+      sourceCategories.push("Indonesia");
+      sourceSeriesData.push({value: 6, name: "Indonesia"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
