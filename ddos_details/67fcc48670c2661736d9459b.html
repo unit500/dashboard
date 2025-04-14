@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://centralcoalfields.in/hindi/ind/indexh.php" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">centralcoalfields.in</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-14</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/in.png" alt="IN flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>Rabbit Cyber Team</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://dhhodisha.in/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>24f5030aka9d</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-14</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA5hSp-eOhxu2Tsm-t_L37gPgoUoUH9fBWU4xF3QFfIX3yB6P8BNHfMPanoNeFi1buE5NLkf0iBouGsUfmehIBJ4Z8XmXCABK2opm8KvyHBjbsMFf2csfkCxTVf6pN51qaFIPkxKRYxM8Mj8WrfsX1eJB6QPFudCNMIDxlqtGHHNjhjTrHMN2HWRIw-AEJTsXayQNqyn96YErXCkWCuScMERGbml7esjE7hXpymNYsVe4JiGCytCL5pDvM0lwNHoBwVwp8UFd5yHYu6wPpmwgv0BXzrh3NhjYCvPNd5q-6EYoPx3ne2LSuj8RP3_9tIca9xz0vBkSMQVtIXRkMwWZVOAsLOx1UyDxXSCDZU_Ggyj3_AW0tMzB3syQsPOIjEAdaos7kn2ILC1n3U6MN6wVawNxxkm7FavkZkoTzfFSdMtnB4gefm136XlJlhnq38j1bytommTGbQxkfFIgVaN1h3-YikdoR661KlnwfT_9Y1fa-h4gAU6f2o-bGykWy6JcJcNeWj97zDuaF66YqB1_SmDlEOHtRJBdgkXy0PIhMPsu3ujn9baTGOGYJudqbAoyd2Qv-8kjH1XvSVIqO6oHenFucOB9WkfsJklzTs_T8GofzB0szlLZ0YlE2X0eI8Wt3SVUkOMmkDBOMCRGlRRYwHF-gaQzNKJ0wA9OR_CC78bNSXq89tx4MY8yzN3zy9H6rst2r2VjyJBEws66T41cSE_IqRoOVgJjWwYwWPx3Wl8K6uVI9aaIG7b6PawP1nVIl60rYCiHDIttEM3bxuVVtnbhUtNpIWtNwCevIc_KtWPeYZFWYswVrI-HjaUbIQsPG9nJuRQeaSV8k75hQsXz_MYuycSBOQ7U4FkLaog2DkfT13hBYn9cDY1_JC69mvk_mN3mLWzMiZLtyOXUH4PFOvRCoel9pNueithoPq6jIh9XpWr-GhN6p-2Dt9ytzMY4Eyc1n8hSpHEwzziMSJcfsg1Mx-VKumeL66W7r6UZmXYJVtuAsZakfx3rRL81P3c777omo0ydNfpnp2j4BwIf42IX2rTzIKAI031zKfqyHRIAymS1jIo41Tki_w8-3oJeJAugXCK8Jf170Nl0TZkO9cmC7pUglTdBzIcJw3rVoLNplSRXAvSEGWqu4pgjIJdPMGYs5YN2U8tbIKbDnqGf-Z4xk0SBmFSs6bD-DFBiPdRWExRKATwpHF6Grl2RKZx5xN8NeUbJghvqN-mv0S_8BRR47WRCJb6KAHQPnuQbDAPtnZgQ8lMs9vN-FQHRYG-bC2BcDBxffpKFNWnQwojZ5tzGKf37TYDQki8XLiKIrSdVRbGJghSJJCPo7DHh9l21mZP6fhaKiLzxE30tVLZMOjlpFl87IelJXlKbgI_Bojk0Qi0bYNPV9HVCeSpksVR4ncSy-j3WP4sjVA9LRaZ1TZbbA0b9udLW7WrgPJQ4POOycJcS7XX5--Kp_eLCQDHJ8hNdTqVAXCeLdotg25pm-Y36sUFMfUP960eN1-qMs35L4ldtzYjq99uw-ACuVMrfndgfpRES3hQowMK1bOTzh0kXvnljceDBhitosJ8AnKMQisMzBKi2rM4pBVybPFAbeHQsidnVKlruBFtH1OrN9YA5N7w8Vm5N1HPHI5JaG99IyGmO0iLaBpMkc_xS3qQ79T_w-6j1YI4d97d1lJ7ys2p_SQwznV-9tww3tIpNVxX_ObZMy3SR8vWsvYMoKUK3xfCVXZ6Q1lDz6-cK9KQql5jwiIYNy-yQWkMjcNH_XG6FqQ_v_SDrRTaRQOvvQ_Hn2U6HjgtvQ9-yBE5vUa-tGecWuiRj8K8_PGX2TfVtJSiApYwLMpWfstmuLwgeGrm471aUo4jYP8IghrJFTCKXj39Hn_ydF4_rNynXA9KaIt-U_EAzYou6OgasL_5cTjWvzm2LxNHRzy_9O-eTJC_7eIFOsOqshE-s0_jv7TnDdqBs2XhjQxzqwwyFFUt6VuCuDt9VNQ9BhQEaW3KPdF8uiMoFuPd-gjkRmbI0t5L8pxIuNR9Jp-06KqsmA1el7s1nz5JcBk92kueRUUDIlSDTcS6_k8X66XaEUg3iFLc65E4WrhlUmq9QAL7aJuKuJQIC7Tg_NIdqdU4ZV8jaGnq02RjbArG9msoYQkJM59OPnksnidJ85Zk8ChxJ8O8RfxJTf3vfXasW5VZE8x0--Ky7tcTdzpbxdJyNdZafrQu4lqqmK7UFnwdGdvgwH5q4oPRATDVpjU-sRgotVmq43VGjIxCk-LPGy2xPBM-Z8IRlUDPLj8w_wY4fXV9ejBPQ35YoNaJ04Sb</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://centralcoalfields.in/hindi/ind/indexh.php</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/24f50ac7k86f" target="_blank">24f50ac7k86f</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>IN</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/67fcc48670c2661736d9459b_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/14/centralcoalfields_in</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-14 08:17:10.814000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-14 08:17:40</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
