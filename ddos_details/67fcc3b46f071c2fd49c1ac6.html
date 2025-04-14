@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://ochrona.orlen.pl/pl" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">ochrona.orlen.pl</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-14</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/pl.png" alt="PL flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>NoName057(16)</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://paliwa.orlen.pl/pl</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>24f54efbk7b9</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-14</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA5lh2zoqgMbwrY_t508EHVDscsqXwg7jHgOkUMETjryEdqhRLZlB_kgaxTj_JPFfguQGOaFV_CNeFnz_bpvNKEzJwMqn7fT4DtNA99l6pWnGj-SMvksgfIMJeOa7zR2IVjPie9JR2l7dH89N2qOUHaJdx_Qm8S7KS6XXC0X7Ksj3NJwECm3X991dWVKAkOkkqqROw4bAL2VctYV9ZHj46HL73tZtpNiX1_WbR-ecuZWM-k1muD5eNBnBMMXwmqP7VzmG7WLL3f-vHspM41vge1tbdvY6QBGglIOfM0xnbju95PvcHDrzX8t8_joL26okENGMEkBOxRxxRVyvrSod3lithJu5xkjHdB7_g7Vm0py4vsbBgQNq6hyurFD8PGAAT3VKB-NVvZCxFVRHMRH-AuX4dsGo31cfmYhpB_AqK9WI98o9zyCKw3rLVtir_bqyG8WOhMJszHACwABf7uhkWQ4VKH6tb1T0zb3kWcDbw8fJCtH8DsSeP3p0_yWWbeQq-zn7B2WwtnAKzWQst4nr4PjZx1YbQsd1ErULK0boMApRi-P_-YwUtCJMVBwtRNVfuIBYgfsJdXzHe3fVGTHjGcEmL5arjDolLd7kLLRqAtY1YflnZGa7HZZMVgDvseJa3adMo1tKSlmO9cw_7IPY-7hcGHMiS1LAW2SMPdaROyt3jjAGUjnvqiSAGSvx6l3KC46Ji_u5q9y6dLDvwzGnBPATPqu5SKQzdfES7YeQWkJlIa2L2j91YMlt44XeVkI7_1-jEN70Rhcb4L8rGgYwJqhALjtF5kVNBqxO0gc1NboB6trL5DHAvx0OypNtyJHVmHy8yu8NxOhDwCrplW2ZdNi2b8GLLzhZxbGfTfHBhso6i8Jwj5flrvtZNHlW6V3K4rSdimt88cuCpe-kM2owj6wR3occ8n2Zjp128nLVmQDMMxEUv51iK3yWuY9Gu6odd4kSzuhkISkecXDjIeGN760H-g8diGn0eRjiJ4L4bnIcE9reUbpk1Csx3cnuqCsgsdtDDapXBXnZK-vqtmDKCKqsfy9C4lKAyYl2lEQcMTCW4bCFhVgNdk2REX5VzRey9QfiR1dPxHj9Rr1Db7x-cGBVMZRqWjS2B-Q2uHot9JUczd4n5YE9EgGcY9LraFilptu41IjUmcxxU7WR__YiHhmcHCGrFAsmoVxyyNhlog-wAttS9QCeDs9f2_NasXxcA1dIGLuRBzS7j-I807RSKMoKc06NQ2he6TveOR4FJ2htN6FIC0BJnvkOb_UoYpU5-7CEZMfHzc4ZhP81xIlyeR0e-lG-FHVO7wstgWbJpDnLbPRt6_JWna8yGHZ9W0KSihpdykJcGI05Zwg4XxYU1qR_YDwevC13K2blNAu-ZpbgaIfoVMTJVe4TtSNFloyXhg4wVhCVNpBKrbxK5k-fEQoXFIdfGNmSQmpPfLY2qYA0FtZZz2QWqrD_7cow314vDnxWcKCQQlJaZW7WlBPvV-YKbYiyEqxalnY9tgPTkTMOhpIxhYKoYE4rdYClY0GZ_xuFnnFUMD5Zc7nF37RvOyOdEZH2OMkmdZislL9mjolRbKjRGMNqYp3u74jQEqsDNLxA_KgbkVVd7euWAqfc2ItRQ-9wwnwhJWXwZV76BaBdmMaqbhMlc1i7UXT4C4Sfns-O-O2bdW3BhLnjEGU-YI7C8tWpKqNmSAwA9njqDy4tx9bFNmzEjcV5MDRC36_B2hcDSR_52U67Qd_OQiZH6NLlQStfXWHC1UYsgqj4rAwTOwdXE1s56EQ90fBcDLL-xFjeFgsT2GYwqChp5DwYKC7gBE2tNY1MCNbd8pLKDLtPrP9i0Mpz7jXsqf5Br14pNcXG5DzfxS1iiEUKgsJDlzw85WnMfRK5Rhn6P-_HZmVRJH27dfWorB37mDtfR6Ry62q_2vf75xIBrIKNVHctAXNPsYKPOWdLPvWaZU420-zuQZpjRmKlQj8ZRu-nOt7fV7MrIgY_h16TWmhPFps6hTo7unrVi4ZgmAW5vespmbLHl4-6iKmaoLsb_puHQ6QnX8CXwfASuVDGLBLWh1yPR3g-ymf1mDEkcglIWbsMYRCPgvsngVKzsvrUy7HzrdeQGJkAj59HB6t81UOT_P78O6ZKt0qFG4rMijzHr9SDdaDVXZ40ODHnZec1N9D8tPE9ZOdOugHwsj15XK_HE57e5tVgr-y4xqQ6abb95QV7ItjjnJcjPRFczpAHKDtegb--6J47aPXNlh089-jFYU3BpGLiDHCEBu02wnoMDAeoGn6bNf1sK0OzN1jDmTwD7dP5Pg1ben-</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://ochrona.orlen.pl/pl</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/24f54bb1k36a" target="_blank">24f54bb1k36a</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>PL</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/67fcc3b46f071c2fd49c1ac6_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/14/ochrona_orlen_pl</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-14 08:13:40.112000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-14 08:13:40</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
