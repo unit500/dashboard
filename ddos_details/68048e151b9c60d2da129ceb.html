@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://www.quan5.hochiminhcity.gov.vn/default.aspx" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">www.quan5.hochiminhcity.gov.vn</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-20</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>Electronic Army Special Forces</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://quanuy1hcm.org.vn</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>252477bcka56</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-20</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA6rZibUBQdOni9M_3yKDBZBvb9wK32bmYW7cshnKkoPl0YJtSXPBLe4WgiYggoD6ahVghYk8tdzOm9UYxa2DdTO_075bDDFyZ5KSY5NT9F85kX-pHk3bRrL13vCE_Yz6tF9_kTPx_yOVl140extD0kLdNEF2u893p_tpQcyjk1QKmq-DyM8Uj_STBvxxGVFJFKyVIJ0OxANumioWrxEksS6ukFn3zcN4YudDqkxkttYIKoCzbBVHoymaj-kXLKCoS-n0p8Ycnmo_MXwlAgMFHlkHpbNmisDsXTJ9oIG3ivU02jQwFb85NFSg5WvAi6H-ZGGTNY3MSZCCcfn7CFalme_00sSC7HnpvrV6vU5y4Yj-I3F0xdH8kjYNLRtrXLtKv-gPCIwIODRThqu0RshKY0liUDjfoLv3F3RwQdA6CWsGI-TWUHjQnTSeTZ4dyS7ayaU_KZqxoxvuF9I9YBobpp2H8dCs7Xvylq5xsge2H8II3XsoUkbv68Y0AZv3_508iLPxAE4z91W7RIEd1poJ3ucoX9wOJDCfGm37mWZ6Dcbirsy8R0quYZwYpDgtYNQEHYlz3_1yT04VX0FL3Imr_ddE7O3K6YGYjht5SyWfxWcgchRVPelv32iexlalWHA5b3Hpa40xHi3ikE2-Zh8qeFVT64gMD0nhCEq5tys5vMp5Um7GSNJRsYCdMYQ_xn5t0BR264jseM67oW0XlpvO8wK2XqXwOJDYfqxYOdFpHsw3DiAX8_uodwgD6BzVpFotCUFs56E4cWTRFtot1jLvoaVMeiF_xHd2WhSJiZk7bsK1YQ2fhhqCIKdPDwmh7zn_kCkeSrACY0ANz5WyvyGY4RSBFloLFmZO5saGTecq_SQOBQ57pIeZ6hQtDsf3R-qkJgkps9ydbYsRI8rW3VNfUbffsLgkTmL7cZquqzmEg_M73jhKxVedKNgwgrXi204W1VeYOpufFGJNg5W8NtUiBA_nJAFyse45wcMp9Y2OoPnZsOpBL1TULNzqayZXfzSGv5YP9mtBR2JojE2OeAWNB2tGk5a-ZjnTw3HJfazY60AeptSDDUHZK6_lTso2MOxUQqTVLmdakBjiG7eIcFhShrQJE_fLvh7VQaDlmKTxRqdA5t3-dTn9tE0EJBjlGtWRxJ2jEa3XVc8k1My8KpvsE_9ghKyPLsvYazQTmZ45U9Nv9DV6SfSMrTt_7AKZFQHc8O57yaoMnhqpt6dkJn6KMAmo-m5V54jmYuF9Tjeb252yYVzlHQOibILoDdqxt7A_LjbKioC1Axn24cCLYM56SpjDj-RM6FAbbWXVVHwWCghNrFfvgdAGDS3fof7JH6nJkUJEqFiSyHB6_GKP0OsH28_MUDbTeJ93Y-yGBovyV091jpOtR4twAFPjcOzuRDbR_8iIVsLtZ4qO39Dfq8slZlGt_xkrJJKunCuNiH9WJGjArbi0DaKd8mV_cmNjeqYNHZCADhSKUl4z0LTqOG4KHykrxBpYs53JunRmn4T5QPV4s9WZdugLUhH6SCnsT8Or-DyVbqIwACzeX3qD55RoGDF90035I6MD90pIwY8JTOvfjyhWI47FMSzYuwb_6oEdMA-kevG79OkSQIZS2aoKMqEeXWKY22fe3rz3E6RG-2jxS3XD_hSAkruGPAoMcN9CJUvjxW9WHpSA1hIU9evZ63c9Ur_9L3n7wivhRbODNPq2qmRfUCVrvqmIWbrIq-DHKOaJG8LI2u1sp8VDT6tWZu38Na0_LUOVfp6TK9DtVcrpDBtKCwiQOzGQZRF4QI_9GvaeFacaH8BZD-Vll2yaOO0jnrooJcIPyQay3USXybgsvG5dMnex6wmy-PKv1vpltScqrNwmf-oT9yX4riKHpYoUyCjAqMfshvtsBBn5N5lNUV7SCwcaG6QCCzs9yB6WrPAjdtgNivF6o46YrjZKKP2tJInsGr1t6sCL9v-L-Vr-t_rDU5zyQikqQ3Kjv3oolIdflKVexJiAfiI1I7URZAdUZNEuBq-bGCinwKW2ny8xmwCzVW7vo8ATeAtuKyTlWdM91wU1L2Fwrrwx2EyvjiydkGy0E4IL1zRROtOEts27fCFiCssyhO5R2a-mj9Okwt93Zjo90e791vJbDQgv-i1N-0t-gMRpjUCnU1kAOiNseYizlHOysYueLhy12SdZftoQC6qQNbouPnQBKyKUTYPIDb3BFnbby01dN3cUH5-stLlFoggXAkYJJJlnNFks03AS0M9diNqUzJhIB2b9sN2B33gizijuuhq0rxXQeM4q3LN2kSJ8ESKwkTAjHWHoYdKJAp0Oac3OJ2ucfC6gI6GPyIaLDD_y1ArGZHOEG6SWdAGu8k</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://www.quan5.hochiminhcity.gov.vn/default.aspx</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/25247817k5a6" target="_blank">25247817k5a6</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>VN</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/68048e151b9c60d2da129ceb_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/20/quan5_hochiminhcity_gov_vn</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-20 06:03:01.194000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-20 06:03:42</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
