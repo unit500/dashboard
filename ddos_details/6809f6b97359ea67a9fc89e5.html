@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://rheinfelden-semis.eu/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">rheinfelden-semis.eu</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-24</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>NoName057(16)</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://rheinfelden-semis.eu/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>254766d7kd8</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-24</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA5nbPLkgJ8hnVDU_le4b3rnoSZ9Rcp-rVHcn-7rc5EPooQlC-8v8xwO7NaWzN0PfyV600j7-Jgdg6fpRzlXkFJeyJ1lqeShd_o7whwOTxJnmgkknuIb9h_O86b2agQ9f04D4kHrxDfkH5r1Q33AXVrtspWqYUfEcd6B24fU1wBtwTRqxQzESgqnMu1lT-J0TPhKhovz4AfkYk2EjuGYKqAmMmpg3t-3AVwUXLIIKc4g2ch97WE0zwv-Lm84QO6H9_iTsERgbg0ZwSiaSSI-_geNYuIWg909rgkSuMpudBUG3piQ2eMyd0rWnQvpTE4VBaXYTWFLlCQrzcKdQs_nk8Pa2b_7gySVinfy3jg3HVqZTJJqgjm8l7suR_YE5DyjJORXiyxmBYurx9tScIt-3CXnxOfki1arafg0LbvTrCQDrLG4yBJHUuJ4s7uqflmEl0UKztyTRijCMfMjDnGtRcePEiGzXhXuSY8NquO6W1yfGczpnpSrduPW1t3RAIVmtZ9WeL4Xh9RpbCKKeeqCZM_uGKJeYQNOdOErN71SL-CgfSZptrsjB78oKVIS3lPHmaRMZoiGEJBMCs-cNOq9CZbgugbPQ2ln7gXSIGGJMTVnNYri10usEKfd2JagvDVjh7pBLHHd_uJdCmSpiYi2IbgCGdJS7B0HEit6o0nBDJ64Ad0jbrCg-czXftJJUki8gqxCdq6TqK2mv-6CC-JmnFO6Dow7kmc99cmsmLUJE1NFY03ZXuBUda1m5RP5t80btJaQPlOXM3eHqBFk9KRwxcMhKqlJsmFCfy2CvQaxMKMcDjmntRaEzN8y_gUHkoWmA7OU1Ss27Gf4w0ZGSFPteDwLd5oD-Nj3f1Qn48Yb8Mlv0XmlvnaaXVj6m3c5SgjssmaDNb7ql5Sb5gS-c5AQ_X5eOgBUpkST6gDfTChiZGEG9HUNRrKSpUJ6R1Ju-UwdFc0nSt6-CCjtvMJw4Jz-GHeSw82bMppCOoXjZOw5zmQI9Z7Voab1IbsfBWTp6ihoFl70L082Gkk2lcwkXlUXUsIQrEwSBIlVWZXqaC1NMnSbnrnXgtITZ4ukDsu_SnfxlZUxL1G0vokFHbNz43VF3wHWqmp5vn0AR8MhYozoAA5803BWPnqTCaeT17lDneLVcFtXHPHx0UdvNbkaI8JdUaxq7IYo43tYFMO8hCUaXjMsvTf2Db0xzd4CAEsgJVBaSD4nCR0dc9I6hlG2fLWSuibIaL72OWKqvaI-82UBwmlv0LZus0NMr57owXWTllXqT13ZWrzE5whkdgPiqibrgqBJsHKBY6MgTGV-PuwRQ1Avc-6sDWDUQl7w6DU4zbDfPAAPq2lDeOZoV4eaoEQVFvhhJwrCLweUJGwgJbU21lrpiCTVBsFapQ_0A5R8dYFWkB-z6S8_Z31g96-IHp4NUKy90D-8uLuZ7w8bCNYDUx6xjNSxAy3zbD9gNVdEL8sE-aszG9hUnDrC-zxrZyywwd4AKm5AWFfQ1TjwB8p5cDh6adgSu2Zn0lDVl4rIldaIxSY-C_d7eYj06wqRj4VfJAg12uttoSudCB9gC4ErqLaUXfZ4mDq5eTssSx83gYHp9sTosef8V9S7zEFOYhE7JPimR661B1BDjGv4yROACF_jBXxHaYdONnklbdIUoSTxmj7ae3SNU16JLg-ORPPfwCtZFZ9x6TT95rZnfY5Irt5JFmoytBU_bbYB0OJT5youXbyGczXjtgIxBSjClosNrfc8cEPKGHpR99S1kPypRge19TyMYqQJk2b1Ka6wn_6lqqQ4_1M-zUbH-LrG5FtgQifeDfQ9rNKWroSlQVS9b0rmuL_WhzmuqGNOdLZIch96RIR8l04SQH-J5-OJyg5iRxQkEX1AiQGYZl5cKBmfQAfLIl-rvMiRl6Do3EaOlGOEoRii-txCp2D0KP1-84iTl3BKSrSgKHsSkA5BXzEzwGUTPTlN7nvntaXhz-4y-sRV8ZSnPPlqAIM1vWv-w6NOjxbZ_KFPEn5alO7fnmj7LDhOsHAqKXcZO3gjE2G0eVt4-XwTSYhz0CxI5xZ2mLK2t4dhVfbPFg</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://rheinfelden-semis.eu/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/254766d7kd8" target="_blank">254766d7kd8</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>FR</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/6809f6b97359ea67a9fc89e5_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/24/rheinfelden-semis_eu</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-24 08:30:49.976000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-24 08:31:42</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
