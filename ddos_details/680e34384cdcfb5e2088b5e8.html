@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://www.gk-bonn.de/gkbn/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">www.gk-bonn.de</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-27</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>Dark Storm Team</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td>Op Germany</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://www.gk-bonn.de/gkbn/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>25647b59kcc9</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-27</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA64Bn70T_mF8mM0yFYC0Oy-B_P6Lgc2CKPioyt6ELMNAt8yqa_w91o-UBIA6aoIFe-eFWmMjYAt01gUeQfsasY2S4Fm9zHwK5Gz5_uOfLhrXSAFSt_WMg5uOO14pC3wK4uRqNVBvPEFdOMU3Cok8tBqbjf8dFiX7IxXinjPAyyI-a6gdp5ui3Jd63EmUfcZATn8YbFzvdoibMTa0L88YBnoiHuRiSgQtbbYFJD_hFm8BTyB3gb9TAVroFK-W1tvWqPt6qPEHWUi_CWvoPxmu-E1IP2NDHU9oYumbHPD7NZQ0L7RlL0Kvansj-J2sUx-Z6AXlv-OIumCy6IYt_oXsWqlQMA12acBUoSgKqxPG4SPHgybG1uCpQIHiLdDoNPWB8eApY5NvGRxjU6rlwPvxdKEq1EFk9sHXkEiCK_Tnf5Cpq6c2BnJwa0LLPIqjYhCkVTBXcm5K0DzwMy4nCi6BVce9u6O1f-sJrN6qpctchaGdLXzlYG9_fDVU-aeAhtQIX71KmrKPBRaIK8VmXXhVAlF5vbGra-Sz1SAGEbmSVelAIuU419hvpUV9lxqNZb5WzAUlCnlOvHE8jRhAZZuD78danGonZeMD704Dpg2uclonyI6w05uaP4dRLu3Pe-HtPe8T0LY0RrUEbGa28LXXKWmkcjPCiFEwsN-rnlxG_otgt3-Wmk46a0JJCGfTGhNVmByuLbJIJBX26O9tIG38I3DavJz6R4bYQixdgKrscUZdrjVh7l98XyLekLzhG5UozkpNhhX-uohlIx-vt08NuF0rgOrO6jYBJSlI6kvTxdz46aM0RjJapa5mbFzGbAvQPRsndGb51S69tc4O15smgbLTgR1t0Mv3fEAepq-nx8mrV199F-XtS43eK5TkC1GToWFOnXRzZlAjVykg3WIUahrSrDtCj88f4gRAGG4QODf2ttkE2tMk5cYkdQHzxHp7c0_G-dluNqo8bKUoE5q5aAz90h8vdVS5G7_skMdPSmK9rERgrIP1iYWqfeyJg9LrhlyEzRaljHDnTMCH2WxH1LGgt3eqnbrKtCGENaS7Qxwd4alWADzMe24SSOcMWEw7PvJwspFULBTzN-vODY84wu1xU23xaCzk2VOcqupPXz5q5GxBxQjFr8Fa1LRdytvMclZDbf1iTcW2DGd9BckmB0bJU1h7Nj0Z3kVg3ah1dSfoXf0_PdH7CjiqwxQkk0Jy6BTXPZO5vzmNO7DdzHrELy0xFaxlSqb7u8DupVUaSVIFJhwz4_NKJwDMOjn_r0GfVMDDUnlrK7yQ7nA_wr-EAbM4FLpn-U0Ktx96YcYrFnyzdRu59rHbVXDKvmeSw9s3OcnXiPvX6tHJEVXVZKGm7PZS1qNblpnEKgehbg0ErsUfGz3KU_Zt0DmECdkgGIsQ0AVpe0OJW6TuTyIBMGVLHu7CQ-Dh9Xpt3VDMFgp-USFC3CAJEpfJks3fVClYMHRQ1zoreqMYyMJgTs36o15dpyh0XGstwfKNckArZmzyZjLRY3TAMM4_vYa-vGJRLCYchsdNtkd5uqzZPo1nMy2CStNV0ywSdvZvfNxGz4pwxnYIFUfxHppT9FJZWRBpAS9o_hNZ7hgsDrFCVNBWg0iAEvghEm4P7RBHLyb_NYIN4F7cxdLSStO4qnbUauMhKevaP5zuUArna-uaeco5cTADpRgfsDA_49kBYU43qils97UQxfIjvzXxnn5C7LZCQfH-ZbKisRWZAcxrS5KLSBL06hIbo1fH1V0kHnB8NKQ6jZbSLelLEf64a9SjdSnaskPeuHMOrNHP_vjM8aARYbEvVK33CseeNNCEFniqc61_ZGwQCCO2VithhaHywF-wiJjHIY_d5V6bx_75G9TCryqvAwhXLPx2cKdQy-2TWOp_SmGsykI5n5uFnReqwID41DLC1Nxw_B96_HXixUmOQe_aC9HqViTfxK4er1wP1nXpHodRkNwtuRQRns_2CrNHaOSbpFE-0axAfhOvDZLxGIEMeowJbA5fPL7OzgCMu1eQzCxOaLb8jRw6t_As_gDNIBz_85CsAFKe8IWGxkwvAnc9Kn0fCtCgBFIF1aSqSHsZ6otoa-lxB8tqrr9-nGubdVfhmuuPwqaOBKJq-gWn3adQA6qpAF_H8bKO5CqChz7iQ78OwmF6BIgAZdiNi046ooDPf6jhbRvZBCApym9uIyO0JmMFu_hVBPfLjPuDvtpeEfxvokZFpUAh-X6ho3IOthbla5STA29r7gw0iANx8hXo3YqZv9rmYaZb5LtDoaXKRG_u9KLjuK7VzPgfI7OG5lRpXY_ZAott-MJcarQw-U8A-gdlc80x-HgKAVEj_7n2BD8x_ZIFig</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://www.gk-bonn.de/gkbn/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/25647b59kcc9" target="_blank">25647b59kcc9</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>FR</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/680e34384cdcfb5e2088b5e8_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/27/gk-bonn_de</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-27 13:42:16.567000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-27 13:42:51</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
