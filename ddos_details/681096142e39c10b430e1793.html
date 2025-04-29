@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://kcf.vn/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">kcf.vn</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-29</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>ANON-KH</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://kcf.vn/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>2578a06bk5ab</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-29</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA4Wbq8lUNcQtv7hGcRUoVnRlCpK3zUZiJpR7QtsQrmNX9E-4aVK3WwkBbky6g7ceMUXdM22WHaw9-SVEgTQXEPKrBl6emOY-_TI55GtyRzQMpJpOfAzf1wdxQ0HUNGSrBhKeNMvLAwnP0OPmzJFTw__2VTEC_PF34_2JltO0gEffy-llZ99UM6fEZHkn7b2fqTtDjuQvrQzxsw-OQHDZ8T7JKng2xVMUxxCTS2KkimevFQ-1sY1KfCokxAMtz0OU07WyM-RPjDhELH6Wi-EgizhECQ80gFKjqvCLzYBbO-tLhVVXFjgV_y5ctimqQc9bYv0O1LbxeT9rdMEh_cHcn3tox6WatJd5IWvDmcwoXT-wvT2tFfy9GVvdOrdReSSEX9ZmjBVeKH8nDJ4l-xT9CE8B7hbdRjACI44gfvSYr6Q-pMBdccywa6mLm8--pqScPgko3up3N9y6lAE7IZBb65v36ZlHhCnpKUjzCguKfybiDL-iiKWBycdWM38snmzwdHg2KPGgnJML7_NXVQJ1125u_kkmidh8IQuC-oSd3lkt5sJmVvSzVnMelx-5h_aewVZ16z39i2r94hU-m_wQJi-SvWPOfPESojPVinYO_6_44aAu-iPVYScnwBsDzAojyDi41sHFd4ZcJjWJW-Wv2jnfdi0yi0_gDwsQ1YERkG57pb_SkjYTWBVyIttcagTIWIYrO_zdpx6zghdXY1Bk9rgjBXmP3Ojfhz3X65K571DbNQNKjY9J0qtSvd9R88L3BcALkYQHaW9U1Xhe0CmgVJ-GMlkLvlqq6brHJ2_nnwDcoPzg6f0djn3K63QR6lYhbl0bP3BsDAruOtkg4GvUrkSgEBFifL6iBRo5HmB7Ilofsu0lrXIiXJCWkGPK-lz8pd6piXqBMJ14BuijVTkgydG6lHhGFvpHQawaEX3OuhwWBqhj2URCrbFMXVSMyv-zntJ0FvRstLqS4KBsLy2nFiWwFjZ63qET9-4YezM3BctFKz200EXbH-3svMqmIa5ReyTYfsCmj9JP3Lxocu12xpedOarFK31eFq2zvHTIXOoSNJIe9Cbx8AyQwHnhxzxoNQXm76H1Gc1KtXEUC3---njFoJaVDl8uf9N-qR2meN2unh0R4UWtaj2_8L4sH8_tfQdq82t4_yzSQH5V7-Fll0lQdY112b_DWjqKOUi2f3r2M_ho16_Jnd6-LcU_LLx_nK3QUqz4Qu7Cd6tLaQ8EmDQVqiOHThWMtRMu0P_rtvEHfU9ohhy6ccAJwz7Qy682TVS-l8hxluKQDIwElVzG2jNql3cJu4FqRUiI3V5HX3u9_T-R9y4TJ0C_DL8pZRuomsBVk5NQATsY5tdHAsN-b3WRWKFagowHIisyxMG8zWXSww2Ui0XZxAM2TAIVrAQIpcpeeNjbTARILEnxLwntEdA-xM9NKnLvyi-KCYTeMzjOxYljHlZK2KkZiDcyT-xVN04fErmRERppIumQZRDhtZQo46VpSxFGKk1K2Q3vJpUYSLk5-UA7io04w4sz_6jZyyfeQL9gEocgE5sh8_Abxz6bpi94TYHWb95Puscr1RRj0JFWnQWIeYmUCapZ5gHXUckz4VFxsE68ROFshTOUZ7T2Gv8QNug9EN4xZZYzK6l-7l7Kew2BptorlujsGM8xuEqDXG9tWTpI7IxtJnqgK0OLp4BTTbVZBr8yNQdJbbaX5dHu1c_5DMy05yeGRzUe4HEcdTFlosRIj9iX4qx9Vj3BF5DDjK3lPuRPIhpRwQ45pZzBDGyRzsPsr0Je2WmHryE869dhtYKgVgUlKQAwivrSZqmFw8fQclMUgWGXnFwdL1RMD_BjQvZInpZdMmyzBYWuEWFjAgJTqZ6k8yDYGg8Rbk3x9juyALFmfF_udHD9-0MWt-lDqGOeFw7K4CKA7s25qrWOD3mYhsK4yN2K7Cgp7PVO_9ObuBF7ZPshkZiDLhZE65v0ziJIICXDHYHB8Tes4T6LJLkY40Y2igT51lD51t7qkAjqrQeqRhAEoarJnnEeZn8uUIKHYPW05p-Avo-D7Sfyj-_nFvwnTHPHjwwqt10_vz0oqX5-elDtACcIi5UUKfKbgslraWyykCsB0nT9nDz-GTWTtTggdeHJ6BQ7pXYtlaEsV5tlh3s9U3Khrvrq0PZVxA3LWjjW3brOJ9fJQrTUmWF-S6K3BJbvyrQSvV2BmjIttqFx0HhxsthfLHBOVd64rlLoEHEhUFVUaiHWkt3zqq29rvqhYQB8XPib6-9bGNdmqep__nBoLbkfBNQkMxa5CtVj1eH33UX6oyKNf0pDyB2OJc0sPbTZRaNGidOez2dljCEsqHy1UnQpOqBY-4</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://kcf.vn/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/2578a06bk5ab" target="_blank">2578a06bk5ab</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>VN</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/681096142e39c10b430e1793_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/29/kcf_vn</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-29 09:04:20.604000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-29 09:05:25</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
