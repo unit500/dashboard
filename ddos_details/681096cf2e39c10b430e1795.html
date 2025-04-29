@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://www.litef.de/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">www.litef.de</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-29</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/de.png" alt="DE flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>AnonPioneers</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://www.litef.de/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>257861fekb8a</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-29</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA6lWYJuJ-UAI1NzMWDFqq1YpYjqaAb4REzyxaHkQdvtB2IjVAFymRPlET1I_KRGFLK_yyMyoD_TtXJwtLbp-LKNHK7V0pPdRNP5UROK5J0o_F4G3Q7GprvawdADAvENjWs1nc--hRXMnMmKEPqjQqci46JT95bU3713pBpTHmTPGzdhO5CxvMXHOdCDRKGLh4AeuhR0R3XD1YwQbNnjpShuE-WgrkP4mAA2nb5s8zOO_ZCh-u6ZDl19Rja-jJs9fAAjU2_7tQM_Yos7mN8B5o_6Wgg3FD4yThzFgBsOIXCnYkQUAFkjEq1PURqMjfr1JAgQI7T8c3zaiy9wvbzNfIkBz4zbKoolzIA3jwTmz6opdp81YVTzr2eEfIkHpHtU7AnOMc12AcFFt-lgjUDpVJD707QZYl44mGJkCoc0lb7TzDWvkYUTTKidAyQPrLiTxBzKNbmJxePZHGCRstJzJekZcRvUG3VMrzQbtYrDmSnS2qvh4xPpm0gpxe00iPxcq02EoQIAZUfttApOppmj3SKHs_dp7lPenKh7sSnbKd_f8vAHKLNKA0OWiXUxEPJjVw7wz9OQYckBW7GODwiYSHRR8-d-ofJG36VYX2nw5fX6QmejXFlsMNb4iuCSi49hHRi02xm5TEi63izoNEVpm0sVN2FMkam6yV4ZIMh5j4FfkkOG5JANm_MEJTrVMw5-Fa5EZlCgDTXsSBXJcd613_HLtabYArW_ImfTaL4sfWxXfuDjF-7H1F2mTPruNPWlDVmsMpRW2V0loHJvc2HjFWM9bFHcp_tp3Cc-N6cB_9sh4EElFAlufbS66CdEbZGkYDXTktvjtg_2gYU32PlZ7dM6xSN4nInDD4EfeEdFn0eoVqxkWdCPLaFp5YtQdnbwM6Zwbij5drYqZAwmT7YY55pmaeENgUjpQ20LfyFjaWkkFU6l-myldSMZIXXx4PlcOanmliIADSqNPnhCvlwmR1jsdVCTTtEoJcHmCohHOvnSiw_iYv2i9KrnOw0AEQVhLTTUUpLVCyG9ctWURAtcquSotX6DojZ2c1i0mhej2Vc-ak-L14TwbmdtoASF54f0hGZlVZcfcvjX8YOVtEvjqxyyIUqI_T4m9_dpfKEZKTjiXrSd_r1RRVkq-7OMGbvRqBBT4N4NwO4edNex-V1Ys-GYj2y62RemICep_KAxcV01dxgHlg0xOPhbQZwb51RE8xsDvN32nGBd_zOSl97_8FyPKL9g01Dj6B_qui6y8q7kisZLAf6GhtAQtqjVLPrW2aoZYL9pTX5VcJ-W1lbigVqwlp97_vH_HC2Uu950WipWmgmgtV8VPvAGw6dHAVVPT5aOq4exVB748LdMPaDUg86Pf0ZNSINQcgYZfBTfx6AWSHDN5N5aibBtQj-X3XcAwz7B6w1tcwdJ0bJx996lhOtXOEUxS-zV2wRH1mktsAuhNVc9M8HgtP-Y6NuCK8PLPHYEhJhoiL8aaLyQozLiG3_kA6Ni7RfrmY27XZQyBWc-AbFZhtwtaHpiB95Hmp_pGXnsgRI8JvJwTRPA-pM_pu5Q8DgMWKFlT2p_mlJ7Xav-usXzvVWPD6nZmFQuyWIC-YYsldj_o_aDTL6c0g6laaSUuv-N4pcB6H5ilX6IXxF9sWny9o0hnxDs80VxfxuF80FFfKTyKWDmWjnrT3CLgFDiULAGC58h2uUO3H0aajidgMzk-Y2cvJZUAsqPsO_mYKZT_kSu9FUOW80V4A2iWBFinBkyWXi4weImZLmKJeTWFEXkjgouK9_zgu3neLxnlo8xEdharcOCVCyMJEx3GUtaMvZPdYPLBb9twzzwQqQshmONskrJY8-V99PzLjFQlUbcvZDQoGMQHRjGcXizFxP9AzdECfWltfwWvEdQ-rbs-scOFm4qadr3hEUkJ7BqVDACg7Bce4HSCoePqa7caTmy9FFIbQkERYdHlkxkWgFjB2XmBkFSAL6H4NPtDl1RzlwXEOBf5Lv4weNvdqCkJJoXKRyQbPqCJgvHLIY5rX5qQnuB6JQ3dexqyTSYljLxRiziuCMTKPz4ApaeXQ7rjrog9cpOUJxKeiTfXfyVwQRnPUWkUGE6PKxkoew-rEj7WARX0w8otW52RlYhnEqaIZkWc1eWqFEeAbXWG0LiSnnSD58hHwT5r5sZlM5_1L6CIwQ6PX_1eH7Dz3d4xVlJqMFmvigO5MpPQ9sQe11BGatQSaJee0nJDa6l_2GTV8mk5cck30HTu4IwG6woaQBrG_U09Ax901l2_SA_aLrGekfTYsCTqSDa5HBkFFDAS4FSgqLDXs4wGrCuu3ilLrYMdeYnemcugzGvVqyn0F4_gPeKVssNOrY</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://www.litef.de/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/257861fekb8a" target="_blank">257861fekb8a</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>DE</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/681096cf2e39c10b430e1795_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/29/litef_de</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-29 09:07:27.254000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-29 09:08:23</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
