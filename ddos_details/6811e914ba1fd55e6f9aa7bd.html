@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://pulse.pocos.nl/pulse/wicket/login/;jsessionid=6111C221570D186DA64AF340DB6175E4.portal2" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">pulse.pocos.nl</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-30</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>NoName057(16)</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td>Op Netherlands</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://pulse.pocos.nl/pulse/wicket/login/;jsessionid=6111C221570D186DA64AF340DB6175E4.portal2</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>2581f97fk860</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-30</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA4Ik24vBoYnPhyqWWnTxeIeTubBNCf04zLcadQhbflU2a_Ag3-vEAR8fHpIDEpnyLRtNME2495hM46mUNnWrSoGGaa-AFScl7gTgENvJFCwgF9g-ZNVvT1fgIIZdEF2febtQCok5xvHujZoLMaVAkU9ZOgzsJ-Xzlf86vYIoS8GcR0yNeolhYbZ3ENU7mxVEP6z0rgty77AvUIfWzJ70araMB8Oxp10IOY45qEZF6gJDEoW5-RT7i7SnVlNcdyFRRVlS_kzJ0GwZqOJgEAOj8Pwsp81d4rusuyPnUxL1tO9CemKHnXcJlDUKhcJFKpFb1QCMAzv8MJ3wqOKBQKOXntbAAlWbe-ocZaXYnve1H6iwtucvTTjcYgPHHU8-ISKLGdq2kWgZq_spJa2b5Gmmq7rPHO2lv4sKBcbjrmbKe7U60lF8Sxsl5tiOst48ZLpNwV4c2lr7TU0uES8mgtVcrJoIGRXDL5LkYgned57-lw5tUcJVUbwa98onIpou9Q7k_LYhTTMPsXqB-p2MgEbw7ksfgGzoJPWX_P7BhCn_XwcOsVVrS31O9FBMYr01a8EWadq9gLKX0XcJPM6sNc4g870gX1NBNTZCtmUMBh16RvMgXEq5spLa_7Y4hd3KtQ8cTLT5l3jPsvfzF3FX6akxgMFYxGgliAoHxkec0QdS5gxBJe3pKaBa1yKgEUIFd663BiD8ZYcfRWmlrJTSN6qnhCqEB2EX6jntCpk6FI6pVah38Pm_6MnE5IlnOvAEz3ir4vmUwneYyJWob3Zdln07BKoI7O8Pq-0lIZDFrJHmewFcSWT6LXLHf_K97j1uy6rAW-aIv8Cic0NTRWjpbQ5peC1xcczekiDdVXDpXvN_rSo46B_mJMHDCqOK-3V5eotrHqBZiXPUyAt5IZ4IwcI-Jciz8fd0j50TuQ93E-gK-KvsKHFIRhMVKNhAbSoEniY-6UVsmg4F3w8J3ibHvNh2hN6fQA4jdlYmlYOf17zJflji-wg73t8rqjyWkjGF23iBn7Od4Veiuet7y2yOStEN6oRMqTAf1ovI2omV0I4QD_W6XI5QZYu8-WZ1D4rZjptGUZcbMBhM4ddTfaWVRQ6z0gGb-TkjWdUUEgxJO9xvWuRNtOHOH9GzsX_SRJY-I7QGNWLVYr0qWLMmzjXvL1L5xTYS4ToSA9vTDRyEDJe4n-66lkpvPkm7dzd9uJTYtSi0lDL79drtRRhw_y_8aegVXc-hY_qBclUBOvBvdmBb9Y5l4zrp8wIM0pq_fo8Ys0ag0qpOPhoeUNDf2V4OSSBPxQsMoJsdrkbwxw5LPSi8_HavUOCmn394FpQ-JDx6kx_kulz_jkzX170UtPCqv76Roa1Hcr275VDlc0IcirB2BOaICQDY4Ej5m4HzvdFkGGlM5KRWsmAmfVJP0m94ur6RuAA5-WuECZl6eJfWTzNehzPLgoW6b7x-bubpNLFOxUM-DqILxS5fGaAF07Lu2XGmKBUkbUYM4IhMyVKyJvV7edddeojOWPbPYj8K_bfuFObxi-m19nBQRiXXWKYt7JOAZqHCQq76nXXa4q0itpPGtVIx6aIrR_AfGsBoP7VuPQul2JW9A_Gy2PDM8wFJ_Kgbtd6HMEePTkli5FFsVM6LuTHpXriXZWkZNi_hoS5q4c9gO6P2MB_yZFge0HdYexOSbsx8Ds7PezkgJGLF4wKqZckX_J-pVx3LI58f1BCbmk_CHKQEml9GU3VjPAcsuq-wAJIuokMLilExLsF9aaefq-M8zVZYcJ5mz46j9C8X_Lxd7CBx5RGTWhByaNbQH417qL9TI-uwjbsvfU76-lVATU3iEafUizDlebr6M_ZsR5UcdU2uUasyr4166Og90EFU7m51Xofc4uGoynxrzVnP3Mh1gqlRqoB5Z69mWdKVWkdUhkHIGiRyWMwCJiviXJ1oHJkwWtZ_2UgdfAP8cXWG5QO0m0RDMLAbIt4kG4bFd7mj2on7Hd-d9FzIWUn4BXqZqzDn_9Xhw3829ey5om4b86kRI16l-9W_kmVJAjB3TRU3mFX4HbDa9MZHBFpcWMdwd5ha3aiAF2QUNJilQAThhy7f0Z_pZiLRGFvydVDyEilXJsZYyjXdJGRjGrnSDrUGBPqGCfY3Xn_WmV9Odmnunh_aIl7cMDrtLiRspdcAhMr5nyHWbK7lZWDLds7B3oUs2Z4HZqSy34hpWZcd8By84GTcSWzJcv5xYKGWlbehN4k_dZ0QuK666YfkbDztGKXogXYSV0cVnYFnulj7BH6RdBSP6ekKD-fhzNwesLN9GbOWWQiIeKu</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://pulse.pocos.nl/pulse/wicket/login/;jsessionid=6111C221570D186DA64AF340DB6175E4.portal2</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/2581f97fk860" target="_blank">2581f97fk860</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>CA</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/6811e914ba1fd55e6f9aa7bd_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/30/pulse_pocos_nl</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-30 09:10:44.649000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-30 09:11:23</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
