@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://my.dstny.nl/inloggen" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">my.dstny.nl</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-30</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>NoName057(16)</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td>Op Netherlands</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://my.dstny.nl/inloggen</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>2581ee0bk7f7</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-04-30</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA5pcLc0c5ohciwDWisBWZZ_Y3XxflMV5NqF3-rdLLEc_fWjsGx3RztepscU7N3pMCUOuBhcTvVGkyqlQ4FEIWAI-flIGyFe14cbzaBRMMXf1ikImjgtgMK87kwKLCG8FE0OV8ur7xIlekAWS-zKu7_f6ujDDpp21I65hM5JiwnxrtOr6IAO9y4FpEc_HUs_JkVipSvGV0a7lTDqjU-5jPaNSqGWuVuTxGAGAaqFn6KBUSVo5YyS3YwqP06XZYFYlEE8dSJoD2BYmdoldLVHP_j-zLBszyT4C_xWBzC9vu9uqUCY95A8BfkTyiQ89ras5qlHGz1R8LzBuErTgiOK1bRucLRof8VSasi8sF6iMsJxWPkFdXZwLN2zJ1ngScoQ6Vu7uiuhXkVdkRCBIVBvbgeXoT7z7h1i4FrmTePiyV7sxGUHeP3_s1L2NBKf1WSFZo8UPYFCfnHuYdcKwBthTAsTIKmWOgPjSDlX2garDAjt6Gbwab-bopAEZUkqDnD0euWTZ8foK3hR2E0kFmpIVAVHfJgrnbYBdFEQi_CrVrxYY0cfybHj-dUPq1L9JdAgVcVb_A0SoQYKKh7SzAiOeCuN9HapbzQjLoD52NLhUeGfQHnIyV-ayiCtyyfkrtOYKHEkVIVKS9BsevGWra1HBW3Ge8oNjFUvalwkcVwvbpuuhHKT7vI9olrMxBF24Vh9XGQuR3r3-5j41GuRp_6ZQM12SXOBOpiYa4H9kKwTjksOAPB4kXq4pLpAu7CFB-VTwYOSazqwsy7kgnmhVgLalj02kycfJpiFxqAgaYIuxdnEDtPYKKVZA9ZzBF5eyjzCo8WIDDWUtoph_AOhXFmEGU2MnwCP84zp_3KtqkO-kFnCLosS4S0UJycj0u1JtlE9RJqQk3ySqeuvkE3gqet0czBa3xE-0HAvhC5EypKuFvJnbmkDvNLpSe2RLm_ekc-OXmarOlpDol6sY_MznnidOykO0J4b5hmtvTd1iQQtF6w5TEZWLr2j0CnelDe_7aDbG138_JwxwmOVCc9FEiSPfOE0mnQrcHyit3ZC2JewwuzbG5REhZUMs2ZJAUKpyJcf5uJujryPeVw6E1v6DbM_C8WbvdFFKrfMB5zqixW7k8b-W3EV1nrKrn_SCR5RNpwWcg9CmWMk0_0qBQzJpaIzYW-ojJyK8B_9VbhWFXDMVtEqP1toGbgtuNbEEI7E-P4orDKkfemja035YYP0mEytldcZrfUVB9UUg209Obzhwi1aCAIcSTA25s91qAMoEYAhGhcfaCdEWs6EVlmPSYY72xsIPapn916fJJbeQ2RfrN3yYO-VSAJjp6Dq6PehpTMqH2T_U4AMX-ETYi_axhwpYpkiTNmyhAP4KreQ0xsS__e0AA-ztyixV91Ow9hALav0jESAMm_brWDz2d_7PgpfORkW2uZeKclUnFQ3lRNCiqO6E9G8cRxVX-mAmNW04341txxTHsnSpWl4SyCdiYpdBBeo7uoL2iMB1kPSWQpVTWA5XcjKjLPIDsNkkRmblLd9kpsSskU2nP_iHqRc_Zyk92GgDpY8o-gN17o5_zNXD7N1In1YWJSEQmUDg7OmEoc6t6NChDVsZIV_0ZG41afSsKoKOfRPqLO36_V_HYMjJIpwCJvC5uCScmYEMQ8T1fU34yQBWm8vhgoUzkPHZSW6eXg7bp8s0TVefSbx8cW2x5LvZYJDGH3JpmqT17e0j8WmUz3GRgLujGVy5O-qE4XKhpgwAJh1O5RjU4qK5gb3Uj2TGxv7vqSiqATrhGWuvexWaSOhygox3VVEE2c--w1jtDQ6x2peKJxIK1mD3lGMqkC_gLHY8iJOm2m6q76l0Cy2-4ToYrYUwCXVNCTPmYUW_TFNJAj5ObNPiRXJd7hDM-gWdlH_Bq-KWcMg49aUVJkl5Oh4pes1FQUKsQUOtW_po351SZiMwt0Kh_3j2XlBlPDodRfSaY85PIttGklT0eDusJYY6M-8eZf_IGqwQMlo9L3S_9Z1HfHiy-6Wk7BEYbjKk6o1vGNCo4q7AH86VwnY4ati8lkdCvemqXGs1TNf6bmbijKEP0n4aud0jqaYkysdEpllnUOgwQkyyf0XkD3L7KQjkSEzA9JiJ0iOFKfjzo5H3_useozbb178yLJZU9SOgeuVmosJCTg7yKLSxZcbI-arkYQGKfTOV8D9BwnYy52RWP1QlGHD0FvyGjc8cTB0xXs2cbp7vgLXYjpC52mBEBAND3H9MvFbwWnQ_mE8hu9vn7tA5inSQtmDi2o07CJMuuTetUL0D5Y9hNrSHqTns2bikGc_TN1TUVJo8ZIxNLbfI9l406zoR5Xa-hlvo1MiSymE30o</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://my.dstny.nl/inloggen</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/2581ee0bk7f7" target="_blank">2581ee0bk7f7</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>BE</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/6811e817ba1fd55e6f9aa797_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/30/my_dstny_nl</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-30 09:06:31.902000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-30 09:07:23</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
