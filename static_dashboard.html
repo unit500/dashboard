@@ -146,7 +146,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
+    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
   </div>
 
   <div class="container my-4">
@@ -157,7 +157,7 @@
           <div class="card">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">119</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -174,36 +174,6 @@
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/sg.png" alt="SG flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="SG (29)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/my.png" alt="MY flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="MY (25)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="US (17)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="CA (11)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="TR (9)">
-                  </li>
                 
               </ul>
             </div>
@@ -930,8 +900,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-04-30 23:07:22-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-01 00:07:22-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
@@ -1051,19 +1021,19 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("US");
-      attackedSeriesData.push({value: 732, name: "US"});
+      attackedSeriesData.push({value: 720, name: "US"});
     
       attackedCategories.push("CA");
-      attackedSeriesData.push({value: 214, name: "CA"});
+      attackedSeriesData.push({value: 222, name: "CA"});
     
       attackedCategories.push("IN");
-      attackedSeriesData.push({value: 206, name: "IN"});
+      attackedSeriesData.push({value: 203, name: "IN"});
+    
+      attackedCategories.push("SG");
+      attackedSeriesData.push({value: 94, name: "SG"});
     
       attackedCategories.push("DE");
-      attackedSeriesData.push({value: 93, name: "DE"});
-    
-      attackedCategories.push("BR");
-      attackedSeriesData.push({value: 81, name: "BR"});
+      attackedSeriesData.push({value: 91, name: "DE"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1091,7 +1061,7 @@
     var sourceSeriesData = [];
     
       sourceCategories.push("Iran");
-      sourceSeriesData.push({value: 89, name: "Iran"});
+      sourceSeriesData.push({value: 90, name: "Iran"});
     
       sourceCategories.push("Turkey");
       sourceSeriesData.push({value: 18, name: "Turkey"});
