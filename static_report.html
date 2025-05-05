@@ -918,8 +918,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-05 14:07:36-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-05-05 14:46:50-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
@@ -969,6 +969,31 @@
 
       function initCountrySelect() {
         $("#source_attacker_country").each(function () {
+          const $sel = $(this);
+
+          // skip if we already built the list for this element
+          if ($sel.data("select2")) return;
+
+          // wipe anything old, keep 1 empty option for the placeholder
+          $sel.empty().append('<option></option>');
+
+          // add options
+          countryDataGlobal.forEach(c => {
+            $sel.append(
+              $("<option>", { value: c.id, text: c.text })
+            );
+          });
+
+          // activate Select2
+          $sel.select2({
+            placeholder: "Select a country",
+            allowClear: true,
+            templateResult: formatCountry,
+            templateSelection: c => c.text
+          });
+        });
+
+        $("#origin_country").each(function () {
           const $sel = $(this);
 
           // skip if we already built the list for this element
@@ -1153,6 +1178,17 @@
             <label for="network_other" class="form-label">Specify Other Network</label>
             <input type="text" id="network_other" name="network_other" placeholder="Enter network name" class="form-control" autocomplete="off">
           </div>
+
+          <div class="mb-3">
+            <label for="origin_country" class="form-label">Origin Country</label>
+            <select id="origin_country"
+                    name="origin_country"
+                    class="country-select"
+                    style="width:100%">
+              <option></option>
+            </select>
+          </div>
+
           <div class="mb-3">
             <label for="reason" class="form-label">Reason</label>
             <select id="reason" name="reason" class="form-select">

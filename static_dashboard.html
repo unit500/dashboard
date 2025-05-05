@@ -146,7 +146,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
+    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
   </div>
 
   <div class="container my-4">
@@ -200,9 +200,9 @@
                   </li>
                 
                   <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag"
+                    <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag"
                          data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="DE (6)">
+                         data-bs-content="FR (6)">
                   </li>
                 
               </ul>
@@ -216,59 +216,78 @@
     <!-- Combined Charts Section -->
     <section class="mb-4">
       <div class="row">
-        <!-- Left Column: Ransom Groups / Attacked Countries -->
+        <!-- ─────────────────── LEFT COLUMN ─────────────────── -->
         <div class="col-md-6">
           <div class="card">
             <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs" id="ransomTabs" role="tablist">
+              <ul class="nav nav-tabs card-header-tabs" id="leftTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="groups-tab" data-bs-toggle="tab" data-bs-target="#groups" type="button" role="tab" aria-controls="groups" aria-selected="true">
-                    Top 10 Ransom Groups
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="attacked-tab" data-bs-toggle="tab" data-bs-target="#attacked" type="button" role="tab" aria-controls="attacked" aria-selected="false">
+                  <button class="nav-link active"  id="attacked-tab"
+                          data-bs-toggle="tab" data-bs-target="#attacked"
+                          type="button" role="tab" aria-controls="attacked"
+                          aria-selected="true">
                     Attacked Countries
                   </button>
                 </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div class="tab-content" id="ransomTabsContent">
-                <div class="tab-pane fade show active" id="groups" role="tabpanel" aria-labelledby="groups-tab">
-                  <div id="chartRansomwareGroups" class="chart-container"></div>
-                </div>
-                <div class="tab-pane fade" id="attacked" role="tabpanel" aria-labelledby="attacked-tab">
-                  <div id="chartAttackedCountries" class="chart-container"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Right Column: Defacements Overview -->
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs" id="defacementsTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="defacements-group-tab" data-bs-toggle="tab" data-bs-target="#defacements-group" type="button" role="tab" aria-controls="defacements-group" aria-selected="true">
-                    Top 5 Defacement Groups
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="defacements-reporter-tab" data-bs-toggle="tab" data-bs-target="#defacements-reporter" type="button" role="tab" aria-controls="defacements-reporter" aria-selected="false">
+                  <button class="nav-link" id="source-tab"
+                          data-bs-toggle="tab" data-bs-target="#source"
+                          type="button" role="tab" aria-controls="source"
+                          aria-selected="false">
                     Top Source Attack Countries
                   </button>
                 </li>
               </ul>
             </div>
+    
             <div class="card-body">
-              <div class="tab-content" id="defacementsTabsContent">
-                <div class="tab-pane fade show active" id="defacements-group" role="tabpanel" aria-labelledby="defacements-group-tab">
-                  <div id="chartDefacementGroups" class="chart-container"></div>
+              <div class="tab-content" id="leftTabsContent">
+                <div class="tab-pane fade show active" id="attacked"
+                     role="tabpanel" aria-labelledby="attacked-tab">
+                  <div id="chartAttackedCountries" class="chart-container"></div>
                 </div>
-                <div class="tab-pane fade" id="defacements-reporter" role="tabpanel" aria-labelledby="defacements-reporter-tab">
+                <div class="tab-pane fade" id="source"
+                     role="tabpanel" aria-labelledby="source-tab">
                   <div id="chartSourceAttackCountries" class="chart-container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- ─────────────────── RIGHT COLUMN ─────────────────── -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs" id="rightTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="groups-tab"
+                          data-bs-toggle="tab" data-bs-target="#groups"
+                          type="button" role="tab" aria-controls="groups"
+                          aria-selected="true">
+                    Top 5 actors
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="defacements-group-tab"
+                          data-bs-toggle="tab" data-bs-target="#defacements-group"
+                          type="button" role="tab" aria-controls="defacements-group"
+                          aria-selected="false">
+                    Top 5 Groups
+                  </button>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="card-body">
+              <div class="tab-content" id="rightTabsContent">
+                <div class="tab-pane fade show active" id="groups"
+                     role="tabpanel" aria-labelledby="groups-tab">
+                  <div id="chartRansomwareGroups" class="chart-container"></div>
+                </div>
+                <div class="tab-pane fade" id="defacements-group"
+                     role="tabpanel" aria-labelledby="defacements-group-tab">
+                  <div id="chartDefacementGroups" class="chart-container"></div>
                 </div>
               </div>
             </div>
@@ -276,6 +295,7 @@
         </div>
       </div>
     </section>
+    
     <hr class="section-divider">
 
     <!-- Latest Defaced Websites Section -->
@@ -524,13 +544,19 @@
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68189cc75ccb7f7ac2a28ff7.html">
-  		<img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/carlisle_gov_uk/files/additional_image.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://carlisle.gov.uk/">
-</a>
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/carlisle_gov_uk/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://carlisle.gov.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">carlisle.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -544,13 +570,19 @@
             </div>
           </div>
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68189c955ccb7f7ac2a28ff6.html">
-  		<img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/agma_gov_uk/files/additional_image.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://agma.gov.uk/">
-</a>
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/agma_gov_uk/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://agma.gov.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">agma.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -564,13 +596,19 @@
             </div>
           </div>
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68189c5a5ccb7f7ac2a28ff5.html">
-  		<img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/mod_gov_uk/files/additional_image.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://mod.gov.uk/">
-</a>
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/mod_gov_uk/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://mod.gov.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">mod.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -584,13 +622,19 @@
             </div>
           </div>
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68189c275ccb7f7ac2a28ff4.html">
-  		<img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/tameside_gov_uk/files/additional_image.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://tameside.gov.uk/">
-</a>
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/tameside_gov_uk/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://tameside.gov.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">tameside.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -604,13 +648,19 @@
             </div>
           </div>
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68189bed5ccb7f7ac2a28ff3.html">
-  		<img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/mcga_gov_uk/files/additional_image.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://mcga.gov.uk/">
-</a>
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/mcga_gov_uk/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://mcga.gov.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">mcga.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -624,13 +674,19 @@
             </div>
           </div>
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68189bba5ccb7f7ac2a28ff2.html">
-  		<img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/nottscc_gov_uk/files/additional_image.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://nottscc.gov.uk/">
-</a>
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/nottscc_gov_uk/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://nottscc.gov.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">nottscc.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -644,13 +700,19 @@
             </div>
           </div>
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68188be3548130320553aed5.html">
-  		<img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/landsendairport_co_uk/files/additional_image.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://www.landsendairport.co.uk/">
-</a>
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/landsendairport_co_uk/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.landsendairport.co.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">www.landsendairport.co.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -664,13 +726,19 @@
             </div>
           </div>
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68188bac548130320553aed4.html">
-  		<img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/keswicktowncouncil_gov_uk/files/additional_image.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://keswicktowncouncil.gov.uk/">
-</a>
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/keswicktowncouncil_gov_uk/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://keswicktowncouncil.gov.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">keswicktowncouncil.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -684,13 +752,19 @@
             </div>
           </div>
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68187c35548130320553aed3.html">
-  		<img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://www.tameside.gov.uk/">
-</a>
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.tameside.gov.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">www.tameside.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -704,13 +778,19 @@
             </div>
           </div>
         
+          
+          
+          
+        
           <div class="col">
             <div class="card h-100">
               <a href="ddos_details/68187bde548130320553aecc.html">
-  		<img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/salford_gov_uk/files/additional_image.jpg"
-       		     class="card-img-top"
-       alt="Thumbnail for https://www.salford.gov.uk/">
-</a>
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/05/salford_gov_uk/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.salford.gov.uk/">
+              </a>
               <div class="card-body">
                 <h5 class="card-title">www.salford.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
@@ -736,7 +816,10 @@
         
           <div class="col">
             <div class="card h-100">
-              <img src="https://images.ransomware.live/victims/cbff713317a62757325497b266b81ce7.png" class="card-img-top" alt="bentleypontoons.com">
+              <a href="ransom_details/6818706ab397732079f6b48e.html">
+                <img src="https://images.ransomware.live/victims/cbff713317a62757325497b266b81ce7.png" class="card-img-top" alt="bentleypontoons.com">
+              </a>
+
               <div class="card-body">
                 <h5 class="card-title">bentleypontoons.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-05 07:56:34.015458</p>
@@ -758,7 +841,10 @@
         
           <div class="col">
             <div class="card h-100">
-              <img src="https://images.ransomware.live/victims/dac1705777378de98170d0b3ed66a6c9.png" class="card-img-top" alt="cocoon-inc.com">
+              <a href="ransom_details/6817d57bc7104961e720f39c.html">
+                <img src="https://images.ransomware.live/victims/dac1705777378de98170d0b3ed66a6c9.png" class="card-img-top" alt="cocoon-inc.com">
+              </a>
+
               <div class="card-body">
                 <h5 class="card-title">cocoon-inc.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-04 20:56:10.303902</p>
@@ -782,7 +868,10 @@
         
           <div class="col">
             <div class="card h-100">
-              <img src="https://images.ransomware.live/victims/c89a7dcd5cb0a980f07819b89d12843d.png" class="card-img-top" alt="tomoku.co.jp">
+              <a href="ransom_details/6816f47c6cd775aa82f787a0.html">
+                <img src="https://images.ransomware.live/victims/c89a7dcd5cb0a980f07819b89d12843d.png" class="card-img-top" alt="tomoku.co.jp">
+              </a>
+
               <div class="card-body">
                 <h5 class="card-title">tomoku.co.jp</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-04 04:30:51.867118</p>
@@ -806,7 +895,10 @@
         
           <div class="col">
             <div class="card h-100">
-              <img src="https://images.ransomware.live/victims/ca3a457cb0ffbf3921ffafcd17fe84aa.png" class="card-img-top" alt="CabinC.com">
+              <a href="ransom_details/6816e66a6dc7392defa585af.html">
+                <img src="https://images.ransomware.live/victims/ca3a457cb0ffbf3921ffafcd17fe84aa.png" class="card-img-top" alt="CabinC.com">
+              </a>
+
               <div class="card-body">
                 <h5 class="card-title">CabinC.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-04 03:06:09.869443</p>
@@ -830,7 +922,10 @@
         
           <div class="col">
             <div class="card h-100">
-              <img src="https://images.ransomware.live/victims/de072b0b5479425269837c8386250d5c.png" class="card-img-top" alt="American Eagle Logistics">
+              <a href="ransom_details/68163da6b13362fc598fd778.html">
+                <img src="https://images.ransomware.live/victims/de072b0b5479425269837c8386250d5c.png" class="card-img-top" alt="American Eagle Logistics">
+              </a>
+
               <div class="card-body">
                 <h5 class="card-title">American Eagle Logistics</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-03 14:43:49.395113</p>
@@ -864,8 +959,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-05 14:07:36-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-05-05 14:46:50-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
@@ -887,6 +982,7 @@
           return String.fromCodePoint(OFFSET + c.charCodeAt(0));
       }).join('');
     }
+
   </script>
   
   <!-- ECharts Chart Rendering -->
@@ -895,43 +991,23 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 2027, name: "lockbit3" },
+      {value: 269, name: "Belief" },
       
-      {value: 1007, name: "clop" },
+      {value: 213, name: "Mr. BDKR28" },
       
-      {value: 1006, name: "lockbit2" },
+      {value: 205, name: "Team Anon Force" },
       
-      {value: 972, name: "play" },
+      {value: 194, name: "EbRaHiM-VaKeR" },
       
-      {value: 898, name: "ransomhub" },
-      
-      {value: 799, name: "akira" },
-      
-      {value: 731, name: "alphv" },
-      
-      {value: 553, name: "bianlian" },
-      
-      {value: 533, name: "blackbasta" },
-      
-      {value: 507, name: "qilin" },
-      
-      {value: 455, name: "8base" },
-      
-      {value: 446, name: "medusa" },
-      
-      {value: 344, name: "dispossessor" },
-      
-      {value: 340, name: "conti" },
-      
-      {value: 335, name: "incransom" }
+      {value: 116, name: "Simsimi" }
       
     ];
     var optionRansomwareGroups = {
-      title: { text: 'Top Ransomware Groups', left: 'center' },
+      title: { text: 'Top 5 Actros', left: 'center' },
       tooltip: { trigger: 'item' },
       legend: { orient: 'vertical', left: 'left' },
       series: [{
-        name: 'Groups',
+        name: 'Actors',
         type: 'pie',
         radius: '50%',
         data: dataRansomwareGroups,
@@ -946,26 +1022,28 @@
     var defacementData = [];
     
       
-    
-      
-        defacementData.push({ value: 104, name: "Team Anon Force" });
+        defacementData.push({ value: 2027, name: "lockbit3" });
       
     
       
-        defacementData.push({ value: 25, name: "jct" });
+        defacementData.push({ value: 1007, name: "clop" });
       
     
       
-        defacementData.push({ value: 24, name: "Cyber Alpha Wolf" });
+        defacementData.push({ value: 1006, name: "lockbit2" });
       
     
       
-        defacementData.push({ value: 16, name: "DXPLOIT" });
+        defacementData.push({ value: 972, name: "play" });
+      
+    
+      
+        defacementData.push({ value: 898, name: "ransomhub" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
-      title: { text: 'Top Defacement Groups', left: 'center' },
+      title: { text: 'Top 5 Groups', left: 'center' },
       tooltip: { trigger: 'item' },
       legend: { orient: 'vertical', left: 'left' },
       series: [{
@@ -984,20 +1062,20 @@
     var attackedCategories = [];
     var attackedSeriesData = [];
     
-      attackedCategories.push("US");
-      attackedSeriesData.push({value: 679, name: "US"});
+      attackedCategories.push("us");
+      attackedSeriesData.push({value: 711, name: "us"});
     
-      attackedCategories.push("IN");
-      attackedSeriesData.push({value: 239, name: "IN"});
+      attackedCategories.push("in");
+      attackedSeriesData.push({value: 244, name: "in"});
     
-      attackedCategories.push("CA");
-      attackedSeriesData.push({value: 188, name: "CA"});
+      attackedCategories.push("ca");
+      attackedSeriesData.push({value: 218, name: "ca"});
     
-      attackedCategories.push("DE");
-      attackedSeriesData.push({value: 100, name: "DE"});
+      attackedCategories.push("de");
+      attackedSeriesData.push({value: 118, name: "de"});
     
-      attackedCategories.push("FR");
-      attackedSeriesData.push({value: 96, name: "FR"});
+      attackedCategories.push("gb");
+      attackedSeriesData.push({value: 109, name: "gb"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1024,17 +1102,20 @@
     var sourceCategories = [];
     var sourceSeriesData = [];
     
-      sourceCategories.push("Iran");
-      sourceSeriesData.push({value: 90, name: "Iran"});
+      sourceCategories.push("iran");
+      sourceSeriesData.push({value: 90, name: "iran"});
     
-      sourceCategories.push("Bangladesh");
-      sourceSeriesData.push({value: 10, name: "Bangladesh"});
+      sourceCategories.push("bangladesh");
+      sourceSeriesData.push({value: 10, name: "bangladesh"});
     
-      sourceCategories.push("Italy");
-      sourceSeriesData.push({value: 4, name: "Italy"});
+      sourceCategories.push("italy");
+      sourceSeriesData.push({value: 4, name: "italy"});
     
-      sourceCategories.push("Bangaladesh");
-      sourceSeriesData.push({value: 3, name: "Bangaladesh"});
+      sourceCategories.push("bangaladesh");
+      sourceSeriesData.push({value: 3, name: "bangaladesh"});
+    
+      sourceCategories.push("indonesia");
+      sourceSeriesData.push({value: 2, name: "indonesia"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
@@ -1058,14 +1139,14 @@
     chartSourceAttackCountries.setOption(optionSourceAttackCountries);
 
     // Resize charts when their tab is shown
-    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(function(tabButton) {
-      tabButton.addEventListener('shown.bs.tab', function(event) {
-        var target = event.target.getAttribute('data-bs-target');
-        if (target === '#attacked') {
-          chartAttackedCountries.resize();
-        } else if (target === '#defacements-reporter') {
-          chartSourceAttackCountries.resize();
-        }
+    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(btn => {
+      btn.addEventListener('shown.bs.tab', e => {
+        const t = e.target.getAttribute('data-bs-target');
+        if (t === '#source')             chartSourceAttackCountries.resize();
+        else if (t === '#attacked')      chartAttackedCountries.resize();
+        else if (t === '#groups')        chartRansomwareGroups.resize();
+        else if (t === '#defacements-group')
+                                        chartDefacementGroups.resize();
       });
     });
   </script>

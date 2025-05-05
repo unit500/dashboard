@@ -27,35 +27,104 @@
       display: block;
       margin: 0 auto;
     }
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
   </style>
 </head>
 <body class="bg-light">
   <!-- Common Header -->
   <header class="mb-4">
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
-      </div>
-    </nav>
-    <!-- Offcanvas Menu -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="nav flex-column">
-          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
-          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
-          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
-          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
     </div>
-  </header>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
 
   <div class="container my-4">
     <!-- Back Button -->
@@ -195,10 +264,7 @@
               
             
               
-                <tr>
-                  <th>G-recaptcha-response</th>
-                  <td>03AFcWeA7tcWNA2CIii6evs2iUnsPgGKad2YjXnbaMrLJy_Gd2eJn7xzBnk4NLR3lj7Nocy6HXr46nvUNOP91us0sJvXR9xoLJe6qOWe3B2Ko400VjCoE2sle2Yraa_boqROx_y-feKHpClTtq2MZqEe86Wfcjd5tEGnW-cSMQzy-el17Inm8rZPVDCxdn_Jogls6oolPHMlurMWAneNwVz7RObnGrm8GbmMEr0qtFSZlfB8Vlu6sE4prGzqFA9qGzMkMhhrZCdPN_c6a90O-nHKojEAXaqVWFSYVjFJt1MKfqhQ6On-Br_sllVnw4neXDmSMZ9hE7Ln10wAeySjQacjMKCcll9hyNDcXsDbjhuvLe4PSJCKyAzkRqYhSIWR0-lTvEZAg2QPnJA5dW4lJ7kYTLXxabVulR7kt0mIK4K9GTfylW8dqmaCIxRTPi3igzkatYDoXsXu5UeZwV7APQEgDHAwYCxX9aEcLUn_VvCG3nPHRF1h68t09MVtAq20fVvQBtUQ8nXMd797Bu6oXDGKz45EX7-hZUJNV2DGbb3KFR-ECoy9PxyiXtdu7XErpkqbgFoEjqjChVUSYjlin8CVmmfpYlP4zWJ9pP64Qvxeijiw27AWm_E815cKZqCnI4xRlAZoGS2_5IexsMK_ywwYgFnUrbuOlSMkiqLRSfLQAyngCdO0XWUloUYkeR7ZMJadpe6HCpoHWX6Q6HU2hXoAkJw4pQyM2hLvX19CE_o07icNje-uaVO21NwplTywRZqrNzO90IeEyuKJa_wDsD-7bBAgY2c66AAAUZLOUGT8JNmu1gB-fX8_nUhTvz8BGQ5aLfhmzgCfF1m0umT0urg1Nk9jvw-YsguALaYSEHJhfmGyDtUvyz__hknlGRm7ZpgRQiGBfBeiKyrJJ-Atiy5hbq8iHDDgmCgor_1-GD_HoRmQGqwsZ8E4K0bfO7mJnDr1AWRef7hZZzUM2tZJ-dlojqKBmjWeiXQVVF6-2aM0pZiIh7ePsAWBkwSRd3odxGL0RDrR1tw8q5IjaWZollchDKyB1lDH5kv4Cd789bmptepGLTegREo35p9G9wyFqGfjZwC5jjxwaEAbz2C6KL5ji8sNwkVnu_09Wgiuf7_OYrs6_25h3PdNeeIriYVaBN3uikULb4AXHaljTDXTDJKmsM9UL-u97B9Pqb-FMfJHGB2uNKprPDhEFh0CMIV-R7cn7UKw5gr6wshi3o3Kv9EQXSShMtQi-VO6gbvGnyCLUJrH4b7MpJUZcSwTfdjN1fBlBUP48LT4YZuvwC2Ehuh-js5nGtk_rON_Jkw7p9PJmPfX8AVStM4xkN-102tqwUZ0PRr6XdPlfGU4xJtq_bonfqIp6Uzcwe7tjw0kFJSD4dUEjVBTsTfXAKM8VnvFzA8L8CTKgpkzhdFjts25sVHU5TMADFU3j7pqeO2ZzihCfavEb32uBKUAxFhra266I5DHbMZJQpvNit-zRAVs4-gYNqKagwteOEfiS4wa6lbArnmvJvUUSa4HU6FhlN0QyNHo4tdpnK50g_EmTA8aTwNk-7BiaXSlBz46hTmAQwW8QlmFB1YS__kwuyAAblwjBVzTqVO-KIx5rybGbmPjPjqlmDKPkgYl_enDHbaNTZgTD7Mbl5g8RRnmp-3kLmhk9x4uj2MD1F1UsgAzKZkE9q_FgCGJ_UD59lDcGfCo5bReSdpPnIG62He59T6Ijw3Ti2M99UhMaK7gv0FanMWcdCFaKLsKwid99NM4fepifHcqa1BRYDKrlhbqv93sHEXPixZ79EuV74VZZSF4ED9fnx9f_5qqs_26GKaD08qp3DrWp1ySem5jNfBiCFdqXl54Rdx7AXhoiY04K2yC6brP2-ylJWJ84PSMsLmGoZKQp814-uRU_AGO_1OGArYlIL6-ua_t6lgTNAzrf5kERx1vea-9yLu28P4b5dsfdCIIPLASJMTY7p_PA7-KmCjJh27gejJ5MVGg33pQ0Uz5jIdnogA5EyZQO6x_M3FPhJfGfDycDkbht6543yN8t5biplhf8duGEw1xsgO6U2JOSzfWq33BZgGa6PIY_lQGm0WGM8_a5wNkoeZaByn0zuQNOqCAq7cbR2T3TzCmWeZWG7-aETAPNc11FdgA6y9HQcqyyenvAchN_fwpE-j0lEcdtk25yPXkvNGwti_T_RQkL73wFFT1LPG8o13V1b8A-THX0IPDuF4jrQo0b6elGDrSQsmJh_8HbXH4uWWI8EU-gN8nuN_5OeQDbD1wmLW1LEX98opL0f4GLjJ1qFzxcLwzErX3nOP85VBb69Gvp9</td>
-                </tr>
+                
               
             
               
@@ -215,7 +281,7 @@
                     <a href="https://check-host.net/check-report/25b61c84k494" target="_blank">25b61c84k494</a>
                   </td>
                 </tr>
-              
+                
             
               
                 <tr>
@@ -232,11 +298,16 @@
               
             
               
-                <tr>
-                  <th>Attacked country</th>
-                  <td>GB</td>
-                </tr>
-              
+                  <tr>
+                    <th>Attacked country</th>
+                    <td>
+                      <img src="https://flagcdn.com/32x24/gb.png"
+                          class="me-1"
+                          alt="GB flag">
+                      GB
+                    </td>
+                  </tr>
+                
             
               
                 <tr>
@@ -257,24 +328,35 @@
               
             
               
-                <tr>
-                  <th>Mirror</th>
-                  <td>/archive/verified/2025/05/05/salford_gov_uk</td>
-                </tr>
+                  <tr>
+                    <th>Mirror</th>
+                    <td>
+                      <a href="https://github.com/unit500/ddos/tree/main//archive/verified/2025/05/05/salford_gov_uk"
+                        target="_blank">
+                        /archive/verified/2025/05/05/salford_gov_uk
+                      </a>
+                    </td>
+                  </tr>
               
             
               
-                <tr>
-                  <th>Received at</th>
-                  <td>2025-05-05 08:50:38.289000</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Announced</th>
-                  <td>False</td>
-                </tr>
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
               
             
           </tbody>
@@ -284,9 +366,18 @@
   </div>
   
   <!-- Footer -->
-  <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-05-05 08:51:37</p>
-  </footer>
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy;  Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-05 14:47:00-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+  </div>
+</footer>
+
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
