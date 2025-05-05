@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://www.landsendairport.co.uk/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">www.landsendairport.co.uk</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-05-05</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/de.png" alt="DE flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>Dark Storm Team</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td>OpUnitedKingdom</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Reason</th>
+                  <td>politics</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://keswicktowncouncil.gov.uk/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>25b7c918k158</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-05-05</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA6zWjnFAoKupuPoXsuD26JoRWWdXAkd1NDGlcsR2EQqQLAQlebVmi-bDQerENyQg_nXjmghgd951jPM5Z4FvgmtGSmGzQspJL_3LHNQjE6Od4Oglb3Xd7XMpKp-Sl5Nde7-sgP_H2E3EulfkyjLagC5TzacIQ8oxxCfOgQXW90sWFP8btLYZ1qoN5KdJ2UT1xj5UC0qqRWlAGR-m7tpqspcJzWikJdyeKFZgR9GHcP2TOZ45Qeak0Mj63SsIXaGENbHBW1fu-vR2h29kH_18cYGWMFrMCHaAwSZU37xmcnWQCGF90-5EWHXqVnM0BfkkoUQSeFaE6hmjZ2hLm81_RnxUGHxZ-s9JdYMZocMIEYyVws02dLRPPipujCq9U_GLV51VVDl3BrC8iKp7N-g6jxxAWA0xhZvZB4_RoTvhG4uS0C0H6yEkUZKqruSzaCOJkLp74eh2TqZBvP-mKkxXCSDY20tLYXcMxwMhKdbFeVDIBUxkTivElwXT7jP3mgtCAH0HsgsnXSBzTD_l1BlFnqA-H6RMQAWQB21zeMOSdAAetnG4j4hRLuJDSJ10KdFqpeSiyRc9PTeybhL4QQrPhx3apAYyKJ6JGWVia5QmUY2dcHiIhIytO5hh_vPOaGK_1WkHq87mFtNCOVILjZ0Pgk-HyVC_7VtQ-Iqb4GU5YcBVrBHHwr6u-68CKkPsYXzNgkoPaen9a15ZK23IRDCg8JZW5KOLGOAYYmFO76Xgf4c123iAR5qKR95bK_TmEjamKeWIGW7t8xRGv2uR9cXw9i5dJ-QAG8WZMA7jk27ONCLx0zyC_GWZlqgOCxg8fmW9diGADFa3TiAc5YxZMGge4Nvh3-WR6RxhMUa9BwLM-bbjIYecGNM3oEjK8DBiV5m8BzZ8LQP5kzz33PE2HbRKZQ7swr0FTWxfJ0UE94pyH-XXJvS4Pw15Byevj_UjQFzijy7JAz8gVUje00NpjhGfB6rdpOv0dCsBdfqhTgCXRKoKpleRgLTvFSG1JYoYx-YZfPdJHlsY7Yc4f5MWHMRCbZnQvNnZtno6JDnc3U4swMhdMQuR2jbzfMefItMhl4w0w2iT1Atl5yFp1BiktSLfQ9tnrGIZP1DlMpppPae5J56uJRty_SXwfynv9JBhI-SZLcO6dSQgQxOBTRfyVhc8vD1-0m1OcEgpGTv73AZrQuXbfMojc7k-pXHDao-0heY0uYT9pKOD8LlMLgFpaaQK0gauTCeUA69y8Shg5EJ69jjLL703tMHb5mBToYEa2W5T0oNx5lga8qmAdo2UIKKAW1R_mcPLLGkVA72gSrsdSQoWMzUQuTS7KZY35FTdFLQEwLtMm4mduzNTD7G4bypgZSxA4mt5vZ_0RBvROD5h4siHmPp6g4rh4dmaNJ6UfF-AeeAQpvakEDWa2eo47lse3CoDgzpD8LGpqbvRBoKqaaMBViIxkLpccu03GZHiuwSg6kJ7DzZMBWKUozT7MVqFROOZ5zZV2XIVod7Nuq3zX9i4GOAhLITIdXJbAvTl58UaWAgFv6WwgouKwT-a2O4-dLHjtNC0jm60WdFYrCEosSccVb5njw4NdSQNS_zQo0eCQKhX8X1A8-fzIWjYTsddMJ6OGeFj0Ti2k9wJSBQGXAYZHcrAqiYuRbNNz8fmO79-Nj868Gsw67i08n8PwYS06R1PodFbu55IVVCh4VYrjMw_C06A6dTuiw-Nf2grzz68TmLqK5oJpj7en4LmNI7Uw4H4g109DUuWen42JqVnZYzsBQq7kV3cTbVtdK-4dumDc29H08u1mVyoKjGOIqf41ahhqstlI2gEwb-MBaphRELtEpEHWG2ZtkkP4oZMCaz70cZI2cVTfYKToLufOWOf1WCcQMORPFqdaXcZp57zt9jWy8yhZYFcbwoHjExCbkvye_aLyi-wf7HAZUZdwmdZRw8tW3YNplDRbiusW3f6E6az1r351qQFliySU_daIBAh6MNHqomIcAhnjc3aJa3W5FUVO8lmcNayNyrT6lFvoq7nGb_0KoOzDUBBTopnTeoSgnvlDBwTXtroNfcD9cL7kxy8T8Xm3HMQXDQPua2yF-zk9SWT2nyYJieRxpUhuZ4v4xg3OQFq-dkaw0T1LnazaRtFO0C6SCU0hkys0zdAJkOcflnnVzH99jhivDAg2BZRuvlVZ2WSUsxWbptOdvc3F0Y9VHa9ICreOi8kzFhpmVCO2U2kTwNCIApAHWbMHGJbSdimaizn20QJjLXwnVAtnPW5Y7-dBLSjGH-hM5q7pxtXTaM1bb95LcEwayMMDGIFxSRV3CY</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://www.landsendairport.co.uk/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/25b7bfb0k256" target="_blank">25b7bfb0k256</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>DE</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/68188be3548130320553aed5_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/05/05/landsendairport_co_uk</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-05-05 09:58:59.913000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-05-05 09:59:37</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
