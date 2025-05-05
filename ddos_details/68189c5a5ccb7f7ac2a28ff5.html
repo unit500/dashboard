@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <style>
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
+    }
+    .details-table th {
+      width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Top Cards Row (4 squares) -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            
+              <a href="https://mod.gov.uk/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">mod.gov.uk</h5>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-05-05</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>SERVER KILLERS</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td>OpUnitedKingdom</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Reason</th>
+                  <td>politics</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://tameside.gov.uk/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>25b6f4c0kcb8</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-05-05</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA4Zh1fHsWzyQ_5QTab0PcGkPsT6VGY66dBlM9jtUqDJb1FQ9RUtMyC6u5bIWQA4Jey6HDhEJJLEustNRvo9eRyZzcL2tEHGVY_-7nH0bnd2aaKXR-VifLzNLMoljzflTHBv1AepZLtCY8T3ecuOJcKK78imPvjTQ6B6SqaBxTh0_nw4Z60mtDtONxyGrjxzYeQhHgTtQTXJnxsuh0IHsGjjPrffgB7sjwBd9dQJ9Eqchwvu_Afa_dzq0RQkAm59wIvQdIyWUDH5ugr9MD9gqg6KhruWN2BSWk2eLp7SoC2ss09_0I3_J36OWKgvMCFt50byS0krRA2K_9EhOaOcXIi0piDxyLFS-7Yslkuj1j7ae7ruXECumu-1lYyFM4F3oJ_C_Z0RlI5xRhFJXY8HbB5ClyV9cY0V-DsYpjz8-31XsZIH77QpTz4iTC9hi5YMCneZFzvFAwi13wV1ZNw-pyRZLFknp3aPXZdfNBZtp95-foeiZgRusdfD1_6wwmGgNOTOM8JMiNCIFCI42w0vzp8t0qTBkNkbh8Iwtu-FawTOX36y3RE4Du0I4iw3jp7ByxBP57iqZoy7OyVFpwwaUf2Yiorwfwwh73VYd_lMxuzy2fPzRk4AW4n7cN0pUswXTut_Bm4XfyZIH_nMSy9QfYwH_GIDgmvuViJjpOglaloJuWn-b_Vv2x7gnAgx6uUM_gRLhXpDZnKeS9JH8_emkAqWlJsOnJ29ooyC1mJIhq1bwWi3mXLs_YNz_6IvIdzCqlWNzAKl8urZijtdr8vu0PjBPEwSLejmbul4VzjpqHzph_fVuAwWdvrWplaPFF47KdomKkut9e0793ThOCEpN0FuvcW5U83XVBkNVd6VCc05Rt67SZot_h5bOgEaUFBZEpFmLXkMkRME_S4BWLqFUx1phG_vscVT5h8osEyyOLhwiZ_rurhp4BaozRlxvwcsPShBSE4k09qcGSfU3hU0hKhRbpeOhXMPkZHS8fkm_TqOzsHwP5jxgZp1qYMlW6zr8pvPXSv9rMg5X4SzvuhbFTPpkDFYXzSujxe0h-TVE6fdGn1askOKNvGw8JNRSXyCePZpHoUGHXyHwHz9QPV4Vaim9lHgIwNS61aeCnfSYeimwclAV61QcdPkJ29hB9NL-P68FIaiAWGawqx-0p0RCTV5koXDtSH8qhx50kCXn4bbq2Uqj0yOJ82VKI70MD97GUN0MLbIXvWxFP_gaFkjyJ0Tm79SSRfpTcgjW8I5UHzAClXmkPvNGUaSaAIS_1JVnXCokqVGrPd77PVLGrwbwxgzkYBCBT4PW6kSFYQP0HyLDAzCEMgwYuXBcYIJE4kyP8Oe_x7T0Uofs-QQJP8oqBpyjUQvmKnlXVptsLAvK3DS31GxahzR4TeqBxGYkxZnovNPIIRsLakZK_cT4tD_teu2FC-R1KCWV3QiFB04PFM-KgOcBkX73utXM65mfRYJv9xm0HvwFgbTXPy76o6s_SVOMyOvnrPdn8MmLPvWBBTWStSIxx57UH4hu-kVmTuk4RdMRrBujnyhWI0emNWzDyAbVLYYlCHKbHKIyF7PnU8bxPeL___EgYgekVb5RhPtjJr0seR2hSAN7LxN8AEF5s1XtubIOPKmULsMVWWoslwjVUizLPsYGNl19mzeaSLKOTbvgSy7HJl8B4XMZGApHQBweMEyS8HIQbL6ifvT6kIlcHnVwHC8-a32w3ivQNsso526v-MeBBdTSbeHYP0qd0JPfJZDlj-cBU98xThSvMNswSbu8QYAqCAW6--PkCPyFtz9fVQhOuyp24clq20Sa9jysRL0pnsLnOFYFDUDeW84SQsNrMZ-SwH5bRJy1MQI5q5erLZfEIj1GO9jdnKuIQXbD9KZhLSTqU235f6cJywCj7biZAM2YEVGEhDsgmD0yvpCgJJudXS7ZT8R-yKkHpNjdeedr_fFoRwsbEQgBwXT85DnmHIj-eLLSk5H7fH7GH9M2RLIZ-SNxFEcEer2KgbUKYqXe1CPi2WS_AGX-fypjja99uIcQlfWIaiyG5iWfp5TM0Xh-DJquqxr4tv8cfhZvUX9Zi1POA6ieFcNyY7JunbXaHeMURILio2WrY713i8cLMcFUO_ws0zEv07mHDVicVFNCB_N-fIf8n-y4pFtLTRVUJQL4ix--aphnuPtFF0AltRr0_FvBvGXew1oEXViqCQ_2zI3egCV7a028ZFA0aTyKhPiNIUk_FeHg93jykgeiFSVhkqXqAxNm5XYJo5qEBWc5LWY4Phz4HqhCfanxuKt7xW7rxO8xgW_Sdkew5cFo3idU1OwifZc-5vbr3c-yDG6fA</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://mod.gov.uk/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/25b85671k64c" target="_blank">25b85671k64c</a>
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacked country</th>
+                  <td>GB</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/68189c5a5ccb7f7ac2a28ff5_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/05/05/mod_gov_uk</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-05-05 11:09:14.628000</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Announced</th>
+                  <td>False</td>
+                </tr>
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-05-05 11:09:37</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
