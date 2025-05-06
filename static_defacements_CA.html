@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qxbox8417h");
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Defacements</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all defacement cards; they will be revealed via JS */
+    .defacement-card {
+      display: none;
+    }
+    .flag {
+      width: 32px;
+      height: 24px;
+    }
+    .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Defacements -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Defacements</h1>
+      <p class="lead fst-italic">Details about the latest defacements</p>
+    </section>
+    
+    <!-- Squares Section (8 squares: 4 per row) -->
+    <section class="mb-4">
+      <div class="row">
+        <!-- First Row -->
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Total Defacements</h5>
+            <p>325</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Last 30 Days</h5>
+            <p>174</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>On Hold</h5>
+            <p>65</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Special</h5>
+            <p>9</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Second Row -->
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Hacker</h5>
+            <p>Belief</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Group</h5>
+            <p>Team Anon Force</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Attacked Countries</h5>
+            <p>
+              
+                
+                  <img src="https://flagcdn.com/32x24/us.png" alt="US flag" class="flag">
+                
+              
+                
+                  <img src="https://flagcdn.com/32x24/in.png" alt="IN flag" class="flag">
+                
+              
+                
+                  <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag" class="flag">
+                
+              
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Attacking Countries</h5>
+            <p>
+              
+                
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Defacements Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Defacements</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="defacements-cards">
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819db077fb0c572a144f54b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/groups_or_id/screenshot.png" class="card-img-top" alt="Thumbnail for http://groups.or.id/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6819db077fb0c572a144f54b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/groups_or_id/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://groups.or.id/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819db077fb0c572a144f54b.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">groups.or.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819dac87fb0c572a144f545.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/mandiri_or_id/screenshot.png" class="card-img-top" alt="Thumbnail for http://mandiri.or.id/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6819dac87fb0c572a144f545.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/mandiri_or_id/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://mandiri.or.id/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819dac87fb0c572a144f545.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">mandiri.or.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819dac17fb0c572a144f544.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/messages_id/screenshot.png" class="card-img-top" alt="Thumbnail for http://messages.id/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6819dac17fb0c572a144f544.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/messages_id/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://messages.id/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819dac17fb0c572a144f544.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">messages.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819d9eb7fb0c572a144f52d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/bodytech-pharma_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://bodytech-pharma.com/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6819d9eb7fb0c572a144f52d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/bodytech-pharma_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://bodytech-pharma.com/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819d9eb7fb0c572a144f52d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">bodytech-pharma.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819d9997fb0c572a144f522.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/pharm-tec_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://pharm-tec.com/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6819d9997fb0c572a144f522.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/pharm-tec_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://pharm-tec.com/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819d9997fb0c572a144f522.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">pharm-tec.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819d8f27fb0c572a144f516.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/kinerja_or_id/screenshot.png" class="card-img-top" alt="Thumbnail for http://kinerja.or.id/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6819d8f27fb0c572a144f516.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/kinerja_or_id/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://kinerja.or.id/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819d8f27fb0c572a144f516.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">kinerja.or.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819d8ec7fb0c572a144f515.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/pustaka_or_id/screenshot.png" class="card-img-top" alt="Thumbnail for http://pustaka.or.id/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6819d8ec7fb0c572a144f515.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/pustaka_or_id/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://pustaka.or.id/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819d8ec7fb0c572a144f515.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">pustaka.or.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819d73f7fb0c572a144f4f3.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/voluntareuropean_ro/screenshot.png" class="card-img-top" alt="Thumbnail for http://voluntareuropean.ro/BD.htm">
+              </a> -->
+              <a href="defacement_details/6819d73f7fb0c572a144f4f3.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/voluntareuropean_ro/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://voluntareuropean.ro/BD.htm">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819d73f7fb0c572a144f4f3.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">voluntareuropean.ro</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819d6fa7fb0c572a144f4ef.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/medika_geraya_id/screenshot.png" class="card-img-top" alt="Thumbnail for http://medika.geraya.id/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6819d6fa7fb0c572a144f4ef.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/medika_geraya_id/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://medika.geraya.id/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819d6fa7fb0c572a144f4ef.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">medika.geraya.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819d6be7fb0c572a144f4e8.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/pharma-comlabs_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://pharma-comlabs.com/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6819d6be7fb0c572a144f4e8.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/pharma-comlabs_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://pharma-comlabs.com/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819d6be7fb0c572a144f4e8.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">pharma-comlabs.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819ad97e7448ddd71945fe1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/shop_talitek_pe/screenshot.png" class="card-img-top" alt="Thumbnail for http://shop.talitek.pe/shelby.txt">
+              </a> -->
+              <a href="defacement_details/6819ad97e7448ddd71945fe1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/shop_talitek_pe/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://shop.talitek.pe/shelby.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819ad97e7448ddd71945fe1.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">shop.talitek.pe</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Simsimi.html">Simsimi</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819ab18e7448ddd71945fb8.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/kennynow_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://kennynow.com/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/6819ab18e7448ddd71945fb8.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/kennynow_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://kennynow.com/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819ab18e7448ddd71945fb8.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">kennynow.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819aa95e7448ddd71945fa5.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/okaymother_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://okaymother.com/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/6819aa95e7448ddd71945fa5.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/okaymother_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://okaymother.com/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819aa95e7448ddd71945fa5.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">okaymother.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819aa67e7448ddd71945f9e.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/financebills_net/screenshot.png" class="card-img-top" alt="Thumbnail for http://financebills.net/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/6819aa67e7448ddd71945f9e.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/financebills_net/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://financebills.net/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819aa67e7448ddd71945f9e.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">financebills.net</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> for_profit</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6819aa61e7448ddd71945f9d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/nutraform_com_br/screenshot.png" class="card-img-top" alt="Thumbnail for http://nutraform.com.br/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/6819aa61e7448ddd71945f9d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/nutraform_com_br/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://nutraform.com.br/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819aa61e7448ddd71945f9d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">nutraform.com.br</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> for_profit</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68190ec7192464c056552704.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/rnn_az/screenshot.png" class="card-img-top" alt="Thumbnail for http://rnn.az/a.txt">
+              </a> -->
+              <a href="defacement_details/68190ec7192464c056552704.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/rnn_az/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://rnn.az/a.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68190ec7192464c056552704.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">rnn.az</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/JavidH373.html">JavidH373</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68190d60192464c0565526f9.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/card_ejahiz_ma/screenshot.png" class="card-img-top" alt="Thumbnail for http://card.ejahiz.ma/pwn.php">
+              </a> -->
+              <a href="defacement_details/68190d60192464c0565526f9.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/card_ejahiz_ma/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://card.ejahiz.ma/pwn.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68190d60192464c0565526f9.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">card.ejahiz.ma</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Sec_Sh.html">Sec Sh</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68187a87548130320553aec1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/arb_bayt-almaelumat_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://arb.bayt-almaelumat.com/BD.htm">
+              </a> -->
+              <a href="defacement_details/68187a87548130320553aec1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/arb_bayt-almaelumat_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://arb.bayt-almaelumat.com/BD.htm">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68187a87548130320553aec1.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">arb.bayt-almaelumat.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/681840dac2c83b342400100a.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/hampoolgroup_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://hampoolgroup.com/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/681840dac2c83b342400100a.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/hampoolgroup_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://hampoolgroup.com/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681840dac2c83b342400100a.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">hampoolgroup.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/681840ccc2c83b3424001008.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/sm66_today/screenshot.png" class="card-img-top" alt="Thumbnail for http://sm66.today/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/681840ccc2c83b3424001008.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/sm66_today/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://sm66.today/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681840ccc2c83b3424001008.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">sm66.today</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68184089c2c83b3424000fff.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/sompo_me/screenshot.png" class="card-img-top" alt="Thumbnail for http://sompo.me/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/68184089c2c83b3424000fff.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/sompo_me/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://sompo.me/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68184089c2c83b3424000fff.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">sompo.me</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> for_profit</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6818407dc2c83b3424000ffd.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/myhyphen_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://myhyphen.com/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/6818407dc2c83b3424000ffd.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/myhyphen_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://myhyphen.com/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6818407dc2c83b3424000ffd.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">myhyphen.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> for_profit</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68184011c2c83b3424000ff6.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/mangsode_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://mangsode.com/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/68184011c2c83b3424000ff6.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/mangsode_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://mangsode.com/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68184011c2c83b3424000ff6.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">mangsode.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68183fd9c2c83b3424000ff0.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/sefuceramic_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://sefuceramic.com/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/68183fd9c2c83b3424000ff0.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/sefuceramic_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://sefuceramic.com/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68183fd9c2c83b3424000ff0.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">sefuceramic.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68183fb9c2c83b3424000feb.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/grace-n_net/screenshot.png" class="card-img-top" alt="Thumbnail for http://grace-n.net/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/68183fb9c2c83b3424000feb.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/grace-n_net/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://grace-n.net/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68183fb9c2c83b3424000feb.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">grace-n.net</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68183faec2c83b3424000fe9.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/hyphencare_org/screenshot.png" class="card-img-top" alt="Thumbnail for http://hyphencare.org/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/68183faec2c83b3424000fe9.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/hyphencare_org/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://hyphencare.org/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68183faec2c83b3424000fe9.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">hyphencare.org</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68183f91c2c83b3424000fe6.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/dino_com_py/screenshot.png" class="card-img-top" alt="Thumbnail for http://dino.com.py/Professor6T9.txt">
+              </a> -->
+              <a href="defacement_details/68183f91c2c83b3424000fe6.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/05/dino_com_py/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://dino.com.py/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68183f91c2c83b3424000fe6.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">dino.com.py</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6816ff03a110117b8ad95938.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/04/news_penajamkab_go_id/screenshot.png" class="card-img-top" alt="Thumbnail for http://news.penajamkab.go.id/read.txt">
+              </a> -->
+              <a href="defacement_details/6816ff03a110117b8ad95938.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/04/news_penajamkab_go_id/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://news.penajamkab.go.id/read.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6816ff03a110117b8ad95938.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">news.penajamkab.go.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-04</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/L3RB1.html">Mr.L3RB1</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6816fd83a110117b8ad95914.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/04/df1_com_br/screenshot.png" class="card-img-top" alt="Thumbnail for http://df1.com.br/Back.txt">
+              </a> -->
+              <a href="defacement_details/6816fd83a110117b8ad95914.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/04/df1_com_br/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://df1.com.br/Back.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6816fd83a110117b8ad95914.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">df1.com.br</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-04</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/zakiloup.html">zakiloup</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68161865a2574015d3c8cfb3.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/03/roy-gaziel_co_il/screenshot.png" class="card-img-top" alt="Thumbnail for http://roy-gaziel.co.il">
+              </a> -->
+              <a href="defacement_details/68161865a2574015d3c8cfb3.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/03/roy-gaziel_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://roy-gaziel.co.il">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68161865a2574015d3c8cfb3.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">roy-gaziel.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/VXSECT.html">VXSECT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/VXSECT.html">VXSECT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/681617eea2574015d3c8cfa7.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/03/aazdsgn_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://www.aazdsgn.com/setupp.html">
+              </a> -->
+              <a href="defacement_details/681617eea2574015d3c8cfa7.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/03/aazdsgn_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://www.aazdsgn.com/setupp.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681617eea2574015d3c8cfa7.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.aazdsgn.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/setupp_es.html">setupp.es</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6816161433fa5fc1b3696f2e.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/03/starplex_in/screenshot.png" class="card-img-top" alt="Thumbnail for http://starplex.in/as/setupp.html">
+              </a> -->
+              <a href="defacement_details/6816161433fa5fc1b3696f2e.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/03/starplex_in/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://starplex.in/as/setupp.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6816161433fa5fc1b3696f2e.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">starplex.in</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/setupp_es.html">setupp.es</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6813c510329219789ffd4c7b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/starwebhostit_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://starwebhostit.com/V.html">
+              </a> -->
+              <a href="defacement_details/6813c510329219789ffd4c7b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/starwebhostit_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://starwebhostit.com/V.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6813c510329219789ffd4c7b.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">starwebhostit.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/EbRaHiM_VaKeR.html">EbRaHiM-VaKeR</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6813c41d329219789ffd4c6e.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/starwebhostit_site/screenshot.png" class="card-img-top" alt="Thumbnail for http://starwebhostit.site/V.html">
+              </a> -->
+              <a href="defacement_details/6813c41d329219789ffd4c6e.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/starwebhostit_site/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://starwebhostit.site/V.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6813c41d329219789ffd4c6e.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">starwebhostit.site</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/EbRaHiM_VaKeR.html">EbRaHiM-VaKeR</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6812f857383bfec94f3db7f1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/webmaster-studios_de/screenshot.png" class="card-img-top" alt="Thumbnail for http://webmaster-studios.de/p6t9.txt">
+              </a> -->
+              <a href="defacement_details/6812f857383bfec94f3db7f1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/webmaster-studios_de/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://webmaster-studios.de/p6t9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6812f857383bfec94f3db7f1.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">webmaster-studios.de</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6812f812383bfec94f3db7e7.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/xp2004_org/screenshot.png" class="card-img-top" alt="Thumbnail for http://xp2004.org/p6t9.txt">
+              </a> -->
+              <a href="defacement_details/6812f812383bfec94f3db7e7.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/xp2004_org/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://xp2004.org/p6t9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6812f812383bfec94f3db7e7.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">xp2004.org</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6812f7b2383bfec94f3db7d7.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/rightwayprofessional_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://rightwayprofessional.com/p6t9.txt">
+              </a> -->
+              <a href="defacement_details/6812f7b2383bfec94f3db7d7.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/01/rightwayprofessional_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://rightwayprofessional.com/p6t9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6812f7b2383bfec94f3db7d7.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">rightwayprofessional.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68126c94e87483147d4de5d2.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/timofey-timofeev_ru/screenshot.png" class="card-img-top" alt="Thumbnail for http://timofey-timofeev.ru">
+              </a> -->
+              <a href="defacement_details/68126c94e87483147d4de5d2.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/timofey-timofeev_ru/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://timofey-timofeev.ru">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68126c94e87483147d4de5d2.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">timofey-timofeev.ru</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/hacked_by_miran996.html">hacked by miran996</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68126c85e87483147d4de5d1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/jun885_love/screenshot.png" class="card-img-top" alt="Thumbnail for http://jun885.love/sx.php">
+              </a> -->
+              <a href="defacement_details/68126c85e87483147d4de5d1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/jun885_love/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://jun885.love/sx.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68126c85e87483147d4de5d1.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">jun885.love</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/hacked_by_miran996.html">hacked by miran996</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/681230434c3d89641d77636b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/haxor_my_id/screenshot.png" class="card-img-top" alt="Thumbnail for http://haxor.my.id/open/Mr-zoro666.html">
+              </a> -->
+              <a href="defacement_details/681230434c3d89641d77636b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/haxor_my_id/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://haxor.my.id/open/Mr-zoro666.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681230434c3d89641d77636b.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">haxor.my.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/zoro666.html">Mr.zoro666</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68122fc24c3d89641d77635d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/vasicek_coldhost_eu/screenshot.png" class="card-img-top" alt="Thumbnail for http://vasicek.coldhost.eu">
+              </a> -->
+              <a href="defacement_details/68122fc24c3d89641d77635d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/vasicek_coldhost_eu/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://vasicek.coldhost.eu">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68122fc24c3d89641d77635d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">vasicek.coldhost.eu</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/VXSECT.html">VXSECT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6811e840ba1fd55e6f9aa79b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/drromulofischer_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://drromulofischer.com/BD.htm">
+              </a> -->
+              <a href="defacement_details/6811e840ba1fd55e6f9aa79b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/drromulofischer_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://drromulofischer.com/BD.htm">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e840ba1fd55e6f9aa79b.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">drromulofischer.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6811e7dfba1fd55e6f9aa795.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/site03_nomeazul_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://site03.nomeazul.com/BD.htm">
+              </a> -->
+              <a href="defacement_details/6811e7dfba1fd55e6f9aa795.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/site03_nomeazul_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://site03.nomeazul.com/BD.htm">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e7dfba1fd55e6f9aa795.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">site03.nomeazul.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6811e70cba1fd55e6f9aa772.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/winland168_bet/screenshot.png" class="card-img-top" alt="Thumbnail for http://winland168.bet/BD.htm">
+              </a> -->
+              <a href="defacement_details/6811e70cba1fd55e6f9aa772.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/winland168_bet/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://winland168.bet/BD.htm">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e70cba1fd55e6f9aa772.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">winland168.bet</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> for_profit</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6811e6eaba1fd55e6f9aa76f.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/pepsico_shop/screenshot.png" class="card-img-top" alt="Thumbnail for http://pepsico.shop/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6811e6eaba1fd55e6f9aa76f.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/pepsico_shop/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://pepsico.shop/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e6eaba1fd55e6f9aa76f.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">pepsico.shop</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6811e6c85ea9ca6ce3ff399d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/ufabet-thai_org/screenshot.png" class="card-img-top" alt="Thumbnail for http://ufabet-thai.org/BD.htm">
+              </a> -->
+              <a href="defacement_details/6811e6c85ea9ca6ce3ff399d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/ufabet-thai_org/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://ufabet-thai.org/BD.htm">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e6c85ea9ca6ce3ff399d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">ufabet-thai.org</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6811e686ba1fd55e6f9aa760.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/rockybook_shop/screenshot.png" class="card-img-top" alt="Thumbnail for http://rockybook.shop/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/6811e686ba1fd55e6f9aa760.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/rockybook_shop/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://rockybook.shop/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e686ba1fd55e6f9aa760.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">rockybook.shop</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6811e66acf0d9b639b911b0e.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/drshajadikaba_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://drshajadikaba.com/BD.htm">
+              </a> -->
+              <a href="defacement_details/6811e66acf0d9b639b911b0e.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/drshajadikaba_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://drshajadikaba.com/BD.htm">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e66acf0d9b639b911b0e.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">drshajadikaba.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> for_profit</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/6811e5f5ba1fd55e6f9aa75d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/doutorafernandaribeiro_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://doutorafernandaribeiro.com/BD.htm">
+              </a> -->
+              <a href="defacement_details/6811e5f5ba1fd55e6f9aa75d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/doutorafernandaribeiro_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://doutorafernandaribeiro.com/BD.htm">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e5f5ba1fd55e6f9aa75d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">doutorafernandaribeiro.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> for_profit</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/681099d88496876214046d31.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/tokenizedliving_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://tokenizedliving.com/index.html">
+              </a> -->
+              <a href="defacement_details/681099d88496876214046d31.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/tokenizedliving_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://tokenizedliving.com/index.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681099d88496876214046d31.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">tokenizedliving.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/XYZ.html">XYZ</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/681099cd8496876214046d30.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/edtechtive_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://edtechtive.com">
+              </a> -->
+              <a href="defacement_details/681099cd8496876214046d30.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/edtechtive_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://edtechtive.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681099cd8496876214046d30.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">edtechtive.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/XYZ.html">XYZ</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/681099c08496876214046d2f.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/5050restaurantbar_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://5050restaurantbar.com">
+              </a> -->
+              <a href="defacement_details/681099c08496876214046d2f.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/5050restaurantbar_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://5050restaurantbar.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681099c08496876214046d2f.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">5050restaurantbar.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/XYZ.html">XYZ</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/681099b3bff6db8bb8fa9302.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/theenglishhouse_online/screenshot.png" class="card-img-top" alt="Thumbnail for http://theenglishhouse.online/index.html">
+              </a> -->
+              <a href="defacement_details/681099b3bff6db8bb8fa9302.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/theenglishhouse_online/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://theenglishhouse.online/index.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681099b3bff6db8bb8fa9302.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">theenglishhouse.online</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/XYZ.html">XYZ</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/68108391d72d4f30ca575383.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/sefemarketing_com_au/screenshot.png" class="card-img-top" alt="Thumbnail for http://sefemarketing.com.au/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/68108391d72d4f30ca575383.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/sefemarketing_com_au/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://sefemarketing.com.au/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68108391d72d4f30ca575383.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">sefemarketing.com.au</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/680fd354eff291156dcb14b7.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/hr-shahabadi_ir/screenshot.png" class="card-img-top" alt="Thumbnail for http://hr-shahabadi.ir/p6t9.txt">
+              </a> -->
+              <a href="defacement_details/680fd354eff291156dcb14b7.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/hr-shahabadi_ir/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://hr-shahabadi.ir/p6t9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680fd354eff291156dcb14b7.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">hr-shahabadi.ir</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/680fd350eff291156dcb14b6.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/zeroxdevs_co/screenshot.png" class="card-img-top" alt="Thumbnail for http://zeroxdevs.co/p6t9.txt">
+              </a> -->
+              <a href="defacement_details/680fd350eff291156dcb14b6.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/zeroxdevs_co/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://zeroxdevs.co/p6t9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680fd350eff291156dcb14b6.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">zeroxdevs.co</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/680fd21c11cd327b86c0fa88.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/postochicao_com_br/screenshot.png" class="card-img-top" alt="Thumbnail for http://postochicao.com.br/p6t9.txt">
+              </a> -->
+              <a href="defacement_details/680fd21c11cd327b86c0fa88.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/postochicao_com_br/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://postochicao.com.br/p6t9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680fd21c11cd327b86c0fa88.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">postochicao.com.br</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/680fccf3cc3a53b149c6eeb8.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/tv6tut_info/screenshot.png" class="card-img-top" alt="Thumbnail for http://tv6tut.info/p6t9.txt">
+              </a> -->
+              <a href="defacement_details/680fccf3cc3a53b149c6eeb8.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/tv6tut_info/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://tv6tut.info/p6t9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680fccf3cc3a53b149c6eeb8.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">tv6tut.info</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_Anon_Force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> for_profit</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/680f65b4d5402c67dddc86de.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/valenciapools_world/screenshot.png" class="card-img-top" alt="Thumbnail for https://valenciapools.world/">
+              </a> -->
+              <a href="defacement_details/680f65b4d5402c67dddc86de.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/valenciapools_world/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://valenciapools.world/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680f65b4d5402c67dddc86de.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">valenciapools.world</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/ZERO.html">X-ZERO</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <!-- <a href="defacement_details/680f4a009c64b3a7623aa318.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/trekaura_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://trekaura.com/BDKR28.txt">
+              </a> -->
+              <a href="defacement_details/680f4a009c64b3a7623aa318.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/trekaura_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://trekaura.com/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680f4a009c64b3a7623aa318.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">trekaura.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-06 15:14:16-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".defacement-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>
