@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">killsec</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">202</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-05-05 23:05:51.714196</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+
+
+    
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by killsec</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/68196d40e3970608d6d283bf.html">
+                <img src="https://images.ransomware.live/victims/2c8976aa49f67420d52c071cb685e8d8.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="snssystem.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">snssystem.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-05 23:05:51.714196</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/in.png"
+                        alt="IN flag">
+                    IN
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/680125c110f44a0c95f39b99.html">
+                <img src="https://images.ransomware.live/victims/74aee1c34e5b2786b9e3ed3b70386b23.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="enflame">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">enflame</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-17 14:18:18.032700</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/cn.png"
+                        alt="CN flag">
+                    CN
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67eceea0f2b6cf3bea64f6e6.html">
+                <img src="https://images.ransomware.live/victims/ee0927940da8ee77b81c1ae69a2e98e7.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="b">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">b</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-02 07:58:38.754217</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/ch.png"
+                        alt="CH flag">
+                    CH
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67eceea0f2b6cf3bea64f6e5.html">
+                <img src="https://images.ransomware.live/victims/a769ae8fca3b678a899ecd1a4acea0ac.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="my.gov.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">my.gov.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-02 07:57:25.261188</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/sa.png"
+                        alt="SA flag">
+                    SA
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67eceea0f2b6cf3bea64f6e4.html">
+                <img src="https://images.ransomware.live/victims/c3b69bfc90681038541cd0bc31c7ddcc.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="collectivearchitecture.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">collectivearchitecture.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-02 07:55:50.047031</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/gb.png"
+                        alt="GB flag">
+                    GB
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67ece0a4a48fc4109db36047.html">
+                <img src="https://images.ransomware.live/victims/de546ef39822f3c1a4373e07b64eaa60.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="ima.global">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ima.global</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-02 06:28:41.659704</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67ece0a3a48fc4109db36046.html">
+                <img src="https://images.ransomware.live/victims/72578454e6310dade65884a114b62b0a.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="usbiotek.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">usbiotek.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-02 06:27:09.361305</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67ebc75c2dc96a8890e63b35.html">
+                <img src="https://images.ransomware.live/victims/1a56a31dcffefabb8b28ebd7e1ba4a71.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="747studios.de">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">747studios.de</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-01 08:10:10.331885</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67ebc75b2dc96a8890e63b34.html">
+                <img src="https://images.ransomware.live/victims/9d5a48b046c8c76dac35870789524c81.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="benefitelect.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">benefitelect.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-01 08:08:33.872895</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67ebc75b2dc96a8890e63b33.html">
+                <img src="https://images.ransomware.live/victims/630d0a83409e184d8775b14a005763b0.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="ocuco.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ocuco.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-01 08:06:52.999632</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/ie.png"
+                        alt="IE flag">
+                    IE
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - killsec (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-01-16 10:02:56.714588", 1], ["2025-01-16 10:05:18.961152", 1], ["2025-01-21 14:50:45.310269", 1], ["2025-01-21 14:53:04.730848", 1], ["2025-01-24 21:58:39.399291", 1], ["2025-01-25 19:45:23.480750", 1], ["2025-01-25 21:03:19.007165", 1], ["2025-01-26 14:23:18.942011", 1], ["2025-01-30 03:45:08.644449", 1], ["2025-02-01 15:04:35.719270", 1], ["2025-02-03 12:50:27.072314", 1], ["2025-02-10 12:17:27.650665", 1], ["2025-02-10 12:19:38.773496", 1], ["2025-02-10 15:30:10.673703", 1], ["2025-02-10 15:31:38.872438", 1], ["2025-02-10 19:00:55.149415", 1], ["2025-02-11 04:19:50.209918", 1], ["2025-02-11 05:37:34.776114", 1], ["2025-02-12 23:53:10.666955", 1], ["2025-02-19 05:57:04.741347", 1], ["2025-02-19 05:58:46.997584", 1], ["2025-02-19 06:00:23.365804", 1], ["2025-02-19 06:02:07.181197", 1], ["2025-02-19 06:03:44.936136", 1], ["2025-02-19 13:27:15.478247", 1], ["2025-02-19 13:28:55.835878", 1], ["2025-02-20 20:59:39.236943", 1], ["2025-02-23 17:19:47.900563", 1], ["2025-02-23 17:21:27.032678", 1], ["2025-02-23 17:23:31.025693", 1], ["2025-02-23 17:25:26.019725", 1], ["2025-03-02 17:21:25.234720", 1], ["2025-03-04 10:34:01.518176", 1], ["2025-03-11 22:02:06.944123", 1], ["2025-03-11 22:03:46.868972", 1], ["2025-03-18 06:59:42.683767", 1], ["2025-03-20 15:32:01.549185", 1], ["2025-03-20 15:33:39.565394", 1], ["2025-03-20 15:35:13.066489", 1], ["2025-03-21 12:02:21.440974", 1], ["2025-03-21 15:45:27.027235", 1], ["2025-03-22 16:46:14.936350", 1], ["2025-03-22 17:27:27.686771", 1], ["2025-03-23 17:00:54.550305", 1], ["2025-03-28 07:25:33.576165", 1], ["2025-03-31 16:08:28.473243", 1], ["2025-03-31 16:10:02.769863", 1], ["2025-03-31 16:11:38.580642", 1], ["2025-04-01 00:04:45.363071", 1], ["2025-04-01 00:06:19.256973", 1], ["2025-04-01 00:07:53.646719", 1], ["2025-04-01 00:09:28.688592", 1], ["2025-04-01 00:11:02.090699", 1], ["2025-04-01 06:35:39.946230", 1], ["2025-04-01 06:37:25.836128", 1], ["2025-04-01 06:39:04.964738", 1], ["2025-04-01 06:40:40.977979", 1], ["2025-04-01 06:42:17.938801", 1], ["2025-04-01 06:43:58.204937", 1], ["2025-04-01 08:06:52.999632", 1], ["2025-04-01 08:08:33.872895", 1], ["2025-04-01 08:10:10.331885", 1], ["2025-04-02 06:27:09.361305", 1], ["2025-04-02 06:28:41.659704", 1], ["2025-04-02 07:55:50.047031", 1], ["2025-04-02 07:57:25.261188", 1], ["2025-04-02 07:58:38.754217", 1], ["2025-04-17 14:18:18.032700", 1], ["2025-05-05 23:05:51.714196", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>
