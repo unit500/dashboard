@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      height: 40px;
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px 0;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,38 +188,30 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/67b5bb46cfec5202b059d415.html">Eservices.gov.zm</a>, 
-        
-          <a href="ransom_details/67ad8d8a126d196d7b9c8638.html">E*******s.gov.zm</a>, 
-        
-          <a href="ransom_details/679f538186f8591b4f5dcf1b.html">workers.com.zm</a>, 
-        
-          <a href="ransom_details/678fe509c4f2181a71271254.html">workers.com.zm</a>, 
-        
-          <a href="ransom_details/678fe508c4f2181a71271251.html">workers.com</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/67b5bb46cfec5202b059d415.html">Eservices.gov.zm</a>, 
+          
+            <a href="ransom_details/67ad8d8a126d196d7b9c8638.html">E*******s.gov.zm</a>, 
+          
+            <a href="ransom_details/679f538186f8591b4f5dcf1b.html">workers.com.zm</a>, 
+          
+            <a href="ransom_details/678fe509c4f2181a71271254.html">workers.com.zm</a>, 
+          
+            <a href="ransom_details/678fe508c4f2181a71271251.html">workers.com</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
-  
-  <script>
-    $(document).ready(function(){
-      $('#ticker').easyTicker({
-        direction: 'up',
-        interval: 3000,
-        height: 'auto'
-      });
-    });
-  </script>
 
   <!-- Cards Section -->
   <div class="container mb-4">
@@ -232,8 +223,8 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="group_details/flocker.html">
-                  flocker
+                <a href="group_details/funksec.html">
+                  funksec
                 </a>
               </h5>
               <p class="card-text">2 incidents</p>
@@ -300,8 +291,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:43:27-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:54:28-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   

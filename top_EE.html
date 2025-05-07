@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      height: 40px;
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px 0;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -187,40 +186,55 @@
       <option value="">Select a country</option>
       </select>
     </div>
+    
+    <div class="mb-4">
+      <ul class="nav nav-tabs justify-content-center" id="statsTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="ransom-tab" data-bs-toggle="tab" data-bs-target="#ransom"
+                  type="button" role="tab" aria-controls="ransom" aria-selected="true">
+            Ransoms
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="ddos-tab" data-bs-toggle="tab" data-bs-target="#ddos"
+                  type="button" role="tab" aria-controls="ddos" aria-selected="false">
+            DDoS
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="deface-tab" data-bs-toggle="tab" data-bs-target="#deface"
+                  type="button" role="tab" aria-controls="deface" aria-selected="false">
+            Defacements
+          </button>
+        </li>
+      </ul>
+    </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/680fd01401142d2b369ab44e.html">vitanta.net</a>, 
-        
-          <a href="defacement_details/680bd79641e08593b253e0d8.html">platinum-estet.ru</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/67f699b937849551c79c2319.html">Hotell Euroopa</a>, 
-        
-          <a href="ransom_details/67dd8d71afc6d84baf0c3d12.html">optiline.com</a>, 
-        
-          <a href="ransom_details/678fd80fc4f2181a7126eb14.html">www.turvatehnika.eu</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/680fd01401142d2b369ab44e.html">vitanta.net</a>, 
+          
+            <a href="defacement_details/680bd79641e08593b253e0d8.html">platinum-estet.ru</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/67f699b937849551c79c2319.html">Hotell Euroopa</a>, 
+          
+            <a href="ransom_details/67dd8d71afc6d84baf0c3d12.html">optiline.com</a>, 
+          
+            <a href="ransom_details/678fd80fc4f2181a7126eb14.html">www.turvatehnika.eu</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
-  
-  <script>
-    $(document).ready(function(){
-      $('#ticker').easyTicker({
-        direction: 'up',
-        interval: 3000,
-        height: 'auto'
-      });
-    });
-  </script>
 
   <!-- Cards Section -->
   <div class="container mb-4">
@@ -310,8 +324,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:43:39-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:54:35-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
   
