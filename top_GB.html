@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      height: 40px;
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,38 +188,41 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/681a3a8239e453bfb07227d3.html">storycraft.online</a>, 
-        
-          <a href="defacement_details/681a391d39e453bfb07227ab.html">growthwizard.online</a>, 
-        
-          <a href="defacement_details/6819a87d93dca5f55e005030.html">nvbstudio.co.uk</a>, 
-        
-          <a href="defacement_details/681850010348cdd551303545.html">spectrumenergysystems.co.uk</a>, 
-        
-          <a href="defacement_details/68183fe3c2c83b3424000ff1.html">www.hatstone.com</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/6819351a8a876d7ac2732c18.html">www.gpflewis.co.uk</a>, 
-        
-          <a href="ransom_details/6813e0f85015ce0b8014df6a.html">www.defected.com</a>, 
-        
-          <a href="ransom_details/680e63172cd6d7bf8ece861c.html">linney.com</a>, 
-        
-          <a href="ransom_details/680bbfd4e6e9cd117ffd94ab.html">DYNAMIS Insurance</a>, 
-        
-          <a href="ransom_details/680a44242e8916ff1923f0b5.html">vicaragecourtsolicitors.com</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/681a3a8239e453bfb07227d3.html">storycraft.online</a>, 
+          
+            <a href="defacement_details/681a391d39e453bfb07227ab.html">growthwizard.online</a>, 
+          
+            <a href="defacement_details/6819a87d93dca5f55e005030.html">nvbstudio.co.uk</a>, 
+          
+            <a href="defacement_details/681850010348cdd551303545.html">spectrumenergysystems.co.uk</a>, 
+          
+            <a href="defacement_details/68183fe3c2c83b3424000ff1.html">www.hatstone.com</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/6819351a8a876d7ac2732c18.html">www.gpflewis.co.uk</a>, 
+          
+            <a href="ransom_details/6813e0f85015ce0b8014df6a.html">www.defected.com</a>, 
+          
+            <a href="ransom_details/680e63172cd6d7bf8ece861c.html">linney.com</a>, 
+          
+            <a href="ransom_details/680bbfd4e6e9cd117ffd94ab.html">DYNAMIS Insurance</a>, 
+          
+            <a href="ransom_details/680a44242e8916ff1923f0b5.html">vicaragecourtsolicitors.com</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
+
   
   <script>
     $(document).ready(function(){
@@ -320,8 +322,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:41:00-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:48:47-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -386,9 +388,9 @@
     
       dataDefacementGroups.push({value: 1, name: "TEAM BD CYBER NINJA"});
     
-      dataDefacementGroups.push({value: 1, name: "Team R70"});
-    
       dataDefacementGroups.push({value: 1, name: "DXPLOIT"});
+    
+      dataDefacementGroups.push({value: 1, name: "Team R70"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },
