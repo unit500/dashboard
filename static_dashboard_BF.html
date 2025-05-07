@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
+    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -913,8 +913,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:40:33-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:46:37-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -1196,17 +1196,6 @@
       }
   </script>
 
-
-<!-- <script>
-  document.getElementById("countrySelect").addEventListener("change", function () {
-    const code = this.value;
-    if (!code) {
-      window.location.href = "static_dashboard.html";
-    } else {
-      window.location.href = `static_dashboard_${code}.html`;
-    }
-  });
-</script> -->
   <script>
     $('#countrySelect').on('select2:select', function (e) {
     const code = e.params.data.id;
@@ -1214,7 +1203,6 @@
       ? `static_dashboard_${code}.html`
       : "static_dashboard.html";
   });
-
   </script>
 </body>
 </html>

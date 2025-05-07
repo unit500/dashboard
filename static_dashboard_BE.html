@@ -1489,7 +1489,7 @@ or the plastic processing sector. …
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:40:34-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:46:37-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
@@ -1561,7 +1561,7 @@ or the plastic processing sector. …
       
     
       
-        defacementData.push({ value: 1, name: "play" });
+        defacementData.push({ value: 1, name: "sarcoma" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1799,17 +1799,6 @@ or the plastic processing sector. …
       }
   </script>
 
-
-<!-- <script>
-  document.getElementById("countrySelect").addEventListener("change", function () {
-    const code = this.value;
-    if (!code) {
-      window.location.href = "static_dashboard.html";
-    } else {
-      window.location.href = `static_dashboard_${code}.html`;
-    }
-  });
-</script> -->
   <script>
     $('#countrySelect').on('select2:select', function (e) {
     const code = e.params.data.id;
@@ -1817,7 +1806,6 @@ or the plastic processing sector. …
       ? `static_dashboard_${code}.html`
       : "static_dashboard.html";
   });
-
   </script>
 </body>
 </html>

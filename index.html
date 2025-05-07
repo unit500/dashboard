@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -711,17 +711,17 @@
                 
                   
                     <li class="d-inline-block me-2">
-                      <img src="https://flagcdn.com/32x24/fr.png"
-                           alt="FR flag"
-                           data-bs-toggle="popover" data-bs-trigger="hover"
-                           data-bs-content="FR (21)">
-                    </li>
-                  
-                    <li class="d-inline-block me-2">
                       <img src="https://flagcdn.com/32x24/de.png"
                            alt="DE flag"
                            data-bs-toggle="popover" data-bs-trigger="hover"
                            data-bs-content="DE (21)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/fr.png"
+                           alt="FR flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="FR (21)">
                     </li>
                   
                     <li class="d-inline-block me-2">
@@ -1786,8 +1786,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:40:35-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:46:37-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1940,8 +1940,8 @@
       sourceCategories.push("pakistan");
       sourceSeriesData.push({value: 2, name: "pakistan"});
     
-      sourceCategories.push("morocco");
-      sourceSeriesData.push({value: 1, name: "morocco"});
+      sourceCategories.push("indonesia");
+      sourceSeriesData.push({value: 1, name: "indonesia"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
@@ -2129,17 +2129,6 @@
       }
   </script>
 
-
-<!-- <script>
-  document.getElementById("countrySelect").addEventListener("change", function () {
-    const code = this.value;
-    if (!code) {
-      window.location.href = "static_dashboard.html";
-    } else {
-      window.location.href = `static_dashboard_${code}.html`;
-    }
-  });
-</script> -->
   <script>
     $('#countrySelect').on('select2:select', function (e) {
     const code = e.params.data.id;
@@ -2147,7 +2136,6 @@
       ? `static_dashboard_${code}.html`
       : "static_dashboard.html";
   });
-
   </script>
 </body>
 </html>

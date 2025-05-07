@@ -1221,7 +1221,7 @@ We combine sel…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:40:34-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:46:37-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
@@ -1513,17 +1513,6 @@ We combine sel…
       }
   </script>
 
-
-<!-- <script>
-  document.getElementById("countrySelect").addEventListener("change", function () {
-    const code = this.value;
-    if (!code) {
-      window.location.href = "static_dashboard.html";
-    } else {
-      window.location.href = `static_dashboard_${code}.html`;
-    }
-  });
-</script> -->
   <script>
     $('#countrySelect').on('select2:select', function (e) {
     const code = e.params.data.id;
@@ -1531,7 +1520,6 @@ We combine sel…
       ? `static_dashboard_${code}.html`
       : "static_dashboard.html";
   });
-
   </script>
 </body>
 </html>
