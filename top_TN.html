@@ -38,28 +38,54 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
-      overflow: hidden;
-      white-space: nowrap;
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
     }
-    #ticker ul {
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+    .ticker-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      height: 50px;
+    }
+
+    .ticker-list {
+      position: absolute;        /* take it out of flow so it can slide across */
+      top: 0;
+      left: 0;
+      display: inline-flex;
       list-style: none;
       margin: 0;
       padding: 0;
+
+      /* animate from just off the right edge to just off the left */
+      animation: scroll-left 20s linear infinite;
+      will-change: transform;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);   /* start 100% of its own width to the right */
+      }
+      100% {
+        transform: translateX(-100%);  /* end 100% of its own width to the left */
+      }
     }
   </style>
 </head>
@@ -163,8 +189,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -174,19 +200,20 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/678fe568c4f2181a71271371.html">groupe-setcar.com.tn</a>, 
+          <a href="ransom_details/678fe568c4f2181a71271371.html">groupe-setcar.com.tn</a>, 
         
-          <a href="defacement_details/678fe2e6c4f2181a71270be8.html">excelplastunisie.com</a>, 
+          <a href="ransom_details/678fe2e6c4f2181a71270be8.html">excelplastunisie.com</a>, 
         
-          <a href="defacement_details/678fe179c4f2181a712707a1.html">maxcess-logistics.com</a>, 
+          <a href="ransom_details/678fe179c4f2181a712707a1.html">maxcess-logistics.com</a>, 
         
-          <a href="defacement_details/678fdee9c4f2181a7126ffe3.html">www.atl.com.tn</a>, 
+          <a href="ransom_details/678fdee9c4f2181a7126ffe3.html">www.atl.com.tn</a>, 
         
-          <a href="defacement_details/678fdedfc4f2181a7126ffc4.html">www.atl.com.tn</a>
+          <a href="ransom_details/678fdedfc4f2181a7126ffc4.html">www.atl.com.tn</a>
         
       </li>
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -280,8 +307,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:29:45-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:41:29-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
