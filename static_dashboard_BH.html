@@ -149,7 +149,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
+    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -937,8 +937,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:30:55-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:32:07-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
 
@@ -1187,50 +1187,50 @@
       }
 
 
-      loadCountryData().then(data => {
-        countryDataGlobal = data; 
-        initCountrySelect();           
-      });
+      // loadCountryData().then(data => {
+      //   countryDataGlobal = data; 
+      //   initCountrySelect();           
+      // });
 
-      function initCountrySelect() {
-        $("#countrySelect").each(function () {
-          const $sel = $(this);
+      // function initCountrySelect() {
+      //   $("#countrySelect").each(function () {
+      //     const $sel = $(this);
 
-          // skip if we already built the list for this element
-          if ($sel.data("select2")) return;
+      //     // skip if we already built the list for this element
+      //     if ($sel.data("select2")) return;
 
-          // wipe anything old, keep 1 empty option for the placeholder
-          $sel.empty().append('<option></option>');
+      //     // wipe anything old, keep 1 empty option for the placeholder
+      //     $sel.empty().append('<option></option>');
 
-          // add options
-          countryDataGlobal.forEach(c => {
-            console.log(c.id.toLowerCase())
-            $sel.append(
-              $("<option>", { value: c.id.toLowerCase(), text: c.text })
-            );
-          });
+      //     // add options
+      //     countryDataGlobal.forEach(c => {
+      //       console.log(c.id.toLowerCase())
+      //       $sel.append(
+      //         $("<option>", { value: c.id.toLowerCase(), text: c.text })
+      //       );
+      //     });
 
-          // activate Select2
-          $sel.select2({
-            placeholder: "Select a country",
-            allowClear: true,
-            templateResult: formatCountry,
-            templateSelection: c => c.text
-          });
-        });
-      }
+      //     // activate Select2
+      //     $sel.select2({
+      //       placeholder: "Select a country",
+      //       allowClear: true,
+      //       templateResult: formatCountry,
+      //       templateSelection: c => c.text
+      //     });
+      //   });
+      // }
 
-      // helper to show flag + name
-      function formatCountry(c) {
-        if (!c.id) return c.text;
-        return $(
-          '<span><img src="https://flagcdn.com/16x12/' +
-            c.id +
-            '.png" class="me-1" /> ' +
-            c.text +
-            "</span>"
-        );
-      }
+      // // helper to show flag + name
+      // function formatCountry(c) {
+      //   if (!c.id) return c.text;
+      //   return $(
+      //     '<span><img src="https://flagcdn.com/16x12/' +
+      //       c.id +
+      //       '.png" class="me-1" /> ' +
+      //       c.text +
+      //       "</span>"
+      //   );
+      // }
   </script>
 </body>
 </html>
