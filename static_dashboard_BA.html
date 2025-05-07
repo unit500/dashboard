@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -883,8 +883,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:40:57-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:47:00-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
 
@@ -1166,17 +1166,6 @@
       }
   </script>
 
-
-<!-- <script>
-  document.getElementById("countrySelect").addEventListener("change", function () {
-    const code = this.value;
-    if (!code) {
-      window.location.href = "static_dashboard.html";
-    } else {
-      window.location.href = `static_dashboard_${code}.html`;
-    }
-  });
-</script> -->
   <script>
     $('#countrySelect').on('select2:select', function (e) {
     const code = e.params.data.id;
@@ -1184,7 +1173,6 @@
       ? `static_dashboard_${code}.html`
       : "static_dashboard.html";
   });
-
   </script>
 </body>
 </html>
