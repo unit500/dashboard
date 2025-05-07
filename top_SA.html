@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      height: 40px;
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px 0;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -187,42 +186,57 @@
       <option value="">Select a country</option>
       </select>
     </div>
+    
+    <div class="container mb-4">
+      <ul class="nav nav-tabs justify-content-center" id="statsTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="ransom-tab" data-bs-toggle="tab" data-bs-target="#ransom"
+                  type="button" role="tab" aria-controls="ransom" aria-selected="true">
+            Ransoms
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="ddos-tab" data-bs-toggle="tab" data-bs-target="#ddos"
+                  type="button" role="tab" aria-controls="ddos" aria-selected="false">
+            DDoS
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="deface-tab" data-bs-toggle="tab" data-bs-target="#deface"
+                  type="button" role="tab" aria-controls="deface" aria-selected="false">
+            Defacements
+          </button>
+        </li>
+      </ul>
+    </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/67f8c38347b2524787427d89.html">mk.com.sa</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/6814ec3df375874aeb47e522.html">jamjoompharma.com</a>, 
-        
-          <a href="ransom_details/680fd0578885af162a8a1242.html">rawafid</a>, 
-        
-          <a href="ransom_details/680f8a270fa4cc43791b6802.html">Al-Hejailan Group</a>, 
-        
-          <a href="ransom_details/6809631f8536e90fc291c573.html">rawafid</a>, 
-        
-          <a href="ransom_details/67fd85dc9728741ee2209ee0.html">hejailan</a>
-        
-      </li>
-    </ul>
+  <div class="container mb-4">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/67f8c38347b2524787427d89.html">mk.com.sa</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/6814ec3df375874aeb47e522.html">jamjoompharma.com</a>, 
+          
+            <a href="ransom_details/680fd0578885af162a8a1242.html">rawafid</a>, 
+          
+            <a href="ransom_details/680f8a270fa4cc43791b6802.html">Al-Hejailan Group</a>, 
+          
+            <a href="ransom_details/6809631f8536e90fc291c573.html">rawafid</a>, 
+          
+            <a href="ransom_details/67fd85dc9728741ee2209ee0.html">hejailan</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
-  
-  <script>
-    $(document).ready(function(){
-      $('#ticker').easyTicker({
-        direction: 'up',
-        interval: 3000,
-        height: 'auto'
-      });
-    });
-  </script>
 
   <!-- Cards Section -->
   <div class="container mb-4">
@@ -307,8 +321,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:44:30-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 13:01:21-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
