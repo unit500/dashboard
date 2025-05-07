@@ -146,10 +146,6 @@
 
     <!-- Country dashboard selector -->
     <div class="mb-4 text-center">
-      <!-- <label for="countrySelect" class="form-label fw-bold me-2">
-        View country‑specific dashboard:
-      </label> -->
-  
       <select id="countrySelectTop"
         name="countrySelectTop"
         class="form-select d-inline-block w-auto"
@@ -271,8 +267,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:57:47-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:04:54-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
@@ -408,21 +404,21 @@
 
       function initCountrySelect() {
         $("#countrySelectTop").each(function () {
-          const $sel = $(this);
 
           // skip if we already built the list for this element
           if ($sel.data("select2")) return;
 
           // wipe anything old, keep 1 empty option for the placeholder
-          $sel.empty().append('<option></option>');
-
-          // add options
-          countryDataGlobal.forEach(c => {
-            console.log(c.id.toLowerCase())
-            $sel.append(
-              $("<option>", { value: c.id.toLowerCase(), text: c.text })
-            );
-          });
+          const $sel = $('#countrySelectTop')
+            .empty()
+            .append('<option></option>')   // placeholder
+            .select2({
+              data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
+              placeholder: "Select a country",
+              allowClear: true,
+              templateResult: formatCountry,
+              templateSelection: c => c.text
+            });
 
           // activate Select2
           $sel.select2({
@@ -445,17 +441,14 @@
             "</span>"
         );
       }
-  </script>
 
-  <script>
-    $('#countrySelectTop').on('select2:select', function (e) {
-    const code = e.params.data.id;
-    window.location.href = code
-      ? `top_${code}.html`
-      : "top.html";
-  });
+      $sel.on('select2:select select2:clear', function (e) {
+        const code = $sel.val();
+        window.location.href = code
+          ? `top_${code}.html`
+          : "top.html";
+      });
   </script>
-
 
 </body>
 </html>

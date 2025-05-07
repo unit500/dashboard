@@ -195,8 +195,8 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="group_details/play.html">
-                  play
+                <a href="group_details/avoslocker.html">
+                  avoslocker
                 </a>
               </h5>
               <p class="card-text">1 incidents</p>
@@ -273,8 +273,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:02:24-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:04:35-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
   
@@ -451,22 +451,12 @@
       }
 
       $sel.on('select2:select select2:clear', function (e) {
-    const code = $sel.val();
-    window.location.href = code
-      ? `top_${code}.html`
-      : "top.html";
-  });
+        const code = $sel.val();
+        window.location.href = code
+          ? `top_${code}.html`
+          : "top.html";
+      });
   </script>
-
-  <script>
-    $('#countrySelectTop').on('select2:select', function (e) {
-    const code = e.params.data.id;
-    window.location.href = code
-      ? `top_${code}.html`
-      : "top.html";
-  });
-  </script>
-
 
 </body>
 </html>

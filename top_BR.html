@@ -285,8 +285,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:02:33-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:04:47-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -345,7 +345,7 @@
     
       dataDefacementGroups.push({value: 2, name: "Team Anon Force"});
     
-      dataDefacementGroups.push({value: 1, name: "Cyber Alpha Wolf"});
+      dataDefacementGroups.push({value: 1, name: "CyberTeam"});
     
       dataDefacementGroups.push({value: 1, name: "Cyber Team"});
     
@@ -353,7 +353,7 @@
     
       dataDefacementGroups.push({value: 1, name: "Paralord Team"});
     
-      dataDefacementGroups.push({value: 1, name: "CyberTeam"});
+      dataDefacementGroups.push({value: 1, name: "Cyber Alpha Wolf"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },
@@ -495,16 +495,6 @@
           : "top.html";
       });
   </script>
-
-  <script>
-    $('#countrySelectTop').on('select2:select', function (e) {
-    const code = e.params.data.id;
-    window.location.href = code
-      ? `top_${code}.html`
-      : "top.html";
-  });
-  </script>
-
 
 </body>
 </html>
