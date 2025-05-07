@@ -279,12 +279,85 @@
         </div>
       </div>
     </div>
-
   </div>
-  
 
     <!-- DDoS Pane -->
     <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
+      <div class="container mb-4">
+        <div class="row justify-content-center gy-4">
+          <!-- Row 1: two per row -->
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDdosTopSource" class="chart-container"></div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDdosTopTarget" class="chart-container"></div>
+          </div>
+          <!-- Row 2 -->
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDdosByHour" class="chart-container"></div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDdosByWeekday" class="chart-container"></div>
+          </div>
+          <!-- Row 3 -->
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDdosTopGroups" class="chart-container"></div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDdosTopAttackers" class="chart-container"></div>
+          </div>
+        </div>
+  
+        <!-- Full-width heatmap below -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <div id="heatmapDdosCalendar" class="chart-container" style="height:200px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Defacements Pane -->
+    <div class="tab-pane fade" id="deface" role="tabpanel" aria-labelledby="deface-tab">
+      <div class="container mb-4">
+        <div class="row justify-content-center gy-4">
+          <!-- Row 1: two per row -->
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDefaceTopSource" class="chart-container"></div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDefaceTopTarget" class="chart-container"></div>
+          </div>
+          <!-- Row 2 -->
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDefaceByHour" class="chart-container"></div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDefaceByWeekday" class="chart-container"></div>
+          </div>
+          <!-- Row 3 -->
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDefaceTopGroups" class="chart-container"></div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div id="chartDefaceTopAttackers" class="chart-container"></div>
+          </div>
+        </div>
+  
+        <!-- Full-width heatmap below -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <div id="heatmapDefaceCalendar" class="chart-container" style="height:200px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  
+
+    <!-- DDoS Pane -->
+    <!-- <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
       <div class="container row mb-4">
         <div class="col-md-4"><div id="chartDdosTopSource" class="chart-container"></div></div>
         <div class="col-md-4"><div id="chartDdosTopTarget" class="chart-container"></div></div>
@@ -300,10 +373,10 @@
       <div class="container mb-4">
         <div class="col-12"><div id="heatmapDdosCalendar" class="chart-container" style="height:200px"></div></div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Defacements Pane -->
-    <div class="tab-pane fade" id="deface" role="tabpanel" aria-labelledby="deface-tab">
+    <!-- <div class="tab-pane fade" id="deface" role="tabpanel" aria-labelledby="deface-tab">
       <div class="row gy-4">
         <div class="col-md-4"><div id="chartDefaceTopSource" class="chart-container"></div></div>
         <div class="col-md-4"><div id="chartDefaceTopTarget" class="chart-container"></div></div>
@@ -313,7 +386,7 @@
         <div class="col-md-4"><div id="chartDefaceByWeekday" class="chart-container"></div></div>
         <div class="col-12"><div id="heatmapDefaceCalendar" class="chart-container" style="height:200px"></div></div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   
@@ -325,8 +398,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 14:41:14-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 14:50:56-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
@@ -379,13 +452,13 @@
       
         { value: 3, name: "malaysiaairports.com.my/en" },
       
-        { value: 2, name: "www.liftsolutionsinc.net" },
+        { value: 2, name: "www.telecontrolspa.it" },
       
-        { value: 2, name: "niemann.de" },
+        { value: 2, name: "www.monaghan.eu" },
       
-        { value: 2, name: "hzscr.gov.cz" },
+        { value: 2, name: "www.calmont.ca" },
       
-        { value: 2, name: "amethystgroup.co.uk" }
+        { value: 2, name: "andrettikarting.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -408,9 +481,9 @@
       
         { value: 106, name: "qilin" },
       
-        { value: 72, name: "leakeddata" },
-      
         { value: 72, name: "play" },
+      
+        { value: 72, name: "leakeddata" },
       
         { value: 57, name: "akira" },
       
@@ -577,135 +650,484 @@
       }]
     });
     
-    </script>
-    
-  <!-- <script>
-    // Chart 1: Top 15 Ransomware Groups (from victims collection)
-    var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
-    var dataRansomTopSource = [
+  </script>
+
+
+  <script>
+    // 1) Top Sources (pie)
+    var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
+    var dataDdosTopSource = [
       
-      {value: 291, name: "US" },
-      
-      {value: 34, name: "DE" },
-      
-      {value: 28, name: "CA" },
-      
-      {value: 21, name: "IT" },
-      
-      {value: 16, name: "GB" }
+        { value: 155, name: "Unknown" }
       
     ];
-    var optionRansomTopSource = {
-      title: { text: 'Top 5 Ransom Sources', left: 'center' },
+    chartDdosTopSource.setOption({
+      title: { text: 'Top 5 DDoS Sources', left: 'center' },
       tooltip: { trigger: 'item' },
       legend: { orient: 'vertical', left: 'left' },
       series: [{
-        name: 'Groups',
+        name: 'Sources',
         type: 'pie',
         radius: '50%',
-        data: dataRansomTopSource,
-        emphasis: {
-          itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0,0,0,0.5)' }
-        }
+        data: dataDdosTopSource
       }]
-    };
-    chartRansomTopSource.setOption(optionRansomTopSource);
+    });
 
-    // Chart 2: Top 15 Defacement Groups (from defacements, excluding "indie")
-    var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
-    var dataRansomTopTarget = [];
-    
-      dataRansomTopTarget.push({value: 3, name: "malaysiaairports.com.my/en"});
-    
-      dataRansomTopTarget.push({value: 2, name: "www.liftsolutionsinc.net"});
-    
-      dataRansomTopTarget.push({value: 2, name: "niemann.de"});
-    
-      dataRansomTopTarget.push({value: 2, name: "hzscr.gov.cz"});
-    
-      dataRansomTopTarget.push({value: 2, name: "amethystgroup.co.uk"});
-    
-    var optionRansomTopTarget = {
-      title: { text: 'Top 5 Ransom Target', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataRansomTopTarget.map(function(item) { return item.name; })
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataRansomTopTarget.map(function(item) { return item.value; }),
-        type: 'bar'
-      }]
-    };
-    chartRansomTopTarget.setOption(optionRansomTopTarget);
-
-    // Chart 3: Top Attacked Countries – use emoji flags on xAxis
-    var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
-    var ransomTopGroups = [
+    // 2) Top Targets (bar)
+    var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
+    var dataDdosTopTarget = [
       
-        {name: "", value:  },
+        { value: 20, name: "UA" },
       
-        {name: "", value:  },
+        { value: 17, name: "NL" },
       
-        {name: "", value:  },
+        { value: 17, name: "GB" },
       
-        {name: "", value:  },
+        { value: 16, name: "CA" },
       
-        {name: "", value:  }
+        { value: 15, name: "US" }
       
     ];
-    var attackedCountryFlags = ransomTopGroups.map(function(item){
-      return countryCodeToEmoji(item.name);
-    });
-    var optionRansomTopGroups = {
-      title: { text: 'Top Attacked Countries', left: 'center' },
+    chartDdosTopTarget.setOption({
+      title: { text: 'Top 5 DDoS Targets', left: 'center' },
       tooltip: {},
       xAxis: {
         type: 'category',
-        data: attackedCountryFlags
+        data: dataDdosTopTarget.map(i => i.name)
       },
       yAxis: { type: 'value' },
       series: [{
-        data: ransomTopGroups.map(function(item){ return item.value; }),
+        data: dataDdosTopTarget.map(i => i.value),
         type: 'bar'
       }]
-    };
-    chartRansomTopGroups.setOption(optionRansomTopGroups);
+    });
 
-    // Chart 4: Top Source Attack Countries – use emoji flags on xAxis
-    var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
-    var sourceAttackCountries = [
+    // 3) Top Groups (bar)
+    var chartDdosTopGroups = echarts.init(document.getElementById('chartDdosTopGroups'));
+    var dataDdosTopGroups = [
       
-        {name: "iran", value: 90 },
+        { value: 81, name: "NoName057(16)" },
       
-        {name: "bangladesh", value: 9 },
+        { value: 19, name: "Anon Sec" },
       
-        {name: "italy", value: 4 },
+        { value: 12, name: "Dark Storm Team" },
       
-        {name: "pakistan", value: 2 },
+        { value: 10, name: "Keymous" },
       
-        {name: "morocco", value: 1 }
+        { value: 6, name: "SERVER KILLERS" }
       
     ];
-    var sourceCountryFlags = sourceAttackCountries.map(function(item){
-      return countryCodeToEmoji(item.name);
-    });
-    var optionSourceAttackCountries = {
-      title: { text: 'Top Source Attack Countries', left: 'center' },
+    chartDdosTopGroups.setOption({
+      title: { text: 'Top 5 DDoS Groups', left: 'center' },
       tooltip: {},
       xAxis: {
         type: 'category',
-        data: sourceCountryFlags
+        data: dataDdosTopGroups.map(i => i.name)
       },
       yAxis: { type: 'value' },
       series: [{
-        data: sourceAttackCountries.map(function(item){ return item.value; }),
+        data: dataDdosTopGroups.map(i => i.value),
         type: 'bar'
       }]
-    };
-    chartSourceAttackCountries.setOption(optionSourceAttackCountries);
-  </script> -->
+    });
+
+    // 4) Top Actors (bar)
+    var chartDdosTopAttackers = echarts.init(document.getElementById('chartDdosTopAttackers'));
+    var dataDdosTopActors = [
+      
+        { value: 2, name: "Mr. Hamza" }
+      
+    ];
+    chartDdosTopAttackers.setOption({
+      title: { text: 'Top 5 DDoS Actors', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDdosTopActors.map(i => i.name)
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDdosTopActors.map(i => i.value),
+        type: 'bar'
+      }]
+    });
+
+    // 5) By Hour (bar)
+    var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
+    var dataDdosByHour = [
+      
+        { value: 27, name: "8" },
+      
+        { value: 26, name: "9" },
+      
+        { value: 23, name: "12" },
+      
+        { value: 23, name: "13" },
+      
+        { value: 13, name: "5" }
+      
+    ];
+    chartDdosByHour.setOption({
+      title: { text: 'DDoS Reports by Hour', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDdosByHour.map(i => i.name)
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDdosByHour.map(i => i.value),
+        type: 'bar'
+      }]
+    });
+
+    // 6) By Weekday (bar)
+    var chartDdosByWeekday = echarts.init(document.getElementById('chartDdosByWeekday'));
+    var dataDdosByWeekday = [
+      
+        { value: 53, name: "Mon" },
+      
+        { value: 25, name: "Tue" },
+      
+        { value: 20, name: "Sun" },
+      
+        { value: 19, name: "Fri" },
+      
+        { value: 16, name: "Wed" }
+      
+    ];
+    chartDdosByWeekday.setOption({
+      title: { text: 'DDoS Reports by Weekday', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDdosByWeekday.map(i => i.name)
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDdosByWeekday.map(i => i.value),
+        type: 'bar'
+      }]
+    });
+
+    // 7) Calendar Heatmap
+    var heatmapDdosCalendar = echarts.init(document.getElementById('heatmapDdosCalendar'));
+    var calDdosData = [
+      
+        [ "2025-04-08", 6 ],
+      
+        [ "2025-04-11", 11 ],
+      
+        [ "2025-04-14", 11 ],
+      
+        [ "2025-04-15", 12 ],
+      
+        [ "2025-04-16", 6 ],
+      
+        [ "2025-04-17", 6 ],
+      
+        [ "2025-04-18", 3 ],
+      
+        [ "2025-04-20", 13 ],
+      
+        [ "2025-04-21", 6 ],
+      
+        [ "2025-04-22", 1 ],
+      
+        [ "2025-04-24", 2 ],
+      
+        [ "2025-04-27", 3 ],
+      
+        [ "2025-04-28", 17 ],
+      
+        [ "2025-04-29", 6 ],
+      
+        [ "2025-04-30", 7 ],
+      
+        [ "2025-05-01", 4 ],
+      
+        [ "2025-05-02", 5 ],
+      
+        [ "2025-05-03", 10 ],
+      
+        [ "2025-05-04", 4 ],
+      
+        [ "2025-05-05", 19 ],
+      
+        [ "2025-05-07", 3 ]
+      
+    ];
+    heatmapDdosCalendar.setOption({
+      title: { text: 'DDoS Activity (Last 30d)', left: 'center' },
+      visualMap: {
+        min: 0,
+        max: Math.max(...calDdosData.map(c=>c[1])),
+        orient: 'horizontal',
+        left: 'center',
+        top: 20
+      },
+      calendar: [{
+        top: 60,
+        left: 'center',
+        range: new Date().toISOString().slice(0,10)  // today only; adjust if you want 30d range
+      }],
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: calDdosData
+      }]
+    });
+  </script>
+
+  <script>
+    // 1) Top Sources (pie)
+    var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
+    var dataDefaceTopSource = [
+      
+    ];
+    chartDefaceTopSource.setOption({
+      title: { text: 'Top 5 Defacement Sources', left: 'center' },
+      tooltip: { trigger: 'item' },
+      legend: { orient: 'vertical', left: 'left' },
+      series: [{
+        name: 'Sources',
+        type: 'pie',
+        radius: '50%',
+        data: dataDefaceTopSource
+      }]
+    });
+
+    // 2) Top Targets (bar)
+    var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
+    var dataDefaceTopTarget = [
+      
+        { value: 510, name: "US" },
+      
+        { value: 305, name: "CA" },
+      
+        { value: 152, name: "IN" },
+      
+        { value: 133, name: "FR" },
+      
+        { value: 124, name: "SG" }
+      
+    ];
+    chartDefaceTopTarget.setOption({
+      title: { text: 'Top 5 Defacement Targets', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDefaceTopTarget.map(i => i.name)
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDefaceTopTarget.map(i => i.value),
+        type: 'bar'
+      }]
+    });
+
+    // 3) Top Groups (bar)
+    var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
+    var dataDefaceTopGroups = [
+      
+        { value: 1564, name: "indie" },
+      
+        { value: 155, name: "Team Anon Force" },
+      
+        { value: 98, name: "SABUNMANDI CYBER TEAM" },
+      
+        { value: 25, name: "jct" },
+      
+        { value: 15, name: "AetherSec" }
+      
+    ];
+    chartDefaceTopGroups.setOption({
+      title: { text: 'Top 5 Defacement Groups', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDefaceTopGroups.map(i => i.name)
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDefaceTopGroups.map(i => i.value),
+        type: 'bar'
+      }]
+    });
+
+    // 4) Top Actors (bar)
+    var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
+    var dataDefaceTopActors = [
+      
+        { value: 324, name: "Mr. BDKR28" },
+      
+        { value: 284, name: "Team Anon Force" },
+      
+        { value: 269, name: "Belief" },
+      
+        { value: 115, name: "SABUNMANDI CYBER TEAM" },
+      
+        { value: 98, name: "Simsimi" }
+      
+    ];
+    chartDefaceTopAttackers.setOption({
+      title: { text: 'Top 5 Defacement Actors', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDefaceTopActors.map(i => i.name)
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDefaceTopActors.map(i => i.value),
+        type: 'bar'
+      }]
+    });
+
+    // 5) By Hour (bar)
+    var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
+    var dataDefaceByHour = [
+      
+        { value: 257, name: "9" },
+      
+        { value: 209, name: "6" },
+      
+        { value: 177, name: "4" },
+      
+        { value: 158, name: "13" },
+      
+        { value: 155, name: "16" }
+      
+    ];
+    chartDefaceByHour.setOption({
+      title: { text: 'Defacement Reports by Hour', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDefaceByHour.map(i => i.name)
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDefaceByHour.map(i => i.value),
+        type: 'bar'
+      }]
+    });
+
+    // 6) By Weekday (bar)
+    var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
+    var dataDefaceByWeekday = [
+      
+        { value: 374, name: "Tue" },
+      
+        { value: 354, name: "Wed" },
+      
+        { value: 314, name: "Sat" },
+      
+        { value: 307, name: "Mon" },
+      
+        { value: 205, name: "Fri" }
+      
+    ];
+    chartDefaceByWeekday.setOption({
+      title: { text: 'Defacement Reports by Weekday', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDefaceByWeekday.map(i => i.name)
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDefaceByWeekday.map(i => i.value),
+        type: 'bar'
+      }]
+    });
+
+    // 7) Calendar Heatmap
+    var heatmapDefaceCalendar = echarts.init(document.getElementById('heatmapDefaceCalendar'));
+    var calDefaceData = [
+      
+        [ "2025-04-08", 7 ],
+      
+        [ "2025-04-09", 41 ],
+      
+        [ "2025-04-10", 9 ],
+      
+        [ "2025-04-11", 20 ],
+      
+        [ "2025-04-12", 22 ],
+      
+        [ "2025-04-13", 31 ],
+      
+        [ "2025-04-14", 29 ],
+      
+        [ "2025-04-15", 6 ],
+      
+        [ "2025-04-16", 39 ],
+      
+        [ "2025-04-17", 22 ],
+      
+        [ "2025-04-18", 52 ],
+      
+        [ "2025-04-19", 240 ],
+      
+        [ "2025-04-20", 66 ],
+      
+        [ "2025-04-21", 60 ],
+      
+        [ "2025-04-22", 35 ],
+      
+        [ "2025-04-23", 87 ],
+      
+        [ "2025-04-24", 46 ],
+      
+        [ "2025-04-25", 103 ],
+      
+        [ "2025-04-26", 14 ],
+      
+        [ "2025-04-27", 10 ],
+      
+        [ "2025-04-28", 115 ],
+      
+        [ "2025-04-29", 55 ],
+      
+        [ "2025-04-30", 112 ],
+      
+        [ "2025-05-01", 118 ],
+      
+        [ "2025-05-02", 30 ],
+      
+        [ "2025-05-03", 38 ],
+      
+        [ "2025-05-04", 41 ],
+      
+        [ "2025-05-05", 103 ],
+      
+        [ "2025-05-06", 271 ],
+      
+        [ "2025-05-07", 75 ]
+      
+    ];
+    heatmapDefaceCalendar.setOption({
+      title: { text: 'Defacement Activity (Last 30d)', left: 'center' },
+      visualMap: {
+        min: 0,
+        max: Math.max(...calDefaceData.map(c=>c[1])),
+        orient: 'horizontal',
+        left: 'center',
+        top: 20
+      },
+      calendar: [{
+        top: 60,
+        left: 'center',
+        range: new Date().toISOString().slice(0,10)  // adjust if you want full 30d range
+      }],
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: calDefaceData
+      }]
+    });
+  </script>
 
 
   <script>
