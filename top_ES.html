@@ -38,28 +38,54 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
-      overflow: hidden;
-      white-space: nowrap;
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
     }
-    #ticker ul {
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+    .ticker-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      height: 50px;
+    }
+
+    .ticker-list {
+      position: absolute;        /* take it out of flow so it can slide across */
+      top: 0;
+      left: 0;
+      display: inline-flex;
       list-style: none;
       margin: 0;
       padding: 0;
+
+      /* animate from just off the right edge to just off the left */
+      animation: scroll-left 20s linear infinite;
+      will-change: transform;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);   /* start 100% of its own width to the right */
+      }
+      100% {
+        transform: translateX(-100%);  /* end 100% of its own width to the left */
+      }
     }
   </style>
 </head>
@@ -163,8 +189,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -182,19 +208,20 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/6819350d8a876d7ac2732c0e.html">ruizre.es</a>, 
+          <a href="ransom_details/6819350d8a876d7ac2732c0e.html">ruizre.es</a>, 
         
-          <a href="defacement_details/681935088a876d7ac2732c0b.html">edisoft.es</a>, 
+          <a href="ransom_details/681935088a876d7ac2732c0b.html">edisoft.es</a>, 
         
-          <a href="defacement_details/6815165862f6bb0a3aab560d.html">www.imedexsa.es</a>, 
+          <a href="ransom_details/6815165862f6bb0a3aab560d.html">www.imedexsa.es</a>, 
         
-          <a href="defacement_details/68122d0d4651538efeaa6405.html">www.forumcomm.com</a>, 
+          <a href="ransom_details/68122d0d4651538efeaa6405.html">www.forumcomm.com</a>, 
         
-          <a href="defacement_details/680f8a290fa4cc43791b6805.html">pereclaver.org</a>
+          <a href="ransom_details/680f8a290fa4cc43791b6805.html">pereclaver.org</a>
         
       </li>
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -231,11 +258,11 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="group_details/Team_Anon_Force.html">
-                  Team Anon Force
+                <a href="group_details/Javanese_Team.html">
+                  Javanese Team
                 </a>
               </h5>
-              <p class="card-text">155 incidents</p>
+              <p class="card-text">1 incidents</p>
             
           </div>
         </div>
@@ -247,11 +274,11 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="actor_details/BDKR28.html">
-                  Mr. BDKR28
+                <a href="actor_details/Simsimi.html">
+                  Simsimi
                 </a>
               </h5>
-              <p class="card-text">324 incidents</p>
+              <p class="card-text">2 incidents</p>
             
           </div>
         </div>
@@ -293,8 +320,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:23:22-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:44:40-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
@@ -324,9 +351,9 @@
       
       {value: 4, name: "DXPLOIT" },
       
-      {value: 3, name: "TwoNet" },
+      {value: 3, name: "Z-PENTEST" },
       
-      {value: 3, name: "Z-PENTEST" }
+      {value: 3, name: "TwoNet" }
       
     ];
     var optionRansomwareGroups = {
@@ -349,9 +376,9 @@
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var dataDefacementGroups = [];
     
-      dataDefacementGroups.push({value: 1, name: "Javanese Team"});
-    
       dataDefacementGroups.push({value: 1, name: "Team Anon Force"});
+    
+      dataDefacementGroups.push({value: 1, name: "Javanese Team"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },

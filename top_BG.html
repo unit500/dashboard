@@ -57,7 +57,7 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      /* height: 50px; */
     }
 
     .ticker-list {
@@ -67,10 +67,10 @@
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
       /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -189,34 +189,37 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/6812f886383bfec94f3db7f8.html">tawakkaly.com</a>, 
-        
-          <a href="defacement_details/680744227787b94277b78154.html">www.fekrwaqalam.com</a>, 
-        
-          <a href="defacement_details/67bdc3346eb548a542fd2ebc.html">www.alpinaplast.com</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/67b648c83ba4c02898d5dff8.html">sac.justice.bg</a>, 
-        
-          <a href="ransom_details/679f651f182496a591ec9561.html">hreu.eu</a>, 
-        
-          <a href="ransom_details/678fe363c4f2181a71270d62.html">Smart Media Group Bulgaria</a>, 
-        
-          <a href="ransom_details/678fe360c4f2181a71270d59.html">EasyPay</a>, 
-        
-          <a href="ransom_details/678fe1f5c4f2181a71270917.html">intrama-bg.com</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/6812f886383bfec94f3db7f8.html">tawakkaly.com</a>, 
+          
+            <a href="defacement_details/680744227787b94277b78154.html">www.fekrwaqalam.com</a>, 
+          
+            <a href="defacement_details/67bdc3346eb548a542fd2ebc.html">www.alpinaplast.com</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/67b648c83ba4c02898d5dff8.html">sac.justice.bg</a>, 
+          
+            <a href="ransom_details/679f651f182496a591ec9561.html">hreu.eu</a>, 
+          
+            <a href="ransom_details/678fe363c4f2181a71270d62.html">Smart Media Group Bulgaria</a>, 
+          
+            <a href="ransom_details/678fe360c4f2181a71270d59.html">EasyPay</a>, 
+          
+            <a href="ransom_details/678fe1f5c4f2181a71270917.html">intrama-bg.com</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
+
   
   <script>
     $(document).ready(function(){
@@ -265,8 +268,8 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="actor_details/TheZero.html">
-                  TheZero
+                <a href="actor_details/Dr3n4k.html">
+                  Dr3n4k
                 </a>
               </h5>
               <p class="card-text">1 incidents</p>
@@ -311,7 +314,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:38:27-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:46:13-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
@@ -336,11 +339,11 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 1, name: "TheZero" },
+      {value: 1, name: "Dr3n4k" },
       
       {value: 1, name: "Team Anon Force" },
       
-      {value: 1, name: "Dr3n4k" }
+      {value: 1, name: "TheZero" }
       
     ];
     var optionRansomwareGroups = {

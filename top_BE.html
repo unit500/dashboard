@@ -57,7 +57,7 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      /* height: 50px; */
     }
 
     .ticker-list {
@@ -67,10 +67,10 @@
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
       /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -189,36 +189,39 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/6819aaf5e7448ddd71945fb2.html">promanys.be</a>, 
-        
-          <a href="defacement_details/6819a9d9e7448ddd71945f90.html">optiekpunt.be</a>, 
-        
-          <a href="defacement_details/680fd0f5dc2055d6f9b2698a.html">zelfbloeddrukmeten.nl</a>, 
-        
-          <a href="defacement_details/680fd01801142d2b369ab44f.html">queertheologen.nl</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/681aa2b0a32026c04ded7f0b.html">www.jemeppe-sur-sambre.be</a>, 
-        
-          <a href="ransom_details/681748e7edf3f6cfff197ed6.html">decoline.com</a>, 
-        
-          <a href="ransom_details/6806a3e7a0cccd7e34528648.html">www.c-mec.be</a>, 
-        
-          <a href="ransom_details/680633723b6f4c7682d8b916.html">www.pharmaforce.be</a>, 
-        
-          <a href="ransom_details/67f83fe806165567dc5bc00d.html">www.noyenconstruction.com</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/6819aaf5e7448ddd71945fb2.html">promanys.be</a>, 
+          
+            <a href="defacement_details/6819a9d9e7448ddd71945f90.html">optiekpunt.be</a>, 
+          
+            <a href="defacement_details/680fd0f5dc2055d6f9b2698a.html">zelfbloeddrukmeten.nl</a>, 
+          
+            <a href="defacement_details/680fd01801142d2b369ab44f.html">queertheologen.nl</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/681aa2b0a32026c04ded7f0b.html">www.jemeppe-sur-sambre.be</a>, 
+          
+            <a href="ransom_details/681748e7edf3f6cfff197ed6.html">decoline.com</a>, 
+          
+            <a href="ransom_details/6806a3e7a0cccd7e34528648.html">www.c-mec.be</a>, 
+          
+            <a href="ransom_details/680633723b6f4c7682d8b916.html">www.pharmaforce.be</a>, 
+          
+            <a href="ransom_details/67f83fe806165567dc5bc00d.html">www.noyenconstruction.com</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
+
   
   <script>
     $(document).ready(function(){
@@ -318,7 +321,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:38:27-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:46:13-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
