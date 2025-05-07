@@ -146,10 +146,6 @@
 
     <!-- Country dashboard selector -->
     <div class="mb-4 text-center">
-      <!-- <label for="countrySelect" class="form-label fw-bold me-2">
-        View country‑specific dashboard:
-      </label> -->
-  
       <select id="countrySelectTop"
         name="countrySelectTop"
         class="form-select d-inline-block w-auto"
@@ -289,8 +285,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:57:31-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:02:33-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -318,11 +314,11 @@
       
       {value: 11, name: "Bgke04" },
       
-      {value: 10, name: "AetherSec" },
-      
       {value: 10, name: "Trollador da Silva" },
       
-      {value: 8, name: "EbRaHiM-VaKeR" }
+      {value: 10, name: "AetherSec" },
+      
+      {value: 8, name: "chinafans" }
       
     ];
     var optionRansomwareGroups = {
@@ -349,15 +345,15 @@
     
       dataDefacementGroups.push({value: 2, name: "Team Anon Force"});
     
-      dataDefacementGroups.push({value: 1, name: "CyberTeam"});
-    
       dataDefacementGroups.push({value: 1, name: "Cyber Alpha Wolf"});
     
-      dataDefacementGroups.push({value: 1, name: "Paralord Team"});
+      dataDefacementGroups.push({value: 1, name: "Cyber Team"});
     
       dataDefacementGroups.push({value: 1, name: "Hack Master"});
     
-      dataDefacementGroups.push({value: 1, name: "Cyber Team"});
+      dataDefacementGroups.push({value: 1, name: "Paralord Team"});
+    
+      dataDefacementGroups.push({value: 1, name: "CyberTeam"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },
@@ -491,6 +487,13 @@
             "</span>"
         );
       }
+
+      $sel.on('select2:select select2:clear', function (e) {
+        const code = $sel.val();
+        window.location.href = code
+          ? `top_${code}.html`
+          : "top.html";
+      });
   </script>
 
   <script>

@@ -146,10 +146,6 @@
 
     <!-- Country dashboard selector -->
     <div class="mb-4 text-center">
-      <!-- <label for="countrySelect" class="form-label fw-bold me-2">
-        View country‑specific dashboard:
-      </label> -->
-  
       <select id="countrySelectTop"
         name="countrySelectTop"
         class="form-select d-inline-block w-auto"
@@ -271,8 +267,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:57:30-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:02:32-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
   
@@ -445,6 +441,13 @@
             "</span>"
         );
       }
+
+      $sel.on('select2:select select2:clear', function (e) {
+        const code = $sel.val();
+        window.location.href = code
+          ? `top_${code}.html`
+          : "top.html";
+      });
   </script>
 
   <script>
