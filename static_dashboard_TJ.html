@@ -885,7 +885,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:39:58-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:48:26-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
@@ -1168,16 +1168,13 @@
       }
   </script>
 
-
-<script>
-  document.getElementById("countrySelect").addEventListener("change", function () {
-    const code = this.value;
-    if (!code) {
-      window.location.href = "static_dashboard.html";
-    } else {
-      window.location.href = `static_dashboard_${code}.html`;
-    }
+  <script>
+    $('#countrySelect').on('select2:select', function (e) {
+    const code = e.params.data.id;
+    window.location.href = code
+      ? `static_dashboard_${code}.html`
+      : "static_dashboard.html";
   });
-</script>
+  </script>
 </body>
 </html>
