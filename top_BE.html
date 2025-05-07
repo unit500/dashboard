@@ -211,7 +211,7 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="mb-4 text-center">
+  <div class="container mb-4">
     <div class="ticker-wrapper">
       <ul class="ticker-list">
         <li>
@@ -244,85 +244,47 @@
     </div>
   </div>
 
-  <!-- Cards Section -->
-  <div class="container mb-4">
-    <div class="row">
-      <!-- Top Ransomware Group Card -->
-      <div class="col-md-4">
-        <div class="card text-center shadow-sm">
-          <div class="card-header">Top Ransomware Group</div>
-          <div class="card-body">
-            
-              <h5 class="card-title">
-                <a href="group_details/lockbit3.html">
-                  lockbit3
-                </a>
-              </h5>
-              <p class="card-text">21 incidents</p>
-            
-          </div>
-        </div>
+  <div class="tab-content mt-3" id="statsTabsContent">
+    <!-- Ransoms Pane -->
+    <div class="tab-pane fade show active" id="ransom" role="tabpanel" aria-labelledby="ransom-tab">
+      <div class="row gy-4">
+        <div class="col-md-4"><div id="chartRansomTopSource" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartRansomTopTarget" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartRansomTopGroups" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartRansomTopAttackers" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartRansomByHour" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartRansomByWeekday" class="chart-container"></div></div>
+        <div class="col-12"><div id="heatmapRansomCalendar" class="chart-container" style="height:200px"></div></div>
       </div>
-      <!-- Top Defacement Group Card (ignoring "indie") -->
-      <div class="col-md-4">
-        <div class="card text-center shadow-sm">
-          <div class="card-header">Top Defacement Group</div>
-          <div class="card-body">
-            
-              <h5 class="card-title">
-                <a href="group_details/Team_Anon_Force.html">
-                  Team Anon Force
-                </a>
-              </h5>
-              <p class="card-text">4 incidents</p>
-            
-          </div>
-        </div>
+    </div>
+
+    <!-- DDoS Pane -->
+    <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
+      <div class="row gy-4">
+        <div class="col-md-4"><div id="chartDdosTopSource" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDdosTopTarget" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDdosTopGroups" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDdosTopAttackers" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDdosByHour" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDdosByWeekday" class="chart-container"></div></div>
+        <div class="col-12"><div id="heatmapDdosCalendar" class="chart-container" style="height:200px"></div></div>
       </div>
-      <!-- Top Actor Card -->
-      <div class="col-md-4">
-        <div class="card text-center shadow-sm">
-          <div class="card-header">Top Actor</div>
-          <div class="card-body">
-            
-              <h5 class="card-title">
-                <a href="actor_details/Team_Anon_Force.html">
-                  Team Anon Force
-                </a>
-              </h5>
-              <p class="card-text">4 incidents</p>
-            
-          </div>
-        </div>
+    </div>
+
+    <!-- Defacements Pane -->
+    <div class="tab-pane fade" id="deface" role="tabpanel" aria-labelledby="deface-tab">
+      <div class="row gy-4">
+        <div class="col-md-4"><div id="chartDefaceTopSource" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDefaceTopTarget" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDefaceTopGroups" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDefaceTopAttackers" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDefaceByHour" class="chart-container"></div></div>
+        <div class="col-md-4"><div id="chartDefaceByWeekday" class="chart-container"></div></div>
+        <div class="col-12"><div id="heatmapDefaceCalendar" class="chart-container" style="height:200px"></div></div>
       </div>
     </div>
   </div>
-  
-  <!-- Charts Section -->
-  <div class="container mb-4">
-    <!-- Row for Top 15 Ransomware Groups and Top 15 Defacement Groups -->
-    <div class="row mb-4">
-      <div class="col-md-6">
-        <h2 class="section-title">Top 15 Ransomware Groups</h2>
-        <div id="chartRansomwareGroups" class="chart-container"></div>
-      </div>
-      <div class="col-md-6">
-        <h2 class="section-title">Top 15 Defacement Groups</h2>
-        <div id="chartDefacementGroups" class="chart-container"></div>
-      </div>
-    </div>
-    <!-- Row for Top Attacked Countries and Top Source Attack Countries -->
-    <div class="row">
-      <div class="col-md-6">
-        <h2 class="section-title">Top Attacked Countries</h2>
-        <div id="chartAttackedCountries" class="chart-container"></div>
-      </div>
-      <div class="col-md-6">
-        <h2 class="section-title">Top Source Attack Countries</h2>
-        <div id="chartSourceAttackCountries" class="chart-container"></div>
-      </div>
-    </div>
-  </div>
+
   
   <!-- Footer Inclusion -->
   <footer class="py-4">
@@ -332,8 +294,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:55:24-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 13:02:33-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
