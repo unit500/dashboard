@@ -186,6 +186,29 @@
       <option value="">Select a country</option>
       </select>
     </div>
+    
+    <div class="container mb-4">
+      <ul class="nav nav-tabs justify-content-center" id="statsTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="ransom-tab" data-bs-toggle="tab" data-bs-target="#ransom"
+                  type="button" role="tab" aria-controls="ransom" aria-selected="true">
+            Ransoms
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="ddos-tab" data-bs-toggle="tab" data-bs-target="#ddos"
+                  type="button" role="tab" aria-controls="ddos" aria-selected="false">
+            DDoS
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="deface-tab" data-bs-toggle="tab" data-bs-target="#deface"
+                  type="button" role="tab" aria-controls="deface" aria-selected="false">
+            Defacements
+          </button>
+        </li>
+      </ul>
+    </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
   <div class="mb-4 text-center">
@@ -222,17 +245,6 @@
       </ul>
     </div>
   </div>
-
-  
-  <script>
-    $(document).ready(function(){
-      $('#ticker').easyTicker({
-        direction: 'up',
-        interval: 3000,
-        height: 'auto'
-      });
-    });
-  </script>
 
   <!-- Cards Section -->
   <div class="container mb-4">
@@ -322,8 +334,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:49:19-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:55:29-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
   
@@ -398,15 +410,15 @@
     
       dataDefacementGroups.push({value: 11, name: "https://yourdesktop.ru/bgke04.html"});
     
-      dataDefacementGroups.push({value: 10, name: "StupidC0de🐷Family"});
-    
       dataDefacementGroups.push({value: 10, name: "DeathNote Hackers"});
     
-      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
+      dataDefacementGroups.push({value: 10, name: "StupidC0de🐷Family"});
     
       dataDefacementGroups.push({value: 9, name: "Iran"});
     
       dataDefacementGroups.push({value: 9, name: "Turkhacks.com"});
+    
+      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },
@@ -468,7 +480,7 @@
       
         {name: "pakistan", value: 2 },
       
-        {name: "brazil", value: 1 }
+        {name: "unknowniran", value: 1 }
       
     ];
     var sourceCountryFlags = sourceAttackCountries.map(function(item){
