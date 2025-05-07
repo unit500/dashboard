@@ -186,6 +186,29 @@
       <option value="">Select a country</option>
       </select>
     </div>
+    
+    <div class="container mb-4">
+      <ul class="nav nav-tabs justify-content-center" id="statsTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="ransom-tab" data-bs-toggle="tab" data-bs-target="#ransom"
+                  type="button" role="tab" aria-controls="ransom" aria-selected="true">
+            Ransoms
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="ddos-tab" data-bs-toggle="tab" data-bs-target="#ddos"
+                  type="button" role="tab" aria-controls="ddos" aria-selected="false">
+            DDoS
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="deface-tab" data-bs-toggle="tab" data-bs-target="#deface"
+                  type="button" role="tab" aria-controls="deface" aria-selected="false">
+            Defacements
+          </button>
+        </li>
+      </ul>
+    </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
   <div class="mb-4 text-center">
@@ -311,8 +334,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:51:49-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:58:05-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
   
@@ -344,7 +367,7 @@
       
       {value: 7, name: "./KeyzNet" },
       
-      {value: 6, name: "hacked by miran996" }
+      {value: 6, name: "Bgke04" }
       
     ];
     var optionRansomwareGroups = {
@@ -375,11 +398,11 @@
     
       dataDefacementGroups.push({value: 2, name: "SABUNMANDI CYBER TEAM"});
     
-      dataDefacementGroups.push({value: 1, name: "TEAM BD CYBER NINJA"});
-    
       dataDefacementGroups.push({value: 1, name: "DXPLOIT"});
     
       dataDefacementGroups.push({value: 1, name: "Team R70"});
+    
+      dataDefacementGroups.push({value: 1, name: "TEAM BD CYBER NINJA"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },
