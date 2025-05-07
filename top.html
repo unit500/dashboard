@@ -354,8 +354,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 15:22:32-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 15:25:04-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -408,13 +408,13 @@
       
         { value: 3, name: "malaysiaairports.com.my/en" },
       
-        { value: 2, name: "www.hewsco.com" },
+        { value: 2, name: "finetech.de" },
       
-        { value: 2, name: "www.speedfam.com.tw" },
+        { value: 2, name: "www.flocomponents.com" },
       
-        { value: 2, name: "hasbco" },
+        { value: 2, name: "govonisabbiatrici.it" },
       
-        { value: 2, name: "www.farmaciadelpueblo.com.ar" }
+        { value: 2, name: "www.springcreekcc.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -635,13 +635,13 @@
       
         { value: 20, name: "UA" },
       
-        { value: 17, name: "GB" },
-      
         { value: 17, name: "NL" },
+      
+        { value: 17, name: "GB" },
       
         { value: 16, name: "CA" },
       
-        { value: 15, name: "US" }
+        { value: 15, name: "PL" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -716,9 +716,9 @@
       
         { value: 26, name: "9" },
       
-        { value: 23, name: "13" },
-      
         { value: 23, name: "12" },
+      
+        { value: 23, name: "13" },
       
         { value: 13, name: "5" }
       
@@ -1137,6 +1137,18 @@
       );
     }
   </script>
+
+
+<script>
+  document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(btn=>{
+  btn.addEventListener('shown.bs.tab', e => {
+    const pane = document.querySelector(e.target.getAttribute('data-bs-target'));
+    pane.querySelectorAll('.chart-container').forEach(div=>{
+      echarts.getInstanceByDom(div)?.resize();
+    });
+  });
+});
+</script>
 
 </body>
 </html>
