@@ -149,7 +149,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -160,8 +160,7 @@
 
     <select id="countrySelect"
       name="countrySelect"
-      class="country-select"
-      style="width:20%"
+      class="form-select d-inline-block w-auto"
     >
       <option></option>
     </select>
@@ -938,8 +937,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 09:16:53-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:28:46-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -1205,8 +1204,9 @@
 
           // add options
           countryDataGlobal.forEach(c => {
+            console.log(c.id.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.id, text: c.text })
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
             );
           });
 
