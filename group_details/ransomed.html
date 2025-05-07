@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">ransomed</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">68</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2023-10-30 11:25:30.602317</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+
+
+    
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by ransomed</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc5fc4f2181a7126f833.html">
+                <img src="https://images.ransomware.live/victims/37bdee20a440ec4e6a7bab8d9867270c.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="RANSOMEDVC is for sale">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">RANSOMEDVC is for sale</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-30 11:25:30.602317</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc41c4f2181a7126f7d9.html">
+                <img src="https://images.ransomware.live/victims/fa6e9c58c91ee29381838d987ec85e64.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Ransomedvc Launches A forum">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Ransomedvc Launches A forum</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-22 19:13:11.746752</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc39c4f2181a7126f7c1.html">
+                <img src="https://images.ransomware.live/victims/988cae42449b27dc873bb1b83b74747b.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="ransomed.vc">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ransomed.vc</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-20 19:16:50.124292</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc27c4f2181a7126f78c.html">
+                <img src="https://images.ransomware.live/victims/3d9dfd6d89f3967c3edbc80353ceadca.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Ransomedvc Pentest Services!">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Ransomedvc Pentest Services!</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-16 17:33:32.905168</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc26c4f2181a7126f787.html">
+                <img src="https://images.ransomware.live/victims/b77dd8c54f5a822e117ab54eeb6b63e4.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="RE : Clarification">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">RE : Clarification</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-16 02:35:24.971544</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc25c4f2181a7126f786.html">
+                <img src="https://images.ransomware.live/victims/d28cda413a50a512048647d2b20337fb.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Rob Lee Evidence : Sneak Peek">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Rob Lee Evidence : Sneak Peek</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-16 02:34:49.047990</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc24c4f2181a7126f783.html">
+                <img src="https://images.ransomware.live/victims/40f69509fd991a56ede2ec72f6d03957.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="colonialpipeline.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">colonialpipeline.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-15 14:47:06.037674</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc24c4f2181a7126f782.html">
+                <img src="https://images.ransomware.live/victims/04e310df437c2285bdf74d7183f2ba4b.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="accenture.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">accenture.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-15 14:46:32.942508</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc24c4f2181a7126f781.html">
+                <img src="https://images.ransomware.live/victims/c4380e5dd6b87fa8f3472b3f2c073b9e.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="webpag.com.br database leaked">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">webpag.com.br database leaked</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-15 14:46:00.505624</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fdc1ec4f2181a7126f771.html">
+                <img src="https://images.ransomware.live/victims/1b632529f9c79b0605e90d8e904cf701.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Metroclub.org">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Metroclub.org</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-13 08:05:19.607027</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - ransomed (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: []
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>

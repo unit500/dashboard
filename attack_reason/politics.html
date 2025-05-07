@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qxbox8417h");
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Defacements</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all defacement cards; they will be revealed via JS */
+    .defacement-card {
+      display: none;
+    }
+    .flag {
+      width: 32px;
+      height: 24px;
+    }
+    .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Defacements -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Defacements reason: politics</h1>
+      <p class="lead fst-italic">Details about the latest defacements with reason politics</p>
+    </section>
+    
+    <!-- Latest Defacements Cards Section -->
+    <section>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="defacements-cards">
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/6819d9687fb0c572a144f51e.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/ciannadigitaluae_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://www.ciannadigitaluae.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819d9687fb0c572a144f51e.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.ciannadigitaluae.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/J4V_D.html">MR.J4V@D</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/681618d7a2574015d3c8cfbb.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/03/lotuswin_in/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://lotuswin.in">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681618d7a2574015d3c8cfbb.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">lotuswin.in</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/ERROR_T4U51F.html">ERROR  T4U51F</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/6811e6f9ba1fd55e6f9aa770.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/valioreempreendimentos_com_br/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://valioreempreendimentos.com.br">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e6f9ba1fd55e6f9aa770.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">valioreempreendimentos.com.br</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/VXSECT.html">VXSECT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/VXSECT.html">VXSECT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/68122f08bd79b112e945395d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/galerie_lesglobules_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://www.galerie.lesglobules.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68122f08bd79b112e945395d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.galerie.lesglobules.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/VXSECT.html">VXSECT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/6811e702ba1fd55e6f9aa771.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/prodighitrade_com_br/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://prodighitrade.com.br">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6811e702ba1fd55e6f9aa771.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">prodighitrade.com.br</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/VXSECT.html">VXSECT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/VXSECT.html">VXSECT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/68122fc24c3d89641d77635d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/30/vasicek_coldhost_eu/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://vasicek.coldhost.eu">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68122fc24c3d89641d77635d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">vasicek.coldhost.eu</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/VXSECT.html">VXSECT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/6810aa6ad33fd7ce42aea49f.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/ithubsolution_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://ithubsolution.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6810aa6ad33fd7ce42aea49f.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">ithubsolution.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/TEAM_INSANE_PK.html">TEAM_INSANE_PK</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/681099fc8496876214046d33.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/29/dorenkov_ru/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://dorenkov.ru/index.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681099fc8496876214046d33.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">dorenkov.ru</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Anonsecita.html">Anonsecita</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Anonymous_Italia.html">Anonymous Italia</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/680de69d52eeee7230a0582a.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/27/baseball5_ru/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://baseball5.ru">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680de69d52eeee7230a0582a.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">baseball5.ru</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-27</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Anonsecita.html">Anonsecita</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Anonymous_Italia.html">Anonymous Italia</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/680de5c91ac37ced1fcfc50a.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/27/budtrans_pp_ua/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://budtrans.pp.ua/fuckyouisrael.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680de5c91ac37ced1fcfc50a.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">budtrans.pp.ua</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-27</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/TOMODACHI.html">TOMODACHI</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Anonymous_Indonesia.html">Anonymous Indonesia</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/680a26967a13dbc16eca1691.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/24/seo-serm_ru/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://seo-serm.ru">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680a26967a13dbc16eca1691.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">seo-serm.ru</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-24</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Anonsecita.html">Anonsecita</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/680a263e21aee9f447cb5b19.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/24/sauna04_ru/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://sauna04.ru">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/680a263e21aee9f447cb5b19.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">sauna04.ru</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-24</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Anonsecita.html">Anonsecita</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67f8d83247b2524787427e0a.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/11/portail_miph_gov_dz/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://portail.miph.gov.dz/s4w.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67f8d83247b2524787427e0a.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">portail.miph.gov.dz</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-11</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Team_R00T.html">Team R00T</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Team_R00T.html">Team R00T</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67f526c6a67871187f68f5bf.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/08/miepeec_gov_ma/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://miepeec.gov.ma">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67f526c6a67871187f68f5bf.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">miepeec.gov.ma</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-08</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Jabaroot_Dz.html">Jabaroot Dz</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67f2bf9d56402015bac6e1a8.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/06/alpha-college_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://alpha-college.co.il">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67f2bf9d56402015bac6e1a8.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">alpha-college.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-07</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/0xEv1lS0UL.html">0xEv1lS0UL</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67f2c2d156402015bac6e1c0.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/06/alpha-tech_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://alpha-tech.co.il">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67f2c2d156402015bac6e1c0.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">alpha-tech.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-07</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/0xEv1lS0UL.html">0xEv1lS0UL</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67f2c2cb56402015bac6e1bf.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/06/mecilaty_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://www.mecilaty.co.il">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67f2c2cb56402015bac6e1bf.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.mecilaty.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-07</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/0xEv1lS0UL.html">0xEv1lS0UL</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67f2bfa256402015bac6e1a9.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/06/chen-tanach_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://chen-tanach.co.il">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67f2bfa256402015bac6e1a9.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">chen-tanach.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-07</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/0xEv1lS0UL.html">0xEv1lS0UL</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67f2bf8756402015bac6e1a6.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/06/easy-success_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://easy-success.co.il">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67f2bf8756402015bac6e1a6.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">easy-success.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-07</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/0xEv1lS0UL.html">0xEv1lS0UL</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67f17db3dd95cfef5d53227d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/05/focus-academy_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://www.focus-academy.co.il">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67f17db3dd95cfef5d53227d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.focus-academy.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/the_key40.html">the key40</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67efa7d5dd95cfef5d53213d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/04/barsys_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.barsys.co.il/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67efa7d5dd95cfef5d53213d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.barsys.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-04</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/DieNet.html">DieNet</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/DieNet.html">DieNet</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67ecc3229b209f53cf6307aa.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/02/merlindispatchsolutions_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://merlindispatchsolutions.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67ecc3229b209f53cf6307aa.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">merlindispatchsolutions.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-02</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Aslan_Neferler_Tim.html">Aslan Neferler Tim</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Turkish_Cyber_Army.html">Turkish Cyber Army</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67eb8cebde7cef95215a865a.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/01/britishpremiumhelp_co_uk/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://britishpremiumhelp.co.uk/edu.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67eb8cebde7cef95215a865a.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">britishpremiumhelp.co.uk</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/QLQ.html">MR.QLQ</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67eb8cefde7cef95215a865b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/01/cloudvistatech_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://cloudvistatech.com/cloud.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67eb8cefde7cef95215a865b.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">cloudvistatech.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/QLQ.html">MR.QLQ</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67eb899aa0aab4318f636f24.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/01/maijitech_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://maijitech.com/tech.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67eb899aa0aab4318f636f24.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">maijitech.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/QLQ.html">MR.QLQ</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67ebbc309b209f53cf630705.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/01/oportalg_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://oportalg.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67ebbc309b209f53cf630705.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">oportalg.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/HANNN.html">HANNN</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Hack_Master.html">Hack Master</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67ebbc3d9b209f53cf630706.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/01/pratovegetal_com_br/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://pratovegetal.com.br/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67ebbc3d9b209f53cf630706.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">pratovegetal.com.br</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/HANNN.html">HANNN</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Hack_Master.html">Hack Master</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67eb8f70de7cef95215a8672.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/01/ukacademicswriter_co_uk/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://ukacademicswriter.co.uk/index.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67eb8f70de7cef95215a8672.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">ukacademicswriter.co.uk</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/QLQ.html">MR.QLQ</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67eb8d9fde7cef95215a8666.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/01/www2_oklegislature_gov/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://www2.oklegislature.gov/index.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67eb8d9fde7cef95215a8666.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www2.oklegislature.gov</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/call_me_hitler.html">call_me_hitler</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67eb8f75de7cef95215a8673.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/01/webminsters_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://webminsters.com/index.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67eb8f75de7cef95215a8673.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">webminsters.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-01</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/QLQ.html">MR.QLQ</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67ea8f38a0aab4318f636f20.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/31/ambiagencyadvertising_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://ambiagencyadvertising.com/cy.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67ea8f38a0aab4318f636f20.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">ambiagencyadvertising.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-31</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/CyberJund.html">CyberJund</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67ea8ee9a0aab4318f636f15.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/31/sortedsquare_in/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://sortedsquare.in/cy.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67ea8ee9a0aab4318f636f15.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">sortedsquare.in</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-31</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/CyberJund.html">CyberJund</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67ea8f27a0aab4318f636f1d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/31/ceounder18_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://ceounder18.com/cy.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67ea8f27a0aab4318f636f1d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">ceounder18.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-31</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/CyberJund.html">CyberJund</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67dd16e78d63b4057b523265.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/21/envios-sembrando_opp_gub_uy/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://envios-sembrando.opp.gub.uy">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67dd16e78d63b4057b523265.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">envios-sembrando.opp.gub.uy</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-21</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/c4t.html">c4t</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67dbb0738d63b4057b52322f.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/20/taleb_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://taleb.co.il/Lies.asp">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67dbb0738d63b4057b52322f.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">taleb.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-20</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Sylhet_gang_sg.html">Sylhet gang-sg</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d93cbf8d63b4057b52319b.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/18/pn-boyolali_go_id/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.pn-boyolali.go.id/xXx.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d93cbf8d63b4057b52319b.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.pn-boyolali.go.id</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Nonsec7.html">Nonsec7</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/H4x0rUmbarelaCorp.html">H4x0rUmbarelaCorp</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d924e28d63b4057b523196.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/18/lazar-institute_org/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.lazar-institute.org/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d924e28d63b4057b523196.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.lazar-institute.org</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/CyberJund.html">CyberJund</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d97be78d63b4057b5231ab.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/18/talmi-clinic_co_il/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://talmi-clinic.co.il">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d97be78d63b4057b5231ab.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">talmi-clinic.co.il</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/CyberJund.html">CyberJund</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d9319f8d63b4057b52319a.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/18/idealitc_org_in/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://idealitc.org.in/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d9319f8d63b4057b52319a.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">idealitc.org.in</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Anonymous_71.html">Anonymous 71</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Anonymous_71.html">Anonymous 71</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d6858ef737a4fd4fc0d1ae.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/phuketresortandspa_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://phuketresortandspa.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d6858ef737a4fd4fc0d1ae.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">phuketresortandspa.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d694445158e608e2dcd307.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/organest_co_in/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://organest.co.in/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d694445158e608e2dcd307.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">organest.co.in</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Sparta.html">Mr Sparta</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Moroccan_Black_Cyber_Army.html">Moroccan Black Cyber Army</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d68578f737a4fd4fc0d1ad.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/ladypie_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://ladypie.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d68578f737a4fd4fc0d1ad.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">ladypie.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d69f04ca8ce3b8300e6660.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/vetoxhealthcare_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.vetoxhealthcare.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d69f04ca8ce3b8300e6660.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.vetoxhealthcare.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/MuslihatXploit.html">MuslihatXploit</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d68556f737a4fd4fc0d1ab.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/chalonghorsebackriding_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.chalonghorsebackriding.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d68556f737a4fd4fc0d1ab.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.chalonghorsebackriding.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d68542f737a4fd4fc0d1aa.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/bbtourtrang_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://bbtourtrang.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d68542f737a4fd4fc0d1aa.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">bbtourtrang.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d68568f737a4fd4fc0d1ac.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/benzphuket_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.benzphuket.com/DXP.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d68568f737a4fd4fc0d1ac.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.benzphuket.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d6bf031c87425acfceb659.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/lunaamanahjogja_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://lunaamanahjogja.com/anonymous/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d6bf031c87425acfceb659.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">lunaamanahjogja.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Anonymous_Afghanistan.html">Anonymous Afghanistan</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Anonymous_Afghanistan.html">Anonymous Afghanistan</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d685c0f737a4fd4fc0d1b0.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/kohtaobamboohuts_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://kohtaobamboohuts.com/DXP.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d685c0f737a4fd4fc0d1b0.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">kohtaobamboohuts.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d685a7f737a4fd4fc0d1af.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/seaandsandbeverage_co_th/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.seaandsandbeverage.co.th/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d685a7f737a4fd4fc0d1af.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.seaandsandbeverage.co.th</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/DXPLOIT.html">DXPLOIT</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d49018a572758f22812943.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/14/mrtacos_ma/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://mrtacos.ma/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d49018a572758f22812943.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">mrtacos.ma</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-14</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Jokeir_07x.html">Jokeir 07x</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d49060a572758f22812946.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/14/agc_com_bd/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://agc.com.bd/systemadminbd.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d49060a572758f22812946.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">agc.com.bd</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-14</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/systemadminbd.html">systemadminbd</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d49089a572758f22812947.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/14/kaliyluxwear_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://kaliyluxwear.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d49089a572758f22812947.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">kaliyluxwear.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-14</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Jokeir_07x.html">Jokeir 07x</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d490a1a572758f22812948.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/14/balisais_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://balisais.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d490a1a572758f22812948.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">balisais.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-14</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Jokeir_07x.html">Jokeir 07x</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d49063410bb60abd072f5d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/14/biospartel_ma/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://biospartel.ma/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d49063410bb60abd072f5d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">biospartel.ma</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-14</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Jokeir_07x.html">Jokeir 07x</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d4902aa572758f22812944.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/14/moroccanfloors_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://moroccanfloors.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d4902aa572758f22812944.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">moroccanfloors.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-14</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Jokeir_07x.html">Jokeir 07x</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d4900c594cf42564b8b175.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/14/cliklin_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://cliklin.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d4900c594cf42564b8b175.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">cliklin.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-14</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Jokeir_07x.html">Jokeir 07x</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d27b96b5407022c84371b1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/13/tamega_es/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://www.tamega.es/wp-admin/index.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d27b96b5407022c84371b1.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.tamega.es</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-13</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/Sam_Lamer.html">Sam Lamer</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d2854bd3529095e41f52c1.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/13/taniafashion_xyz/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://taniafashion.xyz/wp-content/about.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d2854bd3529095e41f52c1.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">taniafashion.xyz</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-13</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/ELANG_XPLOIT.html">MR ELANG XPLOIT</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/Cyber_Team_Indonesia.html">Cyber Team Indonesia</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d0a73f127d67bd9b1f7631.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/11/kraft-pharma_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://kraft-pharma.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d0a73f127d67bd9b1f7631.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">kraft-pharma.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-11</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/KAL_EGY_319.html">KAL EGY 319</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col defacement-card">
+            <div class="card h-100">
+              <a href="defacement_details/67d0a755127d67bd9b1f7632.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/11/musclegoldnutrition_com/screenshot.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://musclegoldnutrition.com/">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/67d0a755127d67bd9b1f7632.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">musclegoldnutrition.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-11</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/KAL_EGY_319.html">KAL EGY 319</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy;  Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: -4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".defacement-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">medusa</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">446</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-05-01 14:54:27.996659</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+
+
+    
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by medusa</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/68139aa5fb346d13514ca45d.html">
+                <img src="https://images.ransomware.live/victims/78f40b47a1c406d2abb025adb9f76ac3.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Weil Construction, Inc">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Weil Construction, Inc</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 14:54:27.996659</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/680e7ed79d4f7b8d66dd236f.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Matthews Law">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Matthews Law</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-27 17:10:46.528476</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/680e7ed69d4f7b8d66dd236e.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Phelps United">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Phelps United</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-27 17:10:10.108903</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/680e7ed69d4f7b8d66dd236d.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Conditioned Air Corporation">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Conditioned Air Corporation</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-27 17:09:34.268515</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/680e7ed69d4f7b8d66dd236c.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Appalachian Regional Commission">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Appalachian Regional Commission</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-27 17:08:59.153255</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/6804a9a97e4f646f1fa56a79.html">
+                <img src="https://images.ransomware.live/victims/3bdae535eec2aee5c35673fc60f520ec.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Lithium Americas Nevada">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Lithium Americas Nevada</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-20 07:21:59.606026</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Energy</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/6804a9a87e4f646f1fa56a78.html">
+                <img src="https://images.ransomware.live/victims/8be17ff1fb2fb91813353a13c048cede.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="MRC de Maskinongé - district">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">MRC de Maskinongé - district</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-20 07:20:50.553033</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/ca.png"
+                        alt="CA flag">
+                    CA
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67ff720503df85be2aa4a038.html">
+                <img src="https://images.ransomware.live/victims/bc2b956896d1fa91308993cb466feb6e.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Pawnee Heights Unified School District">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Pawnee Heights Unified School District</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-16 08:21:09.011310</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Education</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67fc2648030364d3230f8f41.html">
+                <img src="https://images.ransomware.live/victims/6295c4fbf693c92a6af061edcaf9a411.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="McFarland Commercial Insurance Services">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">McFarland Commercial Insurance Services</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-13 20:17:25.501447</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67fc2647030364d3230f8f40.html">
+                <img src="https://images.ransomware.live/victims/15d5b6692affd87764a02edd94b95795.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Bridgebank Limited">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Bridgebank Limited</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-13 20:16:14.403538</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/gb.png"
+                        alt="GB flag">
+                    GB
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - medusa (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-01-09 15:58:30.572376", 1], ["2025-01-14 22:03:31.330523", 1], ["2025-01-14 22:03:37.037272", 1], ["2025-01-14 22:06:01.618178", 1], ["2025-01-15 22:49:26.695274", 1], ["2025-01-20 09:16:58.185138", 1], ["2025-01-20 09:18:58.185138", 1], ["2025-01-24 07:45:43.689884", 1], ["2025-01-24 07:45:48.668655", 1], ["2025-01-24 07:45:53.930325", 1], ["2025-01-24 07:46:00.382435", 1], ["2025-01-29 08:49:31.817288", 1], ["2025-01-29 08:49:43.084222", 1], ["2025-01-29 08:49:50.724036", 1], ["2025-01-29 08:49:59.544288", 1], ["2025-01-29 08:50:08.079736", 1], ["2025-01-29 08:50:15.735802", 1], ["2025-01-29 08:50:23.877192", 1], ["2025-01-31 18:44:06.024523", 1], ["2025-01-31 18:44:15.996462", 1], ["2025-01-31 18:46:15.160886", 2], ["2025-01-31 18:47:29.745021", 1], ["2025-02-10 14:14:39.275484", 1], ["2025-02-10 14:16:17.434180", 1], ["2025-02-10 14:17:25.809468", 1], ["2025-02-10 14:18:36.386152", 1], ["2025-02-10 15:55:31.346523", 1], ["2025-02-10 15:56:39.459324", 1], ["2025-02-10 15:57:48.200714", 1], ["2025-02-10 15:58:56.462336", 1], ["2025-02-10 16:00:08.660884", 1], ["2025-02-10 16:01:33.413675", 1], ["2025-02-10 16:02:41.565715", 1], ["2025-02-10 16:03:49.637725", 1], ["2025-02-11 15:50:26.468764", 1], ["2025-02-11 15:51:38.072474", 1], ["2025-02-11 15:52:51.008921", 1], ["2025-02-11 15:54:02.205778", 1], ["2025-02-12 23:39:07.327230", 1], ["2025-02-12 23:40:21.957742", 1], ["2025-02-12 23:41:34.266231", 1], ["2025-02-20 10:03:09.653455", 1], ["2025-02-20 10:04:17.475697", 1], ["2025-02-20 10:05:28.920277", 1], ["2025-02-22 17:48:41.606935", 1], ["2025-02-22 17:50:59.655068", 1], ["2025-02-22 17:54:22.431788", 1], ["2025-02-22 17:55:30.560071", 1], ["2025-02-25 19:56:46.184561", 1], ["2025-02-25 19:57:53.929064", 1], ["2025-02-25 19:59:05.958604", 1], ["2025-02-25 20:00:14.373070", 1], ["2025-02-25 20:01:30.919116", 1], ["2025-03-01 20:27:47.436338", 1], ["2025-03-01 20:29:01.183500", 1], ["2025-03-02 17:43:12.001532", 1], ["2025-03-09 20:21:05.832442", 1], ["2025-03-09 20:21:39.321551", 1], ["2025-03-14 09:30:03.387953", 1], ["2025-03-14 09:31:16.597091", 1], ["2025-03-16 20:30:36.270222", 1], ["2025-03-16 20:31:50.245961", 1], ["2025-03-20 16:08:44.731842", 1], ["2025-03-20 16:09:54.357299", 1], ["2025-03-20 16:11:02.959045", 1], ["2025-03-20 16:12:14.975972", 1], ["2025-03-20 16:13:31.656057", 1], ["2025-03-22 18:39:40.070842", 1], ["2025-03-23 09:22:06.838010", 1], ["2025-03-29 16:32:54.165909", 1], ["2025-03-29 16:34:48.689496", 1], ["2025-03-29 16:36:02.042912", 1], ["2025-04-06 22:10:33.174922", 1], ["2025-04-06 22:11:47.709475", 1], ["2025-04-13 20:12:36.526487", 1], ["2025-04-13 20:13:47.313536", 1], ["2025-04-13 20:15:02.171422", 1], ["2025-04-13 20:16:14.403538", 1], ["2025-04-13 20:17:25.501447", 1], ["2025-04-16 08:21:09.011310", 1], ["2025-04-20 07:20:50.553033", 1], ["2025-04-20 07:21:59.606026", 1], ["2025-04-27 17:08:59.153255", 1], ["2025-04-27 17:09:34.268515", 1], ["2025-04-27 17:10:10.108903", 1], ["2025-04-27 17:10:46.528476", 1], ["2025-05-01 14:54:27.996659", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>

@@ -146,7 +146,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -155,10 +155,9 @@
       View country‑specific dashboard:
     </label>
 
-    <select id="countris_list"
-      name="countris_list"
+    <select id="countrySelect"
+      name="countrySelect"
       class="country-select"
-      style="width:100%"
     >
       <option></option>
     </select>
@@ -1211,8 +1210,8 @@ We combine sel…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 09:02:08-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 09:05:02-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
@@ -1245,9 +1244,9 @@ We combine sel…
       
       {value: 1, name: "TheZero" },
       
-      {value: 1, name: "Dr3n4k" },
+      {value: 1, name: "Team Anon Force" },
       
-      {value: 1, name: "Team Anon Force" }
+      {value: 1, name: "Dr3n4k" }
       
     ];
     var optionRansomwareGroups = {
@@ -1473,7 +1472,7 @@ We combine sel…
       });
 
       function initCountrySelect() {
-        $("#countris_list").each(function () {
+        $("#countrySelect").each(function () {
           const $sel = $(this);
 
           // skip if we already built the list for this element

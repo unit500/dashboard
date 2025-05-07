@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qxbox8417h");
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 DDoS Attacks</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all DDoS cards; they will be revealed via JS */
+    .ddos-card {
+      display: none;
+    }
+    .flag {
+      width: 32px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for DDoS Attacks -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success"> Attacks</h1>
+      <p class="lead fst-italic">Details about the latest verified DDoS  attacks</p>
+    </section>
+    
+
+    <!-- Latest DDoS Cards Section -->
+    <section>
+      <!-- <h2 class="section-title">Latest Verified DDoS Attacks</h2> -->
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ddos-cards">
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68187b4c548130320553aec9.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.eastleigh.gov.uk/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.eastleigh.gov.uk</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6818798d548130320553aeb1.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.leedsliveitloveit.com/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.leedsliveitloveit.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6816fcf2a110117b8ad958ff.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://congan.danang.gov.vn/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">congan.danang.gov.vn</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Electronic Army Special Forces</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68161be4a2574015d3c8cfe3.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://dpc.org.ae/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">dpc.org.ae</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68161bb4a2574015d3c8cfe2.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.sgb.ae/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.sgb.ae</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68161b53a2574015d3c8cfda.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.admn.ae/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.admn.ae</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68161b1ca2574015d3c8cfd9.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.mediaoffice.abudhabi/ar/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.mediaoffice.abudhabi</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68161aeca2574015d3c8cfd8.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.ajmanmedia.ae/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.ajmanmedia.ae</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-03</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68132d681db97ce5a83bb757.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/01/corendon_nl/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.corendon.nl/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.corendon.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-01</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68132d3b1db97ce5a83bb756.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/01/aisairlines_com/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://aisairlines.com/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">aisairlines.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-01</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68132d1e1db97ce5a83bb755.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/01/webshop_allgobus_nl/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://webshop.allgobus.nl/nl_NL/webshop">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">webshop.allgobus.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-01</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68122f9f4c3d89641d77635b.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/30/narp_ua/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://narp.ua/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">narp.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68122f6c4c3d89641d77635a.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/30/antonov_com/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.antonov.com/en">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.antonov.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68122f294c3d89641d776351.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/30/arsenalcdb_com_ua/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.arsenalcdb.com.ua/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.arsenalcdb.com.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-30</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/681097c02e39c10b430e1796.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://mapi.vib.com.vn/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">mapi.vib.com.vn</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                
+                  <p class="card-text"><strong>Group:</strong> ANON-KH</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/681096cf2e39c10b430e1795.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.litef.de/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.litef.de</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                
+                  <p class="card-text"><strong>Group:</strong> AnonPioneers</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/681096942e39c10b430e1794.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://ashot.co.il/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">ashot.co.il</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Electronic Army Special Forces</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/681096142e39c10b430e1793.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://kcf.vn/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">kcf.vn</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-29</p>
+                
+                  <p class="card-text"><strong>Group:</strong> ANON-KH</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f79fa5dd5662610485cf8.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/busin_com_ua/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.busin.com.ua/uk/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.busin.com.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f79da5dd5662610485cf7.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/aska-life_com_ua/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.aska-life.com.ua/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.aska-life.com.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f789e5dd5662610485cf2.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/visithaarlemmermeer_nl/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://visithaarlemmermeer.nl/agenda">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">visithaarlemmermeer.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f78645dd5662610485cf1.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/enschede_nl/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.enschede.nl/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.enschede.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f78415dd5662610485cf0.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/breda_nl/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.breda.nl/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.breda.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f78235dd5662610485cef.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/almere_nl/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.almere.nl/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.almere.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f77945dd5662610485cee.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.noord-holland.nl/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.noord-holland.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f77625dd5662610485ced.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.overijssel.nl/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.overijssel.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f756e5dd5662610485cec.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.brabant.nl/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.brabant.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680f75205dd5662610485ceb.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.provinciegroningen.nl/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.provinciegroningen.nl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/680dff99bf9d757635ab2f11.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.m-net.de/privatkunden">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.m-net.de</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-27</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6809f826383b9b118cc558d8.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.osram.de/cb/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.osram.de</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-24</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6809f6b97359ea67a9fc89e5.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://rheinfelden-semis.eu/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">rheinfelden-semis.eu</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-24</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68064d87ca37d6e625563c84.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.antonov.com/en">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.antonov.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-21</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68064d73ca37d6e625563c83.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for http://www.migremont.zp.ua/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.migremont.zp.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-21</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68064d58ca37d6e625563c82.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://narp.ua/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">narp.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-21</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68064d25ca37d6e625563c81.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for http://www.radar.net.ua/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.radar.net.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-21</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6804df6d42bad20a9d21f50d.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.politsei.ee">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.politsei.ee</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6804df5542bad20a9d21f50c.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.elisa.ee">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.elisa.ee</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6804dec84d3e6029e8f347e2.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.telia.ee/era">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.telia.ee</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6804deb04d3e6029e8f347e1.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.kuldnebors.ee/search/veesoidukid/mootorpaadid-ja-kaatrid/astra-470/search.mec?pob_post_id=94401937">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.kuldnebors.ee</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6804de964d3e6029e8f347e0.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.rik.ee/en/international/e-file">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.rik.ee</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Keymous</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6804bbb61b9c60d2da129cfa.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://ch10.co.il/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">ch10.co.il</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Arab Ghosts</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6804bae41b9c60d2da129cf9.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://zdm-przemysl.com/18/strona-glowna.html">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">zdm-przemysl.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68049f661b9c60d2da129cf6.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://masht.rks-gov.net/en/home/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">masht.rks-gov.net</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Al Ahad</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68049f341b9c60d2da129cf5.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://kec-ks.org/en/home/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">kec-ks.org</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Al Ahad</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68049f0d1b9c60d2da129cf4.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://akreditimi.rks-gov.net/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">akreditimi.rks-gov.net</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Al Ahad</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68048e151b9c60d2da129ceb.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.quan5.hochiminhcity.gov.vn/default.aspx">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.quan5.hochiminhcity.gov.vn</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Electronic Army Special Forces</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/68048cbd00ef2bfec72bf6f3.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://quanuy1hcm.org.vn">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">quanuy1hcm.org.vn</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Electronic Army Special Forces</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6802a74171f0a9ac17e81023.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://uaic.com.ua/ua/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">uaic.com.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-18</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6802a551924edc49b09b4ab8.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://sgtas.ua/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">sgtas.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-18</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6802a53c924edc49b09b4ab7.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://respectins.com/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">respectins.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-18</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/6800945795c79cfdd699d858.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://breachforums.st/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">breachforums.st</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Dark Storm Team</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67ff74e395c79cfdd699d82d.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.beyond.pl/en/">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.beyond.pl</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                
+                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67ff517395c79cfdd699d82b.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.kalyanjanata.co.in">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.kalyanjanata.co.in</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67ff515995c79cfdd699d82a.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://pravarabank.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">pravarabank.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67ff512a95c79cfdd699d829.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.rbi.org.in">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.rbi.org.in</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67ff50d695c79cfdd699d827.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.khamgaonbank.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.khamgaonbank.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67fdf03770c2661736d9460c.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.vividservices.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.vividservices.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-15</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67fdf00870c2661736d9460b.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.southerncomfortservices.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.southerncomfortservices.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-15</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67fdefd570c2661736d9460a.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.innovation.us">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.innovation.us</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-15</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67fdefa170c2661736d94609.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.campbellremodeling.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.campbellremodeling.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-15</p>
+                
+                  <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreDdosButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy;  Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: -4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for DDoS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ddos-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreDdosButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreDdosButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>
