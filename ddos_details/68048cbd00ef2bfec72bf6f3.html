@@ -27,35 +27,104 @@
       display: block;
       margin: 0 auto;
     }
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
   </style>
 </head>
 <body class="bg-light">
   <!-- Common Header -->
   <header class="mb-4">
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
-      </div>
-    </nav>
-    <!-- Offcanvas Menu -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="nav flex-column">
-          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
-          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
-          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
-          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
     </div>
-  </header>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
 
   <div class="container my-4">
     <!-- Back Button -->
@@ -120,7 +189,7 @@
       <!-- Left Column: Screenshot/Thumbnail -->
       <div class="col-md-4 mb-3">
         
-          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+          <img src="" alt="Default DDoS Image" class="details-img">
         
       </div>
       <!-- Right Column: Details Table -->
@@ -145,11 +214,8 @@
               
             
               
-                <tr>
-                  <th>Actor name</th>
-                  <td></td>
-                </tr>
-              
+                  
+                
             
               
                 <tr>
@@ -167,24 +233,15 @@
               
             
               
-                <tr>
-                  <th>Targeted website[]</th>
-                  <td>https://quanuy1hcm.org.vn</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Check host[]</th>
-                  <td>252477bcka56</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Check it[]</th>
-                  <td>on</td>
-                </tr>
+                
               
             
               
@@ -195,10 +252,7 @@
               
             
               
-                <tr>
-                  <th>G-recaptcha-response</th>
-                  <td>03AFcWeA6rZibUBQdOni9M_3yKDBZBvb9wK32bmYW7cshnKkoPl0YJtSXPBLe4WgiYggoD6ahVghYk8tdzOm9UYxa2DdTO_075bDDFyZ5KSY5NT9F85kX-pHk3bRrL13vCE_Yz6tF9_kTPx_yOVl140extD0kLdNEF2u893p_tpQcyjk1QKmq-DyM8Uj_STBvxxGVFJFKyVIJ0OxANumioWrxEksS6ukFn3zcN4YudDqkxkttYIKoCzbBVHoymaj-kXLKCoS-n0p8Ycnmo_MXwlAgMFHlkHpbNmisDsXTJ9oIG3ivU02jQwFb85NFSg5WvAi6H-ZGGTNY3MSZCCcfn7CFalme_00sSC7HnpvrV6vU5y4Yj-I3F0xdH8kjYNLRtrXLtKv-gPCIwIODRThqu0RshKY0liUDjfoLv3F3RwQdA6CWsGI-TWUHjQnTSeTZ4dyS7ayaU_KZqxoxvuF9I9YBobpp2H8dCs7Xvylq5xsge2H8II3XsoUkbv68Y0AZv3_508iLPxAE4z91W7RIEd1poJ3ucoX9wOJDCfGm37mWZ6Dcbirsy8R0quYZwYpDgtYNQEHYlz3_1yT04VX0FL3Imr_ddE7O3K6YGYjht5SyWfxWcgchRVPelv32iexlalWHA5b3Hpa40xHi3ikE2-Zh8qeFVT64gMD0nhCEq5tys5vMp5Um7GSNJRsYCdMYQ_xn5t0BR264jseM67oW0XlpvO8wK2XqXwOJDYfqxYOdFpHsw3DiAX8_uodwgD6BzVpFotCUFs56E4cWTRFtot1jLvoaVMeiF_xHd2WhSJiZk7bsK1YQ2fhhqCIKdPDwmh7zn_kCkeSrACY0ANz5WyvyGY4RSBFloLFmZO5saGTecq_SQOBQ57pIeZ6hQtDsf3R-qkJgkps9ydbYsRI8rW3VNfUbffsLgkTmL7cZquqzmEg_M73jhKxVedKNgwgrXi204W1VeYOpufFGJNg5W8NtUiBA_nJAFyse45wcMp9Y2OoPnZsOpBL1TULNzqayZXfzSGv5YP9mtBR2JojE2OeAWNB2tGk5a-ZjnTw3HJfazY60AeptSDDUHZK6_lTso2MOxUQqTVLmdakBjiG7eIcFhShrQJE_fLvh7VQaDlmKTxRqdA5t3-dTn9tE0EJBjlGtWRxJ2jEa3XVc8k1My8KpvsE_9ghKyPLsvYazQTmZ45U9Nv9DV6SfSMrTt_7AKZFQHc8O57yaoMnhqpt6dkJn6KMAmo-m5V54jmYuF9Tjeb252yYVzlHQOibILoDdqxt7A_LjbKioC1Axn24cCLYM56SpjDj-RM6FAbbWXVVHwWCghNrFfvgdAGDS3fof7JH6nJkUJEqFiSyHB6_GKP0OsH28_MUDbTeJ93Y-yGBovyV091jpOtR4twAFPjcOzuRDbR_8iIVsLtZ4qO39Dfq8slZlGt_xkrJJKunCuNiH9WJGjArbi0DaKd8mV_cmNjeqYNHZCADhSKUl4z0LTqOG4KHykrxBpYs53JunRmn4T5QPV4s9WZdugLUhH6SCnsT8Or-DyVbqIwACzeX3qD55RoGDF90035I6MD90pIwY8JTOvfjyhWI47FMSzYuwb_6oEdMA-kevG79OkSQIZS2aoKMqEeXWKY22fe3rz3E6RG-2jxS3XD_hSAkruGPAoMcN9CJUvjxW9WHpSA1hIU9evZ63c9Ur_9L3n7wivhRbODNPq2qmRfUCVrvqmIWbrIq-DHKOaJG8LI2u1sp8VDT6tWZu38Na0_LUOVfp6TK9DtVcrpDBtKCwiQOzGQZRF4QI_9GvaeFacaH8BZD-Vll2yaOO0jnrooJcIPyQay3USXybgsvG5dMnex6wmy-PKv1vpltScqrNwmf-oT9yX4riKHpYoUyCjAqMfshvtsBBn5N5lNUV7SCwcaG6QCCzs9yB6WrPAjdtgNivF6o46YrjZKKP2tJInsGr1t6sCL9v-L-Vr-t_rDU5zyQikqQ3Kjv3oolIdflKVexJiAfiI1I7URZAdUZNEuBq-bGCinwKW2ny8xmwCzVW7vo8ATeAtuKyTlWdM91wU1L2Fwrrwx2EyvjiydkGy0E4IL1zRROtOEts27fCFiCssyhO5R2a-mj9Okwt93Zjo90e791vJbDQgv-i1N-0t-gMRpjUCnU1kAOiNseYizlHOysYueLhy12SdZftoQC6qQNbouPnQBKyKUTYPIDb3BFnbby01dN3cUH5-stLlFoggXAkYJJJlnNFks03AS0M9diNqUzJhIB2b9sN2B33gizijuuhq0rxXQeM4q3LN2kSJ8ESKwkTAjHWHoYdKJAp0Oac3OJ2ucfC6gI6GPyIaLDD_y1ArGZHOEG6SWdAGu8k</td>
-                </tr>
+                
               
             
               
@@ -215,7 +269,7 @@
                     <a href="https://check-host.net/check-report/252477bcka56" target="_blank">252477bcka56</a>
                   </td>
                 </tr>
-              
+                
             
               
                 <tr>
@@ -232,11 +286,16 @@
               
             
               
-                <tr>
-                  <th>Attacked country</th>
-                  <td>VN</td>
-                </tr>
-              
+                  <tr>
+                    <th>Attacked country</th>
+                    <td>
+                      <img src="https://flagcdn.com/32x24/vn.png"
+                          class="me-1"
+                          alt="VN flag">
+                      VN
+                    </td>
+                  </tr>
+                
             
               
                 <tr>
@@ -257,24 +316,41 @@
               
             
               
-                <tr>
-                  <th>Mirror</th>
-                  <td>/archive/verified/2025/04/20/quanuy1hcm_org_vn</td>
-                </tr>
+                  <tr>
+                    <th>Github Mirror</th>
+                    <td>
+                        /archive/verified/2025/04/20/quanuy1hcm_org_vn
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Technical Report</th>
+                    <td>
+                      <a href="https://github.com/unit500/ddos/tree/main//archive/verified/2025/04/20/quanuy1hcm_org_vn"
+                        target="_blank">
+                        https://github.com/unit500/ddos/tree/main//archive/verified/2025/04/20/quanuy1hcm_org_vn
+                      </a>
+                    </td>
+                  </tr>
               
             
               
-                <tr>
-                  <th>Received at</th>
-                  <td>2025-04-20 05:57:17.284000</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Announced</th>
-                  <td>False</td>
-                </tr>
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
               
             
           </tbody>
@@ -284,9 +360,18 @@
   </div>
   
   <!-- Footer -->
-  <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-04-20 05:57:42</p>
-  </footer>
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy;  Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: -4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+  </div>
+</footer>
+
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
