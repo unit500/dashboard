@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      height: 40px;
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px 0;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,48 +188,40 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/680a234987d22615702cb3e0.html">drop.diogogl.com</a>, 
-        
-          <a href="defacement_details/67eb8acba0aab4318f636f33.html">bloo.pt</a>, 
-        
-          <a href="defacement_details/67d48af808bb9ca580b0600f.html">associados.advid.pt</a>, 
-        
-          <a href="defacement_details/67cd3af721aa597efcf3669c.html">epicteam.pt</a>, 
-        
-          <a href="defacement_details/67ca8bb9f46fc0beba8473f2.html">templates.pt</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/681935098a876d7ac2732c0c.html">valedolobo.com</a>, 
-        
-          <a href="ransom_details/680f8a270fa4cc43791b6801.html">NewHotel cloud</a>, 
-        
-          <a href="ransom_details/680bdbd7443714fe4f8c0dca.html">mardearhotels.com</a>, 
-        
-          <a href="ransom_details/68025b10461fac577d59ffb2.html">www.globalmediagroup.pt</a>, 
-        
-          <a href="ransom_details/67fd3125701af46108d70cb9.html">Agricola Da Quinta De Corona</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/680a234987d22615702cb3e0.html">drop.diogogl.com</a>, 
+          
+            <a href="defacement_details/67eb8acba0aab4318f636f33.html">bloo.pt</a>, 
+          
+            <a href="defacement_details/67d48af808bb9ca580b0600f.html">associados.advid.pt</a>, 
+          
+            <a href="defacement_details/67cd3af721aa597efcf3669c.html">epicteam.pt</a>, 
+          
+            <a href="defacement_details/67ca8bb9f46fc0beba8473f2.html">templates.pt</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/681935098a876d7ac2732c0c.html">valedolobo.com</a>, 
+          
+            <a href="ransom_details/680f8a270fa4cc43791b6801.html">NewHotel cloud</a>, 
+          
+            <a href="ransom_details/680bdbd7443714fe4f8c0dca.html">mardearhotels.com</a>, 
+          
+            <a href="ransom_details/68025b10461fac577d59ffb2.html">www.globalmediagroup.pt</a>, 
+          
+            <a href="ransom_details/67fd3125701af46108d70cb9.html">Agricola Da Quinta De Corona</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
-  
-  <script>
-    $(document).ready(function(){
-      $('#ticker').easyTicker({
-        direction: 'up',
-        interval: 3000,
-        height: 'auto'
-      });
-    });
-  </script>
 
   <!-- Cards Section -->
   <div class="container mb-4">
@@ -320,8 +311,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:42:48-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:53:37-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
   
@@ -347,13 +338,13 @@
       
       {value: 2, name: "CyberTeam" },
       
-      {value: 1, name: "./KeyzNet" },
+      {value: 1, name: "13CHMOD37" },
       
-      {value: 1, name: "Mr.Rm19" },
+      {value: 1, name: "DXPLOIT" },
       
       {value: 1, name: "omgsmok" },
       
-      {value: 1, name: "13CHMOD37" }
+      {value: 1, name: "./KeyzNet" }
       
     ];
     var optionRansomwareGroups = {
