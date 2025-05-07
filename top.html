@@ -149,6 +149,7 @@
       <select id="countrySelectTop"
         name="countrySelectTop"
         class="form-select d-inline-block w-auto"
+        style="width:40%"
       >
         <option></option>
       </select>
@@ -285,8 +286,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:06:53-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:08:52-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
@@ -365,9 +366,9 @@
     
       dataDefacementGroups.push({value: 10, name: "DeathNote Hackers"});
     
-      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
-    
       dataDefacementGroups.push({value: 9, name: "Iran"});
+    
+      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
     
       dataDefacementGroups.push({value: 9, name: "Turkhacks.com"});
     
@@ -431,7 +432,7 @@
       
         {name: "pakistan", value: 2 },
       
-        {name: "indonesia", value: 1 }
+        {name: "brazil", value: 1 }
       
     ];
     var sourceCountryFlags = sourceAttackCountries.map(function(item){
@@ -455,29 +456,38 @@
 
 
   <script>
-    // 1) load country list…
     loadCountryData().then(data => {
-      // 2) build options + activate Select2
-      const $sel = $('#countrySelectTop')
-        .empty()
-        .append('<option></option>')   // placeholder
-        .select2({
-          data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
-          placeholder: "Select a country",
-          allowClear: true,
-          templateResult: formatCountry,
-          templateSelection: c => c.text
-        });
-    
-      // 3) hook navigation once
-      $sel.on('select2:select select2:clear', function (e) {
+      const $sel = $('#countrySelectTop');
+
+      $sel.select2({
+        data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
+        placeholder: "Select a country",
+        allowClear: true,
+        width: 'resolve',
+        templateResult: formatCountry,
+        templateSelection: formatCountry // show flag+name even on selection
+      });
+
+      // route on change / clear:
+      $sel.on('select2:select select2:clear', () => {
         const code = $sel.val();
         window.location.href = code
           ? `top_${code}.html`
           : "top.html";
       });
     });
-    </script>
+
+    function formatCountry(c) {
+      if (!c.id) return c.text;
+      return $(
+        '<span><img src="https://flagcdn.com/16x12/' +
+          c.id +
+          '.png" class="me-1" /> ' +
+          c.text +
+          "</span>"
+      );
+    }
+  </script>
 
 </body>
 </html>
