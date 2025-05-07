@@ -39,35 +39,38 @@
       margin-bottom: 1rem;
     }
     .ticker-wrapper {
-      overflow: hidden;
       position: relative;
-      background: #fff;       /* or whatever your bg is */
+      overflow: hidden;
+      background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      white-space: nowrap;
     }
 
     .ticker-list {
-      display: inline-flex;    /* lay items out in a row */
+      position: absolute;        /* take it out of flow so it can slide across */
+      top: 0;
+      left: 0;
+      display: inline-flex;
       list-style: none;
       margin: 0;
       padding: 0;
+
+      /* animate from just off the right edge to just off the left */
       animation: scroll-left 20s linear infinite;
+      will-change: transform;
     }
 
     .ticker-list li {
-      padding: 0 2rem;         /* spacing between segments */
-      display: inline-block;
+      padding: 0 2rem;
       white-space: nowrap;
     }
 
-    /* Keyframes: start fully right, end fully left */
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);
+        transform: translateX(100%);   /* start 100% of its own width to the right */
       }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(-100%);  /* end 100% of its own width to the left */
       }
     }
   </style>
@@ -184,7 +187,6 @@
           <a href="ransom_details/678fdf13c4f2181a71270062.html">vitait.com</a>
         
       </li>
-      <!-- you can duplicate these <li>s if you want the loop to feel continuous -->
     </ul>
   </div>
   
@@ -276,8 +278,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:32:47-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:36:27-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
