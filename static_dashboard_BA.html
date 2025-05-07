@@ -146,7 +146,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
+    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -155,10 +155,9 @@
       View country‑specific dashboard:
     </label>
 
-    <select id="countris_list"
-      name="countris_list"
+    <select id="countrySelect"
+      name="countrySelect"
       class="country-select"
-      style="width:100%"
     >
       <option></option>
     </select>
@@ -873,8 +872,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 09:02:37-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 09:05:24-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -1126,7 +1125,7 @@
       });
 
       function initCountrySelect() {
-        $("#countris_list").each(function () {
+        $("#countrySelect").each(function () {
           const $sel = $(this);
 
           // skip if we already built the list for this element
