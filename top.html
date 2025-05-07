@@ -189,23 +189,14 @@
     
     <div class="container mb-4">
       <ul class="nav nav-tabs justify-content-center" id="statsTabs" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="ransom-tab" data-bs-toggle="tab" data-bs-target="#ransom"
-                  type="button" role="tab" aria-controls="ransom" aria-selected="true">
-            Ransoms
-          </button>
+        <li class="nav-item">
+          <button class="nav-link active" id="ransom-tab"    data-bs-toggle="tab" data-bs-target="#ransom"  type="button">Ransoms</button>
         </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="ddos-tab" data-bs-toggle="tab" data-bs-target="#ddos"
-                  type="button" role="tab" aria-controls="ddos" aria-selected="false">
-            DDoS
-          </button>
+        <li class="nav-item">
+          <button class="nav-link"        id="ddos-tab"      data-bs-toggle="tab" data-bs-target="#ddos"     type="button">DDoS</button>
         </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="deface-tab" data-bs-toggle="tab" data-bs-target="#deface"
-                  type="button" role="tab" aria-controls="deface" aria-selected="false">
-            Defacements
-          </button>
+        <li class="nav-item">
+          <button class="nav-link"        id="deface-tab"    data-bs-toggle="tab" data-bs-target="#deface"   type="button">Defacements</button>
         </li>
       </ul>
     </div>
@@ -352,41 +343,6 @@
         </div>
       </div>
     </div>
-
-
-  
-
-    <!-- DDoS Pane -->
-    <!-- <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
-      <div class="container row mb-4">
-        <div class="col-md-4"><div id="chartDdosTopSource" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartDdosTopTarget" class="chart-container"></div></div>
-      </div>
-      <div class="container row mb-4">
-        <div class="col-md-4"><div id="chartDdosTopGroups" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartDdosTopAttackers" class="chart-container"></div></div>
-      </div>
-      <div class="container row mb-4">
-        <div class="col-md-4"><div id="chartDdosByHour" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartDdosByWeekday" class="chart-container"></div></div>
-      </div>
-      <div class="container mb-4">
-        <div class="col-12"><div id="heatmapDdosCalendar" class="chart-container" style="height:200px"></div></div>
-      </div>
-    </div> -->
-
-    <!-- Defacements Pane -->
-    <!-- <div class="tab-pane fade" id="deface" role="tabpanel" aria-labelledby="deface-tab">
-      <div class="row gy-4">
-        <div class="col-md-4"><div id="chartDefaceTopSource" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartDefaceTopTarget" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartDefaceTopGroups" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartDefaceTopAttackers" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartDefaceByHour" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartDefaceByWeekday" class="chart-container"></div></div>
-        <div class="col-12"><div id="heatmapDefaceCalendar" class="chart-container" style="height:200px"></div></div>
-      </div>
-    </div> -->
   </div>
 
   
@@ -398,8 +354,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 14:50:56-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 15:00:45-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
   
@@ -452,13 +408,13 @@
       
         { value: 3, name: "malaysiaairports.com.my/en" },
       
-        { value: 2, name: "www.telecontrolspa.it" },
+        { value: 2, name: "silocaf.com" },
       
-        { value: 2, name: "www.monaghan.eu" },
+        { value: 2, name: "www.suburbancarting.com" },
       
-        { value: 2, name: "www.calmont.ca" },
+        { value: 2, name: "www.thehumanbean.com" },
       
-        { value: 2, name: "andrettikarting.com" }
+        { value: 2, name: "www.allbookcovers.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -685,7 +641,7 @@
       
         { value: 16, name: "CA" },
       
-        { value: 15, name: "US" }
+        { value: 15, name: "PL" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -760,9 +716,9 @@
       
         { value: 26, name: "9" },
       
-        { value: 23, name: "12" },
-      
         { value: 23, name: "13" },
+      
+        { value: 23, name: "12" },
       
         { value: 13, name: "5" }
       
