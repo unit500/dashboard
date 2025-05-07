@@ -262,15 +262,15 @@
 
     <!-- DDoS Pane -->
     <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
-      <div class="container mb-4">
+      <div class="container row mb-4">
         <div class="col-md-4"><div id="chartDdosTopSource" class="chart-container"></div></div>
         <div class="col-md-4"><div id="chartDdosTopTarget" class="chart-container"></div></div>
       </div>
-      <div class="container mb-4">
+      <div class="container row mb-4">
         <div class="col-md-4"><div id="chartDdosTopGroups" class="chart-container"></div></div>
         <div class="col-md-4"><div id="chartDdosTopAttackers" class="chart-container"></div></div>
       </div>
-      <div class="container mb-4">
+      <div class="container row mb-4">
         <div class="col-md-4"><div id="chartDdosByHour" class="chart-container"></div></div>
         <div class="col-md-4"><div id="chartDdosByWeekday" class="chart-container"></div></div>
       </div>
@@ -302,8 +302,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 14:27:42-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 14:29:26-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
   
@@ -356,13 +356,13 @@
       
         { value: 3, name: "malaysiaairports.com.my/en" },
       
+        { value: 2, name: "friscochamber.com" },
+      
         { value: 2, name: "klinger.it" },
       
-        { value: 2, name: "www.flocomponents.com" },
+        { value: 2, name: "www.waferworks.com" },
       
-        { value: 2, name: "www.destinationtoronto.com" },
-      
-        { value: 2, name: "friscochamber.com" }
+        { value: 2, name: "www.destinationtoronto.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -385,9 +385,9 @@
       
         { value: 106, name: "qilin" },
       
-        { value: 72, name: "play" },
-      
         { value: 72, name: "leakeddata" },
+      
+        { value: 72, name: "play" },
       
         { value: 57, name: "akira" },
       
@@ -594,13 +594,13 @@
     
       dataRansomTopTarget.push({value: 3, name: "malaysiaairports.com.my/en"});
     
+      dataRansomTopTarget.push({value: 2, name: "friscochamber.com"});
+    
       dataRansomTopTarget.push({value: 2, name: "klinger.it"});
     
-      dataRansomTopTarget.push({value: 2, name: "www.flocomponents.com"});
+      dataRansomTopTarget.push({value: 2, name: "www.waferworks.com"});
     
       dataRansomTopTarget.push({value: 2, name: "www.destinationtoronto.com"});
-    
-      dataRansomTopTarget.push({value: 2, name: "friscochamber.com"});
     
     var optionRansomTopTarget = {
       title: { text: 'Top 5 Ransom Target', left: 'center' },
