@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">leakeddata</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">72</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-05-06 18:25:18.544492</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+
+
+    
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by leakeddata</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2dda32026c04ded7f5e.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="langer-langer.de">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">langer-langer.de</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:25:18.544492</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/de.png"
+                        alt="DE flag">
+                    DE
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2dda32026c04ded7f5d.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="chadwickwashington.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">chadwickwashington.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:16.699064</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2dca32026c04ded7f5c.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="dominguezfirm.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dominguezfirm.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:14.083333</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2dca32026c04ded7f5b.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="usclaims.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">usclaims.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:10.931422</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2dca32026c04ded7f5a.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="dflaw.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dflaw.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:05.622164</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2dba32026c04ded7f59.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="pajcic.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">pajcic.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:01.174046</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2dba32026c04ded7f58.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="shutts.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">shutts.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:16:57.292898</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2daa32026c04ded7f57.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="fenwick.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">fenwick.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:16:54.726094</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2daa32026c04ded7f56.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="fenwick.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">fenwick.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:16:50.491657</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2daa32026c04ded7f55.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="libertytax.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">libertytax.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:16:47.759714</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - leakeddata (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-05-06 18:07:19.927247", 1], ["2025-05-06 18:07:24.963167", 1], ["2025-05-06 18:07:30.714202", 1], ["2025-05-06 18:07:35.504590", 1], ["2025-05-06 18:07:39.816250", 1], ["2025-05-06 18:07:45.281684", 1], ["2025-05-06 18:07:51.142039", 1], ["2025-05-06 18:07:55.814581", 1], ["2025-05-06 18:08:00.999305", 1], ["2025-05-06 18:12:18.697936", 1], ["2025-05-06 18:12:22.430418", 1], ["2025-05-06 18:12:26.032994", 1], ["2025-05-06 18:12:30.122025", 1], ["2025-05-06 18:12:34.588386", 1], ["2025-05-06 18:12:39.902401", 1], ["2025-05-06 18:12:44.604090", 1], ["2025-05-06 18:14:06.411143", 1], ["2025-05-06 18:14:10.471905", 1], ["2025-05-06 18:14:13.239400", 1], ["2025-05-06 18:14:17.568000", 1], ["2025-05-06 18:14:20.687681", 1], ["2025-05-06 18:14:23.451530", 1], ["2025-05-06 18:14:26.353437", 1], ["2025-05-06 18:14:29.747463", 1], ["2025-05-06 18:14:34.111356", 1], ["2025-05-06 18:14:37.395444", 1], ["2025-05-06 18:14:40.099840", 1], ["2025-05-06 18:14:43.206307", 1], ["2025-05-06 18:14:47.105040", 1], ["2025-05-06 18:14:53.081824", 1], ["2025-05-06 18:14:55.500294", 1], ["2025-05-06 18:14:59.211710", 1], ["2025-05-06 18:15:02.528685", 1], ["2025-05-06 18:15:07.165901", 1], ["2025-05-06 18:15:11.372447", 1], ["2025-05-06 18:15:13.928108", 1], ["2025-05-06 18:15:16.930165", 1], ["2025-05-06 18:15:20.638450", 1], ["2025-05-06 18:15:26.744610", 1], ["2025-05-06 18:15:30.273546", 1], ["2025-05-06 18:15:34.302854", 1], ["2025-05-06 18:15:38.425822", 1], ["2025-05-06 18:15:42.052310", 1], ["2025-05-06 18:15:46.317744", 1], ["2025-05-06 18:15:48.679245", 1], ["2025-05-06 18:15:51.660266", 1], ["2025-05-06 18:15:54.631655", 1], ["2025-05-06 18:15:57.143641", 1], ["2025-05-06 18:15:59.563838", 1], ["2025-05-06 18:16:02.387119", 1], ["2025-05-06 18:16:05.939686", 1], ["2025-05-06 18:16:10.483631", 1], ["2025-05-06 18:16:13.264992", 1], ["2025-05-06 18:16:16.457275", 1], ["2025-05-06 18:16:18.931117", 1], ["2025-05-06 18:16:23.161283", 1], ["2025-05-06 18:16:26.808287", 1], ["2025-05-06 18:16:29.805091", 1], ["2025-05-06 18:16:32.618354", 1], ["2025-05-06 18:16:35.943386", 1], ["2025-05-06 18:16:40.564359", 1], ["2025-05-06 18:16:45.268018", 1], ["2025-05-06 18:16:47.759714", 1], ["2025-05-06 18:16:50.491657", 1], ["2025-05-06 18:16:54.726094", 1], ["2025-05-06 18:16:57.292898", 1], ["2025-05-06 18:17:01.174046", 1], ["2025-05-06 18:17:05.622164", 1], ["2025-05-06 18:17:10.931422", 1], ["2025-05-06 18:17:14.083333", 1], ["2025-05-06 18:17:16.699064", 1], ["2025-05-06 18:25:18.544492", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>

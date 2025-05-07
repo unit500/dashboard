@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">lockbit3</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">2031</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-05-06 17:44:55.644044</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+
+
+    
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by lockbit3</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681aa2c1a32026c04ded7f16.html">
+                <img src="https://images.ransomware.live/victims/54de69a48e81714eea5b4009030281e7.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="ehlers-inc.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ehlers-inc.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 17:44:55.644044</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/68142748aac22d9145c2672e.html">
+                <img src="https://images.ransomware.live/victims/36defbc9000a2efe98e3cb5cef97e664.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="kll-law.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kll-law.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 23:45:47.949139</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/68142747aac22d9145c2672d.html">
+                <img src="https://images.ransomware.live/victims/99af4a39e9b35aa9d1d2a09efd4ef3c4.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="arc-com.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">arc-com.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 23:44:19.022295</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/68142746aac22d9145c2672c.html">
+                <img src="https://images.ransomware.live/victims/2c9ebb10a44bc861653bcb5b2b71fad6.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="pdcm.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">pdcm.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 23:43:10.142588</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/680633713b6f4c7682d8b915.html">
+                <img src="https://images.ransomware.live/victims/a068db8db8af1fe76f65d87682927fb1.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="tuttoperlufficio.eu">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tuttoperlufficio.eu</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-21 11:11:03.096901</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/it.png"
+                        alt="IT flag">
+                    IT
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/6800288da091942afd26f5ae.html">
+                <img src="https://images.ransomware.live/victims/edbc3cbd2e9870997d0734fd9f5cfcd1.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="aqhch.com.cn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">aqhch.com.cn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-16 21:38:58.234661</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/cn.png"
+                        alt="CN flag">
+                    CN
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67fffe93a44c7a467c305b7c.html">
+                <img src="https://images.ransomware.live/victims/3196301a42eab881deb577dd23112798.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="jackpotjunction.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jackpotjunction.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-16 18:08:01.594751</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67ffe23667ddd87429d2e183.html">
+                <img src="https://images.ransomware.live/victims/dcba38022584852f535cd74479966265.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="aeamg.org.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">aeamg.org.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-16 16:57:33.283064</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/br.png"
+                        alt="BR flag">
+                    BR
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67ffe23367ddd87429d2e182.html">
+                <img src="https://images.ransomware.live/victims/522f4394b230b98579d8c41195486584.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="ende.bo">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ende.bo</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-16 16:56:00.706582</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/bo.png"
+                        alt="BO flag">
+                    BO
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67fc09e4e7a3a425bd6fcde3.html">
+                <img src="https://images.ransomware.live/victims/88296c885c8bc8e3c4219bf9d316a0d6.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="intelliloan.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">intelliloan.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-13 18:38:59.241293</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - lockbit3 (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-01-13 13:47:20.665541", 1], ["2025-01-13 21:30:38.742351", 2], ["2025-01-13 21:32:46.682503", 2], ["2025-01-13 21:34:56.212752", 2], ["2025-01-13 21:37:03.974988", 2], ["2025-01-13 21:39:12.764944", 1], ["2025-01-13 21:41:21.520236", 2], ["2025-01-13 21:43:29.591842", 1], ["2025-01-14 12:37:19.103942", 2], ["2025-02-02 17:37:11.765523", 2], ["2025-02-02 17:38:23.142232", 1], ["2025-02-03 17:50:46.906643", 2], ["2025-02-10 16:47:11.255676", 1], ["2025-02-25 12:39:55.451638", 2], ["2025-02-25 12:41:25.168104", 2], ["2025-02-25 12:42:53.777252", 1], ["2025-02-27 12:22:02.247788", 2], ["2025-03-02 18:37:35.537180", 2], ["2025-03-18 18:38:11.335325", 1], ["2025-03-25 14:04:02.055238", 1], ["2025-03-25 14:05:32.719643", 1], ["2025-03-25 14:07:00.394025", 2], ["2025-03-31 14:38:00.995944", 1], ["2025-04-06 18:27:12.685004", 1], ["2025-04-06 18:28:20.188900", 1], ["2025-04-07 16:31:40.364412", 1], ["2025-04-08 13:12:22.527635", 1], ["2025-04-08 22:36:57.744440", 1], ["2025-04-12 14:31:10.031829", 2], ["2025-04-12 14:32:39.443433", 1], ["2025-04-13 18:38:59.241293", 1], ["2025-04-16 16:56:00.706582", 1], ["2025-04-16 16:57:33.283064", 1], ["2025-04-16 18:08:01.594751", 1], ["2025-04-16 21:38:58.234661", 1], ["2025-04-21 11:11:03.096901", 1], ["2025-05-01 23:43:10.142588", 1], ["2025-05-01 23:44:19.022295", 1], ["2025-05-01 23:45:47.949139", 1], ["2025-05-06 17:44:55.644044", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>

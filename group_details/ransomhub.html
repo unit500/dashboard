@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">ransomhub</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">898</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-03-31 23:21:00.788113</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+
+
+    
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by ransomhub</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67eb2cf763e5a275702bf03e.html">
+                <img src="https://images.ransomware.live/victims/4f89ad627334927d532f77fba8dab0c4.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="intellioan.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">intellioan.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-31 23:21:00.788113</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67eb2cf663e5a275702bf03d.html">
+                <img src="https://images.ransomware.live/victims/7759c4bb44fd00f4d9b526c642dcac96.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="jackpotjunction.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jackpotjunction.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-31 23:19:21.968112</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67eb10dbcc510bcc9e96fd44.html">
+                <img src="https://images.ransomware.live/victims/f3bf679c7a210f654bdfa7710d6e4b4d.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="europtec.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">europtec.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-31 21:40:34.981836</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/de.png"
+                        alt="DE flag">
+                    DE
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67eb10dbcc510bcc9e96fd43.html">
+                <img src="https://images.ransomware.live/victims/67aa71f4fb5c1b1e6ee908cd764b598f.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="delta-life.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">delta-life.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-31 21:38:49.040361</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/de.png"
+                        alt="DE flag">
+                    DE
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67e86dc160e4ee7a3c91f184.html">
+                <img src="https://images.ransomware.live/victims/962e3581a3ee693c7b9c3f224e7038a7.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.assisi.nl">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.assisi.nl</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-29 21:26:21.414613</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/nl.png"
+                        alt="NL flag">
+                    NL
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67e71c0903cfc86818375070.html">
+                <img src="https://images.ransomware.live/victims/d0c22988bc6701d128abc9c18952f44f.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="phaus.us&amp;phakr.com&amp;phabodysystems.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">phaus.us&amp;phakr.com&amp;phabodysystems.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-28 21:40:30.002028</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/us.png"
+                        alt="US flag">
+                    US
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67e6f1d485d1b0e570f7bab0.html">
+                <img src="https://images.ransomware.live/victims/a31a9318ac93ddf26516e54f909eb9d2.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.bassi.it">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.bassi.it</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-28 18:50:56.516144</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/it.png"
+                        alt="IT flag">
+                    IT
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67e5f4f991de0f0b4df0c38c.html">
+                <img src="https://images.ransomware.live/victims/0cfbf7eed7ee4ab28b4666ee96c6ce71.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.allmilmoe.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.allmilmoe.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-28 00:12:30.966656</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/de.png"
+                        alt="DE flag">
+                    DE
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67e5762bfddb4b2ff2cd1b68.html">
+                <img src="https://images.ransomware.live/victims/e59c68093664a9c6fc13df90cae1e311.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="brattenelectrictn.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">brattenelectrictn.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-27 15:11:21.075760</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/67e487155ca2b5cea7700c89.html">
+                <img src="https://images.ransomware.live/victims/298b0c23aa3da53bcc8d273659f70b72.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.hongthongrice.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.hongthongrice.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-26 22:27:11.597019</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/th.png"
+                        alt="TH flag">
+                    TH
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - ransomhub (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-01-01 13:43:53.181133", 1], ["2025-01-02 10:53:08.120917", 1], ["2025-01-03 13:29:23.756903", 1], ["2025-01-03 13:31:27.601346", 1], ["2025-01-06 07:36:18.349947", 1], ["2025-01-08 09:46:59.380366", 1], ["2025-01-08 09:49:11.756168", 1], ["2025-01-09 19:04:10.119152", 1], ["2025-01-09 19:06:27.808625", 1], ["2025-01-10 00:30:17.343934", 1], ["2025-01-10 00:32:35.727256", 1], ["2025-01-10 00:34:53.588651", 1], ["2025-01-10 00:37:12.732655", 1], ["2025-01-10 00:39:31.350398", 1], ["2025-01-10 00:41:52.172741", 1], ["2025-01-10 00:44:06.389175", 1], ["2025-01-10 12:27:34.762426", 1], ["2025-01-10 18:26:59.529889", 1], ["2025-01-10 19:01:33.354478", 1], ["2025-01-13 13:07:44.719579", 1], ["2025-01-13 19:16:35.323065", 1], ["2025-01-14 03:33:18.923361", 1], ["2025-01-14 15:25:39.284220", 1], ["2025-01-15 03:34:08.943268", 1], ["2025-01-15 21:38:13.410632", 1], ["2025-01-16 03:34:42.583123", 1], ["2025-01-16 03:37:02.742333", 1], ["2025-01-16 06:36:02.347642", 1], ["2025-01-21 14:57:30.426892", 1], ["2025-01-21 22:56:12.799810", 1], ["2025-01-21 22:58:25.591672", 1], ["2025-01-21 23:00:40.669059", 1], ["2025-01-21 23:02:54.567201", 1], ["2025-01-22 05:27:50.661258", 1], ["2025-01-22 14:45:50.676980", 1], ["2025-01-22 14:48:02.057309", 1], ["2025-01-22 19:04:59.541944", 1], ["2025-01-22 20:24:11.626081", 1], ["2025-01-23 09:38:15.724710", 1], ["2025-01-23 16:08:04.059388", 1], ["2025-01-23 17:47:03.275107", 1], ["2025-01-24 18:50:27.817448", 1], ["2025-01-29 20:29:17.259736", 1], ["2025-02-03 14:44:30.981990", 1], ["2025-02-03 14:46:16.806666", 1], ["2025-02-03 14:47:51.162284", 1], ["2025-02-04 06:21:57.764220", 1], ["2025-02-04 06:23:44.178669", 1], ["2025-02-04 06:25:32.139946", 1], ["2025-02-04 06:27:11.926135", 1], ["2025-02-04 15:46:08.303150", 1], ["2025-02-04 15:47:54.418124", 1], ["2025-02-04 15:49:27.668058", 1], ["2025-02-04 16:57:25.310326", 2], ["2025-02-04 19:41:35.299040", 2], ["2025-02-05 17:45:32.448139", 1], ["2025-02-06 18:46:29.964806", 1], ["2025-02-07 13:05:32.836829", 1], ["2025-02-07 16:23:13.817781", 1], ["2025-02-09 12:19:44.653774", 1], ["2025-02-09 12:21:21.414715", 1], ["2025-02-10 22:13:54.610810", 1], ["2025-02-10 22:15:30.705657", 1], ["2025-02-10 22:17:09.851515", 1], ["2025-02-10 22:18:45.836215", 1], ["2025-02-10 22:20:22.531499", 1], ["2025-02-11 00:54:31.494444", 1], ["2025-02-12 10:14:05.794490", 1], ["2025-02-12 10:15:52.660279", 1], ["2025-02-12 10:17:48.033497", 1], ["2025-02-12 14:33:28.062349", 1], ["2025-02-12 14:35:02.531512", 1], ["2025-02-12 14:36:36.216434", 1], ["2025-02-12 14:38:09.402730", 1], ["2025-02-12 14:39:42.385795", 1], ["2025-02-12 14:41:17.793280", 1], ["2025-02-12 14:42:52.410299", 1], ["2025-02-12 14:45:05.108637", 1], ["2025-02-12 14:46:42.625962", 1], ["2025-02-12 14:48:18.006269", 1], ["2025-02-12 14:49:52.227970", 1], ["2025-02-12 14:51:28.047463", 1], ["2025-02-12 14:53:03.088038", 1], ["2025-02-13 14:35:22.282208", 1], ["2025-02-13 14:37:16.117401", 1], ["2025-02-14 10:54:00.111902", 1], ["2025-02-14 16:10:33.625247", 1], ["2025-02-15 16:29:15.285731", 2], ["2025-02-15 16:30:56.054260", 2], ["2025-02-15 16:32:38.960781", 1], ["2025-02-15 16:34:21.346732", 2], ["2025-02-15 16:35:39.333416", 1], ["2025-02-15 16:37:19.203021", 2], ["2025-02-15 16:38:40.570829", 1], ["2025-02-15 16:40:27.035621", 1], ["2025-02-15 21:23:15.986816", 1], ["2025-02-17 18:28:43.515453", 1], ["2025-02-17 18:30:24.647732", 1], ["2025-02-17 21:50:10.085055", 1], ["2025-02-18 17:01:30.567924", 1], ["2025-02-18 17:04:04.239425", 2], ["2025-02-18 17:05:49.669024", 2], ["2025-02-18 17:07:43.101393", 2], ["2025-02-18 17:09:33.474734", 2], ["2025-02-19 12:34:53.974637", 1], ["2025-02-20 11:06:46.915646", 2], ["2025-02-20 11:08:43.513653", 2], ["2025-02-20 11:10:29.044660", 2], ["2025-02-20 20:02:26.580184", 1], ["2025-02-20 20:04:02.923793", 1], ["2025-02-20 20:05:38.073779", 1], ["2025-02-21 12:01:47.115495", 2], ["2025-02-21 12:03:25.764908", 1], ["2025-02-21 12:05:14.163615", 2], ["2025-02-21 15:06:18.954869", 1], ["2025-02-21 15:08:09.362898", 1], ["2025-02-21 15:10:02.056766", 1], ["2025-02-21 21:05:01.854162", 2], ["2025-02-21 21:06:53.381436", 2], ["2025-02-21 21:08:53.241490", 2], ["2025-02-21 21:10:42.654753", 1], ["2025-02-22 08:20:05.326374", 1], ["2025-02-23 17:13:34.749001", 1], ["2025-02-23 20:11:49.217234", 1], ["2025-02-24 15:35:54.565376", 1], ["2025-02-24 23:09:54.503416", 1], ["2025-02-25 18:03:54.078625", 1], ["2025-02-25 18:05:40.290455", 2], ["2025-02-25 18:07:22.489551", 2], ["2025-02-25 18:09:06.148006", 1], ["2025-02-25 18:10:51.307599", 2], ["2025-02-25 18:12:27.572225", 1], ["2025-02-25 22:42:00.883540", 1], ["2025-02-26 18:06:01.090399", 2], ["2025-02-26 18:07:56.340745", 2], ["2025-02-26 18:09:40.351581", 2], ["2025-02-26 18:11:19.152349", 1], ["2025-02-26 19:32:22.744935", 1], ["2025-02-26 22:38:50.142884", 1], ["2025-02-26 22:40:23.188089", 1], ["2025-02-27 14:57:23.923174", 1], ["2025-02-27 14:58:40.801421", 1], ["2025-02-27 22:07:29.260463", 1], ["2025-02-28 20:35:03.365248", 1], ["2025-02-28 20:36:55.305277", 1], ["2025-03-03 22:04:45.373982", 1], ["2025-03-03 22:06:43.671034", 1], ["2025-03-04 11:36:21.746929", 1], ["2025-03-04 20:08:33.098886", 1], ["2025-03-05 11:34:21.187639", 2], ["2025-03-05 11:35:55.518646", 1], ["2025-03-05 11:37:38.764440", 2], ["2025-03-05 14:34:16.799657", 2], ["2025-03-06 16:33:34.775101", 1], ["2025-03-06 16:35:19.609406", 1], ["2025-03-06 16:37:06.333802", 1], ["2025-03-06 16:38:49.750563", 2], ["2025-03-06 19:05:25.976209", 1], ["2025-03-06 19:07:09.286726", 1], ["2025-03-07 11:38:59.992421", 1], ["2025-03-07 11:40:38.941723", 1], ["2025-03-07 16:05:04.250681", 1], ["2025-03-07 22:00:52.755649", 1], ["2025-03-08 10:34:46.453945", 2], ["2025-03-08 20:28:03.791878", 1], ["2025-03-08 23:27:46.612337", 2], ["2025-03-10 14:07:18.915815", 2], ["2025-03-10 21:38:29.409758", 1], ["2025-03-12 10:26:44.956165", 2], ["2025-03-14 08:43:23.551855", 1], ["2025-03-14 08:44:35.510531", 1], ["2025-03-14 14:39:58.266238", 1], ["2025-03-14 17:39:43.705117", 1], ["2025-03-16 20:37:22.221228", 1], ["2025-03-17 17:07:14.599437", 2], ["2025-03-17 17:09:01.039220", 1], ["2025-03-17 21:14:01.735461", 1], ["2025-03-17 21:15:36.329486", 1], ["2025-03-19 17:44:08.255225", 1], ["2025-03-20 17:10:09.807759", 2], ["2025-03-20 18:48:13.569186", 1], ["2025-03-21 00:42:02.785668", 1], ["2025-03-21 18:37:18.880748", 2], ["2025-03-21 18:38:58.059125", 1], ["2025-03-21 18:40:37.741319", 2], ["2025-03-21 18:42:17.662554", 1], ["2025-03-21 18:43:53.678963", 2], ["2025-03-21 18:45:43.875603", 2], ["2025-03-21 18:47:57.796177", 1], ["2025-03-21 18:49:37.967399", 2], ["2025-03-21 18:51:35.054835", 2], ["2025-03-21 18:52:02.720546", 2], ["2025-03-21 18:53:54.089615", 1], ["2025-03-21 18:55:41.937006", 1], ["2025-03-21 18:57:25.137523", 1], ["2025-03-21 18:59:09.170501", 2], ["2025-03-21 19:00:38.474074", 1], ["2025-03-21 19:02:46.651416", 1], ["2025-03-21 19:04:36.166927", 1], ["2025-03-21 19:06:15.355507", 1], ["2025-03-21 22:04:51.255975", 1], ["2025-03-24 18:06:50.010060", 2], ["2025-03-24 20:46:52.458163", 2], ["2025-03-24 21:39:19.385368", 1], ["2025-03-24 21:40:34.178274", 1], ["2025-03-24 21:42:06.531000", 1], ["2025-03-24 21:43:41.402320", 1], ["2025-03-24 21:45:11.534642", 1], ["2025-03-24 21:46:41.901858", 1], ["2025-03-24 21:47:59.139190", 1], ["2025-03-24 21:49:35.579486", 1], ["2025-03-25 14:47:09.130052", 2], ["2025-03-25 14:49:18.471792", 2], ["2025-03-25 14:51:37.031549", 1], ["2025-03-25 14:53:19.307244", 2], ["2025-03-25 14:54:47.620466", 2], ["2025-03-25 14:56:55.036191", 2], ["2025-03-25 14:58:47.609793", 2], ["2025-03-25 15:01:19.696361", 2], ["2025-03-25 15:03:10.813244", 2], ["2025-03-26 07:16:49.536952", 1], ["2025-03-26 16:28:51.508765", 1], ["2025-03-26 22:25:19.664777", 1], ["2025-03-26 22:27:11.597019", 1], ["2025-03-27 15:11:21.075760", 1], ["2025-03-28 00:12:30.966656", 1], ["2025-03-28 18:50:56.516144", 1], ["2025-03-28 21:40:30.002028", 1], ["2025-03-29 21:26:21.414613", 1], ["2025-03-31 21:38:49.040361", 1], ["2025-03-31 21:40:34.981836", 1], ["2025-03-31 23:19:21.968112", 1], ["2025-03-31 23:21:00.788113", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>
