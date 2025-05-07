@@ -262,13 +262,19 @@
 
     <!-- DDoS Pane -->
     <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
-      <div class="row gy-4">
+      <div class="container mb-4">
         <div class="col-md-4"><div id="chartDdosTopSource" class="chart-container"></div></div>
         <div class="col-md-4"><div id="chartDdosTopTarget" class="chart-container"></div></div>
+      </div>
+      <div class="container mb-4">
         <div class="col-md-4"><div id="chartDdosTopGroups" class="chart-container"></div></div>
         <div class="col-md-4"><div id="chartDdosTopAttackers" class="chart-container"></div></div>
+      </div>
+      <div class="container mb-4">
         <div class="col-md-4"><div id="chartDdosByHour" class="chart-container"></div></div>
         <div class="col-md-4"><div id="chartDdosByWeekday" class="chart-container"></div></div>
+      </div>
+      <div class="container mb-4">
         <div class="col-12"><div id="heatmapDdosCalendar" class="chart-container" style="height:200px"></div></div>
       </div>
     </div>
@@ -296,8 +302,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 14:23:07-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 14:27:41-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -348,15 +354,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
+        { value: 1, name: "uva.edu.br" },
+      
+        { value: 1, name: "w8textil.com.br" },
+      
         { value: 1, name: "www.amazontransportes.com.br" },
       
         { value: 1, name: "ihara.com.br" },
       
-        { value: 1, name: "w8textil.com.br" },
-      
-        { value: 1, name: "bettininformatica" },
-      
-        { value: 1, name: "aeamg.org.br" }
+        { value: 1, name: "bettininformatica" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -377,15 +383,15 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 2, name: "akira" },
-      
         { value: 2, name: "nova" },
       
-        { value: 1, name: "cicada3301" },
+        { value: 2, name: "akira" },
       
-        { value: 1, name: "nightspire" },
+        { value: 1, name: "sarcoma" },
       
-        { value: 1, name: "ralord" }
+        { value: 1, name: "ralord" },
+      
+        { value: 1, name: "lockbit3" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -406,13 +412,13 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 2, name: "16" },
-      
         { value: 2, name: "13" },
+      
+        { value: 2, name: "16" },
       
         { value: 1, name: "17" },
       
-        { value: 1, name: "12" },
+        { value: 1, name: "15" },
       
         { value: 1, name: "04" }
       
@@ -538,15 +544,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [];
     
+      dataRansomTopTarget.push({value: 1, name: "uva.edu.br"});
+    
+      dataRansomTopTarget.push({value: 1, name: "w8textil.com.br"});
+    
       dataRansomTopTarget.push({value: 1, name: "www.amazontransportes.com.br"});
     
       dataRansomTopTarget.push({value: 1, name: "ihara.com.br"});
     
-      dataRansomTopTarget.push({value: 1, name: "w8textil.com.br"});
-    
       dataRansomTopTarget.push({value: 1, name: "bettininformatica"});
-    
-      dataRansomTopTarget.push({value: 1, name: "aeamg.org.br"});
     
     var optionRansomTopTarget = {
       title: { text: 'Top 5 Ransom Target', left: 'center' },
