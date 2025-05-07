@@ -150,8 +150,8 @@
         View country‑specific dashboard:
       </label> -->
   
-      <select id="countrySelect"
-        name="countrySelect"
+      <select id="countrySelectTop"
+        name="countrySelectTop"
         class="form-select d-inline-block w-auto"
       >
         <option></option>
@@ -283,8 +283,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:55:48-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:57:51-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -308,9 +308,9 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 1, name: "ejram 7rb" },
+      {value: 1, name: "Cyber Ghost" },
       
-      {value: 1, name: "Cyber Ghost" }
+      {value: 1, name: "ejram 7rb" }
       
     ];
     var optionRansomwareGroups = {
@@ -423,7 +423,7 @@
       });
 
       function initCountrySelect() {
-        $("#countrySelect").each(function () {
+        $("#countrySelectTop").each(function () {
           const $sel = $(this);
 
           // skip if we already built the list for this element
@@ -464,7 +464,7 @@
   </script>
 
   <script>
-    $('#countrySelect').on('select2:select', function (e) {
+    $('#countrySelectTop').on('select2:select', function (e) {
     const code = e.params.data.id;
     window.location.href = code
       ? `top_${code}.html`

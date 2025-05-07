@@ -150,8 +150,8 @@
         View country‑specific dashboard:
       </label> -->
   
-      <select id="countrySelect"
-        name="countrySelect"
+      <select id="countrySelectTop"
+        name="countrySelectTop"
         class="form-select d-inline-block w-auto"
       >
         <option></option>
@@ -271,7 +271,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:55:42-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:57:47-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
@@ -407,7 +407,7 @@
       });
 
       function initCountrySelect() {
-        $("#countrySelect").each(function () {
+        $("#countrySelectTop").each(function () {
           const $sel = $(this);
 
           // skip if we already built the list for this element
@@ -448,7 +448,7 @@
   </script>
 
   <script>
-    $('#countrySelect').on('select2:select', function (e) {
+    $('#countrySelectTop').on('select2:select', function (e) {
     const code = e.params.data.id;
     window.location.href = code
       ? `top_${code}.html`
