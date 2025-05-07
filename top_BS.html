@@ -149,6 +149,7 @@
       <select id="countrySelectTop"
         name="countrySelectTop"
         class="form-select d-inline-block w-auto"
+        style="width:40%"
       >
         <option></option>
       </select>
@@ -275,8 +276,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:08:15-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:10:03-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -392,7 +393,7 @@
         data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
         placeholder: "Select a country",
         allowClear: true,
-        width: 'resolve',            // ← make it use the <select>’s style width
+        width: 'resolve',
         templateResult: formatCountry,
         templateSelection: formatCountry // show flag+name even on selection
       });
