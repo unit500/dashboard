@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      height: 40px;
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px 0;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,48 +188,40 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/6812f78f383bfec94f3db7d1.html">jopes.uni.edu.pe</a>, 
-        
-          <a href="defacement_details/6806470173fca4edc2a5b351.html">evodesignstudio.in</a>, 
-        
-          <a href="defacement_details/680646ef73fca4edc2a5b34e.html">rajanandmovies.in</a>, 
-        
-          <a href="defacement_details/6806436d7bb194d9d7baafdb.html">indiandelightms.com</a>, 
-        
-          <a href="defacement_details/67f3977ea02f0b799d9b1e9f.html">casolutions-int.com</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/681aa2baa32026c04ded7f10.html">kolpa.com.pe</a>, 
-        
-          <a href="ransom_details/68142746aac22d9145c2672b.html">Government of Peru</a>, 
-        
-          <a href="ransom_details/6806c00457b714ec1832ff0d.html">Machu PicchuFoods</a>, 
-        
-          <a href="ransom_details/67dace01678a66590e7f9208.html">Machu Picchu Foods</a>, 
-        
-          <a href="ransom_details/67d40c5f18cb142224cba4b8.html">movistar.com.pe</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/6812f78f383bfec94f3db7d1.html">jopes.uni.edu.pe</a>, 
+          
+            <a href="defacement_details/6806470173fca4edc2a5b351.html">evodesignstudio.in</a>, 
+          
+            <a href="defacement_details/680646ef73fca4edc2a5b34e.html">rajanandmovies.in</a>, 
+          
+            <a href="defacement_details/6806436d7bb194d9d7baafdb.html">indiandelightms.com</a>, 
+          
+            <a href="defacement_details/67f3977ea02f0b799d9b1e9f.html">casolutions-int.com</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/681aa2baa32026c04ded7f10.html">kolpa.com.pe</a>, 
+          
+            <a href="ransom_details/68142746aac22d9145c2672b.html">Government of Peru</a>, 
+          
+            <a href="ransom_details/6806c00457b714ec1832ff0d.html">Machu PicchuFoods</a>, 
+          
+            <a href="ransom_details/67dace01678a66590e7f9208.html">Machu Picchu Foods</a>, 
+          
+            <a href="ransom_details/67d40c5f18cb142224cba4b8.html">movistar.com.pe</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
-  
-  <script>
-    $(document).ready(function(){
-      $('#ticker').easyTicker({
-        direction: 'up',
-        interval: 3000,
-        height: 'auto'
-      });
-    });
-  </script>
 
   <!-- Cards Section -->
   <div class="container mb-4">
@@ -315,8 +306,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:43:03-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:53:59-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
