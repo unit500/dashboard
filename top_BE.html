@@ -146,10 +146,6 @@
 
     <!-- Country dashboard selector -->
     <div class="mb-4 text-center">
-      <!-- <label for="countrySelect" class="form-label fw-bold me-2">
-        View country‑specific dashboard:
-      </label> -->
-  
       <select id="countrySelectTop"
         name="countrySelectTop"
         class="form-select d-inline-block w-auto"
@@ -287,8 +283,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:56:32-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:01:25-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -404,80 +400,28 @@
   </script>
 
   <script>
-    // Load country data and initialize Select2 (if needed)
-    function loadCountryData() {
-        console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
-          .then(response => response.json())
-          .then(data => {
-            const countries = data.map(country => ({
-              id: country.cca2.toLowerCase(),
-              text: country.name.common
-            }));
-            countries.sort((a, b) => a.text.localeCompare(b.text));
-            console.log("Country data loaded. Total countries:", countries.length);
-            return countries;
-          })
-          .catch(err => {
-            console.error("Error loading country data:", err);
-            return [];
-          });
-      }
-
-
-      loadCountryData().then(data => {
-        countryDataGlobal = data; 
-        initCountrySelect();           
-      });
-
-      function initCountrySelect() {
-        $("#countrySelectTop").each(function () {
-          const $sel = $(this);
-
-          // skip if we already built the list for this element
-          if ($sel.data("select2")) return;
-
-          // wipe anything old, keep 1 empty option for the placeholder
-          $sel.empty().append('<option></option>');
-
-          // add options
-          countryDataGlobal.forEach(c => {
-            console.log(c.id.toLowerCase())
-            $sel.append(
-              $("<option>", { value: c.id.toLowerCase(), text: c.text })
-            );
-          });
-
-          // activate Select2
-          $sel.select2({
-            placeholder: "Select a country",
-            allowClear: true,
-            templateResult: formatCountry,
-            templateSelection: c => c.text
-          });
+    // 1) load country list…
+    loadCountryData().then(data => {
+      // 2) build options + activate Select2
+      const $sel = $('#countrySelectTop')
+        .empty()
+        .append('<option></option>')   // placeholder
+        .select2({
+          data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
+          placeholder: "Select a country",
+          allowClear: true,
+          templateResult: formatCountry,
+          templateSelection: c => c.text
         });
-      }
-
-      // helper to show flag + name
-      function formatCountry(c) {
-        if (!c.id) return c.text;
-        return $(
-          '<span><img src="https://flagcdn.com/16x12/' +
-            c.id +
-            '.png" class="me-1" /> ' +
-            c.text +
-            "</span>"
-        );
-      }
-  </script>
-
-  <script>
-    $('#countrySelectTop').on('select2:select', function (e) {
-    const code = e.params.data.id;
-    window.location.href = code
-      ? `top_${code}.html`
-      : "top.html";
-  });
+    
+      // 3) hook navigation once
+      $sel.on('select2:select select2:clear', function (e) {
+        const code = $sel.val();
+        window.location.href = code
+          ? `top_${code}.html`
+          : "top.html";
+      });
+    });
   </script>
 
 
