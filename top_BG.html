@@ -289,8 +289,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:12:03-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:12:50-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
@@ -314,11 +314,11 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
+      {value: 1, name: "Dr3n4k" },
+      
       {value: 1, name: "TheZero" },
       
-      {value: 1, name: "Team Anon Force" },
-      
-      {value: 1, name: "Dr3n4k" }
+      {value: 1, name: "Team Anon Force" }
       
     ];
     var optionRansomwareGroups = {
@@ -407,20 +407,21 @@
 
 
   <script>
+    // load country list however you like...
     loadCountryData().then(data => {
-      const $sel = $('#countrySelectTop');
+      const $sel = $("#countrySelectTop");
 
       $sel.select2({
         data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
-        placeholder: "Select a country",
+        placeholder: $sel.data("placeholder"),
         allowClear: true,
-        width: 'resolve',
+        width: "resolve",          // use the <select>'s style="width:40%"
         templateResult: formatCountry,
-        templateSelection: formatCountry // show flag+name even on selection
+        templateSelection: formatCountry
       });
 
-      // route on change / clear:
-      $sel.on('select2:select select2:clear', () => {
+      // when the user picks or clears, redirect:
+      $sel.on("select2:select select2:clear", () => {
         const code = $sel.val();
         window.location.href = code
           ? `top_${code}.html`
@@ -431,11 +432,10 @@
     function formatCountry(c) {
       if (!c.id) return c.text;
       return $(
-        '<span><img src="https://flagcdn.com/16x12/' +
-          c.id +
-          '.png" class="me-1" /> ' +
-          c.text +
-          "</span>"
+        `<span>
+          <img src="https://flagcdn.com/16x12/${c.id}.png" class="me-1" />
+          ${c.text}
+        </span>`
       );
     }
   </script>
