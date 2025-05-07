@@ -258,17 +258,17 @@
         </div>
         <!-- Row 2 -->
         <div class="col-lg-6 col-md-6">
-          <div id="chartRansomTopGroups" class="chart-container"></div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div id="chartRansomTopAttackers" class="chart-container"></div>
-        </div>
-        <!-- Row 3 -->
-        <div class="col-lg-6 col-md-6">
           <div id="chartRansomByHour" class="chart-container"></div>
         </div>
         <div class="col-lg-6 col-md-6">
           <div id="chartRansomByWeekday" class="chart-container"></div>
+        </div>
+        <!-- Row 3 -->
+        <div class="col-lg-6 col-md-6">
+          <div id="chartRansomTopGroups" class="chart-container"></div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div id="chartRansomTopAttackers" class="chart-container"></div>
         </div>
       </div>
 
@@ -325,7 +325,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 14:38:15-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 14:41:13-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
@@ -377,13 +377,13 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "www.amazontransportes.com.br" },
-      
-        { value: 1, name: "ihara.com.br" },
-      
         { value: 1, name: "w8textil.com.br" },
       
+        { value: 1, name: "uva.edu.br" },
+      
         { value: 1, name: "bettininformatica" },
+      
+        { value: 1, name: "ihara.com.br" },
       
         { value: 1, name: "aeamg.org.br" }
       
@@ -406,15 +406,15 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
+        { value: 2, name: "akira" },
+      
         { value: 2, name: "nova" },
       
-        { value: 2, name: "akira" },
+        { value: 1, name: "nightspire" },
       
         { value: 1, name: "cicada3301" },
       
-        { value: 1, name: "J" },
-      
-        { value: 1, name: "lockbit3" }
+        { value: 1, name: "ralord" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -435,15 +435,15 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 2, name: "13" },
-      
         { value: 2, name: "16" },
       
-        { value: 1, name: "17" },
+        { value: 2, name: "13" },
       
-        { value: 1, name: "14" },
+        { value: 1, name: "07" },
       
-        { value: 1, name: "04" }
+        { value: 1, name: "04" },
+      
+        { value: 1, name: "14" }
       
     ];
     chartRansomByHour.setOption({
@@ -468,11 +468,11 @@
       
         { value: 2, name: "Wed" },
       
-        { value: 1, name: "Tue" },
-      
         { value: 1, name: "Thu" },
       
-        { value: 1, name: "Sat" }
+        { value: 1, name: "Sat" },
+      
+        { value: 1, name: "Fri" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -567,13 +567,13 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [];
     
-      dataRansomTopTarget.push({value: 1, name: "www.amazontransportes.com.br"});
-    
-      dataRansomTopTarget.push({value: 1, name: "ihara.com.br"});
-    
       dataRansomTopTarget.push({value: 1, name: "w8textil.com.br"});
     
+      dataRansomTopTarget.push({value: 1, name: "uva.edu.br"});
+    
       dataRansomTopTarget.push({value: 1, name: "bettininformatica"});
+    
+      dataRansomTopTarget.push({value: 1, name: "ihara.com.br"});
     
       dataRansomTopTarget.push({value: 1, name: "aeamg.org.br"});
     
