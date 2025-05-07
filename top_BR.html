@@ -236,113 +236,115 @@
       </ul>
     </div>
   </div>
-
-  <div class="tab-pane fade show active" id="ransom" role="tabpanel" aria-labelledby="ransom-tab">
-    <div class="container mb-4">
-      <div class="row justify-content-center gy-4">
-        <!-- Row 1: two per row -->
-        <div class="col-lg-6 col-md-6">
-          <div id="chartRansomTopSource" class="chart-container"></div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div id="chartRansomTopTarget" class="chart-container"></div>
-        </div>
-        <!-- Row 2 -->
-        <div class="col-lg-6 col-md-6">
-          <div id="chartRansomByHour" class="chart-container"></div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div id="chartRansomByWeekday" class="chart-container"></div>
-        </div>
-        <!-- Row 3 -->
-        <div class="col-lg-6 col-md-6">
-          <div id="chartRansomTopGroups" class="chart-container"></div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div id="chartRansomTopAttackers" class="chart-container"></div>
-        </div>
-      </div>
-
-      <!-- Full-width heatmap below -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <div id="heatmapRansomCalendar" class="chart-container" style="height:200px"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <!-- DDoS Pane -->
-    <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
+  <div class="tab-content mt-3" id="statsTabsContent">
+    <div class="tab-pane fade show active" id="ransom" role="tabpanel" aria-labelledby="ransom-tab">
       <div class="container mb-4">
         <div class="row justify-content-center gy-4">
           <!-- Row 1: two per row -->
           <div class="col-lg-6 col-md-6">
-            <div id="chartDdosTopSource" class="chart-container"></div>
+            <div id="chartRansomTopSource" class="chart-container"></div>
           </div>
           <div class="col-lg-6 col-md-6">
-            <div id="chartDdosTopTarget" class="chart-container"></div>
+            <div id="chartRansomTopTarget" class="chart-container"></div>
           </div>
           <!-- Row 2 -->
           <div class="col-lg-6 col-md-6">
-            <div id="chartDdosByHour" class="chart-container"></div>
+            <div id="chartRansomByHour" class="chart-container"></div>
           </div>
           <div class="col-lg-6 col-md-6">
-            <div id="chartDdosByWeekday" class="chart-container"></div>
+            <div id="chartRansomByWeekday" class="chart-container"></div>
           </div>
           <!-- Row 3 -->
           <div class="col-lg-6 col-md-6">
-            <div id="chartDdosTopGroups" class="chart-container"></div>
+            <div id="chartRansomTopGroups" class="chart-container"></div>
           </div>
           <div class="col-lg-6 col-md-6">
-            <div id="chartDdosTopAttackers" class="chart-container"></div>
+            <div id="chartRansomTopAttackers" class="chart-container"></div>
           </div>
         </div>
-  
+
         <!-- Full-width heatmap below -->
         <div class="row mt-4">
           <div class="col-12">
-            <div id="heatmapDdosCalendar" class="chart-container" style="height:200px"></div>
+            <div id="heatmapRansomCalendar" class="chart-container" style="height:200px"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Defacements Pane -->
-    <div class="tab-pane fade" id="deface" role="tabpanel" aria-labelledby="deface-tab">
-      <div class="container mb-4">
-        <div class="row justify-content-center gy-4">
-          <!-- Row 1: two per row -->
-          <div class="col-lg-6 col-md-6">
-            <div id="chartDefaceTopSource" class="chart-container"></div>
+      <!-- DDoS Pane -->
+      <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
+        <div class="container mb-4">
+          <div class="row justify-content-center gy-4">
+            <!-- Row 1: two per row -->
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDdosTopSource" class="chart-container"></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDdosTopTarget" class="chart-container"></div>
+            </div>
+            <!-- Row 2 -->
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDdosByHour" class="chart-container"></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDdosByWeekday" class="chart-container"></div>
+            </div>
+            <!-- Row 3 -->
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDdosTopGroups" class="chart-container"></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDdosTopAttackers" class="chart-container"></div>
+            </div>
           </div>
-          <div class="col-lg-6 col-md-6">
-            <div id="chartDefaceTopTarget" class="chart-container"></div>
-          </div>
-          <!-- Row 2 -->
-          <div class="col-lg-6 col-md-6">
-            <div id="chartDefaceByHour" class="chart-container"></div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div id="chartDefaceByWeekday" class="chart-container"></div>
-          </div>
-          <!-- Row 3 -->
-          <div class="col-lg-6 col-md-6">
-            <div id="chartDefaceTopGroups" class="chart-container"></div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div id="chartDefaceTopAttackers" class="chart-container"></div>
+    
+          <!-- Full-width heatmap below -->
+          <div class="row mt-4">
+            <div class="col-12">
+              <div id="heatmapDdosCalendar" class="chart-container" style="height:200px"></div>
+            </div>
           </div>
         </div>
-  
-        <!-- Full-width heatmap below -->
-        <div class="row mt-4">
-          <div class="col-12">
-            <div id="heatmapDefaceCalendar" class="chart-container" style="height:200px"></div>
+      </div>
+
+      <!-- Defacements Pane -->
+      <div class="tab-pane fade" id="deface" role="tabpanel" aria-labelledby="deface-tab">
+        <div class="container mb-4">
+          <div class="row justify-content-center gy-4">
+            <!-- Row 1: two per row -->
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDefaceTopSource" class="chart-container"></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDefaceTopTarget" class="chart-container"></div>
+            </div>
+            <!-- Row 2 -->
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDefaceByHour" class="chart-container"></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDefaceByWeekday" class="chart-container"></div>
+            </div>
+            <!-- Row 3 -->
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDefaceTopGroups" class="chart-container"></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div id="chartDefaceTopAttackers" class="chart-container"></div>
+            </div>
+          </div>
+    
+          <!-- Full-width heatmap below -->
+          <div class="row mt-4">
+            <div class="col-12">
+              <div id="heatmapDefaceCalendar" class="chart-container" style="height:200px"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 
   
@@ -354,8 +356,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 15:00:44-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 15:12:00-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -406,15 +408,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "ihara.com.br" },
-      
-        { value: 1, name: "bettininformatica" },
-      
         { value: 1, name: "w8textil.com.br" },
       
         { value: 1, name: "uva.edu.br" },
       
-        { value: 1, name: "www.amazontransportes.com.br" }
+        { value: 1, name: "bettininformatica" },
+      
+        { value: 1, name: "ihara.com.br" },
+      
+        { value: 1, name: "aeamg.org.br" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -439,11 +441,11 @@
       
         { value: 2, name: "nova" },
       
-        { value: 1, name: "cicada3301" },
-      
         { value: 1, name: "nightspire" },
       
-        { value: 1, name: "ralord" }
+        { value: 1, name: "ralord" },
+      
+        { value: 1, name: "cicada3301" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -497,11 +499,11 @@
       
         { value: 2, name: "Wed" },
       
-        { value: 1, name: "Sat" },
+        { value: 1, name: "Tue" },
       
         { value: 1, name: "Fri" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Sat" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -789,9 +791,9 @@
       
         { value: 19, name: "Belief" },
       
-        { value: 10, name: "Trollador da Silva" },
-      
         { value: 10, name: "AetherSec" },
+      
+        { value: 10, name: "Trollador da Silva" },
       
         { value: 8, name: "chinafans" },
       
