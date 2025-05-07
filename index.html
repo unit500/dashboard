@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y"></script>
 	<script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -15,10 +16,20 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
   <!-- ECharts Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <!-- Bootstrap JS and Popover Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJ+Y6BsDd3cr6tQ/tbFvybJj/3MZ+5BZp6YkI="
+        crossorigin="anonymous"></script>
+    
   <style>
     .chart-container {
       width: 100%;
@@ -146,7 +157,529 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+  </div>
+
+  <!-- Country dashboard selector -->
+  <div class="mb-4 text-center">
+    <label for="countrySelect" class="form-label fw-bold me-2">
+      View country‑specific dashboard:
+    </label>
+
+    <select id="countrySelect"
+      name="countrySelect"
+      class="form-select d-inline-block w-auto"
+    >
+      <option></option>
+    </select>
+
+    <!-- <select id="countrySelect" class="form-select d-inline-block w-auto">
+      <option value="" selected>Global (all countries)</option>
+      
+        <option value="bd">Bangladesh</option>
+      
+        <option value="be">Belgium</option>
+      
+        <option value="bf">Burkina Faso</option>
+      
+        <option value="bg">Bulgaria</option>
+      
+        <option value="ba">Bosnia and Herzegovina</option>
+      
+        <option value="bb">Barbados</option>
+      
+        <option value="wf">Wallis and Futuna</option>
+      
+        <option value="bl">Saint Barthelemy</option>
+      
+        <option value="bm">Bermuda</option>
+      
+        <option value="bn">Brunei</option>
+      
+        <option value="bo">Bolivia</option>
+      
+        <option value="bh">Bahrain</option>
+      
+        <option value="bi">Burundi</option>
+      
+        <option value="bj">Benin</option>
+      
+        <option value="bt">Bhutan</option>
+      
+        <option value="jm">Jamaica</option>
+      
+        <option value="bv">Bouvet Island</option>
+      
+        <option value="bw">Botswana</option>
+      
+        <option value="ws">Samoa</option>
+      
+        <option value="bq">Bonaire, Saint Eustatius and Saba </option>
+      
+        <option value="br">Brazil</option>
+      
+        <option value="bs">Bahamas</option>
+      
+        <option value="je">Jersey</option>
+      
+        <option value="by">Belarus</option>
+      
+        <option value="bz">Belize</option>
+      
+        <option value="ru">Russia</option>
+      
+        <option value="rw">Rwanda</option>
+      
+        <option value="rs">Serbia</option>
+      
+        <option value="tl">East Timor</option>
+      
+        <option value="re">Reunion</option>
+      
+        <option value="tm">Turkmenistan</option>
+      
+        <option value="tj">Tajikistan</option>
+      
+        <option value="ro">Romania</option>
+      
+        <option value="tk">Tokelau</option>
+      
+        <option value="gw">Guinea-Bissau</option>
+      
+        <option value="gu">Guam</option>
+      
+        <option value="gt">Guatemala</option>
+      
+        <option value="gs">South Georgia and the South Sandwich Islands</option>
+      
+        <option value="gr">Greece</option>
+      
+        <option value="gq">Equatorial Guinea</option>
+      
+        <option value="gp">Guadeloupe</option>
+      
+        <option value="jp">Japan</option>
+      
+        <option value="gy">Guyana</option>
+      
+        <option value="gg">Guernsey</option>
+      
+        <option value="gf">French Guiana</option>
+      
+        <option value="ge">Georgia</option>
+      
+        <option value="gd">Grenada</option>
+      
+        <option value="uk">United Kingdom</option>
+      
+        <option value="gb">United Kingdom</option>
+      
+        <option value="ga">Gabon</option>
+      
+        <option value="sv">El Salvador</option>
+      
+        <option value="gn">Guinea</option>
+      
+        <option value="gm">Gambia</option>
+      
+        <option value="gl">Greenland</option>
+      
+        <option value="gi">Gibraltar</option>
+      
+        <option value="gh">Ghana</option>
+      
+        <option value="om">Oman</option>
+      
+        <option value="tn">Tunisia</option>
+      
+        <option value="jo">Jordan</option>
+      
+        <option value="hr">Croatia</option>
+      
+        <option value="ht">Haiti</option>
+      
+        <option value="hu">Hungary</option>
+      
+        <option value="hk">Hong Kong</option>
+      
+        <option value="hn">Honduras</option>
+      
+        <option value="hm">Heard Island and McDonald Islands</option>
+      
+        <option value="ve">Venezuela</option>
+      
+        <option value="pr">Puerto Rico</option>
+      
+        <option value="ps">Palestinian Territory</option>
+      
+        <option value="pw">Palau</option>
+      
+        <option value="pt">Portugal</option>
+      
+        <option value="sj">Svalbard and Jan Mayen</option>
+      
+        <option value="py">Paraguay</option>
+      
+        <option value="iq">Iraq</option>
+      
+        <option value="pa">Panama</option>
+      
+        <option value="pf">French Polynesia</option>
+      
+        <option value="pg">Papua New Guinea</option>
+      
+        <option value="pe">Peru</option>
+      
+        <option value="pk">Pakistan</option>
+      
+        <option value="ph">Philippines</option>
+      
+        <option value="pn">Pitcairn</option>
+      
+        <option value="pl">Poland</option>
+      
+        <option value="pm">Saint Pierre and Miquelon</option>
+      
+        <option value="zm">Zambia</option>
+      
+        <option value="eh">Western Sahara</option>
+      
+        <option value="ee">Estonia</option>
+      
+        <option value="eg">Egypt</option>
+      
+        <option value="za">South Africa</option>
+      
+        <option value="ec">Ecuador</option>
+      
+        <option value="it">Italy</option>
+      
+        <option value="vn">Vietnam</option>
+      
+        <option value="sb">Solomon Islands</option>
+      
+        <option value="et">Ethiopia</option>
+      
+        <option value="so">Somalia</option>
+      
+        <option value="zw">Zimbabwe</option>
+      
+        <option value="sa">Saudi Arabia</option>
+      
+        <option value="es">Spain</option>
+      
+        <option value="er">Eritrea</option>
+      
+        <option value="me">Montenegro</option>
+      
+        <option value="md">Moldova</option>
+      
+        <option value="mg">Madagascar</option>
+      
+        <option value="mf">Saint Martin</option>
+      
+        <option value="ma">Morocco</option>
+      
+        <option value="mc">Monaco</option>
+      
+        <option value="uz">Uzbekistan</option>
+      
+        <option value="mm">Myanmar</option>
+      
+        <option value="ml">Mali</option>
+      
+        <option value="mo">Macao</option>
+      
+        <option value="mn">Mongolia</option>
+      
+        <option value="mh">Marshall Islands</option>
+      
+        <option value="mk">Macedonia</option>
+      
+        <option value="mu">Mauritius</option>
+      
+        <option value="mt">Malta</option>
+      
+        <option value="mw">Malawi</option>
+      
+        <option value="mv">Maldives</option>
+      
+        <option value="mq">Martinique</option>
+      
+        <option value="mp">Northern Mariana Islands</option>
+      
+        <option value="ms">Montserrat</option>
+      
+        <option value="mr">Mauritania</option>
+      
+        <option value="im">Isle of Man</option>
+      
+        <option value="ug">Uganda</option>
+      
+        <option value="tz">Tanzania</option>
+      
+        <option value="my">Malaysia</option>
+      
+        <option value="mx">Mexico</option>
+      
+        <option value="il">Israel</option>
+      
+        <option value="fr">France</option>
+      
+        <option value="io">British Indian Ocean Territory</option>
+      
+        <option value="sh">Saint Helena</option>
+      
+        <option value="fi">Finland</option>
+      
+        <option value="fj">Fiji</option>
+      
+        <option value="fk">Falkland Islands</option>
+      
+        <option value="fm">Micronesia</option>
+      
+        <option value="fo">Faroe Islands</option>
+      
+        <option value="ni">Nicaragua</option>
+      
+        <option value="nl">Netherlands</option>
+      
+        <option value="no">Norway</option>
+      
+        <option value="na">Namibia</option>
+      
+        <option value="vu">Vanuatu</option>
+      
+        <option value="nc">New Caledonia</option>
+      
+        <option value="ne">Niger</option>
+      
+        <option value="nf">Norfolk Island</option>
+      
+        <option value="ng">Nigeria</option>
+      
+        <option value="nz">New Zealand</option>
+      
+        <option value="np">Nepal</option>
+      
+        <option value="nr">Nauru</option>
+      
+        <option value="nu">Niue</option>
+      
+        <option value="ck">Cook Islands</option>
+      
+        <option value="xk">Kosovo</option>
+      
+        <option value="ci">Ivory Coast</option>
+      
+        <option value="ch">Switzerland</option>
+      
+        <option value="co">Colombia</option>
+      
+        <option value="cn">China</option>
+      
+        <option value="cm">Cameroon</option>
+      
+        <option value="cl">Chile</option>
+      
+        <option value="cc">Cocos Islands</option>
+      
+        <option value="ca">Canada</option>
+      
+        <option value="cg">Republic of the Congo</option>
+      
+        <option value="cf">Central African Republic</option>
+      
+        <option value="cd">Democratic Republic of the Congo</option>
+      
+        <option value="cz">Czech Republic</option>
+      
+        <option value="cy">Cyprus</option>
+      
+        <option value="cx">Christmas Island</option>
+      
+        <option value="cr">Costa Rica</option>
+      
+        <option value="cw">Curacao</option>
+      
+        <option value="cv">Cape Verde</option>
+      
+        <option value="cu">Cuba</option>
+      
+        <option value="sz">Swaziland</option>
+      
+        <option value="sy">Syria</option>
+      
+        <option value="sx">Sint Maarten</option>
+      
+        <option value="kg">Kyrgyzstan</option>
+      
+        <option value="ke">Kenya</option>
+      
+        <option value="ss">South Sudan</option>
+      
+        <option value="sr">Suriname</option>
+      
+        <option value="ki">Kiribati</option>
+      
+        <option value="kh">Cambodia</option>
+      
+        <option value="kn">Saint Kitts and Nevis</option>
+      
+        <option value="km">Comoros</option>
+      
+        <option value="st">Sao Tome and Principe</option>
+      
+        <option value="sk">Slovakia</option>
+      
+        <option value="kr">South Korea</option>
+      
+        <option value="si">Slovenia</option>
+      
+        <option value="kp">North Korea</option>
+      
+        <option value="kw">Kuwait</option>
+      
+        <option value="sn">Senegal</option>
+      
+        <option value="sm">San Marino</option>
+      
+        <option value="sl">Sierra Leone</option>
+      
+        <option value="sc">Seychelles</option>
+      
+        <option value="kz">Kazakhstan</option>
+      
+        <option value="ky">Cayman Islands</option>
+      
+        <option value="sg">Singapore</option>
+      
+        <option value="se">Sweden</option>
+      
+        <option value="sd">Sudan</option>
+      
+        <option value="do">Dominican Republic</option>
+      
+        <option value="dm">Dominica</option>
+      
+        <option value="dj">Djibouti</option>
+      
+        <option value="dk">Denmark</option>
+      
+        <option value="vg">British Virgin Islands</option>
+      
+        <option value="de">Germany</option>
+      
+        <option value="ye">Yemen</option>
+      
+        <option value="dz">Algeria</option>
+      
+        <option value="us">United States</option>
+      
+        <option value="uy">Uruguay</option>
+      
+        <option value="yt">Mayotte</option>
+      
+        <option value="um">United States Minor Outlying Islands</option>
+      
+        <option value="lb">Lebanon</option>
+      
+        <option value="lc">Saint Lucia</option>
+      
+        <option value="la">Laos</option>
+      
+        <option value="tv">Tuvalu</option>
+      
+        <option value="tw">Taiwan</option>
+      
+        <option value="tt">Trinidad and Tobago</option>
+      
+        <option value="tr">Turkey</option>
+      
+        <option value="lk">Sri Lanka</option>
+      
+        <option value="li">Liechtenstein</option>
+      
+        <option value="lv">Latvia</option>
+      
+        <option value="to">Tonga</option>
+      
+        <option value="lt">Lithuania</option>
+      
+        <option value="lu">Luxembourg</option>
+      
+        <option value="lr">Liberia</option>
+      
+        <option value="ls">Lesotho</option>
+      
+        <option value="th">Thailand</option>
+      
+        <option value="tf">French Southern Territories</option>
+      
+        <option value="tg">Togo</option>
+      
+        <option value="td">Chad</option>
+      
+        <option value="tc">Turks and Caicos Islands</option>
+      
+        <option value="ly">Libya</option>
+      
+        <option value="va">Vatican</option>
+      
+        <option value="vc">Saint Vincent and the Grenadines</option>
+      
+        <option value="ae">United Arab Emirates</option>
+      
+        <option value="ad">Andorra</option>
+      
+        <option value="ag">Antigua and Barbuda</option>
+      
+        <option value="af">Afghanistan</option>
+      
+        <option value="ai">Anguilla</option>
+      
+        <option value="vi">U.S. Virgin Islands</option>
+      
+        <option value="is">Iceland</option>
+      
+        <option value="ir">Iran</option>
+      
+        <option value="am">Armenia</option>
+      
+        <option value="al">Albania</option>
+      
+        <option value="ao">Angola</option>
+      
+        <option value="aq">Antarctica</option>
+      
+        <option value="as">American Samoa</option>
+      
+        <option value="ar">Argentina</option>
+      
+        <option value="au">Australia</option>
+      
+        <option value="at">Austria</option>
+      
+        <option value="aw">Aruba</option>
+      
+        <option value="in">India</option>
+      
+        <option value="ax">Aland Islands</option>
+      
+        <option value="az">Azerbaijan</option>
+      
+        <option value="ie">Ireland</option>
+      
+        <option value="id">Indonesia</option>
+      
+        <option value="ua">Ukraine</option>
+      
+        <option value="qa">Qatar</option>
+      
+        <option value="mz">Mozambique</option>
+      
+    </select> -->
+
   </div>
 
   <div class="container my-4">
@@ -174,37 +707,46 @@
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
+            
                 
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="FR (21)">
-                  </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/fr.png"
+                           alt="FR flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="FR (21)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/de.png"
+                           alt="DE flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="DE (21)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/us.png"
+                           alt="US flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="US (15)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/sg.png"
+                           alt="SG flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="SG (9)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/ro.png"
+                           alt="RO flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="RO (4)">
+                    </li>
+                  
                 
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="DE (21)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="US (15)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/sg.png" alt="SG flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="SG (9)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/ro.png" alt="RO flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="RO (4)">
-                  </li>
-                
+            
               </ul>
             </div>
           </div>
@@ -265,7 +807,7 @@
                           data-bs-toggle="tab" data-bs-target="#groups"
                           type="button" role="tab" aria-controls="groups"
                           aria-selected="true">
-                    Top 5 actors
+                    Top 5 Actors
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -316,13 +858,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/TH3_EL1T3_GH0ST.html">TH3 EL1T3 GH0ST</a>
+                  <a href="actor_details/th3_el1t3_gh0st.html">TH3 EL1T3 GH0ST</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -339,13 +883,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -362,13 +908,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -385,13 +933,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -408,13 +958,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -431,13 +983,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -454,13 +1008,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -477,13 +1033,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -500,13 +1058,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -523,13 +1083,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -561,10 +1123,16 @@
                 <h5 class="card-title">www.newmarket.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -587,10 +1155,16 @@
                 <h5 class="card-title">www.warrington.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -613,10 +1187,16 @@
                 <h5 class="card-title">www.cityofelycouncil.org.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -639,10 +1219,16 @@
                 <h5 class="card-title">carlisle.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -665,10 +1251,16 @@
                 <h5 class="card-title">agma.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -691,10 +1283,16 @@
                 <h5 class="card-title">mod.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -717,10 +1315,16 @@
                 <h5 class="card-title">tameside.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -743,10 +1347,16 @@
                 <h5 class="card-title">mcga.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -769,10 +1379,16 @@
                 <h5 class="card-title">nottscc.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -795,10 +1411,16 @@
                 <h5 class="card-title">www.landsendairport.co.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> Dark Storm Team</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/dark_storm_team.html">Dark Storm Team</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -814,6 +1436,42 @@
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681abec8aede90d86ead1a6c.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="juliaevansaccountants.co.uk">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">juliaevansaccountants.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-07 01:46:21.965906</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/uk.png" alt="UK flag">
+                  
+                  UK
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/nightspire.html">nightspire</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Julia Evans accountants (United Kingdom)
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dfa32026c04ded7f63.html">
@@ -823,7 +1481,9 @@
               <div class="card-body">
                 <h5 class="card-title">mdgny.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:29:40.819759</p>
-                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -831,16 +1491,21 @@
                   
                   US
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025.MDG Design &amp; Construction is a&hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025.MDG Design &amp; Construction is a…
                   
                 </p>
               </div>
             </div>
           </div>
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dfa32026c04ded7f62.html">
@@ -850,7 +1515,9 @@
               <div class="card-body">
                 <h5 class="card-title">www.clinpath.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:28:05.369726</p>
-                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -858,16 +1525,21 @@
                   
                   AU
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025.Founded 50 years ago, the brea&hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025.Founded 50 years ago, the brea…
                   
                 </p>
               </div>
             </div>
           </div>
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dea32026c04ded7f61.html">
@@ -877,7 +1549,9 @@
               <div class="card-body">
                 <h5 class="card-title">www.gslelectric.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:26:29.018517</p>
-                <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -885,16 +1559,21 @@
                   
                   US
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025. GSL Electric Inc. performs a &hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025. GSL Electric Inc. performs a …
                   
                 </p>
               </div>
             </div>
           </div>
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dea32026c04ded7f60.html">
@@ -904,7 +1583,9 @@
               <div class="card-body">
                 <h5 class="card-title">www.jbanksdesign.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:24:52.027313</p>
-                <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -912,16 +1593,21 @@
                   
                   US
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025. J. Banks Design is a full-ser&hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025. J. Banks Design is a full-ser…
                   
                 </p>
               </div>
             </div>
           </div>
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dea32026c04ded7f5f.html">
@@ -931,7 +1617,7 @@
               <div class="card-body">
                 <h5 class="card-title">www.gates-cooper.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:23:15.670757</p>
-                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -939,10 +1625,149 @@
                   
                   US
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025. Gates &amp; Cooper LLP is an inte&hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025. Gates &amp; Cooper LLP is an inte…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681aa2dda32026c04ded7f5e.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="langer-langer.de">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">langer-langer.de</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:25:18.544492</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag">
+                  
+                  DE
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/leakeddata.html">leakeddata</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Langer &amp; Langer GbR is a company that operates in the Retail industry. It employs 10to19 people and …
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681aa2dda32026c04ded7f5d.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="chadwickwashington.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">chadwickwashington.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:16.699064</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/leakeddata.html">leakeddata</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Chadwick, Washington, Moriarty, Elmore &amp; Bunn P.C.  is a Virginia and D.C. law firm that offers comp…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681aa2dca32026c04ded7f5c.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="dominguezfirm.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">dominguezfirm.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:14.083333</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/leakeddata.html">leakeddata</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    With a legal staff of over 120, The Dominguez Firm is a proven powerhouse personal injury law firm w…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681aa2dca32026c04ded7f5b.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="usclaims.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">usclaims.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:10.931422</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/leakeddata.html">leakeddata</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Operator of a pre-settlement financing firm intended to provide financial assistance during lawsuits…
                   
                 </p>
               </div>
@@ -961,13 +1786,12 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:38:13-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:40:35-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
-  <!-- Bootstrap JS and Popover Initialization -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
@@ -1024,23 +1848,23 @@
     var defacementData = [];
     
       
-        defacementData.push({ value: 2031, name: "lockbit3" });
+        defacementData.push({ value: 155, name: "Team Anon Force" });
       
     
       
-        defacementData.push({ value: 1007, name: "clop" });
+        defacementData.push({ value: 98, name: "SABUNMANDI CYBER TEAM" });
       
     
       
-        defacementData.push({ value: 1006, name: "lockbit2" });
+        defacementData.push({ value: 84, name: "NoName057(16)" });
       
     
       
-        defacementData.push({ value: 983, name: "play" });
+        defacementData.push({ value: 70, name: "qilin" });
       
     
       
-        defacementData.push({ value: 898, name: "ransomhub" });
+        defacementData.push({ value: 57, name: "play" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1116,8 +1940,8 @@
       sourceCategories.push("pakistan");
       sourceSeriesData.push({value: 2, name: "pakistan"});
     
-      sourceCategories.push("brazil");
-      sourceSeriesData.push({value: 1, name: "brazil"});
+      sourceCategories.push("morocco");
+      sourceSeriesData.push({value: 1, name: "morocco"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
@@ -1231,6 +2055,99 @@
       setInterval(drawClock, 1000);
       drawClock();
     };
+  </script>
+
+
+
+
+
+  <script>
+    // Load country data and initialize Select2 (if needed)
+    function loadCountryData() {
+        console.log("Loading country data...");
+        return fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            const countries = data.map(country => ({
+              id: country.cca2.toLowerCase(),
+              text: country.name.common
+            }));
+            countries.sort((a, b) => a.text.localeCompare(b.text));
+            console.log("Country data loaded. Total countries:", countries.length);
+            return countries;
+          })
+          .catch(err => {
+            console.error("Error loading country data:", err);
+            return [];
+          });
+      }
+
+
+      loadCountryData().then(data => {
+        countryDataGlobal = data; 
+        initCountrySelect();           
+      });
+
+      function initCountrySelect() {
+        $("#countrySelect").each(function () {
+          const $sel = $(this);
+
+          // skip if we already built the list for this element
+          if ($sel.data("select2")) return;
+
+          // wipe anything old, keep 1 empty option for the placeholder
+          $sel.empty().append('<option></option>');
+
+          // add options
+          countryDataGlobal.forEach(c => {
+            console.log(c.id.toLowerCase())
+            $sel.append(
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
+            );
+          });
+
+          // activate Select2
+          $sel.select2({
+            placeholder: "Select a country",
+            allowClear: true,
+            templateResult: formatCountry,
+            templateSelection: c => c.text
+          });
+        });
+      }
+
+      // helper to show flag + name
+      function formatCountry(c) {
+        if (!c.id) return c.text;
+        return $(
+          '<span><img src="https://flagcdn.com/16x12/' +
+            c.id +
+            '.png" class="me-1" /> ' +
+            c.text +
+            "</span>"
+        );
+      }
+  </script>
+
+
+<!-- <script>
+  document.getElementById("countrySelect").addEventListener("change", function () {
+    const code = this.value;
+    if (!code) {
+      window.location.href = "static_dashboard.html";
+    } else {
+      window.location.href = `static_dashboard_${code}.html`;
+    }
+  });
+</script> -->
+  <script>
+    $('#countrySelect').on('select2:select', function (e) {
+    const code = e.params.data.id;
+    window.location.href = code
+      ? `static_dashboard_${code}.html`
+      : "static_dashboard.html";
+  });
+
   </script>
 </body>
 </html>

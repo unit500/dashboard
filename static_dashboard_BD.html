@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -1440,8 +1440,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:37:52-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:40:33-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -1473,11 +1473,11 @@
       
       {value: 3, name: "Mr. BDKR28" },
       
+      {value: 1, name: "Rufmaden" },
+      
       {value: 1, name: "systemadminbd" },
       
-      {value: 1, name: "ynR !" },
-      
-      {value: 1, name: "aDriv4" },
+      {value: 1, name: "root./exe" },
       
       {value: 1, name: "./KeyzNet" }
       
@@ -1737,7 +1737,7 @@
   </script>
 
 
-<script>
+<!-- <script>
   document.getElementById("countrySelect").addEventListener("change", function () {
     const code = this.value;
     if (!code) {
@@ -1746,6 +1746,15 @@
       window.location.href = `static_dashboard_${code}.html`;
     }
   });
-</script>
+</script> -->
+  <script>
+    $('#countrySelect').on('select2:select', function (e) {
+    const code = e.params.data.id;
+    window.location.href = code
+      ? `static_dashboard_${code}.html`
+      : "static_dashboard.html";
+  });
+
+  </script>
 </body>
 </html>

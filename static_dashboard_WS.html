@@ -22,6 +22,14 @@
   <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <!-- Bootstrap JS and Popover Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJ+Y6BsDd3cr6tQ/tbFvybJj/3MZ+5BZp6YkI="
+        crossorigin="anonymous"></script>
+    
   <style>
     .chart-container {
       width: 100%;
@@ -149,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -158,14 +166,14 @@
       View country‑specific dashboard:
     </label>
 
-    <!-- <select id="countrySelect"
+    <select id="countrySelect"
       name="countrySelect"
       class="form-select d-inline-block w-auto"
     >
       <option></option>
-    </select> -->
+    </select>
 
-    <select id="countrySelect" class="form-select d-inline-block w-auto">
+    <!-- <select id="countrySelect" class="form-select d-inline-block w-auto">
       <option value="" selected>Global (all countries)</option>
       
         <option value="bd">Bangladesh</option>
@@ -670,7 +678,7 @@
       
         <option value="mz">Mozambique</option>
       
-    </select>
+    </select> -->
 
   </div>
 
@@ -873,16 +881,12 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:32:20-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:39:05-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
-  <!-- Bootstrap JS and Popover Initialization -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  
+
   <script>
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
@@ -1089,16 +1093,7 @@
   </script>
 
 
-  <script>
-    document.getElementById("countrySelect").addEventListener("change", function () {
-      const code = this.value;
-      if (!code) {
-        window.location.href = "static_dashboard.html";
-      } else {
-        window.location.href = `static_dashboard_${code}.html`;
-      }
-    });
-  </script>
+
 
 
   <script>
@@ -1168,5 +1163,17 @@
         );
       }
   </script>
+
+
+<script>
+  document.getElementById("countrySelect").addEventListener("change", function () {
+    const code = this.value;
+    if (!code) {
+      window.location.href = "static_dashboard.html";
+    } else {
+      window.location.href = `static_dashboard_${code}.html`;
+    }
+  });
+</script>
 </body>
 </html>
