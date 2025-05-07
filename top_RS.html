@@ -205,8 +205,8 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="group_details/ransomhub.html">
-                  ransomhub
+                <a href="group_details/qilin.html">
+                  qilin
                 </a>
               </h5>
               <p class="card-text">2 incidents</p>
@@ -283,8 +283,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:14:28-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:18:15-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -393,6 +393,24 @@
 
 
   <script>
+    function loadCountryData() {
+        console.log("Loading country data...");
+        return fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            const countries = data.map(country => ({
+              id: country.cca2.toLowerCase(),
+              text: country.name.common
+            }));
+            countries.sort((a, b) => a.text.localeCompare(b.text));
+            console.log("Country data loaded. Total countries:", countries.length);
+            return countries;
+          })
+          .catch(err => {
+            console.error("Error loading country data:", err);
+            return [];
+          });
+      }
     // load country list however you like...
     loadCountryData().then(data => {
       const $sel = $("#countrySelectTop");

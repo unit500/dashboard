@@ -293,8 +293,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:14:26-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:18:07-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -322,9 +322,9 @@
       
       {value: 24, name: "Team Anon Force" },
       
-      {value: 11, name: "Bgke04" },
-      
       {value: 11, name: "Simsimi" },
+      
+      {value: 11, name: "Bgke04" },
       
       {value: 9, name: "MrVGunz" }
       
@@ -429,6 +429,24 @@
 
 
   <script>
+    function loadCountryData() {
+        console.log("Loading country data...");
+        return fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            const countries = data.map(country => ({
+              id: country.cca2.toLowerCase(),
+              text: country.name.common
+            }));
+            countries.sort((a, b) => a.text.localeCompare(b.text));
+            console.log("Country data loaded. Total countries:", countries.length);
+            return countries;
+          })
+          .catch(err => {
+            console.error("Error loading country data:", err);
+            return [];
+          });
+      }
     // load country list however you like...
     loadCountryData().then(data => {
       const $sel = $("#countrySelectTop");
