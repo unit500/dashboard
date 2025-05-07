@@ -293,8 +293,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:12:50-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:16:32-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -365,19 +365,19 @@
     
       dataDefacementGroups.push({value: 13, name: "WOLF CYBER ARMY"});
     
-      dataDefacementGroups.push({value: 11, name: "Anonymous Philippines"});
-    
       dataDefacementGroups.push({value: 11, name: "https://yourdesktop.ru/bgke04.html"});
+    
+      dataDefacementGroups.push({value: 11, name: "Anonymous Philippines"});
     
       dataDefacementGroups.push({value: 10, name: "StupidC0de🐷Family"});
     
       dataDefacementGroups.push({value: 10, name: "DeathNote Hackers"});
     
+      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
+    
       dataDefacementGroups.push({value: 9, name: "Turkhacks.com"});
     
       dataDefacementGroups.push({value: 9, name: "Iran"});
-    
-      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },
@@ -439,7 +439,7 @@
       
         {name: "pakistan", value: 2 },
       
-        {name: "indonesia", value: 1 }
+        {name: "brazil", value: 1 }
       
     ];
     var sourceCountryFlags = sourceAttackCountries.map(function(item){
@@ -463,6 +463,24 @@
 
 
   <script>
+    function loadCountryData() {
+        console.log("Loading country data...");
+        return fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            const countries = data.map(country => ({
+              id: country.cca2.toLowerCase(),
+              text: country.name.common
+            }));
+            countries.sort((a, b) => a.text.localeCompare(b.text));
+            console.log("Country data loaded. Total countries:", countries.length);
+            return countries;
+          })
+          .catch(err => {
+            console.error("Error loading country data:", err);
+            return [];
+          });
+      }
     // load country list however you like...
     loadCountryData().then(data => {
       const $sel = $("#countrySelectTop");

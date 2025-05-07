@@ -289,8 +289,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:12:50-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:16:31-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
   
@@ -407,6 +407,24 @@
 
 
   <script>
+    function loadCountryData() {
+        console.log("Loading country data...");
+        return fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            const countries = data.map(country => ({
+              id: country.cca2.toLowerCase(),
+              text: country.name.common
+            }));
+            countries.sort((a, b) => a.text.localeCompare(b.text));
+            console.log("Country data loaded. Total countries:", countries.length);
+            return countries;
+          })
+          .catch(err => {
+            console.error("Error loading country data:", err);
+            return [];
+          });
+      }
     // load country list however you like...
     loadCountryData().then(data => {
       const $sel = $("#countrySelectTop");
