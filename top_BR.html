@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      /* height: 50px; */
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,38 +188,41 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/6819aba5e7448ddd71945fc1.html">gestao.igrejasmart.com.br</a>, 
-        
-          <a href="defacement_details/6819a9afe7448ddd71945f8a.html">radiobailanteiro.com.br</a>, 
-        
-          <a href="defacement_details/6819a989e7448ddd71945f89.html">criai.org</a>, 
-        
-          <a href="defacement_details/6818791d548130320553aea4.html">www.maniacgames.com.br</a>, 
-        
-          <a href="defacement_details/681840e1c2c83b342400100b.html">conectg2.com.br</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/68147bfd0b5f553d4ef2478e.html">uva.edu.br</a>, 
-        
-          <a href="ransom_details/680fd05c8885af162a8a1246.html">w8textil.com.br</a>, 
-        
-          <a href="ransom_details/680f8a290fa4cc43791b6806.html">ihara.com.br</a>, 
-        
-          <a href="ransom_details/680f8a260fa4cc43791b67fe.html">​​​​bettininformatica - suporteon</a>, 
-        
-          <a href="ransom_details/680a98849ec9d904786490bd.html">Dress To</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/6819aba5e7448ddd71945fc1.html">gestao.igrejasmart.com.br</a>, 
+          
+            <a href="defacement_details/6819a9afe7448ddd71945f8a.html">radiobailanteiro.com.br</a>, 
+          
+            <a href="defacement_details/6819a989e7448ddd71945f89.html">criai.org</a>, 
+          
+            <a href="defacement_details/6818791d548130320553aea4.html">www.maniacgames.com.br</a>, 
+          
+            <a href="defacement_details/681840e1c2c83b342400100b.html">conectg2.com.br</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/68147bfd0b5f553d4ef2478e.html">uva.edu.br</a>, 
+          
+            <a href="ransom_details/680fd05c8885af162a8a1246.html">w8textil.com.br</a>, 
+          
+            <a href="ransom_details/680f8a290fa4cc43791b6806.html">ihara.com.br</a>, 
+          
+            <a href="ransom_details/680f8a260fa4cc43791b67fe.html">​​​​bettininformatica - suporteon</a>, 
+          
+            <a href="ransom_details/680a98849ec9d904786490bd.html">Dress To</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
+
   
   <script>
     $(document).ready(function(){
@@ -320,8 +322,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:39:27-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:47:15-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -349,9 +351,9 @@
       
       {value: 11, name: "Bgke04" },
       
-      {value: 10, name: "AetherSec" },
-      
       {value: 10, name: "Trollador da Silva" },
+      
+      {value: 10, name: "AetherSec" },
       
       {value: 8, name: "chinafans" }
       
