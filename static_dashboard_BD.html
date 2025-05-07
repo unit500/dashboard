@@ -160,8 +160,7 @@
 
     <select id="countrySelect"
       name="countrySelect"
-      class="country-select"
-      style="width:20%"
+      class="form-select d-inline-block w-auto"
     >
       <option></option>
     </select>
@@ -683,7 +682,7 @@
           <div class="card">
             <div class="card-header">Victims Today</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -691,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims This Week</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">2</h3>
             </div>
           </div>
         </div>
@@ -809,6 +808,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/681b26ecd3b7b1f2d8c7a99d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/07/bdshopy_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://bdshopy.com/BDKR28.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681b26ecd3b7b1f2d8c7a99d.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">bdshopy.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1408,7 +1432,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 09:16:08-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:27:56-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
@@ -1443,15 +1467,15 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 2, name: "Mr. BDKR28" },
+      {value: 3, name: "Mr. BDKR28" },
       
       {value: 1, name: "root./exe" },
       
-      {value: 1, name: "systemadminbd" },
+      {value: 1, name: "ynR !" },
       
-      {value: 1, name: "Rufmaden" },
+      {value: 1, name: "aDriv4" },
       
-      {value: 1, name: "CaptainSmok3r" }
+      {value: 1, name: "./KeyzNet" }
       
     ];
     var optionRansomwareGroups = {
@@ -1495,7 +1519,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("bd");
-      attackedSeriesData.push({value: 6, name: "bd"});
+      attackedSeriesData.push({value: 7, name: "bd"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1688,8 +1712,9 @@
 
           // add options
           countryDataGlobal.forEach(c => {
+            console.log(c.id.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.id, text: c.text })
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
             );
           });
 

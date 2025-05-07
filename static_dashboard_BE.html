@@ -149,7 +149,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
+    <p class="small text-muted fst-italic">Your time is limited, so don&#39;t waste it living someone else&#39;s life.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -160,8 +160,7 @@
 
     <select id="countrySelect"
       name="countrySelect"
-      class="country-select"
-      style="width:20%"
+      class="form-select d-inline-block w-auto"
     >
       <option></option>
     </select>
@@ -691,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims This Week</div>
             <div class="card-body">
-              <h3 id="victims-week">2</h3>
+              <h3 id="victims-week">3</h3>
             </div>
           </div>
         </div>
@@ -818,6 +817,31 @@
               <div class="card-body">
                 <a href="defacement_details/6819aaf5e7448ddd71945fb2.html" class="text-decoration-none text-dark">
                   <h5 class="card-title">promanys.be</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/team_anon_force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/team_anon_force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6819a9d9e7448ddd71945f90.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/optiekpunt_be/screenshot.png" class="card-img-top" alt="Thumbnail for http://optiekpunt.be/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6819a9d9e7448ddd71945f90.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">optiekpunt.be</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
                 <p class="card-text">
@@ -1457,8 +1481,8 @@ or the plastic processing sector. …
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 09:16:09-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:27:56-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1492,7 +1516,7 @@ or the plastic processing sector. …
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 3, name: "Team Anon Force" },
+      {value: 4, name: "Team Anon Force" },
       
       {value: 2, name: "NoName057(16)" }
       
@@ -1517,11 +1541,11 @@ or the plastic processing sector. …
     var defacementData = [];
     
       
-        defacementData.push({ value: 4, name: "NoName057(16)" });
+        defacementData.push({ value: 4, name: "Team Anon Force" });
       
     
       
-        defacementData.push({ value: 3, name: "Team Anon Force" });
+        defacementData.push({ value: 4, name: "NoName057(16)" });
       
     
       
@@ -1533,7 +1557,7 @@ or the plastic processing sector. …
       
     
       
-        defacementData.push({ value: 1, name: "hunters" });
+        defacementData.push({ value: 1, name: "sarcoma" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1558,7 +1582,7 @@ or the plastic processing sector. …
     var attackedSeriesData = [];
     
       attackedCategories.push("be");
-      attackedSeriesData.push({value: 14, name: "be"});
+      attackedSeriesData.push({value: 15, name: "be"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1751,8 +1775,9 @@ or the plastic processing sector. …
 
           // add options
           countryDataGlobal.forEach(c => {
+            console.log(c.id.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.id, text: c.text })
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
             );
           });
 
