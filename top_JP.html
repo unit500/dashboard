@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      /* height: 50px; */
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,38 +188,41 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/6819aa55e7448ddd71945f9b.html">nara-guide.com</a>, 
-        
-          <a href="defacement_details/6819a973e7448ddd71945f86.html">newstar0320.com</a>, 
-        
-          <a href="defacement_details/681979c193dca5f55e00502b.html">pitte.info</a>, 
-        
-          <a href="defacement_details/681979af93dca5f55e005029.html">linas01.com</a>, 
-        
-          <a href="defacement_details/68191043192464c056552713.html">nootanglobalschool.edu.in</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/681aa2afa32026c04ded7f0a.html">www.nssjpn.co.jp</a>, 
-        
-          <a href="ransom_details/6816f47c6cd775aa82f787a0.html">tomoku.co.jp</a>, 
-        
-          <a href="ransom_details/6814fa3490146afd7e2c9bc4.html">runtec.co.jp</a>, 
-        
-          <a href="ransom_details/68115a2ef8cd5c389cda2264.html">www.ushio.eu</a>, 
-        
-          <a href="ransom_details/68090ea6eb31d1c5f8e38a9d.html">shinkocorp.co.jp</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/6819aa55e7448ddd71945f9b.html">nara-guide.com</a>, 
+          
+            <a href="defacement_details/6819a973e7448ddd71945f86.html">newstar0320.com</a>, 
+          
+            <a href="defacement_details/681979c193dca5f55e00502b.html">pitte.info</a>, 
+          
+            <a href="defacement_details/681979af93dca5f55e005029.html">linas01.com</a>, 
+          
+            <a href="defacement_details/68191043192464c056552713.html">nootanglobalschool.edu.in</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/681aa2afa32026c04ded7f0a.html">www.nssjpn.co.jp</a>, 
+          
+            <a href="ransom_details/6816f47c6cd775aa82f787a0.html">tomoku.co.jp</a>, 
+          
+            <a href="ransom_details/6814fa3490146afd7e2c9bc4.html">runtec.co.jp</a>, 
+          
+            <a href="ransom_details/68115a2ef8cd5c389cda2264.html">www.ushio.eu</a>, 
+          
+            <a href="ransom_details/68090ea6eb31d1c5f8e38a9d.html">shinkocorp.co.jp</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
+
   
   <script>
     $(document).ready(function(){
@@ -320,7 +322,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:40:38-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:48:20-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
@@ -351,9 +353,9 @@
       
       {value: 4, name: "Adl3r" },
       
-      {value: 2, name: "Sam Lamer" },
+      {value: 2, name: "/Rayzky_" },
       
-      {value: 2, name: "/Rayzky_" }
+      {value: 2, name: "Sam Lamer" }
       
     ];
     var optionRansomwareGroups = {

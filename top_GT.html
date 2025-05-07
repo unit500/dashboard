@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      /* height: 50px; */
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,28 +188,31 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/67e1abd95359b1fe3435ca5a.html">www.solventacentroamerica.com</a>, 
-        
-          <a href="ransom_details/67ea136257bbb9ff2644cadc.html">www.solventacentroamerica.com</a>, 
-        
-          <a href="ransom_details/678fe3e3c4f2181a71270ee2.html">granjazul.com</a>, 
-        
-          <a href="ransom_details/678fe3dec4f2181a71270ed3.html">nagucoop.com</a>, 
-        
-          <a href="ransom_details/678fe29fc4f2181a71270b14.html">www.mineduc.gob.gt</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/67e1abd95359b1fe3435ca5a.html">www.solventacentroamerica.com</a>, 
+          
+            <a href="ransom_details/67ea136257bbb9ff2644cadc.html">www.solventacentroamerica.com</a>, 
+          
+            <a href="ransom_details/678fe3e3c4f2181a71270ee2.html">granjazul.com</a>, 
+          
+            <a href="ransom_details/678fe3dec4f2181a71270ed3.html">nagucoop.com</a>, 
+          
+            <a href="ransom_details/678fe29fc4f2181a71270b14.html">www.mineduc.gob.gt</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
+
   
   <script>
     $(document).ready(function(){
@@ -300,7 +302,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:40:30-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:48:18-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>

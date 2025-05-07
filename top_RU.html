@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      /* height: 50px; */
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,38 +188,41 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/6819ac5de7448ddd71945fc7.html">donhim.ru</a>, 
-        
-          <a href="defacement_details/6819ab11e7448ddd71945fb7.html">evo-msk.ru</a>, 
-        
-          <a href="defacement_details/6819aaa3e7448ddd71945fa7.html">ruppel-group.ru</a>, 
-        
-          <a href="defacement_details/6819aa8de7448ddd71945fa4.html">mymatrix.ru</a>, 
-        
-          <a href="defacement_details/6819aa4be7448ddd71945f9a.html">orisol.ru</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/6819351e8a876d7ac2732c22.html">www.novosit.com</a>, 
-        
-          <a href="ransom_details/67e487185ca2b5cea7700c90.html">crimsgroup.com</a>, 
-        
-          <a href="ransom_details/67df4f1f0428df885e24d027.html">let&#39;s join us babuk locker (Ransomare Affiliate) 2025</a>, 
-        
-          <a href="ransom_details/67ded09ab8242e9c600c8536.html">Synesis Surveillance System</a>, 
-        
-          <a href="ransom_details/67c901f0b88e36d5c49ce84c.html">www.koltiva.com</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/6819ac5de7448ddd71945fc7.html">donhim.ru</a>, 
+          
+            <a href="defacement_details/6819ab11e7448ddd71945fb7.html">evo-msk.ru</a>, 
+          
+            <a href="defacement_details/6819aaa3e7448ddd71945fa7.html">ruppel-group.ru</a>, 
+          
+            <a href="defacement_details/6819aa8de7448ddd71945fa4.html">mymatrix.ru</a>, 
+          
+            <a href="defacement_details/6819aa4be7448ddd71945f9a.html">orisol.ru</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/6819351e8a876d7ac2732c22.html">www.novosit.com</a>, 
+          
+            <a href="ransom_details/67e487185ca2b5cea7700c90.html">crimsgroup.com</a>, 
+          
+            <a href="ransom_details/67df4f1f0428df885e24d027.html">let&#39;s join us babuk locker (Ransomare Affiliate) 2025</a>, 
+          
+            <a href="ransom_details/67ded09ab8242e9c600c8536.html">Synesis Surveillance System</a>, 
+          
+            <a href="ransom_details/67c901f0b88e36d5c49ce84c.html">www.koltiva.com</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
+
   
   <script>
     $(document).ready(function(){
@@ -320,8 +322,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:39:59-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:47:42-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -349,9 +351,9 @@
       
       {value: 24, name: "Team Anon Force" },
       
-      {value: 11, name: "Simsimi" },
-      
       {value: 11, name: "Bgke04" },
+      
+      {value: 11, name: "Simsimi" },
       
       {value: 9, name: "MrVGunz" }
       
@@ -382,9 +384,9 @@
     
       dataDefacementGroups.push({value: 5, name: "Anonymous Italia"});
     
-      dataDefacementGroups.push({value: 1, name: "UP-SEC Team"});
-    
       dataDefacementGroups.push({value: 1, name: "Turkhacks.com"});
+    
+      dataDefacementGroups.push({value: 1, name: "UP-SEC Team"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },

@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      /* height: 50px; */
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,38 +188,41 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/681b289dd3b7b1f2d8c7a9d3.html">radioem.ro</a>, 
-        
-          <a href="defacement_details/681b2890d3b7b1f2d8c7a9d1.html">sff.carpatsoft.ro</a>, 
-        
-          <a href="defacement_details/681b2822d3b7b1f2d8c7a9c6.html">greenvibeshop.ro</a>, 
-        
-          <a href="defacement_details/681b26bbd3b7b1f2d8c7a995.html">gdprpartner.ch</a>, 
-        
-          <a href="defacement_details/6819d9f47fb0c572a144f52e.html">volum.voluntariat.ro</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/680f8a260fa4cc43791b67ff.html">​​​​Bio-Clima Service</a>, 
-        
-          <a href="ransom_details/67e2d32e803170d674095ed4.html">AAYLEX ONE S.A.</a>, 
-        
-          <a href="ransom_details/67c0a83f351d81ddcfc3c46b.html">PARTNER.RO</a>, 
-        
-          <a href="ransom_details/67b4cdbdcb08b3df79cec332.html">autogedal.ro</a>, 
-        
-          <a href="ransom_details/67b1d109ee45ccee112c61d0.html">acqua.ro</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/681b289dd3b7b1f2d8c7a9d3.html">radioem.ro</a>, 
+          
+            <a href="defacement_details/681b2890d3b7b1f2d8c7a9d1.html">sff.carpatsoft.ro</a>, 
+          
+            <a href="defacement_details/681b2822d3b7b1f2d8c7a9c6.html">greenvibeshop.ro</a>, 
+          
+            <a href="defacement_details/681b26bbd3b7b1f2d8c7a995.html">gdprpartner.ch</a>, 
+          
+            <a href="defacement_details/6819d9f47fb0c572a144f52e.html">volum.voluntariat.ro</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/680f8a260fa4cc43791b67ff.html">​​​​Bio-Clima Service</a>, 
+          
+            <a href="ransom_details/67e2d32e803170d674095ed4.html">AAYLEX ONE S.A.</a>, 
+          
+            <a href="ransom_details/67c0a83f351d81ddcfc3c46b.html">PARTNER.RO</a>, 
+          
+            <a href="ransom_details/67b4cdbdcb08b3df79cec332.html">autogedal.ro</a>, 
+          
+            <a href="ransom_details/67b1d109ee45ccee112c61d0.html">acqua.ro</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
+
   
   <script>
     $(document).ready(function(){
@@ -315,8 +317,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:40:22-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:48:01-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
