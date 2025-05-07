@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">DXPLOIT</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">22</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-03-21</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+    <section>
+      <h2 class="section-title">Last 10 Defacements for DXPLOIT</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67dda38082f41771913dc0c0.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/21/rotra_com_ar/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for http://rotra.com.ar/index.php">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67dda38082f41771913dc0c0.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">rotra.com.ar</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-21</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67d68542f737a4fd4fc0d1aa.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/bbtourtrang_com/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for https://bbtourtrang.com/">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67d68542f737a4fd4fc0d1aa.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">bbtourtrang.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67d68568f737a4fd4fc0d1ac.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/benzphuket_com/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for https://www.benzphuket.com/DXP.html">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67d68568f737a4fd4fc0d1ac.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.benzphuket.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67d68556f737a4fd4fc0d1ab.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/chalonghorsebackriding_com/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for https://www.chalonghorsebackriding.com/">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67d68556f737a4fd4fc0d1ab.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.chalonghorsebackriding.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67d68578f737a4fd4fc0d1ad.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/ladypie_com/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for https://ladypie.com/">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67d68578f737a4fd4fc0d1ad.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">ladypie.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67d6858ef737a4fd4fc0d1ae.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/phuketresortandspa_com/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for https://phuketresortandspa.com/">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67d6858ef737a4fd4fc0d1ae.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">phuketresortandspa.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67d685c0f737a4fd4fc0d1b0.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/kohtaobamboohuts_com/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for https://kohtaobamboohuts.com/DXP.html">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67d685c0f737a4fd4fc0d1b0.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">kohtaobamboohuts.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67d685a7f737a4fd4fc0d1af.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/seaandsandbeverage_co_th/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for https://www.seaandsandbeverage.co.th/">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67d685a7f737a4fd4fc0d1af.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.seaandsandbeverage.co.th</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> politics</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67d66b079e9b51907b77826f.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/16/skptc_ac_th/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for https://www.skptc.ac.th/DXP.html">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67d66b079e9b51907b77826f.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.skptc.ac.th</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-15</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67cd3ef221aa597efcf366a6.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/09/heraldintlcollege_edu_np/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for https://www.heraldintlcollege.edu.np/">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67cd3ef221aa597efcf366a6.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.heraldintlcollege.edu.np</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-09</p>
+                <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;DDoS Attacks by DXPLOIT</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/67d68c0bf43915eaa82c81d6.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://esbjergairport.dk/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">esbjergairport.dk</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-16</p>
+                <p class="card-text"><strong>Group:</strong> DXPLOIT</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/67d0a8b0127d67bd9b1f7633.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.georisques.gouv.fr/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.georisques.gouv.fr</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-11</p>
+                <p class="card-text"><strong>Group:</strong> DXPLOIT</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/67c44f7e93605a155dabbcf2.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/contratacioncentralizada_gob_es/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://contratacioncentralizada.gob.es/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">contratacioncentralizada.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                <p class="card-text"><strong>Group:</strong> DXPLOIT</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/67c44f9893605a155dabbcf3.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/maquinaparacantoromo_es/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.maquinaparacantoromo.es/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.maquinaparacantoromo.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                <p class="card-text"><strong>Group:</strong> DXPLOIT</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/67c44fbd93605a155dabbcf4.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/lamoncloa_gob_es/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.lamoncloa.gob.es/Paginas/index.aspx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.lamoncloa.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                <p class="card-text"><strong>Group:</strong> DXPLOIT</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/67c44ff093605a155dabbcf5.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/roomdimensions_es/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.roomdimensions.es/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.roomdimensions.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                <p class="card-text"><strong>Group:</strong> DXPLOIT</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - DXPLOIT (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-02-17", 2], ["2025-03-02", 5], ["2025-03-04", 2], ["2025-03-05", 1], ["2025-03-09", 1], ["2025-03-11", 1], ["2025-03-15", 1], ["2025-03-16", 8], ["2025-03-21", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>
