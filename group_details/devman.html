@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">devman</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">32</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-05-05 12:52:25.855296</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+
+
+    
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by devman</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681935188a876d7ac2732c14.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="pestbusters.com.sg">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">pestbusters.com.sg</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-05 12:52:25.855296</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/sg.png"
+                        alt="SG flag">
+                    SG
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/681443b3a015989335b4474e.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="smvthailand.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">smvthailand.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-02 02:19:43.899880</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/th.png"
+                        alt="TH flag">
+                    TH
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/6813ef04d01ce150b6aa8ff5.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Chinese Healthcare Organisation">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Chinese Healthcare Organisation</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 21:48:44.240558</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/cn.png"
+                        alt="CN flag">
+                    CN
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/6813ef03d01ce150b6aa8ff4.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Singapour Factory">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Singapour Factory</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 21:48:40.420564</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/sg.png"
+                        alt="SG flag">
+                    SG
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/6812e3d5aecb0f78b6f3c2d6.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="South African IT firm">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">South African IT firm</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 01:20:51.985544</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/za.png"
+                        alt="ZA flag">
+                    ZA
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/6812e3d5aecb0f78b6f3c2d5.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="South African Hr company">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">South African Hr company</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 01:20:48.248221</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/za.png"
+                        alt="ZA flag">
+                    ZA
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/6812e3d4aecb0f78b6f3c2d4.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="dovesit.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dovesit.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 01:20:44.293934</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/za.png"
+                        alt="ZA flag">
+                    ZA
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/680b877c9cb1015de4041644.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="EU victim">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">EU victim</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-25 11:24:10.783520</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/680a0bca4b09b053f7e951c8.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="China Harbour Engeneiring Company FILE SAMPLE 1 avaliable /CHEC/CHECsample.zip">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">China Harbour Engeneiring Company FILE SAMPLE 1 avaliable /CHEC/CHECsample.zip</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-24 09:56:54.272281</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/cn.png"
+                        alt="CN flag">
+                    CN
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/680a363ea568ac86b9f8edd9.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="China Harbour Engeneiring Company">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">China Harbour Engeneiring Company</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-24 09:56:54.272281</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/cn.png"
+                        alt="CN flag">
+                    CN
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - devman (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-04-06 22:31:28.196838", 1], ["2025-04-06 22:31:31.788151", 1], ["2025-04-06 22:31:35.805901", 1], ["2025-04-06 22:31:39.584427", 1], ["2025-04-13 20:58:14.033014", 1], ["2025-04-13 20:58:19.101591", 2], ["2025-04-13 20:58:22.650871", 2], ["2025-04-13 20:58:26.224839", 2], ["2025-04-13 20:58:29.933974", 2], ["2025-04-13 20:58:34.006010", 2], ["2025-04-13 20:58:37.271433", 2], ["2025-04-20 15:19:35.257269", 1], ["2025-04-20 15:19:40.415175", 1], ["2025-04-20 15:19:44.087249", 1], ["2025-04-20 16:50:54.612308", 1], ["2025-04-20 16:51:00.472664", 1], ["2025-04-24 09:56:54.272281", 2], ["2025-04-25 11:24:10.783520", 1], ["2025-05-01 01:20:44.293934", 1], ["2025-05-01 01:20:48.248221", 1], ["2025-05-01 01:20:51.985544", 1], ["2025-05-01 21:48:40.420564", 1], ["2025-05-01 21:48:44.240558", 1], ["2025-05-02 02:19:43.899880", 1], ["2025-05-05 12:52:25.855296", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>
