@@ -38,12 +38,26 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
     .ticker-wrapper {
       position: relative;
       overflow: hidden;
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
+      height: 50px;
     }
 
     .ticker-list {
@@ -306,8 +320,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:36:32-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:39:59-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
   
@@ -335,9 +349,9 @@
       
       {value: 24, name: "Team Anon Force" },
       
-      {value: 11, name: "Bgke04" },
-      
       {value: 11, name: "Simsimi" },
+      
+      {value: 11, name: "Bgke04" },
       
       {value: 9, name: "MrVGunz" }
       
@@ -368,9 +382,9 @@
     
       dataDefacementGroups.push({value: 5, name: "Anonymous Italia"});
     
-      dataDefacementGroups.push({value: 1, name: "Turkhacks.com"});
-    
       dataDefacementGroups.push({value: 1, name: "UP-SEC Team"});
+    
+      dataDefacementGroups.push({value: 1, name: "Turkhacks.com"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },
