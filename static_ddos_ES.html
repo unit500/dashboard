@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qxbox8417h");
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 DDoS Attacks</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all DDoS cards; they will be revealed via JS */
+    .ddos-card {
+      display: none;
+    }
+    .flag {
+      width: 32px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for DDoS Attacks -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">DDoS Attacks</h1>
+      <p class="lead fst-italic">Details about the latest verified DDoS attacks</p>
+    </section>
+    
+    <!-- Squares Section: Two rows with four squares each -->
+    <section class="mb-4">
+      <div class="row">
+        <!-- First Row -->
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Total Attacks</h5>
+            <p>490</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Last 30 Days</h5>
+            <p>180</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Last Week</h5>
+            <p>51</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Last Day</h5>
+            <p>0</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Second Row -->
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Group</h5>
+            <p>NoName057(16)</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Hacker</h5>
+            <p>NoName057(16)</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Attacked Countries</h5>
+            <p>
+              
+                
+                  <img src="https://flagcdn.com/32x24/us.png" alt="US flag" class="flag">
+                
+              
+                
+                  <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag" class="flag">
+                
+              
+                
+                  <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag" class="flag">
+                
+              
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h5>Top Attacking Countries</h5>
+            <p>
+              
+                
+              
+                
+                  <img src="https://flagcdn.com/32x24/ru.png" alt="ru flag" class="flag">
+                
+              
+                
+                  <img src="https://flagcdn.com/32x24/kh.png" alt="kh flag" class="flag">
+                
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest DDoS Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Verified DDoS Attacks</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ddos-cards">
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67f8db6147b2524787427e14.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://revista.ieee.es/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://revista.ieee.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">revista.ieee.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-11</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> Mr. Hamza</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67f8db2b47b2524787427e12.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.incibe.es/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.incibe.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.incibe.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-11</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> Mr. Hamza</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67cd9a6b21aa597efcf366b3.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for http://sede.agenciatributaria.gob.es">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://sede.agenciatributaria.gob.es">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">sede.agenciatributaria.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-09</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> TwoNet</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67cd6f8221aa597efcf366ac.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/juntaex_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.juntaex.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/juntaex_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.juntaex.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.juntaex.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-09</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67cd6f4d21aa597efcf366ab.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/dival_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.dival.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/dival_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.dival.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.dival.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-09</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67cd6eae21aa597efcf366aa.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://web.dipualba.es/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://web.dipualba.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">web.dipualba.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-09</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67cd6e7b21aa597efcf366a9.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/castillalamancha_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.castillalamancha.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/castillalamancha_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.castillalamancha.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.castillalamancha.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-09</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67cd6e4721aa597efcf366a8.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/dphuesca_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for http://www.dphuesca.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/dphuesca_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for http://www.dphuesca.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.dphuesca.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-09</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67cd6e0521aa597efcf366a7.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/zaragoza_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.zaragoza.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/09/zaragoza_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.zaragoza.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.zaragoza.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-09</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c95c6866e64cc5c8803056.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/aecid_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.aecid.es/en/index.html">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/aecid_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.aecid.es/en/index.html">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.aecid.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-06</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c95c54769488ab10277ea8.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/aecid_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.aecid.es/en/index.html">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/aecid_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.aecid.es/en/index.html">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.aecid.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-06</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c95adb71b143928b63bc28.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/mjusticia_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.mjusticia.gob.es/en">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/mjusticia_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.mjusticia.gob.es/en">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.mjusticia.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-06</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c95aad66e64cc5c8803055.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/mjusticia_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.mjusticia.gob.es/en">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/mjusticia_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.mjusticia.gob.es/en">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.mjusticia.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-06</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c95525c23164cc6fedbd7e.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/mpt_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://mpt.gob.es/index.html">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/mpt_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://mpt.gob.es/index.html">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">mpt.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-06</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> indie</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c954f966e64cc5c8803054.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/mpt_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://mpt.gob.es/index.html">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/06/mpt_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://mpt.gob.es/index.html">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">mpt.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-06</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> indie</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c85088c29c6bd41b6297aa.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.imatia.com/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.imatia.com/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.imatia.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-05</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> OverFlame</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c80a0105a3b3078420119b.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.dipucr.es/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.dipucr.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.dipucr.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-05</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c7ffd905a3b3078420119a.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/ddgi_cat/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.ddgi.cat/web/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/ddgi_cat/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.ddgi.cat/web/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.ddgi.cat</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-05</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c7ffa005a3b30784201199.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/zaragoza_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.zaragoza.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/zaragoza_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.zaragoza.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.zaragoza.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-05</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c7ff7805a3b30784201198.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/gipuzkoa_eus/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.gipuzkoa.eus/eu/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/gipuzkoa_eus/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.gipuzkoa.eus/eu/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.gipuzkoa.eus</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-05</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c7ff5505a3b30784201197.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/irun_org/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.irun.org/eu/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/05/irun_org/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.irun.org/eu/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.irun.org</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-05</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c7145556e7047cddc41622.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.imatia.com/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.imatia.com/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.imatia.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-04</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> TwoNet</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c6d8f356e7047cddc415d2.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/casareal_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.casareal.es">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/casareal_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.casareal.es">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.casareal.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-04</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> indie</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c6d8c156e7047cddc415d1.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/casareal_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.casareal.es">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/casareal_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.casareal.es">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.casareal.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-04</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> Z-PENTEST</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c6d87056e7047cddc415d0.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/casareal_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.casareal.es">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/casareal_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.casareal.es">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.casareal.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-04</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> Z-PENTEST</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c6b1e3ecd9528051a9640c.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/parcan_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.parcan.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/parcan_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.parcan.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.parcan.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-04</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c6b1143d2573c6e450b0c5.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/asturias_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.asturias.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/04/asturias_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.asturias.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.asturias.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-04</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c60306c2d66b2596b7bc44.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/03/exteriores_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.exteriores.gob.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/03/exteriores_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.exteriores.gob.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.exteriores.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> TwoNet</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c56270414450464f96b294.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.altable.es/inicio">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.altable.es/inicio">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.altable.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c5624fc2d66b2596b7bbfc.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.altable.es/inicio">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.altable.es/inicio">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.altable.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c56236414450464f96b293.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.mirandadeebro.es/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.mirandadeebro.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.mirandadeebro.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c56219c2d66b2596b7bbfb.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.mirandadeebro.es/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.mirandadeebro.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.mirandadeebro.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c561a6c2d66b2596b7bbfa.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.barakaldo.eus/portal/web/barakaldo">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.barakaldo.eus/portal/web/barakaldo">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.barakaldo.eus</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c561a2414450464f96b292.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://sede.toledo.es/eAdmin/Sede.do">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://sede.toledo.es/eAdmin/Sede.do">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">sede.toledo.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c56174c2d66b2596b7bbf9.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://sede.toledo.es/eAdmin/Sede.do">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://sede.toledo.es/eAdmin/Sede.do">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">sede.toledo.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c56133c2d66b2596b7bbf8.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.toledo.es/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.toledo.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.toledo.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c56100c2d66b2596b7bbf7.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.altable.es/inicio">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.altable.es/inicio">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.altable.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c5608fc2d66b2596b7bbf6.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.camaramadrid.es/">
+              </a>
+              <!-- <a href="#">
+                <img src=""
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.camaramadrid.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.camaramadrid.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> NoName057(16)</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humantiy</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c44ff093605a155dabbcf5.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/roomdimensions_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.roomdimensions.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/roomdimensions_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.roomdimensions.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.roomdimensions.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c44fbd93605a155dabbcf4.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/lamoncloa_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.lamoncloa.gob.es/Paginas/index.aspx">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/lamoncloa_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.lamoncloa.gob.es/Paginas/index.aspx">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.lamoncloa.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c44f7e93605a155dabbcf2.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/contratacioncentralizada_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://contratacioncentralizada.gob.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/contratacioncentralizada_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://contratacioncentralizada.gob.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">contratacioncentralizada.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> DXPLOIT</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c42c8e93605a155dabbcef.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/dsn_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://www.dsn.gob.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/dsn_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://www.dsn.gob.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">www.dsn.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> Mr. Hamza</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c42c3e93605a155dabbcee.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/ejercito_defensa_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://ejercito.defensa.gob.es/">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/ejercito_defensa_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://ejercito.defensa.gob.es/">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">ejercito.defensa.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> Mr. Hamza</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          
+          <div class="col ddos-card">
+            <div class="card h-100">
+              <a href="ddos_details/67c42bef93605a155dabbced.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/emad_defensa_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     loading="lazy"
+                     alt="Thumbnail for https://emad.defensa.gob.es/en/index.html?__locale=en">
+              </a>
+              <!-- <a href="#">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/03/02/emad_defensa_gob_es/files/additional_image.jpg"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thumbnail for https://emad.defensa.gob.es/en/index.html?__locale=en">
+              </a> -->
+              <div class="card-body">
+                <h5 class="card-title">emad.defensa.gob.es</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-03-02</p>
+                
+                  <p class="card-text"><strong>Actor:</strong> Mr. Hamza</p>
+                
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity</p>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreDdosButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-07 12:44:40-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for DDoS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ddos-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreDdosButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreDdosButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

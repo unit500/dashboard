@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6819351a8a876d7ac2732c18.html">
+                <img src="https://images.ransomware.live/victims/df5b9a075dcc08a63aa25ba08f192c4e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.gpflewis.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.gpflewis.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-05 17:04:41.134662</p>
+                <p class="card-text"><strong>Industry:</strong> Construction</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Exfiltraded data : yes - Encrypted data : yes
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6813e0f85015ce0b8014df6a.html">
+                <img src="https://images.ransomware.live/victims/e699b0c7cc78e27ab8703d78bb370b45.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.defected.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.defected.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-01 20:27:19.750016</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    United Kingdom
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/680e63172cd6d7bf8ece861c.html">
+                <img src="https://images.ransomware.live/victims/ce0956243a951ef6fcc4dfd26be9ed0c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="linney.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">linney.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-27 16:49:06.788154</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> dunghill</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Linney is a sixth generation, world-class, multichannel marketing services group. It offers graphic &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/680a44242e8916ff1923f0b5.html">
+                <img src="https://images.ransomware.live/victims/f44596b19e996e6995691c2ee26475b2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="vicaragecourtsolicitors.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">vicaragecourtsolicitors.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-24 13:29:00.257746</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    At Vicarage Court Solicitors we aim to provide you with expert advice concerning the most important &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6807bd2f86084c0e19ec567f.html">
+                <img src="https://images.ransomware.live/victims/d0fc0814b1d20bc510d6698331e96d38.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.bactontransport.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.bactontransport.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-22 14:41:48.287101</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    We offer a great range of road transport solutions to our clients, combining our technical expertise&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67fc2649030364d3230f8f42.html">
+                <img src="https://images.ransomware.live/victims/ebe1523d55082d659ac13adde9f08d18.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ossman.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ossman.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-13 20:19:22.717519</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonforce</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+
+Ossman Consultants Limited is one of London&#39;s leading accountancy firms. We are an established com&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67fc2647030364d3230f8f40.html">
+                <img src="https://images.ransomware.live/victims/15d5b6692affd87764a02edd94b95795.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Bridgebank Limited">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Bridgebank Limited</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-13 20:16:14.403538</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusa</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Bridgebank Limited is construction and civil engineering company. Bridgebank Limited corporate offic&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67fa9c37b2a1b64e6f983e27.html">
+                <img src="https://images.ransomware.live/victims/194b28cf631c6981492595fd4ffeb360.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Chickenshed">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Chickenshed</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-12 15:59:37.947975</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Chickenshed is an inclusive theatre company based in London, founded in 1974. It brings together peo&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f6b5c72a60c8f3d959c530.html">
+                <img src="https://images.ransomware.live/victims/499002424cafb4593c2806e1c438f557.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.blink-photo.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.blink-photo.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-09 17:13:20.078066</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Blink Photo Content is a passionate group of creative thinkers and content creators, specializing in&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67fa1dc6749f960bb22a1a6c.html">
+                <img src="https://images.ransomware.live/victims/499002424cafb4593c2806e1c438f557.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.blink-photo.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.blink-photo.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-09 17:13:20.078066</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Blink Photo Content is a passionate group of creative thinkers and content creators, specializing in&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f44b269b74426199390058.html">
+                <img src="https://images.ransomware.live/victims/aa36ff309fbd6f3bfb00c8c66f077a32.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.cbridgeinc.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.cbridgeinc.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-07 21:22:28.850896</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    They are a full-service provider and Original Equipment Manufacturer (OEM) for high technology indus&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f6ee20e3c91e5828d63385.html">
+                <img src="https://images.ransomware.live/victims/aa36ff309fbd6f3bfb00c8c66f077a32.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.cbridgeinc.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.cbridgeinc.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-07 21:22:28.850896</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    They are a full-service provider and Original Equipment Manufacturer (OEM) for high technology indus&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f3f6b25b36157ee57a0116.html">
+                <img src="https://images.ransomware.live/victims/b3fdba32a35b03d02421fa32f32697e3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sec.qld.edu.au">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sec.qld.edu.au</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-07 15:58:10.080004</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    St. Edmund&#39;s College is a co-educational Catholic special high school for students with vision impai&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f4131b69cace605ba9c9b7.html">
+                <img src="https://images.ransomware.live/victims/b3fdba32a35b03d02421fa32f32697e3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sec.qld.edu.au">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sec.qld.edu.au</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-07 15:58:10.080004</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    St. Edmund&#39;s College is a co-educational Catholic special high school for students with vision impai&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67eceea0f2b6cf3bea64f6e4.html">
+                <img src="https://images.ransomware.live/victims/c3b69bfc90681038541cd0bc31c7ddcc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="collectivearchitecture.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">collectivearchitecture.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-02 07:55:50.047031</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67eb8f1227626c3c56f17030.html">
+                <img src="https://images.ransomware.live/victims/52658da752a43f2295c73d3273734f44.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lendco.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lendco.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-01 06:37:25.836128</p>
+                <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e7eef515be5a0db596ced1.html">
+                <img src="https://images.ransomware.live/victims/249a8ee3ad060631b1d273ac61c6abc2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.derianhouse.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.derianhouse.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-29 12:42:46.721983</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All data of this company will be available for download on 08.04.2025. We provide respite and end-of&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e4956a31678c82e5ae5c21.html">
+                <img src="https://images.ransomware.live/victims/1102e28f7e80ab88f6b4cba41a18f1f4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="E.B. Archbald and Associates">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">E.B. Archbald and Associates</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-26 23:49:05.408392</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Over 700GB of data downloaded from their servers ( both local servers and CLOUD SERVERS ) . Company &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e487195ca2b5cea7700c92.html">
+                <img src="https://images.ransomware.live/victims/9e762211873668976eea0b08fe610175.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="heras.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">heras.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-26 22:58:33.542249</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    heras.co.uk
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67df08e9f3e56b39896791fe.html">
+                <img src="https://images.ransomware.live/victims/a42687805c10249a38e7c2fa6a27e12b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Advance Tapes International">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Advance Tapes International</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-22 18:39:40.070842</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusa</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Advance Tapes International (founded in 1964) is a UK based manufacturer of specialist pressure sens&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67dea68fa30f0f94e6dfd774.html">
+                <img src="https://images.ransomware.live/victims/2424cbaa9e56e19f984defb4acdb0e3e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="inmarsat.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">inmarsat.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-22 11:54:22.722427</p>
+                <p class="card-text"><strong>Industry:</strong> Telecommunication</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    inmarsat.com
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67dc49b85c1062a558a550ad.html">
+                <img src="https://images.ransomware.live/victims/c744b49544de644e9a7485618d870d02.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mccann-ltd.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mccann-ltd.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-20 16:09:54.357299</p>
+                <p class="card-text"><strong>Industry:</strong> Construction</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusa</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    J McCann &amp; Co Ltd is a company that operates in the commercial and residential construction industry&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67dab1e171a4903304307b16.html">
+                <img src="https://images.ransomware.live/victims/f4b3d5098031978a5839e8844f136d67.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.palominopetroleum.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.palominopetroleum.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-19 11:29:53.207509</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Palomino Petroleum Inc is a company that operates in the Oil &amp; Gas Exploration &amp; Services industry.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67da416d493b130a407e21d8.html">
+                <img src="https://images.ransomware.live/victims/9183074037d43633a710f1a45e8c4ef3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="warmsworth.doncaster.sch.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">warmsworth.doncaster.sch.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-19 03:29:52.368345</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    WARMSWORTH PRIMARY SCHOOL If your child or anyone in your household is displaying any of the sympto&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d72ddd993fe3f8bc4597e5.html">
+                <img src="https://images.ransomware.live/victims/67cc7d76bc01d0b499f25efc47968682.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="dtsservices.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dtsservices.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-16 19:06:12.906181</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonforce</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Car repair, car service, sales and etc....
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d428735dc95c1ed15b0937.html">
+                <img src="https://images.ransomware.live/victims/e485db427c05c3fc020b8acac7a57ddb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="bancroftwines.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">bancroftwines.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-14 11:49:31.544216</p>
+                <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Bancroft Wines is an award- winning London-based wine distributor offering a complete and competitiv&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d97c9be3de47d4a2d8d4a6.html">
+                <img src="https://images.ransomware.live/victims/e485db427c05c3fc020b8acac7a57ddb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="bancroftwines.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">bancroftwines.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-14 11:49:31.544216</p>
+                <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Bancroft Wines is an award- winning London-based wine distributor offering a complete and competitiv&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ce01d7f4d3d733f4e88817.html">
+                <img src="https://images.ransomware.live/victims/4eda705d67e64f6947d344ce9f1b20bb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="cotswold-fayre.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">cotswold-fayre.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-09 20:28:00.313718</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonforce</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Cotswold Fayre was started by Paul Hargreaves in the Early Nineties originally as the wholesale dist&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ce01d6f4d3d733f4e88815.html">
+                <img src="https://images.ransomware.live/victims/12e39635cf3fec163849bd2e894d0b43.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="steel-dynamics.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">steel-dynamics.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-09 20:25:04.873194</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonforce</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Steel Dynamics are one of the leading steel stockholders and Processors in the UK. Offering a wide r&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67cd4b04131a852969ae2175.html">
+                <img src="https://images.ransomware.live/victims/73df23c4a66ae8ec9976b16e8ed6b132.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Insider Technologies Limited">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Insider Technologies Limited</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-09 07:53:22.810005</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> embargo</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Based in Manchester, Great Britain, Insider technologies is a leading provider of big data, predicti&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c76a440c7156c7c8084d05.html">
+                <img src="https://images.ransomware.live/victims/479a9418a93a307bcce6d73f8edbad02.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="makesworth.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">makesworth.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-04 20:26:18.677947</p>
+                <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomexx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Makesworth Accountants is multi-award-winning accountancy practice of a chartered accountant, tax an&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67be4bed54e72a3c2112e76e.html">
+                <img src="https://images.ransomware.live/victims/524fb5dd8cd313bff96e57cb6b46470b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lbl.london">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lbl.london</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:54:45.595475</p>
+                <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> termite</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    London Belgravia Brokers provide risk insurance and finance advisory solutions to global property de&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67be4bec54e72a3c2112e76d.html">
+                <img src="https://images.ransomware.live/victims/9b3928fb4fec37922d4cee396e7587fb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nationallegalservice.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nationallegalservice.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:53:16.467045</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> termite</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    National Legal Service are a leading Criminal, Family and Child Care firm conducting both private an&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67be4beb54e72a3c2112e76c.html">
+                <img src="https://images.ransomware.live/victims/d46732834b074d513c0cb61445238785.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rooksrider.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rooksrider.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 22:51:47.082674</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> termite</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Founded in 1761, Rooks Rider Solicitors is a boutique law firm specializing in corporate law, real e&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67bcc1cda236a93c383b99fe.html">
+                <img src="https://images.ransomware.live/victims/1eef3e98087d7ca5942f7cfd763e4599.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="thefireplacewarehouse.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">thefireplacewarehouse.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-24 18:00:26.069937</p>
+                <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> kairos</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    UK - Fireplace Warehouse
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67bc97cac099e68254742e23.html">
+                <img src="https://images.ransomware.live/victims/c0cb93bb4529f88f14691cb59ec78ce7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="denbyco.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">denbyco.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-24 15:35:54.565376</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Denby &amp; Co is a UK-based long-established independent accountancy firm committed to p&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67bb626030b1996e6faff657.html">
+                <img src="https://images.ransomware.live/victims/297022be89778fb3d3a698b22fbfe114.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gmdirecthire.co.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gmdirecthire.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-23 17:19:47.900563</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ba111d4ec5c3406783ac3c.html">
+                <img src="https://images.ransomware.live/victims/626303bff4401e04779ce844f0f4786a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gateshead.gov.uk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gateshead.gov.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-22 17:55:30.560071</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag">
+                  
+                  GB
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusa</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Metropolitan Borough of Gateshead is a metropolitan borough in the metropolitan county of Tyne a&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-07 12:58:05-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>
