@@ -15,6 +15,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
   <!-- ECharts Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
@@ -146,7 +148,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
+    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -155,7 +157,15 @@
       View country‑specific dashboard:
     </label>
 
-    <select id="countrySelect" class="form-select d-inline-block w-auto">
+    <select id="countrySelect"
+      name="countrySelect"
+      class="country-select"
+      style="width:40%"
+    >
+      <option></option>
+    </select>
+
+    <!-- <select id="countrySelect" class="form-select d-inline-block w-auto">
       <option value="" selected>Global (all countries)</option>
       
         <option value="bd">Bangladesh</option>
@@ -660,7 +670,8 @@
       
         <option value="mz">Mozambique</option>
       
-    </select>
+    </select> -->
+
   </div>
 
   <div class="container my-4">
@@ -864,8 +875,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 06:05:00-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 09:10:29-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
@@ -1086,6 +1097,74 @@
         window.location.href = `static_dashboard_${code}.html`;
       }
     });
+  </script>
+
+
+  <script>
+    // Load country data and initialize Select2 (if needed)
+    function loadCountryData() {
+        console.log("Loading country data...");
+        return fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            const countries = data.map(country => ({
+              id: country.cca2.toLowerCase(),
+              text: country.name.common
+            }));
+            countries.sort((a, b) => a.text.localeCompare(b.text));
+            console.log("Country data loaded. Total countries:", countries.length);
+            return countries;
+          })
+          .catch(err => {
+            console.error("Error loading country data:", err);
+            return [];
+          });
+      }
+
+
+      loadCountryData().then(data => {
+        countryDataGlobal = data; 
+        initCountrySelect();           
+      });
+
+      function initCountrySelect() {
+        $("#countrySelect").each(function () {
+          const $sel = $(this);
+
+          // skip if we already built the list for this element
+          if ($sel.data("select2")) return;
+
+          // wipe anything old, keep 1 empty option for the placeholder
+          $sel.empty().append('<option></option>');
+
+          // add options
+          countryDataGlobal.forEach(c => {
+            $sel.append(
+              $("<option>", { value: c.id, text: c.text })
+            );
+          });
+
+          // activate Select2
+          $sel.select2({
+            placeholder: "Select a country",
+            allowClear: true,
+            templateResult: formatCountry,
+            templateSelection: c => c.text
+          });
+        });
+      }
+
+      // helper to show flag + name
+      function formatCountry(c) {
+        if (!c.id) return c.text;
+        return $(
+          '<span><img src="https://flagcdn.com/16x12/' +
+            c.id +
+            '.png" class="me-1" /> ' +
+            c.text +
+            "</span>"
+        );
+      }
   </script>
 </body>
 </html>
