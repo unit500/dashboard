@@ -246,27 +246,44 @@
     </div>
   </div>
 
-  <div class="tab-content mt-3" id="statsTabsContent">
-    <!-- Ransoms Pane -->
-    <div class="tab-pane fade show active" id="ransom" role="tabpanel" aria-labelledby="ransom-tab">
-      <div class="container row mb-4">
-        <div class="col-md-4"><div id="chartRansomTopSource" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartRansomTopTarget" class="chart-container"></div></div>
+  <div class="tab-pane fade show active" id="ransom" role="tabpanel" aria-labelledby="ransom-tab">
+    <div class="container mb-4">
+      <div class="row justify-content-center gy-4">
+        <!-- Top Sources -->
+        <div class="col-lg-4 col-md-6">
+          <div id="chartRansomTopSource" class="chart-container"></div>
+        </div>
+        <!-- Top Targets -->
+        <div class="col-lg-4 col-md-6">
+          <div id="chartRansomTopTarget" class="chart-container"></div>
+        </div>
+        <!-- Top Groups -->
+        <div class="col-lg-4 col-md-6">
+          <div id="chartRansomTopGroups" class="chart-container"></div>
+        </div>
+        <!-- (optional) Top Attackers, if you have it -->
+        <div class="col-lg-4 col-md-6">
+          <div id="chartRansomTopAttackers" class="chart-container"></div>
+        </div>
+        <!-- Most Active Hour -->
+        <div class="col-lg-4 col-md-6">
+          <div id="chartRansomByHour" class="chart-container"></div>
+        </div>
+        <!-- Most Active Weekday -->
+        <div class="col-lg-4 col-md-6">
+          <div id="chartRansomByWeekday" class="chart-container"></div>
+        </div>
       </div>
-      <div class="container row mb-4">
-        <div class="col-md-4"><div id="chartRansomTopGroups" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartRansomTopAttackers" class="chart-container"></div></div>
-      </div>
-
-      <div class="container row mb-4">  
-        <div class="col-md-4"><div id="chartRansomByHour" class="chart-container"></div></div>
-        <div class="col-md-4"><div id="chartRansomByWeekday" class="chart-container"></div></div>
-      </div>
-      <div class="container row mb-4">
-        <div class="col-12"><div id="heatmapRansomCalendar" class="chart-container" style="height:200px"></div></div>
+  
+      <!-- Full-width heatmap below -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <div id="heatmapRansomCalendar" class="chart-container" style="height:200px"></div>
+        </div>
       </div>
     </div>
   </div>
+  
 
     <!-- DDoS Pane -->
     <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
@@ -310,8 +327,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 14:30:59-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 14:34:48-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -362,15 +379,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "www.amazontransportes.com.br" },
+        { value: 1, name: "bettininformatica" },
+      
+        { value: 1, name: "aeamg.org.br" },
       
         { value: 1, name: "ihara.com.br" },
       
-        { value: 1, name: "w8textil.com.br" },
+        { value: 1, name: "uva.edu.br" },
       
-        { value: 1, name: "bettininformatica" },
-      
-        { value: 1, name: "aeamg.org.br" }
+        { value: 1, name: "www.amazontransportes.com.br" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -395,11 +412,11 @@
       
         { value: 2, name: "akira" },
       
-        { value: 1, name: "cicada3301" },
+        { value: 1, name: "sarcoma" },
       
-        { value: 1, name: "J" },
+        { value: 1, name: "ralord" },
       
-        { value: 1, name: "lockbit3" }
+        { value: 1, name: "nightspire" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -424,11 +441,11 @@
       
         { value: 2, name: "13" },
       
-        { value: 1, name: "07" },
+        { value: 1, name: "12" },
       
-        { value: 1, name: "17" },
+        { value: 1, name: "04" },
       
-        { value: 1, name: "15" }
+        { value: 1, name: "17" }
       
     ];
     chartRansomByHour.setOption({
@@ -552,15 +569,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [];
     
-      dataRansomTopTarget.push({value: 1, name: "www.amazontransportes.com.br"});
-    
-      dataRansomTopTarget.push({value: 1, name: "ihara.com.br"});
-    
-      dataRansomTopTarget.push({value: 1, name: "w8textil.com.br"});
-    
       dataRansomTopTarget.push({value: 1, name: "bettininformatica"});
     
       dataRansomTopTarget.push({value: 1, name: "aeamg.org.br"});
+    
+      dataRansomTopTarget.push({value: 1, name: "ihara.com.br"});
+    
+      dataRansomTopTarget.push({value: 1, name: "uva.edu.br"});
+    
+      dataRansomTopTarget.push({value: 1, name: "www.amazontransportes.com.br"});
     
     var optionRansomTopTarget = {
       title: { text: 'Top 5 Ransom Target', left: 'center' },
