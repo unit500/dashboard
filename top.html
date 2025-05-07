@@ -8,8 +8,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="static/style.css">
-  <!-- jQuery (required for ticker) -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- jQuery Easy Ticker (adjust path as needed) -->
   <script src="static/js/jquery.easy-ticker.min.js"></script>
   <!-- ECharts Library -->
@@ -236,41 +234,42 @@
       </ul>
     </div>
   </div>
-  <div class="tab-content mt-3" id="statsTabsContent">
-    <div class="tab-pane fade show active" id="ransom" role="tabpanel" aria-labelledby="ransom-tab">
-      <div class="container mb-4">
-        <div class="row justify-content-center gy-4">
-          <!-- Row 1: two per row -->
-          <div class="col-lg-6 col-md-6">
-            <div id="chartRansomTopSource" class="chart-container"></div>
+  
+    <div class="tab-content mt-3" id="statsTabsContent">
+      <div class="tab-pane fade show active" id="ransom" role="tabpanel" aria-labelledby="ransom-tab">
+        <div class="container mb-4">
+          <div class="row justify-content-center gy-4">
+            <!-- Row 1: two per row -->
+            <div class="col-lg-6 col-md-6">
+              <div id="chartRansomTopSource" class="chart-container"></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div id="chartRansomTopTarget" class="chart-container"></div>
+            </div>
+            <!-- Row 2 -->
+            <div class="col-lg-6 col-md-6">
+              <div id="chartRansomByHour" class="chart-container"></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div id="chartRansomByWeekday" class="chart-container"></div>
+            </div>
+            <!-- Row 3 -->
+            <div class="col-lg-6 col-md-6">
+              <div id="chartRansomTopGroups" class="chart-container"></div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div id="chartRansomTopAttackers" class="chart-container"></div>
+            </div>
           </div>
-          <div class="col-lg-6 col-md-6">
-            <div id="chartRansomTopTarget" class="chart-container"></div>
-          </div>
-          <!-- Row 2 -->
-          <div class="col-lg-6 col-md-6">
-            <div id="chartRansomByHour" class="chart-container"></div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div id="chartRansomByWeekday" class="chart-container"></div>
-          </div>
-          <!-- Row 3 -->
-          <div class="col-lg-6 col-md-6">
-            <div id="chartRansomTopGroups" class="chart-container"></div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div id="chartRansomTopAttackers" class="chart-container"></div>
-          </div>
-        </div>
 
-        <!-- Full-width heatmap below -->
-        <div class="row mt-4">
-          <div class="col-12">
-            <div id="heatmapRansomCalendar" class="chart-container" style="height:200px"></div>
+          <!-- Full-width heatmap below -->
+          <div class="row mt-4">
+            <div class="col-12">
+              <div id="heatmapRansomCalendar" class="chart-container" style="height:200px"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       <!-- DDoS Pane -->
       <div class="tab-pane fade" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
@@ -345,7 +344,6 @@
       </div>
     </div>
 
-  </div>
 
   
   <!-- Footer Inclusion -->
@@ -356,8 +354,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 15:12:01-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 15:20:03-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
   
@@ -410,13 +408,13 @@
       
         { value: 3, name: "malaysiaairports.com.my/en" },
       
-        { value: 2, name: "friscochamber.com" },
+        { value: 2, name: "andrettikarting.com" },
       
-        { value: 2, name: "klinger.it" },
+        { value: 2, name: "www.calmont.ca" },
       
-        { value: 2, name: "www.npnrd.org" },
+        { value: 2, name: "www.wertex.com" },
       
-        { value: 2, name: "www.destinationtoronto.com" }
+        { value: 2, name: "www.telecontrolspa.it" }
       
     ];
     chartRansomTopTarget.setOption({
