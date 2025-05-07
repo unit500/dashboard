@@ -38,28 +38,37 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
+    .ticker-wrapper {
       overflow: hidden;
+      position: relative;
+      background: #fff;       /* or whatever your bg is */
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
       white-space: nowrap;
     }
-    #ticker ul {
+
+    .ticker-list {
+      display: inline-flex;    /* lay items out in a row */
       list-style: none;
       margin: 0;
       padding: 0;
+      animation: scroll-left 20s linear infinite;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;         /* spacing between segments */
+      display: inline-block;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    /* Keyframes: start fully right, end fully left */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
@@ -163,8 +172,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -178,19 +187,21 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/67b648c83ba4c02898d5dff8.html">sac.justice.bg</a>, 
+          <a href="ransom_details/67b648c83ba4c02898d5dff8.html">sac.justice.bg</a>, 
         
-          <a href="defacement_details/679f651f182496a591ec9561.html">hreu.eu</a>, 
+          <a href="ransom_details/679f651f182496a591ec9561.html">hreu.eu</a>, 
         
-          <a href="defacement_details/678fe363c4f2181a71270d62.html">Smart Media Group Bulgaria</a>, 
+          <a href="ransom_details/678fe363c4f2181a71270d62.html">Smart Media Group Bulgaria</a>, 
         
-          <a href="defacement_details/678fe360c4f2181a71270d59.html">EasyPay</a>, 
+          <a href="ransom_details/678fe360c4f2181a71270d59.html">EasyPay</a>, 
         
-          <a href="defacement_details/678fe1f5c4f2181a71270917.html">intrama-bg.com</a>
+          <a href="ransom_details/678fe1f5c4f2181a71270917.html">intrama-bg.com</a>
         
       </li>
+      <!-- you can duplicate these <li>s if you want the loop to feel continuous -->
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -284,8 +295,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:26:30-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:31:25-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
   
@@ -309,11 +320,11 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 1, name: "Dr3n4k" },
+      {value: 1, name: "TheZero" },
       
       {value: 1, name: "Team Anon Force" },
       
-      {value: 1, name: "TheZero" }
+      {value: 1, name: "Dr3n4k" }
       
     ];
     var optionRansomwareGroups = {

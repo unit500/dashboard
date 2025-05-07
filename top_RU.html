@@ -38,28 +38,37 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
+    .ticker-wrapper {
       overflow: hidden;
+      position: relative;
+      background: #fff;       /* or whatever your bg is */
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
       white-space: nowrap;
     }
-    #ticker ul {
+
+    .ticker-list {
+      display: inline-flex;    /* lay items out in a row */
       list-style: none;
       margin: 0;
       padding: 0;
+      animation: scroll-left 20s linear infinite;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;         /* spacing between segments */
+      display: inline-block;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    /* Keyframes: start fully right, end fully left */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
@@ -163,8 +172,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -182,19 +191,20 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/6819351e8a876d7ac2732c22.html">www.novosit.com</a>, 
+          <a href="ransom_details/6819351e8a876d7ac2732c22.html">www.novosit.com</a>, 
         
-          <a href="defacement_details/67e487185ca2b5cea7700c90.html">crimsgroup.com</a>, 
+          <a href="ransom_details/67e487185ca2b5cea7700c90.html">crimsgroup.com</a>, 
         
-          <a href="defacement_details/67df4f1f0428df885e24d027.html">let&#39;s join us babuk locker (Ransomare Affiliate) 2025</a>, 
+          <a href="ransom_details/67df4f1f0428df885e24d027.html">let&#39;s join us babuk locker (Ransomare Affiliate) 2025</a>, 
         
-          <a href="defacement_details/67ded09ab8242e9c600c8536.html">Synesis Surveillance System</a>, 
+          <a href="ransom_details/67ded09ab8242e9c600c8536.html">Synesis Surveillance System</a>, 
         
-          <a href="defacement_details/67c901f0b88e36d5c49ce84c.html">www.koltiva.com</a>
+          <a href="ransom_details/67c901f0b88e36d5c49ce84c.html">www.koltiva.com</a>
         
       </li>
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -293,8 +303,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:27:57-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:33:00-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   

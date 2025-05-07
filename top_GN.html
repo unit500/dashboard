@@ -38,28 +38,37 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
+    .ticker-wrapper {
       overflow: hidden;
+      position: relative;
+      background: #fff;       /* or whatever your bg is */
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
       white-space: nowrap;
     }
-    #ticker ul {
+
+    .ticker-list {
+      display: inline-flex;    /* lay items out in a row */
       list-style: none;
       margin: 0;
       padding: 0;
+      animation: scroll-left 20s linear infinite;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;         /* spacing between segments */
+      display: inline-block;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    /* Keyframes: start fully right, end fully left */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
@@ -163,8 +172,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -172,11 +181,12 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/678fdb0fc4f2181a7126f437.html">royaloakpetclinic.com</a>
+          <a href="ransom_details/678fdb0fc4f2181a7126f437.html">royaloakpetclinic.com</a>
         
       </li>
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -265,8 +275,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:29:21-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:34:26-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
   

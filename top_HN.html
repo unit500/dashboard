@@ -163,8 +163,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -172,13 +172,15 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/678fdf90c4f2181a712701de.html">umaps.hn</a>, 
+          <a href="ransom_details/678fdf90c4f2181a712701de.html">umaps.hn</a>, 
         
-          <a href="defacement_details/678fdf0bc4f2181a71270049.html">Industrial de Alimentos EYL SA</a>
+          <a href="ransom_details/678fdf0bc4f2181a71270049.html">Industrial de Alimentos EYL SA</a>
         
       </li>
+      <!-- you can duplicate these <li>s if you want the loop to feel continuous -->
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -214,12 +216,7 @@
           <div class="card-header">Top Defacement Group</div>
           <div class="card-body">
             
-              <h5 class="card-title">
-                <a href="group_details/Team_Anon_Force.html">
-                  Team Anon Force
-                </a>
-              </h5>
-              <p class="card-text">155 incidents</p>
+              <h5 class="card-title">N/A</h5>
             
           </div>
         </div>
@@ -230,12 +227,7 @@
           <div class="card-header">Top Actor</div>
           <div class="card-body">
             
-              <h5 class="card-title">
-                <a href="actor_details/BDKR28.html">
-                  Mr. BDKR28
-                </a>
-              </h5>
-              <p class="card-text">324 incidents</p>
+              <h5 class="card-title">N/A</h5>
             
           </div>
         </div>
@@ -277,8 +269,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:20:46-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:30:21-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   

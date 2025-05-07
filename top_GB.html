@@ -38,28 +38,37 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
+    .ticker-wrapper {
       overflow: hidden;
+      position: relative;
+      background: #fff;       /* or whatever your bg is */
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
       white-space: nowrap;
     }
-    #ticker ul {
+
+    .ticker-list {
+      display: inline-flex;    /* lay items out in a row */
       list-style: none;
       margin: 0;
       padding: 0;
+      animation: scroll-left 20s linear infinite;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;         /* spacing between segments */
+      display: inline-block;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    /* Keyframes: start fully right, end fully left */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
@@ -163,8 +172,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -182,19 +191,20 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/6819351a8a876d7ac2732c18.html">www.gpflewis.co.uk</a>, 
+          <a href="ransom_details/6819351a8a876d7ac2732c18.html">www.gpflewis.co.uk</a>, 
         
-          <a href="defacement_details/6813e0f85015ce0b8014df6a.html">www.defected.com</a>, 
+          <a href="ransom_details/6813e0f85015ce0b8014df6a.html">www.defected.com</a>, 
         
-          <a href="defacement_details/680e63172cd6d7bf8ece861c.html">linney.com</a>, 
+          <a href="ransom_details/680e63172cd6d7bf8ece861c.html">linney.com</a>, 
         
-          <a href="defacement_details/680bbfd4e6e9cd117ffd94ab.html">DYNAMIS Insurance</a>, 
+          <a href="ransom_details/680bbfd4e6e9cd117ffd94ab.html">DYNAMIS Insurance</a>, 
         
-          <a href="defacement_details/680a44242e8916ff1923f0b5.html">vicaragecourtsolicitors.com</a>
+          <a href="ransom_details/680a44242e8916ff1923f0b5.html">vicaragecourtsolicitors.com</a>
         
       </li>
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -293,7 +303,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:29:03-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:34:08-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
@@ -326,7 +336,7 @@
       
       {value: 7, name: "./KeyzNet" },
       
-      {value: 6, name: "Team Anon Force" }
+      {value: 6, name: "hacked by miran996" }
       
     ];
     var optionRansomwareGroups = {
@@ -353,15 +363,15 @@
     
       dataDefacementGroups.push({value: 4, name: "Team Anon Force"});
     
-      dataDefacementGroups.push({value: 2, name: "SABUNMANDI CYBER TEAM"});
-    
       dataDefacementGroups.push({value: 2, name: "CyberTeam"});
     
-      dataDefacementGroups.push({value: 1, name: "Team R70"});
+      dataDefacementGroups.push({value: 2, name: "SABUNMANDI CYBER TEAM"});
     
       dataDefacementGroups.push({value: 1, name: "DXPLOIT"});
     
       dataDefacementGroups.push({value: 1, name: "TEAM BD CYBER NINJA"});
+    
+      dataDefacementGroups.push({value: 1, name: "Team R70"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },

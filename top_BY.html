@@ -38,28 +38,37 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
+    .ticker-wrapper {
       overflow: hidden;
+      position: relative;
+      background: #fff;       /* or whatever your bg is */
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
       white-space: nowrap;
     }
-    #ticker ul {
+
+    .ticker-list {
+      display: inline-flex;    /* lay items out in a row */
       list-style: none;
       margin: 0;
       padding: 0;
+      animation: scroll-left 20s linear infinite;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;         /* spacing between segments */
+      display: inline-block;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    /* Keyframes: start fully right, end fully left */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
@@ -163,8 +172,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -176,19 +185,21 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/67d55de5e389f067ea2d9340.html">Belarus E-commerce &amp; Energy Data</a>, 
+          <a href="ransom_details/67d55de5e389f067ea2d9340.html">Belarus E-commerce &amp; Energy Data</a>, 
         
-          <a href="defacement_details/67ad8d8b126d196d7b9c8646.html">avtovelomoto.by</a>, 
+          <a href="ransom_details/67ad8d8b126d196d7b9c8646.html">avtovelomoto.by</a>, 
         
-          <a href="defacement_details/67a70a7451c2f386e8c45a4a.html">cmr24.by</a>, 
+          <a href="ransom_details/67a70a7451c2f386e8c45a4a.html">cmr24.by</a>, 
         
-          <a href="defacement_details/681497d98c9f515384cb0408.html">cmr24.by</a>, 
+          <a href="ransom_details/681497d98c9f515384cb0408.html">cmr24.by</a>, 
         
-          <a href="defacement_details/678fe52fc4f2181a712712c6.html">shintex.by</a>
+          <a href="ransom_details/678fe52fc4f2181a712712c6.html">shintex.by</a>
         
       </li>
+      <!-- you can duplicate these <li>s if you want the loop to feel continuous -->
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -236,8 +247,8 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="actor_details/ejram_7rb.html">
-                  ejram 7rb
+                <a href="actor_details/Cyber_Ghost.html">
+                  Cyber Ghost
                 </a>
               </h5>
               <p class="card-text">1 incidents</p>
@@ -282,8 +293,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:27:47-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:32:45-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
   
@@ -307,9 +318,9 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 1, name: "ejram 7rb" },
+      {value: 1, name: "Cyber Ghost" },
       
-      {value: 1, name: "Cyber Ghost" }
+      {value: 1, name: "ejram 7rb" }
       
     ];
     var optionRansomwareGroups = {

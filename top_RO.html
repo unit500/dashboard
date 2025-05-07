@@ -38,28 +38,37 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
+    .ticker-wrapper {
       overflow: hidden;
+      position: relative;
+      background: #fff;       /* or whatever your bg is */
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
       white-space: nowrap;
     }
-    #ticker ul {
+
+    .ticker-list {
+      display: inline-flex;    /* lay items out in a row */
       list-style: none;
       margin: 0;
       padding: 0;
+      animation: scroll-left 20s linear infinite;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;         /* spacing between segments */
+      display: inline-block;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    /* Keyframes: start fully right, end fully left */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
@@ -163,8 +172,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -182,19 +191,20 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/680f8a260fa4cc43791b67ff.html">​​​​Bio-Clima Service</a>, 
+          <a href="ransom_details/680f8a260fa4cc43791b67ff.html">​​​​Bio-Clima Service</a>, 
         
-          <a href="defacement_details/67e2d32e803170d674095ed4.html">AAYLEX ONE S.A.</a>, 
+          <a href="ransom_details/67e2d32e803170d674095ed4.html">AAYLEX ONE S.A.</a>, 
         
-          <a href="defacement_details/67c0a83f351d81ddcfc3c46b.html">PARTNER.RO</a>, 
+          <a href="ransom_details/67c0a83f351d81ddcfc3c46b.html">PARTNER.RO</a>, 
         
-          <a href="defacement_details/67b4cdbdcb08b3df79cec332.html">autogedal.ro</a>, 
+          <a href="ransom_details/67b4cdbdcb08b3df79cec332.html">autogedal.ro</a>, 
         
-          <a href="defacement_details/67b1d109ee45ccee112c61d0.html">acqua.ro</a>
+          <a href="ransom_details/67b1d109ee45ccee112c61d0.html">acqua.ro</a>
         
       </li>
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -288,8 +298,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:28:28-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:33:27-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
