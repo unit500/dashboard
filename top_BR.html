@@ -296,8 +296,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 14:12:48-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 14:23:07-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -321,6 +321,16 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
+        { value: 291, name: "US" },
+      
+        { value: 34, name: "DE" },
+      
+        { value: 28, name: "CA" },
+      
+        { value: 21, name: "IT" },
+      
+        { value: 16, name: "GB" }
+      
     ];
     chartRansomTopSource.setOption({
       title: { text: 'Top 5 Ransom Sources', left: 'center' },
@@ -338,15 +348,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 3, name: "malaysiaairports.com.my/en" },
+        { value: 1, name: "www.amazontransportes.com.br" },
       
-        { value: 2, name: "www.cbridgeinc.com" },
+        { value: 1, name: "ihara.com.br" },
       
-        { value: 2, name: "www.calmont.ca" },
+        { value: 1, name: "w8textil.com.br" },
       
-        { value: 2, name: "optimaxtech.com" },
+        { value: 1, name: "bettininformatica" },
       
-        { value: 2, name: "www.wertex.com" }
+        { value: 1, name: "aeamg.org.br" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -367,6 +377,16 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
+        { value: 2, name: "akira" },
+      
+        { value: 2, name: "nova" },
+      
+        { value: 1, name: "cicada3301" },
+      
+        { value: 1, name: "nightspire" },
+      
+        { value: 1, name: "ralord" }
+      
     ];
     chartRansomTopGroups.setOption({
       title: { text: 'Top 5 Ransom Groups', left: 'center' },
@@ -385,6 +405,16 @@
     // 4) By Hour (bar)
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
+      
+        { value: 2, name: "16" },
+      
+        { value: 2, name: "13" },
+      
+        { value: 1, name: "17" },
+      
+        { value: 1, name: "12" },
+      
+        { value: 1, name: "04" }
       
     ];
     chartRansomByHour.setOption({
@@ -405,6 +435,16 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
+        { value: 4, name: "Mon" },
+      
+        { value: 2, name: "Wed" },
+      
+        { value: 1, name: "Sat" },
+      
+        { value: 1, name: "Tue" },
+      
+        { value: 1, name: "Thu" }
+      
     ];
     chartRansomByWeekday.setOption({
       title: { text: 'Ransom Reports by Weekday', left: 'center' },
@@ -423,6 +463,20 @@
     // 6) Calendar Heatmap
     var heatmapRansomCalendar = echarts.init(document.getElementById('heatmapRansomCalendar'));
     var calData = [
+      
+        [ "2025-04-16", 2 ],
+      
+        [ "2025-04-19", 1 ],
+      
+        [ "2025-04-21", 1 ],
+      
+        [ "2025-04-22", 1 ],
+      
+        [ "2025-04-24", 1 ],
+      
+        [ "2025-04-28", 3 ],
+      
+        [ "2025-05-02", 1 ]
       
     ];
     heatmapRansomCalendar.setOption({
@@ -453,6 +507,16 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
+      {value: 291, name: "US" },
+      
+      {value: 34, name: "DE" },
+      
+      {value: 28, name: "CA" },
+      
+      {value: 21, name: "IT" },
+      
+      {value: 16, name: "GB" }
+      
     ];
     var optionRansomTopSource = {
       title: { text: 'Top 5 Ransom Sources', left: 'center' },
@@ -474,15 +538,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [];
     
-      dataRansomTopTarget.push({value: 3, name: "malaysiaairports.com.my/en"});
+      dataRansomTopTarget.push({value: 1, name: "www.amazontransportes.com.br"});
     
-      dataRansomTopTarget.push({value: 2, name: "www.cbridgeinc.com"});
+      dataRansomTopTarget.push({value: 1, name: "ihara.com.br"});
     
-      dataRansomTopTarget.push({value: 2, name: "www.calmont.ca"});
+      dataRansomTopTarget.push({value: 1, name: "w8textil.com.br"});
     
-      dataRansomTopTarget.push({value: 2, name: "optimaxtech.com"});
+      dataRansomTopTarget.push({value: 1, name: "bettininformatica"});
     
-      dataRansomTopTarget.push({value: 2, name: "www.wertex.com"});
+      dataRansomTopTarget.push({value: 1, name: "aeamg.org.br"});
     
     var optionRansomTopTarget = {
       title: { text: 'Top 5 Ransom Target', left: 'center' },
@@ -502,6 +566,16 @@
     // Chart 3: Top Attacked Countries – use emoji flags on xAxis
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var ransomTopGroups = [
+      
+        {name: "", value:  },
+      
+        {name: "", value:  },
+      
+        {name: "", value:  },
+      
+        {name: "", value:  },
+      
+        {name: "", value:  }
       
     ];
     var attackedCountryFlags = ransomTopGroups.map(function(item){
