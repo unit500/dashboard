@@ -285,8 +285,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:03:38-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:05:47-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -312,13 +312,13 @@
       
       {value: 3, name: "Mr. BDKR28" },
       
-      {value: 1, name: "./KeyzNet" },
+      {value: 1, name: "systemadminbd" },
       
-      {value: 1, name: "ynR !" },
+      {value: 1, name: "root./exe" },
       
-      {value: 1, name: "aDriv4" },
+      {value: 1, name: "Rufmaden" },
       
-      {value: 1, name: "root./exe" }
+      {value: 1, name: "CaptainSmok3r" }
       
     ];
     var optionRansomwareGroups = {
@@ -433,22 +433,20 @@
       });
 
       function initCountrySelect() {
-        $("#countrySelectTop").each(function () {
-          const $sel = $(this);
-
           // skip if we already built the list for this element
           if ($sel.data("select2")) return;
 
           // wipe anything old, keep 1 empty option for the placeholder
-          $sel.empty().append('<option></option>');
-
-          // add options
-          countryDataGlobal.forEach(c => {
-            console.log(c.id.toLowerCase())
-            $sel.append(
-              $("<option>", { value: c.id.toLowerCase(), text: c.text })
-            );
-          });
+          const $sel = $('#countrySelectTop')
+            .empty()
+            .append('<option></option>')   // placeholder
+            .select2({
+              data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
+              placeholder: "Select a country",
+              allowClear: true,
+              templateResult: formatCountry,
+              templateSelection: c => c.text
+            });
 
           // activate Select2
           $sel.select2({
@@ -457,7 +455,6 @@
             templateResult: formatCountry,
             templateSelection: c => c.text
           });
-        });
       }
 
       // helper to show flag + name

@@ -285,8 +285,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:03:40-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:05:53-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -361,13 +361,13 @@
     
       dataDefacementGroups.push({value: 11, name: "https://yourdesktop.ru/bgke04.html"});
     
-      dataDefacementGroups.push({value: 10, name: "DeathNote Hackers"});
-    
       dataDefacementGroups.push({value: 10, name: "StupidC0de🐷Family"});
     
-      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
+      dataDefacementGroups.push({value: 10, name: "DeathNote Hackers"});
     
       dataDefacementGroups.push({value: 9, name: "Turkhacks.com"});
+    
+      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
     
       dataDefacementGroups.push({value: 9, name: "Iran"});
     
@@ -431,7 +431,7 @@
       
         {name: "pakistan", value: 2 },
       
-        {name: "morocco", value: 1 }
+        {name: "unknowniran", value: 1 }
       
     ];
     var sourceCountryFlags = sourceAttackCountries.map(function(item){
@@ -481,22 +481,20 @@
       });
 
       function initCountrySelect() {
-        $("#countrySelectTop").each(function () {
-          const $sel = $(this);
-
           // skip if we already built the list for this element
           if ($sel.data("select2")) return;
 
           // wipe anything old, keep 1 empty option for the placeholder
-          $sel.empty().append('<option></option>');
-
-          // add options
-          countryDataGlobal.forEach(c => {
-            console.log(c.id.toLowerCase())
-            $sel.append(
-              $("<option>", { value: c.id.toLowerCase(), text: c.text })
-            );
-          });
+          const $sel = $('#countrySelectTop')
+            .empty()
+            .append('<option></option>')   // placeholder
+            .select2({
+              data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
+              placeholder: "Select a country",
+              allowClear: true,
+              templateResult: formatCountry,
+              templateSelection: c => c.text
+            });
 
           // activate Select2
           $sel.select2({
@@ -505,7 +503,6 @@
             templateResult: formatCountry,
             templateSelection: c => c.text
           });
-        });
       }
 
       // helper to show flag + name
