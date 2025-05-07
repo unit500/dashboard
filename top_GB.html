@@ -38,36 +38,52 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
     .ticker-wrapper {
-      overflow: hidden;
       position: relative;
-      background: #fff;       /* or whatever your bg is */
+      overflow: hidden;
+      background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      white-space: nowrap;
     }
 
     .ticker-list {
-      display: inline-flex;    /* lay items out in a row */
+      position: absolute;        /* take it out of flow so it can slide across */
+      top: 0;
+      left: 0;
+      display: inline-flex;
       list-style: none;
       margin: 0;
       padding: 0;
+
+      /* animate from just off the right edge to just off the left */
       animation: scroll-left 20s linear infinite;
+      will-change: transform;
     }
 
     .ticker-list li {
-      padding: 0 2rem;         /* spacing between segments */
-      display: inline-block;
+      padding: 0 2rem;
       white-space: nowrap;
     }
 
-    /* Keyframes: start fully right, end fully left */
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);
+        transform: translateX(100%);   /* start 100% of its own width to the right */
       }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(-100%);  /* end 100% of its own width to the left */
       }
     }
   </style>
@@ -303,8 +319,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:34:08-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:37:35-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -367,11 +383,11 @@
     
       dataDefacementGroups.push({value: 2, name: "SABUNMANDI CYBER TEAM"});
     
+      dataDefacementGroups.push({value: 1, name: "Team R70"});
+    
       dataDefacementGroups.push({value: 1, name: "DXPLOIT"});
     
       dataDefacementGroups.push({value: 1, name: "TEAM BD CYBER NINJA"});
-    
-      dataDefacementGroups.push({value: 1, name: "Team R70"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },

@@ -38,36 +38,52 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
     .ticker-wrapper {
-      overflow: hidden;
       position: relative;
-      background: #fff;       /* or whatever your bg is */
+      overflow: hidden;
+      background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      white-space: nowrap;
     }
 
     .ticker-list {
-      display: inline-flex;    /* lay items out in a row */
+      position: absolute;        /* take it out of flow so it can slide across */
+      top: 0;
+      left: 0;
+      display: inline-flex;
       list-style: none;
       margin: 0;
       padding: 0;
+
+      /* animate from just off the right edge to just off the left */
       animation: scroll-left 20s linear infinite;
+      will-change: transform;
     }
 
     .ticker-list li {
-      padding: 0 2rem;         /* spacing between segments */
-      display: inline-block;
+      padding: 0 2rem;
       white-space: nowrap;
     }
 
-    /* Keyframes: start fully right, end fully left */
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);
+        transform: translateX(100%);   /* start 100% of its own width to the right */
       }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(-100%);  /* end 100% of its own width to the left */
       }
     }
   </style>
@@ -209,8 +225,8 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="group_details/qilin.html">
-                  qilin
+                <a href="group_details/ransomhub.html">
+                  ransomhub
                 </a>
               </h5>
               <p class="card-text">1 incidents</p>
@@ -277,8 +293,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:33:22-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:36:49-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
