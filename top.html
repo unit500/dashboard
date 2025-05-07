@@ -249,32 +249,29 @@
   <div class="tab-pane fade show active" id="ransom" role="tabpanel" aria-labelledby="ransom-tab">
     <div class="container mb-4">
       <div class="row justify-content-center gy-4">
-        <!-- Top Sources -->
-        <div class="col-lg-4 col-md-6">
+        <!-- Row 1: two per row -->
+        <div class="col-lg-6 col-md-6">
           <div id="chartRansomTopSource" class="chart-container"></div>
         </div>
-        <!-- Top Targets -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-6 col-md-6">
           <div id="chartRansomTopTarget" class="chart-container"></div>
         </div>
-        <!-- Top Groups -->
-        <div class="col-lg-4 col-md-6">
+        <!-- Row 2 -->
+        <div class="col-lg-6 col-md-6">
           <div id="chartRansomTopGroups" class="chart-container"></div>
         </div>
-        <!-- (optional) Top Attackers, if you have it -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-6 col-md-6">
           <div id="chartRansomTopAttackers" class="chart-container"></div>
         </div>
-        <!-- Most Active Hour -->
-        <div class="col-lg-4 col-md-6">
+        <!-- Row 3 -->
+        <div class="col-lg-6 col-md-6">
           <div id="chartRansomByHour" class="chart-container"></div>
         </div>
-        <!-- Most Active Weekday -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-6 col-md-6">
           <div id="chartRansomByWeekday" class="chart-container"></div>
         </div>
       </div>
-  
+
       <!-- Full-width heatmap below -->
       <div class="row mt-4">
         <div class="col-12">
@@ -282,6 +279,7 @@
         </div>
       </div>
     </div>
+
   </div>
   
 
@@ -327,7 +325,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 14:34:49-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 14:38:15-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
@@ -381,13 +379,13 @@
       
         { value: 3, name: "malaysiaairports.com.my/en" },
       
-        { value: 2, name: "www.springcreekcc.com" },
+        { value: 2, name: "klinger.it" },
       
-        { value: 2, name: "finetech.de" },
+        { value: 2, name: "www.destinationtoronto.com" },
       
-        { value: 2, name: "www.flocomponents.com" },
+        { value: 2, name: "www.ifsgroup.ca" },
       
-        { value: 2, name: "dhsmithco.com" }
+        { value: 2, name: "www.npnrd.org" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -619,13 +617,13 @@
     
       dataRansomTopTarget.push({value: 3, name: "malaysiaairports.com.my/en"});
     
-      dataRansomTopTarget.push({value: 2, name: "www.springcreekcc.com"});
+      dataRansomTopTarget.push({value: 2, name: "klinger.it"});
     
-      dataRansomTopTarget.push({value: 2, name: "finetech.de"});
+      dataRansomTopTarget.push({value: 2, name: "www.destinationtoronto.com"});
     
-      dataRansomTopTarget.push({value: 2, name: "www.flocomponents.com"});
+      dataRansomTopTarget.push({value: 2, name: "www.ifsgroup.ca"});
     
-      dataRansomTopTarget.push({value: 2, name: "dhsmithco.com"});
+      dataRansomTopTarget.push({value: 2, name: "www.npnrd.org"});
     
     var optionRansomTopTarget = {
       title: { text: 'Top 5 Ransom Target', left: 'center' },
