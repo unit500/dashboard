@@ -38,28 +38,54 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
-      overflow: hidden;
-      white-space: nowrap;
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
     }
-    #ticker ul {
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+    .ticker-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      height: 50px;
+    }
+
+    .ticker-list {
+      position: absolute;        /* take it out of flow so it can slide across */
+      top: 0;
+      left: 0;
+      display: inline-flex;
       list-style: none;
       margin: 0;
       padding: 0;
+
+      /* animate from just off the right edge to just off the left */
+      animation: scroll-left 20s linear infinite;
+      will-change: transform;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);   /* start 100% of its own width to the right */
+      }
+      100% {
+        transform: translateX(-100%);  /* end 100% of its own width to the left */
+      }
     }
   </style>
 </head>
@@ -163,8 +189,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -182,19 +208,20 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/681935098a876d7ac2732c0c.html">valedolobo.com</a>, 
+          <a href="ransom_details/681935098a876d7ac2732c0c.html">valedolobo.com</a>, 
         
-          <a href="defacement_details/680f8a270fa4cc43791b6801.html">NewHotel cloud</a>, 
+          <a href="ransom_details/680f8a270fa4cc43791b6801.html">NewHotel cloud</a>, 
         
-          <a href="defacement_details/680bdbd7443714fe4f8c0dca.html">mardearhotels.com</a>, 
+          <a href="ransom_details/680bdbd7443714fe4f8c0dca.html">mardearhotels.com</a>, 
         
-          <a href="defacement_details/68025b10461fac577d59ffb2.html">www.globalmediagroup.pt</a>, 
+          <a href="ransom_details/68025b10461fac577d59ffb2.html">www.globalmediagroup.pt</a>, 
         
-          <a href="defacement_details/67fd3125701af46108d70cb9.html">Agricola Da Quinta De Corona</a>
+          <a href="ransom_details/67fd3125701af46108d70cb9.html">Agricola Da Quinta De Corona</a>
         
       </li>
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -231,11 +258,11 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="group_details/Team_Anon_Force.html">
-                  Team Anon Force
+                <a href="group_details/DXPLOIT.html">
+                  DXPLOIT
                 </a>
               </h5>
-              <p class="card-text">155 incidents</p>
+              <p class="card-text">1 incidents</p>
             
           </div>
         </div>
@@ -247,11 +274,11 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="actor_details/BDKR28.html">
-                  Mr. BDKR28
+                <a href="actor_details/CyberTeam.html">
+                  CyberTeam
                 </a>
               </h5>
-              <p class="card-text">324 incidents</p>
+              <p class="card-text">2 incidents</p>
             
           </div>
         </div>
@@ -293,8 +320,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:21:19-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:42:48-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
@@ -320,13 +347,13 @@
       
       {value: 2, name: "CyberTeam" },
       
-      {value: 1, name: "13CHMOD37" },
+      {value: 1, name: "./KeyzNet" },
+      
+      {value: 1, name: "Mr.Rm19" },
       
       {value: 1, name: "omgsmok" },
       
-      {value: 1, name: "DXPLOIT" },
-      
-      {value: 1, name: "Mr.Rm19" }
+      {value: 1, name: "13CHMOD37" }
       
     ];
     var optionRansomwareGroups = {

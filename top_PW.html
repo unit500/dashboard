@@ -38,28 +38,54 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Ticker styling */
-    #ticker {
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin-bottom: 20px;
-      font-size: 1rem;
-      overflow: hidden;
-      white-space: nowrap;
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
     }
-    #ticker ul {
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+    .ticker-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      height: 50px;
+    }
+
+    .ticker-list {
+      position: absolute;        /* take it out of flow so it can slide across */
+      top: 0;
+      left: 0;
+      display: inline-flex;
       list-style: none;
       margin: 0;
       padding: 0;
+
+      /* animate from just off the right edge to just off the left */
+      animation: scroll-left 20s linear infinite;
+      will-change: transform;
     }
-    #ticker li {
-      display: inline;
-      margin-right: 20px;
+
+    .ticker-list li {
+      padding: 0 2rem;
+      white-space: nowrap;
     }
-    #ticker a {
-      text-decoration: none;
-      color: #007bff;
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);   /* start 100% of its own width to the right */
+      }
+      100% {
+        transform: translateX(-100%);  /* end 100% of its own width to the left */
+      }
     }
   </style>
 </head>
@@ -163,8 +189,8 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div id="ticker" class="container">
-    <ul>
+  <div class="ticker-wrapper">
+    <ul class="ticker-list">
       <li>
         <strong>Latest 5 Defacements:</strong>
         
@@ -172,17 +198,18 @@
       <li>
         <strong>Latest 5 Ransom Alerts:</strong>
         
-          <a href="defacement_details/67c1ebb117911559763b46c8.html">palauhealth.org</a>, 
+          <a href="ransom_details/67c1ebb117911559763b46c8.html">palauhealth.org</a>, 
         
-          <a href="defacement_details/67b7a62db02e8892f7f80a89.html">www.palauhealth.org</a>, 
+          <a href="ransom_details/67b7a62db02e8892f7f80a89.html">www.palauhealth.org</a>, 
         
-          <a href="defacement_details/67ce01c2f4d3d733f4e8880b.html">www.palauhealth.org</a>, 
+          <a href="ransom_details/67ce01c2f4d3d733f4e8880b.html">www.palauhealth.org</a>, 
         
-          <a href="defacement_details/678fdf4ec4f2181a71270114.html">www.palaugov.pw</a>
+          <a href="ransom_details/678fdf4ec4f2181a71270114.html">www.palaugov.pw</a>
         
       </li>
     </ul>
   </div>
+  
   <script>
     $(document).ready(function(){
       $('#ticker').easyTicker({
@@ -218,12 +245,7 @@
           <div class="card-header">Top Defacement Group</div>
           <div class="card-body">
             
-              <h5 class="card-title">
-                <a href="group_details/Team_Anon_Force.html">
-                  Team Anon Force
-                </a>
-              </h5>
-              <p class="card-text">155 incidents</p>
+              <h5 class="card-title">N/A</h5>
             
           </div>
         </div>
@@ -234,12 +256,7 @@
           <div class="card-header">Top Actor</div>
           <div class="card-body">
             
-              <h5 class="card-title">
-                <a href="actor_details/BDKR28.html">
-                  Mr. BDKR28
-                </a>
-              </h5>
-              <p class="card-text">324 incidents</p>
+              <h5 class="card-title">N/A</h5>
             
           </div>
         </div>
@@ -281,8 +298,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:21:19-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:42:37-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
