@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y"></script>
 	<script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -15,10 +16,20 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
   <!-- ECharts Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <!-- Bootstrap JS and Popover Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJ+Y6BsDd3cr6tQ/tbFvybJj/3MZ+5BZp6YkI="
+        crossorigin="anonymous"></script>
+    
   <style>
     .chart-container {
       width: 100%;
@@ -146,7 +157,29 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
+    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
+  </div>
+
+  <!-- Country dashboard selector -->
+  <div class="mb-4 text-center">
+    <label for="countrySelect" class="form-label fw-bold me-2">
+      View country‑specific dashboard:
+    </label>
+
+    <select id="countrySelect"
+      name="countrySelect"
+      class="form-select d-inline-block w-auto"
+    >
+      <option></option>
+    </select>
+
+    <!-- <select id="countrySelect" class="form-select d-inline-block w-auto">
+      <option value="" selected>Global (all countries)</option>
+      
+        <option value="br">Brazil</option>
+      
+    </select> -->
+
   </div>
 
   <div class="container my-4">
@@ -174,37 +207,46 @@
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
+            
                 
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="FR (21)">
-                  </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/fr.png"
+                           alt="FR flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="FR (21)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/de.png"
+                           alt="DE flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="DE (21)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/us.png"
+                           alt="US flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="US (15)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/sg.png"
+                           alt="SG flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="SG (9)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/ro.png"
+                           alt="RO flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="RO (4)">
+                    </li>
+                  
                 
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="DE (21)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="US (15)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/sg.png" alt="SG flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="SG (9)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/ro.png" alt="RO flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="RO (4)">
-                  </li>
-                
+            
               </ul>
             </div>
           </div>
@@ -265,7 +307,7 @@
                           data-bs-toggle="tab" data-bs-target="#groups"
                           type="button" role="tab" aria-controls="groups"
                           aria-selected="true">
-                    Top 5 actors
+                    Top 5 Actors
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -316,13 +358,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/TH3_EL1T3_GH0ST.html">TH3 EL1T3 GH0ST</a>
+                  <a href="actor_details/th3_el1t3_gh0st.html">TH3 EL1T3 GH0ST</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -339,13 +383,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -362,13 +408,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -385,13 +433,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -408,13 +458,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -431,13 +483,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -454,13 +508,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -477,13 +533,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -500,13 +558,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -523,13 +583,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/BDKR28.html">Mr. BDKR28</a>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -561,10 +623,16 @@
                 <h5 class="card-title">www.newmarket.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -587,10 +655,16 @@
                 <h5 class="card-title">www.warrington.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -613,10 +687,16 @@
                 <h5 class="card-title">www.cityofelycouncil.org.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-07</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -639,10 +719,16 @@
                 <h5 class="card-title">carlisle.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -665,10 +751,16 @@
                 <h5 class="card-title">agma.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -691,10 +783,16 @@
                 <h5 class="card-title">mod.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -717,10 +815,16 @@
                 <h5 class="card-title">tameside.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -743,10 +847,16 @@
                 <h5 class="card-title">mcga.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -769,10 +879,16 @@
                 <h5 class="card-title">nottscc.gov.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> SERVER KILLERS</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/server_killers.html">SERVER KILLERS</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -795,10 +911,16 @@
                 <h5 class="card-title">www.landsendairport.co.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-05</p>
                 
-                  <p class="card-text"><strong>Group:</strong> Dark Storm Team</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/dark_storm_team.html">Dark Storm Team</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -814,6 +936,42 @@
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681abec8aede90d86ead1a6c.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="juliaevansaccountants.co.uk">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">juliaevansaccountants.co.uk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-07 01:46:21.965906</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/uk.png" alt="UK flag">
+                  
+                  UK
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/nightspire.html">nightspire</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Julia Evans accountants (United Kingdom)
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dfa32026c04ded7f63.html">
@@ -823,7 +981,9 @@
               <div class="card-body">
                 <h5 class="card-title">mdgny.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:29:40.819759</p>
-                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -831,16 +991,21 @@
                   
                   US
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025.MDG Design &amp; Construction is a&hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025.MDG Design &amp; Construction is a…
                   
                 </p>
               </div>
             </div>
           </div>
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dfa32026c04ded7f62.html">
@@ -850,7 +1015,9 @@
               <div class="card-body">
                 <h5 class="card-title">www.clinpath.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:28:05.369726</p>
-                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -858,16 +1025,21 @@
                   
                   AU
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025.Founded 50 years ago, the brea&hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025.Founded 50 years ago, the brea…
                   
                 </p>
               </div>
             </div>
           </div>
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dea32026c04ded7f61.html">
@@ -877,7 +1049,9 @@
               <div class="card-body">
                 <h5 class="card-title">www.gslelectric.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:26:29.018517</p>
-                <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -885,16 +1059,21 @@
                   
                   US
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025. GSL Electric Inc. performs a &hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025. GSL Electric Inc. performs a …
                   
                 </p>
               </div>
             </div>
           </div>
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dea32026c04ded7f60.html">
@@ -904,7 +1083,9 @@
               <div class="card-body">
                 <h5 class="card-title">www.jbanksdesign.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:24:52.027313</p>
-                <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -912,16 +1093,21 @@
                   
                   US
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025. J. Banks Design is a full-ser&hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025. J. Banks Design is a full-ser…
                   
                 </p>
               </div>
             </div>
           </div>
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/681aa2dea32026c04ded7f5f.html">
@@ -931,7 +1117,7 @@
               <div class="card-body">
                 <h5 class="card-title">www.gates-cooper.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-06 22:23:15.670757</p>
-                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -939,10 +1125,149 @@
                   
                   US
                 </p>
-                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    All data of this company will be available for download on 16.05.2025. Gates &amp; Cooper LLP is an inte&hellip;
+                  
+                    All data of this company will be available for download on 16.05.2025. Gates &amp; Cooper LLP is an inte…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681aa2dda32026c04ded7f5e.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="langer-langer.de">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">langer-langer.de</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:25:18.544492</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag">
+                  
+                  DE
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/leakeddata.html">leakeddata</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Langer &amp; Langer GbR is a company that operates in the Retail industry. It employs 10to19 people and …
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681aa2dda32026c04ded7f5d.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="chadwickwashington.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">chadwickwashington.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:16.699064</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/leakeddata.html">leakeddata</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Chadwick, Washington, Moriarty, Elmore &amp; Bunn P.C.  is a Virginia and D.C. law firm that offers comp…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681aa2dca32026c04ded7f5c.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="dominguezfirm.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">dominguezfirm.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:14.083333</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/leakeddata.html">leakeddata</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    With a legal staff of over 120, The Dominguez Firm is a proven powerhouse personal injury law firm w…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681aa2dca32026c04ded7f5b.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="usclaims.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">usclaims.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 18:17:10.931422</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/leakeddata.html">leakeddata</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Operator of a pre-settlement financing firm intended to provide financial assistance during lawsuits…
                   
                 </p>
               </div>
@@ -961,13 +1286,12 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 13:07:13-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 14:02:59-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
-  <!-- Bootstrap JS and Popover Initialization -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
@@ -1024,23 +1348,23 @@
     var defacementData = [];
     
       
-        defacementData.push({ value: 2031, name: "lockbit3" });
+        defacementData.push({ value: 155, name: "Team Anon Force" });
       
     
       
-        defacementData.push({ value: 1007, name: "clop" });
+        defacementData.push({ value: 98, name: "SABUNMANDI CYBER TEAM" });
       
     
       
-        defacementData.push({ value: 1006, name: "lockbit2" });
+        defacementData.push({ value: 84, name: "NoName057(16)" });
       
     
       
-        defacementData.push({ value: 983, name: "play" });
+        defacementData.push({ value: 70, name: "qilin" });
       
     
       
-        defacementData.push({ value: 898, name: "ransomhub" });
+        defacementData.push({ value: 57, name: "play" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1116,8 +1440,8 @@
       sourceCategories.push("pakistan");
       sourceSeriesData.push({value: 2, name: "pakistan"});
     
-      sourceCategories.push("brazil");
-      sourceSeriesData.push({value: 1, name: "brazil"});
+      sourceCategories.push("unknowniran");
+      sourceSeriesData.push({value: 1, name: "unknowniran"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
@@ -1231,6 +1555,87 @@
       setInterval(drawClock, 1000);
       drawClock();
     };
+  </script>
+
+
+
+
+
+  <script>
+    // Load country data and initialize Select2 (if needed)
+    function loadCountryData() {
+        console.log("Loading country data...");
+        return fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            const countries = data.map(country => ({
+              id: country.cca2.toLowerCase(),
+              text: country.name.common
+            }));
+            countries.sort((a, b) => a.text.localeCompare(b.text));
+            console.log("Country data loaded. Total countries:", countries.length);
+            return countries;
+          })
+          .catch(err => {
+            console.error("Error loading country data:", err);
+            return [];
+          });
+      }
+
+
+      loadCountryData().then(data => {
+        countryDataGlobal = data; 
+        initCountrySelect();           
+      });
+
+      function initCountrySelect() {
+        $("#countrySelect").each(function () {
+          const $sel = $(this);
+
+          // skip if we already built the list for this element
+          if ($sel.data("select2")) return;
+
+          // wipe anything old, keep 1 empty option for the placeholder
+          $sel.empty().append('<option></option>');
+
+          // add options
+          countryDataGlobal.forEach(c => {
+            console.log(c.id.toLowerCase())
+            $sel.append(
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
+            );
+          });
+
+          // activate Select2
+          $sel.select2({
+            placeholder: "Select a country",
+            allowClear: true,
+            templateResult: formatCountry,
+            templateSelection: c => c.text
+          });
+        });
+      }
+
+      // helper to show flag + name
+      function formatCountry(c) {
+        if (!c.id) return c.text;
+        return $(
+          '<span><img src="https://flagcdn.com/16x12/' +
+            c.id +
+            '.png" class="me-1" /> ' +
+            c.text +
+            "</span>"
+        );
+      }
+  </script>
+
+  <script>
+    $('#countrySelect').on('select2:select', function (e) {
+    const code = e.params.data.id;
+    window.location.href = code
+      ? `static_dashboard_${code}.html`
+      : "static_dashboard.html";
+  });
   </script>
 </body>
 </html>
