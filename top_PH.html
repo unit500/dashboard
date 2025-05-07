@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      height: 40px;
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px 0;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,38 +188,30 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/67f7dd62acb64f64f8e3d84c.html">TMA Group of Companies</a>, 
-        
-          <a href="ransom_details/67d9c32553ae6634ceb557b6.html">51talk.com</a>, 
-        
-          <a href="ransom_details/67c0a891351d81ddcfc3c4e2.html">FOTE.COM</a>, 
-        
-          <a href="ransom_details/67aa5975cdbbb51554b6d860.html">abcapital.com.ph</a>, 
-        
-          <a href="ransom_details/67a44feb17a60ec83caf8745.html">NESCTC Security Services</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/67f7dd62acb64f64f8e3d84c.html">TMA Group of Companies</a>, 
+          
+            <a href="ransom_details/67d9c32553ae6634ceb557b6.html">51talk.com</a>, 
+          
+            <a href="ransom_details/67c0a891351d81ddcfc3c4e2.html">FOTE.COM</a>, 
+          
+            <a href="ransom_details/67aa5975cdbbb51554b6d860.html">abcapital.com.ph</a>, 
+          
+            <a href="ransom_details/67a44feb17a60ec83caf8745.html">NESCTC Security Services</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
-  
-  <script>
-    $(document).ready(function(){
-      $('#ticker').easyTicker({
-        direction: 'up',
-        interval: 3000,
-        height: 'auto'
-      });
-    });
-  </script>
 
   <!-- Cards Section -->
   <div class="container mb-4">
@@ -300,8 +291,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:43:22-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:54:22-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
   
