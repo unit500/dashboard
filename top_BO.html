@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      /* height: 50px; */
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,28 +188,31 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/67ffe23367ddd87429d2e182.html">ende.bo</a>, 
-        
-          <a href="ransom_details/67deed197e09a33a7cdbe381.html">monterrey.com.bo</a>, 
-        
-          <a href="ransom_details/67df08e8f3e56b39896791fa.html">monterrey.com.bo</a>, 
-        
-          <a href="ransom_details/678fe513c4f2181a71271273.html">www.minerasancristobal.com</a>, 
-        
-          <a href="ransom_details/678fe448c4f2181a71271010.html">uatf.edu.bo</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/67ffe23367ddd87429d2e182.html">ende.bo</a>, 
+          
+            <a href="ransom_details/67deed197e09a33a7cdbe381.html">monterrey.com.bo</a>, 
+          
+            <a href="ransom_details/67df08e8f3e56b39896791fa.html">monterrey.com.bo</a>, 
+          
+            <a href="ransom_details/678fe513c4f2181a71271273.html">www.minerasancristobal.com</a>, 
+          
+            <a href="ransom_details/678fe448c4f2181a71271010.html">uatf.edu.bo</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
+
   
   <script>
     $(document).ready(function(){
@@ -232,8 +234,8 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="group_details/sarcoma.html">
-                  sarcoma
+                <a href="group_details/lockbit3.html">
+                  lockbit3
                 </a>
               </h5>
               <p class="card-text">2 incidents</p>
@@ -300,8 +302,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:39:06-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:46:53-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
