@@ -150,8 +150,8 @@
         View country‑specific dashboard:
       </label> -->
   
-      <select id="countrySelect"
-        name="countrySelect"
+      <select id="countrySelectTop"
+        name="countrySelectTop"
         class="form-select d-inline-block w-auto"
       >
         <option></option>
@@ -289,8 +289,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 11:54:31-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 11:56:32-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -369,11 +369,11 @@
     
       dataDefacementGroups.push({value: 10, name: "StupidC0de🐷Family"});
     
-      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
-    
       dataDefacementGroups.push({value: 9, name: "Turkhacks.com"});
     
       dataDefacementGroups.push({value: 9, name: "Iran"});
+    
+      dataDefacementGroups.push({value: 9, name: "Anonymous 71"});
     
     var optionDefacementGroups = {
       title: { text: 'Top 15 Defacement Groups', left: 'center' },
@@ -485,7 +485,7 @@
       });
 
       function initCountrySelect() {
-        $("#countrySelect").each(function () {
+        $("#countrySelectTop").each(function () {
           const $sel = $(this);
 
           // skip if we already built the list for this element
@@ -526,7 +526,7 @@
   </script>
 
   <script>
-    $('#countrySelect').on('select2:select', function (e) {
+    $('#countrySelectTop').on('select2:select', function (e) {
     const code = e.params.data.id;
     window.location.href = code
       ? `top_${code}.html`
