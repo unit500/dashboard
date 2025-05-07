@@ -57,20 +57,19 @@
       background: #fff;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      height: 50px;
+      height: 40px;
     }
 
     .ticker-list {
-      position: absolute;        /* take it out of flow so it can slide across */
+      position: absolute;
       top: 0;
       left: 0;
       display: inline-flex;
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 10px 0;
 
-      /* animate from just off the right edge to just off the left */
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 30s linear infinite;
       will-change: transform;
     }
 
@@ -81,10 +80,10 @@
 
     @keyframes scroll-left {
       0% {
-        transform: translateX(100%);   /* start 100% of its own width to the right */
+        transform: translateX(100%);  
       }
       100% {
-        transform: translateX(-100%);  /* end 100% of its own width to the left */
+        transform: translateX(-100%);  
       }
     }
   </style>
@@ -189,48 +188,40 @@
     </div>
 
   <!-- Ticker Section (placed below title and above cards) -->
-  <div class="ticker-wrapper">
-    <ul class="ticker-list">
-      <li>
-        <strong>Latest 5 Defacements:</strong>
-        
-          <a href="defacement_details/68184090c2c83b3424001000.html">1208.wang</a>, 
-        
-          <a href="defacement_details/68145f6fda96abfc81bfc18a.html">condom.hk</a>, 
-        
-          <a href="defacement_details/680bca30515e8bd26047cb03.html">fersol.hk</a>, 
-        
-          <a href="defacement_details/67fa233781a24e1b38204794.html">sonvietnamvn.com</a>, 
-        
-          <a href="defacement_details/67fa231781a24e1b38204793.html">daunhotchinhhang.com.vn</a>
-        
-      </li>
-      <li>
-        <strong>Latest 5 Ransom Alerts:</strong>
-        
-          <a href="ransom_details/681aa2bfa32026c04ded7f13.html">dosjm.com</a>, 
-        
-          <a href="ransom_details/67e254b1ec4497fc9cca6ef7.html">6ixty8ight.com</a>, 
-        
-          <a href="ransom_details/67d8eff32f881be48953c184.html">fecil.com.hk</a>, 
-        
-          <a href="ransom_details/67d685411f5224c04209240c.html">waihong.com.hk</a>, 
-        
-          <a href="ransom_details/67d22e3929242155d2004cd1.html">fecil.com.hk</a>
-        
-      </li>
-    </ul>
+  <div class="mb-4 text-center">
+    <div class="ticker-wrapper">
+      <ul class="ticker-list">
+        <li>
+          <strong>Latest 5 Defacements:</strong>
+          
+            <a href="defacement_details/68184090c2c83b3424001000.html">1208.wang</a>, 
+          
+            <a href="defacement_details/68145f6fda96abfc81bfc18a.html">condom.hk</a>, 
+          
+            <a href="defacement_details/680bca30515e8bd26047cb03.html">fersol.hk</a>, 
+          
+            <a href="defacement_details/67fa233781a24e1b38204794.html">sonvietnamvn.com</a>, 
+          
+            <a href="defacement_details/67fa231781a24e1b38204793.html">daunhotchinhhang.com.vn</a>
+          
+        </li>
+        <li>
+          <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/681aa2bfa32026c04ded7f13.html">dosjm.com</a>, 
+          
+            <a href="ransom_details/67e254b1ec4497fc9cca6ef7.html">6ixty8ight.com</a>, 
+          
+            <a href="ransom_details/67d8eff32f881be48953c184.html">fecil.com.hk</a>, 
+          
+            <a href="ransom_details/67d685411f5224c04209240c.html">waihong.com.hk</a>, 
+          
+            <a href="ransom_details/67d22e3929242155d2004cd1.html">fecil.com.hk</a>
+          
+        </li>
+      </ul>
+    </div>
   </div>
-  
-  <script>
-    $(document).ready(function(){
-      $('#ticker').easyTicker({
-        direction: 'up',
-        interval: 3000,
-        height: 'auto'
-      });
-    });
-  </script>
 
   <!-- Cards Section -->
   <div class="container mb-4">
@@ -242,8 +233,8 @@
           <div class="card-body">
             
               <h5 class="card-title">
-                <a href="group_details/clop.html">
-                  clop
+                <a href="group_details/nightspire.html">
+                  nightspire
                 </a>
               </h5>
               <p class="card-text">4 incidents</p>
@@ -320,7 +311,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-07 12:42:09-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-07 12:53:02-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
@@ -349,11 +340,11 @@
       
       {value: 4, name: "Buy_Shells" },
       
-      {value: 2, name: "Team Anon Force" },
-      
       {value: 2, name: "./KeyzNet" },
       
-      {value: 1, name: "MoneroSHELL" }
+      {value: 2, name: "Team Anon Force" },
+      
+      {value: 1, name: "setupp.es" }
       
     ];
     var optionRansomwareGroups = {
