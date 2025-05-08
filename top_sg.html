@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 13:47:48-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 15:44:38-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
   
@@ -377,7 +377,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 350, name: "US" },
+        { value: 349, name: "US" },
       
         { value: 36, name: "DE" },
       
@@ -406,13 +406,13 @@
       
         { value: 2, name: "averasia.com" },
       
-        { value: 1, name: "sg268305-melco-capital-pte-ltd.contact.page" },
-      
         { value: 1, name: "n8xt.net" },
       
         { value: 1, name: "algas.com.sg" },
       
-        { value: 1, name: "www.megachem.com.sg" }
+        { value: 1, name: "pestbusters.com.sg" },
+      
+        { value: 1, name: "feelfour.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -433,13 +433,13 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 5, name: "qilin" },
-      
         { value: 5, name: "devman" },
       
-        { value: 1, name: "crypto24" },
+        { value: 5, name: "qilin" },
       
-        { value: 1, name: "nightspire" }
+        { value: 1, name: "nightspire" },
+      
+        { value: 1, name: "crypto24" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -460,15 +460,15 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 2, name: "18" },
-      
         { value: 2, name: "20" },
       
-        { value: 1, name: "16" },
+        { value: 2, name: "18" },
+      
+        { value: 1, name: "15" },
       
         { value: 1, name: "17" },
       
-        { value: 1, name: "21" }
+        { value: 1, name: "13" }
       
     ];
     chartRansomByHour.setOption({
@@ -491,11 +491,11 @@
       
         { value: 4, name: "Sun" },
       
+        { value: 2, name: "Thu" },
+      
         { value: 2, name: "Mon" },
       
         { value: 2, name: "Tue" },
-      
-        { value: 2, name: "Thu" },
       
         { value: 1, name: "Wed" }
       
@@ -785,7 +785,7 @@
       
         { value: 311, name: "CA" },
       
-        { value: 158, name: "IN" },
+        { value: 165, name: "IN" },
       
         { value: 139, name: "FR" },
       
@@ -866,9 +866,9 @@
       
         { value: 33, name: "6" },
       
-        { value: 30, name: "8" },
-      
         { value: 30, name: "9" },
+      
+        { value: 30, name: "8" },
       
         { value: 8, name: "13" },
       
