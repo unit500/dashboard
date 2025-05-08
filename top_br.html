@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 08:53:16-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 09:14:03-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
@@ -437,7 +437,7 @@
       
         { value: 2, name: "nova" },
       
-        { value: 1, name: "J" },
+        { value: 1, name: "ralord" },
       
         { value: 1, name: "sarcoma" },
       
@@ -466,7 +466,7 @@
       
         { value: 2, name: "16" },
       
-        { value: 1, name: "15" },
+        { value: 1, name: "07" },
       
         { value: 1, name: "04" },
       
@@ -497,9 +497,9 @@
       
         { value: 1, name: "Sat" },
       
-        { value: 1, name: "Thu" },
+        { value: 1, name: "Fri" },
       
-        { value: 1, name: "Tue" }
+        { value: 1, name: "Thu" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -517,45 +517,51 @@
     });
     
     // 6) Calendar Heatmap
-    var heatmapRansomCalendar = echarts.init(document.getElementById('heatmapRansomCalendar'));
-    var calData = [
-      
-        [ "2025-04-16", 2 ],
-      
-        [ "2025-04-19", 1 ],
-      
-        [ "2025-04-21", 1 ],
-      
-        [ "2025-04-22", 1 ],
-      
-        [ "2025-04-24", 1 ],
-      
-        [ "2025-04-28", 3 ],
-      
-        [ "2025-05-02", 1 ]
-      
-    ];
+    const heatData = [["2025-04-16", 2], ["2025-04-19", 1], ["2025-04-21", 1], ["2025-04-22", 1], ["2025-04-24", 1], ["2025-04-28", 3], ["2025-05-02", 1]];
+
+    const maxCount = heatData.length
+      ? Math.max(...heatData.map(d => d[1]))
+      : 0;
+
+    const dates = heatData.map(d => d[0]);
+    const calendarRange = dates.length > 1
+      ? [ dates[0], dates[dates.length - 1] ]
+      : dates[0] || new Date().getFullYear().toString();
+
+    var heatmapRansomCalendar = echarts.init(
+      document.getElementById('heatmapRansomCalendar')
+    );
+
     heatmapRansomCalendar.setOption({
-      title: { text: 'Ransom Activity (Last 30d)', left: 'center' },
+      title: {
+        top: 30,
+        text: 'Activity Heatmap (Last 30d)',
+        left: 'center'
+      },
+      tooltip: {},
       visualMap: {
-        min: 0, 
-        max: Math.max(...calData.map(c=>c[1])),
+        min: 0,
+        max: maxCount,
+        calculable: true,
         orient: 'horizontal',
         left: 'center',
-        top: 20
+        bottom: 20
       },
-      calendar: [{
-        top: 60,
+      calendar: {
+        top: 100,
         left: 'center',
-        range: new Date().toISOString().slice(0,10), // last 30d
-      }],
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: { firstDay: 1, nameMap: 'en' },
+        monthLabel: { nameMap: 'en' },
+        range: calendarRange
+      },
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: calData
+        data: heatData
       }]
     });
-    
   </script>
 
 
@@ -585,11 +591,11 @@
       
         { value: 18, name: "CA" },
       
-        { value: 17, name: "UA" },
-      
         { value: 17, name: "NL" },
       
-        { value: 15, name: "PL" }
+        { value: 17, name: "UA" },
+      
+        { value: 15, name: "US" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -683,28 +689,49 @@
     });
 
     // 7) Calendar Heatmap
-    var heatmapDdosCalendar = echarts.init(document.getElementById('heatmapDdosCalendar'));
-    var calDdosData = [
-      
-    ];
+    const heatData = [];
+
+    const maxCount = heatData.length
+      ? Math.max(...heatData.map(d => d[1]))
+      : 0;
+
+    const dates = heatData.map(d => d[0]);
+    const calendarRange = dates.length > 1
+      ? [ dates[0], dates[dates.length - 1] ]
+      : dates[0] || new Date().getFullYear().toString();
+
+    var heatmapDdosCalendar = echarts.init(
+      document.getElementById('heatmapDdosCalendar')
+    );
+
     heatmapDdosCalendar.setOption({
-      title: { text: 'DDoS Activity (Last 30d)', left: 'center' },
+      title: {
+        top: 30,
+        text: 'Activity Heatmap (Last 30d)',
+        left: 'center'
+      },
+      tooltip: {},
       visualMap: {
         min: 0,
-        max: Math.max(...calDdosData.map(c=>c[1])),
+        max: maxCount,
+        calculable: true,
         orient: 'horizontal',
         left: 'center',
-        top: 20
+        bottom: 20
       },
-      calendar: [{
-        top: 60,
+      calendar: {
+        top: 100,
         left: 'center',
-        range: new Date().toISOString().slice(0,10)  // today only; adjust if you want 30d range
-      }],
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: { firstDay: 1, nameMap: 'en' },
+        monthLabel: { nameMap: 'en' },
+        range: calendarRange
+      },
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: calDdosData
+        data: heatData
       }]
     });
   </script>
@@ -818,9 +845,9 @@
       
         { value: 10, name: "14" },
       
-        { value: 8, name: "19" },
-      
         { value: 8, name: "6" },
+      
+        { value: 8, name: "19" },
       
         { value: 7, name: "5" }
       
@@ -869,56 +896,49 @@
     });
 
     // 7) Calendar Heatmap
-    var heatmapDefaceCalendar = echarts.init(document.getElementById('heatmapDefaceCalendar'));
-    var calDefaceData = [
-      
-        [ "2025-04-09", 2 ],
-      
-        [ "2025-04-10", 1 ],
-      
-        [ "2025-04-12", 3 ],
-      
-        [ "2025-04-13", 12 ],
-      
-        [ "2025-04-14", 5 ],
-      
-        [ "2025-04-16", 9 ],
-      
-        [ "2025-04-18", 7 ],
-      
-        [ "2025-04-19", 19 ],
-      
-        [ "2025-04-20", 1 ],
-      
-        [ "2025-04-22", 1 ],
-      
-        [ "2025-04-26", 1 ],
-      
-        [ "2025-04-28", 2 ],
-      
-        [ "2025-05-05", 2 ],
-      
-        [ "2025-05-06", 3 ]
-      
-    ];
-    heatmapDefaceCalendar.setOption({
-      title: { text: 'Defacement Activity (Last 30d)', left: 'center' },
+    const heatData = [["2025-04-09", 2], ["2025-04-10", 1], ["2025-04-12", 3], ["2025-04-13", 12], ["2025-04-14", 5], ["2025-04-16", 9], ["2025-04-18", 7], ["2025-04-19", 19], ["2025-04-20", 1], ["2025-04-22", 1], ["2025-04-26", 1], ["2025-04-28", 2], ["2025-05-05", 2], ["2025-05-06", 3]];
+
+    const maxCount = heatData.length
+      ? Math.max(...heatData.map(d => d[1]))
+      : 0;
+
+    const dates = heatData.map(d => d[0]);
+    const calendarRange = dates.length > 1
+      ? [ dates[0], dates[dates.length - 1] ]
+      : dates[0] || new Date().getFullYear().toString();
+
+    var heatmapDefacementsCalendar = echarts.init(
+      document.getElementById('heatmapDefaceCalendar')
+    );
+
+    heatmapDefacementsCalendar.setOption({
+      title: {
+        top: 30,
+        text: 'Activity Heatmap (Last 30d)',
+        left: 'center'
+      },
+      tooltip: {},
       visualMap: {
         min: 0,
-        max: Math.max(...calDefaceData.map(c=>c[1])),
+        max: maxCount,
+        calculable: true,
         orient: 'horizontal',
         left: 'center',
-        top: 20
+        bottom: 20
       },
-      calendar: [{
-        top: 60,
+      calendar: {
+        top: 100,
         left: 'center',
-        range: new Date().toISOString().slice(0,10)  // adjust if you want full 30d range
-      }],
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: { firstDay: 1, nameMap: 'en' },
+        monthLabel: { nameMap: 'en' },
+        range: calendarRange
+      },
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: calDefaceData
+        data: heatData
       }]
     });
   </script>
