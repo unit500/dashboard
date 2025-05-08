@@ -206,6 +206,8 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
+            <a href="defacement_details/681c901b3f4e8e7956309654.html">css.inpt.ac.ma</a>, 
+          
             <a href="defacement_details/67beb1ad6eb548a542fd2ed8.html">www.encg.ucd.ac.ma</a>
           
         </li>
@@ -346,8 +348,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 08:12:09-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 11:14:27-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
   
@@ -521,13 +523,13 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
+        { value: 20, name: "GB" },
+      
+        { value: 18, name: "CA" },
+      
         { value: 17, name: "NL" },
       
-        { value: 17, name: "GB" },
-      
         { value: 17, name: "UA" },
-      
-        { value: 16, name: "CA" },
       
         { value: 15, name: "US" }
       
@@ -671,7 +673,7 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 521, name: "US" },
+        { value: 524, name: "US" },
       
         { value: 311, name: "CA" },
       
@@ -700,6 +702,8 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
+        { value: 1, name: "indie" }
+      
     ];
     chartDefaceTopGroups.setOption({
       title: { text: 'Top 5 Defacement Groups', left: 'center' },
@@ -718,6 +722,8 @@
     // 4) Top Actors (bar)
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
+      
+        { value: 1, name: "omgsmok" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -738,6 +744,8 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
+        { value: 1, name: "11" }
+      
     ];
     chartDefaceByHour.setOption({
       title: { text: 'Defacement Reports by Hour', left: 'center' },
@@ -757,6 +765,8 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
+        { value: 1, name: "Thu" }
+      
     ];
     chartDefaceByWeekday.setOption({
       title: { text: 'Defacement Reports by Weekday', left: 'center' },
@@ -775,6 +785,8 @@
     // 7) Calendar Heatmap
     var heatmapDefaceCalendar = echarts.init(document.getElementById('heatmapDefaceCalendar'));
     var calDefaceData = [
+      
+        [ "2025-05-08", 1 ]
       
     ];
     heatmapDefaceCalendar.setOption({
