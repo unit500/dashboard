@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/68147bfd0b5f553d4ef2478e.html">
+                <img src="https://images.ransomware.live/victims/130f5b20311d44d121ddbcf14f2cb4e3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="uva.edu.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">uva.edu.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-02 07:31:21.203521</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> J</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/680f8a290fa4cc43791b6806.html">
+                <img src="https://images.ransomware.live/victims/96b5f363dd1f2dc029e5b1da41a9969f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ihara.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ihara.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-28 13:29:30.035134</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> nova</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ​​​​​Data has been leaked shame on you and all who work with you
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/680f8a260fa4cc43791b67fe.html">
+                <img src="https://images.ransomware.live/victims/0a8676876f55594b45f57873be3d0846.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="​​​​bettininformatica - suporteon">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">​​​​bettininformatica - suporteon</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-28 13:19:20.138629</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> nova</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ​​​​​​​​BThe website bettininformatica.com.br belongs to Bettin Soluções em Informática, a technolog&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6807bd3086084c0e19ec5680.html">
+                <img src="https://images.ransomware.live/victims/fb910dc5b7e78b103093ca59f66ac91f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.amazontransportes.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.amazontransportes.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-22 15:19:20.693851</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> cicada3301</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Status: 29d 23h 57m 18s - Size Data: 149 GB
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/68032e440d00937df6ecc20e.html">
+                <img src="https://images.ransomware.live/victims/d1a475aa38cce791315c3a3956b4791e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="bettininformatica">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">bettininformatica</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-19 04:46:04.892521</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ralord</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ​​​​​​​​BThe website bettininformatica.com.br belongs to Bettin Soluções em Informática, a technolog&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ffe23667ddd87429d2e183.html">
+                <img src="https://images.ransomware.live/victims/dcba38022584852f535cd74479966265.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="aeamg.org.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">aeamg.org.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-16 16:57:33.283064</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;AEA-MG&#34;.  Company Description: AEA-MG (Assoc&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ec620669f5397812c295a4.html">
+                <img src="https://images.ransomware.live/victims/a1361b1959bfe6713ccc0a9cb2bb9e65.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="uniproof.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">uniproof.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-01 21:17:33.850443</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    uniproof.com.br
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67eb8f1327626c3c56f17034.html">
+                <img src="https://images.ransomware.live/victims/d4b19d57a00ac0409c17882c459f3b05.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="workers.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">workers.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-01 06:43:58.204937</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e770b1fab8feadf6bf9c44.html">
+                <img src="https://images.ransomware.live/victims/7e59197db0fe4a025ddfc1f85cc1c2c4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="brune.com.br - Group MC (conglomerate)">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">brune.com.br - Group MC (conglomerate)</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-29 02:49:11.993029</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    brune.com.br - Group MC (conglomerate)
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e5ae6e155e243f129f6c13.html">
+                <img src="https://images.ransomware.live/victims/b38ce8ca4c61e98170490a5d25812e79.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ihara.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ihara.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-27 19:38:43.842571</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ralord</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ​​​​​IHARA is a Brazilian company specializing in the development and manufacturing of agricultural &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e1e43c7ef2b4f4d9d611e0.html">
+                <img src="https://images.ransomware.live/victims/c1296baa14c9edf0772e28a63d5eb86b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.rivaldt.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.rivaldt.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-24 21:46:41.901858</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ddefa98282ab62c052e7e0.html">
+                <img src="https://images.ransomware.live/victims/f7f822e7acc0899f1243eb6c721b0f1d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gbsn.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gbsn.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-21 22:04:51.255975</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67db226760887615ea08edc9.html">
+                <img src="https://images.ransomware.live/victims/e3a711e08bf2c693943146765de2b4c1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Municipal taxation Secretariat Access - Brazil Goverment">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Municipal taxation Secretariat Access - Brazil Goverment</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-19 19:55:10.541623</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Municipal taxation Secretariat Access - Brazil Goverment
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d3f032438a49d7347d2acf.html">
+                <img src="https://images.ransomware.live/victims/ba192b39f5d0012f4a4bd029532a6017.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nuclep.gov.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nuclep.gov.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-14 08:00:24.465760</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    nuclep.gov.br. Nuclep Brazil
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d106e369917b476929e656.html">
+                <img src="https://images.ransomware.live/victims/13ddeaf92263831cfcefe9f7aa330def.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.hypernovatelecom.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.hypernovatelecom.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-12 03:48:21.663694</p>
+                <p class="card-text"><strong>Industry:</strong> Telecommunication</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Days00006666Hours22223333Minutes33332222Seconds33336767
+
+
+www.hypernovatelecom.com.br
+You know that &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67cfa755502653a3e72779b8.html">
+                <img src="https://images.ransomware.live/victims/bff3306de9f5cd3b1e4b2a32cd4cc7ae.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="fnde.gov.br brazilian government">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">fnde.gov.br brazilian government</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-11 02:54:53.665138</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    fnde.gov.br brazilian government
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67cf44e1f5f64436aeadfd24.html">
+                <img src="https://images.ransomware.live/victims/461328895c19a1b944e3bda3d2865306.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Mandarin.com.br By Babuk Locker 2.0">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Mandarin.com.br By Babuk Locker 2.0</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-10 19:23:53.013276</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Mandarin.com.br
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d15b5867519fc271492e6b.html">
+                <img src="https://images.ransomware.live/victims/461328895c19a1b944e3bda3d2865306.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Mandarin.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Mandarin.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-10 19:23:53.013276</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Mandarin.com.br
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c731fb143d820014bffab0.html">
+                <img src="https://images.ransomware.live/victims/cc8efe2badc8009e1b32081ff7b57d3c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="pampili.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">pampili.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-04 16:30:18.816044</p>
+                <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    36.3 GB
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c723e7221210683fb441e4.html">
+                <img src="https://images.ransomware.live/victims/16eedbc4bd74aa440658fec651c1f8d1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="baston.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">baston.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-04 15:02:20.007913</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    88.3 GB
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c688f4a5dfe3cc2b4cb708.html">
+                <img src="https://images.ransomware.live/victims/d5fa49cc728d65ee284272948329ca3b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.internetway.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.internetway.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-04 04:48:48.035995</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> apos</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    🌐 www.internetway.com.br💲 Undisclosed📍 Undisclosed
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c60a72eaaad462cd1ce744.html">
+                <img src="https://images.ransomware.live/victims/7fef55fde8246fcab2c1f60bd45e0707.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Itapeseg">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Itapeseg</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-03 20:00:19.734007</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Days00007777Hours11114444Minutes33334444Seconds00004545
+
+
+itapeseg.com.br
+Itapeseg is a company that&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c215e4d12e76aedebe5177.html">
+                <img src="https://images.ransomware.live/victims/9c83d4dce60864b2141d3f131d74f2fd.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mytower.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mytower.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-28 19:54:24.346745</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] MyTower is a Brazilian company that provides innovative digital solutions for the rea&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c1f9cf066f7356843df357.html">
+                <img src="https://images.ransomware.live/victims/8269ff26ef6b55f4b9cf67a81cdbce64.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mandarin.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mandarin.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-28 17:23:30.654755</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Mandarin.com.br is a Brazilian company primarily focusing on providing technology sol&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c062007e0f712505af8181.html">
+                <img src="https://images.ransomware.live/victims/2716548c86e6bc64c3f976353b780d1f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="jtu.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jtu.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-27 12:22:02.247788</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;JACAREI TRANSPORTE URBANO LTDA&#34;.  Company De&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d97c97e3de47d4a2d8d4a0.html">
+                <img src="https://images.ransomware.live/victims/2716548c86e6bc64c3f976353b780d1f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="jtu.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jtu.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-27 12:22:02.247788</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;JACAREI TRANSPORTE URBANO LTDA&#34;.  Company De&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67bdbef2d790087ed07b15ba.html">
+                <img src="https://images.ransomware.live/victims/8ff557e5e738debf78f4f06ee914f5bf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="essenzamovies.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">essenzamovies.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 12:41:25.168104</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;ESSENZA DESING INDUSTRIA DE MOVIES LTDA&#34;.  C&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f4131369cace605ba9c9b2.html">
+                <img src="https://images.ransomware.live/victims/8ff557e5e738debf78f4f06ee914f5bf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="essenzamovies.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">essenzamovies.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 12:41:25.168104</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;ESSENZA DESING INDUSTRIA DE MOVIES LTDA&#34;.  C&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67bda2ce5d6944e5a80b272f.html">
+                <img src="https://images.ransomware.live/victims/a949b003477fabde7b2cfb286db66b80.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tequaly.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tequaly.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 10:52:15.349261</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> embargo</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    One of Brazil&#39;s largest suppliers of technological systems, maintenance, manufacturing, assembly and&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b41f1f982dd786a170fc03.html">
+                <img src="https://images.ransomware.live/victims/6ff777593e9134ed7d1f05091b8a953b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="hiway.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">hiway.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-17 16:56:39.020957</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Hiway.com.br is a Brazil-based company that specializes in providing quality internet&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f53d986f8591b4f5dcfd6.html">
+                <img src="https://images.ransomware.live/victims/91ba238b3843a6b94a622d80f9c12f82.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="St. Nicholas School">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">St. Nicholas School</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-01 12:50:33.964944</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    St. Nicholas School is an international school in Sao Paulo, Brazil, with two campuses: in Pinheiros&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f53d686f8591b4f5dcfd0.html">
+                <img src="https://images.ransomware.live/victims/3496d56f9c284aff45addeb4deffd6de.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.eascon.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.eascon.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-01 00:59:12.982047</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Days00007777Hours11112222Minutes11111111Seconds33336767
+
+
+www.eascon.com.br
+Eascon Contabilidade is &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f53d686f8591b4f5dcfcf.html">
+                <img src="https://images.ransomware.live/victims/d8c9ce442e4b71b1fec83b3568d5ef47.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.utilissimo.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.utilissimo.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-01 00:57:41.736421</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Days00007777Hours11112222Minutes11111111Seconds33336767
+
+
+www.utilissimo.com.br
+Utilissimo Transport&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f53d586f8591b4f5dcfcd.html">
+                <img src="https://images.ransomware.live/victims/c05d8bb2307fc496a3231f60ac64b6b2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.technico.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.technico.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-01 00:54:40.078973</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Days00007777Hours11112222Minutes11111111Seconds33336767
+
+
+www.technico.com.br
+Founded by German Wolf&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f539a86f8591b4f5dcf4e.html">
+                <img src="https://images.ransomware.live/victims/4ebf80383d2620400f1e276a46ca3ed3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tsmx.net.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tsmx.net.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-28 21:29:30.960108</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] I&#39;m sorry, but it appears that there isn&#39;t sufficient or clear information available &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f538f86f8591b4f5dcf36.html">
+                <img src="https://images.ransomware.live/victims/5c3dab089b02f0a8ded330324ae45de5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="copral.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">copral.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 11:39:01.920679</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!
+copral.com.br 
+Today we are posting here the new company, &#34;Copral Comercio e Navegacao LT&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f538a86f8591b4f5dcf2f.html">
+                <img src="https://images.ransomware.live/victims/6ddf96dacec1cb8c2ab3032b2dd88285.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="viacaojacarei.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">viacaojacarei.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 08:21:19.839870</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    viacaojacarei.com.br
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f538986f8591b4f5dcf2e.html">
+                <img src="https://images.ransomware.live/victims/73f28bc3a9028ad4f5fc0fdda54d5962.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gelco-s-a.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gelco-s-a.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 08:19:03.809719</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    gelco-s-a.com.br
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f538286f8591b4f5dcf1f.html">
+                <img src="https://images.ransomware.live/victims/36ae54fbe9e53c430db47d978e73f4a1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sincorpe.org.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sincorpe.org.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 08:00:33.742227</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    sincorpe.org.br
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f537d86f8591b4f5dcf10.html">
+                <img src="https://images.ransomware.live/victims/9e28eab1cc8998a942626ab6d7ab5cb4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="shootinghouse.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">shootinghouse.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 07:40:30.365873</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.shootinghouse.com.br
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f537b86f8591b4f5dcf0d.html">
+                <img src="https://images.ransomware.live/victims/a92422fa667fb90eeeecb8e56bc51ec1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ykp.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ykp.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 07:35:47.549845</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.ykp.com.br
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f537986f8591b4f5dcf08.html">
+                <img src="https://images.ransomware.live/victims/de938cf044e13b260f21c5b80e1803cc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="spmundi.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">spmundi.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 07:30:00.419441</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.spmundi.com.br
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f537486f8591b4f5dcefe.html">
+                <img src="https://images.ransomware.live/victims/269ca249e9541f5a0594918730dcaff0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="agenciahost.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">agenciahost.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 07:18:31.414604</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.agenciahost.com
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f537286f8591b4f5dcefa.html">
+                <img src="https://images.ransomware.live/victims/0d93ddf54e413152497b320b7a0a8bcb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lapastina.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lapastina.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 07:13:19.711863</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.lapastina.com
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f533c86f8591b4f5dce81.html">
+                <img src="https://images.ransomware.live/victims/b8b7c24579c9714cb072673b2e90b8cf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="laboratoriosm.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">laboratoriosm.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-22 02:04:46.105653</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> spacebears</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    CLINICAL ANALYSIS LABORATORY https://www.laboratoriosm.com.br/
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 08:46:08-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

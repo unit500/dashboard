@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Defacement Details - Unit500</title>
+  <title>DDoS Attack Details - Unit500</title>
   <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -19,6 +19,13 @@
     }
     .details-table th {
       width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
     /* Icon and clock sizing */
     .icon-size {
@@ -36,7 +43,7 @@
   </style>
 </head>
 <body class="bg-light">
-  <!-- Common Header (Title in same row as menu, no extra brand text) -->
+  <!-- Common Header -->
   <header class="mb-4">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -118,27 +125,30 @@
   </div>
 </header>
 
+
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Three Cards Row -->
+    <!-- Top Cards Row (4 squares) -->
     <div class="row mb-4">
       <!-- Card 1: Targeted Website -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Targeted Website</div>
           <div class="card-body">
-            <a href="http://ssjpitikhandala.org" target="_blank" class="text-decoration-none">
-              <h5 class="card-title">ssjpitikhandala.org</h5>
-            </a>
+            
+              <a href="https://afmc.nic.in/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">afmc.nic.in</h5>
+              </a>
+            
           </div>
         </div>
       </div>
       <!-- Card 2: Attack Date -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Attack Date</div>
           <div class="card-body">
@@ -146,8 +156,8 @@
           </div>
         </div>
       </div>
-      <!-- Card 3: Geographics -->
-      <div class="col-md-4">
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Geographics</div>
           <div class="card-body">
@@ -156,8 +166,18 @@
             
             &rarr;
             
-              
-              <img src="https://flagcdn.com/32x24/rg.png" alt="rg flag">
+              <img src="https://flagcdn.com/32x24/in.png" alt="IN flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
             
           </div>
         </div>
@@ -166,78 +186,179 @@
 
     <!-- Details Table -->
     <div class="row">
-      <!-- Left Column: Screenshot -->
+      <!-- Left Column: Screenshot/Thumbnail -->
       <div class="col-md-4 mb-3">
         
-          <img src="https://unit500.python-myth.info/mirror/2025/05/08/ssjpitikhandala_org/screenshot.png" alt="Screenshot of Defaced Site" class="details-img">
+          <img src="" alt="Default DDoS Image" class="details-img">
         
       </div>
       <!-- Right Column: Details Table -->
       <div class="col-md-8">
         <table class="table table-bordered details-table">
           <tbody>
-            <tr>
-              <th>Group Name</th>
-              <td>independent</td>
-            </tr>
-            <tr>
-              <th>Actor Name</th>
-              <td>kal egy 319</td>
-            </tr>
-            <tr>
-              <th>Targeted Website</th>
-              <td><a href="http://ssjpitikhandala.org" target="_blank">http://ssjpitikhandala.org</a></td>
-            </tr>
-            <tr>
-              <th>HTML Mirror</th>
-              <td>
-                
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>Keymous+</td>
+                </tr>
+              
+            
+              
                   
-                  <a href="https://unit500.github.io/defacements/mirror/2025/05/08/ssjpitikhandala_org/html/" target="_blank">
-                    Mirror Link
-                  </a>
                 
-              </td>
-            </tr>
-            <tr>
-              <th>GitHub Mirror</th>
-              <td>
+            
+              
+                <tr>
+                  <th>Operation name</th>
+                  <td></td>
+                </tr>
+              
+            
+              
                 
-                  
-                  <a href="https://github.com/unit500/defacements/tree/main/mirror/2025/05/08/ssjpitikhandala_org/" target="_blank">
-                    Github Source
-                  </a>
+              
+            
+              
                 
-              </td>
-            </tr>
-            <tr>
-              <th>Source Attacker Country</th>
-              <td>Unknown</td>
-            </tr>
-            <tr>
-              <th>Reason</th>
-              <td>fun</td>
-            </tr>
-            <tr>
-              <th>Mass Defacement</th>
-              <td>False</td>
-            </tr>
-            <tr>
-              <th>Domain</th>
-              <td>ssjpitikhandala.org</td>
-            </tr>
-            <tr>
-              <th>Site IP</th>
-              <td>65.109.115.157</td>
-            </tr>
-            <tr>
-              <th>Redeface</th>
-              <td>False</td>
-            </tr>
-            <tr>
-              <th>Root Domain</th>
-              <td>True</td>
-            </tr>
+              
+            
+              
+                <tr>
+                  <th>Origin country</th>
+                  <td></td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Reason</th>
+                  <td>fun</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-05-08</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://afmc.nic.in/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/25d5ec42k5de" target="_blank">25d5ec42k5de</a>
+                  </td>
+                </tr>
+                
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                  <tr>
+                    <th>Attacked country</th>
+                    <td>
+                      <img src="https://flagcdn.com/32x24/in.png"
+                          class="me-1"
+                          alt="IN flag">
+                      IN
+                    </td>
+                  </tr>
+                
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/681c6dacfb6b0b68abfb776e_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                  <tr>
+                    <th>Github Mirror</th>
+                    <td>
+                        /archive/verified/2025/05/08/afmc_nic_in
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Technical Report</th>
+                    <td>
+                      <a href="https://github.com/unit500/ddos/tree/main//archive/verified/2025/05/08/afmc_nic_in"
+                        target="_blank">
+                        https://github.com/unit500/ddos/tree/main//archive/verified/2025/05/08/afmc_nic_in
+                      </a>
+                    </td>
+                  </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
           </tbody>
         </table>
       </div>
@@ -253,9 +374,10 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
+
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
