@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -204,15 +204,15 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
+            <a href="defacement_details/681c3bdd688e7fa1f4b314e5.html">mss50.ru</a>, 
+          
             <a href="defacement_details/681c3a64688e7fa1f4b314bf.html">astranpo.ru</a>, 
           
             <a href="defacement_details/681c3a1d688e7fa1f4b314b8.html">nm38.ru</a>, 
           
             <a href="defacement_details/681c3a16688e7fa1f4b314b7.html">poliv-yug.ru</a>, 
           
-            <a href="defacement_details/681c3a10688e7fa1f4b314b6.html">pl-m.ru</a>, 
-          
-            <a href="defacement_details/681c3a0a688e7fa1f4b314b5.html">pro100dacha.ru</a>
+            <a href="defacement_details/681c3a10688e7fa1f4b314b6.html">pl-m.ru</a>
           
         </li>
         <li>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 13:44:30-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 14:12:50-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -385,7 +385,7 @@
       
         { value: 17, name: "IT" },
       
-        { value: 12, name: "ES" }
+        { value: 12, name: "GB" }
       
     ];
     chartRansomTopSource.setOption({
@@ -755,7 +755,7 @@
       
         { value: 311, name: "CA" },
       
-        { value: 158, name: "IN" },
+        { value: 165, name: "IN" },
       
         { value: 139, name: "FR" },
       
@@ -780,7 +780,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 31, name: "indie" },
+        { value: 32, name: "indie" },
       
         { value: 18, name: "Team Anon Force" },
       
@@ -805,15 +805,15 @@
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
       
-        { value: 33, name: "Team Anon Force" },
+        { value: 34, name: "Team Anon Force" },
       
         { value: 6, name: "Simsimi" },
       
         { value: 6, name: "Anonsecita" },
       
-        { value: 2, name: "ynR !" },
+        { value: 2, name: "setupp.es" },
       
-        { value: 2, name: "setupp.es" }
+        { value: 2, name: "ynR !" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -836,7 +836,7 @@
       
         { value: 16, name: "4" },
       
-        { value: 7, name: "5" },
+        { value: 8, name: "5" },
       
         { value: 6, name: "6" },
       
@@ -863,7 +863,7 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 23, name: "Thu" },
+        { value: 24, name: "Thu" },
       
         { value: 14, name: "Tue" },
       
@@ -871,7 +871,7 @@
       
         { value: 6, name: "Mon" },
       
-        { value: 2, name: "Sat" }
+        { value: 2, name: "Sun" }
       
     ];
     chartDefaceByWeekday.setOption({
@@ -889,7 +889,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-02-19", 1], ["2025-02-24", 1], ["2025-03-03", 5], ["2025-03-05", 10], ["2025-03-06", 11], ["2025-03-07", 1], ["2025-03-14", 1], ["2025-03-15", 1], ["2025-03-16", 27], ["2025-03-18", 1], ["2025-03-23", 1], ["2025-03-24", 2], ["2025-03-28", 3], ["2025-03-31", 1], ["2025-04-01", 1], ["2025-04-05", 1], ["2025-04-17", 6], ["2025-04-22", 2], ["2025-04-24", 3], ["2025-04-25", 7], ["2025-04-27", 1], ["2025-04-28", 2], ["2025-04-29", 3], ["2025-05-01", 5], ["2025-05-03", 2], ["2025-05-04", 1], ["2025-05-05", 4], ["2025-05-06", 9], ["2025-05-08", 9]];
+    let heatDataDefacements = [["2025-02-19", 1], ["2025-02-24", 1], ["2025-03-03", 5], ["2025-03-05", 10], ["2025-03-06", 11], ["2025-03-07", 1], ["2025-03-14", 1], ["2025-03-15", 1], ["2025-03-16", 27], ["2025-03-18", 1], ["2025-03-23", 1], ["2025-03-24", 2], ["2025-03-28", 3], ["2025-03-31", 1], ["2025-04-01", 1], ["2025-04-05", 1], ["2025-04-17", 6], ["2025-04-22", 2], ["2025-04-24", 3], ["2025-04-25", 7], ["2025-04-27", 1], ["2025-04-28", 2], ["2025-04-29", 3], ["2025-05-01", 5], ["2025-05-03", 2], ["2025-05-04", 1], ["2025-05-05", 4], ["2025-05-06", 9], ["2025-05-08", 10]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
