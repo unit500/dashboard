@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/681cd5385d5a13a84371dd07.html">Selenis (Evertis)</a>, 
+          
+            <a href="ransom_details/681cd5375d5a13a84371dd06.html">Selenis (Evertis is also involved)</a>, 
+          
             <a href="ransom_details/681935098a876d7ac2732c0c.html">valedolobo.com</a>, 
           
             <a href="ransom_details/680f8a270fa4cc43791b6801.html">NewHotel cloud</a>, 
           
-            <a href="ransom_details/680bdbd7443714fe4f8c0dca.html">mardearhotels.com</a>, 
-          
-            <a href="ransom_details/68025b10461fac577d59ffb2.html">www.globalmediagroup.pt</a>, 
-          
-            <a href="ransom_details/67fd3125701af46108d70cb9.html">Agricola Da Quinta De Corona</a>
+            <a href="ransom_details/680bdbd7443714fe4f8c0dca.html">mardearhotels.com</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 14:28:51-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 17:02:07-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -377,9 +377,9 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 350, name: "US" },
+        { value: 349, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 37, name: "DE" },
       
         { value: 27, name: "CA" },
       
@@ -429,13 +429,13 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
+        { value: 3, name: "akira" },
+      
         { value: 2, name: "nitrogen" },
       
         { value: 1, name: "BrainCipher" },
       
-        { value: 1, name: "nova" },
-      
-        { value: 1, name: "akira" }
+        { value: 1, name: "nova" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -458,11 +458,13 @@
       
         { value: 2, name: "13" },
       
-        { value: 1, name: "12" },
-      
         { value: 1, name: "17" },
       
-        { value: 1, name: "10" }
+        { value: 1, name: "12" },
+      
+        { value: 1, name: "10" },
+      
+        { value: 1, name: "15" }
       
     ];
     chartRansomByHour.setOption({
@@ -485,6 +487,8 @@
       
         { value: 3, name: "Mon" },
       
+        { value: 2, name: "Thu" },
+      
         { value: 2, name: "Fri" }
       
     ];
@@ -503,7 +507,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-01", 1], ["2025-01-31", 1], ["2025-04-02", 1], ["2025-04-14", 1], ["2025-04-18", 1], ["2025-04-25", 1], ["2025-04-28", 1], ["2025-05-05", 1]];
+  const heatDataRansom = [["2025-01-01", 1], ["2025-01-31", 1], ["2025-04-02", 1], ["2025-04-14", 1], ["2025-04-18", 1], ["2025-04-25", 1], ["2025-04-28", 1], ["2025-05-05", 1], ["2025-05-08", 2]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
