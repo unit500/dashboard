@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 13:23:17-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 13:45:18-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
@@ -450,11 +450,11 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
+        { value: 1, name: "16" },
+      
         { value: 1, name: "22" },
       
-        { value: 1, name: "21" },
-      
-        { value: 1, name: "16" }
+        { value: 1, name: "21" }
       
     ];
     chartRansomByHour.setOption({
@@ -475,11 +475,11 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 1, name: "Tue" },
+        { value: 1, name: "Thu" },
       
         { value: 1, name: "Mon" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Tue" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -596,11 +596,11 @@
       
         { value: 18, name: "CA" },
       
-        { value: 17, name: "UA" },
-      
         { value: 17, name: "NL" },
       
-        { value: 15, name: "PL" }
+        { value: 17, name: "UA" },
+      
+        { value: 15, name: "US" }
       
     ];
     chartDdosTopTarget.setOption({
