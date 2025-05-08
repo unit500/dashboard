@@ -261,10 +261,10 @@
           </div>
 
           <!-- Full-width heatmap below -->
-          <div class="mb-4">
-            <!-- <div class="col-12"> -->
+          <div class="row mt-4">
+            <div class="col-12">
               <div id="heatmapRansomCalendar" class="chart-container" style="height:200px"></div>
-            <!-- </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 11:40:09-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 11:43:59-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -385,7 +385,7 @@
       
         { value: 18, name: "IT" },
       
-        { value: 12, name: "ES" }
+        { value: 12, name: "GB" }
       
     ];
     chartRansomTopSource.setOption({
@@ -408,11 +408,11 @@
       
         { value: 3, name: "malaysiaairports.com.my/en" },
       
-        { value: 2, name: "www.cortezoil.com" },
+        { value: 2, name: "advantagegroupga.com" },
       
-        { value: 2, name: "www.monaghan.eu" },
+        { value: 2, name: "www.suburbancarting.com" },
       
-        { value: 2, name: "enersolcr.com" }
+        { value: 2, name: "www.destinationtoronto.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -437,9 +437,9 @@
       
         { value: 72, name: "play" },
       
-        { value: 72, name: "leakeddata" },
-      
         { value: 72, name: "SilentRansomGroup" },
+      
+        { value: 72, name: "leakeddata" },
       
         { value: 53, name: "akira" }
       
@@ -517,13 +517,13 @@
     });
     
     // 6) Calendar Heatmap
-  const heatData = [["2025-04-08", 19], ["2025-04-09", 70], ["2025-04-10", 36], ["2025-04-11", 40], ["2025-04-12", 35], ["2025-04-13", 72], ["2025-04-14", 68], ["2025-04-15", 38], ["2025-04-16", 87], ["2025-04-17", 47], ["2025-04-18", 80], ["2025-04-19", 246], ["2025-04-20", 89], ["2025-04-21", 82], ["2025-04-22", 62], ["2025-04-23", 103], ["2025-04-24", 67], ["2025-04-25", 121], ["2025-04-26", 17], ["2025-04-27", 30], ["2025-04-28", 167], ["2025-04-29", 72], ["2025-04-30", 132], ["2025-05-01", 150], ["2025-05-02", 58], ["2025-05-03", 53], ["2025-05-04", 53], ["2025-05-05", 160], ["2025-05-06", 434], ["2025-05-07", 88], ["2025-05-08", 102]];
+  const heatDataRansom = [["2025-04-08", 19], ["2025-04-09", 70], ["2025-04-10", 36], ["2025-04-11", 40], ["2025-04-12", 35], ["2025-04-13", 72], ["2025-04-14", 68], ["2025-04-15", 38], ["2025-04-16", 87], ["2025-04-17", 47], ["2025-04-18", 80], ["2025-04-19", 246], ["2025-04-20", 89], ["2025-04-21", 82], ["2025-04-22", 62], ["2025-04-23", 103], ["2025-04-24", 67], ["2025-04-25", 121], ["2025-04-26", 17], ["2025-04-27", 30], ["2025-04-28", 167], ["2025-04-29", 72], ["2025-04-30", 132], ["2025-05-01", 150], ["2025-05-02", 58], ["2025-05-03", 53], ["2025-05-04", 53], ["2025-05-05", 160], ["2025-05-06", 434], ["2025-05-07", 88], ["2025-05-08", 102]];
 
-  const maxCount = heatData.length
-    ? Math.max(...heatData.map(d => d[1]))
+  const maxCount = heatDataRansom.length
+    ? Math.max(...heatDataRansom.map(d => d[1]))
     : 0;
 
-  const dates = heatData.map(d => d[0]);
+  const dates = heatDataRansom.map(d => d[0]);
   const calendarRange = dates.length > 1
     ? [ dates[0], dates[dates.length - 1] ]
     : dates[0] || new Date().toISOString().slice(0,10);
@@ -584,7 +584,7 @@
       name: 'count',
       type: 'heatmap',
       coordinateSystem: 'calendar',
-      data: heatData
+      data: heatDataRansom
     }]
   });
   </script>
@@ -748,13 +748,13 @@
     });
 
     // 7) Calendar Heatmap
-    const heatData = [["2025-04-11", 11], ["2025-04-14", 11], ["2025-04-15", 12], ["2025-04-16", 6], ["2025-04-17", 6], ["2025-04-18", 3], ["2025-04-20", 13], ["2025-04-21", 6], ["2025-04-22", 1], ["2025-04-24", 2], ["2025-04-27", 3], ["2025-04-28", 17], ["2025-04-29", 6], ["2025-04-30", 7], ["2025-05-01", 4], ["2025-05-02", 5], ["2025-05-03", 10], ["2025-05-04", 4], ["2025-05-05", 19], ["2025-05-07", 3], ["2025-05-08", 8]];
+    const heatDataDdos = [["2025-04-11", 11], ["2025-04-14", 11], ["2025-04-15", 12], ["2025-04-16", 6], ["2025-04-17", 6], ["2025-04-18", 3], ["2025-04-20", 13], ["2025-04-21", 6], ["2025-04-22", 1], ["2025-04-24", 2], ["2025-04-27", 3], ["2025-04-28", 17], ["2025-04-29", 6], ["2025-04-30", 7], ["2025-05-01", 4], ["2025-05-02", 5], ["2025-05-03", 10], ["2025-05-04", 4], ["2025-05-05", 19], ["2025-05-07", 3], ["2025-05-08", 8]];
 
-    const maxCount = heatData.length
-      ? Math.max(...heatData.map(d => d[1]))
+    const maxCount = heatDataDdos.length
+      ? Math.max(...heatDataDdos.map(d => d[1]))
       : 0;
 
-    const dates = heatData.map(d => d[0]);
+    const dates = heatDataDdos.map(d => d[0]);
     const calendarRange = dates.length > 1
       ? [ dates[0], dates[dates.length - 1] ]
       : dates[0] || new Date().getFullYear().toString();
@@ -790,7 +790,7 @@
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: heatData
+        data: heatDataDdos
       }]
     });
   </script>
@@ -959,13 +959,13 @@
     });
 
     // 7) Calendar Heatmap
-    const heatData = [["2025-04-08", 19], ["2025-04-09", 70], ["2025-04-10", 36], ["2025-04-11", 40], ["2025-04-12", 35], ["2025-04-13", 72], ["2025-04-14", 68], ["2025-04-15", 38], ["2025-04-16", 87], ["2025-04-17", 47], ["2025-04-18", 80], ["2025-04-19", 246], ["2025-04-20", 89], ["2025-04-21", 82], ["2025-04-22", 62], ["2025-04-23", 103], ["2025-04-24", 67], ["2025-04-25", 121], ["2025-04-26", 17], ["2025-04-27", 30], ["2025-04-28", 167], ["2025-04-29", 72], ["2025-04-30", 132], ["2025-05-01", 150], ["2025-05-02", 58], ["2025-05-03", 53], ["2025-05-04", 53], ["2025-05-05", 160], ["2025-05-06", 434], ["2025-05-07", 88], ["2025-05-08", 102]];
+    const heatDataDefacements = [["2025-04-08", 19], ["2025-04-09", 70], ["2025-04-10", 36], ["2025-04-11", 40], ["2025-04-12", 35], ["2025-04-13", 72], ["2025-04-14", 68], ["2025-04-15", 38], ["2025-04-16", 87], ["2025-04-17", 47], ["2025-04-18", 80], ["2025-04-19", 246], ["2025-04-20", 89], ["2025-04-21", 82], ["2025-04-22", 62], ["2025-04-23", 103], ["2025-04-24", 67], ["2025-04-25", 121], ["2025-04-26", 17], ["2025-04-27", 30], ["2025-04-28", 167], ["2025-04-29", 72], ["2025-04-30", 132], ["2025-05-01", 150], ["2025-05-02", 58], ["2025-05-03", 53], ["2025-05-04", 53], ["2025-05-05", 160], ["2025-05-06", 434], ["2025-05-07", 88], ["2025-05-08", 102]];
 
-    const maxCount = heatData.length
-      ? Math.max(...heatData.map(d => d[1]))
+    const maxCount = heatDataDefacements.length
+      ? Math.max(...heatDataDefacements.map(d => d[1]))
       : 0;
 
-    const dates = heatData.map(d => d[0]);
+    const dates = heatDataDefacements.map(d => d[0]);
     const calendarRange = dates.length > 1
       ? [ dates[0], dates[dates.length - 1] ]
       : dates[0] || new Date().getFullYear().toString();
@@ -1001,7 +1001,7 @@
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: heatData
+        data: heatDataDefacements
       }]
     });
   </script>
