@@ -206,15 +206,15 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
+            <a href="defacement_details/681c6dbefb6b0b68abfb7771.html">aristotherm.ro</a>, 
+          
             <a href="defacement_details/681b289dd3b7b1f2d8c7a9d3.html">radioem.ro</a>, 
           
             <a href="defacement_details/681b2890d3b7b1f2d8c7a9d1.html">sff.carpatsoft.ro</a>, 
           
             <a href="defacement_details/681b2822d3b7b1f2d8c7a9c6.html">greenvibeshop.ro</a>, 
           
-            <a href="defacement_details/681b26bbd3b7b1f2d8c7a995.html">gdprpartner.ch</a>, 
-          
-            <a href="defacement_details/6819d9f47fb0c572a144f52e.html">volum.voluntariat.ro</a>
+            <a href="defacement_details/681b26bbd3b7b1f2d8c7a995.html">gdprpartner.ch</a>
           
         </li>
         <li>
@@ -354,8 +354,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 07:41:28-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 11:12:36-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -379,7 +379,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 349, name: "US" },
+        { value: 350, name: "US" },
       
         { value: 37, name: "DE" },
       
@@ -539,15 +539,15 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 17, name: "UA" },
+        { value: 20, name: "GB" },
+      
+        { value: 18, name: "CA" },
       
         { value: 17, name: "NL" },
       
-        { value: 17, name: "GB" },
+        { value: 17, name: "UA" },
       
-        { value: 16, name: "CA" },
-      
-        { value: 15, name: "PL" }
+        { value: 15, name: "US" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -697,7 +697,7 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 521, name: "US" },
+        { value: 524, name: "US" },
       
         { value: 311, name: "CA" },
       
@@ -726,7 +726,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 5, name: "indie" }
+        { value: 6, name: "indie" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -747,7 +747,9 @@
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
       
-        { value: 5, name: "Mr. BDKR28" }
+        { value: 5, name: "Mr. BDKR28" },
+      
+        { value: 1, name: "zakiloup" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -768,7 +770,9 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 5, name: "9" }
+        { value: 5, name: "9" },
+      
+        { value: 1, name: "8" }
       
     ];
     chartDefaceByHour.setOption({
@@ -790,6 +794,8 @@
     var dataDefaceByWeekday = [
       
         { value: 4, name: "Wed" },
+      
+        { value: 1, name: "Thu" },
       
         { value: 1, name: "Tue" }
       
@@ -814,7 +820,9 @@
       
         [ "2025-05-06", 1 ],
       
-        [ "2025-05-07", 4 ]
+        [ "2025-05-07", 4 ],
+      
+        [ "2025-05-08", 1 ]
       
     ];
     heatmapDefaceCalendar.setOption({
