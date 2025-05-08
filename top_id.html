@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 13:49:19-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 16:51:28-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -377,9 +377,9 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 350, name: "US" },
+        { value: 349, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 37, name: "DE" },
       
         { value: 27, name: "CA" },
       
@@ -404,11 +404,11 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "mkklaw.net" },
-      
         { value: 1, name: "Abdainsurance.co.id" },
       
-        { value: 1, name: "pupk-indonesia.com" }
+        { value: 1, name: "pupk-indonesia.com" },
+      
+        { value: 1, name: "mkklaw.net" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -429,11 +429,11 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 1, name: "crypto24" },
-      
         { value: 1, name: "IMNCrew" },
       
-        { value: 1, name: "nightspire" }
+        { value: 1, name: "nightspire" },
+      
+        { value: 1, name: "crypto24" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -767,7 +767,7 @@
       
         { value: 311, name: "CA" },
       
-        { value: 158, name: "IN" },
+        { value: 165, name: "IN" },
       
         { value: 139, name: "FR" },
       
@@ -819,9 +819,9 @@
       
         { value: 2, name: "Adl3r" },
       
-        { value: 1, name: "Miyomar" },
+        { value: 1, name: "D4LGH4CK_TM" },
       
-        { value: 1, name: "D4LGH4CK_TM" }
+        { value: 1, name: "Belief" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -848,9 +848,9 @@
       
         { value: 2, name: "13" },
       
-        { value: 1, name: "4" },
+        { value: 1, name: "5" },
       
-        { value: 1, name: "12" }
+        { value: 1, name: "14" }
       
     ];
     chartDefaceByHour.setOption({
