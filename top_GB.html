@@ -354,8 +354,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 07:44:51-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 10:32:25-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -379,7 +379,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 349, name: "US" },
+        { value: 350, name: "US" },
       
         { value: 37, name: "DE" },
       
@@ -437,13 +437,13 @@
       
         { value: 2, name: "qilin" },
       
-        { value: 1, name: "akira" },
-      
-        { value: 1, name: "dragonforce" },
-      
         { value: 1, name: "ransomhouse" },
       
-        { value: 1, name: "sarcoma" }
+        { value: 1, name: "lynx" },
+      
+        { value: 1, name: "sarcoma" },
+      
+        { value: 1, name: "akira" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -470,7 +470,7 @@
       
         { value: 2, name: "16" },
       
-        { value: 1, name: "13" },
+        { value: 1, name: "14" },
       
         { value: 1, name: "08" }
       
@@ -493,15 +493,15 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 3, name: "Thu" },
-      
         { value: 3, name: "Sun" },
+      
+        { value: 3, name: "Thu" },
       
         { value: 2, name: "Wed" },
       
-        { value: 1, name: "Tue" },
+        { value: 1, name: "Mon" },
       
-        { value: 1, name: "Fri" }
+        { value: 1, name: "Tue" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -572,7 +572,7 @@
     var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
     var dataDdosTopSource = [
       
-        { value: 17, name: "Unknown" }
+        { value: 20, name: "Unknown" }
       
     ];
     chartDdosTopSource.setOption({
@@ -591,13 +591,13 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 17, name: "GB" },
+        { value: 20, name: "GB" },
+      
+        { value: 18, name: "CA" },
       
         { value: 17, name: "NL" },
       
         { value: 17, name: "UA" },
-      
-        { value: 16, name: "CA" },
       
         { value: 15, name: "PL" }
       
@@ -620,9 +620,11 @@
     var chartDdosTopGroups = echarts.init(document.getElementById('chartDdosTopGroups'));
     var dataDdosTopGroups = [
       
-        { value: 10, name: "NoName057(16)" },
+        { value: 12, name: "NoName057(16)" },
       
         { value: 6, name: "SERVER KILLERS" },
+      
+        { value: 1, name: "Keymous+" },
       
         { value: 1, name: "Dark Storm Team" }
       
@@ -664,7 +666,7 @@
     var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
     var dataDdosByHour = [
       
-        { value: 9, name: "8" },
+        { value: 12, name: "8" },
       
         { value: 6, name: "11" },
       
@@ -691,6 +693,8 @@
       
         { value: 16, name: "Mon" },
       
+        { value: 3, name: "Thu" },
+      
         { value: 1, name: "Wed" }
       
     ];
@@ -714,7 +718,9 @@
       
         [ "2025-05-05", 16 ],
       
-        [ "2025-05-07", 1 ]
+        [ "2025-05-07", 1 ],
+      
+        [ "2025-05-08", 3 ]
       
     ];
     heatmapDdosCalendar.setOption({
@@ -850,9 +856,9 @@
       
         { value: 15, name: "18" },
       
-        { value: 6, name: "14" },
+        { value: 6, name: "4" },
       
-        { value: 6, name: "4" }
+        { value: 6, name: "14" }
       
     ];
     chartDefaceByHour.setOption({
