@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Actor Details - Unit500</title>
+  <title>Group Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -14,10 +14,6 @@
     .chart-container {
       width: 100%;
       height: 400px;
-    }
-    .card-img-top {
-      object-fit: cover;
-      height: 150px;
     }
     .section-title {
       margin-top: 2rem;
@@ -33,7 +29,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <span class="navbar-text mx-auto h5 mb-0">Actor Details</span>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
       </div>
     </nav>
     <!-- Offcanvas Menu -->
@@ -59,14 +55,14 @@
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Actor Info Cards -->
+    <!-- Group Info Cards -->
     <div class="row mb-4">
-      <!-- Card 1: Actor Name -->
+      <!-- Card 1: Group Name -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Actor Name</div>
+          <div class="card-header">Group Name</div>
           <div class="card-body">
-            <h5 class="card-title">kal egy 319</h5>
+            <h5 class="card-title">independent</h5>
           </div>
         </div>
       </div>
@@ -92,12 +88,12 @@
 
     <!-- Activity Heatmap Chart -->
     <div class="mb-4">
-      <div id="activityChart" class="chart-container"></div>
+      <div id="groupActivityChart" class="chart-container"></div>
     </div>
 
-    <!-- Last 10 Defacements by Actor -->
+    <!-- Last 10 Defacements for Group -->
     <section>
-      <h2 class="section-title">Last 10 Defacements by kal egy 319</h2>
+      <h2 class="section-title">Last 10 Defacements for independent</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
@@ -110,7 +106,7 @@
                   <h5 class="card-title">sspmcop.com</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 2025-05-08</p>
-                <p class="card-text"><strong>Group:</strong> independent</p>
+                <p class="card-text"><strong>Actor:</strong> kal egy 319</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -124,11 +120,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- ECharts Heatmap Script -->
   <script>
-    var chart = echarts.init(document.getElementById('activityChart'));
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
     var option = {
       title: {
         top: 30,
-        text: 'Activity Heatmap - kal egy 319 (2025)',
+        text: 'Activity Heatmap - independent (2025)',
         left: 'center'
       },
       tooltip: {},
