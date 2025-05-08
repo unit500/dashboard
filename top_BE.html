@@ -352,7 +352,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 06:34:55-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 07:31:25-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
@@ -404,15 +404,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "decoline.com" },
-      
-        { value: 1, name: "www.jemeppe-sur-sambre.be" },
-      
         { value: 1, name: "www.noyenconstruction.com" },
+      
+        { value: 1, name: "www.c-mec.be" },
       
         { value: 1, name: "www.pharmaforce.be" },
       
-        { value: 1, name: "www.c-mec.be" }
+        { value: 1, name: "www.jemeppe-sur-sambre.be" },
+      
+        { value: 1, name: "decoline.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -435,11 +435,11 @@
       
         { value: 2, name: "ransomhouse" },
       
+        { value: 1, name: "hunters" },
+      
         { value: 1, name: "sarcoma" },
       
-        { value: 1, name: "play" },
-      
-        { value: 1, name: "hunters" }
+        { value: 1, name: "play" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -460,15 +460,15 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
+        { value: 1, name: "21" },
+      
         { value: 1, name: "14" },
-      
-        { value: 1, name: "11" },
-      
-        { value: 1, name: "19" },
       
         { value: 1, name: "09" },
       
-        { value: 1, name: "21" }
+        { value: 1, name: "19" },
+      
+        { value: 1, name: "11" }
       
     ];
     chartRansomByHour.setOption({
@@ -646,9 +646,9 @@
       
         { value: 3, name: "9" },
       
-        { value: 1, name: "13" },
+        { value: 1, name: "12" },
       
-        { value: 1, name: "12" }
+        { value: 1, name: "13" }
       
     ];
     chartDdosByHour.setOption({
@@ -671,11 +671,11 @@
       
         { value: 2, name: "Wed" },
       
-        { value: 1, name: "Mon" },
+        { value: 1, name: "Fri" },
       
         { value: 1, name: "Sat" },
       
-        { value: 1, name: "Fri" }
+        { value: 1, name: "Mon" }
       
     ];
     chartDdosByWeekday.setOption({
