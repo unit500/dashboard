@@ -335,7 +335,7 @@
           <!-- Full-width heatmap below -->
           <div class="row mt-4">
             <div class="col-12">
-              <div id="heatmapDefaceCalendar" class="chart-container" style="height:200px"></div>
+              <div id="heatmapDefaceCalendar" class="chart-container"></div>
             </div>
           </div>
         </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 11:49:36-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 12:23:48-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
@@ -404,15 +404,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "aeamg.org.br" },
-      
-        { value: 1, name: "w8textil.com.br" },
+        { value: 1, name: "bettininformatica" },
       
         { value: 1, name: "www.amazontransportes.com.br" },
       
-        { value: 1, name: "ihara.com.br" },
+        { value: 1, name: "w8textil.com.br" },
       
-        { value: 1, name: "bettininformatica" }
+        { value: 1, name: "uva.edu.br" },
+      
+        { value: 1, name: "ihara.com.br" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -437,11 +437,11 @@
       
         { value: 2, name: "akira" },
       
-        { value: 1, name: "ralord" },
+        { value: 1, name: "cicada3301" },
       
-        { value: 1, name: "nightspire" },
+        { value: 1, name: "J" },
       
-        { value: 1, name: "sarcoma" }
+        { value: 1, name: "nightspire" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -466,11 +466,11 @@
       
         { value: 2, name: "16" },
       
-        { value: 1, name: "04" },
-      
         { value: 1, name: "15" },
       
-        { value: 1, name: "12" }
+        { value: 1, name: "04" },
+      
+        { value: 1, name: "17" }
       
     ];
     chartRansomByHour.setOption({
@@ -497,9 +497,9 @@
       
         { value: 1, name: "Tue" },
       
-        { value: 1, name: "Fri" },
+        { value: 1, name: "Sat" },
       
-        { value: 1, name: "Sat" }
+        { value: 1, name: "Fri" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -519,14 +519,14 @@
     // 6) Calendar Heatmap
   const heatDataRansom = [["2025-01-03", 1], ["2025-01-08", 1], ["2025-01-10", 2], ["2025-01-13", 3], ["2025-01-14", 3], ["2025-01-16", 2], ["2025-01-21", 1], ["2025-01-22", 1], ["2025-01-27", 9], ["2025-01-28", 1], ["2025-02-01", 4], ["2025-02-04", 2], ["2025-02-06", 1], ["2025-02-17", 1], ["2025-02-20", 1], ["2025-02-25", 3], ["2025-02-27", 3], ["2025-02-28", 2], ["2025-03-03", 1], ["2025-03-04", 3], ["2025-03-10", 2], ["2025-03-11", 1], ["2025-03-12", 1], ["2025-03-14", 2], ["2025-03-19", 1], ["2025-03-21", 1], ["2025-03-22", 2], ["2025-03-24", 1], ["2025-03-25", 1], ["2025-03-26", 1], ["2025-03-27", 1], ["2025-03-29", 1], ["2025-04-01", 2], ["2025-04-16", 2], ["2025-04-19", 1], ["2025-04-21", 1], ["2025-04-22", 1], ["2025-04-24", 1], ["2025-04-28", 3], ["2025-05-02", 1]];
 
-  const maxCount = heatDataRansom.length
+  const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
     : 0;
 
-  const dates = heatDataRansom.map(d => d[0]);
-  const calendarRange = dates.length > 1
-    ? [ dates[0], dates[dates.length - 1] ]
-    : dates[0] || new Date().toISOString().slice(0,10);
+  const datesRansom = heatDataRansom.map(d => d[0]);
+  const calendarRangeRansom = datesRansom.length > 1
+    ? [ datesRansom[0], datesRansom[datesRansom.length - 1] ]
+    : datesRansom[0] || new Date().toISOString().slice(0,10);
 
   // 4) init the chart
   var heatmap = echarts.init(
@@ -546,7 +546,7 @@
     },
     visualMap: {
       min: 0,
-      max: maxCount,
+      max: maxCountRansom,
       type: 'continuous',      // no slider control
       orient: 'horizontal',
       left: 'center',
@@ -559,7 +559,7 @@
     calendar: {
       top: 80,
       left: 'center',
-      range: calendarRange,
+      range: calendarRangeRansom,
       cellSize: [20, 20],
       orient: 'horizontal',
       monthLabel: {
@@ -620,7 +620,7 @@
       
         { value: 17, name: "UA" },
       
-        { value: 15, name: "PL" }
+        { value: 15, name: "US" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -714,16 +714,16 @@
     });
 
     // 7) Calendar Heatmap
-    const heatDataDdos = [];
+    let heatDataDdos = [];
 
-    const maxCount = heatDataDdos.length
+    let maxCountDdos = heatDataDdos.length
       ? Math.max(...heatDataDdos.map(d => d[1]))
       : 0;
 
-    const dates = heatDataDdos.map(d => d[0]);
-    const calendarRange = dates.length > 1
-      ? [ dates[0], dates[dates.length - 1] ]
-      : dates[0] || new Date().getFullYear().toString();
+    let datesDdos = heatDataDdos.map(d => d[0]);
+    let calendarRangeDdos = datesDdos.length > 1
+      ? [ datesDdos[0], datesDdos[datesDdos.length - 1] ]
+      : datesDdos[0] || new Date().getFullYear().toString();
 
     var heatmapDdosCalendar = echarts.init(
       document.getElementById('heatmapDdosCalendar')
@@ -738,7 +738,7 @@
       tooltip: {},
       visualMap: {
         min: 0,
-        max: maxCount,
+        max: maxCountDdos,
         calculable: true,
         orient: 'horizontal',
         left: 'center',
@@ -751,7 +751,7 @@
         yearLabel: { show: false },
         dayLabel: { firstDay: 1, nameMap: 'en' },
         monthLabel: { nameMap: 'en' },
-        range: calendarRange
+        range: calendarRangeDdos
       },
       series: [{
         type: 'heatmap',
@@ -839,9 +839,9 @@
       
         { value: 19, name: "Belief" },
       
-        { value: 10, name: "Trollador da Silva" },
-      
         { value: 10, name: "AetherSec" },
+      
+        { value: 10, name: "Trollador da Silva" },
       
         { value: 8, name: "chinafans" },
       
@@ -921,14 +921,14 @@
     });
 
     // 7) Calendar Heatmap
-    const heatDataDefacements = [["2025-02-19", 1], ["2025-02-20", 1], ["2025-02-23", 1], ["2025-02-27", 1], ["2025-03-03", 2], ["2025-03-05", 11], ["2025-03-07", 1], ["2025-03-08", 1], ["2025-03-10", 1], ["2025-03-13", 7], ["2025-03-16", 1], ["2025-03-18", 1], ["2025-03-21", 1], ["2025-03-30", 2], ["2025-04-01", 1], ["2025-04-02", 1], ["2025-04-03", 2], ["2025-04-04", 1], ["2025-04-05", 2], ["2025-04-09", 2], ["2025-04-10", 1], ["2025-04-12", 3], ["2025-04-13", 12], ["2025-04-14", 5], ["2025-04-16", 9], ["2025-04-18", 7], ["2025-04-19", 19], ["2025-04-20", 1], ["2025-04-22", 1], ["2025-04-26", 1], ["2025-04-28", 2], ["2025-05-05", 2], ["2025-05-06", 3]];
+    let heatDataDefacements = [["2025-02-19", 1], ["2025-02-20", 1], ["2025-02-23", 1], ["2025-02-27", 1], ["2025-03-03", 2], ["2025-03-05", 11], ["2025-03-07", 1], ["2025-03-08", 1], ["2025-03-10", 1], ["2025-03-13", 7], ["2025-03-16", 1], ["2025-03-18", 1], ["2025-03-21", 1], ["2025-03-30", 2], ["2025-04-01", 1], ["2025-04-02", 1], ["2025-04-03", 2], ["2025-04-04", 1], ["2025-04-05", 2], ["2025-04-09", 2], ["2025-04-10", 1], ["2025-04-12", 3], ["2025-04-13", 12], ["2025-04-14", 5], ["2025-04-16", 9], ["2025-04-18", 7], ["2025-04-19", 19], ["2025-04-20", 1], ["2025-04-22", 1], ["2025-04-26", 1], ["2025-04-28", 2], ["2025-05-05", 2], ["2025-05-06", 3]];
 
-    const maxCount = heatDataDefacements.length
+    let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
       : 0;
 
-    const dates = heatDataDefacements.map(d => d[0]);
-    const calendarRange = dates.length > 1
+    let dates = heatDataDefacements.map(d => d[0]);
+    let calendarRange = dates.length > 1
       ? [ dates[0], dates[dates.length - 1] ]
       : dates[0] || new Date().getFullYear().toString();
 
