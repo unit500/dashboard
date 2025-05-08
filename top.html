@@ -8,22 +8,25 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="static/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-  <!-- Bootstrap JS and Popover Initialization -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJ+Y6BsDd3cr6tQ/tbFvybJj/3MZ+5BZp6YkI="
-      crossorigin="anonymous"></script>
-
   <!-- jQuery Easy Ticker (adjust path as needed) -->
   <script src="static/js/jquery.easy-ticker.min.js"></script>
   <!-- ECharts Library -->
   <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery first -->
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJ+Y6BsDd3cr6tQ/tbFvybJj/3MZ+5BZp6YkI="
+    crossorigin="anonymous"></script>
 
+  <!-- then Select2’s JS & CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+    
   <style>
     .chart-container {
       width: 100%;
@@ -175,7 +178,6 @@
     <div class="mb-4 text-center">
       <select id="countrySelectTop"
         name="countrySelectTop"
-        data-placeholder="Select a country"
         class="form-select d-inline-block w-auto"
         style="width:40%"
       >
@@ -218,15 +220,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
-            <a href="ransom_details/681c64b82d047a10a100eba5.html">Amtech Software</a>, 
-          
             <a href="ransom_details/681c48d6ce9e048e67ce8d77.html">Khidmah</a>, 
           
             <a href="ransom_details/681c48d5ce9e048e67ce8d76.html">Kaefer</a>, 
           
             <a href="ransom_details/681bf43a97fb3db35dc6de76.html">gmanetwork.com</a>, 
           
-            <a href="ransom_details/681be6196a06891e31d28a97.html">https://www.gmanetwork.com/news/</a>
+            <a href="ransom_details/681be6196a06891e31d28a97.html">https://www.gmanetwork.com/news/</a>, 
+          
+            <a href="ransom_details/681be6186a06891e31d28a96.html">Amtech Software</a>
           
         </li>
       </ul>
@@ -352,8 +354,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 09:14:03-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 07:30:18-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -377,7 +379,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 350, name: "US" },
+        { value: 349, name: "US" },
       
         { value: 37, name: "DE" },
       
@@ -408,11 +410,11 @@
       
         { value: 3, name: "malaysiaairports.com.my/en" },
       
-        { value: 2, name: "pajcic.com" },
+        { value: 2, name: "dhsmithco.com" },
       
-        { value: 2, name: "dflaw.com" },
+        { value: 2, name: "www.voigtab.com" },
       
-        { value: 2, name: "shutts.com" }
+        { value: 2, name: "www.penderelstrust.org.uk" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -435,11 +437,11 @@
       
         { value: 82, name: "qilin" },
       
-        { value: 72, name: "leakeddata" },
+        { value: 72, name: "SilentRansomGroup" },
       
         { value: 72, name: "play" },
       
-        { value: 72, name: "SilentRansomGroup" },
+        { value: 72, name: "leakeddata" },
       
         { value: 54, name: "akira" }
       
@@ -497,7 +499,7 @@
       
         { value: 102, name: "Wed" },
       
-        { value: 95, name: "Thu" },
+        { value: 94, name: "Thu" },
       
         { value: 75, name: "Sun" }
       
@@ -517,51 +519,93 @@
     });
     
     // 6) Calendar Heatmap
-    const heatData = [["2025-04-08", 22], ["2025-04-09", 70], ["2025-04-10", 36], ["2025-04-11", 40], ["2025-04-12", 35], ["2025-04-13", 72], ["2025-04-14", 68], ["2025-04-15", 38], ["2025-04-16", 87], ["2025-04-17", 47], ["2025-04-18", 80], ["2025-04-19", 246], ["2025-04-20", 89], ["2025-04-21", 82], ["2025-04-22", 62], ["2025-04-23", 103], ["2025-04-24", 67], ["2025-04-25", 121], ["2025-04-26", 17], ["2025-04-27", 30], ["2025-04-28", 167], ["2025-04-29", 72], ["2025-04-30", 132], ["2025-05-01", 150], ["2025-05-02", 58], ["2025-05-03", 53], ["2025-05-04", 53], ["2025-05-05", 160], ["2025-05-06", 434], ["2025-05-07", 88], ["2025-05-08", 91]];
-
-    const maxCount = heatData.length
-      ? Math.max(...heatData.map(d => d[1]))
-      : 0;
-
-    const dates = heatData.map(d => d[0]);
-    const calendarRange = dates.length > 1
-      ? [ dates[0], dates[dates.length - 1] ]
-      : dates[0] || new Date().getFullYear().toString();
-
-    var heatmapRansomCalendar = echarts.init(
-      document.getElementById('heatmapRansomCalendar')
-    );
-
+    var heatmapRansomCalendar = echarts.init(document.getElementById('heatmapRansomCalendar'));
+    var calData = [
+      
+        [ "2025-04-08", 22 ],
+      
+        [ "2025-04-09", 29 ],
+      
+        [ "2025-04-10", 27 ],
+      
+        [ "2025-04-11", 6 ],
+      
+        [ "2025-04-12", 13 ],
+      
+        [ "2025-04-13", 41 ],
+      
+        [ "2025-04-14", 27 ],
+      
+        [ "2025-04-15", 19 ],
+      
+        [ "2025-04-16", 40 ],
+      
+        [ "2025-04-17", 19 ],
+      
+        [ "2025-04-18", 21 ],
+      
+        [ "2025-04-19", 4 ],
+      
+        [ "2025-04-20", 10 ],
+      
+        [ "2025-04-21", 16 ],
+      
+        [ "2025-04-22", 26 ],
+      
+        [ "2025-04-23", 16 ],
+      
+        [ "2025-04-24", 18 ],
+      
+        [ "2025-04-25", 18 ],
+      
+        [ "2025-04-26", 3 ],
+      
+        [ "2025-04-27", 17 ],
+      
+        [ "2025-04-28", 35 ],
+      
+        [ "2025-04-29", 11 ],
+      
+        [ "2025-04-30", 12 ],
+      
+        [ "2025-05-01", 28 ],
+      
+        [ "2025-05-02", 23 ],
+      
+        [ "2025-05-03", 5 ],
+      
+        [ "2025-05-04", 7 ],
+      
+        [ "2025-05-05", 38 ],
+      
+        [ "2025-05-06", 163 ],
+      
+        [ "2025-05-07", 5 ],
+      
+        [ "2025-05-08", 2 ]
+      
+    ];
     heatmapRansomCalendar.setOption({
-      title: {
-        top: 30,
-        text: 'Activity Heatmap (Last 30d)',
-        left: 'center'
-      },
-      tooltip: {},
+      title: { text: 'Ransom Activity (Last 30d)', left: 'center' },
       visualMap: {
-        min: 0,
-        max: maxCount,
-        calculable: true,
+        min: 0, 
+        max: Math.max(...calData.map(c=>c[1])),
         orient: 'horizontal',
         left: 'center',
-        bottom: 20
+        top: 20
       },
-      calendar: {
-        top: 100,
+      calendar: [{
+        top: 60,
         left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: { firstDay: 1, nameMap: 'en' },
-        monthLabel: { nameMap: 'en' },
-        range: calendarRange
-      },
+        range: new Date().toISOString().slice(0,10), // last 30d
+      }],
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: heatData
+        data: calData
       }]
     });
+    
   </script>
 
 
@@ -570,7 +614,7 @@
     var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
     var dataDdosTopSource = [
       
-        { value: 157, name: "Unknown" }
+        { value: 151, name: "Unknown" }
       
     ];
     chartDdosTopSource.setOption({
@@ -589,13 +633,13 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 20, name: "GB" },
+        { value: 17, name: "UA" },
       
-        { value: 18, name: "CA" },
+        { value: 17, name: "GB" },
       
         { value: 17, name: "NL" },
       
-        { value: 17, name: "UA" },
+        { value: 16, name: "CA" },
       
         { value: 15, name: "US" }
       
@@ -618,7 +662,7 @@
     var chartDdosTopGroups = echarts.init(document.getElementById('chartDdosTopGroups'));
     var dataDdosTopGroups = [
       
-        { value: 82, name: "NoName057(16)" },
+        { value: 78, name: "NoName057(16)" },
       
         { value: 19, name: "Anon Sec" },
       
@@ -668,7 +712,7 @@
     var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
     var dataDdosByHour = [
       
-        { value: 33, name: "8" },
+        { value: 27, name: "8" },
       
         { value: 26, name: "9" },
       
@@ -701,11 +745,11 @@
       
         { value: 20, name: "Sun" },
       
-        { value: 20, name: "Thu" },
+        { value: 19, name: "Fri" },
       
         { value: 19, name: "Tue" },
       
-        { value: 19, name: "Fri" }
+        { value: 16, name: "Wed" }
       
     ];
     chartDdosByWeekday.setOption({
@@ -723,49 +767,70 @@
     });
 
     // 7) Calendar Heatmap
-    const heatData = [["2025-04-11", 11], ["2025-04-14", 11], ["2025-04-15", 12], ["2025-04-16", 6], ["2025-04-17", 6], ["2025-04-18", 3], ["2025-04-20", 13], ["2025-04-21", 6], ["2025-04-22", 1], ["2025-04-24", 2], ["2025-04-27", 3], ["2025-04-28", 17], ["2025-04-29", 6], ["2025-04-30", 7], ["2025-05-01", 4], ["2025-05-02", 5], ["2025-05-03", 10], ["2025-05-04", 4], ["2025-05-05", 19], ["2025-05-07", 3], ["2025-05-08", 8]];
-
-    const maxCount = heatData.length
-      ? Math.max(...heatData.map(d => d[1]))
-      : 0;
-
-    const dates = heatData.map(d => d[0]);
-    const calendarRange = dates.length > 1
-      ? [ dates[0], dates[dates.length - 1] ]
-      : dates[0] || new Date().getFullYear().toString();
-
-    var heatmapDdosCalendar = echarts.init(
-      document.getElementById('heatmapDdosCalendar')
-    );
-
+    var heatmapDdosCalendar = echarts.init(document.getElementById('heatmapDdosCalendar'));
+    var calDdosData = [
+      
+        [ "2025-04-11", 11 ],
+      
+        [ "2025-04-14", 11 ],
+      
+        [ "2025-04-15", 12 ],
+      
+        [ "2025-04-16", 6 ],
+      
+        [ "2025-04-17", 6 ],
+      
+        [ "2025-04-18", 3 ],
+      
+        [ "2025-04-20", 13 ],
+      
+        [ "2025-04-21", 6 ],
+      
+        [ "2025-04-22", 1 ],
+      
+        [ "2025-04-24", 2 ],
+      
+        [ "2025-04-27", 3 ],
+      
+        [ "2025-04-28", 17 ],
+      
+        [ "2025-04-29", 6 ],
+      
+        [ "2025-04-30", 7 ],
+      
+        [ "2025-05-01", 4 ],
+      
+        [ "2025-05-02", 5 ],
+      
+        [ "2025-05-03", 10 ],
+      
+        [ "2025-05-04", 4 ],
+      
+        [ "2025-05-05", 19 ],
+      
+        [ "2025-05-07", 3 ],
+      
+        [ "2025-05-08", 2 ]
+      
+    ];
     heatmapDdosCalendar.setOption({
-      title: {
-        top: 30,
-        text: 'Activity Heatmap (Last 30d)',
-        left: 'center'
-      },
-      tooltip: {},
+      title: { text: 'DDoS Activity (Last 30d)', left: 'center' },
       visualMap: {
         min: 0,
-        max: maxCount,
-        calculable: true,
+        max: Math.max(...calDdosData.map(c=>c[1])),
         orient: 'horizontal',
         left: 'center',
-        bottom: 20
+        top: 20
       },
-      calendar: {
-        top: 100,
+      calendar: [{
+        top: 60,
         left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: { firstDay: 1, nameMap: 'en' },
-        monthLabel: { nameMap: 'en' },
-        range: calendarRange
-      },
+        range: new Date().toISOString().slice(0,10)  // today only; adjust if you want 30d range
+      }],
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: heatData
+        data: calDdosData
       }]
     });
   </script>
@@ -934,58 +999,95 @@
     });
 
     // 7) Calendar Heatmap
-    const heatData = [["2025-04-08", 22], ["2025-04-09", 70], ["2025-04-10", 36], ["2025-04-11", 40], ["2025-04-12", 35], ["2025-04-13", 72], ["2025-04-14", 68], ["2025-04-15", 38], ["2025-04-16", 87], ["2025-04-17", 47], ["2025-04-18", 80], ["2025-04-19", 246], ["2025-04-20", 89], ["2025-04-21", 82], ["2025-04-22", 62], ["2025-04-23", 103], ["2025-04-24", 67], ["2025-04-25", 121], ["2025-04-26", 17], ["2025-04-27", 30], ["2025-04-28", 167], ["2025-04-29", 72], ["2025-04-30", 132], ["2025-05-01", 150], ["2025-05-02", 58], ["2025-05-03", 53], ["2025-05-04", 53], ["2025-05-05", 160], ["2025-05-06", 434], ["2025-05-07", 88], ["2025-05-08", 91]];
-
-    const maxCount = heatData.length
-      ? Math.max(...heatData.map(d => d[1]))
-      : 0;
-
-    const dates = heatData.map(d => d[0]);
-    const calendarRange = dates.length > 1
-      ? [ dates[0], dates[dates.length - 1] ]
-      : dates[0] || new Date().getFullYear().toString();
-
-    var heatmapDefacementsCalendar = echarts.init(
-      document.getElementById('heatmapDefaceCalendar')
-    );
-
-    heatmapDefacementsCalendar.setOption({
-      title: {
-        top: 30,
-        text: 'Activity Heatmap (Last 30d)',
-        left: 'center'
-      },
-      tooltip: {},
+    var heatmapDefaceCalendar = echarts.init(document.getElementById('heatmapDefaceCalendar'));
+    var calDefaceData = [
+      
+        [ "2025-04-09", 41 ],
+      
+        [ "2025-04-10", 9 ],
+      
+        [ "2025-04-11", 20 ],
+      
+        [ "2025-04-12", 22 ],
+      
+        [ "2025-04-13", 31 ],
+      
+        [ "2025-04-14", 29 ],
+      
+        [ "2025-04-15", 6 ],
+      
+        [ "2025-04-16", 39 ],
+      
+        [ "2025-04-17", 22 ],
+      
+        [ "2025-04-18", 52 ],
+      
+        [ "2025-04-19", 240 ],
+      
+        [ "2025-04-20", 66 ],
+      
+        [ "2025-04-21", 60 ],
+      
+        [ "2025-04-22", 35 ],
+      
+        [ "2025-04-23", 87 ],
+      
+        [ "2025-04-24", 46 ],
+      
+        [ "2025-04-25", 103 ],
+      
+        [ "2025-04-26", 14 ],
+      
+        [ "2025-04-27", 10 ],
+      
+        [ "2025-04-28", 115 ],
+      
+        [ "2025-04-29", 55 ],
+      
+        [ "2025-04-30", 112 ],
+      
+        [ "2025-05-01", 118 ],
+      
+        [ "2025-05-02", 30 ],
+      
+        [ "2025-05-03", 38 ],
+      
+        [ "2025-05-04", 41 ],
+      
+        [ "2025-05-05", 103 ],
+      
+        [ "2025-05-06", 271 ],
+      
+        [ "2025-05-07", 75 ],
+      
+        [ "2025-05-08", 69 ]
+      
+    ];
+    heatmapDefaceCalendar.setOption({
+      title: { text: 'Defacement Activity (Last 30d)', left: 'center' },
       visualMap: {
         min: 0,
-        max: maxCount,
-        calculable: true,
+        max: Math.max(...calDefaceData.map(c=>c[1])),
         orient: 'horizontal',
         left: 'center',
-        bottom: 20
+        top: 20
       },
-      calendar: {
-        top: 100,
+      calendar: [{
+        top: 60,
         left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: { firstDay: 1, nameMap: 'en' },
-        monthLabel: { nameMap: 'en' },
-        range: calendarRange
-      },
+        range: new Date().toISOString().slice(0,10)  // adjust if you want full 30d range
+      }],
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: heatData
+        data: calDefaceData
       }]
     });
   </script>
 
 
   <script>
-
-    document.addEventListener("DOMContentLoaded", () => {
-      function loadCountryData() {
+    function loadCountryData() {
         console.log("Loading country data...");
         return fetch("https://restcountries.com/v3.1/all")
           .then(response => response.json())
@@ -1003,39 +1105,37 @@
             return [];
           });
       }
+    // load country list however you like...
+    loadCountryData().then(data => {
+      const $sel = $("#countrySelectTop");
 
-
-      function formatCountry(c) {
-        if (!c.id) return c.text;
-        return $(
-          `<span>
-            <img src="https://flagcdn.com/16x12/${c.id}.png" class="me-1" />
-            ${c.text}
-          </span>`
-        );
-      }
-
-      loadCountryData().then(data => {
-        const $sel = $("#countrySelectTop");
-
-        $sel.select2({
-          data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
-          placeholder: $sel.data("placeholder"),
-          allowClear: true,
-          width: "resolve",
-          templateResult: formatCountry,
-          templateSelection: formatCountry
-        });
-
-        $sel.on("select2:select select2:clear", () => {
-          const code = $sel.val();
-          window.location.href = code
-            ? `top_${code}.html`
-            : "top.html";
-        });
+      $sel.select2({
+        data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
+        placeholder: $sel.data("placeholder"),
+        allowClear: true,
+        width: "resolve",          // use the <select>'s style="width:40%"
+        templateResult: formatCountry,
+        templateSelection: formatCountry
       });
+
+      // when the user picks or clears, redirect:
+      $sel.on("select2:select select2:clear", () => {
+        const code = $sel.val();
+        window.location.href = code
+          ? `top_${code}.html`
+          : "top.html";
       });
-    
+    });
+
+    function formatCountry(c) {
+      if (!c.id) return c.text;
+      return $(
+        `<span>
+          <img src="https://flagcdn.com/16x12/${c.id}.png" class="me-1" />
+          ${c.text}
+        </span>`
+      );
+    }
   </script>
 
 
