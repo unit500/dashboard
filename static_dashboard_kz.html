@@ -142,13 +142,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -817,6 +817,31 @@
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/681c3bd7688e7fa1f4b314e4.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/08/motomir_kz/screenshot.png" class="card-img-top" alt="Thumbnail for http://motomir.kz/Professor6T9.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/681c3bd7688e7fa1f4b314e4.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">motomir.kz</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-08</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/team_anon_force.html">Team Anon Force</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
       </div>
     </section>
     <hr class="section-divider">
@@ -881,8 +906,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 13:47:45-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 15:42:12-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
@@ -911,6 +936,8 @@
     // Chart 1: Top Ransomware Groups
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
+      
+      {value: 1, name: "Team Anon Force" }
       
     ];
     var optionRansomwareGroups = {
@@ -952,6 +979,9 @@
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("kz");
+      attackedSeriesData.push({value: 1, name: "kz"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
