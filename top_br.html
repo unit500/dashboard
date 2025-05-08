@@ -261,10 +261,10 @@
           </div>
 
           <!-- Full-width heatmap below -->
-          <div class="row mt-4">
-            <div class="col-12">
+          <div class="mb-4">
+            <!-- <div class="col-12"> -->
               <div id="heatmapRansomCalendar" class="chart-container" style="height:200px"></div>
-            </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -299,7 +299,7 @@
           <!-- Full-width heatmap below -->
           <div class="row mt-4">
             <div class="col-12">
-              <div id="heatmapDdosCalendar" class="chart-container" style="height:200px"></div>
+              <div id="heatmapDdosCalendar" class="chart-container"></div>
             </div>
           </div>
         </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 09:14:03-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 11:40:09-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -385,7 +385,7 @@
       
         { value: 18, name: "IT" },
       
-        { value: 13, name: "ES" }
+        { value: 12, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -404,15 +404,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "bettininformatica" },
+        { value: 1, name: "www.amazontransportes.com.br" },
+      
+        { value: 1, name: "aeamg.org.br" },
       
         { value: 1, name: "uva.edu.br" },
       
-        { value: 1, name: "ihara.com.br" },
+        { value: 1, name: "w8textil.com.br" },
       
-        { value: 1, name: "www.amazontransportes.com.br" },
-      
-        { value: 1, name: "aeamg.org.br" }
+        { value: 1, name: "bettininformatica" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -433,15 +433,15 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 2, name: "akira" },
-      
         { value: 2, name: "nova" },
       
-        { value: 1, name: "ralord" },
+        { value: 2, name: "akira" },
       
         { value: 1, name: "sarcoma" },
       
-        { value: 1, name: "nightspire" }
+        { value: 1, name: "lockbit3" },
+      
+        { value: 1, name: "J" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -462,15 +462,15 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 2, name: "13" },
-      
         { value: 2, name: "16" },
       
-        { value: 1, name: "07" },
+        { value: 2, name: "13" },
       
-        { value: 1, name: "04" },
+        { value: 1, name: "15" },
       
-        { value: 1, name: "17" }
+        { value: 1, name: "17" },
+      
+        { value: 1, name: "07" }
       
     ];
     chartRansomByHour.setOption({
@@ -497,9 +497,9 @@
       
         { value: 1, name: "Sat" },
       
-        { value: 1, name: "Fri" },
+        { value: 1, name: "Thu" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Fri" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -517,51 +517,76 @@
     });
     
     // 6) Calendar Heatmap
-    const heatData = [["2025-04-16", 2], ["2025-04-19", 1], ["2025-04-21", 1], ["2025-04-22", 1], ["2025-04-24", 1], ["2025-04-28", 3], ["2025-05-02", 1]];
+  const heatData = [["2025-04-16", 2], ["2025-04-19", 1], ["2025-04-21", 1], ["2025-04-22", 1], ["2025-04-24", 1], ["2025-04-28", 3], ["2025-05-02", 1]];
 
-    const maxCount = heatData.length
-      ? Math.max(...heatData.map(d => d[1]))
-      : 0;
+  const maxCount = heatData.length
+    ? Math.max(...heatData.map(d => d[1]))
+    : 0;
 
-    const dates = heatData.map(d => d[0]);
-    const calendarRange = dates.length > 1
-      ? [ dates[0], dates[dates.length - 1] ]
-      : dates[0] || new Date().getFullYear().toString();
+  const dates = heatData.map(d => d[0]);
+  const calendarRange = dates.length > 1
+    ? [ dates[0], dates[dates.length - 1] ]
+    : dates[0] || new Date().toISOString().slice(0,10);
 
-    var heatmapRansomCalendar = echarts.init(
-      document.getElementById('heatmapRansomCalendar')
-    );
+  // 4) init the chart
+  var heatmap = echarts.init(
+    document.getElementById('heatmapRansomCalendar')
+  );
 
-    heatmapRansomCalendar.setOption({
-      title: {
-        top: 30,
-        text: 'Activity Heatmap (Last 30d)',
-        left: 'center'
+  // 5) set the proper calendar‐heatmap option
+  heatmap.setOption({
+    title: {
+      text: 'Activity Heatmap (Last 30d)',
+      left: 'center',
+      top: 20
+    },
+    tooltip: {
+      position: 'top',
+      formatter: params => `${params.data[0]}: ${params.data[1]}`
+    },
+    visualMap: {
+      min: 0,
+      max: maxCount,
+      type: 'continuous',      // no slider control
+      orient: 'horizontal',
+      left: 'center',
+      bottom: 10,
+      inRange: {
+        // default ECharts yellow→red gradient
+        color: ['#ffffcc', '#ff4444']
+      }
+    },
+    calendar: {
+      top: 80,
+      left: 'center',
+      range: calendarRange,
+      cellSize: [20, 20],
+      orient: 'horizontal',
+      monthLabel: {
+        show: true,
+        nameMap: 'en',
+        position: 'top'
       },
-      tooltip: {},
-      visualMap: {
-        min: 0,
-        max: maxCount,
-        calculable: true,
-        orient: 'horizontal',
-        left: 'center',
-        bottom: 20
+      dayLabel: {
+        show: true,
+        firstDay: 1,
+        nameMap: 'en'
       },
-      calendar: {
-        top: 100,
-        left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: { firstDay: 1, nameMap: 'en' },
-        monthLabel: { nameMap: 'en' },
-        range: calendarRange
-      },
-      series: [{
-        type: 'heatmap',
-        coordinateSystem: 'calendar',
-        data: heatData
-      }]
-    });
+      splitLine: {
+        show: true,
+        lineStyle: {
+          color: '#ccc',
+          width: 1
+        }
+      }
+    },
+    series: [{
+      name: 'count',
+      type: 'heatmap',
+      coordinateSystem: 'calendar',
+      data: heatData
+    }]
+  });
   </script>
 
 
@@ -595,7 +620,7 @@
       
         { value: 17, name: "UA" },
       
-        { value: 15, name: "US" }
+        { value: 15, name: "PL" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -758,11 +783,11 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 521, name: "US" },
+        { value: 526, name: "US" },
       
         { value: 311, name: "CA" },
       
-        { value: 155, name: "IN" },
+        { value: 158, name: "IN" },
       
         { value: 139, name: "FR" },
       
@@ -845,9 +870,9 @@
       
         { value: 10, name: "14" },
       
-        { value: 8, name: "6" },
-      
         { value: 8, name: "19" },
+      
+        { value: 8, name: "6" },
       
         { value: 7, name: "5" }
       
