@@ -356,8 +356,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 08:46:08-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 08:49:33-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -408,15 +408,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "aeamg.org.br" },
+        { value: 1, name: "w8textil.com.br" },
       
-        { value: 1, name: "uva.edu.br" },
+        { value: 1, name: "bettininformatica" },
+      
+        { value: 1, name: "aeamg.org.br" },
       
         { value: 1, name: "www.amazontransportes.com.br" },
       
-        { value: 1, name: "ihara.com.br" },
-      
-        { value: 1, name: "bettininformatica" }
+        { value: 1, name: "uva.edu.br" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -441,11 +441,11 @@
       
         { value: 2, name: "akira" },
       
-        { value: 1, name: "nightspire" },
-      
         { value: 1, name: "ralord" },
       
-        { value: 1, name: "lockbit3" }
+        { value: 1, name: "cicada3301" },
+      
+        { value: 1, name: "nightspire" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -470,11 +470,11 @@
       
         { value: 2, name: "13" },
       
-        { value: 1, name: "07" },
+        { value: 1, name: "04" },
       
-        { value: 1, name: "17" },
+        { value: 1, name: "14" },
       
-        { value: 1, name: "15" }
+        { value: 1, name: "17" }
       
     ];
     chartRansomByHour.setOption({
@@ -822,9 +822,9 @@
       
         { value: 10, name: "14" },
       
-        { value: 8, name: "6" },
-      
         { value: 8, name: "19" },
+      
+        { value: 8, name: "6" },
       
         { value: 7, name: "5" }
       
@@ -929,7 +929,9 @@
 
 
   <script>
-    function loadCountryData() {
+
+    document.addEventListener("DOMContentLoaded", () => {
+      function loadCountryData() {
         console.log("Loading country data...");
         return fetch("https://restcountries.com/v3.1/all")
           .then(response => response.json())
@@ -947,7 +949,18 @@
             return [];
           });
       }
-    document.addEventListener("DOMContentLoaded", () => {
+
+
+      function formatCountry(c) {
+        if (!c.id) return c.text;
+        return $(
+          `<span>
+            <img src="https://flagcdn.com/16x12/${c.id}.png" class="me-1" />
+            ${c.text}
+          </span>`
+        );
+      }
+
       loadCountryData().then(data => {
         const $sel = $("#countrySelectTop");
 
@@ -955,7 +968,7 @@
           data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
           placeholder: $sel.data("placeholder"),
           allowClear: true,
-          width: "resolve",          // use the <select>'s style="width:40%"
+          width: "resolve",
           templateResult: formatCountry,
           templateSelection: formatCountry
         });
@@ -967,16 +980,8 @@
             : "top.html";
         });
       });
-    });
-    function formatCountry(c) {
-      if (!c.id) return c.text;
-      return $(
-        `<span>
-          <img src="https://flagcdn.com/16x12/${c.id}.png" class="me-1" />
-          ${c.text}
-        </span>`
-      );
-    }
+      });
+    
   </script>
 
 
