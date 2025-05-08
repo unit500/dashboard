@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 13:48:03-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 15:58:06-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
@@ -377,7 +377,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 350, name: "US" },
+        { value: 349, name: "US" },
       
         { value: 36, name: "DE" },
       
@@ -385,7 +385,7 @@
       
         { value: 17, name: "IT" },
       
-        { value: 12, name: "ES" }
+        { value: 12, name: "GB" }
       
     ];
     chartRansomTopSource.setOption({
@@ -406,13 +406,13 @@
       
         { value: 4, name: "fenwick.com" },
       
-        { value: 2, name: "knrlegal.com" },
+        { value: 2, name: "www.thehumanbean.com" },
       
-        { value: 2, name: "mclaughlinstern.com" },
+        { value: 2, name: "corsbassett.com" },
       
-        { value: 2, name: "usclaims.com" },
+        { value: 2, name: "www.jamesandsons.com" },
       
-        { value: 2, name: "www.liftsolutionsinc.net" }
+        { value: 2, name: "ffec.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -433,9 +433,9 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 66, name: "SilentRansomGroup" },
-      
         { value: 66, name: "leakeddata" },
+      
+        { value: 66, name: "SilentRansomGroup" },
       
         { value: 49, name: "play" },
       
@@ -470,7 +470,7 @@
       
         { value: 21, name: "19" },
       
-        { value: 16, name: "15" }
+        { value: 15, name: "17" }
       
     ];
     chartRansomByHour.setOption({
@@ -491,7 +491,7 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 179, name: "Tue" },
+        { value: 178, name: "Tue" },
       
         { value: 45, name: "Thu" },
       
@@ -649,9 +649,9 @@
       
         { value: 1, name: "Al Ahad" },
       
-        { value: 1, name: "NoName057(16)" },
+        { value: 1, name: "AnonPioneers" },
       
-        { value: 1, name: "Dark Storm Team" }
+        { value: 1, name: "Electronic Army Special Forces" }
       
     ];
     chartDdosTopGroups.setOption({
@@ -695,11 +695,11 @@
       
         { value: 2, name: "13" },
       
-        { value: 1, name: "17" },
+        { value: 1, name: "10" },
       
-        { value: 1, name: "6" },
+        { value: 1, name: "12" },
       
-        { value: 1, name: "7" }
+        { value: 1, name: "17" }
       
     ];
     chartDdosByHour.setOption({
@@ -819,7 +819,7 @@
       
         { value: 311, name: "CA" },
       
-        { value: 158, name: "IN" },
+        { value: 165, name: "IN" },
       
         { value: 139, name: "FR" },
       
@@ -852,7 +852,7 @@
       
         { value: 2, name: "Iran" },
       
-        { value: 2, name: "VXSECT" }
+        { value: 2, name: "Sw0rd" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -879,9 +879,9 @@
       
         { value: 56, name: "Mr. BDKR28" },
       
-        { value: 21, name: "MoneroSHELL" },
+        { value: 21, name: "Sh4dowX" },
       
-        { value: 21, name: "Sh4dowX" }
+        { value: 21, name: "MoneroSHELL" }
       
     ];
     chartDefaceTopAttackers.setOption({
