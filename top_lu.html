@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -350,8 +350,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 13:48:33-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 16:16:53-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -375,15 +375,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 350, name: "US" },
+        { value: 349, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 37, name: "DE" },
       
         { value: 27, name: "CA" },
       
         { value: 17, name: "IT" },
       
-        { value: 12, name: "GB" }
+        { value: 12, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -404,11 +404,11 @@
       
         { value: 2, name: "acimfunds.com" },
       
-        { value: 1, name: "a3t.lu" },
+        { value: 1, name: "www.unitedcaps.com" },
       
         { value: 1, name: "jean-petit.lu" },
       
-        { value: 1, name: "www.unitedcaps.com" }
+        { value: 1, name: "a3t.lu" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -431,11 +431,11 @@
       
         { value: 2, name: "lockbit3" },
       
+        { value: 1, name: "qilin" },
+      
         { value: 1, name: "nightspire" },
       
-        { value: 1, name: "J" },
-      
-        { value: 1, name: "qilin" }
+        { value: 1, name: "J" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -485,9 +485,9 @@
       
         { value: 2, name: "Sat" },
       
-        { value: 1, name: "Fri" },
-      
         { value: 1, name: "Wed" },
+      
+        { value: 1, name: "Fri" },
       
         { value: 1, name: "Sun" }
       
@@ -606,9 +606,9 @@
       
         { value: 18, name: "CA" },
       
-        { value: 17, name: "NL" },
-      
         { value: 17, name: "UA" },
+      
+        { value: 17, name: "NL" },
       
         { value: 15, name: "US" }
       
@@ -777,7 +777,7 @@
       
         { value: 311, name: "CA" },
       
-        { value: 158, name: "IN" },
+        { value: 165, name: "IN" },
       
         { value: 139, name: "FR" },
       
