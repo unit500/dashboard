@@ -204,15 +204,15 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
+            <a href="defacement_details/681ceebb6e9b3df795e066f5.html">twocats.co.za</a>, 
+          
             <a href="defacement_details/681b2609d3b7b1f2d8c7a978.html">fluideng.co.za</a>, 
           
             <a href="defacement_details/6811e6c1ba1fd55e6f9aa767.html">go247capetown.co.za</a>, 
           
             <a href="defacement_details/680bc98073038296f004d885.html">state.africa</a>, 
           
-            <a href="defacement_details/67f2c35356402015bac6e1c6.html">drexec.co.za</a>, 
-          
-            <a href="defacement_details/67f219f4baf5c8a05f2f1f60.html">directimpact.co.zw</a>
+            <a href="defacement_details/67f2c35356402015bac6e1c6.html">drexec.co.za</a>
           
         </li>
         <li>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 14:36:45-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 17:55:26-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
   
@@ -377,9 +377,9 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 350, name: "US" },
+        { value: 349, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 37, name: "DE" },
       
         { value: 27, name: "CA" },
       
@@ -755,9 +755,9 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 526, name: "US" },
+        { value: 531, name: "US" },
       
-        { value: 311, name: "CA" },
+        { value: 319, name: "CA" },
       
         { value: 165, name: "IN" },
       
@@ -784,7 +784,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 3, name: "indie" }
+        { value: 4, name: "indie" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -805,7 +805,7 @@
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
       
-        { value: 2, name: "Mr. BDKR28" },
+        { value: 3, name: "Mr. BDKR28" },
       
         { value: 1, name: "Typical Idiot Security" }
       
@@ -828,9 +828,9 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 2, name: "9" },
+        { value: 2, name: "17" },
       
-        { value: 1, name: "17" }
+        { value: 2, name: "9" }
       
     ];
     chartDefaceByHour.setOption({
@@ -853,6 +853,8 @@
       
         { value: 2, name: "Wed" },
       
+        { value: 1, name: "Thu" },
+      
         { value: 1, name: "Fri" }
       
     ];
@@ -871,7 +873,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-02-24", 1], ["2025-03-06", 1], ["2025-03-12", 1], ["2025-03-17", 1], ["2025-04-06", 1], ["2025-04-07", 1], ["2025-04-25", 1], ["2025-04-30", 1], ["2025-05-07", 1]];
+    let heatDataDefacements = [["2025-02-24", 1], ["2025-03-06", 1], ["2025-03-12", 1], ["2025-03-17", 1], ["2025-04-06", 1], ["2025-04-07", 1], ["2025-04-25", 1], ["2025-04-30", 1], ["2025-05-07", 1], ["2025-05-08", 1]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
