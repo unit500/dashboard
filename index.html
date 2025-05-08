@@ -142,13 +142,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">91</h3>
+              <h3 id="victims-today">100</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">768</h3>
+              <h3 id="victims-week">777</h3>
             </div>
           </div>
         </div>
@@ -718,6 +718,20 @@
                     </li>
                   
                     <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/in.png"
+                           alt="IN flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="IN (15)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/ru.png"
+                           alt="RU flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="RU (10)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
                       <img src="https://flagcdn.com/32x24/ca.png"
                            alt="CA flag"
                            data-bs-toggle="popover" data-bs-trigger="hover"
@@ -725,24 +739,10 @@
                     </li>
                   
                     <li class="d-inline-block me-2">
-                      <img src="https://flagcdn.com/32x24/ru.png"
-                           alt="RU flag"
-                           data-bs-toggle="popover" data-bs-trigger="hover"
-                           data-bs-content="RU (9)">
-                    </li>
-                  
-                    <li class="d-inline-block me-2">
                       <img src="https://flagcdn.com/32x24/fi.png"
                            alt="FI flag"
                            data-bs-toggle="popover" data-bs-trigger="hover"
                            data-bs-content="FI (9)">
-                    </li>
-                  
-                    <li class="d-inline-block me-2">
-                      <img src="https://flagcdn.com/32x24/in.png"
-                           alt="IN flag"
-                           data-bs-toggle="popover" data-bs-trigger="hover"
-                           data-bs-content="IN (8)">
                     </li>
                   
                 
@@ -1776,8 +1776,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 13:43:56-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 14:05:44-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
@@ -1807,7 +1807,7 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 326, name: "Team Anon Force" },
+      {value: 328, name: "Team Anon Force" },
       
       {value: 324, name: "Mr. BDKR28" },
       
@@ -1885,7 +1885,7 @@
       attackedSeriesData.push({value: 361, name: "ca"});
     
       attackedCategories.push("in");
-      attackedSeriesData.push({value: 180, name: "in"});
+      attackedSeriesData.push({value: 187, name: "in"});
     
       attackedCategories.push("fr");
       attackedSeriesData.push({value: 154, name: "fr"});
@@ -1930,8 +1930,8 @@
       sourceCategories.push("pakistan");
       sourceSeriesData.push({value: 2, name: "pakistan"});
     
-      sourceCategories.push("morocco");
-      sourceSeriesData.push({value: 1, name: "morocco"});
+      sourceCategories.push("indonesia");
+      sourceSeriesData.push({value: 1, name: "indonesia"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
