@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/681935218a876d7ac2732c2a.html">
+                <img src="https://images.ransomware.live/victims/1a3caec6fd599149119e31b84442c3ca.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Grupo Herradura Occidente">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Grupo Herradura Occidente</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-05 20:09:48.010718</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> IMNCrew</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Grupo Herradura Occidente is a Mexican transportation company formed in 2007 through the merger of t&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/680bb1e98bd88e9c35ab2fd7.html">
+                <img src="https://images.ransomware.live/victims/144b77ca5ec21a7707f277e79d87cede.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.kenworthdelsur.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.kenworthdelsur.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-25 15:06:45.780802</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Exfiltraded data : yes - Encrypted data : yes
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f2cf53204fe7c2e4074e2e.html">
+                <img src="https://images.ransomware.live/victims/23a6f0aa42572a8cc5523e101545fb8d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="grupotersa.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">grupotersa.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-06 18:28:20.188900</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;Grupo TERSA&#34;.  Company Description: Grupo TE&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f153c7e7b4a7302ae7afc7.html">
+                <img src="https://images.ransomware.live/victims/e81b21d06893450ae939f90bc22db95f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="icorona.mx/en/index.html">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">icorona.mx/en/index.html</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-05 14:22:48.448888</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> spacebears</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Industrial Corona de México has been a manufacturer of injection-molded plastic parts and tools for &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e2c516048d9a89e98f92a9.html">
+                <img src="https://images.ransomware.live/victims/c1352a0614deb4d527c4044f5b754cfe.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ossc.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ossc.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-25 14:07:00.394025</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;OSSC Mexico&#34;.  Company Description: In 2008,&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f4131869cace605ba9c9b4.html">
+                <img src="https://images.ransomware.live/victims/c1352a0614deb4d527c4044f5b754cfe.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ossc.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ossc.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-25 14:07:00.394025</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;OSSC Mexico&#34;.  Company Description: In 2008,&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d5dc6807ab0916ff892755.html">
+                <img src="https://images.ransomware.live/victims/a103bd5e67e4634601d97135a5b3c4e8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sanirent.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sanirent.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-15 19:27:08.079843</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Sanirent is a Mexican company specializing in waste management and environmental solu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d22e3a29242155d2004cd3.html">
+                <img src="https://images.ransomware.live/victims/950d533174f1e7fc8aaf9c7c601b75cf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="milano.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">milano.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-13 00:02:35.179920</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> interlock</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Servicios Corporativos Melody-Milano is a company that operates in the  Apparel &amp; Accessories Retail&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67bdbef3d790087ed07b15bb.html">
+                <img src="https://images.ransomware.live/victims/69384f3b1ccb591b3c0d635ec21d3061.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ossc.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ossc.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 12:42:53.777252</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;OSSC Mexico&#34;.  Company Description: In 2008,&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67bdbef2d790087ed07b15b9.html">
+                <img src="https://images.ransomware.live/victims/97f22dc186eabf032f32d5b039e3bbee.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="unila.edu.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">unila.edu.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 12:39:55.451638</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;UNILA SA DE CV&#34;.  Company Description: Unive&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6819ddd09324cfcffbde74ed.html">
+                <img src="https://images.ransomware.live/victims/97f22dc186eabf032f32d5b039e3bbee.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="unila.edu.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">unila.edu.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-25 12:39:55.451638</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;UNILA SA DE CV&#34;.  Company Description: Unive&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b73581ad45129e83076af0.html">
+                <img src="https://images.ransomware.live/victims/407f4c303d0dbd702254c59a2cfd38cc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="californiaclingpeaches.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">californiaclingpeaches.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-20 13:27:49.082449</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    California Cling Peaches growers offer nutritious peaches packed in Cans, Jars, and Single Serve cup&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67aaf0654316db790cff38a4.html">
+                <img src="https://images.ransomware.live/victims/779d2e62ca2c511e11f98dd9c6db3f12.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tmc.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tmc.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-11 04:19:50.209918</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67aa2ad3aa0cb251fcafc8d2.html">
+                <img src="https://images.ransomware.live/victims/ab7ce7944ffc668ec3da2b96c852209a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="BARCOMADE.COM">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">BARCOMADE.COM</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-10 15:19:50.100163</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> clop</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] &#34;BARCOMADE.COM&#34; is currently a placeholder and does not represent an established or i&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a229d1e792048b9c0bcc38.html">
+                <img src="https://images.ransomware.live/victims/a45fe93acbdcc46d84af96801d28e757.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kksp.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kksp.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-04 14:23:32.444198</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All data of this company will be available for download on 12.02.2025.The Largest in North America
+W&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a0bafa30d8dbdc637bcba0.html">
+                <img src="https://images.ransomware.live/victims/3195815082e6b9ea443b9ac52ab20cad.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="coel.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">coel.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-03 11:18:50.792621</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> apt73</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ID,Name,Email,Group,Phone,ZIP,Country,State/Province,&#34;Customer Since&#34;,&#34;Web Site&#34;,&#34;Confirmed email...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f538886f8591b4f5dcf2c.html">
+                <img src="https://images.ransomware.live/victims/ffedca42532d8b63d419e929f826c9a3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="zapopan.gob.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">zapopan.gob.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 08:16:43.194319</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    zapopan.gob
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f536886f8591b4f5dcee2.html">
+                <img src="https://images.ransomware.live/victims/b3155c1746496e18ffe6e6cf6cd6546f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.pcm.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.pcm.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-24 18:50:27.817448</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] &#34;www.pcm.com.mx&#34; is the official website for PCM Mexico, a branch of PCM Inc, a leadi&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc6a606f14fdb4187d64b.html">
+                <img src="https://images.ransomware.live/victims/2e7afc01a7ea75f60b8f55939de90c53.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="equipo-postal.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">equipo-postal.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-15 22:36:46.935102</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> safepay</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Equipo Postal is a Mexican company that specializes in logistics and delivery service&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc68f06f14fdb4187d605.html">
+                <img src="https://images.ransomware.live/victims/b985fe387a23b60b972189eba9609e1f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="zapopan.gob.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">zapopan.gob.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-13 12:27:08.483535</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] &#34;Zapopan.gob.mx&#34; is the official website of the Municipality of Zapopan, a city locat&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc68806f14fdb4187d5ef.html">
+                <img src="https://images.ransomware.live/victims/69a090f9b3deda9f985025ab6f3a4636.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="EKOMERCIO.COM">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">EKOMERCIO.COM</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-11 10:10:52.580850</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> clop</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] EKOMERCIO.COM is an eCommerce solution platform designed to simplify online buying an&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe55ec4f2181a71271355.html">
+                <img src="https://images.ransomware.live/victims/7d54a2c57d4f830e66fac84d1d8770f8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="HostingExpress.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">HostingExpress.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-20 04:27:36.175177</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] HostingExpress.com.mx is a Mexican web hosting company that specializes in providing &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe519c4f2181a71271285.html">
+                <img src="https://images.ransomware.live/victims/ace4c76a2a5a143038659543c7cb3d2f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="estarseguros.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">estarseguros.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-12 09:56:03.808730</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> BrainCipher</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Estar Seguros, S.A. is an insurance company that specializes in providing a range of &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe519c4f2181a71271284.html">
+                <img src="https://images.ransomware.live/victims/7b4fef97d41e3b9fee848c9a74195c6d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="cristalylavisa.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">cristalylavisa.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-12 09:54:57.200314</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> BrainCipher</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Cristal y Lavisa S.A. de C.V. is a Mexican company specializing in the production and&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe516c4f2181a7127127c.html">
+                <img src="https://images.ransomware.live/victims/424665b5ca8dcb8e459041360beadc69.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="interforos.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">interforos.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-11 18:54:43.996425</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4d5c4f2181a712711b8.html">
+                <img src="https://images.ransomware.live/victims/9e69ea0863845eb4ee1aa7053379497b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="G-ONE AUTO PARTS DE MÉXICO, S.A. DE C.V.">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">G-ONE AUTO PARTS DE MÉXICO, S.A. DE C.V.</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-02 17:15:47.179877</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> BrainCipher</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] G-ONE Auto Parts de México, S.A. de C.V. is a company based in Mexico specializing in&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4a5c4f2181a71271128.html">
+                <img src="https://images.ransomware.live/victims/7dd9901fb01231d6e0223a06ab71c7c8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="reliv.la">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">reliv.la</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-26 11:26:42.151972</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Reliv.la is a company focused on providing innovative solutions in the field of digit&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe482c4f2181a712710bf.html">
+                <img src="https://images.ransomware.live/victims/cbb4969c667a84b716afe77a3c4b861b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="itnetworks.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">itnetworks.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-21 00:37:35.260422</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Days00008888Hours11115555Minutes22227777Seconds11115555
+
+
+https://itnetworks.mx/We exist to provide &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe441c4f2181a71270ffb.html">
+                <img src="https://images.ransomware.live/victims/a4172c3b759552aed82868b4b66cb52e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.gob.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.gob.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-15 19:23:23.522605</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Gob.mx is the official digital platform of the Mexican government, designed to provid&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe42bc4f2181a71270fbb.html">
+                <img src="https://images.ransomware.live/victims/774d4ab9afe8c1b471ce4464bc664a2e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="g-one.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">g-one.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-13 16:39:45.176909</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> BrainCipher</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] G-One Auto Parts de México S.A. de C.V. is a Mexican company specializing in the dist&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3bbc4f2181a71270e6a.html">
+                <img src="https://images.ransomware.live/victims/6dff13d67c49f04367b77615d976b188.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.oma.aero">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.oma.aero</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-24 18:44:40.370820</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Sure! OMA.aero is a company specializing in advanced aerial mobility solutions. It focuses on the de&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe39ac4f2181a71270e07.html">
+                <img src="https://images.ransomware.live/victims/d080f8592be1dafebdad3023c6af2560.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Vasesa.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Vasesa.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-20 18:06:05.184319</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.vasesa.com.mxVasesa Vasesa is a company that...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe377c4f2181a71270d9e.html">
+                <img src="https://images.ransomware.live/victims/e07f39460f42f1e6ca6c385d37cef10c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="medicato.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">medicato.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-14 06:07:05.616064</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    La primera aplicación en México que conecta de manera instantánea a pacientes con doctores 24/7.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe322c4f2181a71270c9d.html">
+                <img src="https://images.ransomware.live/victims/e4aa484734cf6652cffc11dff50f4478.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sanirent.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sanirent.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-29 12:12:27.134130</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    SaniRent specializes in providing high-quality, temporary sanitation solutions for events, construct&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe30bc4f2181a71270c59.html">
+                <img src="https://images.ransomware.live/victims/a0449292487e906f5d3018bf383b1e90.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="oleopalma.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">oleopalma.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-23 19:00:34.013505</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;Oleopalma Compania Agroindustrial Cia Ltda L&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2dfc4f2181a71270bd3.html">
+                <img src="https://images.ransomware.live/victims/19b6ae84720688b6f1a8f04126fa9b10.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Retemex.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Retemex.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-14 15:03:19.884463</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomexx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Retemex is a virtual mobile operator in Mexico, operating on the country’s 4.5G LTE network. 24883 c&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2acc4f2181a71270b39.html">
+                <img src="https://images.ransomware.live/victims/f32cb4c6356cea37c852e00fe972ab42.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="qualitas.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">qualitas.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-01 07:34:44.869579</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Country : Mexico - Exfiltraded data : yes - Encrypted data : yes
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe26ac4f2181a71270a74.html">
+                <img src="https://images.ransomware.live/victims/56beccd4f394ef92d273e85ffc81212f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="policiaauxiliarcusaem.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">policiaauxiliarcusaem.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-22 07:19:47.333798</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;POLICIAAUXILIARCUSAEM.MX&#34;.  Company Descript&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe248c4f2181a71270a0f.html">
+                <img src="https://images.ransomware.live/victims/73be3b0588937e4ad3491007654396c5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="megatravel.com.mx">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">megatravel.com.mx</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-15 10:00:22.217501</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkvault</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Compañía especializada en organizar y programar viajes internacionales para turismo cultural, recept&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1ecc4f2181a712708fa.html">
+                <img src="https://images.ransomware.live/victims/b6fc8c5ffbff20566bbf80fdc897ae60.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="bpjaguar.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">bpjaguar.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-26 09:51:44.902544</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:24:12-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e7544728d77c058f722667.html">
+                <img src="https://images.ransomware.live/victims/9ba0e1bc26c95516c2973678c390e529.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="modiin-ezrachi.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">modiin-ezrachi.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-29 01:23:15.207428</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    modiin-ezrachi.co.il
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e40888df5964306c3c8914.html">
+                <img src="https://images.ransomware.live/victims/9142f5a39a39cbee031bb85efeca0924.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="israel Infrastructure &amp; Secret Documents intelligence information">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">israel Infrastructure &amp; Secret Documents intelligence information</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-26 13:13:47.274986</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    israel Infrastructure &amp; Secret Documents intelligence information
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d55de4e389f067ea2d933f.html">
+                <img src="https://images.ransomware.live/victims/3f3f4394ed69b11d6e1a623666b1d70b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="knesset.gov.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">knesset.gov.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-15 10:22:38.871027</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    knesset.gov.il
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b4ea66d4fe05e605c43135.html">
+                <img src="https://images.ransomware.live/victims/362b6872883d32255a672716128e26f7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="footballticketnet.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">footballticketnet.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-18 19:30:14.954511</p>
+                <p class="card-text"><strong>Industry:</strong> Consumer Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Footballticketnet.com is an online marketplace that allows customers to buy tickets t&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b47bfce4aaceaf5ccfbbc6.html">
+                <img src="https://images.ransomware.live/victims/ba6783e2d9e9a24e061fe2a7e715ad70.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lavi.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lavi.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-18 10:26:19.877242</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Kibbutz Lavi Hotel is a company that operates in the Furniture industry. It employs 50to99 people an&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b9f4abbd20cfd272da31c6.html">
+                <img src="https://images.ransomware.live/victims/ba6783e2d9e9a24e061fe2a7e715ad70.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lavi.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lavi.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-18 10:26:19.877242</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Kibbutz Lavi Hotel is a company that operates in the Furniture industry. It employs 50to99 people an&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a8e1b3d4dfb0db0ccbb867.html">
+                <img src="https://images.ransomware.live/victims/9f71ca3c0bdc2f0c8229bca67759f4d2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Handala New Telegram Channel">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Handala New Telegram Channel</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-09 17:01:48.680334</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All channels of Handala suspended To the ever-vigilant, ever-panicked guardians of Israel’s digital &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a8a4169a8d896a9e20d021.html">
+                <img src="https://images.ransomware.live/victims/93db246690004c367891785138032417.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Israel Police">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Israel Police</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-09 11:41:03.941403</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    To the self-proclaimed guardians of order in Israel, Your arrogance has been your downfall. Did you &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a44fe917a60ec83caf873f.html">
+                <img src="https://images.ransomware.live/victims/5b517a530b5327d684779ecab9636594.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rattelacademy.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rattelacademy.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-05 13:43:45.693893</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Rattel Academy is an online learning platform that focuses on offering comprehensive &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a32b1603505b9f28f9a238.html">
+                <img src="https://images.ransomware.live/victims/87ab8fc8e17f7a7dc832683b17d56373.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="devlion.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">devlion.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-04 21:10:37.756161</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Extract from Gitlabs: hemio.de, SOLEIL, Devlion
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f53e186f8591b4f5dcfe7.html">
+                <img src="https://images.ransomware.live/victims/742f85c44209dcb39561f665d35203e8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Tosaf">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Tosaf</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-02 08:50:01.714938</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Today, in a strategic move, we, the Handala Group, have successfully breached and taken full control&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f539d86f8591b4f5dcf54.html">
+                <img src="https://images.ransomware.live/victims/9147b9dd78534825ace9d09f0969c7ee.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Israel Ministry of National Security">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Israel Ministry of National Security</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-29 06:46:24.582087</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Ministry of National Security Hacked Happening now: 1- Hacking the comprehensive integrated manageme&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe59bc4f2181a7127140c.html">
+                <img src="https://images.ransomware.live/victims/c177084d72c74520d6b34035e97cfb4c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="reutone.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">reutone.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-25 15:44:30.686205</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Oh, what a day it has been for Reutone, the self-proclaimed “largest CRM company in Israel”! It turn&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe598c4f2181a71271401.html">
+                <img src="https://images.ransomware.live/victims/dca6be859d84e8ba7d6a924660040041.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="2sign.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">2sign.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-24 23:36:03.223307</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] 2sign.co.il is a company specializing in digital signage solutions. They provide inno&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe578c4f2181a712713a3.html">
+                <img src="https://images.ransomware.live/victims/104f37288514d37d50fa7d3c31455d29.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kfar-yona.muni.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kfar-yona.muni.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-23 16:10:18.745035</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Kfar Yona is a municipality located in the Central District of Israel. It functions a&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe577c4f2181a7127139f.html">
+                <img src="https://images.ransomware.live/victims/1af5262a99bfbf2b94853b16b750f0a0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="10M israeli data for sell">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">10M israeli data for sell</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-23 13:20:37.539338</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] I&#39;m sorry, I can&#39;t assist with that request.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe560c4f2181a7127135b.html">
+                <img src="https://images.ransomware.live/victims/4697045a86ff840999e6ecf5598320f1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="planetgroup.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">planetgroup.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-20 04:56:31.269166</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Planetgroup.co.il is a company based in Israel specializing in technology solutions a&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe539c4f2181a712712e3.html">
+                <img src="https://images.ransomware.live/victims/802885a3d3c618cb709416b718f7e5de.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="GNS Cloud">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">GNS Cloud</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-16 08:21:26.435387</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Israel Largest Cloud Company None of your data is safe now! GNS Cloud can’t even provide its own cyb&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe534c4f2181a712712d5.html">
+                <img src="https://images.ransomware.live/victims/e2d92af4ef8e6101066697a72fa7c64b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.brachapundak.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.brachapundak.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-15 10:20:05.620379</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonransomware</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    https://www.brachapundak.co.il/
+
+Fuck ~~Israel~~ 👍
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe51fc4f2181a71271298.html">
+                <img src="https://images.ransomware.live/victims/82fbd2cd11b0a2cec006e9312c7bd3c5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="fuse.io">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">fuse.io</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-13 11:23:43.637586</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Fuse.io is a blockchain-based platform designed to empower entrepreneurs and communit&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4d7c4f2181a712711c0.html">
+                <img src="https://images.ransomware.live/victims/487d44f6298d7348a78dd78c33c8e0f8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Harel Insurance ( Shirbit Server )">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Harel Insurance ( Shirbit Server )</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-03 10:15:47.082823</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Shirbit was one of the largest insurance companies in the Zionist regime, which provided all cars an&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe493c4f2181a712710f2.html">
+                <img src="https://images.ransomware.live/victims/5e0e66db5488c9d98f719f81449ddde2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Silicom">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Silicom</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-24 11:36:59.768272</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The biggest and most feared cover company of unit 8200 was hacked! In all the assassinations and cri&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe48ac4f2181a712710d6.html">
+                <img src="https://images.ransomware.live/victims/57e697590b67095016a8aaad63cfb819.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="curenta.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">curenta.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-21 20:50:50.250773</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Curenta is a healthcare technology company focused on enhancing the efficiency of med&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe47cc4f2181a712710ad.html">
+                <img src="https://images.ransomware.live/victims/3feca59488873f1a7dd39f497515e98c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="scalar.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">scalar.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-20 18:46:34.624215</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Scalar.co.il is an Israeli company specializing in cybersecurity solutions. They focu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe43dc4f2181a71270ff0.html">
+                <img src="https://images.ransomware.live/victims/052a70167b0cd7c9b8c4ceff825025f0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="blupack.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">blupack.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-15 00:40:22.989315</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe430c4f2181a71270fca.html">
+                <img src="https://images.ransomware.live/victims/348468109c6ebc94293fb4be87586d63.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Pincu Barkan, Law Office and Notary">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Pincu Barkan, Law Office and Notary</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-14 18:09:38.140456</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> everest</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    More than 230,000 files including personal ID’s copies, fbi crime records, birth certificates etc. h&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3f6c4f2181a71270f1d.html">
+                <img src="https://images.ransomware.live/victims/85bb623d90220ead3ff1feabaf54baea.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Elad municipality">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Elad municipality</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-03 15:20:29.353215</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala hacked the airgap network of Elad Municipality! The municipality is closed today, don’t visi&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3dfc4f2181a71270ed6.html">
+                <img src="https://images.ransomware.live/victims/abe3ade70f1b31b72321bf8aab8ee964.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="imcannabis.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">imcannabis.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-30 15:45:06.035668</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    IM Cannabis is one of the main arms of the distribution of hallucinogenic and dangerous drugs in Eur&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3cec4f2181a71270ea2.html">
+                <img src="https://images.ransomware.live/victims/20c485e2a9a10262314028d9910e7045.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="payxpress.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">payxpress.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-27 11:50:26.955024</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    PayXpress is a company based in Israel that specializes in providing digital payment solutions. They&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe374c4f2181a71270d94.html">
+                <img src="https://images.ransomware.live/victims/a8a5e973163c0d3d0d78ac4ea0e5f5f0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="modiin-ezrachi.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">modiin-ezrachi.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-12 19:03:30.007253</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Modiin Ezrachi is an Israeli security company specializing in providing a wide range of security ser&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe36bc4f2181a71270d79.html">
+                <img src="https://images.ransomware.live/victims/2d80b0898e7de20d8f318b7c955edd8a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="doscast.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">doscast.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-10 07:33:12.711530</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Doscast Hacked   This website is the largest radical Jewish community podcast site in the world!   D&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe355c4f2181a71270d36.html">
+                <img src="https://images.ransomware.live/victims/0a644355ca759bb3b4c9e4f44ee31a3f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Max Shop">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Max Shop</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-08 08:33:30.627818</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Israel Max Shop Hacked Max Shop is one of the store terminal cloud software that is used in more tha&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe34dc4f2181a71270d1e.html">
+                <img src="https://images.ransomware.live/victims/37fd9b53a92b75ccf496ab47d4bb6fd8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="IIB ( Israeli Industrial Batteries ) Leaked">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">IIB ( Israeli Industrial Batteries ) Leaked</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-06 17:05:00.648073</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    300 GB of IIB Data Leaked Handala Hacked IIB ( Israeli Industrial Batteries ) IIB is one of the comp&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe33fc4f2181a71270cf4.html">
+                <img src="https://images.ransomware.live/victims/b97c1bfdc43bc5bffc6a624e41417c7a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Shin Bet">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Shin Bet</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-03 20:30:24.809112</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Shin Bet’s comprehensive security system was hacked! Shin Bet has designed a comprehensive and exclu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe339c4f2181a71270ce2.html">
+                <img src="https://images.ransomware.live/victims/36dea4033df79a11db0d08a8fedf3d8f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Israel Prime Minister Emails">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Israel Prime Minister Emails</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-02 11:29:16.527572</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    110,000 secret emails of the former prime minister! This is Ehud Barak, your former prime minister! &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe321c4f2181a71270c9a.html">
+                <img src="https://images.ransomware.live/victims/aacca2d74d3d749450b663554c9865df.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Soreq NRC">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Soreq NRC</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-28 22:33:34.156873</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala Hacked Soreq NRC The sound of this operation will soon be heard throughout occupied Palestin&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe31fc4f2181a71270c95.html">
+                <img src="https://images.ransomware.live/victims/0d2ae9624eb0aa96d0cb201a46145ea4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="PipelBiz.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">PipelBiz.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-28 15:09:35.122951</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    PipelBiz.com is a crowdfunding platform focused on equity-based investments. It enables startups and&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe318c4f2181a71270c7f.html">
+                <img src="https://images.ransomware.live/victims/33f5e4f705826c74d54ee1c5d3dcc479.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Israel foreign affairs minister Emails">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Israel foreign affairs minister Emails</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-26 11:06:40.851969</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    60/000 secret Emails This data is only a small part of our data lake about Gabi Ashkenazi , former M&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe311c4f2181a71270c6a.html">
+                <img src="https://images.ransomware.live/victims/b951254a7b1f2e487b7d3d0ef7a95d00.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Israel defense minister private photos">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Israel defense minister private photos</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-24 19:33:04.735661</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    2/000 private photos of Benny Gantz The former defense minister of the Zionist regime has taken very&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe30ac4f2181a71270c55.html">
+                <img src="https://images.ransomware.live/victims/1fba3bc3a62cad4d3fc062fb96b2edf1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Benny Gantz">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Benny Gantz</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-23 16:00:35.280584</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    35/000 Confidential Emails of Benny Gantz Publish for First Time In recent days, we found out that B&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2f7c4f2181a71270c1b.html">
+                <img src="https://images.ransomware.live/victims/2fc8be87f1ebc3f7b9e33ffcab7255c5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="vidisco.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">vidisco.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-19 01:34:01.216796</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala Hacked Vidisco Vidisco is an Israeli based developer and manufacturer of portable digital X-&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2f6c4f2181a71270c1a.html">
+                <img src="https://images.ransomware.live/victims/52af04387cb8e099ffaf66288fdd3015.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="iib.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">iib.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-19 01:32:56.625031</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala Hacked IIB ( Israeli Industrial Batteries ) IIB is one of the companies affiliated to the Mi&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2d2c4f2181a71270bad.html">
+                <img src="https://images.ransomware.live/victims/8463d4a6a5b4c9c1f4e92e33e8102e74.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Ladov Law Firm">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Ladov Law Firm</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-11 05:33:58.414796</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> bianlian</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Ladov Law Firm PC is a company that operates in the Law Firms &amp; Legal Services industry.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2cec4f2181a71270ba2.html">
+                <img src="https://images.ransomware.live/victims/41043d49b035f0322f25f5fb1ec9d15f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="IDF and Mossad agents">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">IDF and Mossad agents</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-10 20:05:28.251245</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    &#34;IDF and Mossad agents&#34; is not a company but rather refers to operatives from two distinct Israeli o&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe291c4f2181a71270aea.html">
+                <img src="https://images.ransomware.live/victims/a443bca7754f5fbbfffaae0eb891e0ac.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="appletec.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">appletec.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-29 05:46:32.355351</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala Hacked Appletec Ltd. It is an affiliated company of the Ministry of Defense of the regime an&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe287c4f2181a71270ace.html">
+                <img src="https://images.ransomware.live/victims/a95c6d24064731751ea95416593223ef.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="y-shilat.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">y-shilat.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-28 10:26:42.890884</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Y. Shilat Management Services Ltd is a company specializing in providing comprehensive management so&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe277c4f2181a71270a9d.html">
+                <img src="https://images.ransomware.live/victims/73f3a21eac1ed0e8c24186531d35cfa1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="EPS Tech R&amp;D">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">EPS Tech R&amp;D</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-25 08:09:45.420639</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    For the first time, as a PoC, we are publishing a number of top-secret documents for the design of e&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe26ac4f2181a71270a75.html">
+                <img src="https://images.ransomware.live/victims/9957f32b40eb7258e633e4243b007fb8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="EPS Tech confidential source code ( military )">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">EPS Tech confidential source code ( military )</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-22 08:30:50.114470</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    10GB EPS Tech confidential source code PoC Handala has about 800 GB of the source code of sensitive &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe268c4f2181a71270a70.html">
+                <img src="https://images.ransomware.live/victims/e3fa081e0538cc8ae7ef3b93f9ae5658.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="beinlaw.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">beinlaw.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-21 21:42:46.853420</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> BrainCipher</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Prof. Bein &amp; Co., accessible via beinlaw.co.il, is a reputable law firm based in Israel. It speciali&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe249c4f2181a71270a13.html">
+                <img src="https://images.ransomware.live/victims/89b777de9b2db1540d5997f02887a1d1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="eps-tech.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">eps-tech.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-15 16:58:19.398608</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala Hacked EPS Tech Ltd EPS are designers and providers of advanced embedded electronic systems &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe23cc4f2181a712709ed.html">
+                <img src="https://images.ransomware.live/victims/6dade2fa0719273e63790011b3e1e308.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="glazkov.co.il">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">glazkov.co.il</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-13 10:07:47.653966</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkvault</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Since its establishment in 2012, our firm has been successfully providing accounting, payroll, and t&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1cac4f2181a71270894.html">
+                <img src="https://images.ransomware.live/victims/ecc39cb36721de9b967884f22cc74331.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Handala’s attack on Israeli organizations">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Handala’s attack on Israeli organizations</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-21 06:39:12.315168</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala’s attack on Israeli organizations Yesterday, after the problem occurred in CrowdStrike, Hand&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe13bc4f2181a712706e5.html">
+                <img src="https://images.ransomware.live/victims/d6612dce47ff07d49cbc8f3b98b73640.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Ma’agan Michael Kibbutz">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Ma’agan Michael Kibbutz</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-15 16:47:16.470625</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala Hacked Ma’agan Michael Kibbutz Ma’agan Michael is among Israel’s largest and most financiall&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe0dcc4f2181a712705c7.html">
+                <img src="https://images.ransomware.live/victims/677b0775cf2745c43f9c4c0b48bd5a9d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Information Technology">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Information Technology</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-27 11:36:49.973650</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Hello to the Zionist information technology community! Handala Hacked: Cello (formerly Cellopark) ME&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe0d7c4f2181a712705ba.html">
+                <img src="https://images.ransomware.live/victims/48aef423ecdd19cda29629d621e1c100.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Israel Textile">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Israel Textile</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-26 12:26:33.357136</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Standard Textile, Arad Textile Industries, North Division Hacked By Handala!   1.9 TB Data Dumped!  &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe0d7c4f2181a712705b9.html">
+                <img src="https://images.ransomware.live/victims/55c573210bfde40031b8f0e20fb36e66.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Israel Massad Quality">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Israel Massad Quality</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-26 12:25:55.041420</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala Hacked Massad Quality Massad College provides a wide range of courses and continuing educati&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe0d7c4f2181a712705b8.html">
+                <img src="https://images.ransomware.live/victims/55943b1ae36d971af731cddd2309c4d9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Israel largest cyber security college">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Israel largest cyber security college</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-26 12:25:20.726301</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/il.png" alt="IL flag">
+                  
+                  IL
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Handala Hacked Smart College (The largest Zionist cyber security college ) Smart College is a leadin&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:24:12-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

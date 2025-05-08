@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6814ec3df375874aeb47e522.html">
+                <img src="https://images.ransomware.live/victims/133cba5301ca21c809c1f98103b79b53.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="jamjoompharma.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jamjoompharma.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-02 11:18:00.681590</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> everest</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Jamjoom Pharma is a leading pharmaceutical company based in Jeddah, Saudi Arabia. For&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/680fd0578885af162a8a1242.html">
+                <img src="https://images.ransomware.live/victims/1940ed6e4283109a94cea80fec18f391.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rawafid">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rawafid</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-28 14:16:50.526206</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> nova</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Established in 2008 and headquartered in Riyadh, Rawafid Industrial specializes in water infrastruct&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/680f8a270fa4cc43791b6802.html">
+                <img src="https://images.ransomware.live/victims/0ac93c55b90744bbf452e2a2497de437.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Al-Hejailan Group">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Al-Hejailan Group</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-28 13:24:24.522579</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> nova</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ​​​​​Data has been leaked shame on you and all who work with you
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6809631f8536e90fc291c573.html">
+                <img src="https://images.ransomware.live/victims/101f52f9a3b55e13bec43a13f0ebefd3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rawafid">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rawafid</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-23 20:42:34.856305</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ralord</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Established in 2008 and headquartered in Riyadh, Rawafid Industrial specializes in water infrastruct&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67fd85dc9728741ee2209ee0.html">
+                <img src="https://images.ransomware.live/victims/7387af4e7f1adfc814af07c1177df04d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="hejailan">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">hejailan</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-14 19:08:27.675062</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ralord</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ​​​​​​​​​​​Established in 1980, the Al-Hejailan Group began as an engineering and contracting firm a&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67eceea0f2b6cf3bea64f6e5.html">
+                <img src="https://images.ransomware.live/victims/a769ae8fca3b678a899ecd1a4acea0ac.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="my.gov.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">my.gov.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-02 07:57:25.261188</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ddc565cbed9243e587543b.html">
+                <img src="https://images.ransomware.live/victims/9bb5d38eec2e2142b6d09d387c60e119.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="armetal.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">armetal.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-21 19:49:28.800788</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    armetal.com
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ba110e4ec5c3406783ac38.html">
+                <img src="https://images.ransomware.live/victims/930eef45fba989e822a2eb74efdfd6a7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.albawani.net">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.albawani.net</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-22 17:40:02.972502</p>
+                <p class="card-text"><strong>Industry:</strong> Construction</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonforce</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Al Bawani, headquartered in Riyadh, Saudi Arabia, is a construction company specializing in housing &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a1bf86d7591f072f4bc4f9.html">
+                <img src="https://images.ransomware.live/victims/41f1a35cf8e5797cd623357f1c0c5076.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="alojaimi.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">alojaimi.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-04 06:27:11.926135</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Alojaimi is a Saudi Arabian company established in 1970, specializing in the field of&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f53bb86f8591b4f5dcf97.html">
+                <img src="https://images.ransomware.live/victims/a5bcb43d4f10c11440400e42196493aa.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="dms-ksa.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dms-ksa.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-31 13:46:37.027822</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] DMS-KSA, also known as Digital Myth Solutions, is a leading company in Saudi Arabia o&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe539c4f2181a712712e5.html">
+                <img src="https://images.ransomware.live/victims/e9c6d27b16ab05ac4a4d2dc87c25826f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.aflak.com.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.aflak.com.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-16 10:04:39.269317</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Aflak Electronics Industries Co. Ltd. is a Saudi Arabian company specializing in reta&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe531c4f2181a712712cd.html">
+                <img src="https://images.ransomware.live/victims/b7f41770bcb5d1c100cebb5072d98976.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sadr.ws">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sadr.ws</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-15 10:19:27.741888</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonransomware</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    📌 We, the dragons, assure our forces that we will not penetrate anything. We have important informat&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe530c4f2181a712712ca.html">
+                <img src="https://images.ransomware.live/victims/2a1890e87193a1b8df5c379dd3a5862a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="wahaj-almassa.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">wahaj-almassa.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-15 09:55:22.341053</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonransomware</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Wahaj Al Massa (WAHAJ) is a Saudi-based precision engineering company specializing in high-tech manu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe52bc4f2181a712712bb.html">
+                <img src="https://images.ransomware.live/victims/376a70d2bdfad52ef9f99fa3571d5cce.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ssfirm.com.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ssfirm.com.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-15 09:54:31.085539</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonransomware</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    **🫠 Oops, ****ssfirm.com.sa**** been hacked 🔥
+
+[+] Al Saleh, Al Sihli &amp; Partners Law Firm is a Saudi&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe528c4f2181a712712b2.html">
+                <img src="https://images.ransomware.live/victims/5176e3eeef23ae5b4049b755e0ee1cd2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="shoor.cc">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">shoor.cc</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-15 09:54:00.498381</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonransomware</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    **🫠 Oops, ****shoor.cc**** been hacked 🔥
+
+[+] ****shoor.cc**** provides consultancy services in vari&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe523c4f2181a712712a3.html">
+                <img src="https://images.ransomware.live/victims/58c70b96e9d5a7a7e92d97f60eaca09b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.hashem-contracting.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.hashem-contracting.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-13 21:23:27.064325</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Hashem Contracting is a company specializing in construction and contracting services&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe50ac4f2181a71271257.html">
+                <img src="https://images.ransomware.live/victims/adc9c473b7b9468ddb50aa0231aebab4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Haji Husein Alireza">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Haji Husein Alireza</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-10 18:11:56.186785</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Haji Husein Alireza and Company Limited is a general trading company with diverse interests in foods&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe497c4f2181a712710fe.html">
+                <img src="https://images.ransomware.live/victims/a7382ef3d39b529fdc122af29822ea4f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ithbar.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ithbar.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-25 03:48:39.822480</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Choose ithbar.com as your solution to start your own crowdfunding platform. Start your own Real esta&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe41dc4f2181a71270f91.html">
+                <img src="https://images.ransomware.live/victims/1dbda231b72da442a00bb843db489636.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="oxyhealth.com.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">oxyhealth.com.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-10 13:47:13.627956</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3f3c4f2181a71270f11.html">
+                <img src="https://images.ransomware.live/victims/d0b0ce3b9062aa507bb79e7adcddd596.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tetco-group.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tetco-group.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-01 21:35:15.362010</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [IA generated] TETCO Group is a diversified company involved in various sectors such as energy, tele&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe342c4f2181a71270cff.html">
+                <img src="https://images.ransomware.live/victims/96ddceb9779bf8a670425652c025a9fd.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.fursan.com.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.fursan.com.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-04 12:22:37.682146</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The safety and convenience of our customers is our priority.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe26bc4f2181a71270a77.html">
+                <img src="https://images.ransomware.live/victims/6da751b7aeb1c870678bf8bfb5891a0e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sbc-gov.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sbc-gov.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-22 12:58:55.873132</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The General Secretariat of the Military Service Council in Saudi Arabia is a governmental entity res&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe229c4f2181a712709b2.html">
+                <img src="https://images.ransomware.live/victims/b684de88eed9c36014f57cd4f3d314a6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="inv-dar.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">inv-dar.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-08 22:03:37.767806</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1e8c4f2181a712708ee.html">
+                <img src="https://images.ransomware.live/victims/b0e6ce7a19fc2a745064abe0f4584558.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="baytoti.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">baytoti.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-25 19:19:20.352093</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe008c4f2181a71270345.html">
+                <img src="https://images.ransomware.live/victims/3f4860ebb674cfc3ac2406be255ed2ae.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.ucic.com.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.ucic.com.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-22 12:53:16.625198</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomexx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    United Carton Industries Company (UCIC) is a leading packaging solutions provider based in Saudi Ara&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf6bc4f2181a7127016e.html">
+                <img src="https://images.ransomware.live/victims/7469b4c328de61a4c17134904b361ef0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="baheyabeauty.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">baheyabeauty.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-12 04:35:27.804391</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkvault</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    It is a holdings company based in the Kingdom of Saudi Arabia established in 2006 owns three institu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf6bc4f2181a7127016d.html">
+                <img src="https://images.ransomware.live/victims/7469b4c328de61a4c17134904b361ef0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="baheya.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">baheya.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-12 02:56:42.958428</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkvault</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    It is a holdings company based in the Kingdom of Saudi Arabia established in 2006 owns three institu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde9fc4f2181a7126ff00.html">
+                <img src="https://images.ransomware.live/victims/09b125b904cbf3b6a2f6931b13562c8f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.saudiatechnic.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.saudiatechnic.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-28 04:21:10.614059</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Proud to be partnered with the national airline of Saudi Arabia, Saudia Technic (formerly SAEI) serv&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddecc4f2181a7126fce3.html">
+                <img src="https://images.ransomware.live/victims/224a496651fd51f365ba67e20a2956c9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.projects-world.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.projects-world.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-19 13:42:05.766079</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The company makes a decision to ignore us, all personal data are open and available for download bel&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddc5c4f2181a7126fc6e.html">
+                <img src="https://images.ransomware.live/victims/4da865559efb8784ea220592a8607a9a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.saed.sa/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.saed.sa/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-02 16:01:47.316512</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    SAED is a Saudi Closed Joint Stock Company with a capital of SAR 100 million, formed in 2014, under &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdc9ec4f2181a7126f8f3.html">
+                <img src="https://images.ransomware.live/victims/81047966f5bb0357e28675b5efc8f98a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ggarabia.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ggarabia.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-09 11:28:31.958276</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Gold&#39;s Gym Arabia is a company that operates in the Health, Wellness and Fitness industry. It employ&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdc69c4f2181a7126f852.html">
+                <img src="https://images.ransomware.live/victims/2441cf7fce9d2d7541859fa1b36cd6d5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="utec.com.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">utec.com.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-31 15:13:15.468641</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    United Transformers Electric Company (Utec), a subsidiary of Bawan, was founded in 2001 as a limited&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdbeec4f2181a7126f6dd.html">
+                <img src="https://images.ransomware.live/victims/517be31b478d7538999b0d126e77737a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="erga.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">erga.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-01 23:41:58.990241</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    An architectural and engineering firm based in Lebanon with branches in Saudi Arabia, Qatar &amp; UAE. w&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdbe5c4f2181a7126f6c3.html">
+                <img src="https://images.ransomware.live/victims/6acbf60936f8d1ae1f336248f946ccb9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.andalusiagroup.net">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.andalusiagroup.net</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-29 13:07:59.448324</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    About Andalusia Group  Headquarters: Al Murjan Tower King Abdullah Rd. Hail St Fl 7, Jeddah, Mecca, &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdbacc4f2181a7126f614.html">
+                <img src="https://images.ransomware.live/victims/a8d7c30edc9887241b6166ac2b0e2839.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.arail-sa.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.arail-sa.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-21 17:37:11.263945</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    For over 25 years, Arail LLC has been serving the rather challenging construction and industrial nee&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda74c4f2181a7126f260.html">
+                <img src="https://images.ransomware.live/victims/842c1c2e915ebbfc7585c0eeb9469d5b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.rcrc.gov.sa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.rcrc.gov.sa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 17:10:48.156098</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Royal Commission for Riyadh City is responsible for the overall planning and development of the &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd7ebc4f2181a7126eaa7.html">
+                <img src="https://images.ransomware.live/victims/ff409a839412934ec9cef8ffc092ca8a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="alyasrafoods.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">alyasrafoods.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-03-21 11:09:45.749804</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/sa.png" alt="SA flag">
+                  
+                  SA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Since 1988, Alyasra Foods has been distributing some of Kuwait&#39;s favorite foods in retail as well as&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:23:36-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

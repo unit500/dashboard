@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f6b5c22a60c8f3d959c52d.html">
+                <img src="https://images.ransomware.live/victims/1f48f4116d26066883fd0108ba94a3a1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.waferworks.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.waferworks.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-09 17:08:18.443373</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Helitek Company Ltd. manufactures silicon wafers. The Company&#39;s products include prime wafers, singl&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67fa1dc0749f960bb22a1a69.html">
+                <img src="https://images.ransomware.live/victims/1f48f4116d26066883fd0108ba94a3a1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.waferworks.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.waferworks.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-09 17:08:18.443373</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Helitek Company Ltd. manufactures silicon wafers. The Company&#39;s products include prime wafers, singl&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f6b5c12a60c8f3d959c52c.html">
+                <img src="https://images.ransomware.live/victims/fdd2495aa20ade5a17f1fe02bade88fc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.yellowpages.co.th/en/profile/Bangkok-Electronic-Engineering-Co-Ltd-13PObMiqK">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.yellowpages.co.th/en/profile/Bangkok-Electronic-Engineering-Co-Ltd-13PObMiqK</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-09 17:06:38.920325</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Bangkok Electronics Co., Ltd
+========================Pwn3d=================================== By Qil&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e487155ca2b5cea7700c89.html">
+                <img src="https://images.ransomware.live/victims/298b0c23aa3da53bcc8d273659f70b72.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.hongthongrice.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.hongthongrice.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-26 22:27:11.597019</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Hongthongrice.com is a renowned digital marketplace that operates in the agricultural&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67dc1f84946aaaa0fc0062e4.html">
+                <img src="https://images.ransomware.live/victims/bff134dcb04ab94c867362097ac93eab.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mof.go.th - Ministry of Finance (Thailand)">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mof.go.th - Ministry of Finance (Thailand)</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-20 13:53:18.016625</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    mof.go.th - Ministry of Finance (Thailand)
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67dbf55891c4d68c17ae6b63.html">
+                <img src="https://images.ransomware.live/victims/734587c8d7999a62ad4cfe93b4ad74e9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="smic.mi.th (Thailand Intelligence Agency)">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">smic.mi.th (Thailand Intelligence Agency)</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-20 09:23:02.565720</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    smic.mi.th (Thailand Intelligence Agency)
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67db226860887615ea08edcb.html">
+                <img src="https://images.ransomware.live/victims/08f24b08db3ee338c436cd52c017c4b6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Access Panel Financial Technology Company (Thailand)">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Access Panel Financial Technology Company (Thailand)</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-19 19:57:28.362554</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Access Panel Financial Technology Company (Thailand)
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d9c31f53ae6634ceb557b4.html">
+                <img src="https://images.ransomware.live/victims/7b84e40f032435121313b0a77b2c202a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nstda.or.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nstda.or.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-18 18:26:16.639947</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    nstda.or.th
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d55de3e389f067ea2d933e.html">
+                <img src="https://images.ransomware.live/victims/8ba9d49970971d914224f583d31b7ee2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nrru.ac.th - University">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nrru.ac.th - University</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-15 10:21:30.362339</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    nrru.ac.th - University
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c901efb88e36d5c49ce84b.html">
+                <img src="https://images.ransomware.live/victims/81827a4a18b826cefac139323423604c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="inet.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">inet.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-06 01:49:16.292692</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Extract from The 19 biggest gitlabs
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c07e0b73d4b1e04e02c064.html">
+                <img src="https://images.ransomware.live/victims/ad123a81c0bdebaca58d748eea361e7b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="thaimetal.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">thaimetal.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-27 14:35:55.680018</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> RunSomeWares</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    For over 32 years The Gilbert Company has specialized in supply-chain services for the retail sector&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a32b1703505b9f28f9a23c.html">
+                <img src="https://images.ransomware.live/victims/8b525399db965cc9503d161447a7cac3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="pccth.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">pccth.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-04 21:18:01.573645</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Extract from Gitlabs: Professional Computer, X-Pans, Propulsion Academy AG
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc68f06f14fdb4187d603.html">
+                <img src="https://images.ransomware.live/victims/757ed56124febff981a44aa140fc7584.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="jimthompson.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jimthompson.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-11 16:02:49.427409</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    No brand spells heritage like Jim Thompson, The Thai Silk Company founded in 1951 by James H.W. Thom&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc68606f14fdb4187d5e9.html">
+                <img src="https://images.ransomware.live/victims/0ce18c478f9ab2f14bb5ee2afbc8a7c4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.wisesocon.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.wisesocon.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-10 18:26:59.529889</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Consulting and IT infrastructure company based in Thaliand
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc68306f14fdb4187d5df.html">
+                <img src="https://images.ransomware.live/victims/04f03b175e522f7b261157be1661b23c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.rotaryeng.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.rotaryeng.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-10 00:34:53.588651</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Rotary Engineering Thailand Co. Ltd is a company based in Bangkok. They specialise in&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc67706f14fdb4187d5bc.html">
+                <img src="https://images.ransomware.live/victims/757ed56124febff981a44aa140fc7584.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="jimthompson.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jimthompson.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-07 21:25:19.759464</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    No brand spells heritage like Jim Thompson, The Thai Silk Company founded in 1951 by James H.W. Thom&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f530186f8591b4f5dce5d.html">
+                <img src="https://images.ransomware.live/victims/757ed56124febff981a44aa140fc7584.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="jimthompson.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jimthompson.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-07 21:25:19.759464</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    No brand spells heritage like Jim Thompson, The Thai Silk Company founded in 1951 by James H.W. Thom&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe537c4f2181a712712e1.html">
+                <img src="https://images.ransomware.live/victims/52326b97c4b4f762b0e756d5ce68ea3d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="jssr.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jssr.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-15 18:45:47.615791</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4e1c4f2181a712711de.html">
+                <img src="https://images.ransomware.live/victims/17121d1a7deca0741c590c2c302c617e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="intbizth.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">intbizth.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-04 06:29:24.872232</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    IntBizTH เราคือผู้นำในด้านการให้บริการ IT ครบวงจร โดยให้บริการลูกค้าทั้งภาครัฐและเอกชนชั้นนำกว่า 50 &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe47cc4f2181a712710ac.html">
+                <img src="https://images.ransomware.live/victims/002502873a96edf4337a0cdd128654b3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.ckpower.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.ckpower.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-20 15:18:47.511759</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Country : Thailand - Exfiltraded data : yes - Encrypted data : yes
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3ecc4f2181a71270efd.html">
+                <img src="https://images.ransomware.live/victims/f9248ab6c24ac886c72265cb3b413765.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.daikinthai.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.daikinthai.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-01 03:45:35.126034</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    We have 347,438 files (approx 800Gb+) with higly confidential corporate data of DAIKIN CORPORATION.
+&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3ebc4f2181a71270efa.html">
+                <img src="https://images.ransomware.live/victims/83ff392a6d11a293d9bf83834f84dc00.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.propak.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.propak.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-01 03:36:20.496627</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Propak is a proactive provider of leading-edge logistics, transportation and supply chain management&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe369c4f2181a71270d73.html">
+                <img src="https://images.ransomware.live/victims/b82ceca8589c49f62193125e2936b607.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="transfoodbeverage.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">transfoodbeverage.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-09 21:40:11.724807</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Trans F&amp;B is a subsidiary of Trans Corp which is engaged in Food &amp; Beverages (Food &amp; Beverage)
+
+Our &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe32cc4f2181a71270cbc.html">
+                <img src="https://images.ransomware.live/victims/71e5d2ccd30a61ac86559e787c2c87b0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="itap.nacc.go.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">itap.nacc.go.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-30 17:34:45.999179</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Integrity and Transparency Assessment of Public Service (ITAP) is an initiative by the National &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2c9c4f2181a71270b91.html">
+                <img src="https://images.ransomware.live/victims/a0784731ef5399a8ae65d74af39b9cb7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.dpe.go.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.dpe.go.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-09 20:46:21.828838</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Department of Physical Education (DPE) in Thailand, accessible via www.dpe.go.th, is a governmen&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe229c4f2181a712709b1.html">
+                <img src="https://images.ransomware.live/victims/084e889212e451e5c0b2d7a9df5923e4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="icarasia.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">icarasia.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-08 22:01:08.352508</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    iCarAsia is a leading digital automotive platform operating primarily in Southeast Asia, specificall&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1fbc4f2181a71270928.html">
+                <img src="https://images.ransomware.live/victims/dbca04db3502fac71bf17cc4de6744b6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="udch.in.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">udch.in.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-30 12:15:38.295447</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1ecc4f2181a712708fb.html">
+                <img src="https://images.ransomware.live/victims/0f60db04fb707d795c6590541abbdd1d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ach.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ach.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-26 09:52:19.023575</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe07dc4f2181a712704a8.html">
+                <img src="https://images.ransomware.live/victims/1fbd117a497b3f2b59f7491d71109922.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="thaiagri.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">thaiagri.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-09 13:30:23.634653</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    With our high quality product, TAF has customers in over 70 countries span over 6 continents, namely&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe078c4f2181a71270499.html">
+                <img src="https://images.ransomware.live/victims/fccc0e7a46e49cd86dd12cbb4caddb56.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="spu.ac.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">spu.ac.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-09 13:07:35.487724</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Sripatum University is committed to be ICT Campus through continuously deploying appropriate technol&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf88c4f2181a712701c4.html">
+                <img src="https://images.ransomware.live/victims/261885b1ed4aa1a6f11464979e063d4f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="geodis.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">geodis.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-18 09:43:08.990036</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphalocker</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    GEODIS Thai Ltd. came under attack! All SQL bases of the company are available! We think there&#39;s a l&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf05c4f2181a71270038.html">
+                <img src="https://images.ransomware.live/victims/a6f6cb013766689cfc74f5bd23b2358a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Thaire">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Thaire</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-03-21 00:31:53.336546</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> raworld</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde8fc4f2181a7126fed1.html">
+                <img src="https://images.ransomware.live/victims/d1a633b7463c2f3177c9677df4be16d0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.wangkanai.co.th/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.wangkanai.co.th/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-24 22:13:24.409294</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Wangkanai Group sugar business started in 1975 with the establishment of Wangkanai Sugar Co., Ltd. i&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde45c4f2181a7126fdf0.html">
+                <img src="https://images.ransomware.live/victims/c3f11c858273fcb99bbfdbde81702470.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="indoramaventures.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">indoramaventures.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-09 14:38:09.764233</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Indorama Ventures is a world-class sustainable chemical company making great products for society.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddf6c4f2181a7126fd02.html">
+                <img src="https://images.ransomware.live/victims/e99c81132e39282e250ac23754f63306.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="qtc-energy.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">qtc-energy.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-22 02:55:48.487899</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    manufactures and sells electrical transformers in Thailand and abroad. The company offers sealed oil&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddf5c4f2181a7126fd00.html">
+                <img src="https://images.ransomware.live/victims/3fd7f796458df9f933ff8fae81d387e3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="umi-tiles.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">umi-tiles.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-22 02:54:35.330828</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Saha mosaic Industry Public Company Limited was founded on June 6, 2016, listed on the stock exchang&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddf5c4f2181a7126fcff.html">
+                <img src="https://images.ransomware.live/victims/f1f868da40433e30e4752eaf474eb4cf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="cct.or.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">cct.or.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-22 02:53:51.882226</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    a company that works in the Religious Institutions industry
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdde6c4f2181a7126fcd2.html">
+                <img src="https://images.ransomware.live/victims/cfdc7e091c982378559891dd1847816f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="JspPharma">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">JspPharma</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-17 05:45:04.181045</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> insane</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    A few words about the breached company: JSP Pharmaceutical Manufacturing (Thailand) PCL is engaged i&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdda3c4f2181a7126fc0c.html">
+                <img src="https://images.ransomware.live/victims/60df6ff81c23e85df68a55ef955ff7d5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rmutto.ac.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rmutto.ac.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-21 16:16:20.499910</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> stormous</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Rajamangala University of Technology Tawan-Ok It is a university of science and technology. Establis&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdc81c4f2181a7126f89c.html">
+                <img src="https://images.ransomware.live/victims/7f3b6cd975df77362d03bf9fdc9fb57a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tks.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tks.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-04 17:37:24.893650</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    T.K.S Technologies PCL, “T.K.S.” was established in 1954 to carry out stationery and office supply. &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdc80c4f2181a7126f898.html">
+                <img src="https://images.ransomware.live/victims/84227458acf0ad035a5656e6bb3dd71b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tasl.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tasl.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-03 19:02:44.615844</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Thai Aviation Services
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdc5ec4f2181a7126f831.html">
+                <img src="https://images.ransomware.live/victims/16758a453079c1b379c8738606dec423.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="topcharoen.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">topcharoen.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-30 11:14:33.141953</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    From over 70 years of experience of &#34;Top Charoen Eyeglasses&#34;, we are pleased to provide a complete a&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdbffc4f2181a7126f713.html">
+                <img src="https://images.ransomware.live/victims/52126b75cda8c594081077bab54ded14.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="bm.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">bm.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-06 08:34:17.121021</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Bangsaen Mahanakorn Company Limited and affiliated companies of Bangsaen Mahanakorn
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdbacc4f2181a7126f615.html">
+                <img src="https://images.ransomware.live/victims/4b0036d8249326843018fb33e5186a00.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.unique.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.unique.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-21 17:37:49.221582</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    About us  Unique Engineering and Construction Public Company Limited, together with its subsidiaries&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdaf9c4f2181a7126f3f5.html">
+                <img src="https://images.ransomware.live/victims/d86542c44b501da2bf065c3d75adf112.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sgl.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sgl.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-17 16:02:55.833610</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Sumisho Global Logistics Co Ltd is a company that operates in the Logistics and Supply Chain industr&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdae4c4f2181a7126f3b6.html">
+                <img src="https://images.ransomware.live/victims/d6cb27ae0439b57309c3edf4ac0d4864.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="siampremier.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">siampremier.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-13 08:55:27.827364</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Providing legal advice and services to international clients, Siam Premier is a law firm in Thailand&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdadbc4f2181a7126f39b.html">
+                <img src="https://images.ransomware.live/victims/6d9591d3801778bd75a41ebe560181dd.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="chula.ac.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">chula.ac.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-09 12:52:41.537452</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Currently, the academic administration of the Department of Industrial Engineering, Chulalongkorn Un&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:26:27-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

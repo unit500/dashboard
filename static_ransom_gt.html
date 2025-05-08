@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e1abd95359b1fe3435ca5a.html">
+                <img src="https://images.ransomware.live/victims/f3a235e6be0fe66a65177bea9601c5e1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.solventacentroamerica.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.solventacentroamerica.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-24 18:06:50.010060</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gt.png" alt="GT flag">
+                  
+                  GT
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Solventa Centro America is a financial company that provides a variety of financial s&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ea136257bbb9ff2644cadc.html">
+                <img src="https://images.ransomware.live/victims/f3a235e6be0fe66a65177bea9601c5e1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.solventacentroamerica.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.solventacentroamerica.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-24 18:06:50.010060</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gt.png" alt="GT flag">
+                  
+                  GT
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Solventa Centro America is a financial company that provides a variety of financial s&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3e3c4f2181a71270ee2.html">
+                <img src="https://images.ransomware.live/victims/b2a9f64ab435b64b46e0196ddf1786ef.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="granjazul.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">granjazul.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-31 07:23:45.480752</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gt.png" alt="GT flag">
+                  
+                  GT
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [IA generated] Granjazul.com is a company focused on the production and distribution of eggs. They a&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3dec4f2181a71270ed3.html">
+                <img src="https://images.ransomware.live/victims/5c64f624c2824512a5b7b401d49f5e3d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nagucoop.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nagucoop.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-30 10:30:29.405915</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gt.png" alt="GT flag">
+                  
+                  GT
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [IA generated] I&#39;m sorry, but I couldn&#39;t find specific information about &#34;nagucoop.com.&#34; It&#39;s possib&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe29fc4f2181a71270b14.html">
+                <img src="https://images.ransomware.live/victims/37532345ba61a0fa9b3409c96148ee94.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.mineduc.gob.gt">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.mineduc.gob.gt</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-30 17:11:49.053005</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gt.png" alt="GT flag">
+                  
+                  GT
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The website &#34;www.mineduc.gob.gt&#34; is the official online portal for the Ministry of Education of Guat&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdbf4c4f2181a7126f6ef.html">
+                <img src="https://images.ransomware.live/victims/3429fb5127057eb5f13193128a97c366.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="aicsacorp.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">aicsacorp.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-03 10:03:51.038044</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gt.png" alt="GT flag">
+                  
+                  GT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    AICSA Corp. is a Guatemalan based firm, dedicated to providing the best Consulting, Engineering, Con&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdb07c4f2181a7126f420.html">
+                <img src="https://images.ransomware.live/victims/ae29362e63b9763b91ce6bcbe7957a86.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="decrolyamericano.edu.gt">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">decrolyamericano.edu.gt</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-22 12:37:53.736818</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gt.png" alt="GT flag">
+                  
+                  GT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Colegio Decroly Americano (CDA) was established in 1993 as a private, bilingual (Spanish-English), c&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda72c4f2181a7126f259.html">
+                <img src="https://images.ransomware.live/victims/af88d040eb3c0fbb175fe2f91dc1f2a2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="supermercadoslatorre.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">supermercadoslatorre.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 17:07:16.414203</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gt.png" alt="GT flag">
+                  
+                  GT
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Supermarket operator in Guatemala, under the concepts La Torre Econo super. Company with aggressive &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd9c1c4f2181a7126f040.html">
+                <img src="https://images.ransomware.live/victims/9d02ecc00ae5f2f4dac8ca8a2a7cf4a9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.BAM.COM.GT">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.BAM.COM.GT</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-11 17:59:31.224688</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gt.png" alt="GT flag">
+                  
+                  GT
+                </p>
+                <p class="card-text"><strong>Group:</strong> clop</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Banco Agromercantil de Guatemala, S.A. - BAM 
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:22:41-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

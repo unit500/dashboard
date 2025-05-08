@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/681aa2b0a32026c04ded7f0b.html">
+                <img src="https://images.ransomware.live/victims/ac9c96fdcd61faf5b9ff76969bbf88b6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.jemeppe-sur-sambre.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.jemeppe-sur-sambre.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 14:17:58.264740</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Jemeppe-sur-Sambre is a municipality in Wallonia, located in the province of Namur, Belgium. It comp&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6806a3e7a0cccd7e34528648.html">
+                <img src="https://images.ransomware.live/victims/19af0ab19cbfa46b0f473a413ffaf988.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.c-mec.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.c-mec.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-21 19:13:06.569390</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The C-Mec group is a European partner for niche customers, making customised solutions in metal. Wit&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/680633723b6f4c7682d8b916.html">
+                <img src="https://images.ransomware.live/victims/afc3f84c3074dfbcdcbfe541b6f45760.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.pharmaforce.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.pharmaforce.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-21 11:37:10.936653</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Exfiltraded data : yes - Encrypted data : no
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f83fe806165567dc5bc00d.html">
+                <img src="https://images.ransomware.live/victims/32595a825a773d9a02928f3d54bee5c4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.noyenconstruction.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.noyenconstruction.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-10 21:42:04.224185</p>
+                <p class="card-text"><strong>Industry:</strong> Construction</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Canada
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c901f0b88e36d5c49ce84e.html">
+                <img src="https://images.ransomware.live/victims/81827a4a18b826cefac139323423604c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="euranova.eu">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">euranova.eu</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-06 01:53:49.556106</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Extract from The 19 biggest gitlabs
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c901e9b88e36d5c49ce848.html">
+                <img src="https://images.ransomware.live/victims/81827a4a18b826cefac139323423604c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.melexis.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.melexis.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-06 01:44:46.610464</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Extract from The 19 biggest gitlabs
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c83cff586d0d329400d945.html">
+                <img src="https://images.ransomware.live/victims/62a9ca44f9f3282ac9d25aad7241e753.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.cda.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.cda.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-05 11:34:21.187639</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] CDA.BE is a Belgian company offering comprehensive IT solutions. With their multiface&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d758072f2130ea83541e7a.html">
+                <img src="https://images.ransomware.live/victims/62a9ca44f9f3282ac9d25aad7241e753.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.cda.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.cda.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-05 11:34:21.187639</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] CDA.BE is a Belgian company offering comprehensive IT solutions. With their multiface&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b60f9db7dc774f1168b9d8.html">
+                <img src="https://images.ransomware.live/victims/ce9f594589d2ba7242789e59e8406bb5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="foyernotredamedepaix.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">foyernotredamedepaix.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-19 16:25:49.126637</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> safepay</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Foyernotredamedepaix.be is a Belgian healthcare company that specializes in treating &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b9f4b0bd20cfd272da31c8.html">
+                <img src="https://images.ransomware.live/victims/ce9f594589d2ba7242789e59e8406bb5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="foyernotredamedepaix.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">foyernotredamedepaix.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-19 16:25:49.126637</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> safepay</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Foyernotredamedepaix.be is a Belgian healthcare company that specializes in treating &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a32b1803505b9f28f9a240.html">
+                <img src="https://images.ransomware.live/victims/3bf6ae0ee9d74a3767d086f571993c4c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="he2b.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">he2b.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-04 21:28:35.131199</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Extract from Gitlabs: Prasaga, HE2B, Kombinat
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f53d886f8591b4f5dcfd5.html">
+                <img src="https://images.ransomware.live/victims/5cfebed6581c761bc8def8ee26edc280.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Héron">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Héron</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-01 12:49:19.610415</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Héron includes several villages and offers residents a variety of municipal services such as populat&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc68906f14fdb4187d5f3.html">
+                <img src="https://images.ransomware.live/victims/2f54f3c5f3ee82af2d7f350bea4c2312.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="brachot.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">brachot.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-11 11:26:37.319590</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackbasta</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Brachot is a leading specialist in natural stone and blended materials, operating under the name Bra&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f530d86f8591b4f5dce64.html">
+                <img src="https://images.ransomware.live/victims/2f54f3c5f3ee82af2d7f350bea4c2312.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="brachot.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">brachot.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-11 11:26:37.319590</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackbasta</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Brachot is a leading specialist in natural stone and blended materials, operating under the name Bra&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc67706f14fdb4187d5bb.html">
+                <img src="https://images.ransomware.live/victims/6a6eb79411482c3af612063dfddf2f2c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="saintbar.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">saintbar.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-07 20:17:29.266961</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    16.8 GB
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc67206f14fdb4187d5aa.html">
+                <img src="https://images.ransomware.live/victims/268c3947cb196b48832489c15c57ae22.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="omnitravel.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">omnitravel.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-07 09:25:02.028591</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Omnitravel is a travel company that has been operating in Belgium for over 25 years, offering a vari&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe554c4f2181a71271335.html">
+                <img src="https://images.ransomware.live/victims/aa130d6c5d330c4d7e7807aab9f2476a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="notassoc.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">notassoc.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-18 16:54:08.963129</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    15 GB
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe541c4f2181a712712fd.html">
+                <img src="https://images.ransomware.live/victims/a2934b0efa7023f57cb90d7e6bd49ce2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.chemitex.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.chemitex.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-16 22:55:59.444448</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Belgium
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4a0c4f2181a7127111a.html">
+                <img src="https://images.ransomware.live/victims/277b83995f801e9827460d9210a43f06.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kela.health">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kela.health</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-25 21:06:45.231766</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusa</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Kela Health (founded 1941) - the developer and manufacturer of pharmaceuticals and food additives in&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe498c4f2181a71271100.html">
+                <img src="https://images.ransomware.live/victims/4b1928eeb73ad4927d6f1d45777a098a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="extrashop.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">extrashop.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-25 06:22:07.948344</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    https://www.extrashop.be/
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe440c4f2181a71270ff9.html">
+                <img src="https://images.ransomware.live/victims/2655b9cf9e3d1824cd137305550cece5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="potteau.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">potteau.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-15 19:17:11.663169</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Potteau.com is a company specializing in custom joinery and woodworking solutions. Th&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe420c4f2181a71270f9a.html">
+                <img src="https://images.ransomware.live/victims/82a64e828fc8497ea7c54f6811fcd439.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="potteau.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">potteau.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-11 17:15:02.298524</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Potteau.be is a Belgian company specializing in the design and manufacture of high-qu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe418c4f2181a71270f82.html">
+                <img src="https://images.ransomware.live/victims/d9a4735546adf749182b83dcd4f79588.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="interlabel.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">interlabel.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-08 18:13:01.687312</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Interlabel.be is a company specializing in producing high-quality labels and related &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3c3c4f2181a71270e82.html">
+                <img src="https://images.ransomware.live/victims/d466348ecb5af0e7a217543267f1a5a0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.lolaliza.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.lolaliza.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-25 13:08:20.812054</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> blacksuit</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    At LolaLiza, we believe that outer appearance reflects the inner soul, which is why it is our aim to&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3bfc4f2181a71270e76.html">
+                <img src="https://images.ransomware.live/victims/31e2d6fdd7492b667698367bc9c39c3a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Groupseco.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Groupseco.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-25 05:16:10.855645</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Groupseco.com is a company specializing in security solutions and services. They offer a range of pr&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3a7c4f2181a71270e2d.html">
+                <img src="https://images.ransomware.live/victims/fed0552373fae55ffbc687e093a06679.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="polypane.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">polypane.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-22 11:22:10.287759</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Polypane is a company specializing in a browser designed for web developers and designers. It offers&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe366c4f2181a71270d69.html">
+                <img src="https://images.ransomware.live/victims/cb409be1b8058764e41df7cd7e63bcdf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kerkstoel.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kerkstoel.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-09 20:34:45.262131</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Kerkstoel 2000+ specialises in precast concrete floor slabs, (insulated) twin wall panels and solid &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe33fc4f2181a71270cf5.html">
+                <img src="https://images.ransomware.live/victims/f1846adfe1f6ff61bceb7d2bc613ccbe.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.cobelplast.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.cobelplast.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-04 00:03:15.057851</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Country : Belgium - Exfiltraded data : yes - Encrypted data : no
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe322c4f2181a71270c9e.html">
+                <img src="https://images.ransomware.live/victims/110e4aa7b39dfde6641ad1c38f42c7ec.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="offroadaction.net">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">offroadaction.net</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-29 14:22:02.511930</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    OffRoadAction is an adventurous company specializing in off-road experiences and events. They offer &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe318c4f2181a71270c80.html">
+                <img src="https://images.ransomware.live/victims/d466348ecb5af0e7a217543267f1a5a0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.lolaliza.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.lolaliza.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-26 15:02:08.935096</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> blacksuit</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Lolaliza.com is a fashion retailer specializing in trendy clothing and accessories for women. The br&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe30ac4f2181a71270c56.html">
+                <img src="https://images.ransomware.live/victims/74fa1d2bcb13206ea151cba3ad3a6621.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="medicheck.io">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">medicheck.io</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-23 16:04:29.474820</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    MediCheck is a pioneering service provider specializing in medical control and absenteeism managemen&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2c8c4f2181a71270b8e.html">
+                <img src="https://images.ransomware.live/victims/9d9b59953ec8e8d80a626392954ef46e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="schynsassurances.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">schynsassurances.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-09 20:37:11.540775</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Schyns Assurances &amp; Finances is a trusted ally in protecting your assets, wealth, and savings. With &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2c7c4f2181a71270b8d.html">
+                <img src="https://images.ransomware.live/victims/f9b8303abd7b1c745fbf507c84194386.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="pv.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">pv.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-09 20:34:06.325083</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    P&amp;V is a Belgian cooperative insurance group based in Belgium. We have compromised a third-party pro&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2c4c4f2181a71270b83.html">
+                <img src="https://images.ransomware.live/victims/f96cb31c5cdafe5c28f92fe34d245839.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="prosolit.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">prosolit.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-07 17:08:21.391643</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusa</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Prosolit (founded in 2004) - provides site development, e-commerce, management software, security so&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2bfc4f2181a71270b75.html">
+                <img src="https://images.ransomware.live/victims/c5b039d319e561e8dbdaa27bc1b6a648.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="cda.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">cda.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-05 23:18:11.240227</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    CDA Assurances is a long-established insurance company based in Belgium, dedicated to providing pers&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2bfc4f2181a71270b74.html">
+                <img src="https://images.ransomware.live/victims/7b0c581be7c44b72a137dc814b7dffa3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="belfius.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">belfius.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-05 23:15:08.197277</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Belfius Bank, founded in 1996 and headquartered in Brussels, Belgium, provides banking services.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2bfc4f2181a71270b73.html">
+                <img src="https://images.ransomware.live/victims/16c7db2494dd189f40ffc021d5b88df8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="dvv.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dvv.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-05 23:12:00.858586</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    DVV Verzekeringen is a prominent insurance provider based in Belgium, specializing in a wide array o&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe28dc4f2181a71270ae0.html">
+                <img src="https://images.ransomware.live/victims/ac0f69d30f41e8536897b260e303934a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.clabots.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.clabots.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-29 01:23:10.649377</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Belgium
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe28bc4f2181a71270ada.html">
+                <img src="https://images.ransomware.live/victims/0e9187d6217c7fe50104cc14ad868c0e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="agra-services.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">agra-services.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-28 18:31:57.408642</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Agra Services is a prominent insurance provider in Belgium, dedicated to offering comprehensive insu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe289c4f2181a71270ad4.html">
+                <img src="https://images.ransomware.live/victims/f5b97ce7563a0140b25efd4fbd199e65.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="diamcad.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">diamcad.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-28 12:51:24.336575</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Diamcad is a distinguished company specializing in the precision cutting and shaping of diamonds. Re&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1ffc4f2181a71270934.html">
+                <img src="https://images.ransomware.live/victims/770423a64c7152eed60f78cb1a8e5219.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="verwarmingheyndrickx.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">verwarmingheyndrickx.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-30 21:41:40.578922</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1ddc4f2181a712708cc.html">
+                <img src="https://images.ransomware.live/victims/a2e75d10fa40e5a3950662c746575197.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.valisana.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.valisana.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-24 22:46:08.113791</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Valisana! Verantwoordelijkheid is de morele nood om aan onze eigen handelingen of die van anderen te&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1dac4f2181a712708c5.html">
+                <img src="https://images.ransomware.live/victims/1abf138f39b2c6e14b061ed48266c980.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="vrd.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">vrd.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-24 16:41:53.745763</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> madliberator</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    VRD is een modern transportbedrijf waarbij kwaliteit, flexibiliteit en klantgerichtheid voorop staan&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1c0c4f2181a71270877.html">
+                <img src="https://images.ransomware.live/victims/d0f0cec2d2be17cd8a236a7b2282862f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="customssupport.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">customssupport.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-19 09:21:41.310203</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    We are specialised in  - Import, export, and transit - Goods Classification - Customs Consultancy
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe0dfc4f2181a712705d1.html">
+                <img src="https://images.ransomware.live/victims/3837c078700b57a65a15149e571ae6e7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.manuchar.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.manuchar.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-28 19:56:46.072552</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Country : Belgium - Exfiltraded data : yes - Encrypted data : no
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe090c4f2181a712704e3.html">
+                <img src="https://images.ransomware.live/victims/cd42c5d5fdc39ff145731c557d981e40.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="wallonie.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">wallonie.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-13 12:29:11.611146</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Walloon Civil Service (SPW) is the administration of Wallonia. It consists of the General Secret&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe063c4f2181a7127045b.html">
+                <img src="https://images.ransomware.live/victims/aae1c41d232cebe419ae2746b302218d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.inforius.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.inforius.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-07 22:29:20.728106</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Created in 2009 by Guy Wauthier and Laurent Mimmo, it now has 50 employees. With different types of &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe04ac4f2181a7127040f.html">
+                <img src="https://images.ransomware.live/victims/6e604119d7317d4604d51f0dfb517942.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="irc.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">irc.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-06 13:36:58.387523</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Hardware Services. IRC kan u een breed scala aan diensten bieden door onze hoge mate van ervaring en&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf8bc4f2181a712701cf.html">
+                <img src="https://images.ransomware.live/victims/33a9b4eca393c82eec2d032070dd071b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="etateam.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">etateam.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-18 19:35:26.459347</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/be.png" alt="BE flag">
+                  
+                  BE
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    European Team is an accountant in Brussels in the province of Province of Brussels in the Brussels-C&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:22:04-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

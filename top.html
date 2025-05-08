@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 12:23:48-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-08 13:22:03-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
   
@@ -379,11 +379,11 @@
       
         { value: 350, name: "US" },
       
-        { value: 37, name: "DE" },
+        { value: 36, name: "DE" },
       
         { value: 27, name: "CA" },
       
-        { value: 18, name: "IT" },
+        { value: 17, name: "IT" },
       
         { value: 12, name: "GB" }
       
@@ -408,11 +408,11 @@
       
         { value: 3, name: "malaysiaairports.com.my/en" },
       
-        { value: 2, name: "knrlegal.com" },
+        { value: 2, name: "hasbco" },
       
-        { value: 2, name: "mccagueborlack.com" },
+        { value: 2, name: "klinger.it" },
       
-        { value: 2, name: "enersolcr.com" }
+        { value: 2, name: "corsbassett.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -435,13 +435,13 @@
       
         { value: 82, name: "qilin" },
       
+        { value: 72, name: "SilentRansomGroup" },
+      
         { value: 72, name: "play" },
       
         { value: 72, name: "leakeddata" },
       
-        { value: 72, name: "SilentRansomGroup" },
-      
-        { value: 53, name: "akira" }
+        { value: 52, name: "akira" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -470,7 +470,7 @@
       
         { value: 42, name: "21" },
       
-        { value: 41, name: "13" }
+        { value: 40, name: "13" }
       
     ];
     chartRansomByHour.setOption({
@@ -491,7 +491,7 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 238, name: "Tue" },
+        { value: 234, name: "Tue" },
       
         { value: 116, name: "Mon" },
       
@@ -618,11 +618,11 @@
       
         { value: 18, name: "CA" },
       
-        { value: 17, name: "NL" },
-      
         { value: 17, name: "UA" },
       
-        { value: 15, name: "US" }
+        { value: 17, name: "NL" },
+      
+        { value: 15, name: "PL" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -728,9 +728,9 @@
       
         { value: 20, name: "Sun" },
       
-        { value: 19, name: "Tue" },
+        { value: 19, name: "Fri" },
       
-        { value: 19, name: "Fri" }
+        { value: 19, name: "Tue" }
       
     ];
     chartDdosByWeekday.setOption({

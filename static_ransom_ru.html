@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6819351e8a876d7ac2732c22.html">
+                <img src="https://images.ransomware.live/victims/1ae449e148edc68dafa096564beefe20.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.novosit.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.novosit.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-05 19:13:14.909925</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Dominican Republic
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e487185ca2b5cea7700c90.html">
+                <img src="https://images.ransomware.live/victims/b004f0b085aaa13e61ee71ef9c7a93e2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="crimsgroup.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">crimsgroup.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-26 22:55:54.716762</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    crimsgroup.com
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67df4f1f0428df885e24d027.html">
+                <img src="https://images.ransomware.live/victims/01f9e342b0bde26598422465f13db930.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="let&#39;s join us babuk locker (Ransomare Affiliate) 2025">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">let&#39;s join us babuk locker (Ransomare Affiliate) 2025</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-22 23:55:34.087543</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    let&#39;s join us babuk locker (Ransomare Affiliate) 2025
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ded09ab8242e9c600c8536.html">
+                <img src="https://images.ransomware.live/victims/852b8806dd32e02e5162af1c89459afd.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Synesis Surveillance System">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Synesis Surveillance System</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-22 14:54:11.625401</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Synesis Surveillance System
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c901f0b88e36d5c49ce84c.html">
+                <img src="https://images.ransomware.live/victims/81827a4a18b826cefac139323423604c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.koltiva.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.koltiva.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-06 01:50:48.533868</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Extract from The 19 biggest gitlabs
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c6349dc777e0e4fcfe3ef9.html">
+                <img src="https://images.ransomware.live/victims/6e2ee55e8ef878e0c31796b76ed81266.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="andreyevengineering.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">andreyevengineering.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-03 22:04:45.373982</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Andreyev Engineering, Inc. is a specialized engineering company based in St. Petersbu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc69106f14fdb4187d609.html">
+                <img src="https://images.ransomware.live/victims/c2130f0d58cc4bf655a5ede0740b94b0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kuzstu-nf.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kuzstu-nf.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-13 15:15:11.674666</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] I&#39;m sorry, but it appears there&#39;s a misunderstanding. &#34;kuzstu-nf.ru&#34; seems to be a we&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe521c4f2181a7127129f.html">
+                <img src="https://images.ransomware.live/victims/4a3bee41e75c432dacd07bb978c8f3cb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Kazyon">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Kazyon</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-13 19:17:21.617360</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> moneymessage</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Kazyon is a prominent discount supermarket chain based in Egypt. Founded in 2014, it &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe409c4f2181a71270f53.html">
+                <img src="https://images.ransomware.live/victims/e83432386e6166787a03b3a125dff854.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.smarts-engineering.de">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.smarts-engineering.de</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-06 22:59:50.643159</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> helldown</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.smarts-engineering.de
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe26cc4f2181a71270a7a.html">
+                <img src="https://images.ransomware.live/victims/03d4c52a58d4b545c9ecffd0c22c8d4d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="level.game">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">level.game</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-22 15:14:54.331812</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Level SuperMind is a wellness technology company focused on improving mental clarity and well-being &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdee0c4f2181a7126ffc6.html">
+                <img src="https://images.ransomware.live/victims/68a15ab3d0ccd996406fdeee7f7cdf92.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="vsexshop.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">vsexshop.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-03-13 01:20:14.630060</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Компания VsexShop.Ru существует на рынке уже более 10 лет. За это время услугами нашего онлайн секс &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddacc4f2181a7126fc27.html">
+                <img src="https://images.ransomware.live/victims/fc309356ccf5efeaddd2e4c812e21904.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="forabank.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">forabank.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-23 16:07:20.143975</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    АКБ «ФОРА-БАНК» (АО) зарегистрирован Банком России на рынке финансовых услуг 27 мая 1992 г. Входит в&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddacc4f2181a7126fc26.html">
+                <img src="https://images.ransomware.live/victims/856fe2f1e181534227be16ae166a8dc0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="vasexperts.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">vasexperts.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-23 16:06:43.113880</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Компания VAS Experts — разработчик программного обеспечения для контроля и анализа трафика. Компания&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd97c4f2181a7126fbe9.html">
+                <img src="https://images.ransomware.live/victims/5a55ea9dbc676b4094e8254e781360f8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lzaim38.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lzaim38.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 11:53:32.247943</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Компания &#34;Лёгкий ЗАЙМ&#34;, имеющая в Иркутской области развитую сеть офисов микрофинансирования, предла&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd97c4f2181a7126fbe8.html">
+                <img src="https://images.ransomware.live/victims/fdc59cd2156de1ce4bb4bb0e3b6792f1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="qb2b.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">qb2b.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 11:51:28.755922</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Компания занимается преимущественно бухгалтерским обслуживанием организаций малого бизнеса.Имеет хор&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd95c4f2181a7126fbe3.html">
+                <img src="https://images.ransomware.live/victims/ed4503039e931d0b2bd9df55032b6e3d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="avrora24.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">avrora24.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 10:38:37.026227</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    755369 клиентов,поддерживаем высокий уровень качества услуг - согласно проведенным исследованиям, ин&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd94c4f2181a7126fbe0.html">
+                <img src="https://images.ransomware.live/victims/69d1f860de7de3588b16e7986367117c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="croc.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">croc.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 10:33:27.339533</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ЗАО «КРОК инкорпорейтед» — российская компания, связанная с рынком информационных технологий. Работа&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd94c4f2181a7126fbdf.html">
+                <img src="https://images.ransomware.live/victims/b3580788bbca34391b76c5aefd27c500.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="carmoney.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">carmoney.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 10:32:11.126594</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Общество с ограниченной ответственностью Микрофинансовая компания «КарМани».CarMoney - современный о&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd94c4f2181a7126fbde.html">
+                <img src="https://images.ransomware.live/victims/e4342c4b036c198a07e8905a850c14d6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="roomhotel-sochi.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">roomhotel-sochi.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 10:31:09.568371</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Отель «RoomHotel» с видом на город удобно расположен в центре Сочи, рядом с Сочинским государственны&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd93c4f2181a7126fbdd.html">
+                <img src="https://images.ransomware.live/victims/669e8658395d0a3c9448587a1dd5f742.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="atol.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">atol.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 10:30:13.110014</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    АТОЛ – IT-компания, ведущий российский производитель оборудования и разработчик программного обеспеч&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd93c4f2181a7126fbdc.html">
+                <img src="https://images.ransomware.live/victims/6a69968a29a679dfcf62a23d9b9efc4f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gaztranscom.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gaztranscom.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 10:29:07.979582</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Общество с ограниченной ответственностью «Газотранспортная компания» зарегистрировано Межрайонной ин&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd93c4f2181a7126fbdb.html">
+                <img src="https://images.ransomware.live/victims/7338e415762b438d8194d95cfdc6db6d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kailos.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kailos.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 10:27:56.383689</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Агентство деловых услуг &#34;Кайлос&#34; начало свою работу 28 ноября 2007 года с одного маленького офиса и &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd92c4f2181a7126fbda.html">
+                <img src="https://images.ransomware.live/victims/45e483678630bd3179d27f5152888056.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="promproektspb.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">promproektspb.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 10:26:45.414660</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Компания была основана с целью занять достойное место на рынке экспертных услуг в сфере промышленной&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd92c4f2181a7126fbd9.html">
+                <img src="https://images.ransomware.live/victims/fd5b363e2123dbcde7c2dea62069bebc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="auditexpertnn.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">auditexpertnn.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-20 10:25:33.044737</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> werewolves</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Центр бухгалтерских услуг «АУДИТ-ЭКСПЕРТ» принимает желание заказчика работать эффективно как профес&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd6f5c4f2181a7126e7bb.html">
+                <img src="https://images.ransomware.live/victims/863238c49a91c1c18ddf1de4908d87eb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="spw.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">spw.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-04-09 14:57:18.00000</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> malas</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    using Zimbra vulnerability
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd6fdc4f2181a7126e7d3.html">
+                <img src="https://images.ransomware.live/victims/863238c49a91c1c18ddf1de4908d87eb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="paulmitchell.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">paulmitchell.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-04-09 14:57:18.00000</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> malas</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    using Zimbra vulnerability
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd710c4f2181a7126e80e.html">
+                <img src="https://images.ransomware.live/victims/863238c49a91c1c18ddf1de4908d87eb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="happy-snack.ru">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">happy-snack.ru</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-04-09 14:57:18.00000</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ru.png" alt="RU flag">
+                  
+                  RU
+                </p>
+                <p class="card-text"><strong>Group:</strong> malas</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    using Zimbra vulnerability
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:22:39-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

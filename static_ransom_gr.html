@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67aa2ad3aa0cb251fcafc8d1.html">
+                <img src="https://images.ransomware.live/victims/2b62475975fdb17b3fc233f8faf3c937.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="BEINOGLOU.GR">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">BEINOGLOU.GR</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-10 15:18:18.099586</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> clop</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] BEINOGLOU.GR is a leading Greek logistics company founded in 1923. Its services encom&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc67f06f14fdb4187d5d3.html">
+                <img src="https://images.ransomware.live/victims/e1bbf1d89047ce64200998f47fff31a5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mindev.gov.gr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mindev.gov.gr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-09 15:13:14.248056</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Mindev.gov.gr is the official website for the Ministry of Development and Investments&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe5a6c4f2181a7127142b.html">
+                <img src="https://images.ransomware.live/victims/198e33121b367fd5b0f20973d9de1046.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nigico.gr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nigico.gr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-28 15:01:00.670568</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Nigico.gr is a Greek company specializing in the distribution of industrial automatio&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe53ec4f2181a712712f2.html">
+                <img src="https://images.ransomware.live/victims/f1f20b80b8718918a0eb29a3f279fd3b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="cognity.gr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">cognity.gr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-16 18:55:46.588866</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    36 GB
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe504c4f2181a71271247.html">
+                <img src="https://images.ransomware.live/victims/9a0813935560f776ccd52569881c906c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nedamaritime.gr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nedamaritime.gr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-10 05:17:11.213466</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackout</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Neda Maritime is an independent shipping company that manages and operate...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe48ac4f2181a712710d7.html">
+                <img src="https://images.ransomware.live/victims/0c7cf3628804c8289f1a0624b9d6e058.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="latouraineinc.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">latouraineinc.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-21 23:50:27.277443</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Considering that all information about the Andreas Hronopoulos company does not correspond to the tr&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3efc4f2181a71270f06.html">
+                <img src="https://images.ransomware.live/victims/8ed346abd8792eeac3d4f0647502e4cb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="eap.gr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">eap.gr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-01 18:16:32.959203</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [IA generated] EAP.gr refers to the Hellenic Open University (Helleniko Anoikto Panepistimio) based &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe30dc4f2181a71270c5e.html">
+                <img src="https://images.ransomware.live/victims/d1fb2a853323be228baff7f41444cbcd.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.eurobulk.gr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.eurobulk.gr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-23 20:43:15.713288</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greece
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe26bc4f2181a71270a79.html">
+                <img src="https://images.ransomware.live/victims/b00c595441fce9dce978207df476d511.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="antaeustravel.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">antaeustravel.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-22 15:10:01.336221</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackout</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Antaeus Travel is a travel agency specializing in corporate and sea trave...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe22fc4f2181a712709c3.html">
+                <img src="https://images.ransomware.live/victims/4c971fad86cd9338103c841b9072ce18.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kronospublic.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kronospublic.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-10 19:12:16.825065</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Kronos Corporate Group is a dynamic organization dedicated to innovation and portfolio diversificati&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1c3c4f2181a71270880.html">
+                <img src="https://images.ransomware.live/victims/2b212d636f1e0d1fd103510566f71090.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="iteam.gr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">iteam.gr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-19 09:26:10.458275</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Artificial intelligence (AI) is a broad and general term that refers to any type of computer softwar&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1c1c4f2181a71270879.html">
+                <img src="https://images.ransomware.live/victims/bd91326dfa0907416bdfcacf202f4854.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="barkingwell.gr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">barkingwell.gr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-19 09:22:39.768911</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Barking Well Media was founded by the Greek entrepreneur Nikos Koklonis, who was selected by Fortune&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdcaec4f2181a7126f924.html">
+                <img src="https://images.ransomware.live/victims/2d3df6a27a52d0cf4b92a101dc6e13e3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="aegean.gr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">aegean.gr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-12 21:58:37.155966</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
+                  
+                  GR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The University of the Aegean is a public, multi-campus university located in Lesvos, Chios, Samos, R&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:22:49-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

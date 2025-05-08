@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67cadfe3217a2281ed813157.html">
+                <img src="https://images.ransomware.live/victims/8168cea74580482470c831e28b10d999.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.acdcexpress.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.acdcexpress.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-07 11:25:44.385822</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Established in 1984, ACDC Dynamics is the leading manufacturer, importer and distributor of quality &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d1bdb745785e8a7afcc4fc.html">
+                <img src="https://images.ransomware.live/victims/8168cea74580482470c831e28b10d999.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.acdcexpress.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.acdcexpress.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-07 11:25:44.385822</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Established in 1984, ACDC Dynamics is the leading manufacturer, importer and distributor of quality &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c618c22cf18100a1289986.html">
+                <img src="https://images.ransomware.live/victims/7041d8227d1329699f4ec7afd1260271.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="linkgroup.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">linkgroup.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-03 20:02:54.037326</p>
+                <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Hard landscaping including new patios, retaining walls, rockeries, decking,…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ad8d8a126d196d7b9c8632.html">
+                <img src="https://images.ransomware.live/victims/97107762e4edf8758358461d3eef76ca.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="weathersa.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">weathersa.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-12 10:14:05.794490</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Weathersa.co.za is South Africa&#39;s national weather service, providing the most up-to-&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc68006f14fdb4187d5d7.html">
+                <img src="https://images.ransomware.live/victims/db7f203af0c8595048d503e1144b0756.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="pnp.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">pnp.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-09 16:38:42.188654</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> apt73</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Pick n Pay Group Ltd. is a South African retailer. It operates three brands – Pick n Pay, Boxer...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe5a6c4f2181a7127142a.html">
+                <img src="https://images.ransomware.live/victims/ece34b041a784e167f4f2e52a73aecab.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.cellc.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.cellc.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-28 12:42:42.346797</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Founded in 2001 and headquartered in Midrand, South Africa, Cell C is a provider of mobile telecommu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3f4c4f2181a71270f15.html">
+                <img src="https://images.ransomware.live/victims/3fa53f8dce1f8eff35f7784ed2e0c3cf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="srigroup.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">srigroup.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-02 12:44:23.203062</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3ecc4f2181a71270efc.html">
+                <img src="https://images.ransomware.live/victims/56513ac1967fd0846b867524fe2c300d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.heritagegolflinks.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.heritagegolflinks.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-01 03:42:31.161969</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Heritage Club is one of the premier golf courses in the Myrtle Beach area, residing on southern Gran&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe341c4f2181a71270cfa.html">
+                <img src="https://images.ransomware.live/victims/467193232e8fafd9b8ec6ddb301a6d78.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="enterpriseoutsourcing.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">enterpriseoutsourcing.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-04 09:15:12.988038</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Enterprise Outsourcing is a technology services company offering a range of solutions including IT c&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe27cc4f2181a71270aad.html">
+                <img src="https://images.ransomware.live/victims/4a26cfd8596f6725baad25ba8b68d2d0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="smithcapital.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">smithcapital.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-26 16:16:16.375450</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> monti</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Smith Affiliated Capital (SAC) was formed in 1982 to provide both discretionary and advisory investm&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe27ac4f2181a71270aa6.html">
+                <img src="https://images.ransomware.live/victims/6916364330e2590a934a35ac1a44becb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="onedayonly.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">onedayonly.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-26 03:19:42.241345</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    OneDayOnly is an online shopping platform offering a variety of deals on consumer products, includin&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe253c4f2181a71270a31.html">
+                <img src="https://images.ransomware.live/victims/aa0fee07242e0e653ce5864fa6b8b2b6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.netconfig.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.netconfig.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-17 19:07:46.156405</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    NetConfig is a South African-based company specializing in IT solutions and services. They offer a r&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe23ec4f2181a712709f1.html">
+                <img src="https://images.ransomware.live/victims/deac5cfc9e9a7df55d586d358bda1cc6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lenmed.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lenmed.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-13 13:06:58.958150</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkvault</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Lenmed Hospitals are deeply rooted in the historical landscape of Southern Africa. They have provide&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe23dc4f2181a712709f0.html">
+                <img src="https://images.ransomware.live/victims/e81d9cd8668320ea5b9fbac4594fbeb8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gpf.org.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gpf.org.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-13 13:05:46.947238</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkvault</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Gauteng Partnership Fund, an agency of the Gauteng Department of Human Settlements, combines res&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe232c4f2181a712709cc.html">
+                <img src="https://images.ransomware.live/victims/e2104de411fa979fd63a92d5c91727f1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="acdcexpress.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">acdcexpress.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-11 07:51:41.202900</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ACDC Express is a South African Electrical Retail and Wholesale Franchise, specializing in Everythin&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1cec4f2181a712708a0.html">
+                <img src="https://images.ransomware.live/victims/bf43ad27e77b4eed985d1500c7abcdf4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.sibanyestillwater.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.sibanyestillwater.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-22 14:48:45.369399</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Sibanye-Stillwater is one of the world’s largest primary producers of platinum, palladium, and rhodi&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1b6c4f2181a71270858.html">
+                <img src="https://images.ransomware.live/victims/322cb914ccac87205414ef9822ea881f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sacities.net">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sacities.net</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-17 05:13:28.769296</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> madliberator</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Our vision and mission is crucial to the work we do. Integral to the South African Cities Network is&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe18cc4f2181a712707d9.html">
+                <img src="https://images.ransomware.live/victims/73cabdb4a1808b037eb7b5ae8be1b101.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nhls.ac.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nhls.ac.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-05 12:08:10.754998</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> blacksuit</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The National Health Laboratory Service (NHLS) is a large diagnostic pathology service in South Afric&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe15ac4f2181a71270744.html">
+                <img src="https://images.ransomware.live/victims/b4a609e8d3e0bc13edf846abd08ed433.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.glynmarais.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.glynmarais.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-23 19:43:44.755540</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> cactus</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Download link #1:  https://***************.onion/JGM/PROOF/Mirror: https://cactus5dqnqkppa5ayckiyk6d&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe0fcc4f2181a71270629.html">
+                <img src="https://images.ransomware.live/victims/ecc32a4a1b997737e766c2dc30cc7b41.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.kamojou.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.kamojou.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-04 23:16:57.428472</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe063c4f2181a7127045a.html">
+                <img src="https://images.ransomware.live/victims/ecc32a4a1b997737e766c2dc30cc7b41.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kamojou.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kamojou.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-07 20:36:42.352693</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Visits: 32 Data Size: 2GB Published: False
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf71c4f2181a7127017f.html">
+                <img src="https://images.ransomware.live/victims/fc1e9af8ce0b22d19b135e72f7becac1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.caxton.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.caxton.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-13 10:37:31.442708</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Country : South Africa - Exfiltraded data : yes - Encrypted data : yes
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf5dc4f2181a71270141.html">
+                <img src="https://images.ransomware.live/victims/d3597d3544d806f7b596f4080841c516.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="patersoncooke.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">patersoncooke.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-09 17:00:12.036642</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackbasta</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Paterson &amp; Cooke was founded as an engineering consultancy in 1991 by Angus Paterson and Robert Cook&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf19c4f2181a71270075.html">
+                <img src="https://images.ransomware.live/victims/5ca9fda4ffd344191f5e6a4f0fd32acb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nampak.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nampak.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-03-27 01:24:08.593870</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Nampak (National Amalgamated Packaging) is a South African company based in Johannesburg, South Afri&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fded1c4f2181a7126ff9a.html">
+                <img src="https://images.ransomware.live/victims/dc6a2842957516812dd7ad751c05b6b6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gpaa.gov.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gpaa.gov.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-03-11 10:18:10.237242</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Government Pensions Administration Agency (GPAA) administers pensions on behalf of its primary c&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde5dc4f2181a7126fe3a.html">
+                <img src="https://images.ransomware.live/victims/b4af76e1aa0c492a46843f68a72179a3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="auruminstitute.org">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">auruminstitute.org</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-13 10:06:54.803493</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Aurum Institute has so many vulnerabilities in its network that we managed to steal all sensitiv&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde19c4f2181a7126fd6d.html">
+                <img src="https://images.ransomware.live/victims/dce189ed471ecc93a980ff35758e4bdc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="crowe.com.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">crowe.com.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-29 20:23:05.750103</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Crowe LLP is a public accounting, consulting and technology firm. Crowe uses its deep industry exper&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddd0c4f2181a7126fc90.html">
+                <img src="https://images.ransomware.live/victims/88eefbbeaf2c4526ba0a37d586367782.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="twt.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">twt.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-10 13:11:43.187847</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Tiger Wheel &amp; Tyre is committed to providing consumers with expert advice, superior fitment services&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddd0c4f2181a7126fc8f.html">
+                <img src="https://images.ransomware.live/victims/53a0b3b49f6ab277c704c08df17e4039.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tiautoinvestments.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tiautoinvestments.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-10 13:11:15.265539</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Found in 2006 and headquartered in Midrand, South Africa, TiAuto is a holding company of South Afric&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd32c4f2181a7126fab4.html">
+                <img src="https://images.ransomware.live/victims/bc75c04c0b60478a17dc15820b9d997a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.capespan.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.capespan.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-07 19:10:49.675168</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    South Africa
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdca9c4f2181a7126f915.html">
+                <img src="https://images.ransomware.live/victims/e663ccc1c35ba282c5b6400cb361c911.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="vital.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">vital.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-11 18:55:50.991608</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Vital Vitamins, Nutritional Supplements &amp; Health Foods
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdc08c4f2181a7126f72c.html">
+                <img src="https://images.ransomware.live/victims/19979b88bf16c4da86606f78798a0257.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.lssa.org.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.lssa.org.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-09 11:31:15.082784</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Attorneys and advocates in South Africa are registered with the Legal Practice Council in terms of t&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdc06c4f2181a7126f727.html">
+                <img src="https://images.ransomware.live/victims/4bb7c4d2089020551f725bd4b89f934f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="securicon.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">securicon.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-08 22:02:39.437738</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Securicon Lowveld offers a professional security services and in particular Risk management, experie&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdb94c4f2181a7126f5cc.html">
+                <img src="https://images.ransomware.live/victims/6e6d568697a15aa5428e8cfd60d5e5d0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="energyinsight.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">energyinsight.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-16 13:07:04.247866</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    THE wholesaler for pipes and civil engineering components and have specialized in trading with steel&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdae5c4f2181a7126f3b8.html">
+                <img src="https://images.ransomware.live/victims/f592bd2b00ac1d8070cbe59abaeebf14.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="stmarysschool.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">stmarysschool.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-13 08:56:24.689983</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    St Mary&#39;s School, Waverley, is an independent Anglican school catering for girls from Grade 0 to mat&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdadec4f2181a7126f3a3.html">
+                <img src="https://images.ransomware.live/victims/06989b544db15b34aaf8dafb882bae68.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="cbcstjohns.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">cbcstjohns.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-09 14:57:00.068316</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    CBC St John’s is an independent Catholic School for children aged 2 to Matric, in the Edmund Rice Tr&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda58c4f2181a7126f20b.html">
+                <img src="https://images.ransomware.live/victims/786b21891dcab1bace1df19a37bb5270.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.eliasmotsoaledi.gov.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.eliasmotsoaledi.gov.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 16:25:22.800181</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Elias Motsoaledi is a company that operates in the Government industry.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda2fc4f2181a7126f18e.html">
+                <img src="https://images.ransomware.live/victims/532f3e8894e798d456827ddbd17a5f5b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.ecgb.org.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.ecgb.org.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 15:19:25.505610</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Who is Eastern Cape Gambling Board  Headquarters: Quenera Park Quenera Dr, East London, 5201, South &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd94bc4f2181a7126eed8.html">
+                <img src="https://images.ransomware.live/victims/a889bb547e49941505bae2d8c557542f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lssa.org.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lssa.org.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-15 07:51:52.923651</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Law Society of South Africahttps://www.lssa.org.za/about-us/Attorneys and advocates in South Africa &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd928c4f2181a7126ee6c.html">
+                <img src="https://images.ransomware.live/victims/a6d07d49f44558babdca04d01ecabcdd.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="screenline.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">screenline.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-06 21:52:58.973867</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    is a leading manufacturer of screen advertising since 1971. Specializes in outdoor and indoor screen&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd924c4f2181a7126ee5f.html">
+                <img src="https://images.ransomware.live/victims/3894511fd2f8486f8bca7c0da0044575.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="borwafs.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">borwafs.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-06 12:56:26.832599</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Independent financial services company with a national footprint. Provider of quality selected finan&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd8fec4f2181a7126edea.html">
+                <img src="https://images.ransomware.live/victims/8effb79e05035290e33be79d1df63dc8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.colrich.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.colrich.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-26 11:59:26.766314</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> royal</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    From South Africa to Southern California, the ColRich story is a decades-long journey of growth, con&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd8b9c4f2181a7126ed1b.html">
+                <img src="https://images.ransomware.live/victims/90bc82fe99a1a7a545f80809db11aba0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="hostafrica.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">hostafrica.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-13 14:55:47.219466</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusa</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    HostAfrica was founded in 2015 in Cape Town with the mission to provide high-performance servers and&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd805c4f2181a7126eaf5.html">
+                <img src="https://images.ransomware.live/victims/5c9c690f4084c5c03b689eb23978b7ea.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.SPI.CO.ZA">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.SPI.CO.ZA</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-03-24 13:22:45.886873</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> clop</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    SPI Group
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd7fcc4f2181a7126eadc.html">
+                <img src="https://images.ransomware.live/victims/6a57a9f79f04bcc6dc25f78f6892d0f5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.VUMACAM.CO.ZA">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.VUMACAM.CO.ZA</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-03-23 13:24:00.436739</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> clop</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Trust in our vision - VumaCam
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd7e0c4f2181a7126ea87.html">
+                <img src="https://images.ransomware.live/victims/ae6adb1673254e37d2426da446cd6c00.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="spoormaker.co.za">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">spoormaker.co.za</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-03-19 07:09:56.717195</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    SPOORMAKER AND PARTNERS INC - REGISTRATION (CIPC NO): 1981/008290/21. Consultations on mechanics, el&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:23:24-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6819351f8a876d7ac2732c26.html">
+                <img src="https://images.ransomware.live/victims/1a3caec6fd599149119e31b84442c3ca.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Vnakc.org">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Vnakc.org</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-05 20:08:14.553130</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> IMNCrew</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Established in 1891, Visiting Nurse Association (VNA Home Health) is a nonprofit home health agency.&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/68147bf20b5f553d4ef24789.html">
+                <img src="https://images.ransomware.live/victims/fe2eccd17ecd14046a6c44292da8da8b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="l-a.com.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">l-a.com.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-02 07:24:12.259314</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> J</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67eabc329efa9c538f8226e7.html">
+                <img src="https://images.ransomware.live/victims/60b2676f15bf17b743efcc325a9f9317.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="CMC Technology Group">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">CMC Technology Group</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-31 15:58:38.760570</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> bianlian</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    CMC Technology Group is a business technology services company with three lines of business: Telecom&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d40c5f18cb142224cba4b9.html">
+                <img src="https://images.ransomware.live/victims/347d6c9f78ce3f6aeac0d05cafffdb40.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="The Ministry of National Defense - mod.gov.vn (NavyVietnam)">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">The Ministry of National Defense - mod.gov.vn (NavyVietnam)</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-14 10:14:13.674455</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Ministry of National Defense - mod.gov.vn (NavyVietnam)
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f53ac86f8591b4f5dcf78.html">
+                <img src="https://images.ransomware.live/victims/2a96592898747833d41be20da78e225c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="midwaymetals.com.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">midwaymetals.com.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-29 20:29:17.259736</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Midway Metals Vietnam is a manufacturing company specializing in stainless steel prod&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe5a4c4f2181a71271425.html">
+                <img src="https://images.ransomware.live/victims/5455d8f86bc1aacab82165b56bf35633.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nppvlxdthanhlong.com.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nppvlxdthanhlong.com.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-28 11:35:56.342636</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Nppvlxdthanhlong.com.vn is a Vietnamese company specializing in the distribution of c&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe52ec4f2181a712712c4.html">
+                <img src="https://images.ransomware.live/victims/d75036efd6fe5a698ba43c6f99eb08b6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="starlinkvietnam.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">starlinkvietnam.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-15 09:54:59.577903</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonransomware</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    🥹** Oops, Starlink Vietnam been hacked ****🔥****
+
+[+] Starlink Vietnam offers high-speed satellite i&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe444c4f2181a71271004.html">
+                <img src="https://images.ransomware.live/victims/95f8fe022294da5bb0bf933310d757f2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="dragoncapital.com.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dragoncapital.com.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-17 00:06:23.745243</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe421c4f2181a71270f9b.html">
+                <img src="https://images.ransomware.live/victims/36749cb172770c37446816d35d17e645.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.maxxis.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.maxxis.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-11 18:40:28.322529</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> blacksuit</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Founded in Taiwan, Maxxis got its start by making bicycle tires, and soon expanded its offerings to &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe28cc4f2181a71270adb.html">
+                <img src="https://images.ransomware.live/victims/5952ab6818659f1f5f475100fd544e94.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="medisetter.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">medisetter.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-28 18:35:14.584496</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Medisetter is Vietnam&#39;s largest multichannel digital network dedicated to healthcare practitioners (&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe13dc4f2181a712706ed.html">
+                <img src="https://images.ransomware.live/victims/38482bda210309a5c75d6b9d4e8f2e7c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mgfsourcing.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mgfsourcing.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-17 12:12:38.219842</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackbasta</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    MGF Sourcing is an independent US-led global sourcing company founded in 1970. We focus on US-based &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe082c4f2181a712704b7.html">
+                <img src="https://images.ransomware.live/victims/f1f0e1cbe51817c6eb27b0924b06c40b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="habeco.com.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">habeco.com.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-09 16:40:15.087197</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    HABECO cam kết uống có trách nhiệm. Đó là lý do tại sao chúng tôi cần đảm bảo rằng bạn ở trên độ tuổ&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdea5c4f2181a7126ff15.html">
+                <img src="https://images.ransomware.live/victims/29cb0ebdcafea1dde0c02c1bfb5321b7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="benthanhgroup.com.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">benthanhgroup.com.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-29 12:57:20.048931</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde28c4f2181a7126fd98.html">
+                <img src="https://images.ransomware.live/victims/3b7b2fe64ead89ea83bf79c7a7e54cca.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="dirox.net">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dirox.net</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-01 23:10:27.055983</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> knight</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Dirox is a proven turn-key digital solution partner with 20 years of experience, over 120 talented e&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdda4c4f2181a7126fc0e.html">
+                <img src="https://images.ransomware.live/victims/6ff4062e82f2d96f4af94133d7013dd8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="evn.com.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">evn.com.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-21 16:17:14.251134</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> stormous</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    VietNam Electricity (EVN) is the largest power company in Vietnam serving more than 19 million custo&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd47c4f2181a7126faf6.html">
+                <img src="https://images.ransomware.live/victims/d098e7d3da022f9b5f9951f1c68699aa.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="airtechthelong.com.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">airtechthelong.com.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-12 08:26:48.923078</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Airtech Equipment Pte Ltd is a company that operates in the Consumer Goods industry.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd1ac4f2181a7126fa6d.html">
+                <img src="https://images.ransomware.live/victims/1b15f9e22ba1dba5b7e657a4ba9f93c4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.evnhcmc.vn/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.evnhcmc.vn/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-04 10:10:26.667981</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    EVNHCMC is a Ho Chi Minh City energy company providing electricity services
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdca2c4f2181a7126f900.html">
+                <img src="https://images.ransomware.live/victims/412f44ea4aede2c4a7cc42c6fb5a910f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.sinotech.org.tw/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.sinotech.org.tw/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-09 21:58:49.484771</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Sinotech Engineering Consultants Inc. (Sinotech Inc.) was founded in 1970 as a non-profit organizati&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdb94c4f2181a7126f5cd.html">
+                <img src="https://images.ransomware.live/victims/22afeb412f09fe6fa501f6053b05728c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tlip2.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tlip2.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-16 13:07:34.423882</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Vietnam is the focus of much attention worldwide as an attractive investment destination of &#34;China p&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdb6dc4f2181a7126f556.html">
+                <img src="https://images.ransomware.live/victims/fc171d1945facd0f647eff21a0a4722c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Pvc-ms">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Pvc-ms</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-07 20:40:50.581867</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> stormous</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    PetroVietnam Metallic Structures &amp; Erection Joint Stock Company (PVC-MS) is a member unit of Vietnam&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda26c4f2181a7126f171.html">
+                <img src="https://images.ransomware.live/victims/fa34f858de98483fe6bc7ef5daf27a1e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.coteccons.vn">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.coteccons.vn</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 14:59:48.187506</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Headquarters: 236-6 Dien Bien Phu Ward 17 St, Ho Chi Minh City, Ho Chi Minh City, Viet Nam Phone Num&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd872c4f2181a7126ec42.html">
+                <img src="https://images.ransomware.live/victims/bdeec9d3e5b8ef00cdbde329cec506c3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="bigc.co.th">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">bigc.co.th</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-04-24 05:46:39.455361</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Big C is a grocery and general merchandising retailer headquartered in Bangkok, Thailand.Big C is as&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd7ccc4f2181a7126ea48.html">
+                <img src="https://images.ransomware.live/victims/1fb144bc2fa3867723b3c840a0f04af5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.faraday-tech.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.faraday-tech.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-03-14 21:18:42.551320</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Faraday Technology Corporation is a leading fabless ASIC design and silicon IP (intellectual propert&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd664c4f2181a7126e606.html">
+                <img src="https://images.ransomware.live/victims/3990be04acd8097d337eaab38f922ba3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="PTSC">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">PTSC</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2022-12-11 09:34:34.110268</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/vn.png" alt="VN flag">
+                  
+                  VN
+                </p>
+                <p class="card-text"><strong>Group:</strong> karakurt</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    PTSC, a member of Vietnam Oil &amp; Gas Group (PetroVietnam - PVN), was established on the implementatio&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:23:33-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

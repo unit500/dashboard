@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/681c48d6ce9e048e67ce8d77.html">
+                <img src="https://images.ransomware.live/victims/fa4fff68afb3e7c0e92b883370c777ab.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Khidmah">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Khidmah</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-08 05:50:56.794204</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> everest</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Khidmah LLC is a comprehensive real estate services company based in Abu Dhabi, Unite&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/681935128a876d7ac2732c10.html">
+                <img src="https://images.ransomware.live/victims/3734d2143088ab2f513251c4d27b87e5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mbmdubai.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mbmdubai.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-05 10:35:36.088779</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> BrainCipher</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b6630afaa3b94259a97bd4.html">
+                <img src="https://images.ransomware.live/victims/4ee2a588cdd8c77eeb090436cc2232d1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rossmanmedia.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rossmanmedia.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-19 22:27:13.554592</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Rossman Media is a Dubai-based full-service digital marketing agency. They offer vari&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b63aa8722374ba0da0bdb0.html">
+                <img src="https://images.ransomware.live/victims/4ee2a588cdd8c77eeb090436cc2232d1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rossmanmedia.ae seized by usa">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rossmanmedia.ae seized by usa</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-19 19:45:41.873245</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Sorry, but there&#39;s no available information about the exact company &#34;rossmanmedia.ae &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b19315907490ec64b25888.html">
+                <img src="https://images.ransomware.live/victims/ea57f80a38a00b771dac8e55ab44e798.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.naga.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.naga.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-15 16:37:19.203021</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Naga Architects is an award-winning architecture and design firm based in Dubai, UAE.&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b592a9277b627556f86b41.html">
+                <img src="https://images.ransomware.live/victims/ea57f80a38a00b771dac8e55ab44e798.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.naga.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.naga.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-15 16:37:19.203021</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Naga Architects is an award-winning architecture and design firm based in Dubai, UAE.&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f539b86f8591b4f5dcf50.html">
+                <img src="https://images.ransomware.live/victims/dae9cb03ce37c972aae54dd2766fa852.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="bblawfirm.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">bblawfirm.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-28 21:43:40.655291</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> monti</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Lawyers
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc6b606f14fdb4187d67b.html">
+                <img src="https://images.ransomware.live/victims/496c4d381e57e4dbd622412de57b58f2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="zuk.group">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">zuk.group</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-20 13:33:44.151275</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> handala</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Moshe Zuk: The Entrepreneur with a Hidden Agenda Moshe Zuk has long been known as a successful entre&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc69706f14fdb4187d61b.html">
+                <img src="https://images.ransomware.live/victims/adbf200e4d1a899774779525072a57e7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.sergasgroup.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.sergasgroup.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-13 21:53:36.817130</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    SERGAS Group is the expert in gas field in Gulf region, managed by an experienced and competent team&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe5aac4f2181a71271437.html">
+                <img src="https://images.ransomware.live/victims/6496cf80eaf9a9fb8860a0fb415c4bdc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="hi-raise.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">hi-raise.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-29 18:18:20.085934</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Days00007777Hours00001111Minutes22221111Seconds00001212
+
+
+www.hi-raise.comThanks to innovative techn&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe57fc4f2181a712713b7.html">
+                <img src="https://images.ransomware.live/victims/8bd9a63233ac05dab88971e6b1c02b63.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="itc.gov">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">itc.gov</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-24 01:36:17.945076</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] The company &#34;itc.gov.ae&#34; refers to the Integrated Transport Centre (ITC) in Abu Dhabi&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe571c4f2181a7127138e.html">
+                <img src="https://images.ransomware.live/victims/f3ef932a59093e8f873eebdcc6c2d377.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Gtsportcarrental.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Gtsportcarrental.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-22 13:11:33.354762</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Gtsportcarrental.com, a luxury car rental service, experienced a security breach, com&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe528c4f2181a712712b4.html">
+                <img src="https://images.ransomware.live/victims/2b8c83061f238a8fa148c3973fcf5c95.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="timesexpress.net">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">timesexpress.net</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-15 09:54:07.270657</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonransomware</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    **🫠 Oops, Times Express been hacked 🔥
+
+[+] The Times Express website specializes in publishing artic&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe516c4f2181a7127127b.html">
+                <img src="https://images.ransomware.live/victims/fc22c8a55d20e8422f7da1549bc8b9dc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sarahcarcare.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sarahcarcare.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-11 18:50:02.401927</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> everest</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Total amount of stolen data : 100GBhttps://sarahcarcare.com/Company representative should follow the&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4cac4f2181a71271197.html">
+                <img src="https://images.ransomware.live/victims/179e78a3e35ccf0458f46fe40d15bde4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.aras-group.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.aras-group.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-29 18:20:45.376696</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Aras Group, based in the UAE, specializes in services such as business setup, managem&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4b3c4f2181a71271151.html">
+                <img src="https://images.ransomware.live/victims/85bcc3c770a13b63511072c188887b9b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="contrackfm.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">contrackfm.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-27 21:05:07.217561</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> raworld</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Contrack Facilities Management is a company specializing in comprehensive facilities &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4a6c4f2181a7127112b.html">
+                <img src="https://images.ransomware.live/victims/58ffa51c6a92b2ae3233d057d2ae494a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gmg.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gmg.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-26 14:46:26.241307</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    PASSPORTs, FRESH DOCUMENTs, PERSONAL INFORMATION 
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe48fc4f2181a712710e5.html">
+                <img src="https://images.ransomware.live/victims/233fe7fe391c99c63823d12776270b68.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gemships.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gemships.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-23 16:17:50.207118</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> raworld</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Gulf Energy Maritime is a prominent maritime shipping company based in the United Ara&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe48bc4f2181a712710db.html">
+                <img src="https://images.ransomware.live/victims/9762b2b58dd3cb02e1771bbd18b6857f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.lbcocontracting.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.lbcocontracting.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-22 04:50:52.832816</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    LBCO Contracting Ltd. was incorporated in 2014, and began as an Underground Contractor. The company &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe483c4f2181a712710c2.html">
+                <img src="https://images.ransomware.live/victims/c93b8a618391cff491ac1b0fdf146584.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="barneekleptis.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">barneekleptis.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-21 00:40:57.647376</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Days00006666Hours11118888Minutes22223333Seconds11115555
+
+
+www.barneekleptis.aeBarneek Safety Consult&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe46dc4f2181a7127107f.html">
+                <img src="https://images.ransomware.live/victims/72fadca566926456a253f85369985ebf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="arabot.io">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">arabot.io</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-19 18:05:52.426424</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkvault</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Founded in 2016, arabot is a high-tech company which specialises in providing end-to-end solutions w&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe413c4f2181a71270f71.html">
+                <img src="https://images.ransomware.live/victims/0247a703b8d8dd31f287667085ea9dd1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="naj.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">naj.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-07 18:12:57.247270</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkvault</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    NEJOUM ALJAZEERA initiated its movement during the late last century, where its activities revolved &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe412c4f2181a71270f70.html">
+                <img src="https://images.ransomware.live/victims/93bc16baf65ca3a1e1196451fce545b6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Equator Worldwide">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Equator Worldwide</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-07 16:48:53.286066</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    &lt;p&gt;Dear customers!&lt;/p&gt;&lt;p&gt;We are excited to offer exclusive access to over 9 GB of confidential data &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe408c4f2181a71270f51.html">
+                <img src="https://images.ransomware.live/victims/208e1a2799846f734a8b20da25672674.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="arcoexc.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">arcoexc.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-06 22:41:35.773296</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3fec4f2181a71270f34.html">
+                <img src="https://images.ransomware.live/victims/615a977a58e3db2ce1c724edc797c598.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.axiom.work">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.axiom.work</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-04 22:19:13.135926</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Axiom Constructors is a local, family-owned business dedicated to providing sustainable and quality &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3e3c4f2181a71270ee1.html">
+                <img src="https://images.ransomware.live/victims/d0c57cf1a71c830abd03111c02ee8eb2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="illumin8global.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">illumin8global.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-31 03:58:21.226824</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [IA generated] Illumin8 Global is a company focused on providing innovative lighting solutions and t&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3cec4f2181a71270ea3.html">
+                <img src="https://images.ransomware.live/victims/46e6e297fcce8043301ab1582a30da1e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mixfame.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mixfame.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-27 13:18:09.040223</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3a7c4f2181a71270e2f.html">
+                <img src="https://images.ransomware.live/victims/8869ca353dcc7972c34ccdd131e10b09.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="bwdtechnology.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">bwdtechnology.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-22 11:28:42.624935</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    BWD Technology is a company specializing in developing innovative software solutions and digital ser&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe390c4f2181a71270de9.html">
+                <img src="https://images.ransomware.live/victims/9035780dd317ea0e04333e3ce2114294.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Astolabs.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Astolabs.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-18 18:45:33.251415</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Astrolabs.com is a company focused on supporting entrepreneurship and digital growth, primarily in t&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe38fc4f2181a71270de5.html">
+                <img src="https://images.ransomware.live/victims/cd3b205d771c80dc7ee65aeeee98e364.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Alqaryahauction.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Alqaryahauction.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-18 12:14:22.148246</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Alqaryahauction.com is a platform specializing in online auctions, facilitating the buying and selli&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe386c4f2181a71270dcb.html">
+                <img src="https://images.ransomware.live/victims/9035780dd317ea0e04333e3ce2114294.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Astolabs.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Astolabs.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-16 13:52:12.805193</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Astolabs is a company that specializes in providing digital solutions and training for businesses lo&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe36dc4f2181a71270d7f.html">
+                <img src="https://images.ransomware.live/victims/cf6c14837e811c620b24b2e21835c757.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="medexhco.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">medexhco.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-10 12:10:49.712564</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    &#34;Medex HCO&#34; is a company specializing in healthcare solutions, focusing on delivering innovative med&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe30ec4f2181a71270c62.html">
+                <img src="https://images.ransomware.live/victims/bed3976d8ef708576b97da516d214274.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="designbymodel.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">designbymodel.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-24 07:05:47.066211</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> cicada3301</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Founded in 1972, Model is a dynamic group of Architects and Engineers driven by a bold mission: to c&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2a7c4f2181a71270b2a.html">
+                <img src="https://images.ransomware.live/victims/781e75637564d380099efafbe823dc1b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.nissan-dubai.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.nissan-dubai.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-31 15:36:08.851689</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Nissan Dubai is a leading automotive company specializing in the sale and service of Nissan vehicles&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe176c4f2181a71270798.html">
+                <img src="https://images.ransomware.live/victims/73d114bc2017f36137a426bc4b1b5a87.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="pandacare.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">pandacare.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-29 23:18:05.851090</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkvault</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Panda Care Car Wash and Pet grooming is your one-stop solution for all your Vehicle and Pet needs. W&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe0fdc4f2181a7127062b.html">
+                <img src="https://images.ransomware.live/victims/ce03665739fff3946e24e530b6d53b52.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.extraco.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.extraco.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-04 23:19:06.941331</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe037c4f2181a712703d4.html">
+                <img src="https://images.ransomware.live/victims/ce03665739fff3946e24e530b6d53b52.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="extraco.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">extraco.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-02 14:09:56.315667</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Visits: 348 Data Size: 20GB Published: False
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe02ec4f2181a712703bb.html">
+                <img src="https://images.ransomware.live/victims/d9a9f325e0825012f90ea33b38924555.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="cochraneglobal.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">cochraneglobal.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-01 14:04:52.774711</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> underground</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Revenue:$270.8 Million - Country :United Arab Emir...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe004c4f2181a7127033b.html">
+                <img src="https://images.ransomware.live/victims/69d92cbe30ce457e845dd6e3fcdf9299.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="asteco.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">asteco.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-22 12:37:51.637780</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomexx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Asteco is a real estate services firm based in the United Arab Emirates (UAE), with its headquarters&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde75c4f2181a7126fe80.html">
+                <img src="https://images.ransomware.live/victims/c2642185f6555394a5aeede5caf2fd1a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="etisalat.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">etisalat.ae</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-16 15:07:20.711156</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ae.png" alt="AE flag">
+                  
+                  AE
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Emirates Telecommunications Group Company PJSC, doing business as etisalat by e&amp;, is an UAE state-ow&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 13:26:29-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>
