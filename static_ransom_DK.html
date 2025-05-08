@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67fffe97a44c7a467c305b7d.html">
+                <img src="https://images.ransomware.live/victims/615480082a8d345bbc91b8756da0d2f5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="d-line-it.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">d-line-it.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-16 18:35:13.554245</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> kairos</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    UK - d-line
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67edb3803afa7e5519f25bf9.html">
+                <img src="https://images.ransomware.live/victims/3c2990fb326846eb97aca9c692d19637.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="dardoc.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dardoc.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-02 20:15:47.510299</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    dardoc.com
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67cd910152848e3a1aec1f2c.html">
+                <img src="https://images.ransomware.live/victims/3a5ea5fb00f4f48a671078f1e37bdeae.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.khonestop.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.khonestop.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-09 12:54:03.146389</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All data will be published on Mar. 15. KH OneStop producerer og servicere en lang række produkter og&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d758082f2130ea83541e7d.html">
+                <img src="https://images.ransomware.live/victims/3a5ea5fb00f4f48a671078f1e37bdeae.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.khonestop.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.khonestop.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-09 12:54:03.146389</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All data will be published on Mar. 15. KH OneStop producerer og servicere en lang række produkter og&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c053e4fa540bab792c37d9.html">
+                <img src="https://images.ransomware.live/victims/3d5a9c3fdda4828b0cf394aa9af74cc4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.socosystem.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.socosystem.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-27 11:35:55.737568</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All data will be published on Mar. 05.
+SOCO SYSTEM is a company that specializes in providing flexib&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b41f1f982dd786a170fc0a.html">
+                <img src="https://images.ransomware.live/victims/decab21038e4cfcf40ea15d2a52389d9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lekiaviation.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lekiaviation.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-17 18:30:24.647732</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Leki Aviation specializes in the global aircraft parts distribution and services mark&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b3539834048cc8068dd484.html">
+                <img src="https://images.ransomware.live/victims/ef11eb3ff5881b6cb1ab0cbd43d9eaf5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.lintec-linnhoff.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.lintec-linnhoff.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-17 14:59:42.603194</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Lintec &amp; Linnhoff is a global manufacturer and distributor of leading-edge solutions for the concret&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a5b0f30377f2dd6619c30e.html">
+                <img src="https://images.ransomware.live/victims/5f29ac14ac7fe06ca51141a3151c02a2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="harcoboe.net">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">harcoboe.net</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-06 20:07:50.539665</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> safepay</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] &#34;Harcoboe.net&#34; is a webmail service provided by Harrison County Board of Education in&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a70a6e51c2f386e8c45a3c.html">
+                <img src="https://images.ransomware.live/victims/5f29ac14ac7fe06ca51141a3151c02a2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="harcoboe.net">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">harcoboe.net</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-06 20:07:50.539665</p>
+                <p class="card-text"><strong>Industry:</strong> Education</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> safepay</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] &#34;Harcoboe.net&#34; is a webmail service provided by Harrison County Board of Education in&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a0bafb30d8dbdc637bcba1.html">
+                <img src="https://images.ransomware.live/victims/fc9741176b21d22b94e7e0c05f24b437.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="govirtual-it.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">govirtual-it.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-03 12:08:11.951914</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Virtual-IT is a technology partner that offers business IT services and support to help clients focu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f536d86f8591b4f5dceee.html">
+                <img src="https://images.ransomware.live/victims/57b07d518b6a6b781b31da8ae3eab07e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="jan-nygaard.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jan-nygaard.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-25 21:27:47.271909</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonforce</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Jan Nygaard As is a company that operates in the Industrial Machinery &amp; Equipment industry. It emplo&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe35ec4f2181a71270d51.html">
+                <img src="https://images.ransomware.live/victims/c62599d8d01231ba5ebb6e6fb22226bf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="canea.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">canea.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-09 14:38:37.717956</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    CANEA ONE is a comprehensive software suite designed to enhance organizational performance through e&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe304c4f2181a71270c45.html">
+                <img src="https://images.ransomware.live/victims/5818575170f9bd560e81b8b508052adf.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.messec.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.messec.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-20 23:47:15.226223</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Denmark
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe27bc4f2181a71270aaa.html">
+                <img src="https://images.ransomware.live/victims/9e8415ecbcab53b71da5a825536c36bc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.widex.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.widex.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-26 14:37:19.683944</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> blacksuit</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Widex is a global hearing aid manufacturer known for its innovative technology and high-quality prod&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe238c4f2181a712709df.html">
+                <img src="https://images.ransomware.live/victims/6967a98d7a410fffb6c8ed4b8c38b999.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.vvs-eksperten.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.vvs-eksperten.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-12 13:58:38.207793</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> cicada3301</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    At VVS-Eksperten, we deliver solid quality products and we are always up to date on the latest produ&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe19ac4f2181a71270804.html">
+                <img src="https://images.ransomware.live/victims/f0b1b1171e3005e87c3733b32a2644b1.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.netavent.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.netavent.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-11 16:37:33.897417</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe146c4f2181a71270708.html">
+                <img src="https://images.ransomware.live/victims/baf044c5d766a22886e04f3c07542048.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sky-light.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sky-light.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-18 11:43:34.578523</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> cactus</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Download link #1: https://***************.onion/SKY-LIGHT/PROOF/Mirror: https://cactus5dqnqkppa5ayck&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe13fc4f2181a712706f2.html">
+                <img src="https://images.ransomware.live/victims/2b8c71779ca32d2f808228f57a980421.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="apoteket-online.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">apoteket-online.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-17 14:48:40.597991</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Apoteket tilbyder en lang række sundhedsydelser til for eksempel borgere, hjemmeplejen, plejehjem og&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde1ac4f2181a7126fd6f.html">
+                <img src="https://images.ransomware.live/victims/a7e25776f9eafedbec1dcfb652ff59dd.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="grimme.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">grimme.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-29 22:29:32.776930</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    grimme.dk
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd9fc4f2181a7126fc01.html">
+                <img src="https://images.ransomware.live/victims/7a6c6dfc666c7a8a397b2088b0da880d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.conceptdata.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.conceptdata.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-21 00:36:20.550368</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Denmark
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdcd5c4f2181a7126f99a.html">
+                <img src="https://images.ransomware.live/victims/c8d33fc117c3cf03e82ac247b0a8c1ca.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="agrovi.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">agrovi.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-20 14:28:27.364902</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackbasta</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [EN] Agrovi provides finance, auditing, trade and counselling services for the agricultural sector.[&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdccdc4f2181a7126f982.html">
+                <img src="https://images.ransomware.live/victims/67b29579c2c1a89fff133a8a4688de9f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="edc.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">edc.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-17 13:03:48.638594</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackbasta</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [EN] EDC is a real estate company that specializes in buying, selling and valuing real estate.[DK] V&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdcc5c4f2181a7126f96b.html">
+                <img src="https://images.ransomware.live/victims/b405e882bea83a184bb509c23cc885d7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="citycontainer.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">citycontainer.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-16 14:28:01.862985</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackbasta</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [DK] CITY CONTAINER Moderne og miljørigtige logistik- og affaldsløsninger. Med mere end 35 års erfa&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdb5ec4f2181a7126f528.html">
+                <img src="https://images.ransomware.live/victims/4829919aa9b6719788d8cda9ca734546.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="hkg.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">hkg.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-05 11:26:02.758069</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> cactus</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Hornsyld Købmandsgaard is a company that operates in the Farming industry. It employs 21-50 people a&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd8eec4f2181a7126edbb.html">
+                <img src="https://images.ransomware.live/victims/8a3bdc62dcbdd98b6a42a8122cd97c58.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="spectre.dk">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">spectre.dk</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-23 12:52:57.522156</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/dk.png" alt="DK flag">
+                  
+                  DK
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    https://www.spectre.lv/ https://www.spectre.dk/ https://arcteryx.com/fr/fr/explore/supply-chain-part&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 06:38:51-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

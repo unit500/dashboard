@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Actor Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Actor Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Actor Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Actor Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Actor Name</div>
+          <div class="card-body">
+            <h5 class="card-title">c4t</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">15</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-04-28</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="activityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements by Actor -->
+    <section>
+      <h2 class="section-title">Last 10 Defacements by c4t</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/680f28fd672d99a701d6efba.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/28/sistemas_culturahidalgo_gob_mx/screenshot.png" class="card-img-top" alt="Thumbnail for http://sistemas.culturahidalgo.gob.mx">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/680f28fd672d99a701d6efba.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">sistemas.culturahidalgo.gob.mx</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67ff8abc95c79cfdd699d831.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/16/2024_zacatlan_gob_mx/screenshot.png" class="card-img-top" alt="Thumbnail for http://2024.zacatlan.gob.mx/c4t.txt">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67ff8abc95c79cfdd699d831.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">2024.zacatlan.gob.mx</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67fd5d0a70c2661736d94604.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/14/dduia_puebla_gob_mx/screenshot.png" class="card-img-top" alt="Thumbnail for http://dduia.puebla.gob.mx">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67fd5d0a70c2661736d94604.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">dduia.puebla.gob.mx</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-14</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67f6128f3c2c2a405778deb8.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/09/munitambogrande_gob_pe/screenshot.png" class="card-img-top" alt="Thumbnail for http://munitambogrande.gob.pe/c4t.html">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67f6128f3c2c2a405778deb8.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">munitambogrande.gob.pe</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-09</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67ef9dd9d572193612beb097.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/04/delfatech_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://delfatech.com">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67ef9dd9d572193612beb097.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">delfatech.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-04</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67ef9e2ed572193612beb0a3.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/04/secpayroll_ceytech_lk/screenshot.png" class="card-img-top" alt="Thumbnail for http://secpayroll.ceytech.lk">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67ef9e2ed572193612beb0a3.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">secpayroll.ceytech.lk</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-04</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67ee3ba29c26baedd83bcf15.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/04/03/afiliados_uiix_edu_mx/screenshot.png" class="card-img-top" alt="Thumbnail for http://afiliados.uiix.edu.mx">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67ee3ba29c26baedd83bcf15.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">afiliados.uiix.edu.mx</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-04-03</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67e94133a0aab4318f636ec0.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/30/munipucayacu_gob_pe/screenshot.png" class="card-img-top" alt="Thumbnail for http://munipucayacu.gob.pe">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67e94133a0aab4318f636ec0.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">munipucayacu.gob.pe</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-30</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67e468ce4bdc204db14368f0.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/26/intranet_lamaria_gov_co/screenshot.png" class="card-img-top" alt="Thumbnail for http://intranet.lamaria.gov.co/c4t.txt">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67e468ce4bdc204db14368f0.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">intranet.lamaria.gov.co</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-27</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67e468bb4bdc204db14368eb.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/26/planificacion_agroancash_gob_pe/screenshot.png" class="card-img-top" alt="Thumbnail for http://planificacion.agroancash.gob.pe">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67e468bb4bdc204db14368eb.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">planificacion.agroancash.gob.pe</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-27</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('activityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - c4t (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-03-21", 2], ["2025-03-23", 1], ["2025-03-27", 4], ["2025-03-30", 1], ["2025-04-03", 1], ["2025-04-04", 2], ["2025-04-09", 1], ["2025-04-14", 1], ["2025-04-16", 1], ["2025-04-28", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>

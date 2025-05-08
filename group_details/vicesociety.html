@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">vicesociety</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">189</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2023-06-20 21:06:18.878351</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+
+
+    
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by vicesociety</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd968c4f2181a7126ef2e.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.ssv-architekten.de/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.ssv-architekten.de/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-20 21:06:18.878351</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd940c4f2181a7126eeb5.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.bogleboo.se/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.bogleboo.se/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-13 21:00:29.257829</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/se.png"
+                        alt="SE flag">
+                    SE
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd91ac4f2181a7126ee42.html">
+                <img src="https://images.ransomware.live/victims/7cd7a9961beff4b644e7bec7ac4cc81a.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.nerim.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.nerim.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-04 21:59:07.004656</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd90ac4f2181a7126ee0f.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.ads.dk/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.ads.dk/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-29 20:58:08.961936</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/dk.png"
+                        alt="DK flag">
+                    DK
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd8d3c4f2181a7126ed6a.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.cafpi.fr/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.cafpi.fr/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-22 21:56:53.162640</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/fr.png"
+                        alt="FR flag">
+                    FR
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd8c1c4f2181a7126ed33.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.antam.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.antam.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-17 21:02:56.624451</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/id.png"
+                        alt="ID flag">
+                    ID
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd8b6c4f2181a7126ed11.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.datalan.sk/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.datalan.sk/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-11 21:54:42.456557</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd88fc4f2181a7126ec9b.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.brightonhill.hants.sch.uk/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.brightonhill.hants.sch.uk/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-02 05:52:36.464235</p>
+                
+                
+                  <p class="card-text">
+                    <strong>Country:</strong>
+                    <img src="https://flagcdn.com/32x24/gb.png"
+                        alt="GB flag">
+                    GB
+                  </p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd88cc4f2181a7126ec92.html">
+                <img src="https://images.ransomware.live/victims/148efb5fb05b0bfe91cccbab8c47755f.png" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.centurylabel.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.centurylabel.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-04-30 08:59:45.036202</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ransom_details/678fd86dc4f2181a7126ec33.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="www.neptunelines.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.neptunelines.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-04-22 06:52:44.729580</p>
+                
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - vicesociety (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: []
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>

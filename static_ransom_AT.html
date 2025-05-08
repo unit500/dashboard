@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/681b91fcc37c4296f453844c.html">
+                <img src="https://images.ransomware.live/victims/3d9438213459e1353c25a6b8400a695c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="transport.lutztulln.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">transport.lutztulln.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-07 09:16:59.477095</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> orca</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    ​Lutz GmbH, operating under the name Transport Lutz Tulln, is a privately held...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6808901f8b8ffc6f7c400467.html">
+                <img src="https://images.ransomware.live/victims/f98c346e9cfb3fe2d5c1c72bad30b36e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mafi.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mafi.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-23 06:31:18.559099</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Exfiltraded data : yes - Encrypted data : yes
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67efd802e6fa0fc8f88fa610.html">
+                <img src="https://images.ransomware.live/victims/ae651d0a9d3d000d67075123c8aa56b3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.dgr.at/dgr.at/home/1/24">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.dgr.at/dgr.at/home/1/24</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-04 11:54:55.701486</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All data of this company will be available for download on 14.04.2025. With our ERP solution PROFI.n&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c029b0f5be2a8429e25a3b.html">
+                <img src="https://images.ransomware.live/victims/04885310e3137d173bda2ec91f4d03da.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Biogena GmbH &amp; Co KG">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Biogena GmbH &amp; Co KG</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-27 08:23:36.240422</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lynx</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                     BIOGENA – Your Partner in Health and Wellbeing BIOGENA commited itself to health and science. Our a&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a32b1903505b9f28f9a241.html">
+                <img src="https://images.ransomware.live/victims/3bf6ae0ee9d74a3767d086f571993c4c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kombinat.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kombinat.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-04 21:28:58.800841</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Extract from Gitlabs: Prasaga, HE2B, Kombinat
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc69b06f14fdb4187d628.html">
+                <img src="https://images.ransomware.live/victims/8c661a35081397fb45364e92879ed289.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gebaeudereinigungsakademie.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gebaeudereinigungsakademie.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-14 12:14:03.637547</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Gebäudereinigungsakademie
+Gebäudereinigungs akademie in Austria offers professional training in buil&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe57dc4f2181a712713b2.html">
+                <img src="https://images.ransomware.live/victims/dc03389ebd46aebdd7dc7c75ab2c9508.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.solarklingler.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.solarklingler.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-23 20:51:18.058811</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All data of this company will be available for download on 03.01.2025. Klingler Installationen GmbH,&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4b0c4f2181a71271149.html">
+                <img src="https://images.ransomware.live/victims/86fd26623e3bf71a28c2798c48e5fa6a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.polleninformation.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.polleninformation.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-27 20:41:40.482339</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> apt73</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Pollen situation informational site. Personal info + Pass. 22140 lines
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe490c4f2181a712710e9.html">
+                <img src="https://images.ransomware.live/victims/00136fb5aacac0cc6a7e1b5c6346d234.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rao.hr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rao.hr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-23 16:49:39.850547</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> apt73</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    RAO d.o.o. is a member of the Best in Parking AG group, Austria. With more than a quarter of a centu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe487c4f2181a712710cd.html">
+                <img src="https://images.ransomware.live/victims/95776a7d049693f482283160173d1599.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="zimmerei-buder.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">zimmerei-buder.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-21 17:43:54.433875</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> incransom</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Zimmerei Buder is a carpentry company specializing in timber construction and roofing&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3f1c4f2181a71270f0c.html">
+                <img src="https://images.ransomware.live/victims/1e25f1e6a4a3e8ec52b551877a08bdae.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="obe.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">obe.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-01 21:25:41.675446</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [IA generated] OBE.com is a company specializing in providing advanced online business solutions and&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3a1c4f2181a71270e1b.html">
+                <img src="https://images.ransomware.live/victims/7ed6aec4bddf79b4e2cba8c79d78c5ec.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lewa.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lewa.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-21 22:38:01.922090</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> blackbasta</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    For more than seven decades LEWA has set the technical standards as a manufacturer of pumps and syst&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe300c4f2181a71270c38.html">
+                <img src="https://images.ransomware.live/victims/49b82200a74dc591a6d364ae4b091e15.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rarholding.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rarholding.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-19 20:34:58.804569</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    RAR Holding is a diversified company engaged in various sectors including real estate, construction,&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe285c4f2181a71270ac7.html">
+                <img src="https://images.ransomware.live/victims/8db616595fabb5fe2bbc7c235648ac39.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="wtgruber.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">wtgruber.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-27 14:44:12.884697</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    WT Gruber Steuerberatung GmbH is a professional tax consulting firm based in Germany. It specializes&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe23cc4f2181a712709ec.html">
+                <img src="https://images.ransomware.live/victims/8aa2d48f482c3b525e94faece7e7d8b9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="x-bs.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">x-bs.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-13 07:36:35.837121</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> helldown</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe1c3c4f2181a7127087f.html">
+                <img src="https://images.ransomware.live/victims/6f001327355311c61f0c66a0ce568b84.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="albonanova.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">albonanova.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-19 09:25:38.906074</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Welcome to our 4 star superior hotel in Zürs on Arlberg. The perfect starting point for your winter &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe180c4f2181a712707b5.html">
+                <img src="https://images.ransomware.live/victims/1026af9d8dadb3b8cb85299b9fd2c9a0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="hauptmann.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">hauptmann.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-02 19:46:03.937086</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf83c4f2181a712701b4.html">
+                <img src="https://images.ransomware.live/victims/df520556855ebb50a88ddf25837be615.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.lopesan.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.lopesan.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-16 21:45:50.772943</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhouse</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Lopesan Hotels: makers of happy memories. At the Lopesan Hotel Group we want all of our guests to en&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf38c4f2181a712700d3.html">
+                <img src="https://images.ransomware.live/victims/04df823d8d1ac4c668ec801d95378c21.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.tubex-tube.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.tubex-tube.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-02 02:55:29.768838</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> raworld</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdee0c4f2181a7126ffc7.html">
+                <img src="https://images.ransomware.live/victims/1791f36e45f45b4f86bc846fd4cdc087.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="forstinger.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">forstinger.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-03-13 05:50:19.751919</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    FORSTINGER will take care of everything you need for your cars! Forstinger is a leading Austrian sup&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde3cc4f2181a7126fdd5.html">
+                <img src="https://images.ransomware.live/victims/a93c8ef3bb27b69903110620a6034b53.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="therme-laa.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">therme-laa.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-07 02:54:39.103794</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Therme Laa - Hotel &amp; Silent Spa is one of nine resorts in the VAMED Vitality World, the number one i&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde30c4f2181a7126fdb2.html">
+                <img src="https://images.ransomware.live/victims/cf05311804436a0207c2dfd594d74bb3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="noe.wifi.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">noe.wifi.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-05 14:49:07.801863</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    noe.wifi.at
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddf6c4f2181a7126fd03.html">
+                <img src="https://images.ransomware.live/victims/82266999742753c4ce74d6cb01e9ca3a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="wittmann.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">wittmann.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-22 02:56:30.433605</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Das Unternehmen wurde 1896 als Sattlerei von Franz Wittmann gegründet. Am Anfang wurde für die Bauer&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdc74c4f2181a7126f875.html">
+                <img src="https://images.ransomware.live/victims/29387d16b5a5c9da3ebbc5c79e7c8322.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="raumberg-gumpenstein.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">raumberg-gumpenstein.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-01 23:27:52.608557</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The Higher Federal Teaching and Research Institute Raumberg-Gumpenstein (HBLFA) is the largest depar&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdc0dc4f2181a7126f73c.html">
+                <img src="https://images.ransomware.live/victims/db50d48488bddeaa4a1e891c963bb02f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.nox-nachtexpress.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.nox-nachtexpress.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-10-09 23:53:24.223778</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Lower Austria, Austria
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdba7c4f2181a7126f606.html">
+                <img src="https://images.ransomware.live/victims/df625e13749d00f64966828da6551658.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.ikp.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.ikp.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-20 16:17:50.892418</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> noescape</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Three letters with a big impact – ikp is one of the leading communications agencies in Austria and h&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdb3ec4f2181a7126f4c8.html">
+                <img src="https://images.ransomware.live/victims/c8117aa8349669ce6f377d94ccaef4c7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="biso.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">biso.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-31 08:52:00.566482</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    BISO GmbHThe development of BISO harvesting solutions can be compared to the car tuning: the combine&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdaf2c4f2181a7126f3df.html">
+                <img src="https://images.ransomware.live/victims/179fd7046379f4fc11a67661cdcf3ae2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.kraiburg-austria.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.kraiburg-austria.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-16 20:51:53.920415</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> metaencryptor</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Kraiburg Austria GmbH Lösungen für die Reifenrunderneuerung. Bei KRAIBURG Retreading Materials verei&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda7ac4f2181a7126f272.html">
+                <img src="https://images.ransomware.live/victims/c6bb6a7d2906a88b559953c4fdf140e9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.ktn.gv.at/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.ktn.gv.at/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 17:20:22.256733</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Karnten is divided into eight districts and 132 municipalities. There are 562,089 people living in K&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda70c4f2181a7126f254.html">
+                <img src="https://images.ransomware.live/victims/13e8ca042adc2b64c3d627c9cbf363fb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="handler-group.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">handler-group.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 17:04:43.068800</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Address: Walter Handler-Straße 1, 2853 Leitenviertel, Austria
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd95fc4f2181a7126ef15.html">
+                <img src="https://images.ransomware.live/victims/546b1a380a7445093fff55bd1b5c9a84.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tilg.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tilg.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-19 14:53:00.395617</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    High quality window systemsIndividual sun protection solutionsWhole glass and conservatoriesFront do&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd95cc4f2181a7126ef0a.html">
+                <img src="https://images.ransomware.live/victims/0b7bbaeb482da29bfdbb0fb2c7131839.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.eder.co.at/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.eder.co.at/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-18 20:00:21.109095</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> rhysida</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    EDER The EDER group of companies includes the brick plants in Peuerbach and Weibern, four ready-mixe&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd95ac4f2181a7126ef06.html">
+                <img src="https://images.ransomware.live/victims/a394e34bc51905b6fef2309936cb6b9b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.ziegel-eder.de/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.ziegel-eder.de/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-17 07:00:40.839950</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> rhysida</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Ziegelwerk Eder In 1996, the Upper Austrian family company EDER built a state-of-the-art brick facto&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd952c4f2181a7126eeed.html">
+                <img src="https://images.ransomware.live/victims/08596bd6d0af5b39deb69614198271d4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.GENERICON.AT">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.GENERICON.AT</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-15 16:37:34.516351</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> clop</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Startseite - Genericon Pharma
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd913c4f2181a7126ee2b.html">
+                <img src="https://images.ransomware.live/victims/a71d31a202cc60c1d9c2dc40055754f2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.bmd.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.bmd.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-02 01:56:18.050001</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Austria
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd8b7c4f2181a7126ed13.html">
+                <img src="https://images.ransomware.live/victims/c934b1495f86ab1fee4ea97b3336b0a5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="weberweber.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">weberweber.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-12 10:50:40.344185</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    72 Jahre Versicherungserfahrung und 56 Jahre Wirtschaftskompetenz stehen Ihnen bei Weber &amp; Weber zur&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd894c4f2181a7126eca8.html">
+                <img src="https://images.ransomware.live/victims/b75921ee874e78f59666f162c513ad02.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="triaflex.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">triaflex.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-03 16:49:19.978187</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Welcome to TRIAFLEXWe design the ergonomic living space work!
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd892c4f2181a7126eca2.html">
+                <img src="https://images.ransomware.live/victims/daf16c02c0c0a71d0870e649bfb1e244.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="hasenauer-anlagenbau.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">hasenauer-anlagenbau.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-02 22:51:32.287892</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    QUALITY IS THE BESTWhen it comes to water, heating, cooling, air and climate, we always get to work &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd87cc4f2181a7126ec5f.html">
+                <img src="https://images.ransomware.live/victims/e8bffa0a96d614e87950c2a93de949b9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="summerweine.at">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">summerweine.at</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-04-25 14:49:13.560121</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Josef Summer&#39;s Erben Weinkellerei
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd810c4f2181a7126eb19.html">
+                <img src="https://images.ransomware.live/victims/567ad2fb3e0376a7642874ca913ae198.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="tac.eu.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">tac.eu.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-03-26 23:07:21.183765</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Styria, Austria
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 06:39:51-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

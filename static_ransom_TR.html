@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f6292c64d3f59863b1398c.html">
+                <img src="https://images.ransomware.live/victims/ea1b1cd5a7f80d02cc87aa2c3f8530a0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Yozgat City Hospital">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Yozgat City Hospital</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-09 07:19:10.756580</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> bert</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Modern hospital in Yozgat offering quality care and innovation. Patient health is protected — their &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f289147bf18bdc6c8ff54d.html">
+                <img src="https://images.ransomware.live/victims/19daf1ff1be86af1107ac05a469e37ba.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="yuagam.yeditepe.edu.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">yuagam.yeditepe.edu.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-04 14:40:25.483202</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Founded in 2005 under the aegis of the Istanbul Education and Culture Foundation (ISTEK) and Yeditep&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ef83b2cfbb6aa9dffd9555.html">
+                <img src="https://images.ransomware.live/victims/c71747eff73f0b1000ad43b542c33bbc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="turkish defense military">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">turkish defense military</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-04 06:52:57.514597</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    turkish defense military
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e90835cad2f07a3a52e5ae.html">
+                <img src="https://images.ransomware.live/victims/9bb2965e346e8f37b2e22cbd400ea24a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.tepas.no">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.tepas.no</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-30 08:11:39.015129</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Company has 48 hours to contact us before we publish the data .
+
+Tepas AS is a corporate group based&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e8b3e3a42a0946ec6004fd.html">
+                <img src="https://images.ransomware.live/victims/afe984dd39a0f42bc28349580247a60f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="alpsteel.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">alpsteel.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-30 02:57:06.489728</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> safepay</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] &#34;AlpSteel.com&#34; is an online platform for one of the leading steel and metal distribut&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e335942207a07ab0123898.html">
+                <img src="https://images.ransomware.live/victims/0d108bccd4ceab653cc97c0a9732dd68.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="kalesavunma.com - KALE SAVUNMA.">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kalesavunma.com - KALE SAVUNMA.</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-25 22:54:40.688080</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    kalesavunma.com - KALE
+SAVUNMA.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d7906c3970e12a92efd79a.html">
+                <img src="https://images.ransomware.live/victims/71536a6e1922277bb3287f4c436ad448.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="March, 6, 2025: City government office in Van (Turkey) van.bel.tr hacked. 7.4 TiB is for s...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">March, 6, 2025: City government office in Van (Turkey) van.bel.tr hacked. 7.4 TiB is for s...</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-17 02:12:18.523652</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> skira</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d3f037438a49d7347d2ad2.html">
+                <img src="https://images.ransomware.live/victims/e71d8975886e9125011e92510d8b3678.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="rixos.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">rixos.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-14 08:08:47.667954</p>
+                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> embargo</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Founded in 2000 and headquartered in Dubai, United Arab Emirates, Rixos Hotels is a Turkish luxury h&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d0dcad925a65eee1d59316.html">
+                <img src="https://images.ransomware.live/victims/11935c38eda26af5329aa8a8ad19faac.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Baykar Turkish defense company C4I and artificial intelligence By Babuk Locker 2.0">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Baykar Turkish defense company C4I and artificial intelligence By Babuk Locker 2.0</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-12 00:55:01.797551</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Baykar Turkish defense company C4I and artificial intelligence By Babuk Locker 2.0
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d15b6267519fc271492e70.html">
+                <img src="https://images.ransomware.live/victims/11935c38eda26af5329aa8a8ad19faac.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Baykar Turkish defense company C4I and artificial intelligence">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Baykar Turkish defense company C4I and artificial intelligence</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-12 00:55:01.797551</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Baykar Turkish defense company C4I and artificial intelligence By Babuk Locker 2.0
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c901e4b88e36d5c49ce846.html">
+                <img src="https://images.ransomware.live/victims/946a4c117ffb7e0d861db8035d42e055.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="City government office in Van (Turkey) - van.bel.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">City government office in Van (Turkey) - van.bel.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-06 01:24:29.215457</p>
+                <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> skira</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] City Government Office in Van, Turkey, also known as van.bel.tr, is an administrative&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67a1bf7ed7591f072f4bc4e2.html">
+                <img src="https://images.ransomware.live/victims/f2cfa70f881ee8e64ff7aa4a0b72e988.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="karadenizholding.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">karadenizholding.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-03 16:27:40.260377</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> fog</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    1.5 TB
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f53b186f8591b4f5dcf83.html">
+                <img src="https://images.ransomware.live/victims/c449e288525a0a912b8867fe69545dbe.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ome.tv">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ome.tv</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-30 12:55:10.076761</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> apt73</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    With OmeTV video chat you can strike up a conversation with strangers, meet interesting people, a...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc68406f14fdb4187d5e2.html">
+                <img src="https://images.ransomware.live/victims/8fe11687a0df9cf460225c2238dd0d17.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.temotekstil.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.temotekstil.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-10 00:41:52.172741</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Temotekstil is a Turkish-based company that specializes in textile manufacturing and &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc67a06f14fdb4187d5c4.html">
+                <img src="https://images.ransomware.live/victims/32bd7db3d1e92aaccf092476937d77b8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sahpetrol.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sahpetrol.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-08 09:49:11.756168</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Sah Petrol is a Turkey-based company specializing in petroleum and fuel distribution.&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe598c4f2181a71271403.html">
+                <img src="https://images.ransomware.live/victims/d2242766f173b98b22288e634af2c921.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="netox.net">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">netox.net</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-25 13:05:39.617461</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Videojet,Linx,Citronix.Markem İmaje 7x24 Teknik servis , Destek ve Garantili Sarf Malzeme
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe427c4f2181a71270fae.html">
+                <img src="https://images.ransomware.live/victims/f2f5afc42c57968ccadd7a65eeb1e551.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="asarodentalaesthetics.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">asarodentalaesthetics.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-13 02:15:17.764266</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> everest</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Medical and personal data of 3800 patients https://asarodentalaesthetics.com Company representative &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3a0c4f2181a71270e1a.html">
+                <img src="https://images.ransomware.live/victims/bb862f3d024afa349e7e278050f114ee.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Superline">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Superline</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-21 21:11:57.879931</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> monti</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Our utmost priorities are to bring the latest trends to our customers while providing each and every&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe380c4f2181a71270db8.html">
+                <img src="https://images.ransomware.live/victims/3c07aa96bfcd46b33cf4eff006a1e808.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="basarsoft.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">basarsoft.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-15 15:14:12.983462</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Basarsoft is a Turkish company specializing in geographic information systems (GIS) and digital mapp&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe309c4f2181a71270c53.html">
+                <img src="https://images.ransomware.live/victims/60ccfbaf273947ac2aef41f653cd76cc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="bakpilic.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">bakpilic.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-23 14:38:36.645559</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Bakpiliç is a Turkish poultry company specializing in the production and distribution of chicken pro&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe300c4f2181a71270c39.html">
+                <img src="https://images.ransomware.live/victims/266c7b6ed86599ee160c8d18bd4460b5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="aroma.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">aroma.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-20 08:04:51.070368</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Aroma.com.tr is a Turkish company specializing in the production and distribution of fruit juices, b&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2dfc4f2181a71270bd5.html">
+                <img src="https://images.ransomware.live/victims/d8c3b547476005a61a11bc4c2a3bdf3c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="unipa.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">unipa.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-15 01:31:23.660403</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.unipa.com.tr UNI-PA A.Ş., one of the...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2d5c4f2181a71270bb7.html">
+                <img src="https://images.ransomware.live/victims/cac32e369c081af76feda24e98d8287c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="karakayagroup.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">karakayagroup.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-12 07:55:09.990380</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusa</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Karakaya Group (founded in 1960) - the company is engaged in construction, investment in the enterta&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe25ec4f2181a71270a50.html">
+                <img src="https://images.ransomware.live/victims/55d689881dbc65de0a89214cd9be3c1f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.akkanatholding.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.akkanatholding.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-20 08:11:18.782257</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> hunters</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Country : Turkey - Exfiltraded data : yes - Encrypted data : yes
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe16ac4f2181a71270773.html">
+                <img src="https://images.ransomware.live/victims/2a7749e15762eddbc22abe1e014f68d0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="https://www.yks.com.tr/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">https://www.yks.com.tr/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-26 03:17:09.543057</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    YKS kendi ağının güvenliğini önemsemiyor. İçeri girdik ve her şeyi kilitledik. Gelin bizimle sohbett&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe076c4f2181a71270494.html">
+                <img src="https://images.ransomware.live/victims/adb437f79f8411361d413f2ad466eb21.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="itss.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">itss.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-09 13:01:07.316145</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe04bc4f2181a71270410.html">
+                <img src="https://images.ransomware.live/victims/dac7efaea063267c812144af67c3d207.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="htcinc.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">htcinc.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-06 13:38:11.387075</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Talk To Our Experts. Full Name*. Company*. Work Email ID*. Phone No*. How can we help you? All field&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdeebc4f2181a7126ffe7.html">
+                <img src="https://images.ransomware.live/victims/a833e12cda16d34cbe41fc20bedf8f85.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="oyaksgs.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">oyaksgs.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-03-15 19:23:22.737998</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!Today we are posting here the new company, &#34;OYAK Defense and Security Systems Inc.&#34;.Compan&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fddcec4f2181a7126fc88.html">
+                <img src="https://images.ransomware.live/victims/a669c14bb0497649fc7921ea0a422409.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.erbilbilgisayar.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.erbilbilgisayar.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-01-08 23:43:26.351195</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    An IT company that supplies software.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdda3c4f2181a7126fc0b.html">
+                <img src="https://images.ransomware.live/victims/618f8bf68e1ec31ec1643a8001c762b4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="trabzon.edu.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">trabzon.edu.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-21 16:15:49.218746</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> stormous</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Trabzon Akabat University was established by Law No. 7141 published in the Official Gazette No. 3042&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdba2c4f2181a7126f5f5.html">
+                <img src="https://images.ransomware.live/victims/0155b27725517fe8ffe8f521f8341dd2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="fersan.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">fersan.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-19 23:35:54.480865</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    you are pathetic liars, we stole your data, no need to deceive your customers. and your 7500$  that &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdb94c4f2181a7126f5cb.html">
+                <img src="https://images.ransomware.live/victims/4d7f81ed82d8456d2092dd295775f4ff.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mehmetceylanyapi.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mehmetceylanyapi.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-16 13:06:36.728226</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Mehmet Ceylan Yapı A.Ş., which initially set out with a store of 250 M2 with the labor and cooperati&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdb46c4f2181a7126f4e1.html">
+                <img src="https://images.ransomware.live/victims/c3f71f0bce06dc03739a4979eec19c17.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="vodatech.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">vodatech.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-09-01 19:02:25.213653</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Vodatech does not care at all about the safety of a huge amount of data of its customers, thanks to &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdb2dc4f2181a7126f492.html">
+                <img src="https://images.ransomware.live/victims/c87482a66a4e2bf2aa68f0eef426f397.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="cm.gov.nc.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">cm.gov.nc.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-29 19:06:31.157042</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Republic assemblish
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdae6c4f2181a7126f3ba.html">
+                <img src="https://images.ransomware.live/victims/88d179a403418b814c1cc286297a3d4f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="roxcel.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">roxcel.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-13 08:57:16.541708</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Through a deep understanding of the pulp, paper, and board industries, ROXCEL delivers unbeatable se&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdadcc4f2181a7126f39d.html">
+                <img src="https://images.ransomware.live/victims/9569b1e73a0a56738698e3a9dc03e77d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="sekuro.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">sekuro.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-08-09 14:54:29.813654</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Sekuro Plastik Ambalaj Sanayi A.S. produces and trades in various plastic packaging materials in Tur&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd804c4f2181a7126eaf4.html">
+                <img src="https://images.ransomware.live/victims/6e2bcb2ddb9434122486ba79a225a7cb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.DETECH.COM.TR">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.DETECH.COM.TR</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-03-24 13:22:19.150035</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> clop</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Not Acceptable!
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd7c4c4f2181a7126ea31.html">
+                <img src="https://images.ransomware.live/victims/94efa11f576fffbff587ecd3b301582d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="evant.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">evant.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-03-11 14:00:31.655506</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkpower</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd7c3c4f2181a7126ea2e.html">
+                <img src="https://images.ransomware.live/victims/bacc85349dab310e202da2fb28eb5758.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="goliplik.com.tr">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">goliplik.com.tr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-03-11 13:57:45.153323</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tr.png" alt="TR flag">
+                  
+                  TR
+                </p>
+                <p class="card-text"><strong>Group:</strong> darkpower</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 06:39:16-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

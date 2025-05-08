@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/681935078a876d7ac2732c0a.html">
+                <img src="https://images.ransomware.live/victims/fe870f2a4a8f83bc062b4c4b7e66de37.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="iycsa.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">iycsa.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-05 10:23:04.518082</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> BrainCipher</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67f83fed06165567dc5bc010.html">
+                <img src="https://images.ransomware.live/victims/c1c02df77f51d0905b1b9f28aeca4b50.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.codinter.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.codinter.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-10 21:46:18.283957</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    United States
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e8b3dca42a0946ec6004ed.html">
+                <img src="https://images.ransomware.live/victims/c6810119d5d59603819d8f23356dff21.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="retycol.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">retycol.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-30 02:38:57.724440</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> safepay</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67e770b0fab8feadf6bf9c42.html">
+                <img src="https://images.ransomware.live/victims/bf24e0345aa70b1293f63d8707f57868.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="icvc.co - Instituto Cardiovascular del Cesar">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">icvc.co - Instituto Cardiovascular del Cesar</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-29 02:46:53.148970</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    icvc.co - Instituto Cardiovascular del Cesar
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67da173086ce1c680334dce1.html">
+                <img src="https://images.ransomware.live/victims/3c961b938d28a751b8f46c42eb19dc81.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.coopertruni.com.br">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.coopertruni.com.br</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-19 00:27:17.371119</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Days00006666Hours22222222Minutes44448888Seconds22224545
+
+
+www.coopertruni.com.br
+Cooperativa dos Tra&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d0c093196b25f1296b861d.html">
+                <img src="https://images.ransomware.live/victims/1d16a5e4e4cc63dc07d52840228cb5e2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="cali.losolivos.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">cali.losolivos.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-11 22:48:11.007765</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> safepay</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] I&#39;m sorry, but there doesn&#39;t seem to be enough verifiable or specific information ava&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67ce01caf4d3d733f4e8880e.html">
+                <img src="https://images.ransomware.live/victims/f18944545d8a5446152228d534770cf8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="dcaro.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dcaro.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-03-08 23:27:46.612337</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    We offer technology and telecommunications solutions, and we help small, medium-size and large compa&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c1cf92212449f9ec37662d.html">
+                <img src="https://images.ransomware.live/victims/eb8e2b5f81461508f141c231fe3fca63.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Inversiones Clinica Del Meta SA">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Inversiones Clinica Del Meta SA</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-28 14:21:51.073684</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusalocker</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.clinicameta.co Description employee information – patient information – agreements – password da&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67b797f2ecca0cafd5a88943.html">
+                <img src="https://images.ransomware.live/victims/a885afce685fe3bc676d937df722cd2f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="gilcar.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">gilcar.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-02-20 20:04:02.923793</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Gilcar.co is a property investment company based in the UK that primarily deals in th&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f538786f8591b4f5dcf2a.html">
+                <img src="https://images.ransomware.live/victims/a87345aeb70f3c4773c6eceb32c9a03c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nhbg.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nhbg.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 08:13:22.579172</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    nhbg
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f537e86f8591b4f5dcf13.html">
+                <img src="https://images.ransomware.live/victims/86dcb058511e552880f0b23b5eab7690.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lamundialdeseguros.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lamundialdeseguros.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 07:44:09.849888</p>
+                <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    lamundialdeseguros.com
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/679f537386f8591b4f5dcefb.html">
+                <img src="https://images.ransomware.live/victims/eacad6e4d9e8e1636603f6c573ae3c4c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="industrialdealimentos.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">industrialdealimentos.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-27 07:14:28.540731</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> babuk2</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    www.industrialdealimentos.com
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc6b006f14fdb4187d66a.html">
+                <img src="https://images.ransomware.live/victims/fecc0ffc845b4046cb19c5c528e23513.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="aquamanaesp.gov.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">aquamanaesp.gov.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-17 15:22:30.894073</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] &#34;Aquamanaesp.gov.co&#34; appears to be a governmental entity involved in the management o&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc69a06f14fdb4187d626.html">
+                <img src="https://images.ransomware.live/victims/4a487d1e1eb9d74266abbabdd0c71cf9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="clinicaces.edu.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">clinicaces.edu.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-14 09:32:35.744306</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All data of this company will be available for download on 20.01.2025. ¡Bienvenido a la Clnica CES! &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67c061e87e0f712505af816d.html">
+                <img src="https://images.ransomware.live/victims/4a487d1e1eb9d74266abbabdd0c71cf9.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="clinicaces.edu.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">clinicaces.edu.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-14 09:32:35.744306</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    All data of this company will be available for download on 20.01.2025. ¡Bienvenido a la Clnica CES! &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fc69406f14fdb4187d613.html">
+                <img src="https://images.ransomware.live/victims/d4db0a03b45ebf5fbca66bc8af59676b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lamejor.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lamejor.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-13 21:37:03.974988</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;PASTEURIZADORA LA MEJOR S.A&#34;.  Company Descr&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67d97c90e3de47d4a2d8d499.html">
+                <img src="https://images.ransomware.live/victims/d4db0a03b45ebf5fbca66bc8af59676b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lamejor.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lamejor.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-01-13 21:37:03.974988</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;PASTEURIZADORA LA MEJOR S.A&#34;.  Company Descr&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe521c4f2181a7127129d.html">
+                <img src="https://images.ransomware.live/victims/884b9a59f1b424f220720afcf27eb13e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lamundialdeseguros">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lamundialdeseguros</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-13 17:42:07.695523</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] La Mundial de Seguros is an insurance company that specializes in providing a wide ra&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe520c4f2181a7127129b.html">
+                <img src="https://images.ransomware.live/victims/884b9a59f1b424f220720afcf27eb13e.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="lamundialdeseguros.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">lamundialdeseguros.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-13 14:40:14.548040</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> funksec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] La Mundial de Seguros is an insurance company that offers a variety of insurance prod&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe4a9c4f2181a71271135.html">
+                <img src="https://images.ransomware.live/victims/3ae3a1b481b5bcd1049b112e03faf9aa.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="facilcreditos.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">facilcreditos.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-27 10:48:25.179653</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] Facilcreditos.co is a company that specializes in providing financial solutions, focu&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe479c4f2181a712710a5.html">
+                <img src="https://images.ransomware.live/victims/a68f465de5c176b2f2663f0169ec436f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="liquitech.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">liquitech.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-11-20 02:25:13.913170</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe39cc4f2181a71270e0d.html">
+                <img src="https://images.ransomware.live/victims/d15ea4b8c82a754004c01f4686eff80b.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Arango Billboard">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Arango Billboard</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-21 10:39:49.765679</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    &lt;p&gt;Dear customers!&lt;/p&gt;&lt;p&gt;We are offering exclusive access to over 15 GB of confidential data from Ar&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe334c4f2181a71270cd4.html">
+                <img src="https://images.ransomware.live/victims/90ef34ac04b834f2c7faa89b5cfc7819.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Corantioquia">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Corantioquia</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-01 11:35:41.950114</p>
+                <p class="card-text"><strong>Industry:</strong> Government</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> meow</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Corantioquia, or Corporación Autónoma Regional del Centro de Antioquia, is a regional environmental &hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2d6c4f2181a71270bba.html">
+                <img src="https://images.ransomware.live/victims/4a8efccdc2930680763ddd09ddbd2766.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="nhbg.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">nhbg.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-12 12:12:16.070687</p>
+                <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Greetings!  Today we are posting here the new company, &#34;Nuevo Hospital de Bocagrande&#34;.  Company Desc&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe26ec4f2181a71270a80.html">
+                <img src="https://images.ransomware.live/victims/060e724a4fd6b276f192caa3cfa898af.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="instadriver.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">instadriver.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-08-22 20:14:38.819307</p>
+                <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> killsec</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Instadriver is a dedicated platform to find and hire drivers. Employers rely on Instadriver to recru&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe100c4f2181a71270635.html">
+                <img src="https://images.ransomware.live/victims/413ca8ed843b0e9354f42521ffccc126.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.eebpsa.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.eebpsa.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-06-04 23:30:27.928193</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe09cc4f2181a71270507.html">
+                <img src="https://images.ransomware.live/victims/bba90e9c619c1fde5cf03229109038a5.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="Goldrh.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">Goldrh.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-15 05:33:20.023903</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> arcusmedia</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Goldrh.com.coGold RH is a company with...
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe06fc4f2181a7127047d.html">
+                <img src="https://images.ransomware.live/victims/b3047aa840d1af73990fd629ba29661d.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="totto.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">totto.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-05-09 10:41:34.686574</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Nalsani SAS is a company with nationally-focused eCommerce activity.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe023c4f2181a71270399.html">
+                <img src="https://images.ransomware.live/victims/e74bcbc72272a166b38a1249fcbc6293.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.thinkadam.co/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.thinkadam.co/</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-29 10:12:15.972944</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> spacebears</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Thinkadam provides advanced device locking solutions for the smartphone-on-credit industry.Our techn&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf83c4f2181a712701b5.html">
+                <img src="https://images.ransomware.live/victims/413ca8ed843b0e9354f42521ffccc126.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="eebpsa.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">eebpsa.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-16 21:46:38.776100</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Visits: 46 Data Size: 20,2 GB Published: False
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdecac4f2181a7126ff85.html">
+                <img src="https://images.ransomware.live/victims/34b7316ac0f4338136b848160b1d6174.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.hozzify.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.hozzify.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-03-08 14:42:29.965286</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> ransomhub</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Visits: 47 Data Size: 136GB Published: False
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde6cc4f2181a7126fe68.html">
+                <img src="https://images.ransomware.live/victims/fc0163ad0b7deaf78a932cd3c62b4b2c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="champion.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">champion.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-15 11:58:32.007237</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    International freight forwarding &amp; logistics providers
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde2bc4f2181a7126fda4.html">
+                <img src="https://images.ransomware.live/victims/912257e4570c8761b28364f5e301c3f2.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="FEPCO Zona Franca SAS">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">FEPCO Zona Franca SAS</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-04 10:52:57.217271</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> knight</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    we have +100GB of confidential data, bank contracts, invoices, customer data, company invoices, comp&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdceec4f2181a7126f9e7.html">
+                <img src="https://images.ransomware.live/victims/63d7ca97ea2a2c85f86afc0ebe109ed3.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="talentum.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">talentum.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-24 20:48:30.216307</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> noescape</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    TALENTUM is an EMPLOYMENT SERVICE company, with approval from the Ministry of Labor since March 2005&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda60c4f2181a7126f224.html">
+                <img src="https://images.ransomware.live/victims/b32a455cb8da3ee7ce82388e01ebfb0c.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="unipiloto.edu.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">unipiloto.edu.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 16:38:18.249457</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Over 300 gigabytes of data Data of students, teachers, administrators and much more....
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda54c4f2181a7126f1fe.html">
+                <img src="https://images.ransomware.live/victims/41af55717c7932cb65a2c03a57f1567a.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.epm.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.epm.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 16:18:43.193255</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    The bylaws in force for EPM E.S.P. are contained in Decision 12 of 1998, as amended by Decision 32 o&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda27c4f2181a7126f176.html">
+                <img src="https://images.ransomware.live/victims/589811d6bf2982cac281aee338dec0cb.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ambit.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ambit.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 15:02:40.808738</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    We have over 500gb of your data, you work with banks, aubank.in and many others, everyone will be aw&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd9c4c4f2181a7126f048.html">
+                <img src="https://images.ransomware.live/victims/637cd0f6765b5cbd24c909b21da22630.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.protactics.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.protactics.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-12 08:00:42.392140</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> noescape</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Protactics is a Colombian company that provides security and defense solutions for companies and gov&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd93ac4f2181a7126eea2.html">
+                <img src="https://images.ransomware.live/victims/4cc8552ba5ec50f1911cdf033556d3a8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="transprensa.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">transprensa.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-12 04:53:12.325839</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Transprensa Transport Company has become another interesting job. Engaged in the collection, dispatc&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd926c4f2181a7126ee67.html">
+                <img src="https://images.ransomware.live/victims/f14d0b3cd5ccc258b83a9de0636bd724.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="mariohernandez.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">mariohernandez.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-06 20:54:51.925396</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Mario Hernández is a Colombian fashion house dedicated to the manufacture of luxury leather accessor&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd904c4f2181a7126edfe.html">
+                <img src="https://images.ransomware.live/victims/df394cc7add0415ff9dadc8e46d238cd.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="fiduagraria.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">fiduagraria.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-27 13:53:07.086486</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> medusa</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Fiduagraria is a joint-stock company of a mixed economy, subject to the State regime of an industria&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd902c4f2181a7126edf7.html">
+                <img src="https://images.ransomware.live/victims/e9335e93cd2bc6c5cb2aa54cc789c4a7.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="fiduagraria.gov.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">fiduagraria.gov.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-26 14:54:58.385410</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    We are a financial services with more than 30 years of experience, dedicated to designing and struct&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd89dc4f2181a7126ecc5.html">
+                <img src="https://images.ransomware.live/victims/edbdee21bd06aef12bbd3fe65b246074.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="emtelco.com.co">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">emtelco.com.co</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-05-05 11:20:27.264509</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/co.png" alt="CO flag">
+                  
+                  CO
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    EMTELCO SA is a company that operates in the Outsourcing/Offshoring industry. It employs 101-250 peo&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 06:37:25-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

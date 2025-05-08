@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">Anon Sec</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">19</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-05-02</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+
+
+    
+    <section>
+      <h2 class="section-title">Last&nbsp;10&nbsp;DDoS Attacks by Anon Sec</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/681463d1da96abfc81bfc1bd.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/02/adm_gov_ae/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.adm.gov.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.adm.gov.ae</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-02</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity V4</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/68146395da96abfc81bfc1bc.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/02/dcd_gov_ae/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.dcd.gov.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.dcd.gov.ae</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-02</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity V4</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/68146377da96abfc81bfc1bb.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/05/02/shjcd_gov_ae/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.shjcd.gov.ae">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.shjcd.gov.ae</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-05-02</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Hack For Humanity V4</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/680f799c5dd5662610485cf5.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/dsbt_gov_ua/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.dsbt.gov.ua/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.dsbt.gov.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Op Ukraine</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/680f79845dd5662610485cf4.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/kvs_gov_ua/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://kvs.gov.ua/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">kvs.gov.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Op Ukraine</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/680f79ba5dd5662610485cf6.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/npu_gov_ua/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://npu.gov.ua/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">npu.gov.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Op Ukraine</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/680f79695dd5662610485cf3.html">
+                <img src="https://unit500.python-myth.info.s3.amazonaws.com/ddos/2025/04/28/dkrs_gov_ua/files/additional_image.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://dkrs.gov.ua/">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dkrs.gov.ua</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-28</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+                  <p class="card-text"><strong>Campaign:</strong> Op Ukraine</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/67ff50d695c79cfdd699d827.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.khamgaonbank.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.khamgaonbank.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/67ff515995c79cfdd699d82a.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://pravarabank.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">pravarabank.com</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+              </div>
+            </div>
+          </div>
+        
+          
+          
+          <div class="col">
+            <div class="card h-100">
+              <a href="../ddos_details/67ff517395c79cfdd699d82b.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    loading="lazy"
+                    alt="Thumbnail for https://www.kalyanjanata.co.in">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.kalyanjanata.co.in</h5>
+                <p class="card-text"><strong>Date:</strong> 2025-04-16</p>
+                <p class="card-text"><strong>Group:</strong> Anon Sec</p>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - Anon Sec (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-04-15", 8], ["2025-04-16", 4], ["2025-04-28", 4], ["2025-05-02", 3]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit500 Ransomware Victims</title>
+  <!-- Bootstrap CSS (using CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* Placeholder squares styling */
+    .square-placeholder {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    /* Initially hide all ransomware cards; they will be revealed via JS */
+    .ransom-card {
+      display: none;
+    }
+     /* Icon and clock sizing */
+     .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Include shared header/menu -->
+  <header class="mb-4">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
+    </div>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+  
+  <!-- Page Header for Ransomware Victims -->
+  <div class="container my-4">
+    <section class="text-center mb-4">
+      <h1 class="display-4 text-success">Ransomware Victims</h1>
+      <p class="lead fst-italic">Details about the latest ransomware victim reports</p>
+    </section>
+    
+    <!-- Placeholder Squares Section -->
+    <section class="mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Total Victims</h3>
+            <p>120</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Unique Industries</h3>
+            <p>80</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Top Countries</h3>
+            <p>15</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="square-placeholder">
+            <h3>Recent Incidents</h3>
+            <p>95</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Latest Ransomware Victims Cards Section -->
+    <section>
+      <h2 class="section-title">Latest Ransomware Victims</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4" id="ransom-cards">
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/68147bf40b5f553d4ef2478b.html">
+                <img src="https://images.ransomware.live/victims/de4cc0900ff0130e7a9c801ae9534ef0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="jean-petit.lu">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">jean-petit.lu</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-02 07:27:20.913181</p>
+                <p class="card-text"><strong>Industry:</strong> Not Found</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> J</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6808ba51e7b36983eb68b007.html">
+                <img src="https://images.ransomware.live/victims/b039ae1f0a98dfdf46c730d93ea31b53.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.unitedcaps.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.unitedcaps.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-23 08:47:50.031610</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> qilin</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    UNITED CAPS enables Total Packaging Solutions with the help of innovation, differentiated design, pi&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/67fa9c35b2a1b64e6f983e25.html">
+                <img src="https://images.ransomware.live/victims/b259b88e92253e9f30474c2fc622d5c8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="acimfunds.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">acimfunds.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-12 14:31:10.031829</p>
+                <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Managing capital on behalf of institutional investors, family offices, and high net worth individual&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/6819ddd49324cfcffbde74ee.html">
+                <img src="https://images.ransomware.live/victims/b259b88e92253e9f30474c2fc622d5c8.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="acimfunds.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">acimfunds.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-04-12 14:31:10.031829</p>
+                <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Managing capital on behalf of institutional investors, family offices, and high net worth individual&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe5a7c4f2181a7127142f.html">
+                <img src="https://images.ransomware.live/victims/6a3dddd7b76912c17d4be6f98fea02b6.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="ikav.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">ikav.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-12-29 10:07:30.280057</p>
+                <p class="card-text"><strong>Industry:</strong> Energy</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> dragonforce</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    IKAV is an international asset management group that provides institutional investors with investmen&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe3c9c4f2181a71270e95.html">
+                <img src="https://images.ransomware.live/victims/d3eb4c5ebaaad1f614d4d8439c6e4666.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="wescan-services.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">wescan-services.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-10-26 14:34:57.795296</p>
+                <p class="card-text"><strong>Industry:</strong> Business Services</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> blacksuit</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Wescan Services is a company specializing in providing comprehensive solutions for environmental and&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2f0c4f2181a71270c08.html">
+                <img src="https://images.ransomware.live/victims/e1f82f6fac2f9a6a5a9a29e1f689f320.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.multidata.lu">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.multidata.lu</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-18 11:52:39.233483</p>
+                <p class="card-text"><strong>Industry:</strong> Technology</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> play</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Luxembourg
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe2edc4f2181a71270bff.html">
+                <img src="https://images.ransomware.live/victims/40311d921257d2473b19012cdafa07a0.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="satiagroup.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">satiagroup.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-09-18 09:44:14.436808</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> ValenciaLeaks</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Data Exfiltrated : 7.1GB - Leak Date : 23.08.2024:00:01
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fe205c4f2181a71270946.html">
+                <img src="https://images.ransomware.live/victims/611de5f6e39720346f42cff9d7a8f8bc.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.webasto.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.webasto.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-07-31 16:11:31.474906</p>
+                <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> metaencryptor</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Carlex Glass Luxembourg SA in Grevenmacher is a part of Webasto, the world leader in roof systems an&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdf9ec4f2181a71270208.html">
+                <img src="https://images.ransomware.live/victims/06367fded3fead3a8f30ebe629f60471.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="trois-i.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">trois-i.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-04-19 09:42:35.712487</p>
+                <p class="card-text"><strong>Industry:</strong> Financial</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> dispossessor</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Trois I Investissements Industriels Internationaux sa is an independent, family owned holding compan&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fde6bc4f2181a7126fe63.html">
+                <img src="https://images.ransomware.live/victims/b376208919cc2d5385bc714697c6b377.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="centralepaysanne.lu">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">centralepaysanne.lu</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2024-02-15 10:28:20.422889</p>
+                <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Founded in 1944, the Central Paysanne Luxembourgeoise, the largest and oldest professional organisat&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdd4cc4f2181a7126fb05.html">
+                <img src="https://images.ransomware.live/victims/b37e8c67b0f57bde18f76251af617011.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="promobe.lu">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">promobe.lu</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-12-13 10:06:03.538995</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    PROMOBE Group of Companies consists of 3 companies whose data has been uploaded to our servers T-com&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fdce0c4f2181a7126f9bc.html">
+                <img src="https://images.ransomware.live/victims/9d7e0a201e98aae75e97b0b736398928.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="dmc-luxembourg.lu">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">dmc-luxembourg.lu</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-11-22 07:10:43.643401</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> 8base</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    DMC-Luxembourg Real Gas detection specialists are engaged in the sale, placement, maintenance and af&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fda6ec4f2181a7126f24e.html">
+                <img src="https://images.ransomware.live/victims/988507a97afe8e8045aa6911a15f1bab.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="www.creos-net.lu">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">www.creos-net.lu</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-26 17:00:05.230565</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> alphv</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Creos Luxembourg S.A. owns and manages electricity networks and natural gas pipelines in the Grand D&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd9d8c4f2181a7126f084.html">
+                <img src="https://images.ransomware.live/victims/619b6b3d08d03e07de0e933e2bfc613f.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="province.namur.be">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">province.namur.be</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-07-15 14:57:39.560489</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Namur is a province of Wallonia, one of the three regions of Belgium. It borders on the Walloon prov&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col ransom-card">
+            <div class="card h-100">
+              <a href="ransom_details/678fd925c4f2181a7126ee64.html">
+                <img src="https://images.ransomware.live/victims/59d85a47eff100995adccdd4c79920d4.png"
+                     class="card-img-top"
+                     style="max-height:200px; object-fit:cover;"
+                     alt="trois-i.com">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">trois-i.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2023-06-06 16:53:24.283108</p>
+                <p class="card-text"><strong>Industry:</strong> </p>
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/lu.png" alt="LU flag">
+                  
+                  LU
+                </p>
+                <p class="card-text"><strong>Group:</strong> lockbit3</p>
+                <p class="card-text"><strong>Description:</strong>
+                    
+
+                  
+                    Trois I Investissements Industriels Internationaux sa is an independent, family owned holding compan&hellip;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="text-center mt-4">
+        <button id="loadMoreRansomButton" class="btn btn-primary">Load More</button>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Include shared footer -->
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: 2025-05-08 06:39:25-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+  </div>
+</footer>
+  
+  <!-- Bootstrap JS and Popover Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  </script>
+  
+  <!-- Load More Functionality for Ransom -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".ransom-card");
+      var cardsPerPage = 20;
+      var currentPage = 1;
+      function updateCardsVisibility() {
+        cards.forEach(function(card, index) {
+          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
+        });
+        document.getElementById("loadMoreRansomButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
+      }
+      updateCardsVisibility();
+      document.getElementById("loadMoreRansomButton").addEventListener("click", function(e) {
+        e.preventDefault();
+        currentPage++;
+        updateCardsVisibility();
+      });
+    });
+  </script>
+</body>
+</html>

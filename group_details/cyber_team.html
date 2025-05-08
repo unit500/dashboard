@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group Details - Unit500</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Common Header -->
+  <header class="mb-4">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">Group Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Group Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Group Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Group Name</div>
+          <div class="card-body">
+            <h5 class="card-title">Cyber Team</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">4</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-05-06</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="groupActivityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements for Group -->
+    
+    <section>
+      <h2 class="section-title">Last 10 Defacements for Cyber Team</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/6819aa37e7448ddd71945f96.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/06/indocalnormas_gob_do/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for http://indocalnormas.gob.do">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/6819aa37e7448ddd71945f96.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">indocalnormas.gob.do</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
+                <p class="card-text"><strong>Actor:</strong> Dr3n4k</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67c5dd91c2d66b2596b7bc41.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/03/iesppjegeh_edu_pe/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for http://iesppjegeh.edu.pe">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67c5dd91c2d66b2596b7bc41.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">iesppjegeh.edu.pe</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                <p class="card-text"><strong>Actor:</strong> Junin-CLS</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67c5dc89c2d66b2596b7bc2d.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/03/mostradecursos_ufsj_edu_br/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for http://mostradecursos.ufsj.edu.br">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67c5dc89c2d66b2596b7bc2d.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">mostradecursos.ufsj.edu.br</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                <p class="card-text"><strong>Actor:</strong> Junin-CLS</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/67c5dc79c2d66b2596b7bc2a.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/03/03/zszayza_edu_sk/screenshot.png"
+                    class="card-img-top"
+                    alt="Thumbnail for http://zszayza.edu.sk">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/67c5dc79c2d66b2596b7bc2a.html"
+                  class="text-decoration-none text-dark">
+                  <h5 class="card-title">zszayza.edu.sk</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-03-03</p>
+                <p class="card-text"><strong>Actor:</strong> Junin-CLS</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+    
+
+
+    
+
+    
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - Cyber Team (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-03-03", 3], ["2025-05-06", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
+</body>
+</html>
