@@ -27,35 +27,104 @@
       display: block;
       margin: 0 auto;
     }
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
+    }
   </style>
 </head>
 <body class="bg-light">
   <!-- Common Header -->
   <header class="mb-4">
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
-      </div>
-    </nav>
-    <!-- Offcanvas Menu -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="nav flex-column">
-          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
-          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
-          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
-          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-none d-lg-flex align-items-center">
+  <!-- GitHub Icon linking to user repo page -->
+  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
+        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
+        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
+        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+      </path>
+    </svg>
+  </a>
+
+  <!-- Telegram Icon -->
+  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
+      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
+        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
+        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
+        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
+        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
+        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
+    </svg>
+  </a>
+
+  <!-- Discord Icon (Newly Added) -->
+  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
+    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
+        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
+        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
+        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
+        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
+        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
+        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
+        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
+        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
+        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
+        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
+        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
+        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
+        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
+        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
+    </svg>
+  </a>
+
+  <!-- Analog Clock -->
+  <canvas id="canvasClock" width="32" height="32"></canvas>
+</div>
     </div>
-  </header>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
+                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
+	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
 
   <div class="container my-4">
     <!-- Back Button -->
@@ -120,7 +189,7 @@
       <!-- Left Column: Screenshot/Thumbnail -->
       <div class="col-md-4 mb-3">
         
-          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
+          <img src="" alt="Default DDoS Image" class="details-img">
         
       </div>
       <!-- Right Column: Details Table -->
@@ -145,11 +214,8 @@
               
             
               
-                <tr>
-                  <th>Actor name</th>
-                  <td></td>
-                </tr>
-              
+                  
+                
             
               
                 <tr>
@@ -167,24 +233,15 @@
               
             
               
-                <tr>
-                  <th>Targeted website[]</th>
-                  <td>https://www.cobus-industries.com/</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Check host[]</th>
-                  <td>2562fe38kdc2</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Check it[]</th>
-                  <td>on</td>
-                </tr>
+                
               
             
               
@@ -195,10 +252,7 @@
               
             
               
-                <tr>
-                  <th>G-recaptcha-response</th>
-                  <td>03AFcWeA4ivBAEFGV8xav6IXN4R3dQpRYoOU0MdQP8PfKx8RnpDvyaHCj7pKo4TiMNTuHxVevYtPIsK1AkdYCBkCMT3HggmdVn_Jq3L4OI2IMwb9QC5e-VIVjdvhQ-dE5PSk8ujZpe6FDbTi63xaATpBkrT3nzVQX_A_GxVKzZ8mxBdkd2aO7TMZ-tk43iDGvjuZs2qqJ4fEde-kV513v5xzLP5rNVIE96LqSzApypH3wGoJ4debTBOWmqggnX5pveHDJ33lOVJhVoUVXYlWSBhxaOj98ukK4cuyVgqqsX-dCR2xZUmLVmkJh0sk11Vy63aJfX-M_zD75aW2vL_xdzzWImLqgbCgdeK0pkKZ7srUile1rYomN-KA7h65fly_XTZt_qHh1PyaAYhR3AsRewuFfRtHRyXCz_e66gO_6TPIzC0E030Mfql3T2a-A_XgnJpZuDZ9jiXLvET83XvBDRdq0EjRNIi7dQu3XRzhTRiWAgKlokat666P6TF1cr8ttNMnLYD6J9OczBQpF9gXO8GSXRorHYuCncqS4otoU72OpnAzreupKkzeNg9J-bfuVj9zL6lIB93z1birZL7AQeuEcR8NInPWXx_le3sDuthwzAx8N99o78XjO5pI8wnyA88EYQ1GBomEx7z4EplYfcC-4137MOdc8UC5R2pGa2zqsfKd6fvpHYCRV9_e1k9_XcLVybvghwQ5QvGlaMETwMvlz9UjckaJu9KTZMhbaKXozByA-HYt3yzNbxu8Ts-B5D0WfJY-VB1616I8b7iaZoKKUYyQb74JDiH_tB5zmWk9148asPfmCj7Zoa_q4LLVGSa4yoJCPfDsg5ZfzLXdYWn00wfhatcdtFfYVUVkw9cSgp1MLIVZI5k_lX3TGB9vwAXCDCENjx8De79Q5TQZ1-eATDm7D0Zt4rVPkhZt9SOu_ELnQw2Vr7BaHN3debxWEGHLWWG-pX55GvvY9ImBulnOsif3qCtHFtrlH3kwvubVXpMfT6xr8WVo12_CSjtyI8_47hEX2pLwQAPJw63gw11u38QoEaby4Jy-okzsv35V_gWeq3ZYtmdx8ypr-Y2RQjrjiC3j5r0ByWb_ul2i0LcJTKgetvLWWgw4FWY2X_UAEVqwUTxe_Sm-aUc5_lGYJjfSpO_S2CHSn0mcR22REBJvmardkN4B7edjkJrNe_Pc2UqF3jxaCkG-YTkCv22W81LpBIYSTTTX3C2pGeoz2_YWF83BqhZZxQXElVrWMttgs3LuX-xx5KAHfihfpTSuV8Y9k9aKua5aA-7PTDjXOFoa5eMOl0sXAIxarPRsXMoPndrMf-7fb2TDQMnrfV-8eDAfp_1iePSwPCZfG1yDJEvbcCRAzaMeXUH1VZ4CEgC9hN1faLs6LfWqmi9C0-A5vK0rg_j2I3vjZ0E6k0aLO9KSPFwC18WQpnOnhSIB0GWCwDM1wtegGcpfZggM2AWbUzbTAQ82Nx8BK2GAh5rySmJZ3qZHbcEly_QxXsDgLlHxXfo_r_4aaP8FUMOyaGlu06hBXTfcLbrcHNuf8YJIxXrJDp-lR5DmH9B8BOVHaGTGxFKFJu5iBAMc5l-wFC0w-FF5-3ctZT1OdwsPF6Qspx1wTU_T0rGmwNO1KGflQqgmtAEFbXcyl3GEiRVTFEMLXfGjGAsASbKPpc_JejwER5UuBQeEXAYBzyjUwIghurtakJCPQ5Er5igOgkBMcu2dMUnDSZkKLU_BY8iFrFDtp1hATCYoZ0CJb0Z0PtcP7m6GiD9FYx-qPhmgq8UQ1EE1mEyC7lvbQzy3kLckXNHNhljE7eSFvcLmvvl6v9_DkIK62Yr_361I5OmkSxaNy9tpW-Om9m0HqJVboy-OWLKautk-BnPjl4NpFPFK-3aAAO6PCHp9cfHvXXofMCOOiYlQx7TiDQ3VhF3bAo-kzqifz-mSdAdvfrqj2Cjz31CoqnR9f8M9vQEFBhpiAUUwAyvrWuoaNrWbqZonOFOpV5jdBknyyHp9n13tq-pSZbnMrViK_w_KFJ38NBFYbZUx_T_i-dtnSA2ZTtyrxLdQ17d2aK_CuC3mmAQOOveuJb6c6xCtcGQ6GlBHVPQutYAdA6-xhA4B9GTjH9DWKJpwOZNIZBPyYVO6xL0UOBbsgJti8k3ADuggxVG7tw3h2lz9A9NwogZTGkuXIw3tMacGztVOYK70AbPPCr32x9Dwx7X9nYGrBsyLmAgURKCcbZM9NKOx80d2C5j8Pm0QYVcP8DYnXC-VASdv80_Gz-S_IrHJDkDy0FCiRx_SD3iphStlITLJEOdbGRkPIf8SLdATEPqP9qQBimiyQUe-rnRo-1Fvk2n8DPJ-8DJ1cKJR0</td>
-                </tr>
+                
               
             
               
@@ -215,7 +269,7 @@
                     <a href="https://check-host.net/check-report/2562fe38kdc2" target="_blank">2562fe38kdc2</a>
                   </td>
                 </tr>
-              
+                
             
               
                 <tr>
@@ -232,11 +286,16 @@
               
             
               
-                <tr>
-                  <th>Attacked country</th>
-                  <td>DE</td>
-                </tr>
-              
+                  <tr>
+                    <th>Attacked country</th>
+                    <td>
+                      <img src="https://flagcdn.com/32x24/de.png"
+                          class="me-1"
+                          alt="DE flag">
+                      DE
+                    </td>
+                  </tr>
+                
             
               
                 <tr>
@@ -257,45 +316,41 @@
               
             
               
-                <tr>
-                  <th>Mirror</th>
-                  <td>/archive/verified/2025/04/27/cobus-industries_com</td>
-                </tr>
+                  <tr>
+                    <th>Github Mirror</th>
+                    <td>
+                        /archive/verified/2025/04/27/cobus-industries_com
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Technical Report</th>
+                    <td>
+                      <a href="https://github.com/unit500/ddos/tree/main//archive/verified/2025/04/27/cobus-industries_com"
+                        target="_blank">
+                        https://github.com/unit500/ddos/tree/main//archive/verified/2025/04/27/cobus-industries_com
+                      </a>
+                    </td>
+                  </tr>
               
             
               
-                <tr>
-                  <th>Received at</th>
-                  <td>2025-04-27 09:52:22.127000</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Announced</th>
-                  <td>True</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Details generated</th>
-                  <td>ddos_details/680dfe56bf9d757635ab2f10.html</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Announced hourly</th>
-                  <td>True</td>
-                </tr>
+                
               
             
               
-                <tr>
-                  <th>Announced daily</th>
-                  <td>True</td>
-                </tr>
+                
               
             
           </tbody>
@@ -305,9 +360,18 @@
   </div>
   
   <!-- Footer -->
-  <footer class="text-center mt-4 mb-2">
-    <p class="small text-muted">Last Generated: 2025-04-28 07:55:50</p>
-  </footer>
+  <footer class="py-4">
+  <div class="container text-center">
+    <hr class="mb-3">
+    <p class="mb-1 text-muted">&copy;  Unit500. All rights reserved.</p>
+    
+      <p class="mb-1 text-success">All Systems Operational</p>
+    
+    <p class="text-xs text-muted">Build: -4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+  </div>
+</footer>
+
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
