@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
+    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">2</h3>
             </div>
           </div>
         </div>
@@ -861,6 +861,41 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/681e0ad883e55a4794e67696.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="Klampfer Elektroanlagen">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Klampfer Elektroanlagen</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-09 13:48:48.998203</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/akira.html">akira</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    G. Klampfer Elektroanlagen GmbH is a company specializing on buil
+ding services as well as general c…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1174,41 +1209,6 @@ Public
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/678fc69b06f14fdb4187d628.html">
-                <img src="https://images.ransomware.live/victims/8c661a35081397fb45364e92879ed289.png" class="card-img-top" alt="gebaeudereinigungsakademie.at">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">gebaeudereinigungsakademie.at</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-01-14 12:14:03.637547</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
-                  
-                  AT
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/8base.html">8base</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Gebäudereinigungsakademie
-Gebäudereinigungs akademie in Austria offers professional training in buil…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1221,8 +1221,8 @@ Gebäudereinigungs akademie in Austria offers professional training in buil…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 16:43:17-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-09 14:09:29-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
 
@@ -1275,11 +1275,15 @@ Gebäudereinigungs akademie in Austria offers professional training in buil…
     var defacementData = [];
     
       
+        defacementData.push({ value: 1, name: "orca" });
+      
+    
+      
         defacementData.push({ value: 1, name: "hunters" });
       
     
       
-        defacementData.push({ value: 1, name: "orca" });
+        defacementData.push({ value: 1, name: "akira" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1304,7 +1308,7 @@ Gebäudereinigungs akademie in Austria offers professional training in buil…
     var attackedSeriesData = [];
     
       attackedCategories.push("at");
-      attackedSeriesData.push({value: 2, name: "at"});
+      attackedSeriesData.push({value: 3, name: "at"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
