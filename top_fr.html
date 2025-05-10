@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-09 11:21:56-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-10 14:27:32-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 346, name: "US" },
+        { value: 344, name: "US" },
       
-        { value: 37, name: "DE" },
+        { value: 35, name: "DE" },
       
-        { value: 27, name: "CA" },
+        { value: 28, name: "CA" },
       
         { value: 17, name: "IT" },
       
-        { value: 12, name: "GB" }
+        { value: 10, name: "BR" }
       
     ];
     chartRansomTopSource.setOption({
@@ -406,13 +406,13 @@
       
         { value: 1, name: "www.ardon45.fr" },
       
-        { value: 1, name: "Doumen.fr" },
+        { value: 1, name: "mfr.fr" },
       
         { value: 1, name: "www.hci66.net" },
       
-        { value: 1, name: "neatem.fr" },
+        { value: 1, name: "www.lgm.fr" },
       
-        { value: 1, name: "mfr.fr" }
+        { value: 1, name: "neatem.fr" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -437,7 +437,7 @@
       
         { value: 2, name: "nightspire" },
       
-        { value: 1, name: "BrainCipher" },
+        { value: 1, name: "termite" },
       
         { value: 1, name: "qilin" },
       
@@ -464,13 +464,13 @@
       
         { value: 2, name: "13" },
       
-        { value: 1, name: "17" },
-      
         { value: 1, name: "22" },
+      
+        { value: 1, name: "17" },
       
         { value: 1, name: "10" },
       
-        { value: 1, name: "06" }
+        { value: 1, name: "20" }
       
     ];
     chartRansomByHour.setOption({
@@ -493,9 +493,9 @@
       
         { value: 5, name: "Mon" },
       
-        { value: 1, name: "Thu" },
-      
         { value: 1, name: "Fri" },
+      
+        { value: 1, name: "Thu" },
       
         { value: 1, name: "Sun" }
       
@@ -593,7 +593,7 @@
     var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
     var dataDdosTopSource = [
       
-        { value: 4, name: "Unknown" }
+        { value: 5, name: "Unknown" }
       
     ];
     chartDdosTopSource.setOption({
@@ -612,7 +612,7 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 20, name: "GB" },
+        { value: 21, name: "GB" },
       
         { value: 18, name: "CA" },
       
@@ -620,7 +620,7 @@
       
         { value: 17, name: "UA" },
       
-        { value: 15, name: "PL" }
+        { value: 15, name: "US" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -643,7 +643,7 @@
       
         { value: 3, name: "Dark Storm Team" },
       
-        { value: 1, name: "NoName057(16)" }
+        { value: 2, name: "NoName057(16)" }
       
     ];
     chartDdosTopGroups.setOption({
@@ -687,6 +687,8 @@
       
         { value: 1, name: "13" },
       
+        { value: 1, name: "14" },
+      
         { value: 1, name: "8" }
       
     ];
@@ -712,6 +714,8 @@
       
         { value: 1, name: "Thu" },
       
+        { value: 1, name: "Sat" },
+      
         { value: 1, name: "Sun" }
       
     ];
@@ -730,7 +734,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDdos = [["2025-03-04", 1], ["2025-03-06", 1], ["2025-03-10", 11], ["2025-03-11", 3], ["2025-03-12", 2], ["2025-03-13", 4], ["2025-03-16", 8], ["2025-03-20", 1], ["2025-04-01", 1], ["2025-04-03", 4], ["2025-04-04", 3], ["2025-04-11", 2], ["2025-04-24", 1], ["2025-04-27", 1]];
+    let heatDataDdos = [["2025-03-04", 1], ["2025-03-06", 1], ["2025-03-10", 11], ["2025-03-11", 3], ["2025-03-12", 2], ["2025-03-13", 4], ["2025-03-16", 8], ["2025-03-20", 1], ["2025-04-01", 1], ["2025-04-03", 4], ["2025-04-04", 3], ["2025-04-11", 2], ["2025-04-24", 1], ["2025-04-27", 1], ["2025-05-10", 1]];
 
     let maxCountDdos = heatDataDdos.length
       ? Math.max(...heatDataDdos.map(d => d[1]))
@@ -799,15 +803,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 508, name: "US" },
+        { value: 511, name: "US" },
       
-        { value: 327, name: "CA" },
+        { value: 335, name: "CA" },
       
-        { value: 163, name: "IN" },
+        { value: 168, name: "IN" },
       
-        { value: 141, name: "FR" },
+        { value: 142, name: "SG" },
       
-        { value: 133, name: "SG" }
+        { value: 141, name: "FR" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -832,9 +836,9 @@
       
         { value: 23, name: "Team Anon Force" },
       
-        { value: 1, name: "CyberTeam Anon Force" },
+        { value: 1, name: "Team Anon Force Anon Force" },
       
-        { value: 1, name: "Team Anon Force Anon Force" }
+        { value: 1, name: "CyberTeam Anon Force" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -863,7 +867,7 @@
       
         { value: 8, name: "Belief" },
       
-        { value: 4, name: "omgsmok" }
+        { value: 4, name: "XYZ" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -890,9 +894,9 @@
       
         { value: 11, name: "5" },
       
-        { value: 7, name: "13" },
+        { value: 7, name: "18" },
       
-        { value: 7, name: "18" }
+        { value: 7, name: "13" }
       
     ];
     chartDefaceByHour.setOption({
