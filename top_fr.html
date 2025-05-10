@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-10 14:27:32-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-10 14:42:12-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
@@ -385,7 +385,7 @@
       
         { value: 17, name: "IT" },
       
-        { value: 10, name: "BR" }
+        { value: 10, name: "GB" }
       
     ];
     chartRansomTopSource.setOption({
@@ -406,11 +406,11 @@
       
         { value: 1, name: "www.ardon45.fr" },
       
-        { value: 1, name: "mfr.fr" },
-      
         { value: 1, name: "www.hci66.net" },
       
         { value: 1, name: "www.lgm.fr" },
+      
+        { value: 1, name: "Doumen.fr" },
       
         { value: 1, name: "neatem.fr" }
       
@@ -439,7 +439,7 @@
       
         { value: 1, name: "termite" },
       
-        { value: 1, name: "qilin" },
+        { value: 1, name: "BrainCipher" },
       
         { value: 1, name: "devman" }
       
@@ -464,13 +464,13 @@
       
         { value: 2, name: "13" },
       
-        { value: 1, name: "22" },
-      
-        { value: 1, name: "17" },
+        { value: 1, name: "02" },
       
         { value: 1, name: "10" },
       
-        { value: 1, name: "20" }
+        { value: 1, name: "06" },
+      
+        { value: 1, name: "17" }
       
     ];
     chartRansomByHour.setOption({
@@ -593,7 +593,7 @@
     var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
     var dataDdosTopSource = [
       
-        { value: 5, name: "Unknown" }
+        { value: 10, name: "Unknown" }
       
     ];
     chartDdosTopSource.setOption({
@@ -614,11 +614,11 @@
       
         { value: 21, name: "GB" },
       
-        { value: 18, name: "CA" },
-      
-        { value: 17, name: "NL" },
+        { value: 19, name: "CA" },
       
         { value: 17, name: "UA" },
+      
+        { value: 17, name: "NL" },
       
         { value: 15, name: "US" }
       
@@ -641,9 +641,9 @@
     var chartDdosTopGroups = echarts.init(document.getElementById('chartDdosTopGroups'));
     var dataDdosTopGroups = [
       
-        { value: 3, name: "Dark Storm Team" },
+        { value: 7, name: "NoName057(16)" },
       
-        { value: 2, name: "NoName057(16)" }
+        { value: 3, name: "Dark Storm Team" }
       
     ];
     chartDdosTopGroups.setOption({
@@ -683,11 +683,11 @@
     var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
     var dataDdosByHour = [
       
+        { value: 6, name: "14" },
+      
         { value: 2, name: "9" },
       
         { value: 1, name: "13" },
-      
-        { value: 1, name: "14" },
       
         { value: 1, name: "8" }
       
@@ -710,11 +710,11 @@
     var chartDdosByWeekday = echarts.init(document.getElementById('chartDdosByWeekday'));
     var dataDdosByWeekday = [
       
+        { value: 6, name: "Sat" },
+      
         { value: 2, name: "Fri" },
       
         { value: 1, name: "Thu" },
-      
-        { value: 1, name: "Sat" },
       
         { value: 1, name: "Sun" }
       
@@ -734,7 +734,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDdos = [["2025-03-04", 1], ["2025-03-06", 1], ["2025-03-10", 11], ["2025-03-11", 3], ["2025-03-12", 2], ["2025-03-13", 4], ["2025-03-16", 8], ["2025-03-20", 1], ["2025-04-01", 1], ["2025-04-03", 4], ["2025-04-04", 3], ["2025-04-11", 2], ["2025-04-24", 1], ["2025-04-27", 1], ["2025-05-10", 1]];
+    let heatDataDdos = [["2025-03-04", 1], ["2025-03-06", 1], ["2025-03-10", 11], ["2025-03-11", 3], ["2025-03-12", 2], ["2025-03-13", 4], ["2025-03-16", 8], ["2025-03-20", 1], ["2025-04-01", 1], ["2025-04-03", 4], ["2025-04-04", 3], ["2025-04-11", 2], ["2025-04-24", 1], ["2025-04-27", 1], ["2025-05-10", 6]];
 
     let maxCountDdos = heatDataDdos.length
       ? Math.max(...heatDataDdos.map(d => d[1]))
@@ -894,9 +894,9 @@
       
         { value: 11, name: "5" },
       
-        { value: 7, name: "18" },
+        { value: 7, name: "13" },
       
-        { value: 7, name: "13" }
+        { value: 7, name: "18" }
       
     ];
     chartDefaceByHour.setOption({
