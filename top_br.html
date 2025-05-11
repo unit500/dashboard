@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/6820e5d8f8a2e4a81f54932a.html">tvgoiania.com.br</a>, 
+          
             <a href="ransom_details/68147bfd0b5f553d4ef2478e.html">uva.edu.br</a>, 
           
             <a href="ransom_details/680fd05c8885af162a8a1246.html">w8textil.com.br</a>, 
           
             <a href="ransom_details/680f8a290fa4cc43791b6806.html">ihara.com.br</a>, 
           
-            <a href="ransom_details/680f8a260fa4cc43791b67fe.html">​​​​bettininformatica - suporteon</a>, 
-          
-            <a href="ransom_details/680a98849ec9d904786490bd.html">Dress To</a>
+            <a href="ransom_details/680f8a260fa4cc43791b67fe.html">​​​​bettininformatica - suporteon</a>
           
         </li>
       </ul>
@@ -352,7 +352,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-11 08:09:05-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-11 18:08:04-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
@@ -377,7 +377,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 332, name: "US" },
+        { value: 333, name: "US" },
       
         { value: 35, name: "DE" },
       
@@ -404,15 +404,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "bettininformatica" },
-      
         { value: 1, name: "w8textil.com.br" },
       
-        { value: 1, name: "www.amazontransportes.com.br" },
+        { value: 1, name: "bettininformatica" },
+      
+        { value: 1, name: "ihara.com.br" },
       
         { value: 1, name: "uva.edu.br" },
       
-        { value: 1, name: "aeamg.org.br" }
+        { value: 1, name: "www.amazontransportes.com.br" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -433,15 +433,15 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 2, name: "akira" },
-      
         { value: 2, name: "nova" },
       
-        { value: 1, name: "J" },
+        { value: 2, name: "akira" },
       
-        { value: 1, name: "nightspire" },
+        { value: 1, name: "devman" },
       
-        { value: 1, name: "sarcoma" }
+        { value: 1, name: "cicada3301" },
+      
+        { value: 1, name: "ralord" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -462,13 +462,13 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 2, name: "16" },
-      
         { value: 2, name: "13" },
       
-        { value: 1, name: "14" },
+        { value: 2, name: "16" },
       
-        { value: 1, name: "15" },
+        { value: 2, name: "17" },
+      
+        { value: 1, name: "12" },
       
         { value: 1, name: "04" }
       
@@ -497,9 +497,9 @@
       
         { value: 1, name: "Sat" },
       
-        { value: 1, name: "Fri" },
+        { value: 1, name: "Sun" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Fri" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -517,7 +517,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-03", 1], ["2025-01-08", 1], ["2025-01-10", 2], ["2025-01-13", 3], ["2025-01-14", 3], ["2025-01-16", 2], ["2025-01-21", 1], ["2025-01-22", 1], ["2025-01-27", 9], ["2025-01-28", 1], ["2025-02-01", 4], ["2025-02-04", 2], ["2025-02-06", 1], ["2025-02-17", 1], ["2025-02-20", 1], ["2025-02-25", 3], ["2025-02-27", 3], ["2025-02-28", 2], ["2025-03-03", 1], ["2025-03-04", 3], ["2025-03-10", 2], ["2025-03-11", 1], ["2025-03-12", 1], ["2025-03-14", 2], ["2025-03-19", 1], ["2025-03-21", 1], ["2025-03-22", 2], ["2025-03-24", 1], ["2025-03-25", 1], ["2025-03-26", 1], ["2025-03-27", 1], ["2025-03-29", 1], ["2025-04-01", 2], ["2025-04-16", 2], ["2025-04-19", 1], ["2025-04-21", 1], ["2025-04-22", 1], ["2025-04-24", 1], ["2025-04-28", 3], ["2025-05-02", 1]];
+  const heatDataRansom = [["2025-01-03", 1], ["2025-01-08", 1], ["2025-01-10", 2], ["2025-01-13", 3], ["2025-01-14", 3], ["2025-01-16", 2], ["2025-01-21", 1], ["2025-01-22", 1], ["2025-01-27", 9], ["2025-01-28", 1], ["2025-02-01", 4], ["2025-02-04", 2], ["2025-02-06", 1], ["2025-02-17", 1], ["2025-02-20", 1], ["2025-02-25", 3], ["2025-02-27", 3], ["2025-02-28", 2], ["2025-03-03", 1], ["2025-03-04", 3], ["2025-03-10", 2], ["2025-03-11", 1], ["2025-03-12", 1], ["2025-03-14", 2], ["2025-03-19", 1], ["2025-03-21", 1], ["2025-03-22", 2], ["2025-03-24", 1], ["2025-03-25", 1], ["2025-03-26", 1], ["2025-03-27", 1], ["2025-03-29", 1], ["2025-04-01", 2], ["2025-04-16", 2], ["2025-04-19", 1], ["2025-04-21", 1], ["2025-04-22", 1], ["2025-04-24", 1], ["2025-04-28", 3], ["2025-05-02", 1], ["2025-05-11", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -614,13 +614,13 @@
       
         { value: 21, name: "GB" },
       
-        { value: 18, name: "CA" },
+        { value: 19, name: "CA" },
       
         { value: 16, name: "NL" },
       
-        { value: 15, name: "PL" },
+        { value: 16, name: "US" },
       
-        { value: 15, name: "US" }
+        { value: 15, name: "PL" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -783,7 +783,7 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 514, name: "US" },
+        { value: 519, name: "US" },
       
         { value: 338, name: "CA" },
       
@@ -899,9 +899,9 @@
       
         { value: 14, name: "Sun" },
       
-        { value: 9, name: "Wed" },
-      
         { value: 9, name: "Mon" },
+      
+        { value: 9, name: "Wed" },
       
         { value: 7, name: "Fri" }
       
