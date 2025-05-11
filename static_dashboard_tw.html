@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Your time is limited, so don&#39;t waste it living someone else&#39;s life.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">2</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/68205a8334cb93d6e39723cd.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/11/goldbank_tw/screenshot.png" class="card-img-top" alt="Thumbnail for http://goldbank.tw/faq.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68205a8334cb93d6e39723cd.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">goldbank.tw</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-11</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/snow_wolf.html">SnOw WoLF</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1535,8 +1560,8 @@ To date, the group has played in 33 different countries around the world, and cu
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 16:06:32-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-11 08:28:00-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
@@ -1570,7 +1595,9 @@ To date, the group has played in 33 different countries around the world, and cu
       
       {value: 2, name: "Team Anon Force" },
       
-      {value: 1, name: "Buy_Shells" }
+      {value: 1, name: "Buy_Shells" },
+      
+      {value: 1, name: "SnOw WoLF" }
       
     ];
     var optionRansomwareGroups = {
@@ -1597,15 +1624,11 @@ To date, the group has played in 33 different countries around the world, and cu
       
     
       
-        defacementData.push({ value: 1, name: "sarcoma" });
-      
-    
-      
-        defacementData.push({ value: 1, name: "underground" });
-      
-    
-      
         defacementData.push({ value: 1, name: "spacebears" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "sarcoma" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1630,7 +1653,7 @@ To date, the group has played in 33 different countries around the world, and cu
     var attackedSeriesData = [];
     
       attackedCategories.push("tw");
-      attackedSeriesData.push({value: 9, name: "tw"});
+      attackedSeriesData.push({value: 10, name: "tw"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
