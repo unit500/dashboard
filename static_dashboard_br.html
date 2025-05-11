@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">5</h3>
+              <h3 id="victims-week">6</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6820570ca7ce42120747e4c9.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/11/tangabrazil_com_br/screenshot.png" class="card-img-top" alt="Thumbnail for http://tangabrazil.com.br">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6820570ca7ce42120747e4c9.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">tangabrazil.com.br</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-11</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/yemeni_hacker.html">Yemeni_HaCker</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/politics.html">politics</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1034,31 +1059,6 @@
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/aethersec.html">AetherSec</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> 
-                  <a href="attack_reason/fun.html">fun</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/6804c85c1b9c60d2da129cfb.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/04/20/munidatemdelmaranon_gob_pe/screenshot.png" class="card-img-top" alt="Thumbnail for http://munidatemdelmaranon.gob.pe">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/6804c85c1b9c60d2da129cfb.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">munidatemdelmaranon.gob.pe</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-04-20</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/rhz.html">rhz</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/indie.html">indie</a>
                 </p>
                 <p class="card-text"><strong>Reason:</strong> 
                   <a href="attack_reason/fun.html">fun</a>
@@ -1435,8 +1435,8 @@ management, and cargo transportati…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 14:10:45-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-11 08:09:05-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
@@ -1509,11 +1509,11 @@ management, and cargo transportati…
       
     
       
-        defacementData.push({ value: 1, name: "lockbit3" });
+        defacementData.push({ value: 1, name: "nightspire" });
       
     
       
-        defacementData.push({ value: 1, name: "nova" });
+        defacementData.push({ value: 1, name: "cicada3301" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1538,7 +1538,7 @@ management, and cargo transportati…
     var attackedSeriesData = [];
     
       attackedCategories.push("br");
-      attackedSeriesData.push({value: 78, name: "br"});
+      attackedSeriesData.push({value: 76, name: "br"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
