@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	      <li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -338,8 +338,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 16:03:45-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-05-12 08:37:10-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
   
@@ -363,15 +363,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 349, name: "US" },
+        { value: 336, name: "US" },
       
-        { value: 37, name: "DE" },
+        { value: 40, name: "DE" },
       
         { value: 27, name: "CA" },
       
-        { value: 17, name: "IT" },
+        { value: 18, name: "IT" },
       
-        { value: 12, name: "GB" }
+        { value: 11, name: "BR" }
       
     ];
     chartRansomTopSource.setOption({
@@ -558,15 +558,15 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 20, name: "GB" },
+        { value: 21, name: "GB" },
       
-        { value: 18, name: "CA" },
+        { value: 19, name: "CA" },
       
-        { value: 17, name: "UA" },
+        { value: 16, name: "US" },
       
-        { value: 17, name: "NL" },
+        { value: 16, name: "NL" },
       
-        { value: 15, name: "US" }
+        { value: 15, name: "PL" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -729,15 +729,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 526, name: "US" },
+        { value: 528, name: "US" },
       
-        { value: 311, name: "CA" },
+        { value: 342, name: "CA" },
       
-        { value: 165, name: "IN" },
+        { value: 159, name: "IN" },
       
-        { value: 139, name: "FR" },
+        { value: 147, name: "SG" },
       
-        { value: 125, name: "SG" }
+        { value: 141, name: "FR" }
       
     ];
     chartDefaceTopTarget.setOption({
