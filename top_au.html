@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	      <li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-11 08:29:58-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-12 09:16:24-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 332, name: "US" },
+        { value: 336, name: "US" },
       
-        { value: 35, name: "DE" },
+        { value: 40, name: "DE" },
       
         { value: 27, name: "CA" },
       
         { value: 18, name: "IT" },
       
-        { value: 11, name: "ES" }
+        { value: 11, name: "BR" }
       
     ];
     chartRansomTopSource.setOption({
@@ -405,8 +405,6 @@
     var dataRansomTopTarget = [
       
         { value: 1, name: "ausfec1.com.au" },
-      
-        { value: 1, name: "bilbie.com.au" },
       
         { value: 1, name: "extremefire.com.au" },
       
@@ -431,15 +429,13 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 1, name: "qilin" },
-      
-        { value: 1, name: "lynx" },
+        { value: 1, name: "J" },
       
         { value: 1, name: "safepay" },
       
-        { value: 1, name: "J" },
+        { value: 1, name: "akira" },
       
-        { value: 1, name: "akira" }
+        { value: 1, name: "qilin" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -460,15 +456,13 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 1, name: "04" },
-      
         { value: 1, name: "22" },
       
         { value: 1, name: "16" },
       
-        { value: 1, name: "07" },
+        { value: 1, name: "23" },
       
-        { value: 1, name: "23" }
+        { value: 1, name: "07" }
       
     ];
     chartRansomByHour.setOption({
@@ -491,11 +485,9 @@
       
         { value: 2, name: "Wed" },
       
-        { value: 1, name: "Tue" },
-      
         { value: 1, name: "Fri" },
       
-        { value: 1, name: "Sat" }
+        { value: 1, name: "Tue" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -779,15 +771,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 519, name: "US" },
+        { value: 529, name: "US" },
       
-        { value: 338, name: "CA" },
+        { value: 344, name: "CA" },
       
         { value: 159, name: "IN" },
       
-        { value: 145, name: "SG" },
+        { value: 147, name: "SG" },
       
-        { value: 142, name: "FR" }
+        { value: 141, name: "FR" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -837,11 +829,11 @@
       
         { value: 2, name: "setupp.es" },
       
-        { value: 1, name: "Belief" },
+        { value: 1, name: "H0rn3t sp1d3rs" },
       
-        { value: 1, name: "Simsimi" },
+        { value: 1, name: "Team Anon Force" },
       
-        { value: 1, name: "Team Anon Force" }
+        { value: 1, name: "Belief" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -864,9 +856,9 @@
       
         { value: 6, name: "7" },
       
-        { value: 1, name: "13" },
-      
         { value: 1, name: "5" },
+      
+        { value: 1, name: "13" },
       
         { value: 1, name: "14" }
       
@@ -895,9 +887,9 @@
       
         { value: 2, name: "Thu" },
       
-        { value: 1, name: "Sat" },
+        { value: 1, name: "Wed" },
       
-        { value: 1, name: "Wed" }
+        { value: 1, name: "Sat" }
       
     ];
     chartDefaceByWeekday.setOption({
