@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	      <li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -352,7 +352,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-11 22:09:36-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-12 06:45:54-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 334, name: "US" },
+        { value: 336, name: "US" },
       
-        { value: 39, name: "DE" },
+        { value: 40, name: "DE" },
       
         { value: 27, name: "CA" },
       
         { value: 18, name: "IT" },
       
-        { value: 11, name: "GB" }
+        { value: 11, name: "BR" }
       
     ];
     chartRansomTopSource.setOption({
@@ -406,13 +406,13 @@
       
         { value: 1, name: "linney.com" },
       
-        { value: 1, name: "vicaragecourtsolicitors.com" },
-      
-        { value: 1, name: "join-the-quest.co.uk" },
+        { value: 1, name: "ossman.co.uk" },
       
         { value: 1, name: "www.gpflewis.co.uk" },
       
-        { value: 1, name: "ossman.co.uk" }
+        { value: 1, name: "join-the-quest.co.uk" },
+      
+        { value: 1, name: "www.defected.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -433,15 +433,15 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 1, name: "lynx" },
+        { value: 1, name: "medusa" },
+      
+        { value: 1, name: "ransomhouse" },
+      
+        { value: 1, name: "safepay" },
       
         { value: 1, name: "dunghill" },
       
-        { value: 1, name: "sarcoma" },
-      
-        { value: 1, name: "hunters" },
-      
-        { value: 1, name: "incransom" }
+        { value: 1, name: "akira" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -466,11 +466,11 @@
       
         { value: 2, name: "16" },
       
-        { value: 1, name: "08" },
+        { value: 1, name: "14" },
       
-        { value: 1, name: "21" },
+        { value: 1, name: "17" },
       
-        { value: 1, name: "13" }
+        { value: 1, name: "08" }
       
     ];
     chartRansomByHour.setOption({
@@ -495,9 +495,9 @@
       
         { value: 3, name: "Thu" },
       
-        { value: 1, name: "Mon" },
-      
         { value: 1, name: "Sat" },
+      
+        { value: 1, name: "Mon" },
       
         { value: 1, name: "Fri" }
       
@@ -809,15 +809,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 519, name: "US" },
+        { value: 528, name: "US" },
       
-        { value: 338, name: "CA" },
+        { value: 342, name: "CA" },
       
         { value: 159, name: "IN" },
       
-        { value: 145, name: "SG" },
+        { value: 147, name: "SG" },
       
-        { value: 142, name: "FR" }
+        { value: 141, name: "FR" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -838,7 +838,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 79, name: "indie" },
+        { value: 78, name: "indie" },
       
         { value: 5, name: "Team Anon Force" },
       
@@ -921,11 +921,11 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 26, name: "Sat" },
-      
-        { value: 20, name: "Thu" },
+        { value: 25, name: "Sat" },
       
         { value: 20, name: "Tue" },
+      
+        { value: 20, name: "Thu" },
       
         { value: 10, name: "Wed" },
       
