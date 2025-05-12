@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	      <li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-08 15:15:28-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-12 07:46:53-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 349, name: "US" },
+        { value: 336, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 40, name: "DE" },
       
         { value: 27, name: "CA" },
       
-        { value: 17, name: "IT" },
+        { value: 18, name: "IT" },
       
-        { value: 12, name: "GB" }
+        { value: 11, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -404,11 +404,7 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "iycsa.com.co" },
-      
-        { value: 1, name: "www.codinter.com" },
-      
-        { value: 1, name: "iris.com.co" }
+        { value: 1, name: "iycsa.com.co" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -428,10 +424,6 @@
     // 3) Top Groups (bar with emoji flags)
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
-      
-        { value: 1, name: "play" },
-      
-        { value: 1, name: "crypto24" },
       
         { value: 1, name: "BrainCipher" }
       
@@ -454,11 +446,7 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 1, name: "10" },
-      
-        { value: 1, name: "21" },
-      
-        { value: 1, name: "20" }
+        { value: 1, name: "10" }
       
     ];
     chartRansomByHour.setOption({
@@ -479,11 +467,7 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 1, name: "Mon" },
-      
-        { value: 1, name: "Thu" },
-      
-        { value: 1, name: "Tue" }
+        { value: 1, name: "Mon" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -596,13 +580,13 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 20, name: "GB" },
+        { value: 21, name: "GB" },
       
-        { value: 18, name: "CA" },
+        { value: 19, name: "CA" },
       
-        { value: 17, name: "NL" },
+        { value: 16, name: "US" },
       
-        { value: 17, name: "UA" },
+        { value: 16, name: "NL" },
       
         { value: 15, name: "PL" }
       
@@ -767,15 +751,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 526, name: "US" },
+        { value: 528, name: "US" },
       
-        { value: 311, name: "CA" },
+        { value: 342, name: "CA" },
       
-        { value: 165, name: "IN" },
+        { value: 159, name: "IN" },
       
-        { value: 139, name: "FR" },
+        { value: 147, name: "SG" },
       
-        { value: 125, name: "SG" }
+        { value: 141, name: "FR" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -840,13 +824,13 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 1, name: "18" },
+        { value: 1, name: "4" },
       
         { value: 1, name: "19" },
       
         { value: 1, name: "6" },
       
-        { value: 1, name: "4" }
+        { value: 1, name: "18" }
       
     ];
     chartDefaceByHour.setOption({
@@ -867,13 +851,13 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 1, name: "Tue" },
+        { value: 1, name: "Thu" },
       
-        { value: 1, name: "Fri" },
+        { value: 1, name: "Tue" },
       
         { value: 1, name: "Mon" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Fri" }
       
     ];
     chartDefaceByWeekday.setOption({
