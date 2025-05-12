@@ -350,8 +350,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 08:50:43-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-12 16:13:25-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -375,7 +375,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 336, name: "US" },
+        { value: 333, name: "US" },
       
         { value: 40, name: "DE" },
       
@@ -383,7 +383,7 @@
       
         { value: 18, name: "IT" },
       
-        { value: 11, name: "BR" }
+        { value: 11, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -402,13 +402,11 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 2, name: "acimfunds.com" },
-      
-        { value: 1, name: "a3t.lu" },
-      
         { value: 1, name: "www.unitedcaps.com" },
       
-        { value: 1, name: "jean-petit.lu" }
+        { value: 1, name: "jean-petit.lu" },
+      
+        { value: 1, name: "a3t.lu" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -428,8 +426,6 @@
     // 3) Top Groups (bar with emoji flags)
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
-      
-        { value: 2, name: "lockbit3" },
       
         { value: 1, name: "nightspire" },
       
@@ -456,13 +452,11 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 2, name: "14" },
-      
         { value: 1, name: "20" },
       
-        { value: 1, name: "07" },
+        { value: 1, name: "08" },
       
-        { value: 1, name: "08" }
+        { value: 1, name: "07" }
       
     ];
     chartRansomByHour.setOption({
@@ -483,13 +477,11 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 2, name: "Sat" },
-      
-        { value: 1, name: "Sun" },
+        { value: 1, name: "Fri" },
       
         { value: 1, name: "Wed" },
       
-        { value: 1, name: "Fri" }
+        { value: 1, name: "Sun" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -606,9 +598,9 @@
       
         { value: 19, name: "CA" },
       
-        { value: 16, name: "NL" },
-      
         { value: 16, name: "US" },
+      
+        { value: 16, name: "NL" },
       
         { value: 15, name: "PL" }
       
@@ -773,9 +765,9 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 528, name: "US" },
+        { value: 538, name: "US" },
       
-        { value: 342, name: "CA" },
+        { value: 347, name: "CA" },
       
         { value: 159, name: "IN" },
       
