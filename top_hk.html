@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	      <li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-11 22:11:32-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-12 06:53:26-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -377,9 +377,9 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 334, name: "US" },
+        { value: 336, name: "US" },
       
-        { value: 39, name: "DE" },
+        { value: 40, name: "DE" },
       
         { value: 27, name: "CA" },
       
@@ -471,9 +471,9 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 1, name: "Tue" },
+        { value: 1, name: "Sun" },
       
-        { value: 1, name: "Sun" }
+        { value: 1, name: "Tue" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -757,15 +757,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 519, name: "US" },
+        { value: 528, name: "US" },
       
-        { value: 338, name: "CA" },
+        { value: 342, name: "CA" },
       
         { value: 159, name: "IN" },
       
-        { value: 145, name: "SG" },
+        { value: 147, name: "SG" },
       
-        { value: 142, name: "FR" }
+        { value: 141, name: "FR" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -786,7 +786,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 11, name: "indie" },
+        { value: 3, name: "indie" },
       
         { value: 1, name: "Team Anon Force" }
       
@@ -808,8 +808,6 @@
     // 4) Top Actors (bar)
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
-      
-        { value: 8, name: "root./exe" },
       
         { value: 2, name: "Team Anon Force" },
       
@@ -836,13 +834,11 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 8, name: "8" },
-      
         { value: 1, name: "17" },
       
-        { value: 1, name: "18" },
-      
         { value: 1, name: "6" },
+      
+        { value: 1, name: "18" },
       
         { value: 1, name: "4" }
       
@@ -865,13 +861,11 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 8, name: "Sat" },
-      
         { value: 2, name: "Fri" },
       
-        { value: 1, name: "Mon" },
+        { value: 1, name: "Thu" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Mon" }
       
     ];
     chartDefaceByWeekday.setOption({
