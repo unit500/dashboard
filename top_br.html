@@ -154,13 +154,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/output/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="/output/static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/output/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="/output/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/output/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	      <li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 05:17:13-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-12 06:37:42-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -385,7 +385,7 @@
       
         { value: 18, name: "IT" },
       
-        { value: 11, name: "BR" }
+        { value: 11, name: "GB" }
       
     ];
     chartRansomTopSource.setOption({
@@ -404,15 +404,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "ihara.com.br" },
-      
         { value: 1, name: "www.amazontransportes.com.br" },
-      
-        { value: 1, name: "uva.edu.br" },
       
         { value: 1, name: "tvgoiania.com.br" },
       
-        { value: 1, name: "w8textil.com.br" }
+        { value: 1, name: "w8textil.com.br" },
+      
+        { value: 1, name: "bettininformatica" },
+      
+        { value: 1, name: "ihara.com.br" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -433,15 +433,15 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 2, name: "akira" },
-      
         { value: 2, name: "nova" },
       
-        { value: 1, name: "devman" },
+        { value: 2, name: "akira" },
       
-        { value: 1, name: "cicada3301" },
+        { value: 1, name: "J" },
       
-        { value: 1, name: "lockbit3" }
+        { value: 1, name: "sarcoma" },
+      
+        { value: 1, name: "nightspire" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -464,13 +464,13 @@
       
         { value: 2, name: "16" },
       
-        { value: 2, name: "13" },
-      
         { value: 2, name: "17" },
       
-        { value: 1, name: "12" },
+        { value: 2, name: "13" },
       
-        { value: 1, name: "04" }
+        { value: 1, name: "07" },
+      
+        { value: 1, name: "14" }
       
     ];
     chartRansomByHour.setOption({
@@ -495,11 +495,11 @@
       
         { value: 2, name: "Wed" },
       
-        { value: 1, name: "Fri" },
+        { value: 1, name: "Thu" },
       
-        { value: 1, name: "Tue" },
+        { value: 1, name: "Sun" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Tue" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -872,9 +872,9 @@
       
         { value: 10, name: "14" },
       
-        { value: 8, name: "19" },
-      
         { value: 8, name: "6" },
+      
+        { value: 8, name: "19" },
       
         { value: 7, name: "5" }
       
@@ -901,9 +901,9 @@
       
         { value: 15, name: "Sun" },
       
-        { value: 9, name: "Mon" },
-      
         { value: 9, name: "Wed" },
+      
+        { value: 9, name: "Mon" },
       
         { value: 7, name: "Fri" }
       
