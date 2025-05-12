@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
+    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -986,6 +986,38 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/682245657cb250025a95cdee.html">
+                <img src="https://images.ransomware.live/victims/ab1043815230ccb24a66b8c8decf996b.png" class="card-img-top" alt="psec.com.ar">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">psec.com.ar</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-12 17:23:59.795965</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ar.png" alt="AR flag">
+                  
+                  AR
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/.html">J</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1283,40 +1315,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/67d7f2ca188453e32b5c2449.html">
-                <img src="https://images.ransomware.live/victims/f390fba209cc62eb78f0f14d84fabf95.png" class="card-img-top" alt="kiusys.com">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">kiusys.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-03-17 08:38:38.580426</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Technology</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/ar.png" alt="AR flag">
-                  
-                  AR
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/apos.html">apos</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    🌐 kiusys.com💲 23400000📍 Paraguay
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1329,8 +1327,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 16:36:58-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-12 19:17:53-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
@@ -1362,13 +1360,13 @@
       
       {value: 2, name: "AetherSec" },
       
-      {value: 1, name: "Cyb3r_Drag0nz_Team" },
-      
       {value: 1, name: "MoneroSHELL" },
       
       {value: 1, name: "Simsimi" },
       
-      {value: 1, name: "ynR !" }
+      {value: 1, name: "ynR !" },
+      
+      {value: 1, name: "Cyb3r_Drag0nz_Team" }
       
     ];
     var optionRansomwareGroups = {
@@ -1420,7 +1418,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("ar");
-      attackedSeriesData.push({value: 8, name: "ar"});
+      attackedSeriesData.push({value: 9, name: "ar"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
