@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
+    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -1091,6 +1091,40 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/682737024f51883fb23cd35d.html">
+                <img src="https://images.ransomware.live/victims/fc069078a70ad0f7ef5cb84d17e8604c.png" class="card-img-top" alt="flysaa.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">flysaa.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-16 12:17:43.526754</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Transportation/Logistics</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
+                  
+                  ZA
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/incransom.html">incransom</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    South African Airways (SAA) is a passenger and freight airline that is owned and operated by the Sou…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/681ecfbfb45c1b41b687dc43.html">
                 <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="Pienaar Brothers">
               </a>
@@ -1387,40 +1421,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/67c618c22cf18100a1289986.html">
-                <img src="https://images.ransomware.live/victims/7041d8227d1329699f4ec7afd1260271.png" class="card-img-top" alt="linkgroup.co.za">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">linkgroup.co.za</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-03-03 20:02:54.037326</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/za.png" alt="ZA flag">
-                  
-                  ZA
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/arcusmedia.html">arcusmedia</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Hard landscaping including new patios, retaining walls, rockeries, decking,…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1433,8 +1433,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 14:30:46-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-16 13:08:13-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
@@ -1468,11 +1468,11 @@
       
       {value: 2, name: "Cyber Ghost" },
       
+      {value: 1, name: "./Vz7xp" },
+      
       {value: 1, name: "Xscyth3" },
       
-      {value: 1, name: "Mr Exsploit Wmc" },
-      
-      {value: 1, name: "Typical Idiot Security" }
+      {value: 1, name: "ASLAN NEFERLER TİM" }
       
     ];
     var optionRansomwareGroups = {
@@ -1498,6 +1498,10 @@
         defacementData.push({ value: 5, name: "devman" });
       
     
+      
+        defacementData.push({ value: 1, name: "incransom" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1520,7 +1524,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("za");
-      attackedSeriesData.push({value: 9, name: "za"});
+      attackedSeriesData.push({value: 10, name: "za"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
