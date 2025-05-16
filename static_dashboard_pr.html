@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
+    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -836,6 +836,40 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/68274532ddede492056cb8a2.html">
+                <img src="https://images.ransomware.live/victims/9dc97392bac4c22b0643b76f1f462a54.png" class="card-img-top" alt="barranquitas.pr.gov">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">barranquitas.pr.gov</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-16 13:13:16.501279</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Public Sector</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/pr.png" alt="PR flag">
+                  
+                  PR
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/blacklock.html">blacklock</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] &#34;Barranquitas Municipal Administration and its Department of Finance&#34; is the local go…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1021,8 +1055,8 @@ l range of technology solutions, i…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 14:20:28-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-16 14:12:35-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
 
@@ -1092,6 +1126,9 @@ l range of technology solutions, i…
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("pr");
+      attackedSeriesData.push({value: 1, name: "pr"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
