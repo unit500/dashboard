@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
+    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -836,6 +836,40 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/6827a7c480dde3a17ace3e59.html">
+                <img src="https://images.ransomware.live/victims/0490fe51556b115754f8cb8c2006f363.png" class="card-img-top" alt="nissi-beach.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">nissi-beach.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-16 20:49:53.741761</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/cy.png" alt="CY flag">
+                  
+                  CY
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/incransom.html">incransom</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Located in Ayia Napa, the Nissi Beach Resort has garnered a reputation as a true paradise destinatio…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1135,38 +1169,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/678fd837c4f2181a7126eb8e.html">
-                <img src="https://images.ransomware.live/victims/aa30fcb5f79c6e343445104a87a3121d.png" class="card-img-top" alt="ouc.ac.cy">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">ouc.ac.cy</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2023-04-06 05:12:51.316416</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/cy.png" alt="CY flag">
-                  
-                  CY
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/medusa.html">medusa</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    The Open University of Cyprus (OUC) was established in 2002 and, as a public university, specializes…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1179,8 +1181,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 15:19:18-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-05-16 21:09:04-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
 
@@ -1230,6 +1232,10 @@
     // Chart 2: Top Defacement Groups
     var defacementData = [];
     
+      
+        defacementData.push({ value: 1, name: "incransom" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1250,6 +1256,9 @@
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("cy");
+      attackedSeriesData.push({value: 1, name: "cy"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
