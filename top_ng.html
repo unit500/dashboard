@@ -204,6 +204,8 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
+            <a href="defacement_details/6829b9df69bfa1f0df742307.html">www.npf.gov.ng</a>
+          
         </li>
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
@@ -342,8 +344,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 15:05:00-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-18 12:03:08-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
@@ -367,15 +369,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 333, name: "US" },
+        { value: 343, name: "US" },
       
-        { value: 40, name: "DE" },
+        { value: 37, name: "DE" },
       
-        { value: 27, name: "CA" },
+        { value: 28, name: "CA" },
       
-        { value: 18, name: "IT" },
+        { value: 14, name: "ES" },
       
-        { value: 11, name: "BR" }
+        { value: 14, name: "GB" }
       
     ];
     chartRansomTopSource.setOption({
@@ -564,13 +566,13 @@
       
         { value: 21, name: "GB" },
       
-        { value: 19, name: "CA" },
+        { value: 17, name: "CA" },
       
         { value: 16, name: "NL" },
       
-        { value: 16, name: "US" },
+        { value: 11, name: "UA" },
       
-        { value: 15, name: "PL" }
+        { value: 9, name: "DE" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -733,15 +735,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 538, name: "US" },
+        { value: 518, name: "US" },
       
-        { value: 347, name: "CA" },
+        { value: 328, name: "CA" },
       
-        { value: 159, name: "IN" },
+        { value: 164, name: "IN" },
       
-        { value: 147, name: "SG" },
+        { value: 151, name: "SG" },
       
-        { value: 141, name: "FR" }
+        { value: 138, name: "FR" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -762,6 +764,8 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
+        { value: 1, name: "indie" }
+      
     ];
     chartDefaceTopGroups.setOption({
       title: { text: 'Top 5 Defacement Groups', left: 'center' },
@@ -780,6 +784,8 @@
     // 4) Top Actors (bar)
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
+      
+        { value: 1, name: "K7N" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -800,6 +806,8 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
+        { value: 1, name: "10" }
+      
     ];
     chartDefaceByHour.setOption({
       title: { text: 'Defacement Reports by Hour', left: 'center' },
@@ -819,6 +827,8 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
+        { value: 1, name: "Sun" }
+      
     ];
     chartDefaceByWeekday.setOption({
       title: { text: 'Defacement Reports by Weekday', left: 'center' },
@@ -835,7 +845,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [];
+    let heatDataDefacements = [["2025-05-18", 1]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))

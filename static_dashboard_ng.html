@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
+    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6829b9df69bfa1f0df742307.html">
+                <img src="https://unit500.python-myth.info" class="card-img-top" alt="Thumbnail for http://www.npf.gov.ng/k7n.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6829b9df69bfa1f0df742307.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.npf.gov.ng</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/k7n.html">K7N</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
       </div>
     </section>
@@ -1151,8 +1176,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 15:05:00-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-18 12:03:08-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -1181,6 +1206,8 @@
     // Chart 1: Top Ransomware Groups
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
+      
+      {value: 1, name: "K7N" }
       
     ];
     var optionRansomwareGroups = {
@@ -1222,6 +1249,9 @@
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("ng");
+      attackedSeriesData.push({value: 1, name: "ng"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
