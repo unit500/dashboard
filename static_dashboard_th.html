@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6829a08669bfa1f0df742222.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/18/bpl_ac_th/screenshot.png" class="card-img-top" alt="Thumbnail for http://www.bpl.ac.th">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6829a08669bfa1f0df742222.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.bpl.ac.th</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/fanny.html">Fanny</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/jateng_cyber_team.html">Jateng Cyber Team</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1030,31 +1055,6 @@
                 <p class="card-text">
                   <strong>Actor:</strong>
                   <a href="actor_details/r013x_404.html">MR. R013X 404</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/indie.html">indie</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> 
-                  <a href="attack_reason/fun.html">fun</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/67f7baf8e38ee5bc9cbc7ace.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/04/10/jplib_human_cmu_ac_th/screenshot.png" class="card-img-top" alt="Thumbnail for http://jplib.human.cmu.ac.th/version.txt">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/67f7baf8e38ee5bc9cbc7ace.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">jplib.human.cmu.ac.th</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-04-10</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/dx_cyber.html">Dx_Cyber</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
@@ -1558,7 +1558,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 16:15:00-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-18 09:05:21-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
@@ -1595,9 +1595,9 @@
       
       {value: 3, name: "NXBBSEC" },
       
-      {value: 2, name: "Finix" },
+      {value: 2, name: "BloodSecurity" },
       
-      {value: 2, name: "CaptainSmok3r" }
+      {value: 2, name: "MR. R013X 404" }
       
     ];
     var optionRansomwareGroups = {
@@ -1620,11 +1620,15 @@
     var defacementData = [];
     
       
-        defacementData.push({ value: 4, name: "devman" });
+        defacementData.push({ value: 2, name: "Team Anon Force" });
       
     
       
-        defacementData.push({ value: 2, name: "Team Anon Force" });
+        defacementData.push({ value: 2, name: "devman" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "Jateng Cyber Team" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1649,7 +1653,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("th");
-      attackedSeriesData.push({value: 11, name: "th"});
+      attackedSeriesData.push({value: 10, name: "th"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
