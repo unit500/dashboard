@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">3</h3>
+              <h3 id="victims-week">4</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6829da6ab819c46e21323e42.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/18/zeeco_li-co_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://zeeco.li-co.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6829da6ab819c46e21323e42.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">zeeco.li-co.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1034,31 +1059,6 @@
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/team_anon_force.html">Team Anon Force</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> 
-                  <a href="attack_reason/fun.html">fun</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/681979c193dca5f55e00502b.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/06/pitte_info/screenshot.png" class="card-img-top" alt="Thumbnail for http://pitte.info/Professor6T9.txt">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/681979c193dca5f55e00502b.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">pitte.info</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-05-06</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/team_anon_force.html">Team Anon Force</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/indie.html">indie</a>
                 </p>
                 <p class="card-text"><strong>Reason:</strong> 
                   <a href="attack_reason/fun.html">fun</a>
@@ -1437,7 +1437,7 @@ Employees: Company: 401 (including 14 contract …
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-16 13:04:32-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-18 13:37:54-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
@@ -1503,19 +1503,19 @@ Employees: Company: 401 (including 14 contract …
       
     
       
-        defacementData.push({ value: 2, name: "qilin" });
-      
-    
-      
         defacementData.push({ value: 2, name: "gunra" });
       
     
       
-        defacementData.push({ value: 1, name: "lynx" });
+        defacementData.push({ value: 2, name: "qilin" });
       
     
       
-        defacementData.push({ value: 1, name: "akira" });
+        defacementData.push({ value: 1, name: "Z-Pentest Alliance" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "lynx" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1540,7 +1540,7 @@ Employees: Company: 401 (including 14 contract …
     var attackedSeriesData = [];
     
       attackedCategories.push("jp");
-      attackedSeriesData.push({value: 29, name: "jp"});
+      attackedSeriesData.push({value: 30, name: "jp"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1566,6 +1566,9 @@ Employees: Company: 401 (including 14 contract …
     // Chart 4: Top Source Attack Countries
     var sourceCategories = [];
     var sourceSeriesData = [];
+    
+      sourceCategories.push("ru");
+      sourceSeriesData.push({value: 1, name: "ru"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
