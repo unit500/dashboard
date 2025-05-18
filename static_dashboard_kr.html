@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6829d9d4b819c46e21323e34.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/18/dongmoonent_yay_co_kr/screenshot.png" class="card-img-top" alt="Thumbnail for http://dongmoonent.yay.co.kr">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6829d9d4b819c46e21323e34.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">dongmoonent.yay.co.kr</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1286,7 +1311,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-12 15:31:41-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-18 13:23:02-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
@@ -1321,6 +1346,8 @@
       
       {value: 1, name: "MrAstra" },
       
+      {value: 1, name: "Z-Pentest Alliance" },
+      
       {value: 1, name: "MoneroSHELL" },
       
       {value: 1, name: "Red Wolf Cyber Team" }
@@ -1345,6 +1372,10 @@
     // Chart 2: Top Defacement Groups
     var defacementData = [];
     
+      
+        defacementData.push({ value: 1, name: "Z-Pentest Alliance" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1367,7 +1398,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("kr");
-      attackedSeriesData.push({value: 1, name: "kr"});
+      attackedSeriesData.push({value: 2, name: "kr"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1393,6 +1424,9 @@
     // Chart 4: Top Source Attack Countries
     var sourceCategories = [];
     var sourceSeriesData = [];
+    
+      sourceCategories.push("ru");
+      sourceSeriesData.push({value: 1, name: "ru"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
