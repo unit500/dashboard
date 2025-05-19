@@ -208,15 +208,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/682b63c6eac9801f5b6e0456.html">NSSF KENYA</a>, 
+          
             <a href="ransom_details/682b399be17de319c982534d.html">TBD KENYA</a>, 
           
             <a href="ransom_details/679f538586f8591b4f5dcf26.html">zetech.ac.ke</a>, 
           
             <a href="ransom_details/678fc66e06f14fdb4187d59f.html">molars.co.ke</a>, 
           
-            <a href="ransom_details/678fe525c4f2181a712712a8.html">zetech.ac.ke</a>, 
-          
-            <a href="ransom_details/678fe492c4f2181a712710ef.html">efisales.co.ke</a>
+            <a href="ransom_details/678fe525c4f2181a712712a8.html">zetech.ac.ke</a>
           
         </li>
       </ul>
@@ -342,7 +342,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 14:55:55-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-19 17:09:38-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
@@ -367,9 +367,9 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 347, name: "US" },
+        { value: 348, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 37, name: "DE" },
       
         { value: 28, name: "CA" },
       
@@ -413,7 +413,7 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 1, name: "devman" }
+        { value: 2, name: "devman" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -433,6 +433,8 @@
     // 4) By Hour (bar)
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
+      
+        { value: 1, name: "16" },
       
         { value: 1, name: "13" }
       
@@ -455,7 +457,7 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 1, name: "Mon" }
+        { value: 2, name: "Mon" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -473,7 +475,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-06", 1], ["2025-01-27", 1], ["2025-05-19", 1]];
+  const heatDataRansom = [["2025-01-06", 1], ["2025-01-27", 1], ["2025-05-19", 2]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
