@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/682b7fe4e24761621e67e2d4.html">epkweb.com</a>, 
+          
             <a href="ransom_details/6819351e8a876d7ac2732c22.html">www.novosit.com</a>, 
           
             <a href="ransom_details/67e487185ca2b5cea7700c90.html">crimsgroup.com</a>, 
           
             <a href="ransom_details/67df4f1f0428df885e24d027.html">let&#39;s join us babuk locker (Ransomare Affiliate) 2025</a>, 
           
-            <a href="ransom_details/67ded09ab8242e9c600c8536.html">Synesis Surveillance System</a>, 
-          
-            <a href="ransom_details/67c901f0b88e36d5c49ce84c.html">www.koltiva.com</a>
+            <a href="ransom_details/67ded09ab8242e9c600c8536.html">Synesis Surveillance System</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 11:55:54-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-05-19 19:08:59-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
@@ -377,9 +377,9 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 345, name: "US" },
+        { value: 349, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 37, name: "DE" },
       
         { value: 28, name: "CA" },
       
@@ -404,7 +404,9 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "www.novosit.com" }
+        { value: 1, name: "www.novosit.com" },
+      
+        { value: 1, name: "epkweb.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -424,6 +426,8 @@
     // 3) Top Groups (bar with emoji flags)
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
+      
+        { value: 1, name: "nightspire" },
       
         { value: 1, name: "play" }
       
@@ -446,7 +450,9 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 1, name: "19" }
+        { value: 1, name: "19" },
+      
+        { value: 1, name: "18" }
       
     ];
     chartRansomByHour.setOption({
@@ -467,7 +473,7 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 1, name: "Mon" }
+        { value: 2, name: "Mon" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -485,7 +491,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-13", 1], ["2025-02-10", 1], ["2025-02-27", 2], ["2025-03-03", 1], ["2025-03-06", 1], ["2025-03-22", 2], ["2025-03-26", 1], ["2025-05-05", 1]];
+  const heatDataRansom = [["2025-01-13", 1], ["2025-02-10", 1], ["2025-02-27", 2], ["2025-03-03", 1], ["2025-03-06", 1], ["2025-03-22", 2], ["2025-03-26", 1], ["2025-05-05", 1], ["2025-05-19", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -588,7 +594,7 @@
       
         { value: 11, name: "UA" },
       
-        { value: 9, name: "FR" }
+        { value: 9, name: "DE" }
       
     ];
     chartDdosTopTarget.setOption({
