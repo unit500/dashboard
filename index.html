@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcgjAwrAAAAAEL5N6QQqoE8ccVyWRIjGa--2i-Y"></script>
 	<script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -15,10 +16,20 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
   <!-- ECharts Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <!-- Bootstrap JS and Popover Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJ+Y6BsDd3cr6tQ/tbFvybJj/3MZ+5BZp6YkI="
+        crossorigin="anonymous"></script>
+    
   <style>
     .chart-container {
       width: 100%;
@@ -131,13 +142,13 @@
     </div>
     <div class="offcanvas-body">
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="static_defacements.html">Defacements</a></li>
-                <li class="nav-item"><a class="nav-link" href="static_ddos.html">DDoS</a></li>
-                        <li class="nav-item"><a class="nav-link" href="static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="top.html">Top Players</a></li>
-	<li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
+        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
+        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
+	      <li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
       </ul>
     </div>
   </div>
@@ -146,7 +157,529 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+  </div>
+
+  <!-- Country dashboard selector -->
+  <div class="mb-4 text-center">
+    <label for="countrySelect" class="form-label fw-bold me-2">
+      View country‑specific dashboard:
+    </label>
+
+    <select id="countrySelect"
+      name="countrySelect"
+      class="form-select d-inline-block w-auto"
+    >
+      <option></option>
+    </select>
+
+    <!-- <select id="countrySelect" class="form-select d-inline-block w-auto">
+      <option value="" selected>Global (all countries)</option>
+      
+        <option value="bd">Bangladesh</option>
+      
+        <option value="be">Belgium</option>
+      
+        <option value="bf">Burkina Faso</option>
+      
+        <option value="bg">Bulgaria</option>
+      
+        <option value="ba">Bosnia and Herzegovina</option>
+      
+        <option value="bb">Barbados</option>
+      
+        <option value="wf">Wallis and Futuna</option>
+      
+        <option value="bl">Saint Barthelemy</option>
+      
+        <option value="bm">Bermuda</option>
+      
+        <option value="bn">Brunei</option>
+      
+        <option value="bo">Bolivia</option>
+      
+        <option value="bh">Bahrain</option>
+      
+        <option value="bi">Burundi</option>
+      
+        <option value="bj">Benin</option>
+      
+        <option value="bt">Bhutan</option>
+      
+        <option value="jm">Jamaica</option>
+      
+        <option value="bv">Bouvet Island</option>
+      
+        <option value="bw">Botswana</option>
+      
+        <option value="ws">Samoa</option>
+      
+        <option value="bq">Bonaire, Saint Eustatius and Saba </option>
+      
+        <option value="br">Brazil</option>
+      
+        <option value="bs">Bahamas</option>
+      
+        <option value="je">Jersey</option>
+      
+        <option value="by">Belarus</option>
+      
+        <option value="bz">Belize</option>
+      
+        <option value="ru">Russia</option>
+      
+        <option value="rw">Rwanda</option>
+      
+        <option value="rs">Serbia</option>
+      
+        <option value="tl">East Timor</option>
+      
+        <option value="re">Reunion</option>
+      
+        <option value="tm">Turkmenistan</option>
+      
+        <option value="tj">Tajikistan</option>
+      
+        <option value="ro">Romania</option>
+      
+        <option value="tk">Tokelau</option>
+      
+        <option value="gw">Guinea-Bissau</option>
+      
+        <option value="gu">Guam</option>
+      
+        <option value="gt">Guatemala</option>
+      
+        <option value="gs">South Georgia and the South Sandwich Islands</option>
+      
+        <option value="gr">Greece</option>
+      
+        <option value="gq">Equatorial Guinea</option>
+      
+        <option value="gp">Guadeloupe</option>
+      
+        <option value="jp">Japan</option>
+      
+        <option value="gy">Guyana</option>
+      
+        <option value="gg">Guernsey</option>
+      
+        <option value="gf">French Guiana</option>
+      
+        <option value="ge">Georgia</option>
+      
+        <option value="gd">Grenada</option>
+      
+        <option value="uk">United Kingdom</option>
+      
+        <option value="gb">United Kingdom</option>
+      
+        <option value="ga">Gabon</option>
+      
+        <option value="sv">El Salvador</option>
+      
+        <option value="gn">Guinea</option>
+      
+        <option value="gm">Gambia</option>
+      
+        <option value="gl">Greenland</option>
+      
+        <option value="gi">Gibraltar</option>
+      
+        <option value="gh">Ghana</option>
+      
+        <option value="om">Oman</option>
+      
+        <option value="tn">Tunisia</option>
+      
+        <option value="jo">Jordan</option>
+      
+        <option value="hr">Croatia</option>
+      
+        <option value="ht">Haiti</option>
+      
+        <option value="hu">Hungary</option>
+      
+        <option value="hk">Hong Kong</option>
+      
+        <option value="hn">Honduras</option>
+      
+        <option value="hm">Heard Island and McDonald Islands</option>
+      
+        <option value="ve">Venezuela</option>
+      
+        <option value="pr">Puerto Rico</option>
+      
+        <option value="ps">Palestinian Territory</option>
+      
+        <option value="pw">Palau</option>
+      
+        <option value="pt">Portugal</option>
+      
+        <option value="sj">Svalbard and Jan Mayen</option>
+      
+        <option value="py">Paraguay</option>
+      
+        <option value="iq">Iraq</option>
+      
+        <option value="pa">Panama</option>
+      
+        <option value="pf">French Polynesia</option>
+      
+        <option value="pg">Papua New Guinea</option>
+      
+        <option value="pe">Peru</option>
+      
+        <option value="pk">Pakistan</option>
+      
+        <option value="ph">Philippines</option>
+      
+        <option value="pn">Pitcairn</option>
+      
+        <option value="pl">Poland</option>
+      
+        <option value="pm">Saint Pierre and Miquelon</option>
+      
+        <option value="zm">Zambia</option>
+      
+        <option value="eh">Western Sahara</option>
+      
+        <option value="ee">Estonia</option>
+      
+        <option value="eg">Egypt</option>
+      
+        <option value="za">South Africa</option>
+      
+        <option value="ec">Ecuador</option>
+      
+        <option value="it">Italy</option>
+      
+        <option value="vn">Vietnam</option>
+      
+        <option value="sb">Solomon Islands</option>
+      
+        <option value="et">Ethiopia</option>
+      
+        <option value="so">Somalia</option>
+      
+        <option value="zw">Zimbabwe</option>
+      
+        <option value="sa">Saudi Arabia</option>
+      
+        <option value="es">Spain</option>
+      
+        <option value="er">Eritrea</option>
+      
+        <option value="me">Montenegro</option>
+      
+        <option value="md">Moldova</option>
+      
+        <option value="mg">Madagascar</option>
+      
+        <option value="mf">Saint Martin</option>
+      
+        <option value="ma">Morocco</option>
+      
+        <option value="mc">Monaco</option>
+      
+        <option value="uz">Uzbekistan</option>
+      
+        <option value="mm">Myanmar</option>
+      
+        <option value="ml">Mali</option>
+      
+        <option value="mo">Macao</option>
+      
+        <option value="mn">Mongolia</option>
+      
+        <option value="mh">Marshall Islands</option>
+      
+        <option value="mk">Macedonia</option>
+      
+        <option value="mu">Mauritius</option>
+      
+        <option value="mt">Malta</option>
+      
+        <option value="mw">Malawi</option>
+      
+        <option value="mv">Maldives</option>
+      
+        <option value="mq">Martinique</option>
+      
+        <option value="mp">Northern Mariana Islands</option>
+      
+        <option value="ms">Montserrat</option>
+      
+        <option value="mr">Mauritania</option>
+      
+        <option value="im">Isle of Man</option>
+      
+        <option value="ug">Uganda</option>
+      
+        <option value="tz">Tanzania</option>
+      
+        <option value="my">Malaysia</option>
+      
+        <option value="mx">Mexico</option>
+      
+        <option value="il">Israel</option>
+      
+        <option value="fr">France</option>
+      
+        <option value="io">British Indian Ocean Territory</option>
+      
+        <option value="sh">Saint Helena</option>
+      
+        <option value="fi">Finland</option>
+      
+        <option value="fj">Fiji</option>
+      
+        <option value="fk">Falkland Islands</option>
+      
+        <option value="fm">Micronesia</option>
+      
+        <option value="fo">Faroe Islands</option>
+      
+        <option value="ni">Nicaragua</option>
+      
+        <option value="nl">Netherlands</option>
+      
+        <option value="no">Norway</option>
+      
+        <option value="na">Namibia</option>
+      
+        <option value="vu">Vanuatu</option>
+      
+        <option value="nc">New Caledonia</option>
+      
+        <option value="ne">Niger</option>
+      
+        <option value="nf">Norfolk Island</option>
+      
+        <option value="ng">Nigeria</option>
+      
+        <option value="nz">New Zealand</option>
+      
+        <option value="np">Nepal</option>
+      
+        <option value="nr">Nauru</option>
+      
+        <option value="nu">Niue</option>
+      
+        <option value="ck">Cook Islands</option>
+      
+        <option value="xk">Kosovo</option>
+      
+        <option value="ci">Ivory Coast</option>
+      
+        <option value="ch">Switzerland</option>
+      
+        <option value="co">Colombia</option>
+      
+        <option value="cn">China</option>
+      
+        <option value="cm">Cameroon</option>
+      
+        <option value="cl">Chile</option>
+      
+        <option value="cc">Cocos Islands</option>
+      
+        <option value="ca">Canada</option>
+      
+        <option value="cg">Republic of the Congo</option>
+      
+        <option value="cf">Central African Republic</option>
+      
+        <option value="cd">Democratic Republic of the Congo</option>
+      
+        <option value="cz">Czech Republic</option>
+      
+        <option value="cy">Cyprus</option>
+      
+        <option value="cx">Christmas Island</option>
+      
+        <option value="cr">Costa Rica</option>
+      
+        <option value="cw">Curacao</option>
+      
+        <option value="cv">Cape Verde</option>
+      
+        <option value="cu">Cuba</option>
+      
+        <option value="sz">Swaziland</option>
+      
+        <option value="sy">Syria</option>
+      
+        <option value="sx">Sint Maarten</option>
+      
+        <option value="kg">Kyrgyzstan</option>
+      
+        <option value="ke">Kenya</option>
+      
+        <option value="ss">South Sudan</option>
+      
+        <option value="sr">Suriname</option>
+      
+        <option value="ki">Kiribati</option>
+      
+        <option value="kh">Cambodia</option>
+      
+        <option value="kn">Saint Kitts and Nevis</option>
+      
+        <option value="km">Comoros</option>
+      
+        <option value="st">Sao Tome and Principe</option>
+      
+        <option value="sk">Slovakia</option>
+      
+        <option value="kr">South Korea</option>
+      
+        <option value="si">Slovenia</option>
+      
+        <option value="kp">North Korea</option>
+      
+        <option value="kw">Kuwait</option>
+      
+        <option value="sn">Senegal</option>
+      
+        <option value="sm">San Marino</option>
+      
+        <option value="sl">Sierra Leone</option>
+      
+        <option value="sc">Seychelles</option>
+      
+        <option value="kz">Kazakhstan</option>
+      
+        <option value="ky">Cayman Islands</option>
+      
+        <option value="sg">Singapore</option>
+      
+        <option value="se">Sweden</option>
+      
+        <option value="sd">Sudan</option>
+      
+        <option value="do">Dominican Republic</option>
+      
+        <option value="dm">Dominica</option>
+      
+        <option value="dj">Djibouti</option>
+      
+        <option value="dk">Denmark</option>
+      
+        <option value="vg">British Virgin Islands</option>
+      
+        <option value="de">Germany</option>
+      
+        <option value="ye">Yemen</option>
+      
+        <option value="dz">Algeria</option>
+      
+        <option value="us">United States</option>
+      
+        <option value="uy">Uruguay</option>
+      
+        <option value="yt">Mayotte</option>
+      
+        <option value="um">United States Minor Outlying Islands</option>
+      
+        <option value="lb">Lebanon</option>
+      
+        <option value="lc">Saint Lucia</option>
+      
+        <option value="la">Laos</option>
+      
+        <option value="tv">Tuvalu</option>
+      
+        <option value="tw">Taiwan</option>
+      
+        <option value="tt">Trinidad and Tobago</option>
+      
+        <option value="tr">Turkey</option>
+      
+        <option value="lk">Sri Lanka</option>
+      
+        <option value="li">Liechtenstein</option>
+      
+        <option value="lv">Latvia</option>
+      
+        <option value="to">Tonga</option>
+      
+        <option value="lt">Lithuania</option>
+      
+        <option value="lu">Luxembourg</option>
+      
+        <option value="lr">Liberia</option>
+      
+        <option value="ls">Lesotho</option>
+      
+        <option value="th">Thailand</option>
+      
+        <option value="tf">French Southern Territories</option>
+      
+        <option value="tg">Togo</option>
+      
+        <option value="td">Chad</option>
+      
+        <option value="tc">Turks and Caicos Islands</option>
+      
+        <option value="ly">Libya</option>
+      
+        <option value="va">Vatican</option>
+      
+        <option value="vc">Saint Vincent and the Grenadines</option>
+      
+        <option value="ae">United Arab Emirates</option>
+      
+        <option value="ad">Andorra</option>
+      
+        <option value="ag">Antigua and Barbuda</option>
+      
+        <option value="af">Afghanistan</option>
+      
+        <option value="ai">Anguilla</option>
+      
+        <option value="vi">U.S. Virgin Islands</option>
+      
+        <option value="is">Iceland</option>
+      
+        <option value="ir">Iran</option>
+      
+        <option value="am">Armenia</option>
+      
+        <option value="al">Albania</option>
+      
+        <option value="ao">Angola</option>
+      
+        <option value="aq">Antarctica</option>
+      
+        <option value="as">American Samoa</option>
+      
+        <option value="ar">Argentina</option>
+      
+        <option value="au">Australia</option>
+      
+        <option value="at">Austria</option>
+      
+        <option value="aw">Aruba</option>
+      
+        <option value="in">India</option>
+      
+        <option value="ax">Aland Islands</option>
+      
+        <option value="az">Azerbaijan</option>
+      
+        <option value="ie">Ireland</option>
+      
+        <option value="id">Indonesia</option>
+      
+        <option value="ua">Ukraine</option>
+      
+        <option value="qa">Qatar</option>
+      
+        <option value="mz">Mozambique</option>
+      
+    </select> -->
+
   </div>
 
   <div class="container my-4">
@@ -155,17 +688,17 @@
       <div class="row text-center">
         <div class="col-md-4">
           <div class="card">
-            <div class="card-header">Victims Today</div>
+            <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">13</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <div class="card-header">Victims This Week</div>
+            <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">13</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -174,37 +707,18 @@
             <div class="card-header">Top Countries (Today)</div>
             <div class="card-body">
               <ul id="top-countries-today" class="list-unstyled">
+            
                 
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/gb.png" alt="GB flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="GB (4)">
-                  </li>
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/de.png"
+                           alt="DE flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="DE (1)">
+                    </li>
+                  
                 
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="US (2)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/jp.png" alt="JP flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="JP (1)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="DE (1)">
-                  </li>
-                
-                  <li class="d-inline-block me-2">
-                    <img src="https://flagcdn.com/32x24/ke.png" alt="KE flag"
-                         data-bs-toggle="popover" data-bs-trigger="hover"
-                         data-bs-content="KE (1)">
-                  </li>
-                
+            
               </ul>
             </div>
           </div>
@@ -265,7 +779,7 @@
                           data-bs-toggle="tab" data-bs-target="#groups"
                           type="button" role="tab" aria-controls="groups"
                           aria-selected="true">
-                    Top 5 actors
+                    Top 5 Actors
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -306,98 +820,6 @@
         
           <div class="col">
             <div class="card h-100">
-              <a href="defacement_details/682b372ea0d2cfc9c88d8357.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/19/sierrasoftwaresolutions_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://sierrasoftwaresolutions.com">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/682b372ea0d2cfc9c88d8357.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">sierrasoftwaresolutions.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-05-19</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/XYZ.html">XYZ</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/Alpha_wolf.html">Alpha wolf</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/682b3725a0d2cfc9c88d8356.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/19/sierrasoftwaresolution_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://sierrasoftwaresolution.com">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/682b3725a0d2cfc9c88d8356.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">sierrasoftwaresolution.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-05-19</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/XYZ.html">XYZ</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/Alpha_wolf.html">Alpha wolf</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/682b36a0a0d2cfc9c88d8354.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/19/suyaan_in/screenshot.png" class="card-img-top" alt="Thumbnail for http://suyaan.in">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/682b36a0a0d2cfc9c88d8354.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">suyaan.in</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-05-19</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/XYZ.html">XYZ</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/Alpha_wolf.html">Alpha wolf</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/682afd551bfa4cefe66c25d1.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/19/ssh-clouditsolutions_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://ssh-clouditsolutions.com">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/682afd551bfa4cefe66c25d1.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">ssh-clouditsolutions.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-05-19</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/XYZ.html">XYZ</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/Alpha_wolf.html">Alpha wolf</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
               <a href="defacement_details/6829e08345cc369510943aa7.html">
                 <img src="https://unit500.python-myth.info/mirror/2025/05/18/school_sandlus_co_in/screenshot.png" class="card-img-top" alt="Thumbnail for http://school.sandlus.co.in">
               </a>
@@ -408,13 +830,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/Cyber_Ghost.html">Cyber Ghost</a>
+                  <a href="actor_details/cyber_ghost.html">Cyber Ghost</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -431,13 +855,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/Cyber_Ghost.html">Cyber Ghost</a>
+                  <a href="actor_details/cyber_ghost.html">Cyber Ghost</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -458,9 +884,11 @@
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
-                  <a href="group_details/Cyb3r_Drag0nz_Team.html">Cyb3r Drag0nz Team</a>
+                  <a href="group_details/cyb3r_drag0nz_team.html">Cyb3r Drag0nz Team</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -477,13 +905,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/Cyber_Ghost.html">Cyber Ghost</a>
+                  <a href="actor_details/cyber_ghost.html">Cyber Ghost</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -500,13 +930,15 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/Cyber_Ghost.html">Cyber Ghost</a>
+                  <a href="actor_details/cyber_ghost.html">Cyber Ghost</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
               </div>
             </div>
           </div>
@@ -523,13 +955,115 @@
                 <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
                 <p class="card-text">
                   <strong>Actor:</strong>
-                  <a href="actor_details/Cyber_Ghost.html">Cyber Ghost</a>
+                  <a href="actor_details/cyber_ghost.html">Cyber Ghost</a>
                 </p>
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/indie.html">indie</a>
                 </p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6829da88b819c46e21323e45.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/18/gethsemaneltd_vbfg_co_uk/screenshot.png" class="card-img-top" alt="Thumbnail for http://gethsemaneltd.vbfg.co.uk">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6829da88b819c46e21323e45.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">gethsemaneltd.vbfg.co.uk</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6829da6ab819c46e21323e42.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/18/zeeco_li-co_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://zeeco.li-co.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6829da6ab819c46e21323e42.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">zeeco.li-co.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6829da61b819c46e21323e41.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/18/aspensnowmasssir_apidir_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://aspensnowmasssir.apidir.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6829da61b819c46e21323e41.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">aspensnowmasssir.apidir.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6829da4fb819c46e21323e3f.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/18/dhl_vndl_com/screenshot.png" class="card-img-top" alt="Thumbnail for http://dhl.vndl.com">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6829da4fb819c46e21323e3f.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">dhl.vndl.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/pentest_alliance.html">Z-Pentest Alliance</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/politics.html">politics</a>
+                </p>
               </div>
             </div>
           </div>
@@ -561,10 +1095,16 @@
                 <h5 class="card-title">www.cityofelycouncil.org.uk</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-11</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpUnitedKingdom</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpUnitedKingdom.html">
+                      OpUnitedKingdom
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -587,7 +1127,9 @@
                 <h5 class="card-title">www.nbc.gov.kh</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-11</p>
                 
-                  <p class="card-text"><strong>Group:</strong> Electronic Army Special Forces</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/electronic_army_special_forces.html">Electronic Army Special Forces</a>
+                  </p>
                 
                 
               </div>
@@ -611,10 +1153,16 @@
                 <h5 class="card-title">www.doubs.fr</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-10</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpFrance</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpFrance.html">
+                      OpFrance
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -637,10 +1185,16 @@
                 <h5 class="card-title">www.loire-atlantique.fr</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-10</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpFrance</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpFrance.html">
+                      OpFrance
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -663,10 +1217,16 @@
                 <h5 class="card-title">www.framatome.com</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-10</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpFrance</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpFrance.html">
+                      OpFrance
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -689,10 +1249,16 @@
                 <h5 class="card-title">www.seine-maritime.gouv.fr</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-10</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpFrance</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpFrance.html">
+                      OpFrance
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -715,10 +1281,16 @@
                 <h5 class="card-title">www.departement13.fr</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-10</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpFrance</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpFrance.html">
+                      OpFrance
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -741,10 +1313,16 @@
                 <h5 class="card-title">eluspartenaires.lenord.fr</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-10</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpFrance</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpFrance.html">
+                      OpFrance
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -767,10 +1345,16 @@
                 <h5 class="card-title">www.sarthe.gouv.fr</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-10</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpFrance</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpFrance.html">
+                      OpFrance
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -793,10 +1377,16 @@
                 <h5 class="card-title">www.ville-levallois.fr</h5>
                 <p class="card-text"><strong>Date:</strong> 2025-05-10</p>
                 
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
+                  <p class="card-text"><strong>Group:</strong> 
+                    <a href="group_details/noname057_16.html">NoName057(16)</a>
+                  </p>
                 
                 
-                  <p class="card-text"><strong>Campaign:</strong> OpFrance</p>
+                  <p class="card-text"><strong>Campaign:</strong> 
+                    <a href="ddos_operations/OpFrance.html">
+                      OpFrance
+                    </a>
+                  </p>
                 
               </div>
             </div>
@@ -812,6 +1402,8 @@
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/682a9ee872601e3841f06a3f.html">
@@ -821,7 +1413,9 @@
               <div class="card-body">
                 <h5 class="card-title">www.atolon-parkhotel.com</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-19 00:23:59.014440</p>
-                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -829,16 +1423,21 @@
                   
                   DE
                 </p>
-                <p class="card-text"><strong>Group:</strong> stormous</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/stormous.html">stormous</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    CVs - FACTURES - Hwawei.com - AA GROUPE 2025 - RESERVATION 2025 - PERSONNELS - INFOS - STAGIAIRES ..&hellip;
+                  
+                    CVs - FACTURES - Hwawei.com - AA GROUPE 2025 - RESERVATION 2025 - PERSONNELS - INFOS - STAGIAIRES ..…
                   
                 </p>
               </div>
             </div>
           </div>
         
+          
+
           <div class="col">
             <div class="card h-100">
               <a href="ransom_details/682a124621abe621ce370aa8.html">
@@ -848,7 +1447,9 @@
               <div class="card-body">
                 <h5 class="card-title">demeesternv.be</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-05-18 16:47:55.956030</p>
-                <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
+                
                 <p class="card-text">
                   <strong>Country:</strong>
                   
@@ -856,10 +1457,297 @@
                   
                   BE
                 </p>
-                <p class="card-text"><strong>Group:</strong> worldleaks</p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/worldleaks.html">worldleaks</a>
+                </p>
                 <p class="card-text"><strong>Description:</strong>
                   
-                    [AI generated] &#34;Horecamaterialen De Meester NV&#34; is a Belgium-based company that specializes in the w&hellip;
+                  
+                    [AI generated] &#34;Horecamaterialen De Meester NV&#34; is a Belgium-based company that specializes in the w…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/682a124521abe621ce370aa7.html">
+                <img src="https://images.ransomware.live/victims/99837d6847f07b85b3cb6499646c3139.png" class="card-img-top" alt="www.ascotools.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.ascotools.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 16:46:17.913863</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ro.png" alt="RO flag">
+                  
+                  RO
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/worldleaks.html">worldleaks</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Asco Tools Company specialises in the production of sharp tools for wood, PVC and non-ferrous proces…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/682a124421abe621ce370aa6.html">
+                <img src="https://images.ransomware.live/victims/b7e757c546fc5cd659e0e22af25a1ee3.png" class="card-img-top" alt="dsitech.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">dsitech.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 16:25:33.617225</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/medusa.html">medusa</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    DSI Tech (founded in 1991) is a certified minority-owned small business that has grown into a it val…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/6829afd3447210ee03b8e6c0.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="Termolar">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Termolar</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 08:10:13.128195</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/br.png" alt="BR flag">
+                  
+                  BR
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/rhysida.html">rhysida</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Termolar Termolar is the largest manufacturer of thermal conservation products in Latin America.
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/68293138bcbbe0a5ba1c6ecb.html">
+                <img src="https://images.ransomware.live/victims/fd5f31775f74882b4170798c4ccf9519.png" class="card-img-top" alt="Colegio de la Compania de Maria Vigo">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Colegio de la Compania de Maria Vigo</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 00:23:45.846776</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Education</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/es.png" alt="ES flag">
+                  
+                  ES
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/arcusmedia.html">arcusmedia</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Days00006666Hours22222222Minutes55559999Seconds11115555
+
+
+ciamariavigo.org
+Make the Mission of the C…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/68293137bcbbe0a5ba1c6eca.html">
+                <img src="https://images.ransomware.live/victims/6d8bd95d8031aed1f1c8828bef22d595.png" class="card-img-top" alt="Fong Shann Printing Philippines">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Fong Shann Printing Philippines</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 00:22:36.645999</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ph.png" alt="PH flag">
+                  
+                  PH
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/arcusmedia.html">arcusmedia</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Days00006666Hours22222222Minutes55559999Seconds11115555
+
+
+fongshann.com.ph
+e aim to be the best prin…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/68293133bcbbe0a5ba1c6ec9.html">
+                <img src="https://images.ransomware.live/victims/a64886a571f89bed071e1bc75649f92b.png" class="card-img-top" alt="www.rdc.com.mv">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.rdc.com.mv</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 00:21:27.201592</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Construction</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                  
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/arcusmedia.html">arcusmedia</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Days00006666Hours22222222Minutes55559999Seconds11115555
+
+
+www.rdc.com.mv
+Road Development Corporatio…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/68293132bcbbe0a5ba1c6ec8.html">
+                <img src="https://images.ransomware.live/victims/d9ad48775c0ef104e269a802b23c5261.png" class="card-img-top" alt="www.recisystems.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.recisystems.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 00:19:55.670449</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/in.png" alt="IN flag">
+                  
+                  IN
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/arcusmedia.html">arcusmedia</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Days00006666Hours22222222Minutes55559999Seconds11115555
+
+
+www.recisystems.com
+RECISYSTEMS as a compa…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/68293132bcbbe0a5ba1c6ec7.html">
+                <img src="https://images.ransomware.live/victims/d253fc65efaa050c2435ea7acec86df1.png" class="card-img-top" alt="Grupo Boulevard">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Grupo Boulevard</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 00:18:25.850057</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                  
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/arcusmedia.html">arcusmedia</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Days00006666Hours22222222Minutes55559999Seconds11115555
+
+
+grupoboulevard.com
+Grupo Boulevard es un g…
                   
                 </p>
               </div>
@@ -878,13 +1766,12 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 14:27:21-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-19 11:48:51-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
-  <!-- Bootstrap JS and Popover Initialization -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
@@ -918,7 +1805,7 @@
       
       {value: 219, name: "EbRaHiM-VaKeR" },
       
-      {value: 162, name: "XYZ" }
+      {value: 158, name: "XYZ" }
       
     ];
     var optionRansomwareGroups = {
@@ -941,23 +1828,23 @@
     var defacementData = [];
     
       
-        defacementData.push({ value: 2050, name: "lockbit3" });
+        defacementData.push({ value: 202, name: "Team Anon Force" });
       
     
       
-        defacementData.push({ value: 1016, name: "play" });
+        defacementData.push({ value: 98, name: "SABUNMANDI CYBER TEAM" });
       
     
       
-        defacementData.push({ value: 1008, name: "clop" });
+        defacementData.push({ value: 71, name: "NoName057(16)" });
       
     
       
-        defacementData.push({ value: 1006, name: "lockbit2" });
+        defacementData.push({ value: 50, name: "play" });
       
     
       
-        defacementData.push({ value: 898, name: "ransomhub" });
+        defacementData.push({ value: 46, name: "Alpha wolf" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -982,7 +1869,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("us");
-      attackedSeriesData.push({value: 892, name: "us"});
+      attackedSeriesData.push({value: 890, name: "us"});
     
       attackedCategories.push("ca");
       attackedSeriesData.push({value: 376, name: "ca"});
@@ -1030,11 +1917,11 @@
       sourceCategories.push("bangladesh");
       sourceSeriesData.push({value: 9, name: "bangladesh"});
     
-      sourceCategories.push("italy");
-      sourceSeriesData.push({value: 4, name: "italy"});
-    
       sourceCategories.push("russia");
       sourceSeriesData.push({value: 4, name: "russia"});
+    
+      sourceCategories.push("italy");
+      sourceSeriesData.push({value: 4, name: "italy"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
@@ -1148,6 +2035,87 @@
       setInterval(drawClock, 1000);
       drawClock();
     };
+  </script>
+
+
+
+
+
+  <script>
+    // Load country data and initialize Select2 (if needed)
+    function loadCountryData() {
+        console.log("Loading country data...");
+        return fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            const countries = data.map(country => ({
+              id: country.cca2.toLowerCase(),
+              text: country.name.common
+            }));
+            countries.sort((a, b) => a.text.localeCompare(b.text));
+            console.log("Country data loaded. Total countries:", countries.length);
+            return countries;
+          })
+          .catch(err => {
+            console.error("Error loading country data:", err);
+            return [];
+          });
+      }
+
+
+      loadCountryData().then(data => {
+        countryDataGlobal = data; 
+        initCountrySelect();           
+      });
+
+      function initCountrySelect() {
+        $("#countrySelect").each(function () {
+          const $sel = $(this);
+
+          // skip if we already built the list for this element
+          if ($sel.data("select2")) return;
+
+          // wipe anything old, keep 1 empty option for the placeholder
+          $sel.empty().append('<option></option>');
+
+          // add options
+          countryDataGlobal.forEach(c => {
+            console.log(c.id.toLowerCase())
+            $sel.append(
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
+            );
+          });
+
+          // activate Select2
+          $sel.select2({
+            placeholder: "Select a country",
+            allowClear: true,
+            templateResult: formatCountry,
+            templateSelection: c => c.text
+          });
+        });
+      }
+
+      // helper to show flag + name
+      function formatCountry(c) {
+        if (!c.id) return c.text;
+        return $(
+          '<span><img src="https://flagcdn.com/16x12/' +
+            c.id +
+            '.png" class="me-1" /> ' +
+            c.text +
+            "</span>"
+        );
+      }
+  </script>
+
+  <script>
+    $('#countrySelect').on('select2:select', function (e) {
+    const code = e.params.data.id;
+    window.location.href = code
+      ? `static_dashboard_${code}.html`
+      : "static_dashboard.html";
+  });
   </script>
 </body>
 </html>
