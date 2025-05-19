@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
+    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -960,6 +960,38 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/682b399fe17de319c9825351.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="TBD KOREA">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">TBD KOREA</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-19 13:47:59.414334</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/kr.png" alt="KR flag">
+                  
+                  KR
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/devman.html">devman</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    TBD
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1265,40 +1297,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/678fe47bc4f2181a712710ab.html">
-                <img src="https://images.ransomware.live/victims/c7823c79a6d7a82e3ccef06ce57083af.png" class="card-img-top" alt="inthinking.net">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">inthinking.net</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2024-11-20 15:14:33.995648</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Education</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/kr.png" alt="KR flag">
-                  
-                  KR
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/darkvault.html">darkvault</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    InThinking is an innovative educational technology and training company which provides web-based res…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1311,8 +1309,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 13:19:53-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-19 14:57:37-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
 
@@ -1342,13 +1340,13 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 1, name: "MrAstra" },
+      {value: 1, name: "CyberTeam" },
       
-      {value: 1, name: "MoneroSHELL" },
+      {value: 1, name: "MrAstra" },
       
       {value: 1, name: "Z-Pentest Alliance" },
       
-      {value: 1, name: "CyberTeam" },
+      {value: 1, name: "MoneroSHELL" },
       
       {value: 1, name: "Red Wolf Cyber Team" }
       
@@ -1376,6 +1374,10 @@
         defacementData.push({ value: 1, name: "Z-Pentest Alliance" });
       
     
+      
+        defacementData.push({ value: 1, name: "devman" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1398,7 +1400,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("kr");
-      attackedSeriesData.push({value: 2, name: "kr"});
+      attackedSeriesData.push({value: 3, name: "kr"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
