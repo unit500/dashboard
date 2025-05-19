@@ -8,22 +8,12 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="static/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-  <!-- Bootstrap JS and Popover Initialization -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery (required for ticker) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJ+Y6BsDd3cr6tQ/tbFvybJj/3MZ+5BZp6YkI="
-      crossorigin="anonymous"></script>
-
   <!-- jQuery Easy Ticker (adjust path as needed) -->
   <script src="static/js/jquery.easy-ticker.min.js"></script>
   <!-- ECharts Library -->
   <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
-
-
   <style>
     .chart-container {
       width: 100%;
@@ -33,316 +23,185 @@
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Icon and clock sizing */
-    .icon-size {
-      width: 32px;
-      height: 32px;
-    }
-    /* Style for the analog clock canvas */
-    #canvasClock {
-      width: 32px;
-      height: 32px;
-      margin-left: 0.5rem;
-      border-radius: 50%;
-      background: transparent;
-    }
-    .ticker-wrapper {
-      position: relative;
+    /* Ticker styling */
+    #ticker {
+      background: #f8f9fa;
+      border: 1px solid #ddd;
+      padding: 5px 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
       overflow: hidden;
-      background: #fff;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      height: 40px;
-    }
-
-    .ticker-list {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: inline-flex;
-      list-style: none;
-      margin: 0;
-      padding: 10px 0;
-
-      animation: scroll-left 30s linear infinite;
-      will-change: transform;
-    }
-
-    .ticker-list li {
-      padding: 0 2rem;
       white-space: nowrap;
     }
-
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(100%);  
-      }
-      100% {
-        transform: translateX(-100%);  
-      }
+    #ticker ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    #ticker li {
+      display: inline;
+      margin-right: 20px;
+    }
+    #ticker a {
+      text-decoration: none;
+      color: #007bff;
     }
   </style>
 </head>
 <body class="bg-light">
   <!-- Common Header with Offcanvas Menu -->
   <header class="mb-4">
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="d-none d-lg-flex align-items-center">
-  <!-- GitHub Icon linking to user repo page -->
-  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
-    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
-      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
-        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
-        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
-        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
-        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
-        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
-        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
-        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
-        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
-        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
-      </path>
-    </svg>
-  </a>
-
-  <!-- Telegram Icon -->
-  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
-    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
-      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
-        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
-        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
-        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
-        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
-        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
-    </svg>
-  </a>
-
-  <!-- Discord Icon (Newly Added) -->
-  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
-    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
-        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
-        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
-        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
-        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
-        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
-        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
-        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
-        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
-        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
-        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
-        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
-        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
-        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
-        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
-    </svg>
-  </a>
-
-  <!-- Analog Clock -->
-  <canvas id="canvasClock" width="32" height="32"></canvas>
-</div>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand d-none d-lg-block" href="static_dashboard.html">Unit500</a>
+      </div>
+    </nav>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="top.html">Top Stats</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
     </div>
-  </nav>
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
-	      <li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
+  </header>
 
   <!-- Page Title -->
   <div class="container text-center mb-2">
     <h1>Top Stats</h1>
   </div>
 
-    <!-- Country dashboard selector -->
-    <div class="mb-4 text-center">
-      <select id="countrySelectTop"
-        name="countrySelectTop"
-        data-placeholder="Select a country"
-        class="form-select d-inline-block w-auto"
-        style="width:40%"
-      >
-      <option value="">Select a country</option>
-      </select>
-    </div>
-    
-    <div class="container mb-4">
-      <ul class="nav nav-tabs justify-content-center" id="statsTabs" role="tablist">
-        <li class="nav-item">
-          <button class="nav-link active" id="ransom-tab"    data-bs-toggle="tab" data-bs-target="#ransom"  type="button">Ransoms</button>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link"        id="ddos-tab"      data-bs-toggle="tab" data-bs-target="#ddos"     type="button">DDoS</button>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link"        id="deface-tab"    data-bs-toggle="tab" data-bs-target="#deface"   type="button">Defacements</button>
-        </li>
-      </ul>
-    </div>
-
   <!-- Ticker Section (placed below title and above cards) -->
+  <div id="ticker" class="container">
+    <ul>
+      <li>
+        <strong>Latest 5 Defacements:</strong>
+        
+          <a href="defacement_details/682b372ea0d2cfc9c88d8357.html">sierrasoftwaresolutions.com</a>, 
+        
+          <a href="defacement_details/682b3725a0d2cfc9c88d8356.html">sierrasoftwaresolution.com</a>, 
+        
+          <a href="defacement_details/682b36a0a0d2cfc9c88d8354.html">suyaan.in</a>, 
+        
+          <a href="defacement_details/682b33bca0d2cfc9c88d833f.html">redsnapsolutions.com</a>, 
+        
+          <a href="defacement_details/682b33b0a0d2cfc9c88d833e.html">arvihomes.in</a>
+        
+      </li>
+      <li>
+        <strong>Latest 5 Ransom Alerts:</strong>
+        
+          <a href="defacement_details/682b55b3de05f18ef486db61.html">edgeanalytical.com</a>, 
+        
+          <a href="defacement_details/682b399fe17de319c9825351.html">TBD KOREA</a>, 
+        
+          <a href="defacement_details/682b399ce17de319c9825350.html">TBD HONK KONG</a>, 
+        
+          <a href="defacement_details/682b399ce17de319c982534f.html">TBD GREECE</a>, 
+        
+          <a href="defacement_details/682b399be17de319c982534e.html">TOHO-CO</a>
+        
+      </li>
+    </ul>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $('#ticker').easyTicker({
+        direction: 'up',
+        interval: 3000,
+        height: 'auto'
+      });
+    });
+  </script>
+
+  <!-- Cards Section -->
   <div class="container mb-4">
-    <div class="ticker-wrapper">
-      <ul class="ticker-list">
-        <li>
-          <strong>Latest 5 Defacements:</strong>
-          
-            <a href="defacement_details/682b372ea0d2cfc9c88d8357.html">sierrasoftwaresolutions.com</a>, 
-          
-            <a href="defacement_details/682b3725a0d2cfc9c88d8356.html">sierrasoftwaresolution.com</a>, 
-          
-            <a href="defacement_details/682b36a0a0d2cfc9c88d8354.html">suyaan.in</a>, 
-          
-            <a href="defacement_details/682b33bca0d2cfc9c88d833f.html">redsnapsolutions.com</a>, 
-          
-            <a href="defacement_details/682b33b0a0d2cfc9c88d833e.html">arvihomes.in</a>
-          
-        </li>
-        <li>
-          <strong>Latest 5 Ransom Alerts:</strong>
-          
-            <a href="ransom_details/682b55b3de05f18ef486db61.html">edgeanalytical.com</a>, 
-          
-            <a href="ransom_details/682b399fe17de319c9825351.html">TBD KOREA</a>, 
-          
-            <a href="ransom_details/682b399ce17de319c9825350.html">TBD HONK KONG</a>, 
-          
-            <a href="ransom_details/682b399ce17de319c982534f.html">TBD GREECE</a>, 
-          
-            <a href="ransom_details/682b399be17de319c982534e.html">TOHO-CO</a>
-          
-        </li>
-      </ul>
+    <div class="row">
+      <!-- Top Ransomware Group Card -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Top Ransomware Group</div>
+          <div class="card-body">
+            
+              <h5 class="card-title">
+                <a href="group_details/lockbit3.html">
+                  lockbit3
+                </a>
+              </h5>
+              <p class="card-text">2050 incidents</p>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Top Defacement Group Card (ignoring "indie") -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Top Defacement Group</div>
+          <div class="card-body">
+            
+              <h5 class="card-title">
+                <a href="group_details/Team_Anon_Force.html">
+                  Team Anon Force
+                </a>
+              </h5>
+              <p class="card-text">202 incidents</p>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Top Actor Card -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Top Actor</div>
+          <div class="card-body">
+            
+              <h5 class="card-title">
+                <a href="actor_details/BDKR28.html">
+                  Mr. BDKR28
+                </a>
+              </h5>
+              <p class="card-text">417 incidents</p>
+            
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   
-    <div class="tab-content mt-3" id="statsTabsContent">
-      <div class="tab-pane fade show active" id="ransom" role="tabpanel" aria-labelledby="ransom-tab">
-        <div class="container mb-4">
-          <div class="row justify-content-center gy-4">
-            <!-- Row 1: two per row -->
-            <div class="col-lg-6 col-md-6">
-              <div id="chartRansomTopSource" class="chart-container"></div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div id="chartRansomTopTarget" class="chart-container"></div>
-            </div>
-            <!-- Row 2 -->
-            <div class="col-lg-6 col-md-6">
-              <div id="chartRansomByHour" class="chart-container"></div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div id="chartRansomByWeekday" class="chart-container"></div>
-            </div>
-            <!-- Row 3 -->
-            <div class="col-lg-6 col-md-6">
-              <div id="chartRansomTopGroups" class="chart-container"></div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div id="chartRansomTopAttackers" class="chart-container"></div>
-            </div>
-          </div>
-
-          <!-- Full-width heatmap below -->
-          <div class="row mt-4">
-            <div class="col-12">
-              <div id="heatmapRansomCalendar" class="chart-container"></div>
-            </div>
-          </div>
-        </div>
+  <!-- Charts Section -->
+  <div class="container mb-4">
+    <!-- Row for Top 15 Ransomware Groups and Top 15 Defacement Groups -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <h2 class="section-title">Top 15 Ransomware Groups</h2>
+        <div id="chartRansomwareGroups" class="chart-container"></div>
       </div>
-
-      <!-- DDoS Pane -->
-      <div class="tab-pane fade show" id="ddos" role="tabpanel" aria-labelledby="ddos-tab">
-        <div class="container mb-4">
-          <div class="row justify-content-center gy-4">
-            <!-- Row 1: two per row -->
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDdosTopSource" class="chart-container"></div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDdosTopTarget" class="chart-container"></div>
-            </div>
-            <!-- Row 2 -->
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDdosByHour" class="chart-container"></div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDdosByWeekday" class="chart-container"></div>
-            </div>
-            <!-- Row 3 -->
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDdosTopGroups" class="chart-container"></div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDdosTopAttackers" class="chart-container"></div>
-            </div>
-          </div>
-    
-          <!-- Full-width heatmap below -->
-          <div class="row mt-4">
-            <div class="col-12">
-              <div id="heatmapDdosCalendar" class="chart-container"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Defacements Pane -->
-      <div class="tab-pane fade show" id="deface" role="tabpanel" aria-labelledby="deface-tab">
-        <div class="container mb-4">
-          <div class="row justify-content-center gy-4">
-            <!-- Row 1: two per row -->
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDefaceTopSource" class="chart-container"></div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDefaceTopTarget" class="chart-container"></div>
-            </div>
-            <!-- Row 2 -->
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDefaceByHour" class="chart-container"></div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDefaceByWeekday" class="chart-container"></div>
-            </div>
-            <!-- Row 3 -->
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDefaceTopGroups" class="chart-container"></div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <div id="chartDefaceTopAttackers" class="chart-container"></div>
-            </div>
-          </div>
-    
-          <!-- Full-width heatmap below -->
-          <div class="row mt-4">
-            <div class="col-12">
-              <div id="heatmapDefaceCalendar" class="chart-container"></div>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-6">
+        <h2 class="section-title">Top 15 Defacement Groups</h2>
+        <div id="chartDefacementGroups" class="chart-container"></div>
       </div>
     </div>
-
-
+    <!-- Row for Top Attacked Countries and Top Source Attack Countries -->
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="section-title">Top Attacked Countries</h2>
+        <div id="chartAttackedCountries" class="chart-container"></div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="section-title">Top Source Attack Countries</h2>
+        <div id="chartSourceAttackCountries" class="chart-container"></div>
+      </div>
+    </div>
+  </div>
   
   <!-- Footer Inclusion -->
   <footer class="py-4">
@@ -352,8 +211,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 16:05:19-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-19 16:03:09-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -373,705 +232,151 @@
   
   <!-- ECharts Initialization -->
   <script>
-    // 1) Top Sources (pie)
-    var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
-    var dataRansomTopSource = [
+    // Chart 1: Top 15 Ransomware Groups (from victims collection)
+    var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
+    var dataRansomwareGroups = [
       
-        { value: 348, name: "US" },
+      {value: 417, name: "Mr. BDKR28" },
       
-        { value: 36, name: "DE" },
+      {value: 341, name: "Team Anon Force" },
       
-        { value: 28, name: "CA" },
+      {value: 269, name: "Belief" },
       
-        { value: 15, name: "GB" },
+      {value: 219, name: "EbRaHiM-VaKeR" },
       
-        { value: 14, name: "ES" }
+      {value: 164, name: "XYZ" }
       
     ];
-    chartRansomTopSource.setOption({
-      title: { text: 'Top 5 Ransom Sources', left: 'center' },
+    var optionRansomwareGroups = {
+      title: { text: 'Top 15 Ransomware Groups', left: 'center' },
       tooltip: { trigger: 'item' },
       legend: { orient: 'vertical', left: 'left' },
       series: [{
-        name: 'Sources',
+        name: 'Groups',
         type: 'pie',
         radius: '50%',
-        data: dataRansomTopSource
-      }]
-    });
-    
-    // 2) Top Targets (bar)
-    var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
-    var dataRansomTopTarget = [
-      
-        { value: 4, name: "fenwick.com" },
-      
-        { value: 3, name: "malaysiaairports.com.my/en" },
-      
-        { value: 3, name: "klinger.it" },
-      
-        { value: 2, name: "aplusmachining.com" },
-      
-        { value: 2, name: "tuttoperlufficio.eu" }
-      
-    ];
-    chartRansomTopTarget.setOption({
-      title: { text: 'Top 5 Ransom Targets', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataRansomTopTarget.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataRansomTopTarget.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-    
-    // 3) Top Groups (bar with emoji flags)
-    var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
-    var groupsData = [
-      
-        { value: 72, name: "SilentRansomGroup" },
-      
-        { value: 72, name: "leakeddata" },
-      
-        { value: 62, name: "play" },
-      
-        { value: 60, name: "safepay" },
-      
-        { value: 55, name: "qilin" }
-      
-    ];
-    chartRansomTopGroups.setOption({
-      title: { text: 'Top 5 Ransom Groups', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: groupsData.map(i => countryCodeToEmoji(i.name))
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: groupsData.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-    
-    // 4) By Hour (bar)
-    var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
-    var hourData = [
-      
-        { value: 172, name: "18" },
-      
-        { value: 78, name: "13" },
-      
-        { value: 52, name: "20" },
-      
-        { value: 40, name: "19" },
-      
-        { value: 36, name: "16" }
-      
-    ];
-    chartRansomByHour.setOption({
-      title: { text: 'Ransom Reports by Hour', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: hourData.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: hourData.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-    
-    // 5) By Weekday (bar)
-    var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
-    var weekdayData = [
-      
-        { value: 218, name: "Tue" },
-      
-        { value: 131, name: "Fri" },
-      
-        { value: 115, name: "Mon" },
-      
-        { value: 78, name: "Sun" },
-      
-        { value: 73, name: "Thu" }
-      
-    ];
-    chartRansomByWeekday.setOption({
-      title: { text: 'Ransom Reports by Weekday', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: weekdayData.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: weekdayData.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-    
-    // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-01", 3], ["2025-01-02", 2], ["2025-01-03", 12], ["2025-01-04", 12], ["2025-01-05", 5], ["2025-01-06", 13], ["2025-01-07", 25], ["2025-01-08", 13], ["2025-01-09", 18], ["2025-01-10", 21], ["2025-01-11", 28], ["2025-01-12", 1], ["2025-01-13", 32], ["2025-01-14", 46], ["2025-01-15", 21], ["2025-01-16", 14], ["2025-01-17", 15], ["2025-01-18", 10], ["2025-01-19", 5], ["2025-01-20", 13], ["2025-01-21", 25], ["2025-01-22", 16], ["2025-01-23", 15], ["2025-01-24", 72], ["2025-01-25", 10], ["2025-01-26", 6], ["2025-01-27", 76], ["2025-01-28", 22], ["2025-01-29", 48], ["2025-01-30", 33], ["2025-01-31", 60], ["2025-02-01", 22], ["2025-02-02", 14], ["2025-02-03", 55], ["2025-02-04", 77], ["2025-02-05", 18], ["2025-02-06", 23], ["2025-02-07", 14], ["2025-02-08", 7], ["2025-02-09", 17], ["2025-02-10", 130], ["2025-02-11", 48], ["2025-02-12", 58], ["2025-02-13", 27], ["2025-02-14", 28], ["2025-02-15", 35], ["2025-02-16", 21], ["2025-02-17", 100], ["2025-02-18", 42], ["2025-02-19", 49], ["2025-02-20", 63], ["2025-02-21", 31], ["2025-02-22", 16], ["2025-02-23", 57], ["2025-02-24", 57], ["2025-02-25", 90], ["2025-02-26", 48], ["2025-02-27", 290], ["2025-02-28", 39], ["2025-03-01", 23], ["2025-03-02", 72], ["2025-03-03", 113], ["2025-03-04", 99], ["2025-03-05", 91], ["2025-03-06", 121], ["2025-03-07", 47], ["2025-03-08", 46], ["2025-03-09", 84], ["2025-03-10", 131], ["2025-03-11", 48], ["2025-03-12", 72], ["2025-03-13", 140], ["2025-03-14", 77], ["2025-03-15", 39], ["2025-03-16", 109], ["2025-03-17", 57], ["2025-03-18", 74], ["2025-03-19", 58], ["2025-03-20", 74], ["2025-03-21", 75], ["2025-03-22", 39], ["2025-03-23", 88], ["2025-03-24", 92], ["2025-03-25", 60], ["2025-03-26", 49], ["2025-03-27", 37], ["2025-03-28", 68], ["2025-03-29", 38], ["2025-03-30", 67], ["2025-03-31", 67], ["2025-04-01", 117], ["2025-04-02", 97], ["2025-04-03", 105], ["2025-04-04", 64], ["2025-04-05", 89], ["2025-04-06", 109], ["2025-04-07", 128], ["2025-04-08", 36], ["2025-04-09", 70], ["2025-04-10", 39], ["2025-04-11", 40], ["2025-04-12", 36], ["2025-04-13", 73], ["2025-04-14", 68], ["2025-04-15", 38], ["2025-04-16", 91], ["2025-04-17", 47], ["2025-04-18", 80], ["2025-04-19", 246], ["2025-04-20", 89], ["2025-04-21", 83], ["2025-04-22", 63], ["2025-04-23", 105], ["2025-04-24", 67], ["2025-04-25", 121], ["2025-04-26", 17], ["2025-04-27", 33], ["2025-04-28", 168], ["2025-04-29", 78], ["2025-04-30", 132], ["2025-05-01", 154], ["2025-05-02", 58], ["2025-05-03", 53], ["2025-05-04", 54], ["2025-05-05", 160], ["2025-05-06", 442], ["2025-05-07", 88], ["2025-05-08", 175], ["2025-05-09", 28], ["2025-05-10", 61], ["2025-05-11", 103], ["2025-05-12", 14], ["2025-05-13", 3], ["2025-05-14", 14], ["2025-05-15", 66], ["2025-05-16", 75], ["2025-05-17", 15], ["2025-05-18", 108], ["2025-05-19", 16]];
-
-  const maxCountRansom = heatDataRansom.length
-    ? Math.max(...heatDataRansom.map(d => d[1]))
-    : 0;
-
-  const datesRansom = heatDataRansom.map(d => d[0]);
-  const calendarRangeRansom = datesRansom.length > 1
-    ? [ datesRansom[0], datesRansom[datesRansom.length - 1] ]
-    : datesRansom[0] || new Date().toISOString().slice(0,10);
-
-  // 4) init the chart
-  var heatmap = echarts.init(
-    document.getElementById('heatmapRansomCalendar')
-  );
-
-  // 5) set the proper calendar‐heatmap option
-  heatmap.setOption({
-    title: {
-      text: 'Activity Heatmap (Last 30d)',
-      left: 'center',
-      top: 20
-    },
-    tooltip: {
-      position: 'top',
-      formatter: params => `${params.data[0]}: ${params.data[1]}`
-    },
-    visualMap: {
-      min: 0,
-      max: maxCountRansom,
-      type: 'continuous',      // no slider control
-      orient: 'horizontal',
-      left: 'center',
-      bottom: 10,
-      inRange: {
-        // default ECharts yellow→red gradient
-        color: ['#ffffcc', '#ff4444']
-      }
-    },
-    calendar: {
-      top: 80,
-      left: 'center',
-      range: calendarRangeRansom,
-      cellSize: [20, 20],
-      orient: 'horizontal',
-      monthLabel: {
-        show: true,
-        nameMap: 'en',
-        position: 'top'
-      },
-      dayLabel: {
-        show: true,
-        firstDay: 1,
-        nameMap: 'en'
-      },
-      splitLine: {
-        show: true,
-        lineStyle: {
-          color: '#ccc',
-          width: 1
+        data: dataRansomwareGroups,
+        emphasis: {
+          itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0,0,0,0.5)' }
         }
-      }
-    },
-    series: [{
-      name: 'count',
-      type: 'heatmap',
-      coordinateSystem: 'calendar',
-      data: heatDataRansom
-    }]
-  });
-  </script>
-
-
-  <script>
-    // 1) Top Sources (pie)
-    var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
-    var dataDdosTopSource = [
-      
-        { value: 119, name: "Unknown" }
-      
-    ];
-    chartDdosTopSource.setOption({
-      title: { text: 'Top 5 DDoS Sources', left: 'center' },
-      tooltip: { trigger: 'item' },
-      legend: { orient: 'vertical', left: 'left' },
-      series: [{
-        name: 'Sources',
-        type: 'pie',
-        radius: '50%',
-        data: dataDdosTopSource
       }]
-    });
+    };
+    chartRansomwareGroups.setOption(optionRansomwareGroups);
 
-    // 2) Top Targets (bar)
-    var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
-    var dataDdosTopTarget = [
-      
-        { value: 21, name: "GB" },
-      
-        { value: 17, name: "CA" },
-      
-        { value: 16, name: "NL" },
-      
-        { value: 11, name: "UA" },
-      
-        { value: 9, name: "FR" }
-      
-    ];
-    chartDdosTopTarget.setOption({
-      title: { text: 'Top 5 DDoS Targets', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDdosTopTarget.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDdosTopTarget.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 3) Top Groups (bar)
-    var chartDdosTopGroups = echarts.init(document.getElementById('chartDdosTopGroups'));
-    var dataDdosTopGroups = [
-      
-        { value: 70, name: "NoName057(16)" },
-      
-        { value: 10, name: "Keymous" },
-      
-        { value: 7, name: "Anon Sec" },
-      
-        { value: 6, name: "Dark Storm Team" },
-      
-        { value: 6, name: "SERVER KILLERS" }
-      
-    ];
-    chartDdosTopGroups.setOption({
-      title: { text: 'Top 5 DDoS Groups', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDdosTopGroups.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDdosTopGroups.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 4) Top Actors (bar)
-    var chartDdosTopAttackers = echarts.init(document.getElementById('chartDdosTopAttackers'));
-    var dataDdosTopActors = [
-      
-    ];
-    chartDdosTopAttackers.setOption({
-      title: { text: 'Top 5 DDoS Actors', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDdosTopActors.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDdosTopActors.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 5) By Hour (bar)
-    var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
-    var dataDdosByHour = [
-      
-        { value: 25, name: "8" },
-      
-        { value: 19, name: "12" },
-      
-        { value: 16, name: "9" },
-      
-        { value: 14, name: "13" },
-      
-        { value: 13, name: "14" }
-      
-    ];
-    chartDdosByHour.setOption({
-      title: { text: 'DDoS Reports by Hour', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDdosByHour.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDdosByHour.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 6) By Weekday (bar)
-    var chartDdosByWeekday = echarts.init(document.getElementById('chartDdosByWeekday'));
-    var dataDdosByWeekday = [
-      
-        { value: 42, name: "Mon" },
-      
-        { value: 22, name: "Sun" },
-      
-        { value: 19, name: "Sat" },
-      
-        { value: 14, name: "Thu" },
-      
-        { value: 10, name: "Wed" }
-      
-    ];
-    chartDdosByWeekday.setOption({
-      title: { text: 'DDoS Reports by Weekday', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDdosByWeekday.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDdosByWeekday.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 7) Calendar Heatmap
-    let heatDataDdos = [["2025-02-27", 3], ["2025-03-01", 3], ["2025-03-02", 29], ["2025-03-03", 12], ["2025-03-04", 12], ["2025-03-05", 8], ["2025-03-06", 19], ["2025-03-07", 1], ["2025-03-08", 2], ["2025-03-09", 9], ["2025-03-10", 26], ["2025-03-11", 8], ["2025-03-12", 9], ["2025-03-13", 10], ["2025-03-14", 6], ["2025-03-15", 1], ["2025-03-16", 15], ["2025-03-17", 8], ["2025-03-18", 10], ["2025-03-19", 14], ["2025-03-20", 1], ["2025-03-23", 1], ["2025-03-26", 4], ["2025-03-30", 2], ["2025-03-31", 3], ["2025-04-01", 7], ["2025-04-02", 5], ["2025-04-03", 16], ["2025-04-04", 4], ["2025-04-05", 1], ["2025-04-06", 5], ["2025-04-07", 8], ["2025-04-08", 6], ["2025-04-11", 11], ["2025-04-14", 11], ["2025-04-15", 12], ["2025-04-16", 6], ["2025-04-17", 6], ["2025-04-18", 3], ["2025-04-20", 13], ["2025-04-21", 6], ["2025-04-22", 1], ["2025-04-24", 2], ["2025-04-27", 3], ["2025-04-28", 17], ["2025-04-29", 6], ["2025-04-30", 7], ["2025-05-01", 4], ["2025-05-02", 5], ["2025-05-03", 10], ["2025-05-04", 4], ["2025-05-05", 19], ["2025-05-07", 3], ["2025-05-08", 8], ["2025-05-10", 9], ["2025-05-11", 2]];
-
-    let maxCountDdos = heatDataDdos.length
-      ? Math.max(...heatDataDdos.map(d => d[1]))
-      : 0;
-
-    let datesDdos = heatDataDdos.map(d => d[0]);
-    let calendarRangeDdos = datesDdos.length > 1
-      ? [ datesDdos[0], datesDdos[datesDdos.length - 1] ]
-      : datesDdos[0] || new Date().getFullYear().toString();
-
-    var heatmapDdosCalendar = echarts.init(
-      document.getElementById('heatmapDdosCalendar')
-    );
-
-    heatmapDdosCalendar.setOption({
-      title: {
-        top: 30,
-        text: 'Activity Heatmap (Last 30d)',
-        left: 'center'
-      },
-      tooltip: {},
-      visualMap: {
-        min: 0,
-        max: maxCountDdos,
-        calculable: true,
-        orient: 'horizontal',
-        left: 'center',
-        bottom: 20
-      },
-      calendar: {
-        top: 100,
-        left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: { firstDay: 1, nameMap: 'en' },
-        monthLabel: { nameMap: 'en' },
-        range: calendarRangeDdos
-      },
-      series: [{
-        type: 'heatmap',
-        coordinateSystem: 'calendar',
-        data: heatDataDdos
-      }]
-    });
-  </script>
-
-  <script>
-    // 1) Top Sources (pie)
-    var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
-    var dataDefaceTopSource = [
-      
-    ];
-    chartDefaceTopSource.setOption({
-      title: { text: 'Top 5 Defacement Sources', left: 'center' },
-      tooltip: { trigger: 'item' },
-      legend: { orient: 'vertical', left: 'left' },
-      series: [{
-        name: 'Sources',
-        type: 'pie',
-        radius: '50%',
-        data: dataDefaceTopSource
-      }]
-    });
-
-    // 2) Top Targets (bar)
-    var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
-    var dataDefaceTopTarget = [
-      
-        { value: 422, name: "US" },
-      
-        { value: 319, name: "CA" },
-      
-        { value: 153, name: "SG" },
-      
-        { value: 133, name: "FR" },
-      
-        { value: 118, name: "IN" }
-      
-    ];
-    chartDefaceTopTarget.setOption({
-      title: { text: 'Top 5 Defacement Targets', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDefaceTopTarget.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDefaceTopTarget.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 3) Top Groups (bar)
-    var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
-    var dataDefaceTopGroups = [
-      
-        { value: 1342, name: "indie" },
-      
-        { value: 202, name: "Team Anon Force" },
-      
-        { value: 98, name: "SABUNMANDI CYBER TEAM" },
-      
-        { value: 52, name: "Alpha wolf" },
-      
-        { value: 25, name: "jct" }
-      
-    ];
-    chartDefaceTopGroups.setOption({
-      title: { text: 'Top 5 Defacement Groups', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDefaceTopGroups.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDefaceTopGroups.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 4) Top Actors (bar)
-    var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
-    var dataDefaceTopActors = [
-      
-        { value: 417, name: "Mr. BDKR28" },
-      
-        { value: 341, name: "Team Anon Force" },
-      
-        { value: 119, name: "XYZ" },
-      
-        { value: 115, name: "SABUNMANDI CYBER TEAM" },
-      
-        { value: 76, name: "Simsimi" }
-      
-    ];
-    chartDefaceTopAttackers.setOption({
-      title: { text: 'Top 5 Defacement Actors', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDefaceTopActors.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDefaceTopActors.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 5) By Hour (bar)
-    var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
-    var dataDefaceByHour = [
-      
-        { value: 253, name: "9" },
-      
-        { value: 209, name: "6" },
-      
-        { value: 178, name: "4" },
-      
-        { value: 164, name: "5" },
-      
-        { value: 154, name: "16" }
-      
-    ];
-    chartDefaceByHour.setOption({
-      title: { text: 'Defacement Reports by Hour', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDefaceByHour.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDefaceByHour.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 6) By Weekday (bar)
-    var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
-    var dataDefaceByWeekday = [
-      
-        { value: 363, name: "Thu" },
-      
-        { value: 361, name: "Tue" },
-      
-        { value: 286, name: "Sun" },
-      
-        { value: 284, name: "Mon" },
-      
-        { value: 274, name: "Wed" }
-      
-    ];
-    chartDefaceByWeekday.setOption({
-      title: { text: 'Defacement Reports by Weekday', left: 'center' },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: dataDefaceByWeekday.map(i => i.name)
-      },
-      yAxis: { type: 'value' },
-      series: [{
-        data: dataDefaceByWeekday.map(i => i.value),
-        type: 'bar'
-      }]
-    });
-
-    // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-01-01", 3], ["2025-01-02", 2], ["2025-01-03", 12], ["2025-01-04", 12], ["2025-01-05", 5], ["2025-01-06", 13], ["2025-01-07", 25], ["2025-01-08", 13], ["2025-01-09", 18], ["2025-01-10", 21], ["2025-01-11", 28], ["2025-01-12", 1], ["2025-01-13", 32], ["2025-01-14", 46], ["2025-01-15", 21], ["2025-01-16", 14], ["2025-01-17", 15], ["2025-01-18", 10], ["2025-01-19", 5], ["2025-01-20", 13], ["2025-01-21", 25], ["2025-01-22", 16], ["2025-01-23", 15], ["2025-01-24", 72], ["2025-01-25", 10], ["2025-01-26", 6], ["2025-01-27", 76], ["2025-01-28", 22], ["2025-01-29", 48], ["2025-01-30", 33], ["2025-01-31", 60], ["2025-02-01", 22], ["2025-02-02", 14], ["2025-02-03", 55], ["2025-02-04", 77], ["2025-02-05", 18], ["2025-02-06", 23], ["2025-02-07", 14], ["2025-02-08", 7], ["2025-02-09", 17], ["2025-02-10", 130], ["2025-02-11", 48], ["2025-02-12", 58], ["2025-02-13", 27], ["2025-02-14", 28], ["2025-02-15", 35], ["2025-02-16", 21], ["2025-02-17", 100], ["2025-02-18", 42], ["2025-02-19", 49], ["2025-02-20", 63], ["2025-02-21", 31], ["2025-02-22", 16], ["2025-02-23", 57], ["2025-02-24", 57], ["2025-02-25", 90], ["2025-02-26", 48], ["2025-02-27", 290], ["2025-02-28", 39], ["2025-03-01", 23], ["2025-03-02", 72], ["2025-03-03", 113], ["2025-03-04", 99], ["2025-03-05", 91], ["2025-03-06", 121], ["2025-03-07", 47], ["2025-03-08", 46], ["2025-03-09", 84], ["2025-03-10", 131], ["2025-03-11", 48], ["2025-03-12", 72], ["2025-03-13", 140], ["2025-03-14", 77], ["2025-03-15", 39], ["2025-03-16", 109], ["2025-03-17", 57], ["2025-03-18", 74], ["2025-03-19", 58], ["2025-03-20", 74], ["2025-03-21", 75], ["2025-03-22", 39], ["2025-03-23", 88], ["2025-03-24", 92], ["2025-03-25", 60], ["2025-03-26", 49], ["2025-03-27", 37], ["2025-03-28", 68], ["2025-03-29", 38], ["2025-03-30", 67], ["2025-03-31", 67], ["2025-04-01", 117], ["2025-04-02", 97], ["2025-04-03", 105], ["2025-04-04", 64], ["2025-04-05", 89], ["2025-04-06", 109], ["2025-04-07", 128], ["2025-04-08", 36], ["2025-04-09", 70], ["2025-04-10", 39], ["2025-04-11", 40], ["2025-04-12", 36], ["2025-04-13", 73], ["2025-04-14", 68], ["2025-04-15", 38], ["2025-04-16", 91], ["2025-04-17", 47], ["2025-04-18", 80], ["2025-04-19", 246], ["2025-04-20", 89], ["2025-04-21", 83], ["2025-04-22", 63], ["2025-04-23", 105], ["2025-04-24", 67], ["2025-04-25", 121], ["2025-04-26", 17], ["2025-04-27", 33], ["2025-04-28", 168], ["2025-04-29", 78], ["2025-04-30", 132], ["2025-05-01", 154], ["2025-05-02", 58], ["2025-05-03", 53], ["2025-05-04", 54], ["2025-05-05", 160], ["2025-05-06", 442], ["2025-05-07", 88], ["2025-05-08", 175], ["2025-05-09", 28], ["2025-05-10", 61], ["2025-05-11", 103], ["2025-05-12", 14], ["2025-05-13", 3], ["2025-05-14", 14], ["2025-05-15", 66], ["2025-05-16", 75], ["2025-05-17", 15], ["2025-05-18", 108], ["2025-05-19", 16]];
-
-    let maxCount = heatDataDefacements.length
-      ? Math.max(...heatDataDefacements.map(d => d[1]))
-      : 0;
-
-    let dates = heatDataDefacements.map(d => d[0]);
-    let calendarRange = dates.length > 1
-      ? [ dates[0], dates[dates.length - 1] ]
-      : dates[0] || new Date().getFullYear().toString();
-
-    var heatmapDefacementsCalendar = echarts.init(
-      document.getElementById('heatmapDefaceCalendar')
-    );
-
-    heatmapDefacementsCalendar.setOption({
-      title: {
-        top: 30,
-        text: 'Activity Heatmap (Last 30d)',
-        left: 'center'
-      },
-      tooltip: {},
-      visualMap: {
-        min: 0,
-        max: maxCount,
-        calculable: true,
-        orient: 'horizontal',
-        left: 'center',
-        bottom: 20
-      },
-      calendar: {
-        top: 100,
-        left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: { firstDay: 1, nameMap: 'en' },
-        monthLabel: { nameMap: 'en' },
-        range: calendarRange
-      },
-      series: [{
-        type: 'heatmap',
-        coordinateSystem: 'calendar',
-        data: heatDataDefacements
-      }]
-    });
-  </script>
-
-
-  <script>
-
-    document.addEventListener("DOMContentLoaded", () => {
-      function loadCountryData() {
-        console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
-          .then(response => response.json())
-          .then(data => {
-            const countries = data.map(country => ({
-              id: country.cca2.toLowerCase(),
-              text: country.name.common
-            }));
-            countries.sort((a, b) => a.text.localeCompare(b.text));
-            console.log("Country data loaded. Total countries:", countries.length);
-            return countries;
-          })
-          .catch(err => {
-            console.error("Error loading country data:", err);
-            return [];
-          });
-      }
-
-
-      function formatCountry(c) {
-        if (!c.id) return c.text;
-        return $(
-          `<span>
-            <img src="https://flagcdn.com/16x12/${c.id}.png" class="me-1" />
-            ${c.text}
-          </span>`
-        );
-      }
-
-      loadCountryData().then(data => {
-        const $sel = $("#countrySelectTop");
-
-        $sel.select2({
-          data: data.map(c => ({ id: c.id.toLowerCase(), text: c.text })),
-          placeholder: $sel.data("placeholder"),
-          allowClear: true,
-          width: "resolve",
-          templateResult: formatCountry,
-          templateSelection: formatCountry
-        });
-
-        $sel.on("select2:select select2:clear", () => {
-          const code = $sel.val();
-          window.location.href = code
-            ? `top_${code}.html`
-            : "top.html";
-        });
-      });
-      });
+    // Chart 2: Top 15 Defacement Groups (from defacements, excluding "indie")
+    var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
+    var dataDefacementGroups = [];
     
-  </script>
+      dataDefacementGroups.push({value: 202, name: "Team Anon Force"});
+    
+      dataDefacementGroups.push({value: 98, name: "SABUNMANDI CYBER TEAM"});
+    
+      dataDefacementGroups.push({value: 70, name: "Alpha wolf"});
+    
+      dataDefacementGroups.push({value: 25, name: "jct"});
+    
+      dataDefacementGroups.push({value: 24, name: "Cyber Alpha Wolf"});
+    
+      dataDefacementGroups.push({value: 19, name: "Z-Pentest Alliance"});
+    
+      dataDefacementGroups.push({value: 16, name: "DXPLOIT"});
+    
+      dataDefacementGroups.push({value: 15, name: "AetherSec"});
+    
+      dataDefacementGroups.push({value: 14, name: "MUSLIM CYBER ARMY"});
+    
+      dataDefacementGroups.push({value: 13, name: "WOLF CYBER ARMY"});
+    
+      dataDefacementGroups.push({value: 12, name: "independent"});
+    
+      dataDefacementGroups.push({value: 11, name: "https://yourdesktop.ru/bgke04.html"});
+    
+      dataDefacementGroups.push({value: 11, name: "Anonymous Philippines"});
+    
+      dataDefacementGroups.push({value: 10, name: "DeathNote Hackers"});
+    
+      dataDefacementGroups.push({value: 10, name: "StupidC0de🐷Family"});
+    
+    var optionDefacementGroups = {
+      title: { text: 'Top 15 Defacement Groups', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: dataDefacementGroups.map(function(item) { return item.name; })
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: dataDefacementGroups.map(function(item) { return item.value; }),
+        type: 'bar'
+      }]
+    };
+    chartDefacementGroups.setOption(optionDefacementGroups);
 
-
-<script>
-  document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(btn=>{
-  btn.addEventListener('shown.bs.tab', e => {
-    const pane = document.querySelector(e.target.getAttribute('data-bs-target'));
-    pane.querySelectorAll('.chart-container').forEach(div=>{
-      echarts.getInstanceByDom(div)?.resize();
+    // Chart 3: Top Attacked Countries – use emoji flags on xAxis
+    var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
+    var attackedCountries = [
+      
+        {name: "us", value: 893 },
+      
+        {name: "ca", value: 376 },
+      
+        {name: "in", value: 189 },
+      
+        {name: "sg", value: 163 },
+      
+        {name: "fr", value: 162 }
+      
+    ];
+    var attackedCountryFlags = attackedCountries.map(function(item){
+      return countryCodeToEmoji(item.name);
     });
-  });
-});
-</script>
+    var optionAttackedCountries = {
+      title: { text: 'Top Attacked Countries', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: attackedCountryFlags
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: attackedCountries.map(function(item){ return item.value; }),
+        type: 'bar'
+      }]
+    };
+    chartAttackedCountries.setOption(optionAttackedCountries);
 
+    // Chart 4: Top Source Attack Countries – use emoji flags on xAxis
+    var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
+    var sourceAttackCountries = [
+      
+        {name: "iran", value: 90 },
+      
+        {name: "ru", value: 15 },
+      
+        {name: "bangladesh", value: 9 },
+      
+        {name: "italy", value: 4 },
+      
+        {name: "russia", value: 4 }
+      
+    ];
+    var sourceCountryFlags = sourceAttackCountries.map(function(item){
+      return countryCodeToEmoji(item.name);
+    });
+    var optionSourceAttackCountries = {
+      title: { text: 'Top Source Attack Countries', left: 'center' },
+      tooltip: {},
+      xAxis: {
+        type: 'category',
+        data: sourceCountryFlags
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        data: sourceAttackCountries.map(function(item){ return item.value; }),
+        type: 'bar'
+      }]
+    };
+    chartSourceAttackCountries.setOption(optionSourceAttackCountries);
+  </script>
 </body>
 </html>

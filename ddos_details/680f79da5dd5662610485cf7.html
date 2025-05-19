@@ -27,104 +27,35 @@
       display: block;
       margin: 0 auto;
     }
-    /* Icon and clock sizing */
-    .icon-size {
-      width: 32px;
-      height: 32px;
-    }
-    /* Style for the analog clock canvas */
-    #canvasClock {
-      width: 32px;
-      height: 32px;
-      margin-left: 0.5rem;
-      border-radius: 50%;
-      background: transparent;
-    }
   </style>
 </head>
 <body class="bg-light">
   <!-- Common Header -->
   <header class="mb-4">
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="d-none d-lg-flex align-items-center">
-  <!-- GitHub Icon linking to user repo page -->
-  <a href="https://github.com/unit500/" target="_blank" rel="noopener noreferrer" class="me-3">
-    <svg class="icon-size" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
-      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
-        7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
-        -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
-        1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
-        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
-        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
-        .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
-        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65
-        3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01
-        2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
-      </path>
-    </svg>
-  </a>
-
-  <!-- Telegram Icon -->
-  <a href="https://t.me/five004ever" target="_blank" rel="noopener noreferrer" class="me-3">
-    <svg class="icon-size" viewBox="0 0 240 240" aria-hidden="true">
-      <path fill="currentColor" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120
-        s120-53.7,120-120S186.3,0,120,0z M178.5,82.7l-24.5,115.7c-1.8,8.2-6.7,
-        10.2-13.6,6.4l-38.9-28.7l-18.8,18.1
-        c-2.1,2.1-3.9,3.9-8,3.9l2.8-40.5l73.7-66.7c3.2-2.8-0.7-4.4-5-1.6L87.2,115.8
-        L63.5,106.2c-7.4-3.4-7.6-7.4,1.6-11.1l125.7-48.4
-        C182.6,41.2,182.9,45.5,178.5,82.7z"></path>
-    </svg>
-  </a>
-
-  <!-- Discord Icon (Newly Added) -->
-  <a href="https://discord.gg/Afz2gEwAPB" target="_blank" rel="noopener noreferrer" class="me-3">
-    <svg class="icon-size" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="currentColor" d="M20.317 4.3698a19.791 19.791 0 0 0-4.885-1.515
-        .074.074 0 0 0-.078.037c-.211.375-.452.864-.617 1.248a18.173
-        18.173 0 0 0-5.487 0 11.925 11.925 0 0 0-.622-1.248
-        .077.077 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515
-        .07.07 0 0 0-.032.027C.533 9.045-.32 13.579.1 18.057
-        a.08.08 0 0 0 .031.052 19.978 19.978 0 0 0 5.99 3.047
-        .077.077 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.994
-        a.076.076 0 0 0-.041-.104 13.107 13.107 0 0 1-1.872-.902
-        .077.077 0 0 1-.008-.127c.126-.095.252-.192.372-.293a.074.074
-        0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.073.073 0 0 1
-        .078.009c.12.101.246.198.372.293a.077.077 0 0 1-.007.127
-        12.945 12.945 0 0 1-1.873.902.076.076 0 0 0-.04.105
-        c.354.698.765 1.363 1.225 1.993a.076.076 0 0 0 .084.028
-        19.963 19.963 0 0 0 5.992-3.047.077.077 0 0 0 .031-.052
-        c.5-5.177-.838-9.673-3.549-13.66a.061.061 0 0 0-.03-.028Z"/>
-    </svg>
-  </a>
-
-  <!-- Analog Clock -->
-  <canvas id="canvasClock" width="32" height="32"></canvas>
-</div>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#commonMenu" aria-controls="commonMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text mx-auto h5 mb-0">DDoS Attack Details</span>
+      </div>
+    </nav>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="../static_dashboard.html">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="../static_report.html">Report An Attack</a></li>
+          <li class="nav-item"><a class="nav-link" href="../top_players.html">Top Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+      </div>
     </div>
-  </nav>
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="commonMenu" aria-labelledby="commonMenuLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="commonMenuLabel">Menu</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="/static_dashboard.html">Main</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_defacements.html">Defacements</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_ddos.html">DDoS</a></li>
-        <li class="nav-item"><a class="nav-link" href="/static_ransom.html">Ransom</a></li>
-        <li class="nav-item"><a class="nav-link" href="/top.html">Top Players</a></li>
-	      <li class="nav-item"><a class="nav-link" href="/static_report.html">Report An Attack</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
-
+  </header>
 
   <div class="container my-4">
     <!-- Back Button -->
@@ -214,28 +145,17 @@
               
             
               
-                  
-                
-            
-              
-                  <tr>
-                    <th>Operation name</th>
-                    <td>
-                      <a href="/ddos_operations/" target="_blank"></a>
-                    </td>
-                  </tr>
-                
-            
-              
-                
+                <tr>
+                  <th>Actor name</th>
+                  <td></td>
+                </tr>
               
             
               
-                
-              
-            
-              
-                
+                <tr>
+                  <th>Operation name</th>
+                  <td></td>
+                </tr>
               
             
               
@@ -248,13 +168,37 @@
             
               
                 <tr>
+                  <th>Targeted website[]</th>
+                  <td>https://www.busin.com.ua/uk/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host[]</th>
+                  <td>256f58f4k5d0</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check it[]</th>
+                  <td>on</td>
+                </tr>
+              
+            
+              
+                <tr>
                   <th>Attack date</th>
                   <td>2025-04-28</td>
                 </tr>
               
             
               
-                
+                <tr>
+                  <th>G-recaptcha-response</th>
+                  <td>03AFcWeA6TSj_cIepE_x6hjP6ao56Zr0IHzVjQgI_0z3nC2bK8LCNrWSBzPRiJpT7Vz5XgGtfvWj0F-k955I8tfkReDwAuDT8u6GcdN02IoHFOqFHwRz9WqK_29Y41WCdEzkJ8bVCC_5HDlROEIDsTsOmFMHPAHwgvFFqyTQiFtX_9HCQTTLcg6YVQbN9vNk_vKqAbO5M_uFm2cNPnlNUQ9JQVuEPA2QzYwpSUdI7h3cEkmhVuJkbALErtOYBKUoSsl7UVL5i_8PUlErCcQc8F3rkUgw-r3kW31NhOfEEPKCrTCyUp8BdqWXXAJK4kO-k3Ddr87xW9EWDQh5vA7ehjf0ojYqa0NCHwBMMRkj1ymyC0CrKvVPEUve_kHMEjAEXDKYjgjF3V3jbAIXk3o5dpz37rKQ_N66Yxw6wOLtlqVZZ8ZrfdoFW-KKiRyfJbf5Dv3xrXnRMGt77XfKCCzzSSDwlE5vFh_7d9UUwUT3CqW_q9yP9l8TLZXpBlBQSPfSnPSFmrvPAr5gveaBsYGbPdEeJ4lZx95uzdB5Q5wpxh-HLAnLz6jSI3R9kTfNAqf4EnSJV9NQP9e1ddWGMJoPtvtyPrtIophvyLUmBk5C7MW85gMvlGvyi27xaGJ9P_tzWp-kIKNlbtH1aLh7lOQKP5AmH8DSQw4RK6jtwJITZhBP9cFUVmGQm66nwYUcDdIO4e4Oi1pZmbQBexP1TZ37ARrXBhtCVM7jQodYEjX5QrrG8zbMX6_ZepbkLqLpZuvz-6Ipz8XDMihhas-zcO8xi_Q_8ga0xSo_tyzsosL_EvOdPQAf0xgMOP4I6Kr8tCCeyL0LzB80iz8X8zl7Dar-Bu0z2W32euveek3IF7n8oSx0VJjqGVCD7jvgr8OGPU8Wvji1AcqaX2bTy81L12FLpZPR_MP0n4ZtSqgB4uHqXo59dOQY0iAYAP5sa0qmt1JRc2dgommB2UOyWos7LbHOE9_TzTREvJne43yFeTYxIRxxzkAlCm1uTglGdao9zJSnzXCBax3Y_yK-mbmPrhuOrLBzCrKcjMS8eBIafH3HWzjt00pJ39vJKno7Xx0LKBArTkp4Ykfsum7nDXXOovBe1GhK7WYvHdYGcCmT_1PGCPxT4V6eP2juzBGIhh2zboGbAWlSgt5tUO9mRwOIh8p9UyBWqbh5TLyK9JvMrvhCrOB-gnHK2Vof2XzgsqdFcTkTJBwBesCThQ_XuDxX4J4UvU9lSZHQH3kjHdnwnv8WZf9P3MUDck8CAJJqRqTikLsWEZ7MGZZAB2knulWnMhj39704vE1BF7XeYUjzSyrMNv70SjC7XD6oXLiRUAG9592YYee5Q-djskdwQ75IdddnMib1r0WXGIw-gFIG61j3oxQwQLnJzsPTJT3-ssanM0kYX4wNzeWzhOix8y0wHuVyfYsCAthtSk45keOZP9gqd2cJHr5qZJSwmx02TpSWYFC7K2aXWdxOMzbc_U1YWhXdMj2RM8Icha5h75a2fDRZn1F5Spakpxbl7QOxW-aFcB358urhP2XY-3euDIZs6mtAh9maq_vpH5_Pxbt_Pb64jmODCeMr0F2ZdrkASP787ZXxVeZ7lwuepbu8hP9usSlELoYMtP1BZ-YSN9jn_WJ07ZVD5gIZMWqOCSQIzueeGzfzKTUDqIwBvFCJxC3oNgnaEoPA6rZn6BJT6kBtkom3_XmmCWinX8eKVmU1IzhZjnsjKVFbhrMhSWm5q30P_0KWyfodWjzdw90PT4_oP51B11BaIMFDdipKAZHUxH1OC_aqWBXWRmcHsKT8XXMPI4AYRD3XQ6ub5nRaYW5NQZRt11IRA5s__lrd70fNWPE0rbCTwowh9VuWFC4Z8bC6BrzR-gp-MBudrRrbHTryh_trrbPQEMv0ov0ykHkKRc8Rx77TgUp_ayJ3Oe3ENvhnGGVyf7nNy_0B8iC6x_hQCaPRZ62a-nhESVDsb5WKXbTIIZlISZEZk4uW1dmerGeGI1wD4X_K2ZTlD5i3wQwzIZT61aiEIE30jDiGx64UAlUMWha6A0zOj5e9uOtFH4K4yWkYTEqFnnjYuZz_oaB2xFvKluieoSgq0_ds6nT8dU_osEmTC_i6F5n5rfOOMUUeqZjIDZ1TD6HFlO6z9CM4LGrp6vy-TKgdylsEBJniRshckimXkXCfYEpB4eXWg6GlJbFHzMBQcypZvfSDwHjOB44bd9xzm2SAwVbmVSlaxAkI584sVgUjrw9yvxq-9M1kjHBX7PqLabOzXCdKNb0uUUllVnTJeeKg9Ytwny9hYf9FAVQ7VE68OgGxpdcI2_XG32IJovXWYMJhyOEF-aB_3x8pEsDBbf_jEgz9VZyWg</td>
+                </tr>
               
             
               
@@ -271,7 +215,7 @@
                     <a href="https://check-host.net/check-report/256f58c7k929" target="_blank">256f58c7k929</a>
                   </td>
                 </tr>
-                
+              
             
               
                 <tr>
@@ -288,16 +232,11 @@
               
             
               
-                  <tr>
-                    <th>Attacked country</th>
-                    <td>
-                      <img src="https://flagcdn.com/32x24/ua.png"
-                          class="me-1"
-                          alt="UA flag">
-                      UA
-                    </td>
-                  </tr>
-                  
+                <tr>
+                  <th>Attacked country</th>
+                  <td>UA</td>
+                </tr>
+              
             
               
                 <tr>
@@ -318,45 +257,45 @@
               
             
               
-                
+                <tr>
+                  <th>Mirror</th>
+                  <td>/archive/verified/2025/04/28/aska-life_com_ua</td>
+                </tr>
               
             
               
-                  <tr>
-                    <th>Github Mirror</th>
-                    <td>
-                        /archive/verified/2025/04/28/aska-life_com_ua
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Technical Report</th>
-                    <td>
-                      <a href="https://github.com/unit500/ddos/tree/main//archive/verified/2025/04/28/aska-life_com_ua"
-                        target="_blank">
-                        https://github.com/unit500/ddos/tree/main//archive/verified/2025/04/28/aska-life_com_ua
-                      </a>
-                    </td>
-                  </tr>
+                <tr>
+                  <th>Received at</th>
+                  <td>2025-04-28 12:51:38.742000</td>
+                </tr>
               
             
               
-                
+                <tr>
+                  <th>Announced</th>
+                  <td>True</td>
+                </tr>
               
             
               
-                
+                <tr>
+                  <th>Details generated</th>
+                  <td>ddos_details/680f79da5dd5662610485cf7.html</td>
+                </tr>
               
             
               
-                
+                <tr>
+                  <th>Announced hourly</th>
+                  <td>True</td>
+                </tr>
               
             
               
-                
-              
-            
-              
-                
+                <tr>
+                  <th>Announced daily</th>
+                  <td>True</td>
+                </tr>
               
             
           </tbody>
@@ -366,18 +305,9 @@
   </div>
   
   <!-- Footer -->
-  <footer class="py-4">
-  <div class="container text-center">
-    <hr class="mb-3">
-    <p class="mb-1 text-muted">&copy;  Unit500. All rights reserved.</p>
-    
-      <p class="mb-1 text-success">All Systems Operational</p>
-    
-    <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
-  </div>
-</footer>
-
+  <footer class="text-center mt-4 mb-2">
+    <p class="small text-muted">Last Generated: 2025-04-29 06:02:34</p>
+  </footer>
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
