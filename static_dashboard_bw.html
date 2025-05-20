@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -866,6 +866,40 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/682bd43d8945d58e5cc573e2.html">
+                <img src="https://images.ransomware.live/victims/8d30acd67e349eec52ec1f8096491584.png" class="card-img-top" alt="medswana.co.bw">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">medswana.co.bw</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-20 00:59:36.226092</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/bw.png" alt="BW flag">
+                  
+                  BW
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/killsec.html">killsec</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/67c4d5468fecd68a2b6d3d11.html">
                 <img src="https://images.ransomware.live/victims/6aae77a017fa3618e2e1adbceceeeead.png" class="card-img-top" alt="www.itiq.co.bw">
               </a>
@@ -974,8 +1008,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 11:53:09-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-20 01:02:30-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -1027,6 +1061,10 @@
     // Chart 2: Top Defacement Groups
     var defacementData = [];
     
+      
+        defacementData.push({ value: 1, name: "killsec" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1047,6 +1085,9 @@
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("bw");
+      attackedSeriesData.push({value: 1, name: "bw"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
