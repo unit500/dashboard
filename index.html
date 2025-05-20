@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">Your time is limited, so don&#39;t waste it living someone else&#39;s life.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">22</h3>
+              <h3 id="victims-week">23</h3>
             </div>
           </div>
         </div>
@@ -709,6 +709,13 @@
               <ul id="top-countries-today" class="list-unstyled">
             
                 
+                  
+                    <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/bw.png"
+                           alt="BW flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="BW (1)">
+                    </li>
                   
                 
             
@@ -1399,6 +1406,40 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/682bd43d8945d58e5cc573e2.html">
+                <img src="https://images.ransomware.live/victims/8d30acd67e349eec52ec1f8096491584.png" class="card-img-top" alt="medswana.co.bw">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">medswana.co.bw</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-20 00:59:36.226092</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/bw.png" alt="BW flag">
+                  
+                  BW
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/killsec.html">killsec</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/682bc6380574f247baec6d8a.html">
                 <img src="https://images.ransomware.live/victims/211cf10c8744a08ae084397f7bc6d44f.png" class="card-img-top" alt="www.group-indigo.com">
               </a>
@@ -1691,38 +1732,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/682b399ce17de319c982534f.html">
-                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="TBD GREECE">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">TBD GREECE</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-05-19 13:47:52.951863</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/gr.png" alt="GR flag">
-                  
-                  GR
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/devman.html">devman</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    TBD
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1735,8 +1744,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-20 00:05:42-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-05-20 01:00:47-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1886,11 +1895,11 @@
       sourceCategories.push("bangladesh");
       sourceSeriesData.push({value: 9, name: "bangladesh"});
     
-      sourceCategories.push("russia");
-      sourceSeriesData.push({value: 4, name: "russia"});
-    
       sourceCategories.push("italy");
       sourceSeriesData.push({value: 4, name: "italy"});
+    
+      sourceCategories.push("russia");
+      sourceSeriesData.push({value: 4, name: "russia"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
