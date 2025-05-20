@@ -204,6 +204,8 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
+            <a href="defacement_details/682c704228b598d51652a0f4.html">umch.ov.gov.mn</a>, 
+          
             <a href="defacement_details/6819db377fb0c572a144f553.html">elselt.sab.edu.mn</a>, 
           
             <a href="defacement_details/67bd59816eb548a542fd2e89.html">tunel.khs.gov.mn</a>, 
@@ -348,8 +350,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 12:32:47-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-20 13:06:24-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -373,11 +375,11 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 345, name: "US" },
+        { value: 349, name: "US" },
       
         { value: 36, name: "DE" },
       
-        { value: 28, name: "CA" },
+        { value: 27, name: "CA" },
       
         { value: 15, name: "GB" },
       
@@ -570,9 +572,9 @@
       
         { value: 21, name: "GB" },
       
-        { value: 17, name: "CA" },
-      
         { value: 16, name: "NL" },
+      
+        { value: 14, name: "CA" },
       
         { value: 11, name: "UA" },
       
@@ -739,15 +741,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 422, name: "US" },
+        { value: 449, name: "US" },
       
-        { value: 319, name: "CA" },
+        { value: 296, name: "CA" },
       
-        { value: 153, name: "SG" },
+        { value: 155, name: "SG" },
       
-        { value: 133, name: "FR" },
+        { value: 132, name: "FR" },
       
-        { value: 118, name: "IN" }
+        { value: 111, name: "IN" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -768,7 +770,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 1, name: "indie" }
+        { value: 2, name: "indie" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -789,7 +791,9 @@
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
       
-        { value: 1, name: "omgsmok" }
+        { value: 1, name: "omgsmok" },
+      
+        { value: 1, name: "Ramil Feyziyev" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -809,6 +813,8 @@
     // 5) By Hour (bar)
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
+      
+        { value: 1, name: "12" },
       
         { value: 1, name: "9" }
       
@@ -831,7 +837,7 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 1, name: "Tue" }
+        { value: 2, name: "Tue" }
       
     ];
     chartDefaceByWeekday.setOption({
@@ -849,7 +855,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-02-24", 1], ["2025-02-25", 1], ["2025-05-06", 1]];
+    let heatDataDefacements = [["2025-02-24", 1], ["2025-02-25", 1], ["2025-05-06", 1], ["2025-05-20", 1]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
