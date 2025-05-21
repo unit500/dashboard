@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -1217,6 +1217,38 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/682dc08557d2a7cd4f75df01.html">
+                <img src="https://images.ransomware.live/victims/ae6423b86309928c992f47d5a9d29914.png" class="card-img-top" alt="www.wirebangkok.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.wirebangkok.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-21 11:54:06.192928</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
+                  
+                  TH
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/stormous.html">stormous</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    ?
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/681db62ae1d91608ca4e16a1.html">
                 <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="dailynews.co.th">
               </a>
@@ -1512,40 +1544,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/67dbf55891c4d68c17ae6b63.html">
-                <img src="https://images.ransomware.live/victims/734587c8d7999a62ad4cfe93b4ad74e9.png" class="card-img-top" alt="smic.mi.th (Thailand Intelligence Agency)">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">smic.mi.th (Thailand Intelligence Agency)</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-03-20 09:23:02.565720</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Public Sector</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/th.png" alt="TH flag">
-                  
-                  TH
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/babuk2.html">babuk2</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    smic.mi.th (Thailand Intelligence Agency)
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1558,8 +1556,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 14:03:35-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-21 12:13:07-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1589,9 +1587,9 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 3, name: "Team Anon Force" },
-      
       {value: 3, name: "0xEv1lS0UL" },
+      
+      {value: 3, name: "Team Anon Force" },
       
       {value: 3, name: "NXBBSEC" },
       
@@ -1631,6 +1629,10 @@
         defacementData.push({ value: 1, name: "Jateng Cyber Team" });
       
     
+      
+        defacementData.push({ value: 1, name: "stormous" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1653,7 +1655,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("th");
-      attackedSeriesData.push({value: 10, name: "th"});
+      attackedSeriesData.push({value: 11, name: "th"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
