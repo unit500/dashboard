@@ -350,8 +350,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 11:49:42-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-22 09:12:14-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
@@ -375,15 +375,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 345, name: "US" },
+        { value: 356, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 43, name: "DE" },
       
-        { value: 28, name: "CA" },
+        { value: 26, name: "CA" },
       
-        { value: 15, name: "GB" },
+        { value: 19, name: "GB" },
       
-        { value: 14, name: "ES" }
+        { value: 15, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -404,13 +404,9 @@
       
         { value: 1, name: "www.jemeppe-sur-sambre.be" },
       
-        { value: 1, name: "decoline.com" },
+        { value: 1, name: "demeesternv.be" },
       
-        { value: 1, name: "www.c-mec.be" },
-      
-        { value: 1, name: "www.pharmaforce.be" },
-      
-        { value: 1, name: "demeesternv.be" }
+        { value: 1, name: "decoline.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -431,13 +427,11 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 2, name: "ransomhouse" },
-      
-        { value: 1, name: "sarcoma" },
+        { value: 1, name: "ransomhouse" },
       
         { value: 1, name: "worldleaks" },
       
-        { value: 1, name: "hunters" }
+        { value: 1, name: "sarcoma" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -458,11 +452,7 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 1, name: "19" },
-      
         { value: 1, name: "09" },
-      
-        { value: 1, name: "11" },
       
         { value: 1, name: "16" },
       
@@ -486,8 +476,6 @@
     // 5) By Weekday (bar)
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
-      
-        { value: 2, name: "Mon" },
       
         { value: 2, name: "Sun" },
       
@@ -587,8 +575,6 @@
     var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
     var dataDdosTopSource = [
       
-        { value: 4, name: "Unknown" }
-      
     ];
     chartDdosTopSource.setOption({
       title: { text: 'Top 5 DDoS Sources', left: 'center' },
@@ -608,13 +594,13 @@
       
         { value: 21, name: "GB" },
       
-        { value: 17, name: "CA" },
-      
         { value: 16, name: "NL" },
       
-        { value: 11, name: "UA" },
+        { value: 12, name: "CA" },
       
-        { value: 9, name: "FR" }
+        { value: 9, name: "FR" },
+      
+        { value: 8, name: "UA" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -774,6 +760,8 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
+        { value: 4, name: "Unknown" }
+      
     ];
     chartDefaceTopSource.setOption({
       title: { text: 'Top 5 Defacement Sources', left: 'center' },
@@ -793,13 +781,13 @@
       
         { value: 422, name: "US" },
       
-        { value: 319, name: "CA" },
+        { value: 294, name: "CA" },
       
-        { value: 153, name: "SG" },
+        { value: 149, name: "SG" },
       
         { value: 133, name: "FR" },
       
-        { value: 118, name: "IN" }
+        { value: 111, name: "IN" }
       
     ];
     chartDefaceTopTarget.setOption({
