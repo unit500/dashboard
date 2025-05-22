@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Defacement Details - Unit500</title>
+  <title>DDoS Attack Details - Unit500</title>
   <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -19,6 +19,13 @@
     }
     .details-table th {
       width: 30%;
+    }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
     /* Icon and clock sizing */
     .icon-size {
@@ -36,7 +43,7 @@
   </style>
 </head>
 <body class="bg-light">
-  <!-- Common Header (Title in same row as menu, no extra brand text) -->
+  <!-- Common Header -->
   <header class="mb-4">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -118,36 +125,39 @@
   </div>
 </header>
 
+
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Three Cards Row -->
+    <!-- Top Cards Row (4 squares) -->
     <div class="row mb-4">
       <!-- Card 1: Targeted Website -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Targeted Website</div>
           <div class="card-body">
-            <a href="http://underarmourindia.com" target="_blank" class="text-decoration-none">
-              <h5 class="card-title">underarmourindia.com</h5>
-            </a>
+            
+              <a href="https://metropole.nantes.fr/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">metropole.nantes.fr</h5>
+              </a>
+            
           </div>
         </div>
       </div>
       <!-- Card 2: Attack Date -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Attack Date</div>
           <div class="card-body">
-            <h5 class="card-title">2025-05-21</h5>
+            <h5 class="card-title">2025-05-22</h5>
           </div>
         </div>
       </div>
-      <!-- Card 3: Geographics -->
-      <div class="col-md-4">
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
           <div class="card-header">Geographics</div>
           <div class="card-body">
@@ -156,8 +166,18 @@
             
             &rarr;
             
-              
-              <img src="https://flagcdn.com/32x24/om.png" alt="om flag">
+              <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
             
           </div>
         </div>
@@ -166,78 +186,177 @@
 
     <!-- Details Table -->
     <div class="row">
-      <!-- Left Column: Screenshot -->
+      <!-- Left Column: Screenshot/Thumbnail -->
       <div class="col-md-4 mb-3">
         
-          <img src="https://unit500.python-myth.info/mirror/2025/05/22/underarmourindia_com/screenshot.png" alt="Screenshot of Defaced Site" class="details-img">
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
         
       </div>
       <!-- Right Column: Details Table -->
       <div class="col-md-8">
         <table class="table table-bordered details-table">
           <tbody>
-            <tr>
-              <th>Group Name</th>
-              <td>indie</td>
-            </tr>
-            <tr>
-              <th>Actor Name</th>
-              <td>H0rn3t sp1d3rs</td>
-            </tr>
-            <tr>
-              <th>Targeted Website</th>
-              <td><a href="http://underarmourindia.com" target="_blank">http://underarmourindia.com</a></td>
-            </tr>
-            <tr>
-              <th>HTML Mirror</th>
-              <td>
-                
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>NoName057(16)</td>
+                </tr>
+              
+            
+              
                   
-                  <a href="https://unit500.github.io/defacements/mirror/2025/05/22/underarmourindia_com/html/" target="_blank">
-                    Mirror Link
-                  </a>
                 
-              </td>
-            </tr>
-            <tr>
-              <th>GitHub Mirror</th>
-              <td>
+            
+              
+                  <tr>
+                    <th>Operation name</th>
+                    <td>
+                      <a href="/ddos_operations/opfrance" target="_blank">OpFrance</a>
+                    </td>
+                  </tr>
                 
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Origin country</th>
+                  <td>ru</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Reason</th>
+                  <td>fun</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-05-22</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://metropole.nantes.fr/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/268a5744ka9b" target="_blank">268a5744ka9b</a>
+                  </td>
+                </tr>
+                
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                  <tr>
+                    <th>Attacked country</th>
+                    <td>
+                      <img src="https://flagcdn.com/32x24/fr.png"
+                          class="me-1"
+                          alt="FR flag">
+                      FR
+                    </td>
+                  </tr>
                   
-                  <a href="https://github.com/unit500/defacements/tree/main/mirror/2025/05/22/underarmourindia_com/" target="_blank">
-                    Github Source
-                  </a>
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/682eed6e118d972b140cff9e_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                  <tr>
+                    <th>Github Mirror</th>
+                    <td>
+                        /archive/verified/2025/05/22/metropole_nantes_fr
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Technical Report</th>
+                    <td>
+                      <a href="https://github.com/unit500/ddos/tree/main//archive/verified/2025/05/22/metropole_nantes_fr"
+                        target="_blank">
+                        https://github.com/unit500/ddos/tree/main//archive/verified/2025/05/22/metropole_nantes_fr
+                      </a>
+                    </td>
+                  </tr>
+              
+            
+              
                 
-              </td>
-            </tr>
-            <tr>
-              <th>Source Attacker Country</th>
-              <td>Unknown</td>
-            </tr>
-            <tr>
-              <th>Reason</th>
-              <td>fun</td>
-            </tr>
-            <tr>
-              <th>Mass Defacement</th>
-              <td>False</td>
-            </tr>
-            <tr>
-              <th>Domain</th>
-              <td>underarmourindia.com</td>
-            </tr>
-            <tr>
-              <th>Site IP</th>
-              <td>147.79.65.186</td>
-            </tr>
-            <tr>
-              <th>Redeface</th>
-              <td>False</td>
-            </tr>
-            <tr>
-              <th>Root Domain</th>
-              <td>True</td>
-            </tr>
+              
+            
+              
+                
+              
+            
           </tbody>
         </table>
       </div>
@@ -256,6 +375,7 @@
     <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
+
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
