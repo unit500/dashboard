@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
+    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -725,6 +725,13 @@
                     </li>
                   
                     <li class="d-inline-block me-2">
+                      <img src="https://flagcdn.com/32x24/de.png"
+                           alt="DE flag"
+                           data-bs-toggle="popover" data-bs-trigger="hover"
+                           data-bs-content="DE (1)">
+                    </li>
+                  
+                    <li class="d-inline-block me-2">
                       <img src="https://flagcdn.com/32x24/hr.png"
                            alt="HR flag"
                            data-bs-toggle="popover" data-bs-trigger="hover"
@@ -736,13 +743,6 @@
                            alt="MY flag"
                            data-bs-toggle="popover" data-bs-trigger="hover"
                            data-bs-content="MY (1)">
-                    </li>
-                  
-                    <li class="d-inline-block me-2">
-                      <img src="https://flagcdn.com/32x24/de.png"
-                           alt="DE flag"
-                           data-bs-toggle="popover" data-bs-trigger="hover"
-                           data-bs-content="DE (1)">
                     </li>
                   
                 
@@ -1766,8 +1766,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 08:03:32-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-22 08:10:23-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
@@ -1917,11 +1917,11 @@
       sourceCategories.push("iran");
       sourceSeriesData.push({value: 7, name: "iran"});
     
-      sourceCategories.push("russia");
-      sourceSeriesData.push({value: 4, name: "russia"});
-    
       sourceCategories.push("italy");
       sourceSeriesData.push({value: 4, name: "italy"});
+    
+      sourceCategories.push("russia");
+      sourceSeriesData.push({value: 4, name: "russia"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
