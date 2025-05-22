@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 11:58:04-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-22 09:21:01-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 345, name: "US" },
+        { value: 356, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 43, name: "DE" },
       
-        { value: 28, name: "CA" },
+        { value: 26, name: "CA" },
       
-        { value: 15, name: "GB" },
+        { value: 19, name: "GB" },
       
-        { value: 14, name: "ES" }
+        { value: 15, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -479,9 +479,9 @@
       
         { value: 2, name: "Sat" },
       
-        { value: 1, name: "Sun" },
+        { value: 1, name: "Mon" },
       
-        { value: 1, name: "Mon" }
+        { value: 1, name: "Sun" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -577,8 +577,6 @@
     var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
     var dataDdosTopSource = [
       
-        { value: 1, name: "Unknown" }
-      
     ];
     chartDdosTopSource.setOption({
       title: { text: 'Top 5 DDoS Sources', left: 'center' },
@@ -598,13 +596,13 @@
       
         { value: 21, name: "GB" },
       
-        { value: 17, name: "CA" },
-      
         { value: 16, name: "NL" },
       
-        { value: 11, name: "UA" },
+        { value: 12, name: "CA" },
       
-        { value: 9, name: "FR" }
+        { value: 9, name: "FR" },
+      
+        { value: 8, name: "UA" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -756,6 +754,8 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
+        { value: 6, name: "Unknown" }
+      
     ];
     chartDefaceTopSource.setOption({
       title: { text: 'Top 5 Defacement Sources', left: 'center' },
@@ -775,13 +775,13 @@
       
         { value: 422, name: "US" },
       
-        { value: 319, name: "CA" },
+        { value: 294, name: "CA" },
       
-        { value: 153, name: "SG" },
+        { value: 149, name: "SG" },
       
         { value: 133, name: "FR" },
       
-        { value: 118, name: "IN" }
+        { value: 111, name: "IN" }
       
     ];
     chartDefaceTopTarget.setOption({
