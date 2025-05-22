@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/682e8548a40cc3e24f5782b1.html">ecoinside.pt</a>, 
+          
             <a href="ransom_details/682e3f1428b21f2f6b370b7f.html">notar-roemer-troisdorf.de</a>, 
           
             <a href="ransom_details/682e3f0b28b21f2f6b370b7c.html">ctd-dortmund.de</a>, 
           
             <a href="ransom_details/682e3f0928b21f2f6b370b7a.html">dawg-dok.de</a>, 
           
-            <a href="ransom_details/682e3f0428b21f2f6b370b78.html">sb-p.de</a>, 
-          
-            <a href="ransom_details/682e3f0428b21f2f6b370b77.html">schoene-aussicht-kassel.de</a>
+            <a href="ransom_details/682e3f0428b21f2f6b370b78.html">sb-p.de</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-21 21:04:36-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-22 02:00:41-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
   
@@ -377,9 +377,9 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 352, name: "US" },
+        { value: 355, name: "US" },
       
-        { value: 42, name: "DE" },
+        { value: 43, name: "DE" },
       
         { value: 26, name: "CA" },
       
@@ -404,13 +404,13 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 2, name: "eu-rec.de" },
-      
         { value: 2, name: "scheuerle-stuttgart.de" },
       
-        { value: 2, name: "metten-maas.de" },
-      
         { value: 2, name: "zvaonline.com" },
+      
+        { value: 2, name: "hagemann-h.de" },
+      
+        { value: 2, name: "eu-rec.de" },
       
         { value: 2, name: "www.boll-logistik.de" }
       
@@ -437,11 +437,11 @@
       
         { value: 3, name: "incransom" },
       
-        { value: 2, name: "stormous" },
+        { value: 2, name: "nova" },
       
         { value: 2, name: "play" },
       
-        { value: 2, name: "leakeddata" }
+        { value: 2, name: "SilentRansomGroup" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -491,15 +491,15 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 10, name: "Sun" },
-      
         { value: 10, name: "Fri" },
+      
+        { value: 10, name: "Sun" },
       
         { value: 8, name: "Tue" },
       
         { value: 7, name: "Wed" },
       
-        { value: 3, name: "Thu" }
+        { value: 4, name: "Thu" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -517,7 +517,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-07", 2], ["2025-01-09", 1], ["2025-01-13", 1], ["2025-01-16", 1], ["2025-01-22", 1], ["2025-01-24", 1], ["2025-01-27", 3], ["2025-01-28", 2], ["2025-01-30", 3], ["2025-02-02", 1], ["2025-02-04", 5], ["2025-02-07", 1], ["2025-02-10", 4], ["2025-02-11", 3], ["2025-02-12", 1], ["2025-02-13", 1], ["2025-02-14", 2], ["2025-02-16", 2], ["2025-02-17", 2], ["2025-02-19", 6], ["2025-02-21", 1], ["2025-02-24", 2], ["2025-02-27", 10], ["2025-02-28", 1], ["2025-03-05", 2], ["2025-03-06", 4], ["2025-03-09", 5], ["2025-03-11", 3], ["2025-03-12", 4], ["2025-03-14", 3], ["2025-03-15", 2], ["2025-03-18", 1], ["2025-03-19", 2], ["2025-03-20", 2], ["2025-03-21", 2], ["2025-03-23", 1], ["2025-03-25", 2], ["2025-03-26", 3], ["2025-03-28", 4], ["2025-03-30", 17], ["2025-03-31", 4], ["2025-04-04", 1], ["2025-04-06", 1], ["2025-04-08", 1], ["2025-04-09", 2], ["2025-04-12", 1], ["2025-04-14", 1], ["2025-04-15", 2], ["2025-04-16", 12], ["2025-04-18", 2], ["2025-04-20", 1], ["2025-04-21", 1], ["2025-04-24", 1], ["2025-04-25", 1], ["2025-04-28", 1], ["2025-04-29", 2], ["2025-05-02", 2], ["2025-05-03", 1], ["2025-05-05", 1], ["2025-05-06", 6], ["2025-05-08", 2], ["2025-05-11", 10], ["2025-05-16", 7], ["2025-05-19", 1], ["2025-05-21", 7]];
+  const heatDataRansom = [["2025-01-07", 2], ["2025-01-09", 1], ["2025-01-13", 1], ["2025-01-16", 1], ["2025-01-22", 1], ["2025-01-24", 1], ["2025-01-27", 3], ["2025-01-28", 2], ["2025-01-30", 3], ["2025-02-02", 1], ["2025-02-04", 5], ["2025-02-07", 1], ["2025-02-10", 4], ["2025-02-11", 3], ["2025-02-12", 1], ["2025-02-13", 1], ["2025-02-14", 2], ["2025-02-16", 2], ["2025-02-17", 2], ["2025-02-19", 6], ["2025-02-21", 1], ["2025-02-24", 2], ["2025-02-27", 10], ["2025-02-28", 1], ["2025-03-05", 2], ["2025-03-06", 4], ["2025-03-09", 5], ["2025-03-11", 3], ["2025-03-12", 4], ["2025-03-14", 3], ["2025-03-15", 2], ["2025-03-18", 1], ["2025-03-19", 2], ["2025-03-20", 2], ["2025-03-21", 2], ["2025-03-23", 1], ["2025-03-25", 2], ["2025-03-26", 3], ["2025-03-28", 4], ["2025-03-30", 17], ["2025-03-31", 4], ["2025-04-04", 1], ["2025-04-06", 1], ["2025-04-08", 1], ["2025-04-09", 2], ["2025-04-12", 1], ["2025-04-14", 1], ["2025-04-15", 2], ["2025-04-16", 12], ["2025-04-18", 2], ["2025-04-20", 1], ["2025-04-21", 1], ["2025-04-24", 1], ["2025-04-25", 1], ["2025-04-28", 1], ["2025-04-29", 2], ["2025-05-02", 2], ["2025-05-03", 1], ["2025-05-05", 1], ["2025-05-06", 6], ["2025-05-08", 2], ["2025-05-11", 10], ["2025-05-16", 7], ["2025-05-19", 1], ["2025-05-21", 7], ["2025-05-22", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -618,7 +618,7 @@
       
         { value: 16, name: "NL" },
       
-        { value: 13, name: "CA" },
+        { value: 12, name: "CA" },
       
         { value: 9, name: "FR" },
       
@@ -714,13 +714,13 @@
       
         { value: 2, name: "Sun" },
       
-        { value: 1, name: "Wed" },
-      
         { value: 1, name: "Tue" },
       
-        { value: 1, name: "Mon" },
+        { value: 1, name: "Wed" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Thu" },
+      
+        { value: 1, name: "Mon" }
       
     ];
     chartDdosByWeekday.setOption({
@@ -807,15 +807,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 420, name: "US" },
+        { value: 417, name: "US" },
       
-        { value: 294, name: "CA" },
+        { value: 291, name: "CA" },
       
         { value: 149, name: "SG" },
       
-        { value: 132, name: "FR" },
+        { value: 131, name: "FR" },
       
-        { value: 110, name: "IN" }
+        { value: 109, name: "IN" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -842,9 +842,9 @@
       
         { value: 4, name: "Z-Pentest Alliance" },
       
-        { value: 1, name: "SABUNMANDI CYBER TEAM CYBER TEAM	" },
+        { value: 1, name: "God Of Server" },
       
-        { value: 1, name: "God Of Server" }
+        { value: 1, name: "SABUNMANDI CYBER TEAM CYBER TEAM	" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -871,9 +871,9 @@
       
         { value: 5, name: "EbRaHiM-VaKeR" },
       
-        { value: 4, name: "Simsimi" },
+        { value: 4, name: "Z-Pentest Alliance" },
       
-        { value: 4, name: "Z-Pentest Alliance" }
+        { value: 4, name: "Simsimi" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -931,7 +931,7 @@
       
         { value: 10, name: "Fri" },
       
-        { value: 9, name: "Tue" }
+        { value: 9, name: "Sun" }
       
     ];
     chartDefaceByWeekday.setOption({
