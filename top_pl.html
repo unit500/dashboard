@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 12:17:07-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-05-22 09:42:31-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 345, name: "US" },
+        { value: 356, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 43, name: "DE" },
       
-        { value: 28, name: "CA" },
+        { value: 26, name: "CA" },
       
-        { value: 15, name: "GB" },
+        { value: 19, name: "GB" },
       
-        { value: 14, name: "ES" }
+        { value: 15, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -555,8 +555,6 @@
     var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
     var dataDdosTopSource = [
       
-        { value: 1, name: "Unknown" }
-      
     ];
     chartDdosTopSource.setOption({
       title: { text: 'Top 5 DDoS Sources', left: 'center' },
@@ -576,13 +574,13 @@
       
         { value: 21, name: "GB" },
       
-        { value: 17, name: "CA" },
-      
         { value: 16, name: "NL" },
       
-        { value: 11, name: "UA" },
+        { value: 12, name: "CA" },
       
-        { value: 9, name: "FR" }
+        { value: 11, name: "FR" },
+      
+        { value: 8, name: "UA" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -602,8 +600,6 @@
     // 3) Top Groups (bar)
     var chartDdosTopGroups = echarts.init(document.getElementById('chartDdosTopGroups'));
     var dataDdosTopGroups = [
-      
-        { value: 1, name: "NoName057(16)" }
       
     ];
     chartDdosTopGroups.setOption({
@@ -643,8 +639,6 @@
     var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
     var dataDdosByHour = [
       
-        { value: 1, name: "7" }
-      
     ];
     chartDdosByHour.setOption({
       title: { text: 'DDoS Reports by Hour', left: 'center' },
@@ -663,8 +657,6 @@
     // 6) By Weekday (bar)
     var chartDdosByWeekday = echarts.init(document.getElementById('chartDdosByWeekday'));
     var dataDdosByWeekday = [
-      
-        { value: 1, name: "Sun" }
       
     ];
     chartDdosByWeekday.setOption({
@@ -734,6 +726,10 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
+        { value: 22, name: "Unknown" },
+      
+        { value: 1, name: "ru" }
+      
     ];
     chartDefaceTopSource.setOption({
       title: { text: 'Top 5 Defacement Sources', left: 'center' },
@@ -753,13 +749,13 @@
       
         { value: 422, name: "US" },
       
-        { value: 319, name: "CA" },
+        { value: 294, name: "CA" },
       
-        { value: 153, name: "SG" },
+        { value: 149, name: "SG" },
       
         { value: 133, name: "FR" },
       
-        { value: 118, name: "IN" }
+        { value: 111, name: "IN" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -811,9 +807,9 @@
       
         { value: 1, name: "Z-Pentest Alliance" },
       
-        { value: 1, name: "Mr. BDKR28" },
+        { value: 1, name: "setupp.es" },
       
-        { value: 1, name: "setupp.es" }
+        { value: 1, name: "Mr. BDKR28" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -842,7 +838,7 @@
       
         { value: 2, name: "13" },
       
-        { value: 1, name: "17" }
+        { value: 1, name: "14" }
       
     ];
     chartDefaceByHour.setOption({
@@ -867,9 +863,9 @@
       
         { value: 5, name: "Thu" },
       
-        { value: 2, name: "Mon" },
-      
         { value: 2, name: "Sat" },
+      
+        { value: 2, name: "Mon" },
       
         { value: 1, name: "Fri" }
       
