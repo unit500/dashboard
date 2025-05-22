@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -861,6 +861,38 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/682ecba1f0910b7e99c321d7.html">
+                <img src="https://images.ransomware.live/victims/c89a7dcd5cb0a980f07819b89d12843d.png" class="card-img-top" alt="adria-grupa.hr">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">adria-grupa.hr</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-22 05:45:56.705915</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/hr.png" alt="HR flag">
+                  
+                  HR
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/gunra.html">gunra</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Facilities Management &amp; Commercial Cleaning, Business Services
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1166,40 +1198,6 @@ e equipment and decor as well as s…
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/678fe184c4f2181a712707c1.html">
-                <img src="https://images.ransomware.live/victims/8c6a7f8a2bdce02f37e0fb50a2cfc144.png" class="card-img-top" alt="badel1862.hr">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">badel1862.hr</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2024-07-03 15:12:36.069531</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/hr.png" alt="HR flag">
-                  
-                  HR
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/blackout.html">blackout</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Badel 1862 is an alcoholic beverage manufacturer from Croatia and at the ...
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1212,7 +1210,7 @@ e equipment and decor as well as s…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 12:06:34-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-05-22 07:09:25-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
@@ -1269,6 +1267,10 @@ e equipment and decor as well as s…
         defacementData.push({ value: 1, name: "IMNCrew" });
       
     
+      
+        defacementData.push({ value: 1, name: "gunra" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1291,7 +1293,7 @@ e equipment and decor as well as s…
     var attackedSeriesData = [];
     
       attackedCategories.push("hr");
-      attackedSeriesData.push({value: 2, name: "hr"});
+      attackedSeriesData.push({value: 3, name: "hr"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
