@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 07:49:14-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-22 10:29:55-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
@@ -377,7 +377,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 356, name: "US" },
+        { value: 357, name: "US" },
       
         { value: 43, name: "DE" },
       
@@ -404,15 +404,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 2, name: "www.jetice.com" },
-      
         { value: 2, name: "mccagueborlack.com" },
       
-        { value: 1, name: "mgchemicals.com" },
+        { value: 2, name: "www.jetice.com" },
+      
+        { value: 1, name: "auto-recyclers.com" },
       
         { value: 1, name: "www.gestionnaireimmobilier.ca" },
       
-        { value: 1, name: "www.unitrak.com" }
+        { value: 1, name: "www.youracsa.ca" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -437,9 +437,9 @@
       
         { value: 2, name: "blacklock" },
       
-        { value: 2, name: "SilentRansomGroup" },
-      
         { value: 2, name: "rhysida" },
+      
+        { value: 2, name: "SilentRansomGroup" },
       
         { value: 2, name: "leakeddata" }
       
@@ -470,7 +470,7 @@
       
         { value: 3, name: "13" },
       
-        { value: 2, name: "17" }
+        { value: 2, name: "10" }
       
     ];
     chartRansomByHour.setOption({
@@ -595,7 +595,7 @@
     var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
     var dataDdosTopSource = [
       
-        { value: 12, name: "Unknown" }
+        { value: 4, name: "ru" }
       
     ];
     chartDdosTopSource.setOption({
@@ -620,7 +620,7 @@
       
         { value: 12, name: "CA" },
       
-        { value: 9, name: "FR" },
+        { value: 11, name: "FR" },
       
         { value: 8, name: "UA" }
       
@@ -689,9 +689,9 @@
     var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
     var dataDdosByHour = [
       
-        { value: 4, name: "8" },
-      
         { value: 4, name: "12" },
+      
+        { value: 4, name: "8" },
       
         { value: 2, name: "9" },
       
@@ -724,9 +724,9 @@
       
         { value: 2, name: "Wed" },
       
-        { value: 1, name: "Sat" },
+        { value: 1, name: "Sun" },
       
-        { value: 1, name: "Sun" }
+        { value: 1, name: "Sat" }
       
     ];
     chartDdosByWeekday.setOption({
@@ -796,6 +796,12 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
+        { value: 290, name: "Unknown" },
+      
+        { value: 2, name: "Bangladesh" },
+      
+        { value: 1, name: "Iran" }
+      
     ];
     chartDefaceTopSource.setOption({
       title: { text: 'Top 5 Defacement Sources', left: 'center' },
@@ -813,7 +819,7 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 421, name: "US" },
+        { value: 422, name: "US" },
       
         { value: 294, name: "CA" },
       
@@ -904,11 +910,11 @@
       
         { value: 40, name: "9" },
       
-        { value: 19, name: "8" },
-      
         { value: 19, name: "4" },
       
-        { value: 16, name: "18" }
+        { value: 19, name: "8" },
+      
+        { value: 16, name: "6" }
       
     ];
     chartDefaceByHour.setOption({
