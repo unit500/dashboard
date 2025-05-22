@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 05:37:48-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-05-22 09:22:34-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
@@ -435,13 +435,13 @@
       
         { value: 3, name: "gunra" },
       
-        { value: 2, name: "qilin" },
-      
         { value: 2, name: "safepay" },
       
-        { value: 2, name: "devman" },
+        { value: 2, name: "qilin" },
       
-        { value: 2, name: "lynx" }
+        { value: 2, name: "lynx" },
+      
+        { value: 2, name: "devman" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -464,13 +464,13 @@
       
         { value: 2, name: "04" },
       
-        { value: 2, name: "22" },
+        { value: 2, name: "12" },
       
         { value: 2, name: "21" },
       
-        { value: 2, name: "12" },
+        { value: 2, name: "22" },
       
-        { value: 1, name: "16" }
+        { value: 1, name: "14" }
       
     ];
     chartRansomByHour.setOption({
@@ -493,13 +493,13 @@
       
         { value: 4, name: "Sun" },
       
-        { value: 2, name: "Mon" },
+        { value: 2, name: "Tue" },
       
         { value: 2, name: "Wed" },
       
         { value: 2, name: "Fri" },
       
-        { value: 2, name: "Tue" }
+        { value: 2, name: "Mon" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -766,6 +766,10 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
+        { value: 17, name: "Unknown" },
+      
+        { value: 1, name: "ru" }
+      
     ];
     chartDefaceTopSource.setOption({
       title: { text: 'Top 5 Defacement Sources', left: 'center' },
@@ -783,15 +787,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 417, name: "US" },
+        { value: 422, name: "US" },
       
-        { value: 292, name: "CA" },
+        { value: 294, name: "CA" },
       
         { value: 149, name: "SG" },
       
         { value: 133, name: "FR" },
       
-        { value: 109, name: "IN" }
+        { value: 111, name: "IN" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -870,7 +874,7 @@
       
         { value: 3, name: "7" },
       
-        { value: 2, name: "6" },
+        { value: 2, name: "18" },
       
         { value: 2, name: "2" },
       
@@ -899,9 +903,9 @@
       
         { value: 4, name: "Tue" },
       
-        { value: 3, name: "Mon" },
-      
         { value: 3, name: "Sun" },
+      
+        { value: 3, name: "Mon" },
       
         { value: 1, name: "Wed" }
       
