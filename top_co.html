@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-19 12:58:54-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-22 10:25:15-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 345, name: "US" },
+        { value: 357, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 43, name: "DE" },
       
-        { value: 28, name: "CA" },
+        { value: 26, name: "CA" },
       
-        { value: 15, name: "GB" },
+        { value: 19, name: "GB" },
       
-        { value: 14, name: "ES" }
+        { value: 15, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -582,13 +582,13 @@
       
         { value: 21, name: "GB" },
       
-        { value: 17, name: "CA" },
-      
         { value: 16, name: "NL" },
       
-        { value: 11, name: "UA" },
+        { value: 12, name: "CA" },
       
-        { value: 9, name: "FR" }
+        { value: 11, name: "FR" },
+      
+        { value: 8, name: "UA" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -734,6 +734,8 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
+        { value: 4, name: "Unknown" }
+      
     ];
     chartDefaceTopSource.setOption({
       title: { text: 'Top 5 Defacement Sources', left: 'center' },
@@ -753,13 +755,13 @@
       
         { value: 422, name: "US" },
       
-        { value: 319, name: "CA" },
+        { value: 294, name: "CA" },
       
-        { value: 153, name: "SG" },
+        { value: 149, name: "SG" },
       
         { value: 133, name: "FR" },
       
-        { value: 118, name: "IN" }
+        { value: 111, name: "IN" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -780,9 +782,9 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 2, name: "Team Anon Force" },
+        { value: 2, name: "indie" },
       
-        { value: 2, name: "indie" }
+        { value: 2, name: "Team Anon Force" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -824,13 +826,13 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 1, name: "19" },
-      
-        { value: 1, name: "6" },
+        { value: 1, name: "18" },
       
         { value: 1, name: "4" },
       
-        { value: 1, name: "18" }
+        { value: 1, name: "6" },
+      
+        { value: 1, name: "19" }
       
     ];
     chartDefaceByHour.setOption({
@@ -851,13 +853,13 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 1, name: "Fri" },
-      
-        { value: 1, name: "Tue" },
-      
         { value: 1, name: "Mon" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Fri" },
+      
+        { value: 1, name: "Thu" },
+      
+        { value: 1, name: "Tue" }
       
     ];
     chartDefaceByWeekday.setOption({
