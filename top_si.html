@@ -212,6 +212,8 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/6831c2f9650d56f942fd8280.html">www.elitavia.com</a>, 
+          
             <a href="ransom_details/678fdc9fc4f2181a7126f8f8.html">Autocommerce</a>
           
         </li>
@@ -338,8 +340,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 10:46:59-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-24 13:04:20-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
   
@@ -363,11 +365,11 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 357, name: "US" },
+        { value: 352, name: "US" },
       
         { value: 43, name: "DE" },
       
-        { value: 26, name: "CA" },
+        { value: 22, name: "CA" },
       
         { value: 19, name: "GB" },
       
@@ -390,6 +392,8 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
+        { value: 1, name: "www.elitavia.com" }
+      
     ];
     chartRansomTopTarget.setOption({
       title: { text: 'Top 5 Ransom Targets', left: 'center' },
@@ -408,6 +412,8 @@
     // 3) Top Groups (bar with emoji flags)
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
+      
+        { value: 1, name: "qilin" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -428,6 +434,8 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
+        { value: 1, name: "12" }
+      
     ];
     chartRansomByHour.setOption({
       title: { text: 'Ransom Reports by Hour', left: 'center' },
@@ -447,6 +455,8 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
+        { value: 1, name: "Sat" }
+      
     ];
     chartRansomByWeekday.setOption({
       title: { text: 'Ransom Reports by Weekday', left: 'center' },
@@ -463,7 +473,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [];
+  const heatDataRansom = [["2025-05-24", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -564,7 +574,7 @@
       
         { value: 12, name: "CA" },
       
-        { value: 11, name: "FR" },
+        { value: 10, name: "FR" },
       
         { value: 8, name: "UA" }
       
@@ -729,15 +739,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 423, name: "US" },
+        { value: 407, name: "US" },
       
-        { value: 294, name: "CA" },
+        { value: 289, name: "CA" },
       
         { value: 152, name: "SG" },
       
-        { value: 134, name: "FR" },
+        { value: 117, name: "FR" },
       
-        { value: 111, name: "IN" }
+        { value: 113, name: "IN" }
       
     ];
     chartDefaceTopTarget.setOption({
