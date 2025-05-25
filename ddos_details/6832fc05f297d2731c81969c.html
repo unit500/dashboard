@@ -3,22 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Details - Unit500</title>
-  <!-- Bootstrap CSS -->
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../static/style.css">
-  <!-- ECharts -->
-  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <style>
-    .chart-container {
-      width: 100%;
-      height: 400px;
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
     }
-    .section-title {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+    .details-table th {
+      width: 30%;
     }
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    /* Icon and clock sizing */
     .icon-size {
       width: 32px;
       height: 32px;
@@ -116,142 +125,245 @@
   </div>
 </header>
 
+
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Group Info Cards -->
+    <!-- Top Cards Row (4 squares) -->
     <div class="row mb-4">
-      <!-- Card 1: Group Name -->
-      <div class="col-md-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Group Name</div>
+          <div class="card-header">Targeted Website</div>
           <div class="card-body">
-            <h5 class="card-title">worldleaks</h5>
+            
+              <a href="https://www.moselle.gouv.fr/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">www.moselle.gouv.fr</h5>
+              </a>
+            
           </div>
         </div>
       </div>
-      <!-- Card 2: Total Activities -->
-      <div class="col-md-4">
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Total Activities</div>
+          <div class="card-header">Attack Date</div>
           <div class="card-body">
-            <h5 class="card-title">3</h5>
+            <h5 class="card-title">2025-05-25</h5>
           </div>
         </div>
       </div>
-      <!-- Card 3: Last Recorded Activity -->
-      <div class="col-md-4">
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-header">Geographics</div>
           <div class="card-body">
-            <h5 class="card-title">2025-05-19 23:17:23.849853</h5>
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/fr.png" alt="FR flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Activity Heatmap Chart -->
-    <div class="mb-4">
-      <div id="groupActivityChart" class="chart-container"></div>
-    </div>
-
-    <!-- Last 10 Defacements for Group -->
-    
-
-
-    
-
-    
-    <section>
-      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by worldleaks</h2>
-      <div class="row row-cols-1 row-cols-md-5 g-4">
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
         
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/682bc6380574f247baec6d8a.html">
-                <img src="https://images.ransomware.live/victims/211cf10c8744a08ae084397f7bc6d44f.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="www.group-indigo.com">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">www.group-indigo.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-05-19 23:17:23.849853</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/fr.png"
-                        alt="FR flag">
-                    FR
-                  </p>
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/682a124621abe621ce370aa8.html">
-                <img src="https://images.ransomware.live/victims/c37c5eefd74965fe9f6c557690a186bb.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="demeesternv.be">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">demeesternv.be</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 16:47:55.956030</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/be.png"
-                        alt="BE flag">
-                    BE
-                  </p>
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/682a124521abe621ce370aa7.html">
-                <img src="https://images.ransomware.live/victims/99837d6847f07b85b3cb6499646c3139.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="www.ascotools.com">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">www.ascotools.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 16:46:17.913863</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/ro.png"
-                        alt="RO flag">
-                    RO
-                  </p>
-                
-              </div>
-            </div>
-          </div>
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
         
       </div>
-    </section>
-    
-
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>Noname057(16)</td>
+                </tr>
+              
+            
+              
+                  
+                
+            
+              
+                  <tr>
+                    <th>Operation name</th>
+                    <td>
+                      <a href="/ddos_operations/opfrance" target="_blank">OpFrance</a>
+                    </td>
+                  </tr>
+                
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Origin country</th>
+                  <td>ru</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Reason</th>
+                  <td>politics</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-05-25</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://www.moselle.gouv.fr/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/26afe3cck37e" target="_blank">26afe3cck37e</a>
+                  </td>
+                </tr>
+                
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                  <tr>
+                    <th>Attacked country</th>
+                    <td>
+                      <img src="https://flagcdn.com/32x24/fr.png"
+                          class="me-1"
+                          alt="FR flag">
+                      FR
+                    </td>
+                  </tr>
+                  
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/6832fc05f297d2731c81969c_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                  <tr>
+                    <th>Github Mirror</th>
+                    <td>
+                        /archive/verified/2025/05/25/moselle_gouv_fr
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Technical Report</th>
+                    <td>
+                      <a href="https://github.com/unit500/ddos/tree/main//archive/verified/2025/05/25/moselle_gouv_fr"
+                        target="_blank">
+                        https://github.com/unit500/ddos/tree/main//archive/verified/2025/05/25/moselle_gouv_fr
+                      </a>
+                    </td>
+                  </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+  
+  <!-- Footer -->
   <footer class="py-4">
   <div class="container text-center">
     <hr class="mb-3">
@@ -260,52 +372,12 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- ECharts Heatmap Script -->
-  <script>
-    var chart = echarts.init(document.getElementById('groupActivityChart'));
-    var option = {
-      title: {
-        top: 30,
-        text: 'Activity Heatmap - worldleaks (2025)',
-        left: 'center'
-      },
-      tooltip: {},
-      visualMap: {
-        min: 0,
-        max: 10,
-        calculable: true,
-        orient: 'horizontal',
-        left: 'center',
-        bottom: 20
-      },
-      calendar: {
-        top: 100,
-        left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: {
-          firstDay: 1,
-          nameMap: 'en'
-        },
-        monthLabel: {
-          nameMap: 'en'
-        },
-        range: '2025'
-      },
-      series: [{
-        type: 'heatmap',
-        coordinateSystem: 'calendar',
-        data: [["2025-05-18 16:46:17.913863", 1], ["2025-05-18 16:47:55.956030", 1], ["2025-05-19 23:17:23.849853", 1]]
-      }]
-    };
-    chart.setOption(option);
-  </script>
 </body>
 </html>

@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Details - Unit500</title>
-  <!-- Bootstrap CSS -->
+  <title>Defacement Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../static/style.css">
-  <!-- ECharts -->
-  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <style>
-    .chart-container {
-      width: 100%;
-      height: 400px;
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
     }
-    .section-title {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+    .details-table th {
+      width: 30%;
     }
+    /* Icon and clock sizing */
     .icon-size {
       width: 32px;
       height: 32px;
@@ -34,7 +36,7 @@
   </style>
 </head>
 <body class="bg-light">
-  <!-- Common Header -->
+  <!-- Common Header (Title in same row as menu, no extra brand text) -->
   <header class="mb-4">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -122,136 +124,127 @@
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Group Info Cards -->
+    <!-- Three Cards Row -->
     <div class="row mb-4">
-      <!-- Card 1: Group Name -->
+      <!-- Card 1: Targeted Website -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Group Name</div>
+          <div class="card-header">Targeted Website</div>
           <div class="card-body">
-            <h5 class="card-title">worldleaks</h5>
+            <a href="http://reparacionmovilescartagena.com" target="_blank" class="text-decoration-none">
+              <h5 class="card-title">reparacionmovilescartagena.com</h5>
+            </a>
           </div>
         </div>
       </div>
-      <!-- Card 2: Total Activities -->
+      <!-- Card 2: Attack Date -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Total Activities</div>
+          <div class="card-header">Attack Date</div>
           <div class="card-body">
-            <h5 class="card-title">3</h5>
+            <h5 class="card-title">24-05-2025</h5>
           </div>
         </div>
       </div>
-      <!-- Card 3: Last Recorded Activity -->
+      <!-- Card 3: Geographics -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-header">Geographics</div>
           <div class="card-body">
-            <h5 class="card-title">2025-05-19 23:17:23.849853</h5>
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              
+              <img src="https://flagcdn.com/32x24/om.png" alt="om flag">
+            
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Activity Heatmap Chart -->
-    <div class="mb-4">
-      <div id="groupActivityChart" class="chart-container"></div>
-    </div>
-
-    <!-- Last 10 Defacements for Group -->
-    
-
-
-    
-
-    
-    <section>
-      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by worldleaks</h2>
-      <div class="row row-cols-1 row-cols-md-5 g-4">
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot -->
+      <div class="col-md-4 mb-3">
         
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/682bc6380574f247baec6d8a.html">
-                <img src="https://images.ransomware.live/victims/211cf10c8744a08ae084397f7bc6d44f.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="www.group-indigo.com">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">www.group-indigo.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-05-19 23:17:23.849853</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/fr.png"
-                        alt="FR flag">
-                    FR
-                  </p>
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/682a124621abe621ce370aa8.html">
-                <img src="https://images.ransomware.live/victims/c37c5eefd74965fe9f6c557690a186bb.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="demeesternv.be">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">demeesternv.be</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 16:47:55.956030</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/be.png"
-                        alt="BE flag">
-                    BE
-                  </p>
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/682a124521abe621ce370aa7.html">
-                <img src="https://images.ransomware.live/victims/99837d6847f07b85b3cb6499646c3139.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="www.ascotools.com">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">www.ascotools.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-05-18 16:46:17.913863</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/ro.png"
-                        alt="RO flag">
-                    RO
-                  </p>
-                
-              </div>
-            </div>
-          </div>
+          <img src="https://unit500.python-myth.info/mirror/2025/05/25/reparacionmovilescartagena_com/screenshot.png" alt="Screenshot of Defaced Site" class="details-img">
         
       </div>
-    </section>
-    
-
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            <tr>
+              <th>Group Name</th>
+              <td>Alpha wolf</td>
+            </tr>
+            <tr>
+              <th>Actor Name</th>
+              <td>XYZ</td>
+            </tr>
+            <tr>
+              <th>Targeted Website</th>
+              <td><a href="http://reparacionmovilescartagena.com" target="_blank">http://reparacionmovilescartagena.com</a></td>
+            </tr>
+            <tr>
+              <th>HTML Mirror</th>
+              <td>
+                
+                  
+                  <a href="https://unit500.github.io/defacements/mirror/2025/05/25/reparacionmovilescartagena_com/html/" target="_blank">
+                    Mirror Link
+                  </a>
+                
+              </td>
+            </tr>
+            <tr>
+              <th>GitHub Mirror</th>
+              <td>
+                
+                  
+                  <a href="https://github.com/unit500/defacements/tree/main/mirror/2025/05/25/reparacionmovilescartagena_com/" target="_blank">
+                    Github Source
+                  </a>
+                
+              </td>
+            </tr>
+            <tr>
+              <th>Source Attacker Country</th>
+              <td>Unknown</td>
+            </tr>
+            <tr>
+              <th>Reason</th>
+              <td>fun</td>
+            </tr>
+            <tr>
+              <th>Mass Defacement</th>
+              <td>False</td>
+            </tr>
+            <tr>
+              <th>Domain</th>
+              <td>reparacionmovilescartagena.com</td>
+            </tr>
+            <tr>
+              <th>Site IP</th>
+              <td>46.202.133.251</td>
+            </tr>
+            <tr>
+              <th>Redeface</th>
+              <td>False</td>
+            </tr>
+            <tr>
+              <th>Root Domain</th>
+              <td>True</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+  
+  <!-- Footer -->
   <footer class="py-4">
   <div class="container text-center">
     <hr class="mb-3">
@@ -260,52 +253,11 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
-
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- ECharts Heatmap Script -->
-  <script>
-    var chart = echarts.init(document.getElementById('groupActivityChart'));
-    var option = {
-      title: {
-        top: 30,
-        text: 'Activity Heatmap - worldleaks (2025)',
-        left: 'center'
-      },
-      tooltip: {},
-      visualMap: {
-        min: 0,
-        max: 10,
-        calculable: true,
-        orient: 'horizontal',
-        left: 'center',
-        bottom: 20
-      },
-      calendar: {
-        top: 100,
-        left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: {
-          firstDay: 1,
-          nameMap: 'en'
-        },
-        monthLabel: {
-          nameMap: 'en'
-        },
-        range: '2025'
-      },
-      series: [{
-        type: 'heatmap',
-        coordinateSystem: 'calendar',
-        data: [["2025-05-18 16:46:17.913863", 1], ["2025-05-18 16:47:55.956030", 1], ["2025-05-19 23:17:23.849853", 1]]
-      }]
-    };
-    chart.setOption(option);
-  </script>
 </body>
 </html>
