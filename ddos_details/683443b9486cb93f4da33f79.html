@@ -3,26 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Actor Details - Unit500</title>
-  <!-- Bootstrap CSS -->
+  <title>DDoS Attack Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../static/style.css">
-  <!-- ECharts -->
-  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <style>
-    .chart-container {
-      width: 100%;
-      height: 400px;
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
     }
-    .card-img-top {
-      object-fit: cover;
-      height: 150px;
+    .details-table th {
+      width: 30%;
     }
-    .section-title {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+    /* Constrain the map image size so the page looks good */
+    .map-container img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
+    /* Icon and clock sizing */
     .icon-size {
       width: 32px;
       height: 32px;
@@ -127,82 +132,238 @@
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Actor Info Cards -->
+    <!-- Top Cards Row (4 squares) -->
     <div class="row mb-4">
-      <!-- Card 1: Actor Name -->
-      <div class="col-md-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Actor Name</div>
+          <div class="card-header">Targeted Website</div>
           <div class="card-body">
-            <h5 class="card-title">GhannyXploit404</h5>
+            
+              <a href="https://www.ld.lt/" target="_blank" class="text-decoration-none">
+                <h5 class="card-title">www.ld.lt</h5>
+              </a>
+            
           </div>
         </div>
       </div>
-      <!-- Card 2: Total Activities -->
-      <div class="col-md-4">
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Total Activities</div>
+          <div class="card-header">Attack Date</div>
           <div class="card-body">
-            <h5 class="card-title">2</h5>
+            <h5 class="card-title">2025-05-26</h5>
           </div>
         </div>
       </div>
-      <!-- Card 3: Last Recorded Activity -->
-      <div class="col-md-4">
+      <!-- Card 3: Geographics (using attacker_country_affiliation and attacked_country) -->
+      <div class="col-md-3">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-header">Geographics</div>
           <div class="card-body">
-            <h5 class="card-title">26-05-2025</h5>
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: Verified (colored output) -->
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Verified</div>
+          <div class="card-body">
+            
+              <h5 class="card-title" style="color: red;">False</h5>
+            
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Activity Heatmap Chart -->
-    <div class="mb-4">
-      <div id="activityChart" class="chart-container"></div>
-    </div>
-
-    <!-- Last 10 Defacements by Actor -->
-    <section>
-      <h2 class="section-title">Last 10 Defacements by GhannyXploit404</h2>
-      <div class="row row-cols-1 row-cols-md-5 g-4">
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot/Thumbnail -->
+      <div class="col-md-4 mb-3">
         
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/68341d5f486cb93f4da33ec7.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/05/26/zylyz_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://zylyz.com">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/68341d5f486cb93f4da33ec7.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">zylyz.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 26-05-2025</p>
-                <p class="card-text"><strong>Group:</strong> BLACK SQUAD HACKTIVIST</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/68341d68486cb93f4da33ec8.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/05/26/savvyniest_in/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://savvyniest.in">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/68341d68486cb93f4da33ec8.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">savvyniest.in</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 26-05-2025</p>
-                <p class="card-text"><strong>Group:</strong> BLACK SQUAD HACKTIVIST</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
+          <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" alt="Default DDoS Image" class="details-img">
         
       </div>
-    </section>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            
+            
+            
+              
+                <tr>
+                  <th>Report type</th>
+                  <td>ddos</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Group name</th>
+                  <td>Noname057(16)</td>
+                </tr>
+              
+            
+              
+                  
+                
+            
+              
+                  <tr>
+                    <th>Operation name</th>
+                    <td>
+                      <a href="/ddos_operations/oplithuania" target="_blank">OpLithuania</a>
+                    </td>
+                  </tr>
+                
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Origin country</th>
+                  <td>ru</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Reason</th>
+                  <td>fun</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Attack date</th>
+                  <td>2025-05-26</td>
+                </tr>
+              
+            
+              
+                
+              
+            
+              
+                <tr>
+                  <th>Targeted website</th>
+                  <td>https://www.ld.lt/</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check host</th>
+                  <td>
+                    <a href="https://check-host.net/check-report/26bd636fkcf9" target="_blank">26bd636fkcf9</a>
+                  </td>
+                </tr>
+                
+            
+              
+                <tr>
+                  <th>Check it</th>
+                  <td>true</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Mass</th>
+                  <td>True</td>
+                </tr>
+              
+            
+              
+                  <tr>
+                    <th>Attacked country</th>
+                    <td>
+                      <img src="https://flagcdn.com/32x24/ca.png"
+                          class="me-1"
+                          alt="CA flag">
+                      CA
+                    </td>
+                  </tr>
+                  
+            
+              
+                <tr>
+                  <th>Attacker country affiliation</th>
+                  <td>Unknown</td>
+                </tr>
+              
+            
+              
+                <tr>
+                  <th>Check details</th>
+                  <td class="map-container">
+                    
+                      <img src="maps/683443b9486cb93f4da33f79_map.png" alt="Availability Map">
+                    
+                  </td>
+                </tr>
+              
+            
+              
+                  <tr>
+                    <th>Github Mirror</th>
+                    <td>
+                        /archive/verified/2025/05/26/ld_lt
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Technical Report</th>
+                    <td>
+                      <a href="https://github.com/unit500/ddos/tree/main//archive/verified/2025/05/26/ld_lt"
+                        target="_blank">
+                        https://github.com/unit500/ddos/tree/main//archive/verified/2025/05/26/ld_lt
+                      </a>
+                    </td>
+                  </tr>
+              
+            
+              
+                
+              
+            
+              
+                
+              
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+  
+  <!-- Footer -->
   <footer class="py-4">
   <div class="container text-center">
     <hr class="mb-3">
@@ -218,45 +379,5 @@
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- ECharts Heatmap Script -->
-  <script>
-    var chart = echarts.init(document.getElementById('activityChart'));
-    var option = {
-      title: {
-        top: 30,
-        text: 'Activity Heatmap - GhannyXploit404 (2025)',
-        left: 'center'
-      },
-      tooltip: {},
-      visualMap: {
-        min: 0,
-        max: 10,
-        calculable: true,
-        orient: 'horizontal',
-        left: 'center',
-        bottom: 20
-      },
-      calendar: {
-        top: 100,
-        left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: {
-          firstDay: 1,
-          nameMap: 'en'
-        },
-        monthLabel: {
-          nameMap: 'en'
-        },
-        range: '2025'
-      },
-      series: [{
-        type: 'heatmap',
-        coordinateSystem: 'calendar',
-        data: []
-      }]
-    };
-    chart.setOption(option);
-  </script>
 </body>
 </html>
