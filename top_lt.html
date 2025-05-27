@@ -350,8 +350,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-26 10:12:36-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-05-27 10:31:39-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
@@ -375,15 +375,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 353, name: "US" },
+        { value: 368, name: "US" },
       
-        { value: 42, name: "DE" },
+        { value: 47, name: "DE" },
       
-        { value: 21, name: "CA" },
+        { value: 20, name: "CA" },
       
-        { value: 17, name: "GB" },
+        { value: 19, name: "GB" },
       
-        { value: 16, name: "ES" }
+        { value: 17, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -553,7 +553,7 @@
     var chartDdosTopSource = echarts.init(document.getElementById('chartDdosTopSource'));
     var dataDdosTopSource = [
       
-        { value: 1, name: "ru" }
+        { value: 2, name: "ru" }
       
     ];
     chartDdosTopSource.setOption({
@@ -574,11 +574,11 @@
       
         { value: 21, name: "GB" },
       
-        { value: 18, name: "FR" },
+        { value: 17, name: "FR" },
+      
+        { value: 17, name: "CA" },
       
         { value: 16, name: "NL" },
-      
-        { value: 12, name: "CA" },
       
         { value: 8, name: "UA" }
       
@@ -601,7 +601,7 @@
     var chartDdosTopGroups = echarts.init(document.getElementById('chartDdosTopGroups'));
     var dataDdosTopGroups = [
       
-        { value: 1, name: "Noname057(16)" }
+        { value: 2, name: "Noname057(16)" }
       
     ];
     chartDdosTopGroups.setOption({
@@ -641,7 +641,7 @@
     var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
     var dataDdosByHour = [
       
-        { value: 1, name: "10" }
+        { value: 2, name: "10" }
       
     ];
     chartDdosByHour.setOption({
@@ -662,7 +662,9 @@
     var chartDdosByWeekday = echarts.init(document.getElementById('chartDdosByWeekday'));
     var dataDdosByWeekday = [
       
-        { value: 1, name: "Mon" }
+        { value: 1, name: "Mon" },
+      
+        { value: 1, name: "Tue" }
       
     ];
     chartDdosByWeekday.setOption({
@@ -680,7 +682,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDdos = [["2025-05-26", 1]];
+    let heatDataDdos = [["2025-05-26", 1], ["2025-05-27", 1]];
 
     let maxCountDdos = heatDataDdos.length
       ? Math.max(...heatDataDdos.map(d => d[1]))
@@ -751,13 +753,13 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 431, name: "US" },
+        { value: 437, name: "US" },
       
-        { value: 284, name: "CA" },
+        { value: 288, name: "CA" },
       
-        { value: 155, name: "SG" },
+        { value: 154, name: "SG" },
       
-        { value: 148, name: "IN" },
+        { value: 151, name: "IN" },
       
         { value: 110, name: "FR" }
       
