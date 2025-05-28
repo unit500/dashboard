@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Details - Unit500</title>
+  <title>Actor Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -14,6 +14,10 @@
     .chart-container {
       width: 100%;
       height: 400px;
+    }
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
     }
     .section-title {
       margin-top: 2rem;
@@ -116,20 +120,21 @@
   </div>
 </header>
 
+
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Group Info Cards -->
+    <!-- Actor Info Cards -->
     <div class="row mb-4">
-      <!-- Card 1: Group Name -->
+      <!-- Card 1: Actor Name -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Group Name</div>
+          <div class="card-header">Actor Name</div>
           <div class="card-body">
-            <h5 class="card-title">Jateng Cyber Team</h5>
+            <h5 class="card-title">HELL_ID</h5>
           </div>
         </div>
       </div>
@@ -138,7 +143,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Total Activities</div>
           <div class="card-body">
-            <h5 class="card-title">2</h5>
+            <h5 class="card-title">1</h5>
           </div>
         </div>
       </div>
@@ -147,7 +152,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Last Recorded Activity</div>
           <div class="card-body">
-            <h5 class="card-title">2025-05-18</h5>
+            <h5 class="card-title">22-05-2025</h5>
           </div>
         </div>
       </div>
@@ -155,50 +160,25 @@
 
     <!-- Activity Heatmap Chart -->
     <div class="mb-4">
-      <div id="groupActivityChart" class="chart-container"></div>
+      <div id="activityChart" class="chart-container"></div>
     </div>
 
-    <!-- Last 10 Defacements for Group -->
-    
+    <!-- Last 10 Defacements by Actor -->
     <section>
-      <h2 class="section-title">Last 10 Defacements for Jateng Cyber Team</h2>
+      <h2 class="section-title">Last 10 Defacements by HELL_ID</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
             <div class="card h-100">
-              <a href="../defacement_details/6829a08669bfa1f0df742222.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/18/bpl_ac_th/screenshot.png"
-                    class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="Thumbnail for http://www.bpl.ac.th">
+              <a href="../defacement_details/682ed7fe118d972b140cff3f.html">
+                     <img src="https://unit500.python-myth.info/mirror/2025/05/22/ipi_ac_id/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://www.ipi.ac.id">
               </a>
               <div class="card-body">
-                <a href="../defacement_details/6829a08669bfa1f0df742222.html"
-                  class="text-decoration-none text-dark">
-                  <h5 class="card-title">www.bpl.ac.th</h5>
+                <a href="../defacement_details/682ed7fe118d972b140cff3f.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">www.ipi.ac.id</h5>
                 </a>
-                <p class="card-text"><strong>Date:</strong> 2025-05-18</p>
-                <p class="card-text"><strong>Actor:</strong> Fanny</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/6825909f5a78b729d61e246c.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/15/grocerystore_episodebangla_com/screenshot.png"
-                    class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="Thumbnail for http://grocerystore.episodebangla.com">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/6825909f5a78b729d61e246c.html"
-                  class="text-decoration-none text-dark">
-                  <h5 class="card-title">grocerystore.episodebangla.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-05-15</p>
-                <p class="card-text"><strong>Actor:</strong> Fanny</p>
+                <p class="card-text"><strong>Date:</strong> 22-05-2025</p>
+                <p class="card-text"><strong>Group:</strong> KEDIRISECTEAM</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -206,13 +186,6 @@
         
       </div>
     </section>
-    
-
-
-    
-
-    
-
   </div>
   <footer class="py-4">
   <div class="container text-center">
@@ -222,7 +195,7 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
 
@@ -231,11 +204,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- ECharts Heatmap Script -->
   <script>
-    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var chart = echarts.init(document.getElementById('activityChart'));
     var option = {
       title: {
         top: 30,
-        text: 'Activity Heatmap - Jateng Cyber Team (2025)',
+        text: 'Activity Heatmap - HELL_ID (2025)',
         left: 'center'
       },
       tooltip: {},
@@ -264,7 +237,7 @@
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: [["2025-05-15", 1], ["2025-05-18", 1]]
+        data: []
       }]
     };
     chart.setOption(option);
