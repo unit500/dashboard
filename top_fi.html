@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-28 06:37:34-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-05-28 08:05:37-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -377,7 +377,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 362, name: "US" },
+        { value: 361, name: "US" },
       
         { value: 49, name: "DE" },
       
@@ -601,6 +601,8 @@
     var chartDdosTopGroups = echarts.init(document.getElementById('chartDdosTopGroups'));
     var dataDdosTopGroups = [
       
+        { value: 1, name: "Dark Storm Team" }
+      
     ];
     chartDdosTopGroups.setOption({
       title: { text: 'Top 5 DDoS Groups', left: 'center' },
@@ -639,6 +641,8 @@
     var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
     var dataDdosByHour = [
       
+        { value: 1, name: "8" }
+      
     ];
     chartDdosByHour.setOption({
       title: { text: 'DDoS Reports by Hour', left: 'center' },
@@ -658,6 +662,8 @@
     var chartDdosByWeekday = echarts.init(document.getElementById('chartDdosByWeekday'));
     var dataDdosByWeekday = [
       
+        { value: 1, name: "Wed" }
+      
     ];
     chartDdosByWeekday.setOption({
       title: { text: 'DDoS Reports by Weekday', left: 'center' },
@@ -674,7 +680,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDdos = [["2025-03-03", 1], ["2025-04-01", 1]];
+    let heatDataDdos = [["2025-03-03", 1], ["2025-04-01", 1], ["2025-05-28", 1]];
 
     let maxCountDdos = heatDataDdos.length
       ? Math.max(...heatDataDdos.map(d => d[1]))
@@ -747,7 +753,7 @@
       
         { value: 418, name: "US" },
       
-        { value: 253, name: "CA" },
+        { value: 254, name: "CA" },
       
         { value: 158, name: "IN" },
       
@@ -803,11 +809,11 @@
       
         { value: 3, name: "Mr. BDKR28" },
       
-        { value: 2, name: "lxrdk1773n" },
-      
         { value: 2, name: "ReflinP" },
       
-        { value: 1, name: "VXSECT" }
+        { value: 2, name: "lxrdk1773n" },
+      
+        { value: 1, name: "setupp.es" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -830,11 +836,11 @@
       
         { value: 9, name: "5" },
       
-        { value: 2, name: "6" },
+        { value: 2, name: "4" },
       
         { value: 2, name: "14" },
       
-        { value: 2, name: "4" },
+        { value: 2, name: "6" },
       
         { value: 2, name: "15" }
       
@@ -865,7 +871,7 @@
       
         { value: 2, name: "Sun" },
       
-        { value: 1, name: "Mon" }
+        { value: 1, name: "Fri" }
       
     ];
     chartDefaceByWeekday.setOption({
