@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -960,6 +960,40 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/6837dbf33103e417335d0de7.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="SunMoon university">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">SunMoon university</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-29 02:39:34.751041</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Education</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/kr.png" alt="KR flag">
+                  
+                  KR
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/nova.html">nova</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    ​​​​​ The website sunmoon.ac.kr is the official online portal of Sun Moon University (SMU), a privat…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1263,40 +1297,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/678fe4dcc4f2181a712711cd.html">
-                <img src="https://images.ransomware.live/victims/a255f99f32dd3c780d42836367318b3b.png" class="card-img-top" alt="www.kiswire.com">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">www.kiswire.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2024-12-03 18:36:31.332883</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/kr.png" alt="KR flag">
-                  
-                  KR
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/ransomhub.html">ransomhub</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    [AI generated] Kiswire is a global company specializing in the manufacturing of steel wire products.…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1309,8 +1309,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 10:45:40-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-05-29 04:05:08-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
@@ -1342,11 +1342,11 @@
       
       {value: 1, name: "MrAstra" },
       
+      {value: 1, name: "CyberTeam" },
+      
       {value: 1, name: "Z-Pentest Alliance" },
       
       {value: 1, name: "MoneroSHELL" },
-      
-      {value: 1, name: "CyberTeam" },
       
       {value: 1, name: "Red Wolf Cyber Team" }
       
@@ -1378,6 +1378,10 @@
         defacementData.push({ value: 1, name: "devman" });
       
     
+      
+        defacementData.push({ value: 1, name: "nova" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1400,7 +1404,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("kr");
-      attackedSeriesData.push({value: 3, name: "kr"});
+      attackedSeriesData.push({value: 4, name: "kr"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
