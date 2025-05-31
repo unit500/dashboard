@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
+    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -1041,6 +1041,40 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/683aa936e426a5387add890c.html">
+                <img src="https://images.ransomware.live/victims/7fe64a826fd061d22753712d8d72ebc1.png" class="card-img-top" alt="www.shautoparts.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.shautoparts.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-05-30 17:46:44.830171</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/cn.png" alt="CN flag">
+                  
+                  CN
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/qilin.html">qilin</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    At SH Auto Parts, we leverage cutting-edge computerized and robotic technologies to deliver precisio…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/68147bee0b5f553d4ef24787.html">
                 <img src="https://images.ransomware.live/victims/32478251fb23a9b6bea6b5067e3ef5d3.png" class="card-img-top" alt="laticrete.com.cn">
               </a>
@@ -1339,38 +1373,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/67edc1e820ce2525edc36d89.html">
-                <img src="https://images.ransomware.live/victims/41e7d13ba367acf9c7038905a673acf0.png" class="card-img-top" alt="www.doumen.fr">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">www.doumen.fr</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-04-02 22:37:05.724525</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/cn.png" alt="CN flag">
-                  
-                  CN
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/qilin.html">qilin</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    https://www.doumen.fr/ hear has been pwned by QILIN and devman
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1383,8 +1385,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 10:26:24-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-05-31 07:09:09-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
@@ -1418,11 +1420,11 @@
       
       {value: 2, name: "setupp.es" },
       
+      {value: 1, name: "Anon6host" },
+      
       {value: 1, name: "MR.QLQ" },
       
-      {value: 1, name: "Xer0ot" },
-      
-      {value: 1, name: "Anon6host" }
+      {value: 1, name: "Xer0ot" }
       
     ];
     var optionRansomwareGroups = {
@@ -1445,7 +1447,11 @@
     var defacementData = [];
     
       
-        defacementData.push({ value: 3, name: "devman" });
+        defacementData.push({ value: 1, name: "qilin" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "devman" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1470,7 +1476,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("cn");
-      attackedSeriesData.push({value: 7, name: "cn"});
+      attackedSeriesData.push({value: 5, name: "cn"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
