@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
+    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -861,6 +861,40 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/683c08bac35fb7ff9c21c841.html">
+                <img src="https://images.ransomware.live/victims/a7ea7821dbb7c7736daff72ef877da91.png" class="card-img-top" alt="daycohost.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">daycohost.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-01 00:56:30.283071</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ve.png" alt="VE flag">
+                  
+                  VE
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/.html">J</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] Daycohost is a Latin American company specializing in comprehensive IT services. Head…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1167,40 +1201,6 @@ Amazing Global de Venezuela is a company working in the field of information tec
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/678fde2bc4f2181a7126fda2.html">
-                <img src="https://images.ransomware.live/victims/4c3be722fe80379258341317a4174231.png" class="card-img-top" alt="digitel.com.ve">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">digitel.com.ve</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2024-02-02 22:36:14.085677</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/ve.png" alt="VE flag">
-                  
-                  VE
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/medusa.html">medusa</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Digitel is a mobile phone company in Venezuela founded in 1995. The number of subscribers of the com…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1213,8 +1213,8 @@ Amazing Global de Venezuela is a company working in the field of information tec
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 09:34:21-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-06-01 08:11:56-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -1266,6 +1266,10 @@ Amazing Global de Venezuela is a company working in the field of information tec
     // Chart 2: Top Defacement Groups
     var defacementData = [];
     
+      
+        defacementData.push({ value: 1, name: "J" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1286,6 +1290,9 @@ Amazing Global de Venezuela is a company working in the field of information tec
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("ve");
+      attackedSeriesData.push({value: 1, name: "ve"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
