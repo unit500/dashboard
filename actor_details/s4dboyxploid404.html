@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Details - Unit500</title>
+  <title>Actor Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -14,6 +14,10 @@
     .chart-container {
       width: 100%;
       height: 400px;
+    }
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
     }
     .section-title {
       margin-top: 2rem;
@@ -116,20 +120,21 @@
   </div>
 </header>
 
+
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Group Info Cards -->
+    <!-- Actor Info Cards -->
     <div class="row mb-4">
-      <!-- Card 1: Group Name -->
+      <!-- Card 1: Actor Name -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Group Name</div>
+          <div class="card-header">Actor Name</div>
           <div class="card-body">
-            <h5 class="card-title">Makassar Cyber Crime</h5>
+            <h5 class="card-title">S4dboyXPLOID404</h5>
           </div>
         </div>
       </div>
@@ -147,7 +152,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Last Recorded Activity</div>
           <div class="card-body">
-            <h5 class="card-title">29-05-2025</h5>
+            <h5 class="card-title">2025-06-03</h5>
           </div>
         </div>
       </div>
@@ -155,30 +160,25 @@
 
     <!-- Activity Heatmap Chart -->
     <div class="mb-4">
-      <div id="groupActivityChart" class="chart-container"></div>
+      <div id="activityChart" class="chart-container"></div>
     </div>
 
-    <!-- Last 10 Defacements for Group -->
-    
+    <!-- Last 10 Defacements by Actor -->
     <section>
-      <h2 class="section-title">Last 10 Defacements for Makassar Cyber Crime</h2>
+      <h2 class="section-title">Last 10 Defacements by S4dboyXPLOID404</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
             <div class="card h-100">
-              <a href="../defacement_details/68384007627861f1c1a77645.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/29/graficlick_com/screenshot.png"
-                    class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="Thumbnail for http://graficlick.com">
+              <a href="../defacement_details/683ea42156591c08998aee69.html">
+                     <img src="https://unit500.python-myth.info/mirror/2025/06/03/techno_varee_ac_th/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://techno.varee.ac.th">
               </a>
               <div class="card-body">
-                <a href="../defacement_details/68384007627861f1c1a77645.html"
-                  class="text-decoration-none text-dark">
-                  <h5 class="card-title">graficlick.com</h5>
+                <a href="../defacement_details/683ea42156591c08998aee69.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">techno.varee.ac.th</h5>
                 </a>
-                <p class="card-text"><strong>Date:</strong> 29-05-2025</p>
-                <p class="card-text"><strong>Actor:</strong> ./SkejolXploit</p>
+                <p class="card-text"><strong>Date:</strong> 2025-06-03</p>
+                <p class="card-text"><strong>Group:</strong> Manado Cyber Team</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -186,13 +186,6 @@
         
       </div>
     </section>
-    
-
-
-    
-
-    
-
   </div>
   <footer class="py-4">
   <div class="container text-center">
@@ -202,7 +195,7 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
@@ -211,11 +204,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- ECharts Heatmap Script -->
   <script>
-    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var chart = echarts.init(document.getElementById('activityChart'));
     var option = {
       title: {
         top: 30,
-        text: 'Activity Heatmap - Makassar Cyber Crime (2025)',
+        text: 'Activity Heatmap - S4dboyXPLOID404 (2025)',
         left: 'center'
       },
       tooltip: {},
@@ -244,7 +237,7 @@
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: []
+        data: [["2025-06-03", 1]]
       }]
     };
     chart.setOption(option);
