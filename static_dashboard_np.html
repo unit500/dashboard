@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -819,6 +819,31 @@
         
           <div class="col">
             <div class="card h-100">
+              <a href="defacement_details/68396e614540b55e5e97d20a.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/05/30/member_ahlspc_gov_np/screenshot.png" class="card-img-top" alt="Thumbnail for http://member.ahlspc.gov.np/k7n.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/68396e614540b55e5e97d20a.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">member.ahlspc.gov.np</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-05-30</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/k7n.html">K7N</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
               <a href="defacement_details/67da6f9a8d63b4057b5231d4.html">
                 <img src="https://unit500.python-myth.info/mirror/2025/03/19/myagdicoop_org_np/screenshot.png" class="card-img-top" alt="Thumbnail for http://myagdicoop.org.np">
               </a>
@@ -991,8 +1016,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 10:21:57-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-06-03 12:42:18-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
@@ -1022,9 +1047,11 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 1, name: "CaptainSmok3r" },
-      
       {value: 1, name: "MoneroSHELL" },
+      
+      {value: 1, name: "K7N" },
+      
+      {value: 1, name: "CaptainSmok3r" },
       
       {value: 1, name: "RuskiNet" }
       
@@ -1068,6 +1095,9 @@
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("np");
+      attackedSeriesData.push({value: 1, name: "np"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
