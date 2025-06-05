@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/6841f77b4b45195856a02738.html">LS Proline</a>, 
+          
             <a href="ransom_details/6834ac58159899978fbf641b.html">alleslaegehus.dk</a>, 
           
             <a href="ransom_details/67fffe97a44c7a467c305b7d.html">d-line-it.com</a>, 
           
             <a href="ransom_details/67edb3803afa7e5519f25bf9.html">dardoc.com</a>, 
           
-            <a href="ransom_details/67cd910152848e3a1aec1f2c.html">www.khonestop.dk</a>, 
-          
-            <a href="ransom_details/67d758082f2130ea83541e7d.html">www.khonestop.dk</a>
+            <a href="ransom_details/67cd910152848e3a1aec1f2c.html">www.khonestop.dk</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-26 18:12:18-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-06-05 20:13:18-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 352, name: "US" },
+        { value: 237, name: "US" },
       
-        { value: 42, name: "DE" },
+        { value: 48, name: "DE" },
       
         { value: 21, name: "CA" },
       
         { value: 18, name: "GB" },
       
-        { value: 16, name: "ES" }
+        { value: 15, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -425,6 +425,8 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
+        { value: 1, name: "global" },
+      
         { value: 1, name: "datacarry" }
       
     ];
@@ -446,7 +448,7 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 1, name: "17" }
+        { value: 2, name: "17" }
       
     ];
     chartRansomByHour.setOption({
@@ -467,6 +469,8 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
+        { value: 1, name: "Thu" },
+      
         { value: 1, name: "Mon" }
       
     ];
@@ -485,7 +489,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-25", 1], ["2025-01-31", 1], ["2025-02-03", 1], ["2025-02-06", 2], ["2025-02-17", 2], ["2025-02-27", 1], ["2025-03-09", 2], ["2025-04-02", 1], ["2025-04-16", 1], ["2025-05-26", 1]];
+  const heatDataRansom = [["2025-01-25", 1], ["2025-01-31", 1], ["2025-02-03", 1], ["2025-02-06", 2], ["2025-02-17", 2], ["2025-02-27", 1], ["2025-03-09", 2], ["2025-04-02", 1], ["2025-04-16", 1], ["2025-05-26", 1], ["2025-06-05", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -580,15 +584,15 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 21, name: "GB" },
+        { value: 17, name: "FR" },
       
-        { value: 18, name: "FR" },
+        { value: 17, name: "CA" },
       
-        { value: 16, name: "NL" },
+        { value: 6, name: "IT" },
       
-        { value: 14, name: "CA" },
+        { value: 5, name: "GB" },
       
-        { value: 8, name: "UA" }
+        { value: 5, name: "LT" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -608,8 +612,6 @@
     // 3) Top Groups (bar)
     var chartDdosTopGroups = echarts.init(document.getElementById('chartDdosTopGroups'));
     var dataDdosTopGroups = [
-      
-        { value: 1, name: "NoName057(16)" }
       
     ];
     chartDdosTopGroups.setOption({
@@ -649,8 +651,6 @@
     var chartDdosByHour = echarts.init(document.getElementById('chartDdosByHour'));
     var dataDdosByHour = [
       
-        { value: 1, name: "13" }
-      
     ];
     chartDdosByHour.setOption({
       title: { text: 'DDoS Reports by Hour', left: 'center' },
@@ -669,8 +669,6 @@
     // 6) By Weekday (bar)
     var chartDdosByWeekday = echarts.init(document.getElementById('chartDdosByWeekday'));
     var dataDdosByWeekday = [
-      
-        { value: 1, name: "Sat" }
       
     ];
     chartDdosByWeekday.setOption({
@@ -740,8 +738,6 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
-        { value: 1, name: "Unknown" }
-      
     ];
     chartDefaceTopSource.setOption({
       title: { text: 'Top 5 Defacement Sources', left: 'center' },
@@ -759,15 +755,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 431, name: "US" },
+        { value: 374, name: "US" },
       
-        { value: 284, name: "CA" },
+        { value: 125, name: "CA" },
       
-        { value: 155, name: "SG" },
+        { value: 123, name: "IN" },
       
-        { value: 148, name: "IN" },
+        { value: 87, name: "SG" },
       
-        { value: 110, name: "FR" }
+        { value: 84, name: "DE" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -788,8 +784,6 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 1, name: "indie" }
-      
     ];
     chartDefaceTopGroups.setOption({
       title: { text: 'Top 5 Defacement Groups', left: 'center' },
@@ -808,8 +802,6 @@
     // 4) Top Actors (bar)
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
-      
-        { value: 1, name: "Team Anon Force" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -830,8 +822,6 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 1, name: "4" }
-      
     ];
     chartDefaceByHour.setOption({
       title: { text: 'Defacement Reports by Hour', left: 'center' },
@@ -850,8 +840,6 @@
     // 6) By Weekday (bar)
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
-      
-        { value: 1, name: "Thu" }
       
     ];
     chartDefaceByWeekday.setOption({
