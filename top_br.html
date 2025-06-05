@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/6841a315c26fcda253bfcdda.html">grupogreca.com.br</a>, 
+          
             <a href="ransom_details/683449e62d121a68d7e6611d.html">aguasolhodagua.com.br</a>, 
           
             <a href="ransom_details/6831c2fa650d56f942fd8281.html">anjosramos.com.br</a>, 
           
             <a href="ransom_details/6829afd3447210ee03b8e6c0.html">Termolar</a>, 
           
-            <a href="ransom_details/68274534ddede492056cb8a7.html">datacampos.com</a>, 
-          
-            <a href="ransom_details/682493fda69279fd76183a49.html">saocamilo.br</a>
+            <a href="ransom_details/68274534ddede492056cb8a7.html">datacampos.com</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-05 13:03:17-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-06-05 14:03:25-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
   
@@ -377,7 +377,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 377, name: "US" },
+        { value: 378, name: "US" },
       
         { value: 54, name: "DE" },
       
@@ -404,15 +404,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "anjosramos.com.br" },
-      
         { value: 1, name: "brdigital.net.br" },
+      
+        { value: 1, name: "anjosramos.com.br" },
       
         { value: 1, name: "saocamilo.br" },
       
-        { value: 1, name: "aguasolhodagua.com.br" },
+        { value: 1, name: "grupogreca.com.br" },
       
-        { value: 1, name: "datacampos.com" }
+        { value: 1, name: "vendasjb.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -437,11 +437,11 @@
       
         { value: 2, name: "rhysida" },
       
+        { value: 1, name: "lynx" },
+      
         { value: 1, name: "J" },
       
-        { value: 1, name: "blacklock" },
-      
-        { value: 1, name: "devman" }
+        { value: 1, name: "blacklock" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -462,15 +462,15 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 2, name: "12" },
+        { value: 3, name: "12" },
       
         { value: 2, name: "17" },
       
+        { value: 1, name: "13" },
+      
         { value: 1, name: "10" },
       
-        { value: 1, name: "16" },
-      
-        { value: 1, name: "13" }
+        { value: 1, name: "08" }
       
     ];
     chartRansomByHour.setOption({
@@ -497,9 +497,9 @@
       
         { value: 1, name: "Sat" },
       
-        { value: 1, name: "Wed" },
+        { value: 1, name: "Thu" },
       
-        { value: 1, name: "Fri" }
+        { value: 1, name: "Wed" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -517,7 +517,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-03", 1], ["2025-01-08", 1], ["2025-01-10", 2], ["2025-01-13", 4], ["2025-01-14", 3], ["2025-01-16", 2], ["2025-01-21", 1], ["2025-01-22", 1], ["2025-01-27", 9], ["2025-01-28", 1], ["2025-02-01", 4], ["2025-02-04", 2], ["2025-02-06", 1], ["2025-02-17", 1], ["2025-02-20", 1], ["2025-02-25", 3], ["2025-02-27", 3], ["2025-02-28", 2], ["2025-03-03", 1], ["2025-03-04", 3], ["2025-03-10", 2], ["2025-03-11", 1], ["2025-03-12", 1], ["2025-03-14", 2], ["2025-03-19", 1], ["2025-03-21", 1], ["2025-03-22", 2], ["2025-03-24", 1], ["2025-03-25", 1], ["2025-03-26", 1], ["2025-03-27", 1], ["2025-03-29", 1], ["2025-04-01", 2], ["2025-04-16", 3], ["2025-04-19", 1], ["2025-04-21", 1], ["2025-04-22", 1], ["2025-04-24", 1], ["2025-04-28", 3], ["2025-05-02", 1], ["2025-05-11", 1], ["2025-05-12", 2], ["2025-05-14", 1], ["2025-05-16", 1], ["2025-05-18", 1], ["2025-05-24", 1], ["2025-05-26", 1]];
+  const heatDataRansom = [["2025-01-03", 1], ["2025-01-08", 1], ["2025-01-10", 2], ["2025-01-13", 4], ["2025-01-14", 3], ["2025-01-16", 2], ["2025-01-21", 1], ["2025-01-22", 1], ["2025-01-27", 9], ["2025-01-28", 1], ["2025-02-01", 4], ["2025-02-04", 2], ["2025-02-06", 1], ["2025-02-17", 1], ["2025-02-20", 1], ["2025-02-25", 3], ["2025-02-27", 3], ["2025-02-28", 2], ["2025-03-03", 1], ["2025-03-04", 3], ["2025-03-10", 2], ["2025-03-11", 1], ["2025-03-12", 1], ["2025-03-14", 2], ["2025-03-19", 1], ["2025-03-21", 1], ["2025-03-22", 2], ["2025-03-24", 1], ["2025-03-25", 1], ["2025-03-26", 1], ["2025-03-27", 1], ["2025-03-29", 1], ["2025-04-01", 2], ["2025-04-16", 3], ["2025-04-19", 1], ["2025-04-21", 1], ["2025-04-22", 1], ["2025-04-24", 1], ["2025-04-28", 3], ["2025-05-02", 1], ["2025-05-11", 1], ["2025-05-12", 2], ["2025-05-14", 1], ["2025-05-16", 1], ["2025-05-18", 1], ["2025-05-24", 1], ["2025-05-26", 1], ["2025-06-05", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -612,9 +612,9 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 17, name: "CA" },
-      
         { value: 17, name: "FR" },
+      
+        { value: 17, name: "CA" },
       
         { value: 6, name: "IT" },
       
@@ -841,13 +841,13 @@
       
         { value: 14, name: "XYZ" },
       
-        { value: 4, name: "EbRaHiM-VaKeR" },
-      
         { value: 4, name: "Y00T" },
+      
+        { value: 4, name: "EbRaHiM-VaKeR" },
       
         { value: 2, name: "anon404" },
       
-        { value: 1, name: "Junin-CLS" }
+        { value: 1, name: "wtsalle" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -874,9 +874,9 @@
       
         { value: 4, name: "12" },
       
-        { value: 3, name: "5" },
+        { value: 3, name: "11" },
       
-        { value: 3, name: "11" }
+        { value: 3, name: "5" }
       
     ];
     chartDefaceByHour.setOption({
