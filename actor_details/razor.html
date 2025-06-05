@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Details - Unit500</title>
+  <title>Actor Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -14,6 +14,10 @@
     .chart-container {
       width: 100%;
       height: 400px;
+    }
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
     }
     .section-title {
       margin-top: 2rem;
@@ -116,20 +120,21 @@
   </div>
 </header>
 
+
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Group Info Cards -->
+    <!-- Actor Info Cards -->
     <div class="row mb-4">
-      <!-- Card 1: Group Name -->
+      <!-- Card 1: Actor Name -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Group Name</div>
+          <div class="card-header">Actor Name</div>
           <div class="card-body">
-            <h5 class="card-title">BLACK SQUAD HACKTIVIST</h5>
+            <h5 class="card-title">./RAZOR</h5>
           </div>
         </div>
       </div>
@@ -138,7 +143,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Total Activities</div>
           <div class="card-body">
-            <h5 class="card-title">6</h5>
+            <h5 class="card-title">1</h5>
           </div>
         </div>
       </div>
@@ -147,7 +152,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Last Recorded Activity</div>
           <div class="card-body">
-            <h5 class="card-title">27-05-2025</h5>
+            <h5 class="card-title">05-06-2025</h5>
           </div>
         </div>
       </div>
@@ -155,130 +160,25 @@
 
     <!-- Activity Heatmap Chart -->
     <div class="mb-4">
-      <div id="groupActivityChart" class="chart-container"></div>
+      <div id="activityChart" class="chart-container"></div>
     </div>
 
-    <!-- Last 10 Defacements for Group -->
-    
+    <!-- Last 10 Defacements by Actor -->
     <section>
-      <h2 class="section-title">Last 10 Defacements for BLACK SQUAD HACKTIVIST</h2>
+      <h2 class="section-title">Last 10 Defacements by ./RAZOR</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
             <div class="card h-100">
-              <a href="../defacement_details/683582e9789ee24d05ac93f0.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/27/villa-realestate_com/screenshot.png"
-                    class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="Thumbnail for http://villa-realestate.com">
+              <a href="../defacement_details/6841802a5a57242655b438c5.html">
+                     <img src="https://unit500.python-myth.info/mirror/2025/06/05/aseikon_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://aseikon.com">
               </a>
               <div class="card-body">
-                <a href="../defacement_details/683582e9789ee24d05ac93f0.html"
-                  class="text-decoration-none text-dark">
-                  <h5 class="card-title">villa-realestate.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 27-05-2025</p>
-                <p class="card-text"><strong>Actor:</strong> GhannyXploit404</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/68341d5f486cb93f4da33ec7.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/26/zylyz_com/screenshot.png"
-                    class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="Thumbnail for http://zylyz.com">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/68341d5f486cb93f4da33ec7.html"
-                  class="text-decoration-none text-dark">
-                  <h5 class="card-title">zylyz.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 26-05-2025</p>
-                <p class="card-text"><strong>Actor:</strong> GhannyXploit404</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/68341d68486cb93f4da33ec8.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/05/26/savvyniest_in/screenshot.png"
-                    class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="Thumbnail for http://savvyniest.in">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/68341d68486cb93f4da33ec8.html"
-                  class="text-decoration-none text-dark">
-                  <h5 class="card-title">savvyniest.in</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 26-05-2025</p>
-                <p class="card-text"><strong>Actor:</strong> GhannyXploit404</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/6841809c5a57242655b438c7.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/06/05/arivuthottam_org/screenshot.png"
-                    class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="Thumbnail for http://arivuthottam.org">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/6841809c5a57242655b438c7.html"
-                  class="text-decoration-none text-dark">
-                  <h5 class="card-title">arivuthottam.org</h5>
+                <a href="../defacement_details/6841802a5a57242655b438c5.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">aseikon.com</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 05-06-2025</p>
-                <p class="card-text"><strong>Actor:</strong> GhannyXploit404</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/683fa9d523f40aaf772d1d30.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/06/04/ajproperty_in/screenshot.png"
-                    class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="Thumbnail for http://ajproperty.in">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/683fa9d523f40aaf772d1d30.html"
-                  class="text-decoration-none text-dark">
-                  <h5 class="card-title">ajproperty.in</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 04-06-2025</p>
-                <p class="card-text"><strong>Actor:</strong> GhannyXploit404</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/683eab7e9afb9d1a89c26486.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/06/03/vishwakarmavivah_in/screenshot.png"
-                    class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="Thumbnail for http://vishwakarmavivah.in">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/683eab7e9afb9d1a89c26486.html"
-                  class="text-decoration-none text-dark">
-                  <h5 class="card-title">vishwakarmavivah.in</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 03-06-2025</p>
-                <p class="card-text"><strong>Actor:</strong> GhannyXploit404</p>
+                <p class="card-text"><strong>Group:</strong> INDOHAXSEC</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -286,13 +186,6 @@
         
       </div>
     </section>
-    
-
-
-    
-
-    
-
   </div>
   <footer class="py-4">
   <div class="container text-center">
@@ -302,7 +195,7 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -311,11 +204,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- ECharts Heatmap Script -->
   <script>
-    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var chart = echarts.init(document.getElementById('activityChart'));
     var option = {
       title: {
         top: 30,
-        text: 'Activity Heatmap - BLACK SQUAD HACKTIVIST (2025)',
+        text: 'Activity Heatmap - ./RAZOR (2025)',
         left: 'center'
       },
       tooltip: {},
