@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
+    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">2</h3>
+              <h3 id="victims-week">3</h3>
             </div>
           </div>
         </div>
@@ -836,6 +836,43 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/6841a31ac26fcda253bfcddd.html">
+                <img src="https://images.ransomware.live/victims/fdbc9b38a625aa6dc5808c6e8546bef2.png" class="card-img-top" alt="www.rhmc.com.au">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.rhmc.com.au</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-05 13:17:27.784535</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/uk.png" alt="UK flag">
+                  
+                  UK
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/blacklock.html">blacklock</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Accounting Services
+Australia
+&lt;25 Employees
+Ryan Harvie McEnery offers businesses &amp; individuals dedi…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1137,38 +1174,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/68115a2af8cd5c389cda2258.html">
-                <img src="https://images.ransomware.live/victims/7685ce5833450ef9fbf1843d82aaa4de.png" class="card-img-top" alt="www.penderelstrust.org.uk">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">www.penderelstrust.org.uk</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-04-27 15:53:09.653971</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/uk.png" alt="UK flag">
-                  
-                  UK
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/qilin.html">qilin</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Penderels Trust offers advice, guidance and practical solutions to enable people with disabilities t…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1181,8 +1186,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-04 08:03:16-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-06-05 14:05:54-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
 
@@ -1233,6 +1238,14 @@
     var defacementData = [];
     
       
+        defacementData.push({ value: 1, name: "global" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "blacklock" });
+      
+    
+      
         defacementData.push({ value: 1, name: "qilin" });
       
     
@@ -1242,10 +1255,6 @@
     
       
         defacementData.push({ value: 1, name: "safepay" });
-      
-    
-      
-        defacementData.push({ value: 1, name: "global" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1270,7 +1279,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("uk");
-      attackedSeriesData.push({value: 6, name: "uk"});
+      attackedSeriesData.push({value: 7, name: "uk"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
