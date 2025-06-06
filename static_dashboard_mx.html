@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
+    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">2</h3>
             </div>
           </div>
         </div>
@@ -911,6 +911,38 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/68433afcf02cc5d4b1e7a595.html">
+                <img src="https://images.ransomware.live/victims/09639d0e45adcecf348bfb0a111eb8ab.png" class="card-img-top" alt="quenotedeporten">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">quenotedeporten</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-06 17:38:26.399161</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
+                  
+                  MX
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/lynx.html">lynx</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Law Office Of Omar O Vargas is a company that operates in the Law Firms &amp; Legal Services industry. I…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1213,40 +1245,6 @@ for companies in the industrial an…
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/67f153c7e7b4a7302ae7afc7.html">
-                <img src="https://images.ransomware.live/victims/e81b21d06893450ae939f90bc22db95f.png" class="card-img-top" alt="icorona.mx/en/index.html">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">icorona.mx/en/index.html</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-04-05 14:22:48.448888</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/mx.png" alt="MX flag">
-                  
-                  MX
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/spacebears.html">spacebears</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Industrial Corona de México has been a manufacturer of injection-molded plastic parts and tools for …
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1259,8 +1257,8 @@ for companies in the industrial an…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-05 14:08:29-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-06-06 19:16:01-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
 
@@ -1290,11 +1288,11 @@ for companies in the industrial an…
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 1, name: "c4t" },
-      
       {value: 1, name: "omgsmok" },
       
-      {value: 1, name: "Simsimi" }
+      {value: 1, name: "Simsimi" },
+      
+      {value: 1, name: "c4t" }
       
     ];
     var optionRansomwareGroups = {
@@ -1321,11 +1319,15 @@ for companies in the industrial an…
       
     
       
+        defacementData.push({ value: 1, name: "akira" });
+      
+    
+      
         defacementData.push({ value: 1, name: "devman" });
       
     
       
-        defacementData.push({ value: 1, name: "akira" });
+        defacementData.push({ value: 1, name: "lynx" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1350,7 +1352,7 @@ for companies in the industrial an…
     var attackedSeriesData = [];
     
       attackedCategories.push("mx");
-      attackedSeriesData.push({value: 4, name: "mx"});
+      attackedSeriesData.push({value: 5, name: "mx"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
