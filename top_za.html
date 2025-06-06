@@ -206,17 +206,19 @@
           
             <a href="defacement_details/683ed39efe4f5c3bc785bce3.html">camsupplies.co.za</a>, 
           
+            <a href="defacement_details/68376fc2469ca7347fb0c10c.html">www.thandaifamily.co.za</a>, 
+          
             <a href="defacement_details/682c66e455988a487783ecd4.html">geleza.online</a>, 
           
             <a href="defacement_details/681ceebb6e9b3df795e066f5.html">twocats.co.za</a>, 
           
-            <a href="defacement_details/681b2609d3b7b1f2d8c7a978.html">fluideng.co.za</a>, 
-          
-            <a href="defacement_details/6811e6c1ba1fd55e6f9aa767.html">go247capetown.co.za</a>
+            <a href="defacement_details/681b2609d3b7b1f2d8c7a978.html">fluideng.co.za</a>
           
         </li>
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/68433afef02cc5d4b1e7a598.html">ingonyamatrust.org.za</a>, 
           
             <a href="ransom_details/6834ac54159899978fbf6419.html">frontierco.co.za</a>, 
           
@@ -224,9 +226,7 @@
           
             <a href="ransom_details/6830636f2fcb07739607ac4b.html">netstar.co.za</a>, 
           
-            <a href="ransom_details/682737024f51883fb23cd35d.html">flysaa.com</a>, 
-          
-            <a href="ransom_details/681ecfbfb45c1b41b687dc43.html">Pienaar Brothers</a>
+            <a href="ransom_details/682737024f51883fb23cd35d.html">flysaa.com</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-04 06:25:37-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-06-06 19:08:29-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 377, name: "US" },
+        { value: 248, name: "US" },
       
-        { value: 54, name: "DE" },
+        { value: 48, name: "DE" },
       
-        { value: 23, name: "CA" },
+        { value: 22, name: "CA" },
       
-        { value: 17, name: "GB" },
+        { value: 19, name: "GB" },
       
-        { value: 17, name: "ES" }
+        { value: 15, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -405,6 +405,8 @@
     var dataRansomTopTarget = [
       
         { value: 2, name: "frontierco.co.za" },
+      
+        { value: 1, name: "ingonyamatrust.org.za" },
       
         { value: 1, name: "flysaa.com" },
       
@@ -429,9 +431,11 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
+        { value: 2, name: "devman" },
+      
         { value: 2, name: "datacarry" },
       
-        { value: 2, name: "devman" },
+        { value: 1, name: "nightspire" },
       
         { value: 1, name: "incransom" }
       
@@ -454,13 +458,13 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 2, name: "17" },
-      
-        { value: 1, name: "02" },
+        { value: 3, name: "17" },
       
         { value: 1, name: "12" },
       
-        { value: 1, name: "11" }
+        { value: 1, name: "11" },
+      
+        { value: 1, name: "02" }
       
     ];
     chartRansomByHour.setOption({
@@ -481,9 +485,9 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 2, name: "Mon" },
+        { value: 3, name: "Fri" },
       
-        { value: 2, name: "Fri" },
+        { value: 2, name: "Mon" },
       
         { value: 1, name: "Sat" }
       
@@ -503,7 +507,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-09", 1], ["2025-02-12", 1], ["2025-03-03", 1], ["2025-03-07", 2], ["2025-03-22", 2], ["2025-04-20", 1], ["2025-05-01", 3], ["2025-05-10", 1], ["2025-05-16", 1], ["2025-05-23", 1], ["2025-05-26", 2]];
+  const heatDataRansom = [["2025-01-09", 1], ["2025-02-12", 1], ["2025-03-03", 1], ["2025-03-07", 2], ["2025-03-22", 2], ["2025-04-20", 1], ["2025-05-01", 3], ["2025-05-10", 1], ["2025-05-16", 1], ["2025-05-23", 1], ["2025-05-26", 2], ["2025-06-06", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -600,13 +604,13 @@
       
         { value: 17, name: "FR" },
       
-        { value: 13, name: "CA" },
+        { value: 16, name: "CA" },
       
-        { value: 5, name: "GB" },
+        { value: 6, name: "IT" },
       
         { value: 5, name: "LT" },
       
-        { value: 5, name: "IT" }
+        { value: 4, name: "GB" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -771,15 +775,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 378, name: "US" },
+        { value: 368, name: "US" },
       
-        { value: 231, name: "CA" },
+        { value: 145, name: "IN" },
       
-        { value: 118, name: "IN" },
+        { value: 124, name: "CA" },
       
-        { value: 106, name: "SG" },
+        { value: 81, name: "SG" },
       
-        { value: 85, name: "DE" }
+        { value: 65, name: "DE" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -821,7 +825,9 @@
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
       
-        { value: 3, name: "Mr. BDKR28" }
+        { value: 2, name: "Mr. BDKR28" },
+      
+        { value: 1, name: "Mrj Haxcore" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -842,7 +848,7 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 1, name: "9" },
+        { value: 1, name: "20" },
       
         { value: 1, name: "17" },
       
@@ -867,11 +873,11 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
+        { value: 1, name: "Thu" },
+      
         { value: 1, name: "Tue" },
       
-        { value: 1, name: "Wed" },
-      
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Wed" }
       
     ];
     chartDefaceByWeekday.setOption({
@@ -889,7 +895,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-02-24", 1], ["2025-03-06", 1], ["2025-03-12", 1], ["2025-03-17", 1], ["2025-04-06", 1], ["2025-04-07", 1], ["2025-04-25", 1], ["2025-04-30", 1], ["2025-05-07", 1], ["2025-05-08", 1], ["2025-06-03", 1]];
+    let heatDataDefacements = [["2025-02-24", 1], ["2025-03-06", 1], ["2025-03-12", 1], ["2025-03-17", 1], ["2025-04-06", 1], ["2025-04-07", 1], ["2025-04-25", 1], ["2025-04-30", 1], ["2025-05-07", 1], ["2025-05-08", 1], ["2025-05-28", 1], ["2025-06-03", 1]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
