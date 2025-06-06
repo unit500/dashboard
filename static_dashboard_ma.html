@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
+    <p class="small text-muted fst-italic">Your time is limited, so don&#39;t waste it living someone else&#39;s life.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -886,6 +886,40 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/68433af6f02cc5d4b1e7a592.html">
+                <img src="https://images.ransomware.live/victims/30a1de7e4f0a4ea38fd889fe377b8ee6.png" class="card-img-top" alt="MTTEXPERTISES.COM">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">MTTEXPERTISES.COM</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-06 17:15:52.049081</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ma.png" alt="MA flag">
+                  
+                  MA
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/incransom.html">incransom</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    MTT Expertises is a Franco-Moroccan firm specializing in asset valuation and post-incident expertise…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1181,38 +1215,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/678fd568c4f2181a7126e30a.html">
-                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="galenica.ma">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">galenica.ma</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2022-08-26 16:46:56.630265</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/ma.png" alt="MA flag">
-                  
-                  MA
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/lockbit3.html">lockbit3</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1225,8 +1227,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 09:53:21-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-06-06 19:13:28-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1280,6 +1282,10 @@
     // Chart 2: Top Defacement Groups
     var defacementData = [];
     
+      
+        defacementData.push({ value: 1, name: "incransom" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1302,7 +1308,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("ma");
-      attackedSeriesData.push({value: 1, name: "ma"});
+      attackedSeriesData.push({value: 2, name: "ma"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
