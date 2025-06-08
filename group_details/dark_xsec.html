@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Actor Details - Unit500</title>
+  <title>Group Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -14,10 +14,6 @@
     .chart-container {
       width: 100%;
       height: 400px;
-    }
-    .card-img-top {
-      object-fit: cover;
-      height: 150px;
     }
     .section-title {
       margin-top: 2rem;
@@ -120,21 +116,20 @@
   </div>
 </header>
 
-
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Actor Info Cards -->
+    <!-- Group Info Cards -->
     <div class="row mb-4">
-      <!-- Card 1: Actor Name -->
+      <!-- Card 1: Group Name -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Actor Name</div>
+          <div class="card-header">Group Name</div>
           <div class="card-body">
-            <h5 class="card-title">./VX8TX</h5>
+            <h5 class="card-title">DARK XSEC</h5>
           </div>
         </div>
       </div>
@@ -143,7 +138,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Total Activities</div>
           <div class="card-body">
-            <h5 class="card-title">5</h5>
+            <h5 class="card-title">2</h5>
           </div>
         </div>
       </div>
@@ -152,7 +147,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Last Recorded Activity</div>
           <div class="card-body">
-            <h5 class="card-title">2025-06-07</h5>
+            <h5 class="card-title">08-06-2025</h5>
           </div>
         </div>
       </div>
@@ -160,73 +155,30 @@
 
     <!-- Activity Heatmap Chart -->
     <div class="mb-4">
-      <div id="activityChart" class="chart-container"></div>
+      <div id="groupActivityChart" class="chart-container"></div>
     </div>
 
-    <!-- Last 10 Defacements by Actor -->
+    <!-- Last 10 Defacements for Group -->
+    
     <section>
-      <h2 class="section-title">Last 10 Defacements by ./VX8TX</h2>
+      <h2 class="section-title">Last 10 Defacements for DARK XSEC</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
             <div class="card h-100">
-              <a href="../defacement_details/68448184b1f27321fe81ae7a.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/07/dang_labcore-cr_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://dang.labcore-cr.com">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/68448184b1f27321fe81ae7a.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">dang.labcore-cr.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-06-07</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/683ee024fe4f5c3bc785bd17.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/03/tropicalammo_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://tropicalammo.com">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/683ee024fe4f5c3bc785bd17.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">tropicalammo.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-06-03</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/683ee032fe4f5c3bc785bd19.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/03/outstandingmunitions_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://outstandingmunitions.com">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/683ee032fe4f5c3bc785bd19.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">outstandingmunitions.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-06-03</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
               <a href="../defacement_details/68447af8b1f27321fe81ae43.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/07/dang_labcore-cr_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://dang.labcore-cr.com">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/07/dang_labcore-cr_com/screenshot.png"
+                    class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Thumbnail for http://dang.labcore-cr.com">
               </a>
               <div class="card-body">
-                <a href="../defacement_details/68447af8b1f27321fe81ae43.html" class="text-decoration-none text-dark">
+                <a href="../defacement_details/68447af8b1f27321fe81ae43.html"
+                  class="text-decoration-none text-dark">
                   <h5 class="card-title">dang.labcore-cr.com</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 08-06-2025</p>
-                <p class="card-text"><strong>Group:</strong> DARK XSEC</p>
+                <p class="card-text"><strong>Actor:</strong> ./VX8TX</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -235,14 +187,18 @@
           <div class="col">
             <div class="card h-100">
               <a href="../defacement_details/68454b9b45d51b365be4aaef.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/08/home_malalamobile_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://home.malalamobile.com">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/08/home_malalamobile_com/screenshot.png"
+                    class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Thumbnail for http://home.malalamobile.com">
               </a>
               <div class="card-body">
-                <a href="../defacement_details/68454b9b45d51b365be4aaef.html" class="text-decoration-none text-dark">
+                <a href="../defacement_details/68454b9b45d51b365be4aaef.html"
+                  class="text-decoration-none text-dark">
                   <h5 class="card-title">home.malalamobile.com</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 08-06-2025</p>
-                <p class="card-text"><strong>Group:</strong> DARK XSEC</p>
+                <p class="card-text"><strong>Actor:</strong> ./VX8TX</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -250,6 +206,13 @@
         
       </div>
     </section>
+    
+
+
+    
+
+    
+
   </div>
   <footer class="py-4">
   <div class="container text-center">
@@ -259,7 +222,7 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
@@ -268,11 +231,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- ECharts Heatmap Script -->
   <script>
-    var chart = echarts.init(document.getElementById('activityChart'));
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
     var option = {
       title: {
         top: 30,
-        text: 'Activity Heatmap - ./VX8TX (2025)',
+        text: 'Activity Heatmap - DARK XSEC (2025)',
         left: 'center'
       },
       tooltip: {},
@@ -301,7 +264,7 @@
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: [["2025-06-03", 2], ["2025-06-07", 1]]
+        data: []
       }]
     };
     chart.setOption(option);
