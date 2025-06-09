@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/6846e90bc99d15a77862855f.html">https //www.eucsj.dk</a>, 
+          
             <a href="ransom_details/6841f77b4b45195856a02738.html">LS Proline</a>, 
           
             <a href="ransom_details/6834ac58159899978fbf641b.html">alleslaegehus.dk</a>, 
           
             <a href="ransom_details/67fffe97a44c7a467c305b7d.html">d-line-it.com</a>, 
           
-            <a href="ransom_details/67edb3803afa7e5519f25bf9.html">dardoc.com</a>, 
-          
-            <a href="ransom_details/67cd910152848e3a1aec1f2c.html">www.khonestop.dk</a>
+            <a href="ransom_details/67edb3803afa7e5519f25bf9.html">dardoc.com</a>
           
         </li>
       </ul>
@@ -352,7 +352,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-05 20:13:18-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-06-09 14:08:16-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
@@ -377,13 +377,13 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 237, name: "US" },
+        { value: 238, name: "US" },
       
-        { value: 48, name: "DE" },
+        { value: 46, name: "DE" },
       
-        { value: 21, name: "CA" },
+        { value: 20, name: "GB" },
       
-        { value: 18, name: "GB" },
+        { value: 20, name: "CA" },
       
         { value: 15, name: "ES" }
       
@@ -404,7 +404,9 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "alleslaegehus.dk" }
+        { value: 1, name: "alleslaegehus.dk" },
+      
+        { value: 1, name: "https //www.eucsj.dk" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -427,7 +429,9 @@
       
         { value: 1, name: "global" },
       
-        { value: 1, name: "datacarry" }
+        { value: 1, name: "datacarry" },
+      
+        { value: 1, name: "ransomhouse" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -448,7 +452,9 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 2, name: "17" }
+        { value: 2, name: "17" },
+      
+        { value: 1, name: "13" }
       
     ];
     chartRansomByHour.setOption({
@@ -469,9 +475,9 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 1, name: "Thu" },
+        { value: 2, name: "Mon" },
       
-        { value: 1, name: "Mon" }
+        { value: 1, name: "Thu" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -489,7 +495,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-25", 1], ["2025-01-31", 1], ["2025-02-03", 1], ["2025-02-06", 2], ["2025-02-17", 2], ["2025-02-27", 1], ["2025-03-09", 2], ["2025-04-02", 1], ["2025-04-16", 1], ["2025-05-26", 1], ["2025-06-05", 1]];
+  const heatDataRansom = [["2025-01-25", 1], ["2025-01-31", 1], ["2025-02-03", 1], ["2025-02-06", 2], ["2025-02-17", 2], ["2025-02-27", 1], ["2025-03-09", 2], ["2025-04-02", 1], ["2025-04-16", 1], ["2025-05-26", 1], ["2025-06-05", 1], ["2025-06-09", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -584,15 +590,15 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 17, name: "FR" },
+        { value: 12, name: "CA" },
       
-        { value: 17, name: "CA" },
+        { value: 10, name: "FR" },
       
         { value: 6, name: "IT" },
       
-        { value: 5, name: "GB" },
+        { value: 5, name: "LT" },
       
-        { value: 5, name: "LT" }
+        { value: 2, name: "FI" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -755,15 +761,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 374, name: "US" },
+        { value: 431, name: "US" },
       
-        { value: 125, name: "CA" },
+        { value: 172, name: "IN" },
       
-        { value: 123, name: "IN" },
+        { value: 107, name: "CA" },
       
-        { value: 87, name: "SG" },
+        { value: 69, name: "SG" },
       
-        { value: 84, name: "DE" }
+        { value: 60, name: "DE" }
       
     ];
     chartDefaceTopTarget.setOption({
