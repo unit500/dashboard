@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6846888345d51b365be4abef.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/09/kendo_pt/screenshot.png" class="card-img-top" alt="Thumbnail for http://kendo.pt/wp-admin/maint/BDKR.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6846888345d51b365be4abef.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">kendo.pt</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-09</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1392,8 +1417,8 @@ g in the Port of Aveiro since 1984…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-04 06:21:03-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-06-09 07:13:00-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -1425,13 +1450,13 @@ g in the Port of Aveiro since 1984…
       
       {value: 2, name: "CyberTeam" },
       
-      {value: 1, name: "Mr.Rm19" },
+      {value: 1, name: "13CHMOD37" },
       
-      {value: 1, name: "omgsmok" },
+      {value: 1, name: "DXPLOIT" },
       
       {value: 1, name: "anon404" },
       
-      {value: 1, name: "DXPLOIT" }
+      {value: 1, name: "./KeyzNet" }
       
     ];
     var optionRansomwareGroups = {
@@ -1452,14 +1477,6 @@ g in the Port of Aveiro since 1984…
 
     // Chart 2: Top Defacement Groups
     var defacementData = [];
-    
-      
-        defacementData.push({ value: 2, name: "akira" });
-      
-    
-      
-        defacementData.push({ value: 1, name: "BrainCipher" });
-      
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
@@ -1483,7 +1500,7 @@ g in the Port of Aveiro since 1984…
     var attackedSeriesData = [];
     
       attackedCategories.push("pt");
-      attackedSeriesData.push({value: 4, name: "pt"});
+      attackedSeriesData.push({value: 1, name: "pt"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
