@@ -204,15 +204,15 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
-            <a href="defacement_details/6847ca2f7ca4ac91bd402fb3.html">solidcar.pl</a>, 
+            <a href="defacement_details/6847eceb7ca4ac91bd402fed.html">bednarska.pl</a>, 
           
-            <a href="defacement_details/6847b5be45d51b365be4ac18.html">new2.zawonia.edu.pl</a>, 
+            <a href="defacement_details/6847ecdc45d51b365be4ac67.html">status.boostnet.pl</a>, 
           
-            <a href="defacement_details/6847b5b545d51b365be4ac17.html">cter.edu.pl</a>, 
+            <a href="defacement_details/6847ecdc7ca4ac91bd402feb.html">auto-serwis.jgora.pl</a>, 
           
-            <a href="defacement_details/683ed256fe4f5c3bc785bcdc.html">mgadomska.pl</a>, 
+            <a href="defacement_details/6847ecd468e876f3f3b100dd.html">marmotta.jgora.pl</a>, 
           
-            <a href="defacement_details/683582e9789ee24d05ac93f0.html">villa-realestate.com</a>
+            <a href="defacement_details/6847ecd27ca4ac91bd402fea.html">marviol.pl</a>
           
         </li>
         <li>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-10 07:37:57-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-06-10 08:43:31-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
@@ -377,7 +377,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 242, name: "US" },
+        { value: 239, name: "US" },
       
         { value: 46, name: "DE" },
       
@@ -726,7 +726,7 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
-        { value: 4, name: "Unknown" },
+        { value: 9, name: "Unknown" },
       
         { value: 1, name: "ru" }
       
@@ -747,11 +747,11 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 421, name: "US" },
+        { value: 424, name: "US" },
       
         { value: 173, name: "IN" },
       
-        { value: 99, name: "CA" },
+        { value: 104, name: "CA" },
       
         { value: 73, name: "VN" },
       
@@ -776,7 +776,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 4, name: "indie" },
+        { value: 9, name: "indie" },
       
         { value: 1, name: "Z-Pentest Alliance" }
       
@@ -798,6 +798,8 @@
     // 4) Top Actors (bar)
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
+      
+        { value: 5, name: "DimasHxR" },
       
         { value: 2, name: "Typical Idiot Security" },
       
@@ -824,11 +826,13 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
+        { value: 5, name: "8" },
+      
         { value: 2, name: "4" },
       
-        { value: 1, name: "10" },
-      
         { value: 1, name: "13" },
+      
+        { value: 1, name: "10" },
       
         { value: 1, name: "6" }
       
@@ -851,7 +855,7 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 4, name: "Tue" },
+        { value: 9, name: "Tue" },
       
         { value: 1, name: "Sun" }
       
@@ -871,7 +875,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-03-27", 1], ["2025-03-28", 4], ["2025-03-30", 1], ["2025-04-17", 3], ["2025-04-25", 1], ["2025-04-30", 11], ["2025-05-01", 2], ["2025-05-03", 1], ["2025-05-05", 2], ["2025-05-06", 1], ["2025-05-08", 3], ["2025-05-10", 1], ["2025-05-18", 1], ["2025-06-03", 1], ["2025-06-10", 3]];
+    let heatDataDefacements = [["2025-03-27", 1], ["2025-03-28", 4], ["2025-03-30", 1], ["2025-04-17", 3], ["2025-04-25", 1], ["2025-04-30", 11], ["2025-05-01", 2], ["2025-05-03", 1], ["2025-05-05", 2], ["2025-05-06", 1], ["2025-05-08", 3], ["2025-05-10", 1], ["2025-05-18", 1], ["2025-06-03", 1], ["2025-06-10", 8]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
