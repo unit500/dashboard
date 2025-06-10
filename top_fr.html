@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/68488ef9721fd9f1f02c8321.html">education.gouv.fr</a>, 
+          
             <a href="ransom_details/684705341dfeb7a9eba5115f.html">www.ecoter.fr</a>, 
           
             <a href="ransom_details/6839abfb4993234454ab4e96.html">STANDBYTE</a>, 
           
             <a href="ransom_details/68307f9606a4935a0145dcf0.html">French Gov 2025</a>, 
           
-            <a href="ransom_details/6830010c6ce83d00caeabb32.html">French Gov</a>, 
-          
-            <a href="ransom_details/682f4a20e1433d57a913b170.html">radiologue.paris</a>
+            <a href="ransom_details/6830010c6ce83d00caeabb32.html">French Gov</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-10 08:33:10-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-06-10 20:14:21-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
@@ -381,7 +381,7 @@
       
         { value: 46, name: "DE" },
       
-        { value: 21, name: "GB" },
+        { value: 22, name: "GB" },
       
         { value: 20, name: "CA" },
       
@@ -408,11 +408,11 @@
       
         { value: 1, name: "www.group-indigo.com" },
       
+        { value: 1, name: "www.ecoter.fr" },
+      
         { value: 1, name: "radiologue.paris" },
       
-        { value: 1, name: "scelltech.com" },
-      
-        { value: 1, name: "compagnons-du-devoir.com" }
+        { value: 1, name: "education.gouv.fr" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -435,13 +435,13 @@
       
         { value: 6, name: "qilin" },
       
-        { value: 2, name: "stormous" },
-      
-        { value: 1, name: "worldleaks" },
+        { value: 3, name: "stormous" },
       
         { value: 1, name: "arcusmedia" },
       
-        { value: 1, name: "J" }
+        { value: 1, name: "J" },
+      
+        { value: 1, name: "worldleaks" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -468,9 +468,9 @@
       
         { value: 2, name: "18" },
       
-        { value: 1, name: "23" },
+        { value: 1, name: "06" },
       
-        { value: 1, name: "17" }
+        { value: 1, name: "13" }
       
     ];
     chartRansomByHour.setOption({
@@ -495,7 +495,9 @@
       
         { value: 3, name: "Mon" },
       
-        { value: 3, name: "Thu" }
+        { value: 3, name: "Thu" },
+      
+        { value: 1, name: "Tue" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -513,7 +515,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-02", 1], ["2025-01-03", 3], ["2025-01-05", 1], ["2025-01-07", 3], ["2025-01-11", 1], ["2025-01-16", 1], ["2025-01-17", 1], ["2025-01-23", 1], ["2025-01-24", 1], ["2025-01-25", 2], ["2025-01-29", 1], ["2025-01-30", 1], ["2025-01-31", 1], ["2025-02-04", 3], ["2025-02-05", 1], ["2025-02-10", 2], ["2025-02-11", 1], ["2025-02-13", 3], ["2025-02-19", 1], ["2025-02-21", 3], ["2025-02-24", 2], ["2025-02-25", 1], ["2025-02-27", 2], ["2025-03-03", 2], ["2025-03-05", 2], ["2025-03-07", 2], ["2025-03-08", 1], ["2025-03-10", 1], ["2025-03-11", 4], ["2025-03-12", 1], ["2025-03-16", 1], ["2025-03-18", 2], ["2025-03-19", 1], ["2025-03-20", 3], ["2025-03-22", 1], ["2025-03-23", 2], ["2025-03-24", 1], ["2025-03-26", 2], ["2025-03-29", 2], ["2025-03-31", 1], ["2025-04-02", 1], ["2025-04-06", 2], ["2025-04-13", 1], ["2025-04-21", 1], ["2025-04-24", 1], ["2025-04-28", 2], ["2025-05-02", 1], ["2025-05-05", 2], ["2025-05-12", 1], ["2025-05-15", 2], ["2025-05-16", 2], ["2025-05-19", 1], ["2025-05-22", 1], ["2025-05-23", 2], ["2025-05-30", 1], ["2025-06-09", 1]];
+  const heatDataRansom = [["2025-01-02", 1], ["2025-01-03", 3], ["2025-01-05", 1], ["2025-01-07", 3], ["2025-01-11", 1], ["2025-01-16", 1], ["2025-01-17", 1], ["2025-01-23", 1], ["2025-01-24", 1], ["2025-01-25", 2], ["2025-01-29", 1], ["2025-01-30", 1], ["2025-01-31", 1], ["2025-02-04", 3], ["2025-02-05", 1], ["2025-02-10", 2], ["2025-02-11", 1], ["2025-02-13", 3], ["2025-02-19", 1], ["2025-02-21", 3], ["2025-02-24", 2], ["2025-02-25", 1], ["2025-02-27", 2], ["2025-03-03", 2], ["2025-03-05", 2], ["2025-03-07", 2], ["2025-03-08", 1], ["2025-03-10", 1], ["2025-03-11", 4], ["2025-03-12", 1], ["2025-03-16", 1], ["2025-03-18", 2], ["2025-03-19", 1], ["2025-03-20", 3], ["2025-03-22", 1], ["2025-03-23", 2], ["2025-03-24", 1], ["2025-03-26", 2], ["2025-03-29", 2], ["2025-03-31", 1], ["2025-04-02", 1], ["2025-04-06", 2], ["2025-04-13", 1], ["2025-04-21", 1], ["2025-04-24", 1], ["2025-04-28", 2], ["2025-05-02", 1], ["2025-05-05", 2], ["2025-05-12", 1], ["2025-05-15", 2], ["2025-05-16", 2], ["2025-05-19", 1], ["2025-05-22", 1], ["2025-05-23", 2], ["2025-05-30", 1], ["2025-06-09", 1], ["2025-06-10", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -776,7 +778,7 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
-        { value: 41, name: "Unknown" },
+        { value: 43, name: "Unknown" },
       
         { value: 2, name: "ru" }
       
@@ -797,11 +799,11 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 423, name: "US" },
+        { value: 435, name: "US" },
       
-        { value: 173, name: "IN" },
+        { value: 176, name: "IN" },
       
-        { value: 103, name: "CA" },
+        { value: 104, name: "CA" },
       
         { value: 73, name: "VN" },
       
@@ -826,7 +828,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 27, name: "indie" },
+        { value: 29, name: "indie" },
       
         { value: 11, name: "Alpha wolf" },
       
@@ -857,9 +859,9 @@
       
         { value: 20, name: "XYZ" },
       
-        { value: 8, name: "Yemeni_HaCker" },
+        { value: 9, name: "Mr. BDKR28" },
       
-        { value: 7, name: "Mr. BDKR28" },
+        { value: 8, name: "Yemeni_HaCker" },
       
         { value: 3, name: "H0rn3t sp1d3rs" },
       
@@ -888,11 +890,11 @@
       
         { value: 6, name: "5" },
       
+        { value: 5, name: "11" },
+      
         { value: 4, name: "4" },
       
-        { value: 4, name: "11" },
-      
-        { value: 3, name: "10" }
+        { value: 4, name: "10" }
       
     ];
     chartDefaceByHour.setOption({
@@ -913,7 +915,7 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 16, name: "Tue" },
+        { value: 18, name: "Tue" },
       
         { value: 7, name: "Wed" },
       
@@ -921,7 +923,7 @@
       
         { value: 6, name: "Thu" },
       
-        { value: 4, name: "Sun" }
+        { value: 4, name: "Sat" }
       
     ];
     chartDefaceByWeekday.setOption({
@@ -939,7 +941,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-02-24", 1], ["2025-02-25", 1], ["2025-03-02", 1], ["2025-03-03", 1], ["2025-03-05", 1], ["2025-03-08", 1], ["2025-03-09", 1], ["2025-03-10", 3], ["2025-03-13", 9], ["2025-03-14", 1], ["2025-03-17", 1], ["2025-03-23", 2], ["2025-03-24", 1], ["2025-03-25", 1], ["2025-03-27", 1], ["2025-04-02", 2], ["2025-04-03", 1], ["2025-04-07", 7], ["2025-04-08", 1], ["2025-04-12", 1], ["2025-04-16", 2], ["2025-04-18", 2], ["2025-04-19", 8], ["2025-04-20", 1], ["2025-04-22", 1], ["2025-04-23", 12], ["2025-04-24", 5], ["2025-04-25", 8], ["2025-04-28", 4], ["2025-04-29", 1], ["2025-04-30", 1], ["2025-05-01", 28], ["2025-05-02", 1], ["2025-05-03", 1], ["2025-05-04", 4], ["2025-05-05", 10], ["2025-05-06", 21], ["2025-05-07", 21], ["2025-05-08", 9], ["2025-05-11", 1], ["2025-05-18", 4], ["2025-05-21", 4], ["2025-05-28", 1], ["2025-05-29", 5], ["2025-05-31", 4], ["2025-06-03", 8], ["2025-06-04", 2], ["2025-06-05", 1], ["2025-06-09", 6], ["2025-06-10", 8]];
+    let heatDataDefacements = [["2025-02-24", 1], ["2025-02-25", 1], ["2025-03-02", 1], ["2025-03-03", 1], ["2025-03-05", 1], ["2025-03-08", 1], ["2025-03-09", 1], ["2025-03-10", 3], ["2025-03-13", 9], ["2025-03-14", 1], ["2025-03-17", 1], ["2025-03-23", 2], ["2025-03-24", 1], ["2025-03-25", 1], ["2025-03-27", 1], ["2025-04-02", 2], ["2025-04-03", 1], ["2025-04-07", 7], ["2025-04-08", 1], ["2025-04-12", 1], ["2025-04-16", 2], ["2025-04-18", 2], ["2025-04-19", 8], ["2025-04-20", 1], ["2025-04-22", 1], ["2025-04-23", 12], ["2025-04-24", 5], ["2025-04-25", 8], ["2025-04-28", 4], ["2025-04-29", 1], ["2025-04-30", 1], ["2025-05-01", 28], ["2025-05-02", 1], ["2025-05-03", 1], ["2025-05-04", 4], ["2025-05-05", 10], ["2025-05-06", 21], ["2025-05-07", 21], ["2025-05-08", 9], ["2025-05-11", 1], ["2025-05-18", 4], ["2025-05-21", 4], ["2025-05-28", 1], ["2025-05-29", 5], ["2025-05-31", 4], ["2025-06-03", 10], ["2025-06-04", 2], ["2025-06-05", 1], ["2025-06-09", 6], ["2025-06-10", 8]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
