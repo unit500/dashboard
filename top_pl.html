@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/68496ff6d85588161b041304.html">astronika</a>, 
+          
             <a href="ransom_details/67fc2658030364d3230f8f51.html">zory.praca.gov.pl</a>, 
           
             <a href="ransom_details/67f4132569cace605ba9c9bb.html">SMYK</a>, 
           
             <a href="ransom_details/67f3f6ae5b36157ee57a0114.html">www.wertex.com</a>, 
           
-            <a href="ransom_details/67f4131969cace605ba9c9b5.html">www.wertex.com</a>, 
-          
-            <a href="ransom_details/67f11b68bdc340c294958424.html">asseco.com</a>
+            <a href="ransom_details/67f4131969cace605ba9c9b5.html">www.wertex.com</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-10 08:43:31-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-06-11 12:16:28-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -379,13 +379,13 @@
       
         { value: 239, name: "US" },
       
-        { value: 46, name: "DE" },
+        { value: 38, name: "DE" },
       
-        { value: 21, name: "GB" },
+        { value: 21, name: "CA" },
       
-        { value: 20, name: "CA" },
+        { value: 20, name: "GB" },
       
-        { value: 14, name: "ES" }
+        { value: 16, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -423,6 +423,8 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
+        { value: 1, name: "warlock" }
+      
     ];
     chartRansomTopGroups.setOption({
       title: { text: 'Top 5 Ransom Groups', left: 'center' },
@@ -441,6 +443,8 @@
     // 4) By Hour (bar)
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
+      
+        { value: 1, name: "11" }
       
     ];
     chartRansomByHour.setOption({
@@ -461,6 +465,8 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
+        { value: 1, name: "Wed" }
+      
     ];
     chartRansomByWeekday.setOption({
       title: { text: 'Ransom Reports by Weekday', left: 'center' },
@@ -477,7 +483,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-15", 1], ["2025-02-09", 1], ["2025-02-27", 2], ["2025-03-11", 1], ["2025-03-12", 1], ["2025-04-05", 1], ["2025-04-07", 3], ["2025-04-13", 1]];
+  const heatDataRansom = [["2025-01-15", 1], ["2025-02-09", 1], ["2025-02-27", 2], ["2025-03-11", 1], ["2025-03-12", 1], ["2025-04-05", 1], ["2025-04-07", 3], ["2025-04-13", 1], ["2025-06-11", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -747,15 +753,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 424, name: "US" },
+        { value: 450, name: "US" },
       
-        { value: 173, name: "IN" },
+        { value: 209, name: "CA" },
       
-        { value: 104, name: "CA" },
+        { value: 181, name: "IN" },
       
         { value: 73, name: "VN" },
       
-        { value: 69, name: "SG" }
+        { value: 72, name: "SG" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -801,9 +807,9 @@
       
         { value: 5, name: "DimasHxR" },
       
-        { value: 2, name: "Typical Idiot Security" },
-      
         { value: 2, name: "Mr. BDKR28" },
+      
+        { value: 2, name: "Typical Idiot Security" },
       
         { value: 1, name: "Z-Pentest Alliance" }
       
@@ -830,9 +836,9 @@
       
         { value: 2, name: "4" },
       
-        { value: 1, name: "13" },
-      
         { value: 1, name: "10" },
+      
+        { value: 1, name: "13" },
       
         { value: 1, name: "6" }
       
