@@ -204,15 +204,15 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
+            <a href="defacement_details/684837e768e876f3f3b100f5.html">onkochishoku.inaka.co.jp</a>, 
+          
             <a href="defacement_details/68370a5db8cd986a5df07cb8.html">kuwaki-yoshinori.com</a>, 
           
             <a href="defacement_details/6837089db8cd986a5df07cac.html">gallerism.net</a>, 
           
             <a href="defacement_details/68370072b8cd986a5df07ca4.html">cocosay.com</a>, 
           
-            <a href="defacement_details/68370043b8cd986a5df07ca3.html">k-oshima.site</a>, 
-          
-            <a href="defacement_details/6836fffeb8cd986a5df07c9d.html">www.mizuhikiorikata.com</a>
+            <a href="defacement_details/68370043b8cd986a5df07ca3.html">k-oshima.site</a>
           
         </li>
         <li>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-11 12:10:59-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-06-11 13:03:18-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
   
@@ -377,7 +377,7 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 239, name: "US" },
+        { value: 241, name: "US" },
       
         { value: 38, name: "DE" },
       
@@ -404,15 +404,15 @@
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
       
-        { value: 1, name: "www.runtec.com" },
-      
         { value: 1, name: "www.cmic-cmo.com" },
       
         { value: 1, name: "www.medialinks.com" },
       
-        { value: 1, name: "www.fujipoly.com" },
+        { value: 1, name: "www.toho.co.jp" },
       
-        { value: 1, name: "www.toho.co.jp" }
+        { value: 1, name: "www.runtec.com" },
+      
+        { value: 1, name: "www.fujipoly.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -439,9 +439,9 @@
       
         { value: 1, name: "devman" },
       
-        { value: 1, name: "play" },
+        { value: 1, name: "qilin" },
       
-        { value: 1, name: "blacklock" }
+        { value: 1, name: "play" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -762,7 +762,7 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
-        { value: 7, name: "Unknown" },
+        { value: 8, name: "Unknown" },
       
         { value: 1, name: "ru" }
       
@@ -783,9 +783,9 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 450, name: "US" },
+        { value: 452, name: "US" },
       
-        { value: 209, name: "CA" },
+        { value: 210, name: "CA" },
       
         { value: 181, name: "IN" },
       
@@ -814,6 +814,8 @@
       
         { value: 7, name: "indie" },
       
+        { value: 1, name: "God Of Server" },
+      
         { value: 1, name: "Z-Pentest Alliance" }
       
     ];
@@ -837,9 +839,11 @@
       
         { value: 5, name: "VXsect" },
       
-        { value: 1, name: "Z-Pentest Alliance" },
-      
         { value: 1, name: "H0rn3t sp1d3rs" },
+      
+        { value: 1, name: "God Of Server" },
+      
+        { value: 1, name: "Z-Pentest Alliance" },
       
         { value: 1, name: "N16H7 CR4WL3R" }
       
@@ -864,11 +868,11 @@
       
         { value: 4, name: "12" },
       
-        { value: 2, name: "13" },
+        { value: 3, name: "13" },
       
-        { value: 1, name: "7" },
+        { value: 1, name: "5" },
       
-        { value: 1, name: "5" }
+        { value: 1, name: "7" }
       
     ];
     chartDefaceByHour.setOption({
@@ -891,9 +895,11 @@
       
         { value: 6, name: "Wed" },
       
-        { value: 1, name: "Sun" },
+        { value: 1, name: "Tue" },
       
-        { value: 1, name: "Thu" }
+        { value: 1, name: "Thu" },
+      
+        { value: 1, name: "Sun" }
       
     ];
     chartDefaceByWeekday.setOption({
@@ -911,7 +917,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-02-20", 1], ["2025-03-06", 2], ["2025-03-08", 1], ["2025-03-10", 30], ["2025-03-12", 4], ["2025-03-18", 2], ["2025-03-25", 1], ["2025-04-06", 1], ["2025-04-12", 2], ["2025-04-21", 1], ["2025-04-28", 1], ["2025-05-01", 2], ["2025-05-05", 2], ["2025-05-06", 4], ["2025-05-08", 3], ["2025-05-10", 1], ["2025-05-11", 2], ["2025-05-15", 1], ["2025-05-18", 1], ["2025-05-21", 1], ["2025-05-28", 5]];
+    let heatDataDefacements = [["2025-02-20", 1], ["2025-03-06", 2], ["2025-03-08", 1], ["2025-03-10", 30], ["2025-03-12", 4], ["2025-03-18", 2], ["2025-03-25", 1], ["2025-04-06", 1], ["2025-04-12", 2], ["2025-04-21", 1], ["2025-04-28", 1], ["2025-05-01", 2], ["2025-05-05", 2], ["2025-05-06", 4], ["2025-05-08", 3], ["2025-05-10", 1], ["2025-05-11", 2], ["2025-05-15", 1], ["2025-05-18", 1], ["2025-05-21", 1], ["2025-05-28", 5], ["2025-06-10", 1]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
