@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">Your time is limited, so don&#39;t waste it living someone else&#39;s life.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -819,6 +819,31 @@
         
           <div class="col">
             <div class="card h-100">
+              <a href="defacement_details/684837d67ca4ac91bd402ffe.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/10/bgcouncil_gov_et/screenshot.png" class="card-img-top" alt="Thumbnail for http://bgcouncil.gov.et">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/684837d67ca4ac91bd402ffe.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">bgcouncil.gov.et</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-10</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/captainsmok3r.html">CaptainSmok3r</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
               <a href="defacement_details/67e63cfca0aab4318f636e93.html">
                 <img src="https://unit500.python-myth.info/mirror/2025/03/28/aampco_gov_et/screenshot.png" class="card-img-top" alt="Thumbnail for http://aampco.gov.et">
               </a>
@@ -933,8 +958,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 09:49:40-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-06-11 13:12:10-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -965,6 +990,8 @@
     var dataRansomwareGroups = [
       
       {value: 1, name: "OurSec" },
+      
+      {value: 1, name: "CaptainSmok3r" },
       
       {value: 1, name: "MoneroSHELL" }
       
@@ -1008,6 +1035,9 @@
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("et");
+      attackedSeriesData.push({value: 1, name: "et"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
