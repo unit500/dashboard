@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Details - Unit500</title>
+  <title>Actor Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -14,6 +14,10 @@
     .chart-container {
       width: 100%;
       height: 400px;
+    }
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
     }
     .section-title {
       margin-top: 2rem;
@@ -116,20 +120,21 @@
   </div>
 </header>
 
+
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Group Info Cards -->
+    <!-- Actor Info Cards -->
     <div class="row mb-4">
-      <!-- Card 1: Group Name -->
+      <!-- Card 1: Actor Name -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Group Name</div>
+          <div class="card-header">Actor Name</div>
           <div class="card-body">
-            <h5 class="card-title">teamxxx</h5>
+            <h5 class="card-title">Mundus</h5>
           </div>
         </div>
       </div>
@@ -138,7 +143,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Total Activities</div>
           <div class="card-body">
-            <h5 class="card-title">7</h5>
+            <h5 class="card-title">1</h5>
           </div>
         </div>
       </div>
@@ -147,7 +152,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Last Recorded Activity</div>
           <div class="card-body">
-            <h5 class="card-title">2025-06-10 23:25:27.048278</h5>
+            <h5 class="card-title">2025-06-10</h5>
           </div>
         </div>
       </div>
@@ -155,186 +160,32 @@
 
     <!-- Activity Heatmap Chart -->
     <div class="mb-4">
-      <div id="groupActivityChart" class="chart-container"></div>
+      <div id="activityChart" class="chart-container"></div>
     </div>
 
-    <!-- Last 10 Defacements for Group -->
-    
-
-
-    
-
-    
+    <!-- Last 10 Defacements by Actor -->
     <section>
-      <h2 class="section-title">Last&nbsp;10&nbsp;Ransomware Victims Announced by teamxxx</h2>
+      <h2 class="section-title">Last 10 Defacements by Mundus</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
-          
           <div class="col">
             <div class="card h-100">
-              <a href="../ransom_details/68490d99e0ca4954f2ebf853.html">
-                <img src="https://images.ransomware.live/victims/91ce25ceaa62fa3533858c3bff9bed8c.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="eterpauper">
+              <a href="../defacement_details/68488cae45d51b365be4aca6.html">
+                     <img src="https://unit500.python-myth.info/mirror/2025/06/10/mundus_surge_sh/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://mundus.surge.sh">
               </a>
               <div class="card-body">
-                <h5 class="card-title">eterpauper</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:25:27.048278</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/us.png"
-                        alt="US flag">
-                    US
-                  </p>
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/68490d99e0ca4954f2ebf852.html">
-                <img src="https://images.ransomware.live/victims/de96f4431d22621b39594076f2e63f64.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="nteriorsgroup.ie">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">nteriorsgroup.ie</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:24:40.872598</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/ie.png"
-                        alt="IE flag">
-                    IE
-                  </p>
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/68490d99e0ca4954f2ebf851.html">
-                <img src="https://images.ransomware.live/victims/6fac89470e13ac9d3db17d41ff9263ca.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="arvikhavn.no">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">arvikhavn.no</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:23:54.098731</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/no.png"
-                        alt="NO flag">
-                    NO
-                  </p>
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/68490d98e0ca4954f2ebf850.html">
-                <img src="https://images.ransomware.live/victims/4f80899d98e93aac9c8604b5961f00b7.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="vent-medical.com">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">vent-medical.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:23:04.266973</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/cz.png"
-                        alt="CZ flag">
-                    CZ
-                  </p>
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/68490d97e0ca4954f2ebf84f.html">
-                <img src="https://images.ransomware.live/victims/20ac0d6969fc77170d255d72a7e73a97.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="ationwidecare.org">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">ationwidecare.org</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:22:16.062128</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
-                
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/68490d93e0ca4954f2ebf84e.html">
-                <img src="https://images.ransomware.live/victims/4074737237739c563e2ac1a0846f1b1b.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="ebberrestaurantgroup.com">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">ebberrestaurantgroup.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:21:29.154816</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Hospitality and Tourism</p>
-                
-                
-              </div>
-            </div>
-          </div>
-        
-          
-          <div class="col">
-            <div class="card h-100">
-              <a href="../ransom_details/68490d92e0ca4954f2ebf84d.html">
-                <img src="https://images.ransomware.live/victims/546f6553ef8feced9bb3f729686974c6.png" class="card-img-top"
-                    style="max-height:200px; object-fit:cover;"
-                    alt="elkorpAg.com">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title">elkorpAg.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:20:41.901133</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
-                
-                
-                  <p class="card-text">
-                    <strong>Country:</strong>
-                    <img src="https://flagcdn.com/32x24/de.png"
-                        alt="DE flag">
-                    DE
-                  </p>
-                
+                <a href="../defacement_details/68488cae45d51b365be4aca6.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">mundus.surge.sh</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-10</p>
+                <p class="card-text"><strong>Group:</strong> https://websiteimpian.com</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
           </div>
         
       </div>
     </section>
-    
-
   </div>
   <footer class="py-4">
   <div class="container text-center">
@@ -344,7 +195,7 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
@@ -353,11 +204,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- ECharts Heatmap Script -->
   <script>
-    var chart = echarts.init(document.getElementById('groupActivityChart'));
+    var chart = echarts.init(document.getElementById('activityChart'));
     var option = {
       title: {
         top: 30,
-        text: 'Activity Heatmap - teamxxx (2025)',
+        text: 'Activity Heatmap - Mundus (2025)',
         left: 'center'
       },
       tooltip: {},
@@ -386,7 +237,7 @@
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: [["2025-06-10 23:20:41.901133", 1], ["2025-06-10 23:21:29.154816", 1], ["2025-06-10 23:22:16.062128", 1], ["2025-06-10 23:23:04.266973", 1], ["2025-06-10 23:23:54.098731", 1], ["2025-06-10 23:24:40.872598", 1], ["2025-06-10 23:25:27.048278", 1]]
+        data: [["2025-06-10", 1]]
       }]
     };
     chart.setOption(option);
