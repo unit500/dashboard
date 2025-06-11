@@ -1,37 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qxbox8417h");
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unit500 Defacements</title>
+  <title>ransom Details - Unit500</title>
   <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="../static/style.css">
   <style>
-    /* Squares styling */
-    .square-placeholder {
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      padding: 1rem;
-      text-align: center;
-      margin-bottom: 1rem;
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
     }
-    /* Initially hide all defacement cards; they will be revealed via JS */
-    .defacement-card {
-      display: none;
+    .details-table th {
+      width: 30%;
     }
-    .flag {
-      width: 32px;
-      height: 24px;
-    }
+    /* Icon and clock sizing */
     .icon-size {
       width: 32px;
       height: 32px;
@@ -47,7 +36,7 @@
   </style>
 </head>
 <body class="bg-light">
-  <!-- Include shared header/menu -->
+  <!-- Common Header (Title in same row as menu, no extra brand text) -->
   <header class="mb-4">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -128,143 +117,114 @@
     </div>
   </div>
 </header>
-  
-  <!-- Page Header for Defacements -->
+
   <div class="container my-4">
-    <section class="text-center mb-4">
-      <h1 class="display-4 text-success">Defacements</h1>
-      <p class="lead fst-italic">Details about the latest defacements</p>
-    </section>
-    
-    <!-- Squares Section (8 squares: 4 per row) -->
-    <section class="mb-4">
-      <div class="row">
-        <!-- First Row -->
-        <div class="col-md-3">
-          <div class="square-placeholder">
-            <h5>Total Defacements</h5>
-            <p>0</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="square-placeholder">
-            <h5>Last 30 Days</h5>
-            <p>0</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="square-placeholder">
-            <h5>On Hold</h5>
-            <p>1058</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="square-placeholder">
-            <h5>Special</h5>
-            <p>0</p>
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Three Cards Row -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            <a href="balcia.com" target="_blank" class="text-decoration-none">
+              <h5 class="card-title">balcia.com</h5>
+            </a>
           </div>
         </div>
       </div>
-      <div class="row">
-        <!-- Second Row -->
-        <div class="col-md-3">
-          <div class="square-placeholder">
-            <h5>Top Hacker</h5>
-            <p>Mr. BDKR28</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="square-placeholder">
-            <h5>Top Group</h5>
-            <p>Alpha wolf</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="square-placeholder">
-            <h5>Top Attacked Countries</h5>
-            <p>
-              
-                
-                  <img src="https://flagcdn.com/32x24/us.png" alt="US flag" class="flag">
-                
-              
-                
-                  <img src="https://flagcdn.com/32x24/ca.png" alt="CA flag" class="flag">
-                
-              
-                
-                  <img src="https://flagcdn.com/32x24/in.png" alt="IN flag" class="flag">
-                
-              
-            </p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="square-placeholder">
-            <h5>Top Attacking Countries</h5>
-            <p>
-              
-                
-              
-            </p>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            
+              <h5 class="card-title">
+                2024-06-26
+              </h5>
           </div>
         </div>
       </div>
-    </section>
-    
-    <!-- Latest Defacements Cards Section -->
-    <section>
-      <h2 class="section-title">Latest Defacements</h2>
-      <div class="row row-cols-1 row-cols-md-5 g-4" id="defacements-cards">
+      <!-- Card 3: Geographics -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            <span class="text-muted">Source Unknown</span>
+            &rarr;
+            
+              
+              <img src="https://flagcdn.com/32x24/lv.png"
+                   alt="LV flag">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot -->
+      <div class="col-md-4 mb-3">
+        
+          <p class="text-muted">No screenshot available.</p>
         
       </div>
-      <div class="text-center mt-4">
-        <button id="loadMoreButton" class="btn btn-primary">Load More</button>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            <tr>
+              <th>Group Name</th>
+              <td>datacarry</td>
+            </tr>
+            <tr>
+              <th>Targeted Website</th>
+              <td><a href="balcia.com" target="_blank">balcia.com</a></td>
+            </tr>
+            <tr>
+              <th>Source Attacker Country</th>
+              <td>Unknown</td>
+            </tr>
+            <tr>
+              <th>Intelligence Source</th>
+                
+                
+
+                <td>
+                  
+                    <span class="text-muted">N/A</span>
+                  
+                </td>
+            </tr>
+            <tr>
+              <th>Post Title</th>
+              <td>Balcia Insurance</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </section>
+    </div>
   </div>
   
-  <!-- Include shared footer -->
+  <!-- Footer -->
   <footer class="py-4">
   <div class="container text-center">
     <hr class="mb-3">
-    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    <p class="mb-1 text-muted">&copy;  Unit500. All rights reserved.</p>
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-11 08:08:48-4.0.22</p>
+    <p class="text-xs text-muted">Build: -4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
-  
-  <!-- Bootstrap JS and Popover Initialization -->
+
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl);
-    });
-  </script>
-  
-  <!-- Load More Functionality -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var cards = document.querySelectorAll(".defacement-card");
-      var cardsPerPage = 20;
-      var currentPage = 1;
-      function updateCardsVisibility() {
-        cards.forEach(function(card, index) {
-          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
-        });
-        document.getElementById("loadMoreButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
-      }
-      updateCardsVisibility();
-      document.getElementById("loadMoreButton").addEventListener("click", function(e) {
-        e.preventDefault();
-        currentPage++;
-        updateCardsVisibility();
-      });
-    });
-  </script>
 </body>
 </html>
