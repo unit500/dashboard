@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Actor Details - Unit500</title>
+  <title>Group Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -14,10 +14,6 @@
     .chart-container {
       width: 100%;
       height: 400px;
-    }
-    .card-img-top {
-      object-fit: cover;
-      height: 150px;
     }
     .section-title {
       margin-top: 2rem;
@@ -120,21 +116,20 @@
   </div>
 </header>
 
-
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Actor Info Cards -->
+    <!-- Group Info Cards -->
     <div class="row mb-4">
-      <!-- Card 1: Actor Name -->
+      <!-- Card 1: Group Name -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Actor Name</div>
+          <div class="card-header">Group Name</div>
           <div class="card-body">
-            <h5 class="card-title">Necro Shadow</h5>
+            <h5 class="card-title">Silent Byte Team</h5>
           </div>
         </div>
       </div>
@@ -143,7 +138,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Total Activities</div>
           <div class="card-body">
-            <h5 class="card-title">8</h5>
+            <h5 class="card-title">2</h5>
           </div>
         </div>
       </div>
@@ -152,7 +147,7 @@
         <div class="card text-center shadow-sm">
           <div class="card-header">Last Recorded Activity</div>
           <div class="card-body">
-            <h5 class="card-title">2025-06-10</h5>
+            <h5 class="card-title">12-06-2025</h5>
           </div>
         </div>
       </div>
@@ -160,121 +155,30 @@
 
     <!-- Activity Heatmap Chart -->
     <div class="mb-4">
-      <div id="activityChart" class="chart-container"></div>
+      <div id="groupActivityChart" class="chart-container"></div>
     </div>
 
-    <!-- Last 10 Defacements by Actor -->
+    <!-- Last 10 Defacements for Group -->
+    
     <section>
-      <h2 class="section-title">Last 10 Defacements by Necro Shadow</h2>
+      <h2 class="section-title">Last 10 Defacements for Silent Byte Team</h2>
       <div class="row row-cols-1 row-cols-md-5 g-4">
         
           <div class="col">
             <div class="card h-100">
-              <a href="../defacement_details/6848098b45d51b365be4ac7a.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/10/muthuramoils_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://muthuramoils.com/Silent.html">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/6848098b45d51b365be4ac7a.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">muthuramoils.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-06-10</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/6848099645d51b365be4ac7b.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/10/zoramoms_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://zoramoms.com/Silent.html">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/6848099645d51b365be4ac7b.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">zoramoms.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-06-10</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/67fce5c670c2661736d945a0.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/04/14/gemore_in/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://gemore.in/Necro_index.html">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/67fce5c670c2661736d945a0.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">gemore.in</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-04-14</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/67fce5d270c2661736d945a1.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/04/14/rrg-iitm_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://rrg-iitm.com/Necro_index.html">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/67fce5d270c2661736d945a1.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">rrg-iitm.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-04-14</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/67fce5de70c2661736d945a2.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/04/14/mellowbuff_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://mellowbuff.com/Necro_index.html">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/67fce5de70c2661736d945a2.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">mellowbuff.com</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-04-14</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/67fce5bb70c2661736d9459f.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/04/14/khomes_in/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://khomes.in/Necro_index.html">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/67fce5bb70c2661736d9459f.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">khomes.in</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-04-14</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
               <a href="../defacement_details/684a18d268e876f3f3b1016c.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/12/e8r7n6rawwg_exactdn_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://e8r7n6rawwg.exactdn.com">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/12/e8r7n6rawwg_exactdn_com/screenshot.png"
+                    class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Thumbnail for http://e8r7n6rawwg.exactdn.com">
               </a>
               <div class="card-body">
-                <a href="../defacement_details/684a18d268e876f3f3b1016c.html" class="text-decoration-none text-dark">
+                <a href="../defacement_details/684a18d268e876f3f3b1016c.html"
+                  class="text-decoration-none text-dark">
                   <h5 class="card-title">e8r7n6rawwg.exactdn.com</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 12-06-2025</p>
-                <p class="card-text"><strong>Group:</strong> Silent Byte Team</p>
+                <p class="card-text"><strong>Actor:</strong> Necro Shadow</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -283,14 +187,18 @@
           <div class="col">
             <div class="card h-100">
               <a href="../defacement_details/683f4f8f23f40aaf772d1cab.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/03/onetabhealthcare_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://onetabhealthcare.com">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/03/onetabhealthcare_com/screenshot.png"
+                    class="card-img-top"
+                    style="max-height:200px; object-fit:cover;"
+                    alt="Thumbnail for http://onetabhealthcare.com">
               </a>
               <div class="card-body">
-                <a href="../defacement_details/683f4f8f23f40aaf772d1cab.html" class="text-decoration-none text-dark">
+                <a href="../defacement_details/683f4f8f23f40aaf772d1cab.html"
+                  class="text-decoration-none text-dark">
                   <h5 class="card-title">onetabhealthcare.com</h5>
                 </a>
                 <p class="card-text"><strong>Date:</strong> 04-06-2025</p>
-                <p class="card-text"><strong>Group:</strong> Silent Byte Team</p>
+                <p class="card-text"><strong>Actor:</strong> Necro Shadow</p>
                 <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
@@ -298,6 +206,13 @@
         
       </div>
     </section>
+    
+
+
+    
+
+    
+
   </div>
   <footer class="py-4">
   <div class="container text-center">
@@ -307,7 +222,7 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -316,11 +231,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- ECharts Heatmap Script -->
   <script>
-    var chart = echarts.init(document.getElementById('activityChart'));
+    var chart = echarts.init(document.getElementById('groupActivityChart'));
     var option = {
       title: {
         top: 30,
-        text: 'Activity Heatmap - Necro Shadow (2025)',
+        text: 'Activity Heatmap - Silent Byte Team (2025)',
         left: 'center'
       },
       tooltip: {},
@@ -349,7 +264,7 @@
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: [["2025-04-14", 4], ["2025-06-10", 2]]
+        data: []
       }]
     };
     chart.setOption(option);
