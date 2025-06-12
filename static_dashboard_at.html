@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -861,6 +861,40 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/684b23e9f98ebd8ace7e1f89.html">
+                <img src="https://images.ransomware.live/victims/deebe7dd522ebe43d1d138e35669c603.png" class="card-img-top" alt="www.biogest.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">www.biogest.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-12 18:09:30.327399</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Energy</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
+                  
+                  AT
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/lynx.html">lynx</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Biogest offers its PowerRing technology to customers in the Greek market. The PowerRing system and i…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1167,38 +1201,6 @@ building technology and mechanical…
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/67a32b1903505b9f28f9a241.html">
-                <img src="https://images.ransomware.live/victims/3bf6ae0ee9d74a3767d086f571993c4c.png" class="card-img-top" alt="kombinat.at">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">kombinat.at</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-02-04 21:28:58.800841</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/at.png" alt="AT flag">
-                  
-                  AT
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/fog.html">fog</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Extract from Gitlabs: Prasaga, HE2B, Kombinat
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1211,8 +1213,8 @@ building technology and mechanical…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-04 08:07:55-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-06-12 19:08:32-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
@@ -1269,11 +1271,7 @@ building technology and mechanical…
       
     
       
-        defacementData.push({ value: 1, name: "akira" });
-      
-    
-      
-        defacementData.push({ value: 1, name: "orca" });
+        defacementData.push({ value: 1, name: "lynx" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1298,7 +1296,7 @@ building technology and mechanical…
     var attackedSeriesData = [];
     
       attackedCategories.push("at");
-      attackedSeriesData.push({value: 3, name: "at"});
+      attackedSeriesData.push({value: 2, name: "at"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
