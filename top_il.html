@@ -204,15 +204,15 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
+            <a href="defacement_details/684eb9339a0b2d8a75218aba.html">avi-griffel.com</a>, 
+          
+            <a href="defacement_details/684eb8a59a0b2d8a75218ab0.html">www.bizplace.co.il</a>, 
+          
             <a href="defacement_details/682ebffb118d972b140cfe94.html">inbalarbelshaham.com</a>, 
           
             <a href="defacement_details/682c730128b598d51652a121.html">international.gindi-belive.co.il</a>, 
           
-            <a href="defacement_details/682c6ff628b598d51652a0ed.html">lp.afeka.ac.il</a>, 
-          
-            <a href="defacement_details/682c539b55988a487783ec4c.html">campaign.lassalle.co.il</a>, 
-          
-            <a href="defacement_details/682c526755988a487783ec3c.html">lp.afeka.ac.il</a>
+            <a href="defacement_details/682c6ff628b598d51652a0ed.html">lp.afeka.ac.il</a>
           
         </li>
         <li>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-14 07:08:42-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-06-15 12:42:08-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
@@ -379,13 +379,13 @@
       
         { value: 252, name: "US" },
       
-        { value: 39, name: "DE" },
+        { value: 41, name: "DE" },
+      
+        { value: 23, name: "CA" },
       
         { value: 22, name: "GB" },
       
-        { value: 22, name: "CA" },
-      
-        { value: 18, name: "ES" }
+        { value: 16, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -742,7 +742,7 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
-        { value: 8, name: "Unknown" },
+        { value: 10, name: "Unknown" },
       
         { value: 3, name: "Algeria" }
       
@@ -763,11 +763,11 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 446, name: "US" },
+        { value: 458, name: "US" },
       
         { value: 201, name: "CA" },
       
-        { value: 168, name: "IN" },
+        { value: 169, name: "IN" },
       
         { value: 71, name: "VN" },
       
@@ -792,7 +792,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 11, name: "indie" }
+        { value: 13, name: "indie" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -815,7 +815,9 @@
       
         { value: 9, name: "the key40" },
       
-        { value: 2, name: "L4663R666H05T" }
+        { value: 2, name: "L4663R666H05T" },
+      
+        { value: 2, name: "CYMORQ" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -836,9 +838,9 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 5, name: "10" },
+        { value: 5, name: "12" },
       
-        { value: 3, name: "12" },
+        { value: 5, name: "10" },
       
         { value: 2, name: "11" },
       
@@ -863,7 +865,7 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 8, name: "Sun" },
+        { value: 10, name: "Sun" },
       
         { value: 2, name: "Tue" },
       
@@ -885,7 +887,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-02-23", 1], ["2025-02-26", 1], ["2025-03-18", 1], ["2025-04-06", 1], ["2025-04-07", 7], ["2025-04-13", 1], ["2025-04-15", 2], ["2025-05-06", 1], ["2025-05-18", 8], ["2025-05-20", 2], ["2025-05-22", 1]];
+    let heatDataDefacements = [["2025-02-23", 1], ["2025-02-26", 1], ["2025-03-18", 1], ["2025-04-06", 1], ["2025-04-07", 7], ["2025-04-13", 1], ["2025-04-15", 2], ["2025-05-06", 1], ["2025-05-18", 8], ["2025-05-20", 2], ["2025-05-22", 1], ["2025-06-15", 2]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
