@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Your time is limited, so don&#39;t waste it living someone else&#39;s life.</p>
+    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/685278f5f31955b5ea200d63.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/18/texarm_net/screenshot.png" class="card-img-top" alt="Thumbnail for http://texarm.net/.well-known/BDKR.txt">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/685278f5f31955b5ea200d63.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">texarm.net</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/bdkr28.html">Mr. BDKR28</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1034,31 +1059,6 @@
                 <p class="card-text">
                   <strong>Group:</strong>
                   <a href="group_details/rabbit_cyber_team.html">Rabbit Cyber Team</a>
-                </p>
-                <p class="card-text"><strong>Reason:</strong> 
-                  <a href="attack_reason/fun.html">fun</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        
-          <div class="col">
-            <div class="card h-100">
-              <a href="defacement_details/67ca8ccdf46fc0beba84740e.html">
-                <img src="https://unit500.python-myth.info/mirror/2025/03/07/osvitalanmisto_gov_ua/screenshot.png" class="card-img-top" alt="Thumbnail for http://osvitalanmisto.gov.ua/hack.txt">
-              </a>
-              <div class="card-body">
-                <a href="defacement_details/67ca8ccdf46fc0beba84740e.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">osvitalanmisto.gov.ua</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-03-07</p>
-                <p class="card-text">
-                  <strong>Actor:</strong>
-                  <a href="actor_details/sabunmandi_cyber_team.html">SABUNMANDI CYBER TEAM</a>
-                </p>
-                <p class="card-text">
-                  <strong>Group:</strong>
-                  <a href="group_details/indie.html">indie</a>
                 </p>
                 <p class="card-text"><strong>Reason:</strong> 
                   <a href="attack_reason/fun.html">fun</a>
@@ -1483,8 +1483,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 12:02:06-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-06-18 09:09:21-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
 
@@ -1516,11 +1516,11 @@
       
       {value: 12, name: "NoName057(16)" },
       
-      {value: 3, name: "Mr. BDKR28" },
+      {value: 4, name: "Mr. BDKR28" },
       
       {value: 2, name: "Simsimi" },
       
-      {value: 1, name: "SABUNMANDI CYBER TEAM" },
+      {value: 1, name: "Cyber Ghost" },
       
       {value: 1, name: "Team R70" }
       
@@ -1544,18 +1544,6 @@
     // Chart 2: Top Defacement Groups
     var defacementData = [];
     
-      
-        defacementData.push({ value: 6, name: "NoName057(16)" });
-      
-    
-      
-        defacementData.push({ value: 2, name: "Anon Sec" });
-      
-    
-      
-        defacementData.push({ value: 1, name: "Team Anon Force" });
-      
-    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1578,7 +1566,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("ua");
-      attackedSeriesData.push({value: 13, name: "ua"});
+      attackedSeriesData.push({value: 1, name: "ua"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
