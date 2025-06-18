@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/68526434f0535b6934dc6f32.html">Weizmann Institute of Science</a>, 
+          
             <a href="ransom_details/684feb46216b32eec3b5d0b2.html">TBN Israel</a>, 
           
             <a href="ransom_details/684efc32ece0c21fa84d872d.html">Israel’s fuel supply system Data</a>, 
           
             <a href="ransom_details/684d1e1c7e7c539892be3a89.html">Y.G. New Idan</a>, 
           
-            <a href="ransom_details/684d1e1b7e7c539892be3a88.html">Israel’s fuel supply system</a>, 
-          
-            <a href="ransom_details/67e7544728d77c058f722667.html">modiin-ezrachi.co.il</a>
+            <a href="ransom_details/684d1e1b7e7c539892be3a88.html">Israel’s fuel supply system</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-17 17:44:37-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-06-18 07:08:58-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -377,11 +377,11 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 231, name: "US" },
+        { value: 242, name: "US" },
       
-        { value: 36, name: "DE" },
+        { value: 35, name: "DE" },
       
-        { value: 20, name: "CA" },
+        { value: 21, name: "CA" },
       
         { value: 18, name: "GB" },
       
@@ -423,7 +423,7 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 4, name: "handala" }
+        { value: 5, name: "handala" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -444,11 +444,11 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 1, name: "06" },
+        { value: 2, name: "05" },
       
         { value: 1, name: "16" },
       
-        { value: 1, name: "05" },
+        { value: 1, name: "06" },
       
         { value: 1, name: "09" }
       
@@ -475,7 +475,9 @@
       
         { value: 1, name: "Sun" },
       
-        { value: 1, name: "Mon" }
+        { value: 1, name: "Mon" },
+      
+        { value: 1, name: "Wed" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -493,7 +495,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-29", 1], ["2025-02-02", 1], ["2025-02-04", 1], ["2025-02-05", 1], ["2025-02-09", 2], ["2025-02-18", 3], ["2025-03-15", 1], ["2025-03-26", 1], ["2025-03-29", 1], ["2025-06-14", 2], ["2025-06-15", 1], ["2025-06-16", 1]];
+  const heatDataRansom = [["2025-01-29", 1], ["2025-02-02", 1], ["2025-02-04", 1], ["2025-02-05", 1], ["2025-02-09", 2], ["2025-02-18", 3], ["2025-03-15", 1], ["2025-03-26", 1], ["2025-03-29", 1], ["2025-06-14", 2], ["2025-06-15", 1], ["2025-06-16", 1], ["2025-06-18", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -769,11 +771,11 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 443, name: "US" },
+        { value: 462, name: "US" },
       
         { value: 202, name: "CA" },
       
-        { value: 167, name: "IN" },
+        { value: 171, name: "IN" },
       
         { value: 76, name: "DE" },
       
@@ -819,9 +821,9 @@
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
       
-        { value: 2, name: "L4663R666H05T" },
-      
         { value: 2, name: "CYMORQ" },
+      
+        { value: 2, name: "L4663R666H05T" },
       
         { value: 1, name: "the key40" },
       
