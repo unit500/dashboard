@@ -206,17 +206,19 @@
           
             <a href="defacement_details/6849368a45d51b365be4acc7.html">xpnews.net</a>, 
           
+            <a href="defacement_details/684854d668e876f3f3b10101.html">www.mzyfs.cn</a>, 
+          
             <a href="defacement_details/683f166a23f40aaf772d1c4b.html">www.mydyf.com</a>, 
           
             <a href="defacement_details/683f15f823f40aaf772d1c48.html">www.hbhcxxjs.com</a>, 
           
-            <a href="defacement_details/68205a4f34cb93d6e39723c9.html">winmachine.top</a>, 
-          
-            <a href="defacement_details/68205728a7ce42120747e4cc.html">yizewang.cn</a>
+            <a href="defacement_details/68205a4f34cb93d6e39723c9.html">winmachine.top</a>
           
         </li>
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
+          
+            <a href="ransom_details/6854423f7676c11dc8ea64ce.html">YHD Group</a>, 
           
             <a href="ransom_details/683aa936e426a5387add890c.html">www.shautoparts.com</a>, 
           
@@ -224,9 +226,7 @@
           
             <a href="ransom_details/6813ef04d01ce150b6aa8ff5.html">Chinese Healthcare Organisation</a>, 
           
-            <a href="ransom_details/680a0bca4b09b053f7e951c8.html">China Harbour Engeneiring Company FILE SAMPLE 1 avaliable /CHEC/CHECsample.zip</a>, 
-          
-            <a href="ransom_details/680a363ea568ac86b9f8edd9.html">China Harbour Engeneiring Company</a>
+            <a href="ransom_details/680a0bca4b09b053f7e951c8.html">China Harbour Engeneiring Company FILE SAMPLE 1 avaliable /CHEC/CHECsample.zip</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-11 08:23:18-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-06-19 17:09:03-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -377,13 +377,13 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 237, name: "US" },
+        { value: 251, name: "US" },
       
-        { value: 37, name: "DE" },
+        { value: 35, name: "DE" },
       
-        { value: 20, name: "GB" },
+        { value: 22, name: "GB" },
       
-        { value: 20, name: "CA" },
+        { value: 22, name: "CA" },
       
         { value: 14, name: "ES" }
       
@@ -425,6 +425,8 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
+        { value: 1, name: "handala" },
+      
         { value: 1, name: "qilin" }
       
     ];
@@ -445,6 +447,8 @@
     // 4) By Hour (bar)
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
+      
+        { value: 1, name: "16" },
       
         { value: 1, name: "17" }
       
@@ -467,6 +471,8 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
+        { value: 1, name: "Thu" },
+      
         { value: 1, name: "Fri" }
       
     ];
@@ -485,7 +491,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-06", 1], ["2025-01-26", 1], ["2025-02-26", 1], ["2025-03-10", 2], ["2025-03-12", 1], ["2025-03-14", 1], ["2025-03-16", 2], ["2025-03-17", 3], ["2025-03-19", 1], ["2025-03-20", 1], ["2025-03-22", 2], ["2025-03-29", 1], ["2025-04-02", 1], ["2025-04-07", 1], ["2025-04-16", 2], ["2025-04-17", 1], ["2025-04-20", 1], ["2025-04-24", 2], ["2025-05-01", 1], ["2025-05-02", 1], ["2025-05-30", 1]];
+  const heatDataRansom = [["2025-01-06", 1], ["2025-01-26", 1], ["2025-02-26", 1], ["2025-03-10", 2], ["2025-03-12", 1], ["2025-03-14", 1], ["2025-03-16", 2], ["2025-03-17", 3], ["2025-03-19", 1], ["2025-03-20", 1], ["2025-03-22", 2], ["2025-03-29", 1], ["2025-04-02", 1], ["2025-04-07", 1], ["2025-04-16", 2], ["2025-04-17", 1], ["2025-04-20", 1], ["2025-04-24", 2], ["2025-05-01", 1], ["2025-05-02", 1], ["2025-05-30", 1], ["2025-06-19", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -588,7 +594,7 @@
       
         { value: 5, name: "LT" },
       
-        { value: 2, name: "IL" }
+        { value: 2, name: "FI" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -734,7 +740,7 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
-        { value: 3, name: "Unknown" }
+        { value: 4, name: "Unknown" }
       
     ];
     chartDefaceTopSource.setOption({
@@ -753,15 +759,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 446, name: "US" },
+        { value: 478, name: "US" },
       
-        { value: 200, name: "CA" },
+        { value: 203, name: "CA" },
       
-        { value: 180, name: "IN" },
+        { value: 179, name: "IN" },
       
-        { value: 73, name: "VN" },
+        { value: 78, name: "DE" },
       
-        { value: 72, name: "SG" }
+        { value: 71, name: "VN" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -782,7 +788,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 3, name: "indie" }
+        { value: 4, name: "indie" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -805,6 +811,8 @@
       
         { value: 2, name: "n4sh1" },
       
+        { value: 1, name: "xNot_RespondinGx" },
+      
         { value: 1, name: "Mr. BDKR28" }
       
     ];
@@ -826,7 +834,7 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 2, name: "15" },
+        { value: 3, name: "15" },
       
         { value: 1, name: "7" }
       
@@ -849,7 +857,7 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 2, name: "Tue" },
+        { value: 3, name: "Tue" },
       
         { value: 1, name: "Wed" }
       
@@ -869,7 +877,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-03-07", 1], ["2025-03-13", 1], ["2025-03-15", 1], ["2025-04-14", 1], ["2025-04-17", 1], ["2025-04-25", 1], ["2025-05-11", 2], ["2025-06-03", 2], ["2025-06-11", 1]];
+    let heatDataDefacements = [["2025-03-07", 1], ["2025-03-13", 1], ["2025-03-15", 1], ["2025-04-14", 1], ["2025-04-17", 1], ["2025-04-25", 1], ["2025-05-11", 2], ["2025-06-03", 2], ["2025-06-10", 1], ["2025-06-11", 1]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))
