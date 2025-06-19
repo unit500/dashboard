@@ -218,15 +218,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/6854343ff6e91a37ae820c75.html">Saban Systems</a>, 
+          
             <a href="ransom_details/68528e5653b1bab772d3b7ca.html">Agura B.C LTD</a>, 
           
             <a href="ransom_details/6852722ffbb92e2509215dfa.html">Mor-logistics</a>, 
           
             <a href="ransom_details/68526434f0535b6934dc6f32.html">Weizmann Institute of Science</a>, 
           
-            <a href="ransom_details/684feb46216b32eec3b5d0b2.html">TBN Israel</a>, 
-          
-            <a href="ransom_details/684efc32ece0c21fa84d872d.html">Israel’s fuel supply system Data</a>
+            <a href="ransom_details/684feb46216b32eec3b5d0b2.html">TBN Israel</a>
           
         </li>
       </ul>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-19 06:51:43-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-06-19 16:09:16-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 238, name: "US" },
+        { value: 251, name: "US" },
       
         { value: 35, name: "DE" },
       
-        { value: 21, name: "CA" },
+        { value: 22, name: "GB" },
       
-        { value: 20, name: "GB" },
+        { value: 22, name: "CA" },
       
-        { value: 13, name: "ES" }
+        { value: 14, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -423,7 +423,7 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 7, name: "handala" }
+        { value: 8, name: "handala" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -448,11 +448,11 @@
       
         { value: 2, name: "05" },
       
-        { value: 1, name: "07" },
+        { value: 1, name: "15" },
       
-        { value: 1, name: "06" },
+        { value: 1, name: "16" },
       
-        { value: 1, name: "16" }
+        { value: 1, name: "07" }
       
     ];
     chartRansomByHour.setOption({
@@ -477,6 +477,8 @@
       
         { value: 2, name: "Sat" },
       
+        { value: 1, name: "Thu" },
+      
         { value: 1, name: "Mon" },
       
         { value: 1, name: "Sun" }
@@ -497,7 +499,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-29", 1], ["2025-02-02", 1], ["2025-02-04", 1], ["2025-02-05", 1], ["2025-02-09", 2], ["2025-02-18", 3], ["2025-03-15", 1], ["2025-03-26", 1], ["2025-03-29", 1], ["2025-06-14", 2], ["2025-06-15", 1], ["2025-06-16", 1], ["2025-06-18", 3]];
+  const heatDataRansom = [["2025-01-29", 1], ["2025-02-02", 1], ["2025-02-04", 1], ["2025-02-05", 1], ["2025-02-09", 2], ["2025-02-18", 3], ["2025-03-15", 1], ["2025-03-26", 1], ["2025-03-29", 1], ["2025-06-14", 2], ["2025-06-15", 1], ["2025-06-16", 1], ["2025-06-18", 3], ["2025-06-19", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -602,7 +604,7 @@
       
         { value: 5, name: "LT" },
       
-        { value: 2, name: "FI" }
+        { value: 2, name: "IL" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -850,9 +852,9 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 2, name: "12" },
-      
         { value: 2, name: "6" },
+      
+        { value: 2, name: "12" },
       
         { value: 1, name: "17" }
       
@@ -875,9 +877,9 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 2, name: "Thu" },
-      
         { value: 2, name: "Sun" },
+      
+        { value: 2, name: "Thu" },
       
         { value: 1, name: "Tue" }
       
