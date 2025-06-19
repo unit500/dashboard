@@ -204,15 +204,15 @@
         <li>
           <strong>Latest 5 Defacements:</strong>
           
+            <a href="defacement_details/6852ddbd9a0b2d8a75218cb5.html">naglfar.ru</a>, 
+          
+            <a href="defacement_details/6852da8af31955b5ea200da6.html">tatrypt.eu</a>, 
+          
+            <a href="defacement_details/6852da819a0b2d8a75218c91.html">poiskvbelgorode.ru</a>, 
+          
             <a href="defacement_details/684952dc45d51b365be4ace0.html">news.viral-sports.com</a>, 
           
-            <a href="defacement_details/681c3ac6688e7fa1f4b314cd.html">niams.pk</a>, 
-          
-            <a href="defacement_details/681c39a1688e7fa1f4b314a9.html">mm.clinic</a>, 
-          
-            <a href="defacement_details/6812f886383bfec94f3db7f8.html">tawakkaly.com</a>, 
-          
-            <a href="defacement_details/680744227787b94277b78154.html">www.fekrwaqalam.com</a>
+            <a href="defacement_details/681c3ac6688e7fa1f4b314cd.html">niams.pk</a>
           
         </li>
         <li>
@@ -352,8 +352,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-11 11:28:21-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-06-19 06:38:56-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -377,15 +377,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 237, name: "US" },
+        { value: 238, name: "US" },
       
-        { value: 37, name: "DE" },
+        { value: 35, name: "DE" },
+      
+        { value: 21, name: "CA" },
       
         { value: 20, name: "GB" },
       
-        { value: 20, name: "CA" },
-      
-        { value: 14, name: "ES" }
+        { value: 13, name: "ES" }
       
     ];
     chartRansomTopSource.setOption({
@@ -726,6 +726,8 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
+        { value: 3, name: "Unknown" }
+      
     ];
     chartDefaceTopSource.setOption({
       title: { text: 'Top 5 Defacement Sources', left: 'center' },
@@ -743,15 +745,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 450, name: "US" },
+        { value: 473, name: "US" },
       
-        { value: 209, name: "CA" },
+        { value: 203, name: "CA" },
       
-        { value: 181, name: "IN" },
+        { value: 179, name: "IN" },
       
-        { value: 73, name: "VN" },
+        { value: 78, name: "DE" },
       
-        { value: 72, name: "SG" }
+        { value: 71, name: "VN" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -772,6 +774,8 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
+        { value: 3, name: "indie" }
+      
     ];
     chartDefaceTopGroups.setOption({
       title: { text: 'Top 5 Defacement Groups', left: 'center' },
@@ -790,6 +794,8 @@
     // 4) Top Actors (bar)
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
+      
+        { value: 3, name: "DimasHxR" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -810,6 +816,8 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
+        { value: 3, name: "15" }
+      
     ];
     chartDefaceByHour.setOption({
       title: { text: 'Defacement Reports by Hour', left: 'center' },
@@ -829,6 +837,8 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
+        { value: 3, name: "Wed" }
+      
     ];
     chartDefaceByWeekday.setOption({
       title: { text: 'Defacement Reports by Weekday', left: 'center' },
@@ -845,7 +855,7 @@
     });
 
     // 7) Calendar Heatmap
-    let heatDataDefacements = [["2025-02-25", 1], ["2025-04-22", 1], ["2025-05-01", 1], ["2025-05-08", 2]];
+    let heatDataDefacements = [["2025-02-25", 1], ["2025-04-22", 1], ["2025-05-01", 1], ["2025-05-08", 2], ["2025-06-18", 3]];
 
     let maxCount = heatDataDefacements.length
       ? Math.max(...heatDataDefacements.map(d => d[1]))

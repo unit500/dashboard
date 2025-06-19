@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">3</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,81 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6852ddbd9a0b2d8a75218cb5.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/18/naglfar_ru/screenshot.png" class="card-img-top" alt="Thumbnail for http://naglfar.ru/d.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6852ddbd9a0b2d8a75218cb5.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">naglfar.ru</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/dimashxr.html">DimasHxR</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6852da8af31955b5ea200da6.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/18/tatrypt_eu/screenshot.png" class="card-img-top" alt="Thumbnail for http://tatrypt.eu/d.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6852da8af31955b5ea200da6.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">tatrypt.eu</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/dimashxr.html">DimasHxR</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/6852da819a0b2d8a75218c91.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/18/poiskvbelgorode_ru/screenshot.png" class="card-img-top" alt="Thumbnail for http://poiskvbelgorode.ru/d.php">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/6852da819a0b2d8a75218c91.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">poiskvbelgorode.ru</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-18</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/dimashxr.html">DimasHxR</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1296,8 +1371,8 @@ We combine sel…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-11 11:28:21-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-06-19 06:38:56-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1327,13 +1402,15 @@ We combine sel…
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
+      {value: 3, name: "DimasHxR" },
+      
       {value: 3, name: "Team Anon Force" },
       
-      {value: 1, name: "TheZero" },
+      {value: 1, name: "Dr3n4k" },
       
       {value: 1, name: "./VX8TX" },
       
-      {value: 1, name: "Dr3n4k" }
+      {value: 1, name: "TheZero" }
       
     ];
     var optionRansomwareGroups = {
@@ -1375,6 +1452,9 @@ We combine sel…
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("bg");
+      attackedSeriesData.push({value: 3, name: "bg"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
