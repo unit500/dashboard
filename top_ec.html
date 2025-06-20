@@ -208,15 +208,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/6854b2cc91870f31cad7ac41.html">comelesa.com.mx</a>, 
+          
             <a href="ransom_details/683d765b31954643fe44a930.html">utn.edu.ec</a>, 
           
             <a href="ransom_details/680946f44735f81328a41423.html">tecnologias.mspz2.gob.ec</a>, 
           
             <a href="ransom_details/67bb705266503f1fa91aa0e9.html">www.bayteq.com</a>, 
           
-            <a href="ransom_details/67b878fc342e39c4ac549fba.html">www.elecgalapagos.com.ec</a>, 
-          
-            <a href="ransom_details/67b9f4b5bd20cfd272da31d2.html">www.elecgalapagos.com.ec</a>
+            <a href="ransom_details/67b878fc342e39c4ac549fba.html">www.elecgalapagos.com.ec</a>
           
         </li>
       </ul>
@@ -342,8 +342,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-02 10:05:22-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-06-20 01:09:16-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
   
@@ -367,15 +367,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 369, name: "US" },
+        { value: 250, name: "US" },
       
-        { value: 54, name: "DE" },
+        { value: 35, name: "DE" },
       
-        { value: 23, name: "CA" },
+        { value: 22, name: "CA" },
       
-        { value: 17, name: "ES" },
+        { value: 20, name: "GB" },
       
-        { value: 17, name: "GB" }
+        { value: 14, name: "IT" }
       
     ];
     chartRansomTopSource.setOption({
@@ -393,6 +393,8 @@
     // 2) Top Targets (bar)
     var chartRansomTopTarget = echarts.init(document.getElementById('chartRansomTopTarget'));
     var dataRansomTopTarget = [
+      
+        { value: 1, name: "comelesa.com.mx" },
       
         { value: 1, name: "utn.edu.ec" }
       
@@ -415,7 +417,9 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 1, name: "incransom" }
+        { value: 1, name: "incransom" },
+      
+        { value: 1, name: "nightspire" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -435,6 +439,8 @@
     // 4) By Hour (bar)
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
+      
+        { value: 1, name: "00" },
       
         { value: 1, name: "23" }
       
@@ -457,6 +463,8 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
+        { value: 1, name: "Fri" },
+      
         { value: 1, name: "Sun" }
       
     ];
@@ -475,7 +483,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-02-04", 1], ["2025-02-21", 2], ["2025-02-23", 1], ["2025-04-23", 1], ["2025-06-01", 1]];
+  const heatDataRansom = [["2025-02-04", 1], ["2025-02-21", 2], ["2025-02-23", 1], ["2025-04-23", 1], ["2025-06-01", 1], ["2025-06-20", 1]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -570,15 +578,15 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 21, name: "GB" },
+        { value: 11, name: "CA" },
       
-        { value: 17, name: "FR" },
+        { value: 10, name: "FR" },
       
-        { value: 14, name: "CA" },
+        { value: 6, name: "IT" },
       
         { value: 5, name: "LT" },
       
-        { value: 3, name: "US" }
+        { value: 2, name: "FI" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -741,15 +749,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 368, name: "US" },
+        { value: 450, name: "US" },
       
-        { value: 238, name: "CA" },
+        { value: 197, name: "CA" },
       
-        { value: 129, name: "IN" },
+        { value: 179, name: "IN" },
       
-        { value: 121, name: "SG" },
+        { value: 73, name: "DE" },
       
-        { value: 89, name: "DE" }
+        { value: 70, name: "VN" }
       
     ];
     chartDefaceTopTarget.setOption({
