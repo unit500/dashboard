@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -816,6 +816,31 @@
       <h2 class="section-title">Latest Defaced Websites</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="defacement_details/685a64424702a842ae69eab4.html">
+                <img src="https://unit500.python-myth.info/mirror/2025/06/24/hr_ncaa_gov_ng/screenshot.png" class="card-img-top" alt="Thumbnail for http://hr.ncaa.gov.ng/ct.html">
+              </a>
+              <div class="card-body">
+                <a href="defacement_details/685a64424702a842ae69eab4.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">hr.ncaa.gov.ng</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-24</p>
+                <p class="card-text">
+                  <strong>Actor:</strong>
+                  <a href="actor_details/cyberteam.html">CyberTeam</a>
+                </p>
+                <p class="card-text">
+                  <strong>Group:</strong>
+                  <a href="group_details/indie.html">indie</a>
+                </p>
+                <p class="card-text"><strong>Reason:</strong> 
+                  <a href="attack_reason/fun.html">fun</a>
+                </p>
+              </div>
+            </div>
+          </div>
         
           <div class="col">
             <div class="card h-100">
@@ -1201,8 +1226,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 10:19:43-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-06-24 08:49:10-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
 
@@ -1232,9 +1257,11 @@
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
+      {value: 1, name: "K7N" },
+      
       {value: 1, name: "Ramil Feyziyev" },
       
-      {value: 1, name: "K7N" }
+      {value: 1, name: "CyberTeam" }
       
     ];
     var optionRansomwareGroups = {
@@ -1278,7 +1305,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("ng");
-      attackedSeriesData.push({value: 2, name: "ng"});
+      attackedSeriesData.push({value: 1, name: "ng"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
