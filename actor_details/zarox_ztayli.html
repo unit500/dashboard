@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qxbox8417h");
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unit500 DDoS Attacks</title>
-  <!-- Bootstrap CSS (using CDN) -->
+  <title>Actor Details - Unit500</title>
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <style>
-    /* Squares styling */
-    .square-placeholder {
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      padding: 1rem;
-      text-align: center;
+    .chart-container {
+      width: 100%;
+      height: 400px;
+    }
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
+    }
+    .section-title {
+      margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    /* Initially hide all DDoS cards; they will be revealed via JS */
-    .ddos-card {
-      display: none;
-    }
-    .flag {
+    .icon-size {
       width: 32px;
-      height: 24px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
     }
   </style>
 </head>
 <body class="bg-light">
-  <!-- Include shared header/menu -->
+  <!-- Common Header -->
   <header class="mb-4">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -116,54 +119,74 @@
     </div>
   </div>
 </header>
-  
-  <!-- Page Header for DDoS Attacks -->
+
+
   <div class="container my-4">
-    <section class="text-center mb-4">
-      <h1 class="display-4 text-success">opthailand Attacks</h1>
-      <p class="lead fst-italic">Details about the latest verified DDoS opthailand attacks</p>
-    </section>
-    
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
 
-    <!-- Latest DDoS Cards Section -->
+    <!-- Actor Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Actor Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Actor Name</div>
+          <div class="card-body">
+            <h5 class="card-title">Zarox~Ztayli</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">1</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-06-24</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="activityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements by Actor -->
     <section>
-      <!-- <h2 class="section-title">Latest Verified DDoS Attacks</h2> -->
-      <div class="row row-cols-1 row-cols-md-5 g-4" id="ddos-cards">
+      <h2 class="section-title">Last 10 Defacements by Zarox~Ztayli</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
         
-          
-          
-          
-          <div class="col ddos-card">
+          <div class="col">
             <div class="card h-100">
-              <a href="ddos_details/67ee6e099c26baedd83bcfb0.html">
-                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
-                     class="card-img-top"
-                     style="max-height:200px; object-fit:cover;"
-                     loading="lazy"
-                     alt="Thumbnail for https://eresource.car.chula.ac.th">
+              <a href="../defacement_details/685a63f24702a842ae69eaaf.html">
+                     <img src="https://unit500.python-myth.info/mirror/2025/06/24/perfectskinthailand_com/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://perfectskinthailand.com/zx.htm">
               </a>
-
               <div class="card-body">
-                <h5 class="card-title">eresource.car.chula.ac.th</h5>
-                <p class="card-text"><strong>Date:</strong> 2025-04-03</p>
-                
-                  <p class="card-text"><strong>Actor:</strong> Anon-KH</p>
-                
-                
-                  <p class="card-text"><strong>Campaign:</strong> OpThailand</p>
-                
+                <a href="../defacement_details/685a63f24702a842ae69eaaf.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">perfectskinthailand.com</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-24</p>
+                <p class="card-text"><strong>Group:</strong> indie</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
               </div>
             </div>
           </div>
         
       </div>
-      <div class="text-center mt-4">
-        <button id="loadMoreDdosButton" class="btn btn-primary">Load More</button>
-      </div>
     </section>
   </div>
-  
-  <!-- Include shared footer -->
   <footer class="py-4">
   <div class="container text-center">
     <hr class="mb-3">
@@ -175,35 +198,49 @@
     <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
-  
-  <!-- Bootstrap JS and Popover Initialization -->
+
+
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
   <script>
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl);
-    });
-  </script>
-  
-  <!-- Load More Functionality for DDoS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var cards = document.querySelectorAll(".ddos-card");
-      var cardsPerPage = 20;
-      var currentPage = 1;
-      function updateCardsVisibility() {
-        cards.forEach(function(card, index) {
-          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
-        });
-        document.getElementById("loadMoreDdosButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
-      }
-      updateCardsVisibility();
-      document.getElementById("loadMoreDdosButton").addEventListener("click", function(e) {
-        e.preventDefault();
-        currentPage++;
-        updateCardsVisibility();
-      });
-    });
+    var chart = echarts.init(document.getElementById('activityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - Zarox~Ztayli (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-06-24", 1]]
+      }]
+    };
+    chart.setOption(option);
   </script>
 </body>
 </html>
