@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -1759,8 +1759,8 @@ A Standbyte Computer it i…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-23 15:17:47-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 11:19:56-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -1825,15 +1825,15 @@ A Standbyte Computer it i…
       
     
       
-        defacementData.push({ value: 8, name: "Noname057(16)" });
-      
-    
-      
         defacementData.push({ value: 3, name: "stormous" });
       
     
       
         defacementData.push({ value: 2, name: "Team R70" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "independent" });
       
     
       
@@ -1862,7 +1862,7 @@ A Standbyte Computer it i…
     var attackedSeriesData = [];
     
       attackedCategories.push("fr");
-      attackedSeriesData.push({value: 75, name: "fr"});
+      attackedSeriesData.push({value: 67, name: "fr"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -2011,7 +2011,7 @@ A Standbyte Computer it i…
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -2020,6 +2020,7 @@ A Standbyte Computer it i…
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
