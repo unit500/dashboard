@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
+    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">0</h3>
             </div>
           </div>
         </div>
@@ -1491,8 +1491,8 @@ Since 1990, Decoline has been active as a producer and distributor of user-frien
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-16 16:08:55-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 09:34:29-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -1555,10 +1555,6 @@ Since 1990, Decoline has been active as a producer and distributor of user-frien
       
     
       
-        defacementData.push({ value: 1, name: "akira" });
-      
-    
-      
         defacementData.push({ value: 1, name: "worldleaks" });
       
     
@@ -1584,7 +1580,7 @@ Since 1990, Decoline has been active as a producer and distributor of user-frien
     var attackedSeriesData = [];
     
       attackedCategories.push("be");
-      attackedSeriesData.push({value: 7, name: "be"});
+      attackedSeriesData.push({value: 5, name: "be"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1768,9 +1764,9 @@ Since 1990, Decoline has been active as a producer and distributor of user-frien
 
           // add options
           countryDataGlobal.forEach(c => {
-            console.log(c.id.toLowerCase())
+            console.log(c.cca2.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.id.toLowerCase(), text: c.text })
+              $("<option>", { value: c.cca2.toLowerCase(), text: c.name.common })
             );
           });
 
