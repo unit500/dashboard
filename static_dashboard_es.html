@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
+    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -1652,8 +1652,8 @@ Here is the access to 25 GB of corporate…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-24 22:09:09-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 10:58:47-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
 
@@ -1689,9 +1689,9 @@ Here is the access to 25 GB of corporate…
       
       {value: 4, name: "DXPLOIT" },
       
-      {value: 3, name: "Z-PENTEST" },
+      {value: 3, name: "TwoNet" },
       
-      {value: 3, name: "TwoNet" }
+      {value: 3, name: "Z-PENTEST" }
       
     ];
     var optionRansomwareGroups = {
@@ -1718,11 +1718,11 @@ Here is the access to 25 GB of corporate…
       
     
       
-        defacementData.push({ value: 1, name: "safepay" });
+        defacementData.push({ value: 1, name: "datacarry" });
       
     
       
-        defacementData.push({ value: 1, name: "qilin" });
+        defacementData.push({ value: 1, name: "frag" });
       
     
       
@@ -1755,7 +1755,7 @@ Here is the access to 25 GB of corporate…
     var attackedSeriesData = [];
     
       attackedCategories.push("es");
-      attackedSeriesData.push({value: 14, name: "es"});
+      attackedSeriesData.push({value: 13, name: "es"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1904,7 +1904,7 @@ Here is the access to 25 GB of corporate…
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1913,6 +1913,7 @@ Here is the access to 25 GB of corporate…
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
