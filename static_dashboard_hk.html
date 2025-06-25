@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">0</h3>
             </div>
           </div>
         </div>
@@ -1125,6 +1125,40 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/685bacb0526d662706303085.html">
+                <img src="https://images.ransomware.live/victims/459ccab7cbc7642b60b9ee1e0363918d.png" class="card-img-top" alt="aetoscapitalasia.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">aetoscapitalasia.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-22 20:15:51.383363</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Financial Services</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/hk.png" alt="HK flag">
+                  
+                  HK
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/teamxxx.html">teamxxx</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/68496ff8d85588161b041308.html">
                 <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="BTHK">
               </a>
@@ -1387,38 +1421,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/682477f4f0ff9a6fe2afbe97.html">
-                <img src="https://images.ransomware.live/victims/4091e7fff0e8c202758e3f9eca2e2cde.png" class="card-img-top" alt="dosjm.com">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">dosjm.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-05-06 16:40:46.842382</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/hk.png" alt="HK flag">
-                  
-                  HK
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/safepay.html">safepay</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    [AI generated] N/A
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1431,7 +1433,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-22 22:04:20-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 10:38:12-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
@@ -1493,15 +1495,11 @@
     var defacementData = [];
     
       
-        defacementData.push({ value: 2, name: "qilin" });
+        defacementData.push({ value: 2, name: "teamxxx" });
       
     
       
-        defacementData.push({ value: 1, name: "teamxxx" });
-      
-    
-      
-        defacementData.push({ value: 1, name: "spacebears" });
+        defacementData.push({ value: 1, name: "qilin" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1526,7 +1524,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("hk");
-      attackedSeriesData.push({value: 14, name: "hk"});
+      attackedSeriesData.push({value: 15, name: "hk"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1675,7 +1673,7 @@
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1684,6 +1682,7 @@
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
