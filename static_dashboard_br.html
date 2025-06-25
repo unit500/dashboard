@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
+    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -1434,8 +1434,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 09:56:30-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 10:03:34-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -1469,11 +1469,11 @@
       
       {value: 19, name: "Belief" },
       
-      {value: 12, name: "chinafans" },
+      {value: 12, name: "EbRaHiM-VaKeR" },
       
       {value: 12, name: "anon404" },
       
-      {value: 12, name: "EbRaHiM-VaKeR" }
+      {value: 12, name: "chinafans" }
       
     ];
     var optionRansomwareGroups = {
@@ -1508,11 +1508,11 @@
       
     
       
-        defacementData.push({ value: 1, name: "stormous" });
+        defacementData.push({ value: 1, name: "gunra" });
       
     
       
-        defacementData.push({ value: 1, name: "lynx" });
+        defacementData.push({ value: 1, name: "stormous" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1695,6 +1695,7 @@
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
@@ -1721,9 +1722,9 @@
 
           // add options
           countryDataGlobal.forEach(c => {
-            console.log(c.cca2.toLowerCase())
+            console.log(c.id.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.cca2.toLowerCase(), text: c.name.common })
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
             );
           });
 
