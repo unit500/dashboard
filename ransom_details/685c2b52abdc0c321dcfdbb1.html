@@ -3,60 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unit500 - About</title>
-  <!-- Bootstrap CSS -->
+  <title>ransom Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS for About Page -->
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
   <style>
-    body {
-      background-color: #f8f9fa; /* Light background similar to rest of site */
-      color: #212529; /* Dark text for readability */
-      font-family: Arial, Helvetica, sans-serif;
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
     }
-    /* Header and Menu Styling */
-    .navbar, .offcanvas, .offcanvas-header, .offcanvas-body {
-      background-color: #f8f9fa;
+    .details-table th {
+      width: 30%;
     }
-    .navbar-brand, .nav-link, .offcanvas-title {
-      color: #007bff !important;
+    /* Icon and clock sizing */
+    .icon-size {
+      width: 32px;
+      height: 32px;
     }
-    .offcanvas a:hover {
-      color: #0056b3 !important;
-    }
-    /* About Page Header */
-    .about-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .about-header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      color: #343a40;
-    }
-    .about-header h2 {
-      font-size: 1.5rem;
-      font-weight: normal;
-      color: #6c757d;
-    }
-    /* Main Content Styling */
-    .content {
-      background-color: #ffffff;
-      padding: 30px;
-      border: 1px solid #dee2e6;
-      border-radius: 8px;
-      margin-bottom: 30px;
-    }
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
     }
   </style>
 </head>
-<body>
-  <!-- Common Header with Offcanvas Menu -->
+<body class="bg-light">
+  <!-- Common Header (Title in same row as menu, no extra brand text) -->
   <header class="mb-4">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -137,43 +117,114 @@
     </div>
   </div>
 </header>
-  
-  <!-- About Page Header -->
-  <div class="about-header">
-    <h2>Unit 500 - The Origins</h2>
-  </div>
 
-  <!-- Main Content -->
-  <div class="container">
-    <div class="content">
-      <p>
-      Unit500 is a one-stop hub for information security enthusiasts, dedicated to documenting and preserving critical security events as they unfold.<br>
-      Our platform empowers individuals to report security incidents and provide visual proof, ensuring that every event is meticulously recorded and accessible. <br>
-      All information uploaded and shared on Unit500 is available as open source on 
-        <a href="https://github.com/unit500/defacements" target="_blank">GitHub</a> for public use.
-      </p>
-      <p><br>
-      <b>Unit500 does not endorse or encourage any illegal activity.</b><br> 
-      Those who choose to report new information security incidents do so voluntarily and assume full responsibility for their actions. 
-      <br>In addition to our comprehensive GitHub archive, Unit500 also maintains a <a href="https://t.me/five004ever">Telegram channel</a> that delivers real-time updates on emerging security incidents.
-      </p>
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
+
+    <!-- Three Cards Row -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            <a href="aeroblox.io" target="_blank" class="text-decoration-none">
+              <h5 class="card-title">aeroblox.io</h5>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            
+              <h5 class="card-title">
+                2025-06-25
+              </h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            <span class="text-muted">Source Unknown</span>
+            &rarr;
+            
+              <span class="text-muted">Dest Unknown</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://images.ransomware.live/victims/654b423e4dfc600eb64e54946530392c.png" alt="Screenshot of ransom Site" class="details-img">
+        
+      </div>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            <tr>
+              <th>Group Name</th>
+              <td>qilin</td>
+            </tr>
+            <tr>
+              <th>Targeted Website</th>
+              <td><a href="aeroblox.io" target="_blank">aeroblox.io</a></td>
+            </tr>
+            <tr>
+              <th>Source Attacker Country</th>
+              <td>Unknown</td>
+            </tr>
+            <tr>
+              <th>Intelligence Source</th>
+                
+                
+
+                <td>
+                  
+                    <a href="http://ijzn3sicrcy7guixkzjkib4ukbiilwc3xhnmby4mcbccnsd7j2rekvqd.onion/site/view?uuid=68666792-07dc-3fca-b61e-e3962586e952" target="_blank" rel="noopener noreferrer">
+                      http://ijzn3sicrcy7guixkzjkib4ukb...
+                    </a>
+                  
+                </td>
+            </tr>
+            <tr>
+              <th>Post Title</th>
+              <td>AEROBLOX</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-
-  <!-- Footer Inclusion -->
+  
+  <!-- Footer -->
   <footer class="py-4">
   <div class="container text-center">
     <hr class="mb-3">
-    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    <p class="mb-1 text-muted">&copy;  Unit500. All rights reserved.</p>
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 17:05:00-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: -4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
