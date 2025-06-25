@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Your time is limited, so don&#39;t waste it living someone else&#39;s life.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -1679,8 +1679,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-23 13:43:53-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 13:22:23-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -1782,7 +1782,7 @@
     var attackedSeriesData = [];
     
       attackedCategories.push("in");
-      attackedSeriesData.push({value: 184, name: "in"});
+      attackedSeriesData.push({value: 154, name: "in"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1931,7 +1931,7 @@
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1940,6 +1940,7 @@
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
