@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
+    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">9</h3>
+              <h3 id="victims-week">0</h3>
             </div>
           </div>
         </div>
@@ -1495,8 +1495,8 @@ We are ready t…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-06 15:00:20-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 09:43:49-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
   </div>
 </footer>
 
@@ -1530,9 +1530,9 @@ We are ready t…
       
       {value: 6, name: "ASLAN NEFERLER TİM" },
       
-      {value: 1, name: "zakiloup" },
+      {value: 1, name: "./KeyzNet" },
       
-      {value: 1, name: "./KeyzNet" }
+      {value: 1, name: "zakiloup" }
       
     ];
     var optionRansomwareGroups = {
@@ -1562,10 +1562,6 @@ We are ready t…
         defacementData.push({ value: 1, name: "akira" });
       
     
-      
-        defacementData.push({ value: 1, name: "safepay" });
-      
-    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1588,7 +1584,7 @@ We are ready t…
     var attackedSeriesData = [];
     
       attackedCategories.push("ro");
-      attackedSeriesData.push({value: 24, name: "ro"});
+      attackedSeriesData.push({value: 15, name: "ro"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1772,9 +1768,9 @@ We are ready t…
 
           // add options
           countryDataGlobal.forEach(c => {
-            console.log(c.id.toLowerCase())
+            console.log(c.cca2.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.id.toLowerCase(), text: c.text })
+              $("<option>", { value: c.cca2.toLowerCase(), text: c.name.common })
             );
           });
 
