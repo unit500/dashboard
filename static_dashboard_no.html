@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Your time is limited, so don&#39;t waste it living someone else&#39;s life.</p>
+    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">0</h3>
             </div>
           </div>
         </div>
@@ -881,6 +881,38 @@
 
               <div class="card-body">
                 <h5 class="card-title">arvikhavn.no</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:23:54.098731</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/no.png" alt="NO flag">
+                  
+                  NO
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/teamxxx.html">teamxxx</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] &#34;ArvikHavn.no&#34; is a Norwegian information service that focuses on the area around the…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/685bacad526d662706303083.html">
+                <img src="https://images.ransomware.live/victims/6fac89470e13ac9d3db17d41ff9263ca.png" class="card-img-top" alt="narvikhavn.no">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">narvikhavn.no</h5>
                 <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:23:54.098731</p>
                 
                 <p class="card-text">
@@ -1132,38 +1164,6 @@ The most important thing you should know about Norgeshus is that we deliver tail
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/67ad8d8a126d196d7b9c862a.html">
-                <img src="https://images.ransomware.live/victims/041312c1629cc5e027c3ff446bf02667.png" class="card-img-top" alt="accelerator.no">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">accelerator.no</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-02-12 07:28:58.537202</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/no.png" alt="NO flag">
-                  
-                  NO
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/dragonforce.html">dragonforce</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Accelerator AS is a 100% Norwegian, owner-lead logistics provider with broad competence in the field…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1176,8 +1176,8 @@ The most important thing you should know about Norgeshus is that we deliver tail
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-17 19:08:24-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 11:27:13-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
@@ -1261,7 +1261,7 @@ The most important thing you should know about Norgeshus is that we deliver tail
     var attackedSeriesData = [];
     
       attackedCategories.push("no");
-      attackedSeriesData.push({value: 5, name: "no"});
+      attackedSeriesData.push({value: 6, name: "no"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1410,7 +1410,7 @@ The most important thing you should know about Norgeshus is that we deliver tail
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1419,6 +1419,7 @@ The most important thing you should know about Norgeshus is that we deliver tail
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
