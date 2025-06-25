@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">2</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -1754,8 +1754,8 @@ We are going to upl…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-24 11:09:10-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 09:47:25-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -1791,9 +1791,9 @@ We are going to upl…
       
       {value: 17, name: "./SaklarRusak" },
       
-      {value: 12, name: "XYZ" },
+      {value: 12, name: "./KeyzNet" },
       
-      {value: 12, name: "./KeyzNet" }
+      {value: 12, name: "XYZ" }
       
     ];
     var optionRansomwareGroups = {
@@ -1816,23 +1816,23 @@ We are going to upl…
     var defacementData = [];
     
       
-        defacementData.push({ value: 2, name: "incransom" });
-      
-    
-      
         defacementData.push({ value: 2, name: "play" });
       
     
       
-        defacementData.push({ value: 1, name: "TRASER SEC" });
+        defacementData.push({ value: 2, name: "incransom" });
       
     
       
-        defacementData.push({ value: 1, name: "rhysida" });
+        defacementData.push({ value: 1, name: "medusa" });
       
     
       
         defacementData.push({ value: 1, name: "global" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "direwolf" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1857,7 +1857,7 @@ We are going to upl…
     var attackedSeriesData = [];
     
       attackedCategories.push("gb");
-      attackedSeriesData.push({value: 42, name: "gb"});
+      attackedSeriesData.push({value: 41, name: "gb"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -2041,9 +2041,9 @@ We are going to upl…
 
           // add options
           countryDataGlobal.forEach(c => {
-            console.log(c.id.toLowerCase())
+            console.log(c.cca2.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.id.toLowerCase(), text: c.text })
+              $("<option>", { value: c.cca2.toLowerCase(), text: c.name.common })
             );
           });
 
