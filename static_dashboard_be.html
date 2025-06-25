@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -1491,8 +1491,8 @@ Since 1990, Decoline has been active as a producer and distributor of user-frien
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 09:34:29-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 09:51:54-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
 
@@ -1551,11 +1551,11 @@ Since 1990, Decoline has been active as a producer and distributor of user-frien
       
     
       
-        defacementData.push({ value: 1, name: "devman" });
+        defacementData.push({ value: 1, name: "worldleaks" });
       
     
       
-        defacementData.push({ value: 1, name: "worldleaks" });
+        defacementData.push({ value: 1, name: "devman" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1729,7 +1729,7 @@ Since 1990, Decoline has been active as a producer and distributor of user-frien
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
