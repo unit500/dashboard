@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -1125,6 +1125,40 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/685bacaa526d662706303082.html">
+                <img src="https://images.ransomware.live/victims/4f80899d98e93aac9c8604b5961f00b7.png" class="card-img-top" alt="event-medical.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">event-medical.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:23:04.266973</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/cz.png" alt="CZ flag">
+                  
+                  CZ
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/teamxxx.html">teamxxx</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] Vent-Medical is a healthcare company specializing in respiratory care and artificial …
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/68368a738f485d9c233318ef.html">
                 <img src="https://images.ransomware.live/victims/9e6ffc08057b7f590f621d8cdfbd6992.png" class="card-img-top" alt="kosmas.cz">
               </a>
@@ -1389,41 +1423,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/680f8a140fa4cc43791b67f4.html">
-                <img src="https://images.ransomware.live/victims/4699053931ca707bae890370da7813b4.png" class="card-img-top" alt="hzscr.gov.cz">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">hzscr.gov.cz</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-04-28 12:45:55.470114</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Public Sector</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/cz.png" alt="CZ flag">
-                  
-                  CZ
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/qilin.html">qilin</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Fire and Rescue Service of the Czech Republic
-The scope of activities of the Fire and Rescue Service…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1436,8 +1435,8 @@ The scope of activities of the Fire and Rescue Service…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-23 13:33:24-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 11:45:09-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1475,7 +1474,7 @@ The scope of activities of the Fire and Rescue Service…
       
       {value: 1, name: "MR. R013X 404" },
       
-      {value: 1, name: "ejram 7rb" }
+      {value: 1, name: "MoneroSHELL" }
       
     ];
     var optionRansomwareGroups = {
@@ -1523,7 +1522,7 @@ The scope of activities of the Fire and Rescue Service…
     var attackedSeriesData = [];
     
       attackedCategories.push("cz");
-      attackedSeriesData.push({value: 6, name: "cz"});
+      attackedSeriesData.push({value: 7, name: "cz"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1672,7 +1671,7 @@ The scope of activities of the Fire and Rescue Service…
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1681,6 +1680,7 @@ The scope of activities of the Fire and Rescue Service…
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
