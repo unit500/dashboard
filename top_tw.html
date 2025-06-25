@@ -216,15 +216,15 @@
         <li>
           <strong>Latest 5 Ransom Alerts:</strong>
           
+            <a href="ransom_details/685c719c5ffa8d41a7c03fe5.html">www.quaser.com</a>, 
+          
             <a href="ransom_details/685bc8dbaa9dbe1df41ba47b.html">GMORS Co., Ltd</a>, 
           
             <a href="ransom_details/6853b5b9c108001f89766f28.html">fcu.edu.tw</a>, 
           
             <a href="ransom_details/6840a5ee53cf00f273b91c53.html">YIEH UNITED STEEL CORP</a>, 
           
-            <a href="ransom_details/68355514152aec30c13878da.html">kiwi86.com</a>, 
-          
-            <a href="ransom_details/6842f4971b28cc270c05301a.html">kiwi86.com</a>
+            <a href="ransom_details/68355514152aec30c13878da.html">kiwi86.com</a>
           
         </li>
       </ul>
@@ -350,8 +350,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 12:36:15-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 22:10:09-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
   
@@ -375,13 +375,13 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 234, name: "US" },
+        { value: 228, name: "US" },
       
-        { value: 23, name: "DE" },
+        { value: 24, name: "DE" },
       
         { value: 23, name: "CA" },
       
-        { value: 15, name: "GB" },
+        { value: 14, name: "GB" },
       
         { value: 14, name: "IT" }
       
@@ -404,7 +404,9 @@
       
         { value: 2, name: "kiwi86.com" },
       
-        { value: 1, name: "fcu.edu.tw" }
+        { value: 1, name: "fcu.edu.tw" },
+      
+        { value: 1, name: "www.quaser.com" }
       
     ];
     chartRansomTopTarget.setOption({
@@ -429,7 +431,9 @@
       
         { value: 1, name: "underground" },
       
-        { value: 1, name: "nova" }
+        { value: 1, name: "nova" },
+      
+        { value: 1, name: "qilin" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -452,9 +456,11 @@
       
         { value: 3, name: "05" },
       
-        { value: 1, name: "09" },
+        { value: 1, name: "21" },
       
-        { value: 1, name: "19" }
+        { value: 1, name: "19" },
+      
+        { value: 1, name: "09" }
       
     ];
     chartRansomByHour.setOption({
@@ -475,7 +481,7 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 2, name: "Wed" },
+        { value: 3, name: "Wed" },
       
         { value: 2, name: "Tue" },
       
@@ -497,7 +503,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-16", 1], ["2025-01-28", 1], ["2025-02-11", 1], ["2025-02-12", 1], ["2025-02-13", 1], ["2025-02-14", 1], ["2025-02-15", 2], ["2025-02-16", 1], ["2025-02-27", 1], ["2025-03-06", 1], ["2025-03-09", 6], ["2025-03-14", 3], ["2025-03-16", 3], ["2025-03-30", 2], ["2025-04-06", 1], ["2025-04-13", 1], ["2025-04-16", 1], ["2025-04-17", 2], ["2025-04-19", 1], ["2025-04-22", 1], ["2025-04-28", 1], ["2025-05-16", 1], ["2025-05-27", 2], ["2025-06-04", 1], ["2025-06-19", 1], ["2025-06-25", 1]];
+  const heatDataRansom = [["2025-01-16", 1], ["2025-01-28", 1], ["2025-02-11", 1], ["2025-02-12", 1], ["2025-02-13", 1], ["2025-02-14", 1], ["2025-02-15", 2], ["2025-02-16", 1], ["2025-02-27", 1], ["2025-03-06", 1], ["2025-03-09", 6], ["2025-03-14", 3], ["2025-03-16", 3], ["2025-03-30", 2], ["2025-04-06", 1], ["2025-04-13", 1], ["2025-04-16", 1], ["2025-04-17", 2], ["2025-04-19", 1], ["2025-04-22", 1], ["2025-04-28", 1], ["2025-05-16", 1], ["2025-05-27", 2], ["2025-06-04", 1], ["2025-06-19", 1], ["2025-06-25", 2]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
