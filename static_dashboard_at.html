@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">4</h3>
+              <h3 id="victims-week">0</h3>
             </div>
           </div>
         </div>
@@ -1260,8 +1260,8 @@ building technology and mechanical…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-22 06:07:35-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 13:18:39-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1316,15 +1316,15 @@ building technology and mechanical…
     var defacementData = [];
     
       
+        defacementData.push({ value: 1, name: "sarcoma" });
+      
+    
+      
         defacementData.push({ value: 1, name: "qilin" });
       
     
       
         defacementData.push({ value: 1, name: "lynx" });
-      
-    
-      
-        defacementData.push({ value: 1, name: "sarcoma" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1498,7 +1498,7 @@ building technology and mechanical…
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1507,6 +1507,7 @@ building technology and mechanical…
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
