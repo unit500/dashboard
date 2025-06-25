@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
+    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -836,6 +836,40 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/685bf309fb27ce514cf06f10.html">
+                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt=" http://www.informatika.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title"> http://www.informatika.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-25 12:45:52.841791</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Technology</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/rs.png" alt="RS flag">
+                  
+                  RS
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/worldleaks.html">worldleaks</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] Informatika A.D. is an information technology and services company based in Belgrade,…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1111,8 +1145,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 10:25:02-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 13:44:14-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
 
@@ -1162,6 +1196,10 @@
     // Chart 2: Top Defacement Groups
     var defacementData = [];
     
+      
+        defacementData.push({ value: 1, name: "worldleaks" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1182,6 +1220,9 @@
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("rs");
+      attackedSeriesData.push({value: 1, name: "rs"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
