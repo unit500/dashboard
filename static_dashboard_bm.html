@@ -981,7 +981,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 09:36:26-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 09:53:59-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
@@ -1203,7 +1203,7 @@
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
