@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -1211,6 +1211,40 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/685bc8dbaa9dbe1df41ba47b.html">
+                <img src="https://images.ransomware.live/victims/365337b03b0d3b08ee540a6c1f755a02.png" class="card-img-top" alt="GMORS Co., Ltd">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">GMORS Co., Ltd</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-25 09:41:20.003218</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/tw.png" alt="TW flag">
+                  
+                  TW
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/underground.html">underground</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    Revenue: $100 million
+ Type: Manufacturing
+ Size: 302,7 GBytes
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/6853b5b9c108001f89766f28.html">
                 <img src="https://images.ransomware.live/victims/c9fb8111450a38c510850ffc96263cc6.png" class="card-img-top" alt="fcu.edu.tw">
               </a>
@@ -1512,40 +1546,6 @@ To date, the group has played in 33 different countries around the world, and cu
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/6800b51f291a915d88a3c801.html">
-                <img src="https://images.ransomware.live/victims/c730f001ae795617b927700e18ca8824.png" class="card-img-top" alt="en.evertech.com.tw">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">en.evertech.com.tw</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-04-17 07:09:15.623832</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Technology</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/tw.png" alt="TW flag">
-                  
-                  TW
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/spacebears.html">spacebears</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Ever Tech Instrumental(ETI) has been a professional technologies agent in FPD industry over two deca…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1558,8 +1558,8 @@ To date, the group has played in 33 different countries around the world, and cu
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-19 07:10:49-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 12:36:15-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
   </div>
 </footer>
 
@@ -1618,7 +1618,11 @@ To date, the group has played in 33 different countries around the world, and cu
     var defacementData = [];
     
       
-        defacementData.push({ value: 3, name: "direwolf" });
+        defacementData.push({ value: 2, name: "direwolf" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "underground" });
       
     
       
@@ -1647,7 +1651,7 @@ To date, the group has played in 33 different countries around the world, and cu
     var attackedSeriesData = [];
     
       attackedCategories.push("tw");
-      attackedSeriesData.push({value: 4, name: "tw"});
+      attackedSeriesData.push({value: 5, name: "tw"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1796,7 +1800,7 @@ To date, the group has played in 33 different countries around the world, and cu
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1805,6 +1809,7 @@ To date, the group has played in 33 different countries around the world, and cu
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
