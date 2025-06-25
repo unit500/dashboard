@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -1637,6 +1637,40 @@ companies in the breeding of hybri…
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/685baca8526d662706303080.html">
+                <img src="https://images.ransomware.live/victims/546f6553ef8feced9bb3f729686974c6.png" class="card-img-top" alt="belkorpAg.com">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">belkorpAg.com</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:20:41.901133</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Agriculture and Food Production</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag">
+                  
+                  DE
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/teamxxx.html">teamxxx</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/68403574626a2b66e4a10e14.html">
                 <img src="https://images.ransomware.live/victims/1663097d97baaa5cb56f79ca77c2bdd9.png" class="card-img-top" alt="Funktel GmbH">
               </a>
@@ -1667,38 +1701,6 @@ companies in the breeding of hybri…
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/683f7ea8b4e43d67ad8a4408.html">
-                <img src="https://images.ransomware.live/victims/0128806bfa05afc21465752349386559.png" class="card-img-top" alt="www.yahtec.com">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">www.yahtec.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-06-03 19:03:12.569646</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/de.png" alt="DE flag">
-                  
-                  DE
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/lynx.html">lynx</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    YAHTEC is a French manufacturer of gas heating solutions, catering to industrial, commercial, agri-f…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1711,8 +1713,8 @@ companies in the breeding of hybri…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-24 12:12:47-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 12:22:56-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1785,11 +1787,11 @@ companies in the breeding of hybri…
       
     
       
-        defacementData.push({ value: 2, name: "TRASER SEC" });
+        defacementData.push({ value: 2, name: "qilin" });
       
     
       
-        defacementData.push({ value: 2, name: "qilin" });
+        defacementData.push({ value: 1, name: "TRASER SEC" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1814,7 +1816,7 @@ companies in the breeding of hybri…
     var attackedSeriesData = [];
     
       attackedCategories.push("de");
-      attackedSeriesData.push({value: 114, name: "de"});
+      attackedSeriesData.push({value: 113, name: "de"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1963,7 +1965,7 @@ companies in the breeding of hybri…
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1972,6 +1974,7 @@ companies in the breeding of hybri…
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
