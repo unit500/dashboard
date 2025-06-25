@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">0</h3>
+              <h3 id="victims-week">1</h3>
             </div>
           </div>
         </div>
@@ -836,6 +836,38 @@
       <h2 class="section-title">Latest Ransomware Victims</h2>
       <hr class="section-divider">
       <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
+              <a href="ransom_details/685bf307fb27ce514cf06f0d.html">
+                <img src="https://images.ransomware.live/victims/8e90cd7405578bf681739a85f72f21c9.png" class="card-img-top" alt="Fund for Reformed Companies (FONPER)">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Fund for Reformed Companies (FONPER)</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-25 11:23:36.945230</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/do.png" alt="DO flag">
+                  
+                  DO
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/incransom.html">incransom</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    The Fondo Patrimonial de las Empresas Reformadas (FONPER) is an institution of the Dominican State c…
+                  
+                </p>
+              </div>
+            </div>
+          </div>
         
           
 
@@ -1142,38 +1174,6 @@ Cana Group Corp, through its brands Cana, Guidom, Fresh Cana all the consuming p
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/678fdacdc4f2181a7126f36e.html">
-                <img src="https://images.ransomware.live/victims/a4f152bc4be53e0269f85129aa423389.png" class="card-img-top" alt="www.pharmatechrd.com">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">www.pharmatechrd.com</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2023-08-04 13:02:57.447745</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/do.png" alt="DO flag">
-                  
-                  DO
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/alphv.html">alphv</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Who is Pharmatech Repblica Dominicana  Leading company in the commercialization of pharmaceutical pr…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1186,8 +1186,8 @@ Cana Group Corp, through its brands Cana, Guidom, Fresh Cana all the consuming p
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 12:15:12-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 13:46:20-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1237,6 +1237,10 @@ Cana Group Corp, through its brands Cana, Guidom, Fresh Cana all the consuming p
     // Chart 2: Top Defacement Groups
     var defacementData = [];
     
+      
+        defacementData.push({ value: 1, name: "incransom" });
+      
+    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1257,6 +1261,9 @@ Cana Group Corp, through its brands Cana, Guidom, Fresh Cana all the consuming p
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
+    
+      attackedCategories.push("do");
+      attackedSeriesData.push({value: 1, name: "do"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
