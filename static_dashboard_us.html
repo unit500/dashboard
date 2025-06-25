@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
+    <p class="small text-muted fst-italic">Your time is limited, so don&#39;t waste it living someone else&#39;s life.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">0</h3>
+              <h3 id="victims-today">1</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">33</h3>
+              <h3 id="victims-week">34</h3>
             </div>
           </div>
         </div>
@@ -1375,6 +1375,40 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/685bc8d9aa9dbe1df41ba47a.html">
+                <img src="https://images.ransomware.live/victims/20ac0d6969fc77170d255d72a7e73a97.png" class="card-img-top" alt="Nationwidecare.org">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">Nationwidecare.org</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-25 08:57:04.193050</p>
+                
+                  <p class="card-text"><strong>Industry:</strong> Healthcare</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
+                  
+                  US
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/teamxxx.html">teamxxx</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] &#34;N/A&#34;
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/685b200d3ba7971426770959.html">
                 <img src="https://images.ransomware.live/victims/9e0ffa47e26fb45e818b7507aaaaf968.png" class="card-img-top" alt="tdunhamcpa.com">
               </a>
@@ -1681,40 +1715,6 @@ We are ready to upload c…
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/685a22faff483e69925c1356.html">
-                <img src="https://images.ransomware.live/victims/35e2c36051ecbf323ee355c895914240.png" class="card-img-top" alt="Katz &amp; Doorakian Law Firm, P.L.">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">Katz &amp; Doorakian Law Firm, P.L.</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-06-24 02:24:25.790873</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Business Services</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/us.png" alt="US flag">
-                  
-                  US
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/everest.html">everest</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    [AI generated] Katz &amp; Doorakian Law Firm, P.L. is a law firm based in Northville, Michigan. Their te…
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1727,8 +1727,8 @@ We are ready to upload c…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 04:47:22-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 12:26:20-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1830,7 +1830,7 @@ We are ready to upload c…
     var attackedSeriesData = [];
     
       attackedCategories.push("us");
-      attackedSeriesData.push({value: 667, name: "us"});
+      attackedSeriesData.push({value: 669, name: "us"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1979,7 +1979,7 @@ We are ready to upload c…
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1988,6 +1988,7 @@ We are ready to upload c…
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
