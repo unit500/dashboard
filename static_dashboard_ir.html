@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">0</h3>
             </div>
           </div>
         </div>
@@ -1437,8 +1437,8 @@ Proudly protecting the rights of innocent victims since 1996 and recovering over
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-07 18:31:22-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 13:07:30-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1470,13 +1470,13 @@ Proudly protecting the rights of innocent victims since 1996 and recovering over
       
       {value: 4, name: "setupp.es" },
       
-      {value: 3, name: "Mr. BDKR28" },
-      
       {value: 3, name: "Cyber Ghost" },
       
-      {value: 1, name: "CyberJund" },
+      {value: 3, name: "Mr. BDKR28" },
       
-      {value: 1, name: "Aktaer" }
+      {value: 1, name: "XYZ" },
+      
+      {value: 1, name: "CyberJund" }
       
     ];
     var optionRansomwareGroups = {
@@ -1520,7 +1520,7 @@ Proudly protecting the rights of innocent victims since 1996 and recovering over
     var attackedSeriesData = [];
     
       attackedCategories.push("ir");
-      attackedSeriesData.push({value: 5, name: "ir"});
+      attackedSeriesData.push({value: 1, name: "ir"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1669,7 +1669,7 @@ Proudly protecting the rights of innocent victims since 1996 and recovering over
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1678,6 +1678,7 @@ Proudly protecting the rights of innocent victims since 1996 and recovering over
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
