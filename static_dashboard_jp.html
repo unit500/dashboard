@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
+    <p class="small text-muted fst-italic">Stay hungry, stay foolish.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -1431,8 +1431,8 @@ Employees: Company: 401 (including 14 contract …
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 09:45:32-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 10:10:13-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
 
@@ -1497,19 +1497,19 @@ Employees: Company: 401 (including 14 contract …
       
     
       
-        defacementData.push({ value: 1, name: "spacebears" });
-      
-    
-      
         defacementData.push({ value: 1, name: "warlock" });
       
     
       
-        defacementData.push({ value: 1, name: "play" });
+        defacementData.push({ value: 1, name: "spacebears" });
       
     
       
         defacementData.push({ value: 1, name: "qilin" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "play" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1683,7 +1683,7 @@ Employees: Company: 401 (including 14 contract …
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1692,6 +1692,7 @@ Employees: Company: 401 (including 14 contract …
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
@@ -1718,9 +1719,9 @@ Employees: Company: 401 (including 14 contract …
 
           // add options
           countryDataGlobal.forEach(c => {
-            console.log(c.cca2.toLowerCase())
+            console.log(c.id.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.cca2.toLowerCase(), text: c.name.common })
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
             );
           });
 
