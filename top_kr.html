@@ -350,8 +350,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-29 04:05:08-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 12:00:14-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
   
@@ -375,15 +375,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 363, name: "US" },
+        { value: 234, name: "US" },
       
-        { value: 48, name: "DE" },
+        { value: 23, name: "CA" },
       
-        { value: 20, name: "CA" },
+        { value: 23, name: "DE" },
       
-        { value: 18, name: "ES" },
+        { value: 15, name: "GB" },
       
-        { value: 18, name: "GB" }
+        { value: 14, name: "IT" }
       
     ];
     chartRansomTopSource.setOption({
@@ -421,9 +421,7 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 1, name: "nova" },
-      
-        { value: 1, name: "devman" }
+        { value: 1, name: "nova" }
       
     ];
     chartRansomTopGroups.setOption({
@@ -444,9 +442,7 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 1, name: "02" },
-      
-        { value: 1, name: "13" }
+        { value: 1, name: "02" }
       
     ];
     chartRansomByHour.setOption({
@@ -467,9 +463,7 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 1, name: "Thu" },
-      
-        { value: 1, name: "Mon" }
+        { value: 1, name: "Thu" }
       
     ];
     chartRansomByWeekday.setOption({
@@ -582,15 +576,15 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 21, name: "GB" },
+        { value: 9, name: "CA" },
       
-        { value: 17, name: "FR" },
+        { value: 6, name: "IT" },
       
-        { value: 15, name: "CA" },
+        { value: 4, name: "LT" },
       
-        { value: 9, name: "NL" },
+        { value: 2, name: "IL" },
       
-        { value: 7, name: "AE" }
+        { value: 2, name: "FI" }
       
     ];
     chartDdosTopTarget.setOption({
@@ -736,10 +730,6 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
-        { value: 1, name: "Unknown" },
-      
-        { value: 1, name: "ru" }
-      
     ];
     chartDefaceTopSource.setOption({
       title: { text: 'Top 5 Defacement Sources', left: 'center' },
@@ -757,15 +747,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 400, name: "US" },
+        { value: 428, name: "US" },
       
-        { value: 256, name: "CA" },
+        { value: 278, name: "CA" },
       
-        { value: 159, name: "SG" },
+        { value: 146, name: "IN" },
       
-        { value: 156, name: "IN" },
+        { value: 102, name: "ID" },
       
-        { value: 106, name: "FR" }
+        { value: 90, name: "DE" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -786,10 +776,6 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 1, name: "indie" },
-      
-        { value: 1, name: "Z-Pentest Alliance" }
-      
     ];
     chartDefaceTopGroups.setOption({
       title: { text: 'Top 5 Defacement Groups', left: 'center' },
@@ -808,10 +794,6 @@
     // 4) Top Actors (bar)
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
-      
-        { value: 1, name: "MoneroSHELL" },
-      
-        { value: 1, name: "Z-Pentest Alliance" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -832,10 +814,6 @@
     var chartDefaceByHour = echarts.init(document.getElementById('chartDefaceByHour'));
     var dataDefaceByHour = [
       
-        { value: 1, name: "19" },
-      
-        { value: 1, name: "13" }
-      
     ];
     chartDefaceByHour.setOption({
       title: { text: 'Defacement Reports by Hour', left: 'center' },
@@ -854,10 +832,6 @@
     // 6) By Weekday (bar)
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
-      
-        { value: 1, name: "Thu" },
-      
-        { value: 1, name: "Sun" }
       
     ];
     chartDefaceByWeekday.setOption({
