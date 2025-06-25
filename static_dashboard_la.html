@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
+    <p class="small text-muted fst-italic">Talk is cheap. Show me the code.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -943,8 +943,8 @@ is 100 percent government owned an…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 11:13:42-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 12:33:03-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
@@ -1016,9 +1016,6 @@ is 100 percent government owned an…
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
-    
-      attackedCategories.push("la");
-      attackedSeriesData.push({value: 1, name: "la"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1167,7 +1164,7 @@ is 100 percent government owned an…
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1176,6 +1173,7 @@ is 100 percent government owned an…
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
