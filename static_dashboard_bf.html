@@ -913,7 +913,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 09:52:22-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 09:59:28-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
@@ -1141,6 +1141,7 @@
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
@@ -1167,9 +1168,9 @@
 
           // add options
           countryDataGlobal.forEach(c => {
-            console.log(c.cca2.toLowerCase())
+            console.log(c.id.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.cca2.toLowerCase(), text: c.name.common })
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
             );
           });
 
