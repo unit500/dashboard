@@ -1440,7 +1440,7 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 09:34:05-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 09:51:28-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
   </div>
 </footer>
@@ -1477,9 +1477,9 @@
       
       {value: 1, name: "Rufmaden" },
       
-      {value: 1, name: "systemadminbd" },
+      {value: 1, name: "CaptainSmok3r" },
       
-      {value: 1, name: "CaptainSmok3r" }
+      {value: 1, name: "root./exe" }
       
     ];
     var optionRansomwareGroups = {
@@ -1672,7 +1672,7 @@
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
