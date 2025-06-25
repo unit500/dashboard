@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
+    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -949,8 +949,8 @@ Founded in 1948, Compra Ltd. with over 110 employees continues to be Aruba’s l
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-05-22 11:53:56-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 13:20:33-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
   </div>
 </footer>
 
@@ -1020,9 +1020,6 @@ Founded in 1948, Compra Ltd. with over 110 employees continues to be Aruba’s l
     // Chart 3: Top Attacked Countries
     var attackedCategories = [];
     var attackedSeriesData = [];
-    
-      attackedCategories.push("aw");
-      attackedSeriesData.push({value: 1, name: "aw"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1171,7 +1168,7 @@ Founded in 1948, Compra Ltd. with over 110 employees continues to be Aruba’s l
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1180,6 +1177,7 @@ Founded in 1948, Compra Ltd. with over 110 employees continues to be Aruba’s l
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
