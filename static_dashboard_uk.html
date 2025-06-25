@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">0</h3>
             </div>
           </div>
         </div>
@@ -1192,7 +1192,7 @@ Ryan Harvie McEnery offers businesses &amp; individuals dedi…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-21 22:08:51-4.0.22</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 09:46:48-4.0.22</p>
     <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
@@ -1248,19 +1248,19 @@ Ryan Harvie McEnery offers businesses &amp; individuals dedi…
       
     
       
+        defacementData.push({ value: 1, name: "J" });
+      
+    
+      
+        defacementData.push({ value: 1, name: "arkana" });
+      
+    
+      
         defacementData.push({ value: 1, name: "qilin" });
       
     
       
         defacementData.push({ value: 1, name: "apos" });
-      
-    
-      
-        defacementData.push({ value: 1, name: "blacklock" });
-      
-    
-      
-        defacementData.push({ value: 1, name: "arkana" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1469,9 +1469,9 @@ Ryan Harvie McEnery offers businesses &amp; individuals dedi…
 
           // add options
           countryDataGlobal.forEach(c => {
-            console.log(c.id.toLowerCase())
+            console.log(c.cca2.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.id.toLowerCase(), text: c.text })
+              $("<option>", { value: c.cca2.toLowerCase(), text: c.name.common })
             );
           });
 
