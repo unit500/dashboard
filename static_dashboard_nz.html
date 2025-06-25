@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Programs must be written for people to read, and only incidentally for machines to execute.</p>
+    <p class="small text-muted fst-italic">Good code is its own best documentation.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">1</h3>
+              <h3 id="victims-week">0</h3>
             </div>
           </div>
         </div>
@@ -1232,8 +1232,8 @@ We specialise in bringing high quality product directly to you at bargain, trade
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-19 07:46:56-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Programs must be written for people to read, and only incidentally for machines to execute." &mdash; Harold Abelson</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 11:32:03-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Good code is its own best documentation." &mdash; Steve McConnell</p>
   </div>
 </footer>
 
@@ -1263,9 +1263,9 @@ We specialise in bringing high quality product directly to you at bargain, trade
     var chartRansomwareGroups = echarts.init(document.getElementById('chartRansomwareGroups'));
     var dataRansomwareGroups = [
       
-      {value: 1, name: "Team Anon Force" },
+      {value: 1, name: "M@rAz Ali" },
       
-      {value: 1, name: "M@rAz Ali" }
+      {value: 1, name: "Team Anon Force" }
       
     ];
     var optionRansomwareGroups = {
@@ -1288,11 +1288,11 @@ We specialise in bringing high quality product directly to you at bargain, trade
     var defacementData = [];
     
       
-        defacementData.push({ value: 1, name: "incransom" });
+        defacementData.push({ value: 1, name: "qilin" });
       
     
       
-        defacementData.push({ value: 1, name: "qilin" });
+        defacementData.push({ value: 1, name: "incransom" });
       
     
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
@@ -1466,7 +1466,7 @@ We specialise in bringing high quality product directly to you at bargain, trade
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1475,6 +1475,7 @@ We specialise in bringing high quality product directly to you at bargain, trade
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
