@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Optimism is an occupational hazard of programming: feedback is the treatment.</p>
+    <p class="small text-muted fst-italic">The only way to go fast, is to go well.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -1495,8 +1495,8 @@ We are ready t…
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-25 09:43:49-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Optimism is an occupational hazard of programming: feedback is the treatment." &mdash; Kent Beck</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 10:08:30-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The only way to go fast, is to go well." &mdash; Robert C. Martin</p>
   </div>
 </footer>
 
@@ -1530,9 +1530,9 @@ We are ready t…
       
       {value: 6, name: "ASLAN NEFERLER TİM" },
       
-      {value: 1, name: "./KeyzNet" },
+      {value: 1, name: "zakiloup" },
       
-      {value: 1, name: "zakiloup" }
+      {value: 1, name: "./KeyzNet" }
       
     ];
     var optionRansomwareGroups = {
@@ -1733,7 +1733,7 @@ We are ready t…
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1742,6 +1742,7 @@ We are ready t…
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
@@ -1768,9 +1769,9 @@ We are ready t…
 
           // add options
           countryDataGlobal.forEach(c => {
-            console.log(c.cca2.toLowerCase())
+            console.log(c.id.toLowerCase())
             $sel.append(
-              $("<option>", { value: c.cca2.toLowerCase(), text: c.name.common })
+              $("<option>", { value: c.id.toLowerCase(), text: c.text })
             );
           });
 
