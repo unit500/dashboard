@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Any sufficiently advanced technology is indistinguishable from magic.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -690,7 +690,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 24hours</div>
             <div class="card-body">
-              <h3 id="victims-today">1</h3>
+              <h3 id="victims-today">0</h3>
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
           <div class="card">
             <div class="card-header">Victims From The Last 7 Days</div>
             <div class="card-body">
-              <h3 id="victims-week">2</h3>
+              <h3 id="victims-week">0</h3>
             </div>
           </div>
         </div>
@@ -997,6 +997,38 @@
 
           <div class="col">
             <div class="card h-100">
+              <a href="ransom_details/685bacae526d662706303084.html">
+                <img src="https://images.ransomware.live/victims/de96f4431d22621b39594076f2e63f64.png" class="card-img-top" alt="interiorsgroup.ie">
+              </a>
+
+              <div class="card-body">
+                <h5 class="card-title">interiorsgroup.ie</h5>
+                <p class="card-text"><strong>Discovered:</strong> 2025-06-10 23:24:40.872598</p>
+                
+                <p class="card-text">
+                  <strong>Country:</strong>
+                  
+                    <img src="https://flagcdn.com/32x24/ie.png" alt="IE flag">
+                  
+                  IE
+                </p>
+                <p class="card-text"><strong>Group:</strong> 
+                  <a href="group_details/teamxxx.html">teamxxx</a>
+                </p>
+                <p class="card-text"><strong>Description:</strong>
+                  
+                  
+                    [AI generated] N/A
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          
+
+          <div class="col">
+            <div class="card h-100">
               <a href="ransom_details/684213aef72dad5e2f7c117a.html">
                 <img src="https://images.ransomware.live/victims/fd1c5764897584bb21d82336af42a2b3.png" class="card-img-top" alt="frylite.com">
               </a>
@@ -1263,41 +1295,6 @@
             </div>
           </div>
         
-          
-
-          <div class="col">
-            <div class="card h-100">
-              <a href="ransom_details/678fc6af06f14fdb4187d667.html">
-                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg" class="card-img-top" alt="chainandrope.ie">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">chainandrope.ie</h5>
-                <p class="card-text"><strong>Discovered:</strong> 2025-01-17 12:18:47.239336</p>
-                
-                  <p class="card-text"><strong>Industry:</strong> Manufacturing</p>
-                
-                <p class="card-text">
-                  <strong>Country:</strong>
-                  
-                    <img src="https://flagcdn.com/32x24/ie.png" alt="IE flag">
-                  
-                  IE
-                </p>
-                <p class="card-text"><strong>Group:</strong> 
-                  <a href="group_details/akira.html">akira</a>
-                </p>
-                <p class="card-text"><strong>Description:</strong>
-                  
-                  
-                    Started over 40 years ago, Chain And Rope Suppliers has
-grown from a specialist supplier of lifting …
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-        
       </div>
     </section>
   </div>
@@ -1310,8 +1307,8 @@ grown from a specialist supplier of lifting …
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-15 12:56:28-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 13:26:16-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -1370,10 +1367,6 @@ grown from a specialist supplier of lifting …
     var defacementData = [];
     
       
-        defacementData.push({ value: 1, name: "Z-Pentest Alliance" });
-      
-    
-      
         defacementData.push({ value: 1, name: "qilin" });
       
     
@@ -1425,9 +1418,6 @@ grown from a specialist supplier of lifting …
     // Chart 4: Top Source Attack Countries
     var sourceCategories = [];
     var sourceSeriesData = [];
-    
-      sourceCategories.push("russia");
-      sourceSeriesData.push({value: 1, name: "russia"});
     
     var chartSourceAttackCountries = echarts.init(document.getElementById('chartSourceAttackCountries'));
     var optionSourceAttackCountries = {
@@ -1551,7 +1541,7 @@ grown from a specialist supplier of lifting …
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1560,6 +1550,7 @@ grown from a specialist supplier of lifting …
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {

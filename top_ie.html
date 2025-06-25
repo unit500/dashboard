@@ -218,13 +218,13 @@
           
             <a href="ransom_details/68490d99e0ca4954f2ebf852.html">nteriorsgroup.ie</a>, 
           
+            <a href="ransom_details/685bacae526d662706303084.html">interiorsgroup.ie</a>, 
+          
             <a href="ransom_details/684213aef72dad5e2f7c117a.html">frylite.com</a>, 
           
             <a href="ransom_details/68025b11461fac577d59ffb5.html">www.monaghan.eu</a>, 
           
-            <a href="ransom_details/68115a28f8cd5c389cda2256.html">www.monaghan.eu</a>, 
-          
-            <a href="ransom_details/67f991079f2c3af1824b4331.html">www.c?l???t.??</a>
+            <a href="ransom_details/68115a28f8cd5c389cda2256.html">www.monaghan.eu</a>
           
         </li>
       </ul>
@@ -350,8 +350,8 @@
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-15 12:56:28-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Any sufficiently advanced technology is indistinguishable from magic." &mdash; Arthur C. Clarke</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 13:26:16-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
   
@@ -375,15 +375,15 @@
     var chartRansomTopSource = echarts.init(document.getElementById('chartRansomTopSource'));
     var dataRansomTopSource = [
       
-        { value: 252, name: "US" },
-      
-        { value: 40, name: "DE" },
+        { value: 235, name: "US" },
       
         { value: 23, name: "CA" },
       
-        { value: 22, name: "GB" },
+        { value: 23, name: "DE" },
       
-        { value: 16, name: "ES" }
+        { value: 15, name: "GB" },
+      
+        { value: 14, name: "IT" }
       
     ];
     chartRansomTopSource.setOption({
@@ -403,6 +403,8 @@
     var dataRansomTopTarget = [
       
         { value: 1, name: "nteriorsgroup.ie" },
+      
+        { value: 1, name: "interiorsgroup.ie" },
       
         { value: 1, name: "frylite.com" }
       
@@ -425,7 +427,7 @@
     var chartRansomTopGroups = echarts.init(document.getElementById('chartRansomTopGroups'));
     var groupsData = [
       
-        { value: 1, name: "teamxxx" },
+        { value: 2, name: "teamxxx" },
       
         { value: 1, name: "qilin" }
       
@@ -448,9 +450,9 @@
     var chartRansomByHour = echarts.init(document.getElementById('chartRansomByHour'));
     var hourData = [
       
-        { value: 1, name: "21" },
+        { value: 2, name: "23" },
       
-        { value: 1, name: "23" }
+        { value: 1, name: "21" }
       
     ];
     chartRansomByHour.setOption({
@@ -471,7 +473,7 @@
     var chartRansomByWeekday = echarts.init(document.getElementById('chartRansomByWeekday'));
     var weekdayData = [
       
-        { value: 1, name: "Tue" },
+        { value: 2, name: "Tue" },
       
         { value: 1, name: "Thu" }
       
@@ -491,7 +493,7 @@
     });
     
     // 6) Calendar Heatmap
-  const heatDataRansom = [["2025-01-09", 2], ["2025-01-17", 1], ["2025-02-10", 1], ["2025-02-27", 1], ["2025-03-14", 1], ["2025-04-01", 1], ["2025-04-11", 1], ["2025-04-18", 2], ["2025-06-05", 1], ["2025-06-10", 1]];
+  const heatDataRansom = [["2025-01-09", 2], ["2025-01-17", 1], ["2025-02-10", 1], ["2025-02-27", 1], ["2025-03-14", 1], ["2025-04-01", 1], ["2025-04-11", 1], ["2025-04-18", 2], ["2025-06-05", 1], ["2025-06-10", 2]];
 
   const maxCountRansom = heatDataRansom.length
     ? Math.max(...heatDataRansom.map(d => d[1]))
@@ -586,13 +588,13 @@
     var chartDdosTopTarget = echarts.init(document.getElementById('chartDdosTopTarget'));
     var dataDdosTopTarget = [
       
-        { value: 11, name: "CA" },
-      
-        { value: 10, name: "FR" },
+        { value: 9, name: "CA" },
       
         { value: 6, name: "IT" },
       
-        { value: 5, name: "LT" },
+        { value: 4, name: "LT" },
+      
+        { value: 2, name: "IL" },
       
         { value: 2, name: "FI" }
       
@@ -740,9 +742,7 @@
     var chartDefaceTopSource = echarts.init(document.getElementById('chartDefaceTopSource'));
     var dataDefaceTopSource = [
       
-        { value: 2, name: "Unknown" },
-      
-        { value: 1, name: "Russia" }
+        { value: 2, name: "Unknown" }
       
     ];
     chartDefaceTopSource.setOption({
@@ -761,15 +761,15 @@
     var chartDefaceTopTarget = echarts.init(document.getElementById('chartDefaceTopTarget'));
     var dataDefaceTopTarget = [
       
-        { value: 458, name: "US" },
+        { value: 428, name: "US" },
       
-        { value: 201, name: "CA" },
+        { value: 278, name: "CA" },
       
-        { value: 169, name: "IN" },
+        { value: 146, name: "IN" },
       
-        { value: 71, name: "VN" },
+        { value: 102, name: "ID" },
       
-        { value: 66, name: "SG" }
+        { value: 90, name: "DE" }
       
     ];
     chartDefaceTopTarget.setOption({
@@ -790,9 +790,7 @@
     var chartDefaceTopGroups = echarts.init(document.getElementById('chartDefaceTopGroups'));
     var dataDefaceTopGroups = [
       
-        { value: 2, name: "indie" },
-      
-        { value: 1, name: "Z-Pentest Alliance" }
+        { value: 2, name: "indie" }
       
     ];
     chartDefaceTopGroups.setOption({
@@ -813,11 +811,9 @@
     var chartDefaceTopAttackers = echarts.init(document.getElementById('chartDefaceTopAttackers'));
     var dataDefaceTopActors = [
       
-        { value: 1, name: "XYZ" },
+        { value: 1, name: "CYMORQ" },
       
-        { value: 1, name: "Z-Pentest Alliance" },
-      
-        { value: 1, name: "CYMORQ" }
+        { value: 1, name: "XYZ" }
       
     ];
     chartDefaceTopAttackers.setOption({
@@ -840,8 +836,6 @@
       
         { value: 1, name: "15" },
       
-        { value: 1, name: "13" },
-      
         { value: 1, name: "12" }
       
     ];
@@ -863,9 +857,9 @@
     var chartDefaceByWeekday = echarts.init(document.getElementById('chartDefaceByWeekday'));
     var dataDefaceByWeekday = [
       
-        { value: 2, name: "Sun" },
+        { value: 1, name: "Fri" },
       
-        { value: 1, name: "Fri" }
+        { value: 1, name: "Sun" }
       
     ];
     chartDefaceByWeekday.setOption({
