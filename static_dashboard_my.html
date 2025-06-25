@@ -157,7 +157,7 @@
   <!-- Sub-Header with Random Quote -->
   <div class="text-center mb-4">
     <h1 class="display-4 text-success">Unit500</h1>
-    <p class="small text-muted fst-italic">Code is like humor. When you have to explain it, it’s bad.</p>
+    <p class="small text-muted fst-italic">The best way to predict the future is to invent it.</p>
   </div>
 
   <!-- Country dashboard selector -->
@@ -1438,8 +1438,8 @@ MS Supply Chain Solutions (Malaysia) Sdn Bhd – (MSCSM) …
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-15 12:39:20-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: 2025-06-25 11:16:26-4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"The best way to predict the future is to invent it." &mdash; Alan Kay</p>
   </div>
 </footer>
 
@@ -1471,9 +1471,9 @@ MS Supply Chain Solutions (Malaysia) Sdn Bhd – (MSCSM) …
       
       {value: 25, name: "Mr. BDKR28" },
       
-      {value: 4, name: "Belief" },
-      
       {value: 4, name: "EbRaHiM-VaKeR" },
+      
+      {value: 4, name: "Belief" },
       
       {value: 3, name: "./Newbie4rt_ID" },
       
@@ -1507,10 +1507,6 @@ MS Supply Chain Solutions (Malaysia) Sdn Bhd – (MSCSM) …
         defacementData.push({ value: 1, name: "qilin" });
       
     
-      
-        defacementData.push({ value: 1, name: "bert" });
-      
-    
     var chartDefacementGroups = echarts.init(document.getElementById('chartDefacementGroups'));
     var optionDefacementGroups = {
       title: { text: 'Top 5 Groups', left: 'center' },
@@ -1533,7 +1529,7 @@ MS Supply Chain Solutions (Malaysia) Sdn Bhd – (MSCSM) …
     var attackedSeriesData = [];
     
       attackedCategories.push("my");
-      attackedSeriesData.push({value: 8, name: "my"});
+      attackedSeriesData.push({value: 6, name: "my"});
     
     var chartAttackedCountries = echarts.init(document.getElementById('chartAttackedCountries'));
     var optionAttackedCountries = {
@@ -1682,7 +1678,7 @@ MS Supply Chain Solutions (Malaysia) Sdn Bhd – (MSCSM) …
     // Load country data and initialize Select2 (if needed)
     function loadCountryData() {
         console.log("Loading country data...");
-        return fetch("https://restcountries.com/v3.1/all")
+        return fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
           .then(response => response.json())
           .then(data => {
             const countries = data.map(country => ({
@@ -1691,6 +1687,7 @@ MS Supply Chain Solutions (Malaysia) Sdn Bhd – (MSCSM) …
             }));
             countries.sort((a, b) => a.text.localeCompare(b.text));
             console.log("Country data loaded. Total countries:", countries.length);
+            console.log(countries)
             return countries;
           })
           .catch(err => {
