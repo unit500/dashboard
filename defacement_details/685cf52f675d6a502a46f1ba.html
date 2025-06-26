@@ -3,26 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Actor Details - Unit500</title>
-  <!-- Bootstrap CSS -->
+  <title>Defacement Details - Unit500</title>
+  <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../static/style.css">
-  <!-- ECharts -->
-  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <style>
-    .chart-container {
-      width: 100%;
-      height: 400px;
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
     }
-    .card-img-top {
-      object-fit: cover;
-      height: 150px;
+    .details-table th {
+      width: 30%;
     }
-    .section-title {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
+    /* Icon and clock sizing */
     .icon-size {
       width: 32px;
       height: 32px;
@@ -38,7 +36,7 @@
   </style>
 </head>
 <body class="bg-light">
-  <!-- Common Header -->
+  <!-- Common Header (Title in same row as menu, no extra brand text) -->
   <header class="mb-4">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -120,73 +118,133 @@
   </div>
 </header>
 
-
   <div class="container my-4">
     <!-- Back Button -->
     <div class="mb-3">
       <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
 
-    <!-- Actor Info Cards -->
+    <!-- Three Cards Row -->
     <div class="row mb-4">
-      <!-- Card 1: Actor Name -->
+      <!-- Card 1: Targeted Website -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Actor Name</div>
+          <div class="card-header">Targeted Website</div>
           <div class="card-body">
-            <h5 class="card-title">lasyu</h5>
+            <a href="http://yaylacimakina.com.tr" target="_blank" class="text-decoration-none">
+              <h5 class="card-title">yaylacimakina.com.tr</h5>
+            </a>
           </div>
         </div>
       </div>
-      <!-- Card 2: Total Activities -->
+      <!-- Card 2: Attack Date -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Total Activities</div>
+          <div class="card-header">Attack Date</div>
           <div class="card-body">
-            <h5 class="card-title">1</h5>
+            <h5 class="card-title">2025-06-26</h5>
           </div>
         </div>
       </div>
-      <!-- Card 3: Last Recorded Activity -->
+      <!-- Card 3: Geographics -->
       <div class="col-md-4">
         <div class="card text-center shadow-sm">
-          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-header">Geographics</div>
           <div class="card-body">
-            <h5 class="card-title">2025-06-22</h5>
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              
+              <img src="https://flagcdn.com/32x24/tr.png" alt="tr flag">
+            
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Activity Heatmap Chart -->
-    <div class="mb-4">
-      <div id="activityChart" class="chart-container"></div>
-    </div>
-
-    <!-- Last 10 Defacements by Actor -->
-    <section>
-      <h2 class="section-title">Last 10 Defacements by lasyu</h2>
-      <div class="row row-cols-1 row-cols-md-5 g-4">
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot -->
+      <div class="col-md-4 mb-3">
         
-          <div class="col">
-            <div class="card h-100">
-              <a href="../defacement_details/6857b9c8d50d0ebef44d07e7.html">
-                     <img src="https://unit500.python-myth.info/mirror/2025/06/22/estaelektrik_com_tr/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://www.estaelektrik.com.tr">
-              </a>
-              <div class="card-body">
-                <a href="../defacement_details/6857b9c8d50d0ebef44d07e7.html" class="text-decoration-none text-dark">
-                  <h5 class="card-title">www.estaelektrik.com.tr</h5>
-                </a>
-                <p class="card-text"><strong>Date:</strong> 2025-06-22</p>
-                <p class="card-text"><strong>Group:</strong> indie</p>
-                <p class="card-text"><strong>Reason:</strong> fun</p>
-              </div>
-            </div>
-          </div>
+          <img src="https://unit500.python-myth.info/mirror/2025/06/26/yaylacimakina_com_tr/screenshot.png" alt="Screenshot of Defaced Site" class="details-img">
         
       </div>
-    </section>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            <tr>
+              <th>Group Name</th>
+              <td>indie</td>
+            </tr>
+            <tr>
+              <th>Actor Name</th>
+              <td>hacked by miran996</td>
+            </tr>
+            <tr>
+              <th>Targeted Website</th>
+              <td><a href="http://yaylacimakina.com.tr" target="_blank">http://yaylacimakina.com.tr</a></td>
+            </tr>
+            <tr>
+              <th>HTML Mirror</th>
+              <td>
+                
+                  
+                  <a href="https://unit500.github.io/defacements/mirror/2025/06/26/yaylacimakina_com_tr/html/" target="_blank">
+                    Mirror Link
+                  </a>
+                
+              </td>
+            </tr>
+            <tr>
+              <th>GitHub Mirror</th>
+              <td>
+                
+                  
+                  <a href="https://github.com/unit500/defacements/tree/main/mirror/2025/06/26/yaylacimakina_com_tr/" target="_blank">
+                    Github Source
+                  </a>
+                
+              </td>
+            </tr>
+            <tr>
+              <th>Source Attacker Country</th>
+              <td>Unknown</td>
+            </tr>
+            <tr>
+              <th>Reason</th>
+              <td>fun</td>
+            </tr>
+            <tr>
+              <th>Mass Defacement</th>
+              <td>False</td>
+            </tr>
+            <tr>
+              <th>Domain</th>
+              <td>yaylacimakina.com.tr</td>
+            </tr>
+            <tr>
+              <th>Site IP</th>
+              <td>45.151.250.130</td>
+            </tr>
+            <tr>
+              <th>Redeface</th>
+              <td>False</td>
+            </tr>
+            <tr>
+              <th>Root Domain</th>
+              <td>True</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+  
+  <!-- Footer -->
   <footer class="py-4">
   <div class="container text-center">
     <hr class="mb-3">
@@ -195,52 +253,11 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
-
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- ECharts Heatmap Script -->
-  <script>
-    var chart = echarts.init(document.getElementById('activityChart'));
-    var option = {
-      title: {
-        top: 30,
-        text: 'Activity Heatmap - lasyu (2025)',
-        left: 'center'
-      },
-      tooltip: {},
-      visualMap: {
-        min: 0,
-        max: 10,
-        calculable: true,
-        orient: 'horizontal',
-        left: 'center',
-        bottom: 20
-      },
-      calendar: {
-        top: 100,
-        left: 'center',
-        cellSize: ['auto', 20],
-        yearLabel: { show: false },
-        dayLabel: {
-          firstDay: 1,
-          nameMap: 'en'
-        },
-        monthLabel: {
-          nameMap: 'en'
-        },
-        range: '2025'
-      },
-      series: [{
-        type: 'heatmap',
-        coordinateSystem: 'calendar',
-        data: [["2025-06-22", 1]]
-      }]
-    };
-    chart.setOption(option);
-  </script>
 </body>
 </html>
