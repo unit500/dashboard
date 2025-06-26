@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qxbox8417h");
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unit500 DDoS Attacks</title>
+  <title>Defacement Details - Unit500</title>
   <!-- Bootstrap CSS (using CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="../static/style.css">
   <style>
-    /* Squares styling */
-    .square-placeholder {
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      padding: 1rem;
-      text-align: center;
-      margin-bottom: 1rem;
+    .details-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      background-color: #fff;
     }
-    /* Initially hide all DDoS cards; they will be revealed via JS */
-    .ddos-card {
-      display: none;
+    .details-table th {
+      width: 30%;
     }
-    .flag {
+    /* Icon and clock sizing */
+    .icon-size {
       width: 32px;
-      height: 24px;
+      height: 32px;
+    }
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
     }
   </style>
 </head>
 <body class="bg-light">
-  <!-- Include shared header/menu -->
+  <!-- Common Header (Title in same row as menu, no extra brand text) -->
   <header class="mb-4">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -116,80 +117,134 @@
     </div>
   </div>
 </header>
-  
-  <!-- Page Header for DDoS Attacks -->
+
   <div class="container my-4">
-    <section class="text-center mb-4">
-      <h1 class="display-4 text-success">op romania Attacks</h1>
-      <p class="lead fst-italic">Details about the latest verified DDoS op romania attacks</p>
-    </section>
-    
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+    </div>
 
-    <!-- Latest DDoS Cards Section -->
-    <section>
-      <!-- <h2 class="section-title">Latest Verified DDoS Attacks</h2> -->
-      <div class="row row-cols-1 row-cols-md-5 g-4" id="ddos-cards">
-        
-          
-          
-          
-          <div class="col ddos-card">
-            <div class="card h-100">
-              <a href="ddos_details/681747c1551c09e389d09f70.html">
-                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
-                     class="card-img-top"
-                     style="max-height:200px; object-fit:cover;"
-                     loading="lazy"
-                     alt="Thumbnail for http://www.just.ro/">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">www.just.ro</h5>
-                <p class="card-text"><strong>Date:</strong> 2025-05-04</p>
-                
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
-                
-                
-                  <p class="card-text"><strong>Campaign:</strong> Op Romania</p>
-                
-              </div>
-            </div>
+    <!-- Three Cards Row -->
+    <div class="row mb-4">
+      <!-- Card 1: Targeted Website -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Targeted Website</div>
+          <div class="card-body">
+            <a href="http://exoticwhip-nonstop.ro" target="_blank" class="text-decoration-none">
+              <h5 class="card-title">exoticwhip-nonstop.ro</h5>
+            </a>
           </div>
-        
-          
-          
-          
-          <div class="col ddos-card">
-            <div class="card h-100">
-              <a href="ddos_details/6817478d551c09e389d09f6f.html">
-                <img src="https://i.ibb.co/wN4ZctFL/Gemini-Generated-Image-e4s5gue4s5gue4s5.jpg"
-                     class="card-img-top"
-                     style="max-height:200px; object-fit:cover;"
-                     loading="lazy"
-                     alt="Thumbnail for https://www.mai.gov.ro/">
-              </a>
-
-              <div class="card-body">
-                <h5 class="card-title">www.mai.gov.ro</h5>
-                <p class="card-text"><strong>Date:</strong> 2025-05-04</p>
-                
-                  <p class="card-text"><strong>Group:</strong> NoName057(16)</p>
-                
-                
-                  <p class="card-text"><strong>Campaign:</strong> Op Romania</p>
-                
-              </div>
-            </div>
+        </div>
+      </div>
+      <!-- Card 2: Attack Date -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Attack Date</div>
+          <div class="card-body">
+            <h5 class="card-title">13-06-2025</h5>
           </div>
+        </div>
+      </div>
+      <!-- Card 3: Geographics -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Geographics</div>
+          <div class="card-body">
+            
+              <span class="text-muted">Source Unknown</span>
+            
+            &rarr;
+            
+              
+              <img src="https://flagcdn.com/32x24/ro.png" alt="ro flag">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Table -->
+    <div class="row">
+      <!-- Left Column: Screenshot -->
+      <div class="col-md-4 mb-3">
+        
+          <img src="https://unit500.python-myth.info/mirror/2025/06/14/exoticwhip-nonstop_ro/screenshot.png" alt="Screenshot of Defaced Site" class="details-img">
         
       </div>
-      <div class="text-center mt-4">
-        <button id="loadMoreDdosButton" class="btn btn-primary">Load More</button>
+      <!-- Right Column: Details Table -->
+      <div class="col-md-8">
+        <table class="table table-bordered details-table">
+          <tbody>
+            <tr>
+              <th>Group Name</th>
+              <td>traser sec team</td>
+            </tr>
+            <tr>
+              <th>Actor Name</th>
+              <td>anon404</td>
+            </tr>
+            <tr>
+              <th>Targeted Website</th>
+              <td><a href="http://exoticwhip-nonstop.ro" target="_blank">http://exoticwhip-nonstop.ro</a></td>
+            </tr>
+            <tr>
+              <th>HTML Mirror</th>
+              <td>
+                
+                  
+                  <a href="https://unit500.github.io/defacements/mirror/2025/06/14/exoticwhip-nonstop_ro/html/" target="_blank">
+                    Mirror Link
+                  </a>
+                
+              </td>
+            </tr>
+            <tr>
+              <th>GitHub Mirror</th>
+              <td>
+                
+                  
+                  <a href="https://github.com/unit500/defacements/tree/main/mirror/2025/06/14/exoticwhip-nonstop_ro/" target="_blank">
+                    Github Source
+                  </a>
+                
+              </td>
+            </tr>
+            <tr>
+              <th>Source Attacker Country</th>
+              <td>Unknown</td>
+            </tr>
+            <tr>
+              <th>Reason</th>
+              <td>fun</td>
+            </tr>
+            <tr>
+              <th>Mass Defacement</th>
+              <td>False</td>
+            </tr>
+            <tr>
+              <th>Domain</th>
+              <td>exoticwhip-nonstop.ro</td>
+            </tr>
+            <tr>
+              <th>Site IP</th>
+              <td>45.86.220.151</td>
+            </tr>
+            <tr>
+              <th>Redeface</th>
+              <td>False</td>
+            </tr>
+            <tr>
+              <th>Root Domain</th>
+              <td>True</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </section>
+    </div>
   </div>
   
-  <!-- Include shared footer -->
+  <!-- Footer -->
   <footer class="py-4">
   <div class="container text-center">
     <hr class="mb-3">
@@ -198,38 +253,11 @@
       <p class="mb-1 text-success">All Systems Operational</p>
     
     <p class="text-xs text-muted">Build: -4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Your time is limited, so don&#39;t waste it living someone else&#39;s life." &mdash; Steve Jobs</p>
+    <p class="mt-2 text-sm text-secondary italic">"Stay hungry, stay foolish." &mdash; Steve Jobs</p>
   </div>
 </footer>
-  
-  <!-- Bootstrap JS and Popover Initialization -->
+
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl);
-    });
-  </script>
-  
-  <!-- Load More Functionality for DDoS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var cards = document.querySelectorAll(".ddos-card");
-      var cardsPerPage = 20;
-      var currentPage = 1;
-      function updateCardsVisibility() {
-        cards.forEach(function(card, index) {
-          card.style.display = (index < currentPage * cardsPerPage) ? "block" : "none";
-        });
-        document.getElementById("loadMoreDdosButton").style.display = (currentPage * cardsPerPage >= cards.length) ? "none" : "block";
-      }
-      updateCardsVisibility();
-      document.getElementById("loadMoreDdosButton").addEventListener("click", function(e) {
-        e.preventDefault();
-        currentPage++;
-        updateCardsVisibility();
-      });
-    });
-  </script>
 </body>
 </html>
