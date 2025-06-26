@@ -3,60 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unit500 - About</title>
+  <title>Actor Details - Unit500</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS for About Page -->
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/style.css">
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
   <style>
-    body {
-      background-color: #f8f9fa; /* Light background similar to rest of site */
-      color: #212529; /* Dark text for readability */
-      font-family: Arial, Helvetica, sans-serif;
+    .chart-container {
+      width: 100%;
+      height: 400px;
     }
-    /* Header and Menu Styling */
-    .navbar, .offcanvas, .offcanvas-header, .offcanvas-body {
-      background-color: #f8f9fa;
+    .card-img-top {
+      object-fit: cover;
+      height: 150px;
     }
-    .navbar-brand, .nav-link, .offcanvas-title {
-      color: #007bff !important;
+    .section-title {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
-    .offcanvas a:hover {
-      color: #0056b3 !important;
+    .icon-size {
+      width: 32px;
+      height: 32px;
     }
-    /* About Page Header */
-    .about-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .about-header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      color: #343a40;
-    }
-    .about-header h2 {
-      font-size: 1.5rem;
-      font-weight: normal;
-      color: #6c757d;
-    }
-    /* Main Content Styling */
-    .content {
-      background-color: #ffffff;
-      padding: 30px;
-      border: 1px solid #dee2e6;
-      border-radius: 8px;
-      margin-bottom: 30px;
-    }
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+    /* Style for the analog clock canvas */
+    #canvasClock {
+      width: 32px;
+      height: 32px;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background: transparent;
     }
   </style>
 </head>
-<body>
-  <!-- Common Header with Offcanvas Menu -->
+<body class="bg-light">
+  <!-- Common Header -->
   <header class="mb-4">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -137,43 +119,128 @@
     </div>
   </div>
 </header>
-  
-  <!-- About Page Header -->
-  <div class="about-header">
-    <h2>Unit 500 - The Origins</h2>
-  </div>
 
-  <!-- Main Content -->
-  <div class="container">
-    <div class="content">
-      <p>
-      Unit500 is a one-stop hub for information security enthusiasts, dedicated to documenting and preserving critical security events as they unfold.<br>
-      Our platform empowers individuals to report security incidents and provide visual proof, ensuring that every event is meticulously recorded and accessible. <br>
-      All information uploaded and shared on Unit500 is available as open source on 
-        <a href="https://github.com/unit500/defacements" target="_blank">GitHub</a> for public use.
-      </p>
-      <p><br>
-      <b>Unit500 does not endorse or encourage any illegal activity.</b><br> 
-      Those who choose to report new information security incidents do so voluntarily and assume full responsibility for their actions. 
-      <br>In addition to our comprehensive GitHub archive, Unit500 also maintains a <a href="https://t.me/five004ever">Telegram channel</a> that delivers real-time updates on emerging security incidents.
-      </p>
+
+  <div class="container my-4">
+    <!-- Back Button -->
+    <div class="mb-3">
+      <a href="../static_dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
     </div>
-  </div>
 
-  <!-- Footer Inclusion -->
+    <!-- Actor Info Cards -->
+    <div class="row mb-4">
+      <!-- Card 1: Actor Name -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Actor Name</div>
+          <div class="card-body">
+            <h5 class="card-title">AldzzXploit</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Total Activities -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Total Activities</div>
+          <div class="card-body">
+            <h5 class="card-title">1</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Last Recorded Activity -->
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-header">Last Recorded Activity</div>
+          <div class="card-body">
+            <h5 class="card-title">2025-06-26</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Heatmap Chart -->
+    <div class="mb-4">
+      <div id="activityChart" class="chart-container"></div>
+    </div>
+
+    <!-- Last 10 Defacements by Actor -->
+    <section>
+      <h2 class="section-title">Last 10 Defacements by AldzzXploit</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        
+          <div class="col">
+            <div class="card h-100">
+              <a href="../defacement_details/685cf541675d6a502a46f1bb.html">
+                     <img src="https://unit500.python-myth.info/mirror/2025/06/26/killchickens_org/screenshot.png" class="card-img-top" style="max-height:200px; object-fit:cover;" alt="Thumbnail for http://killchickens.org">
+              </a>
+              <div class="card-body">
+                <a href="../defacement_details/685cf541675d6a502a46f1bb.html" class="text-decoration-none text-dark">
+                  <h5 class="card-title">killchickens.org</h5>
+                </a>
+                <p class="card-text"><strong>Date:</strong> 2025-06-26</p>
+                <p class="card-text"><strong>Group:</strong> independent</p>
+                <p class="card-text"><strong>Reason:</strong> fun</p>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+  </div>
   <footer class="py-4">
   <div class="container text-center">
     <hr class="mb-3">
-    <p class="mb-1 text-muted">&copy; 2025 Unit500. All rights reserved.</p>
+    <p class="mb-1 text-muted">&copy;  Unit500. All rights reserved.</p>
     
       <p class="mb-1 text-success">All Systems Operational</p>
     
-    <p class="text-xs text-muted">Build: 2025-06-26 08:00:56-4.0.22</p>
-    <p class="mt-2 text-sm text-secondary italic">"Code is like humor. When you have to explain it, it’s bad." &mdash; Cory House</p>
+    <p class="text-xs text-muted">Build: -4.0.22</p>
+    <p class="mt-2 text-sm text-secondary italic">"Talk is cheap. Show me the code." &mdash; Linus Torvalds</p>
   </div>
 </footer>
 
-  <!-- Bootstrap JS -->
+
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ECharts Heatmap Script -->
+  <script>
+    var chart = echarts.init(document.getElementById('activityChart'));
+    var option = {
+      title: {
+        top: 30,
+        text: 'Activity Heatmap - AldzzXploit (2025)',
+        left: 'center'
+      },
+      tooltip: {},
+      visualMap: {
+        min: 0,
+        max: 10,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: 20
+      },
+      calendar: {
+        top: 100,
+        left: 'center',
+        cellSize: ['auto', 20],
+        yearLabel: { show: false },
+        dayLabel: {
+          firstDay: 1,
+          nameMap: 'en'
+        },
+        monthLabel: {
+          nameMap: 'en'
+        },
+        range: '2025'
+      },
+      series: [{
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [["2025-06-26", 1]]
+      }]
+    };
+    chart.setOption(option);
+  </script>
 </body>
 </html>
